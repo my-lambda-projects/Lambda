@@ -43,42 +43,100 @@
           -ms-border-radius: 10px;
           -o-border-radius: 10px;
         }
+body {
+background: url(https://i.gifer.com/76YS.gif);
+}
+
+div {
+height: 128px;
+/* Makes the div 128px in height */
+width: 128px;
+/* Makes the div 128px in width */
+background: red;
+/* Makes the div's background, red */
+}
+
+.btn {
+font: bold 11px Arial;
+text-decoration: none;
+background-color: #0b0362;
+color: #ffffff;
+padding: 2px 6px 2px 6px;
+border-radius: 10px;
+border-top: 1px solid #CCCCCC;
+border-right: 1px solid #333333;
+border-bottom: 1px solid #333333;
+
+</style>
+border-left: 1px solid #18047a;
+}
+
+iframe {
+background: red;
+overflow: scroll;
+border: solid 6px steelblue;
+-moz-border-radius: 6px 6px 4px 4px;
+-webkit-border-radius: 6px 6px 4px 4px;
+border-radius: 6px 6px 3px 3px;
+}
       </style>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
       <link rel="stylesheet" href="./w1-style.css">
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+      <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyDvXFb7DcVrgl30Xk-RlRr9izNcYyafJbo",
+          authDomain: "lambda-prep.firebaseapp.com",
+          projectId: "lambda-prep",
+          storageBucket: "lambda-prep.appspot.com",
+          messagingSenderId: "766640070050",
+          appId: "1:766640070050:web:9feff0ce3eb9faf88826fb",
+          measurementId: "G-391F01VMEM"
+        };
+        // Initialize Firebase
+        firebase.initializeApp( firebaseConfig );
+        firebase.analytics();
+      </script>
     </head>
 
     <body>
 
-      
-      <iframe height="265" style="width: 100%;" scrolling="no" title="descendant selectors" src="https://codepen.io/bgoonz/embed/gOgRqrO?height=265&theme-id=light&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/bgoonz/pen/gOgRqrO'>descendant selectors</a> by Bryan C Guner
-  (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-      
-      
-<iframe height="265" style="width: 100%;" scrolling="no" title="Practicing class selectors"
-  src="https://codepen.io/bgoonz/embed/WNROLGq?height=265&theme-id=light&default-tab=html,result" frameborder="no"
-  loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/bgoonz/pen/WNROLGq'>Practicing class selectors</a> by Bryan C Guner
-  (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+
+      <iframe height="265" style="width: 100%;" scrolling="no" title="descendant selectors"
+        src="https://codepen.io/bgoonz/embed/gOgRqrO?height=265&theme-id=light&default-tab=html,result" frameborder="no"
+        loading="lazy" allowtransparency="true" allowfullscreen="true">
+        See the Pen <a href='https://codepen.io/bgoonz/pen/gOgRqrO'>descendant selectors</a> by Bryan C Guner
+        (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </iframe>
+
+
+      <iframe height="265" style="width: 100%;" scrolling="no" title="Practicing class selectors"
+        src="https://codepen.io/bgoonz/embed/WNROLGq?height=265&theme-id=light&default-tab=html,result" frameborder="no"
+        loading="lazy" allowtransparency="true" allowfullscreen="true">
+        See the Pen <a href='https://codepen.io/bgoonz/pen/WNROLGq'>Practicing class selectors</a> by Bryan C Guner
+        (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </iframe>
 
       <ul>
-          <li><a href="https://lambda-prep.netlify.app/">Prep-Resource Site&nbsp;</a></li>
+        <li><a href="https://lambda-prep.netlify.app/">Prep-Resource Site&nbsp;</a></li>
         <li><a href="./applied-js-1.html">applied-js-1.html&nbsp;</a></li>
         <li><a href="./HTML_PATTERNS">HTML_PATTERNS &nbsp;</a></li>
         <li><a href="./js-fundamentals.html">js-fundamentals&nbsp;</a></li>
         <li><a href="./planning-a-project.html">planning-a-project&nbsp;</a></li>
         <li><a href="./styling-n-js.html">styling-n-js&nbsp;</a></li>
         <li><a href="./using-git.html">using-git&nbsp;</a></li>
-        <li><a href="./videos.html">videos&nbsp;</a></li>
 
       </ul>
       <iframe src="https://embedable-content.netlify.app/main.html" style="width:95%; height:800px;"></iframe>
       <script>
         document.write( '<a href="' + document.referrer + '">Go Back</a>' );
       </script>
-    <input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" /></body>
+      <input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" />
+      </body>
 
   </html>

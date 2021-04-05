@@ -33,7 +33,7 @@
       function _earlyClick( e ) {
         var c = e.target
         while ( c && c.ownerDocument ) {
-        if ( c.getAttribute( 'href' ) == '#' || c.getAttribute( 'data-method' ) ) {
+          if ( c.getAttribute( 'href' ) == '#' || c.getAttribute( 'data-method' ) ) {
             e.preventDefault()
               ( _earlyClick.clicks = _earlyClick.clicks || [] ).push( c )
             break
@@ -48,208 +48,212 @@
 
     <script>
       INST = {
-      "environment": "production",
-      "allowMediaComments": true,
-      "kalturaSettings": {
-      "domain": "pdx.nv.instructuremedia.com",
-      "resource_domain": "pdx.nv.instructuremedia.com",
-      "rtmp_domain": "pdx.rtmp.instructuremedia.com",
-      "partner_id": 3,
-      "subpartner_id": 0,
-      "player_ui_conf": 0,
-      "kcw_ui_conf": 0,
-      "upload_ui_conf": 0,
-      "max_file_size_bytes": 534773760,
-      "js_uploader": "yes"
-      },
-      "logPageViews": true,
-      "maxVisibleEditorButtons": 3,
-      "editorButtons": [ {
-      "name": "YouTube",
-      "id": 2,
-      "favorite": false,
-      "url": "https://www.edu-apps.org/lti_public_resources/?tool_id=youtube",
-      "icon_url": "https://www.edu-apps.org/assets/lti_public_resources/youtube_icon.png",
-      "canvas_icon_class": null,
-      "width": 560,
-      "height": 600,
-      "use_tray": false,
-      "description": "\u003cp\u003eSearch publicly available YouTube videos. A new icon will show up in your course rich
-      editor letting you search YouTube and click to embed videos in your course material.\u003c/p\u003e\n"
-      }, {
-      "name": "Vimeo",
-      "id": 3,
-      "favorite": false,
-      "url": "https://www.edu-apps.org/lti_public_resources/?tool_id=vimeo",
-      "icon_url": "https://www.edu-apps.org/assets/lti_public_resources/vimeo_icon.png",
-      "canvas_icon_class": null,
-      "width": 560,
-      "height": 600,
-      "use_tray": false,
-      "description": "\u003cp\u003eVimeo is a video sharing website on which users can upload, share, and view videos.
-      The community of Vimeo includes indie, professional, and novice filmmakers.\u003c/p\u003e\n"
-      }, {
-      "name": "Studio",
-      "id": 43,
-      "favorite": false,
-      "url": "https://lambdaschool.instructuremedia.com/lti/launch?custom_arc_launch_type=content_select",
-      "icon_url": "https://files.instructuremedia.com/logos/studio-logo-squid-tiny-electric.svg",
-      "canvas_icon_class": null,
-      "width": 560,
-      "height": 600,
-      "use_tray": false,
-      "description": "\u003cp\u003eVideo for Education\u003c/p\u003e\n"
-      } ]
+        "environment": "production",
+        "allowMediaComments": true,
+        "kalturaSettings": {
+          "domain": "pdx.nv.instructuremedia.com",
+          "resource_domain": "pdx.nv.instructuremedia.com",
+          "rtmp_domain": "pdx.rtmp.instructuremedia.com",
+          "partner_id": 3,
+          "subpartner_id": 0,
+          "player_ui_conf": 0,
+          "kcw_ui_conf": 0,
+          "upload_ui_conf": 0,
+          "max_file_size_bytes": 534773760,
+          "js_uploader": "yes"
+        },
+        "logPageViews": true,
+        "maxVisibleEditorButtons": 3,
+        "editorButtons": [ {
+          "name": "YouTube",
+          "id": 2,
+          "favorite": false,
+          "url": "https://www.edu-apps.org/lti_public_resources/?tool_id=youtube",
+          "icon_url": "https://www.edu-apps.org/assets/lti_public_resources/youtube_icon.png",
+          "canvas_icon_class": null,
+          "width": 560,
+          "height": 600,
+          "use_tray": false,
+          "description": "\u003cp\u003eSearch publicly available YouTube videos. A new icon will show up in your course rich
+          editor letting you search YouTube and click to embed videos in your course material.\u003c /
+          p\u003e\ n "
+        }, {
+          "name": "Vimeo",
+          "id": 3,
+          "favorite": false,
+          "url": "https://www.edu-apps.org/lti_public_resources/?tool_id=vimeo",
+          "icon_url": "https://www.edu-apps.org/assets/lti_public_resources/vimeo_icon.png",
+          "canvas_icon_class": null,
+          "width": 560,
+          "height": 600,
+          "use_tray": false,
+          "description": "\u003cp\u003eVimeo is a video sharing website on which users can upload, share, and view videos.
+          The community of Vimeo includes indie,
+          professional,
+          and novice filmmakers.\u003c / p\u003e\ n "
+        }, {
+          "name": "Studio",
+          "id": 43,
+          "favorite": false,
+          "url": "https://lambdaschool.instructuremedia.com/lti/launch?custom_arc_launch_type=content_select",
+          "icon_url": "https://files.instructuremedia.com/logos/studio-logo-squid-tiny-electric.svg",
+          "canvas_icon_class": null,
+          "width": 560,
+          "height": 600,
+          "use_tray": false,
+          "description": "\u003cp\u003eVideo for Education\u003c/p\u003e\n"
+        } ]
       };
       ENV = {
-      "ASSET_HOST": "https://du11hjcvx0uqb.cloudfront.net/br",
-      "active_brand_config_json_url":
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.json",
-      "url_to_what_gets_loaded_inside_the_tinymce_editor_css": [
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.css",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-8bf5101009.css",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/lato_extended-a29d3d859f.css"
-      ],
-      "url_for_high_contrast_tinymce_editor_css": [
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/default/variables-high_contrast-8391c84da435c9cfceea2b2b3317ff66.css",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_high_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-9bad98d5d7.css",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/lato_extended-a29d3d859f.css"
-      ],
-      "current_user_id": "5639",
-      "current_user_roles": [ "user", "student" ],
-      "current_user_types": [],
-      "current_user_disabled_inbox": false,
-      "files_domain": "cluster296.canvas-user-content.com",
-      "DOMAIN_ROOT_ACCOUNT_ID": "168550000000000001",
-      "k12": false,
-      "use_responsive_layout": true,
-      "use_rce_enhancements": true,
-      "rce_auto_save": true,
-      "help_link_name": "Help",
-      "help_link_icon": "help",
-      "use_high_contrast": false,
-      "disable_celebrations": false,
-      "disable_keyboard_shortcuts": false,
-      "LTI_LAUNCH_FRAME_ALLOWANCES": [ "geolocation *", "microphone *", "camera *", "midi *", "encrypted-media *",
-      "autoplay *"
-      ],
-      "DEEP_LINKING_POST_MESSAGE_ORIGIN": "https://lambdaschool.instructure.com",
-      "DEEP_LINKING_LOGGING": null,
-      "SETTINGS": {
-      "open_registration": false,
-      "collapse_global_nav": false,
-      "show_feedback_link": true
-      },
-      "DIRECT_SHARE_ENABLED": false,
-      "FEATURES": {
-      "cc_in_rce_video_tray": true,
-      "featured_help_links": true,
-      "rce_lti_favorites": true,
-      "rce_pretty_html_editor": true,
-      "rce_better_file_downloading": true,
-      "rce_better_file_previewing": true,
-      "responsive_awareness": true,
-      "responsive_misc": true,
-      "product_tours": true,
-      "module_dnd": true,
-      "files_dnd": true,
-      "unpublished_courses": true,
-      "usage_rights_discussion_topics": true,
-      "inline_math_everywhere": true,
-      "granular_permissions_manage_users": true,
-      "canvas_for_elementary": false,
-      "canvas_k6_theme": false,
-      "new_math_equation_handling": true
-      },
-      "current_user": {
-      "id": "5639",
-      "display_name": "Bryan Guner",
-      "avatar_image_url": "https://lambdaschool.instructure.com/images/messages/avatar-50.png",
-      "html_url": "https://lambdaschool.instructure.com/about/5639",
-      "pronouns": null,
-      "avatar_is_fallback": true
-      },
-      "page_view_update_url":
-      "/page_views/06132421-c45c-4b7e-b32e-989ae7a76930?page_view_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpIjoiMDYxMzI0MjEtYzQ1Yy00YjdlLWIzMmUtOTg5YWU3YTc2OTMwIiwidSI6MTY4NTUwMDAwMDAwMDA1NjM5LCJjIjoiMjAyMS0wNC0wNVQxNTo0NjoxMy42NFoifQ.6FyEgByCGPXxLtTON5wnIe4APnHQDBPt_IuAPfYhahg",
-      "context_asset_string": "course_1068",
-      "ping_url": "https://lambdaschool.instructure.com/api/v1/courses/1068/ping",
-      "TIMEZONE": "America/Los_Angeles",
-      "CONTEXT_TIMEZONE": "America/Los_Angeles",
-      "LOCALE": "en",
-      "BIGEASY_LOCALE": "en_US",
-      "FULLCALENDAR_LOCALE": "en",
-      "MOMENT_LOCALE": "en",
-      "rce_auto_save_max_age_ms": 86400000,
-      "HOMEROOM_COURSE": false,
-      "WIKI_RIGHTS": {
-      "read": true
-      },
-      "PAGE_RIGHTS": {
-      "read": true
-      },
-      "DEFAULT_EDITING_ROLES": null,
-      "WIKI_PAGES_PATH": "/courses/1068/pages",
-      "WIKI_PAGE": {
-      "title": "Module 1 Class Recordings",
-      "created_at": "2021-04-02T15:36:03-07:00",
-      "url": "module-1-class-recordings",
-      "editing_roles": "",
-      "page_id": "17195",
-      "last_edited_by": {
-      "id": "849",
-      "display_name": "API User",
-      "avatar_image_url": "https://lambdaschool.instructure.com/images/messages/avatar-50.png",
-      "html_url": "https://lambdaschool.instructure.com/courses/1068/users/849",
-      "pronouns": null
-      },
-      "published": true,
-      "hide_from_students": false,
-      "front_page": false,
-      "html_url": "https://lambdaschool.instructure.com/courses/1068/pages/module-1-class-recordings",
-      "todo_date": null,
-      "updated_at": "2021-04-02T15:36:03-07:00",
-      "locked_for_user": false,
-      "body": "\u003cul\u003e\n\u003cli\u003e\u003cp\u003e\u003ca href=\"https://youtu.be/blWlE4r2qDE\"\u003eUser
-      Interface Web41 with Brit Hemming\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/xdFQ75xKv3o\"\u003eUser Interface Web40 with Dave
-      Kidd\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/QSKpcCyJGwU\"\u003eUser Interface Web39 with Dave
-      Kidd\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/c4gHuThxNH0\"\u003eUser Interface Web37 with Brit
-      Hemming\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/K3XfKioV0_8\"\u003eUser Interface Web37 with Dave
-      Kidd\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/Jte8Z7nGxQg\"\u003eUser Interface for WebPT22 w/Nathan
-      Braun\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eEven the most complex web applications start with simple HTML
-      elements. Knowing how to use HTML and style it with CSS has a massive impact for your future as a developer. This
-      module will explore the fundamentals of HTML and
-      CSS.\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/V9XlcIOW3u4\"\u003eUser Interface for Web35 w/ Brit
-      Hemming\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUser
-      Interface\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/hA-D7WBSazk\"\u003eUser Interface for WEBPT21 with Pace
-      Ellsworth\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUser Interface
-      7/8/2020\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003ca
-      href=\"https://youtu.be/A3fT0SyQAUA\"\u003eUser Interface for Web34 Unit I with Brit
-      Hemming\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUser Interface and Git - User
-      Interface\u003c/p\u003e\u003c/li\u003e\n\u003c/ul\u003e"
-      },
-      "WIKI_PAGE_REVISION": "1",
-      "WIKI_PAGE_SHOW_PATH": "/courses/1068/pages/module-1-class-recordings",
-      "WIKI_PAGE_EDIT_PATH": "/courses/1068/pages/module-1-class-recordings/edit",
-      "WIKI_PAGE_HISTORY_PATH": "/courses/1068/pages/module-1-class-recordings/revisions",
-      "COURSE_ID": "1068",
-      "MODULES_PATH": "/courses/1068/modules",
-      "wiki_page_menu_tools": [],
-      "wiki_index_menu_tools": [],
-      "DISPLAY_SHOW_ALL_LINK": false,
-      "CAN_SET_TODO_DATE": false,
-      "IMMERSIVE_READER_ENABLED": true,
-      "badge_counts": {
-      "submissions": 0
-      },
-      "notices": [],
-      "active_context_tab": "pages"
+        "ASSET_HOST": "https://du11hjcvx0uqb.cloudfront.net/br",
+        "active_brand_config_json_url": "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.json",
+        "url_to_what_gets_loaded_inside_the_tinymce_editor_css": [
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-8bf5101009.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/lato_extended-a29d3d859f.css"
+        ],
+        "url_for_high_contrast_tinymce_editor_css": [
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/default/variables-high_contrast-8391c84da435c9cfceea2b2b3317ff66.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_high_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-9bad98d5d7.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/lato_extended-a29d3d859f.css"
+        ],
+        "current_user_id": "5639",
+        "current_user_roles": [ "user", "student" ],
+        "current_user_types": [],
+        "current_user_disabled_inbox": false,
+        "files_domain": "cluster296.canvas-user-content.com",
+        "DOMAIN_ROOT_ACCOUNT_ID": "168550000000000001",
+        "k12": false,
+        "use_responsive_layout": true,
+        "use_rce_enhancements": true,
+        "rce_auto_save": true,
+        "help_link_name": "Help",
+        "help_link_icon": "help",
+        "use_high_contrast": false,
+        "disable_celebrations": false,
+        "disable_keyboard_shortcuts": false,
+        "LTI_LAUNCH_FRAME_ALLOWANCES": [ "geolocation *", "microphone *", "camera *", "midi *", "encrypted-media *",
+          "autoplay *"
+        ],
+        "DEEP_LINKING_POST_MESSAGE_ORIGIN": "https://lambdaschool.instructure.com",
+        "DEEP_LINKING_LOGGING": null,
+        "SETTINGS": {
+          "open_registration": false,
+          "collapse_global_nav": false,
+          "show_feedback_link": true
+        },
+        "DIRECT_SHARE_ENABLED": false,
+        "FEATURES": {
+          "cc_in_rce_video_tray": true,
+          "featured_help_links": true,
+          "rce_lti_favorites": true,
+          "rce_pretty_html_editor": true,
+          "rce_better_file_downloading": true,
+          "rce_better_file_previewing": true,
+          "responsive_awareness": true,
+          "responsive_misc": true,
+          "product_tours": true,
+          "module_dnd": true,
+          "files_dnd": true,
+          "unpublished_courses": true,
+          "usage_rights_discussion_topics": true,
+          "inline_math_everywhere": true,
+          "granular_permissions_manage_users": true,
+          "canvas_for_elementary": false,
+          "canvas_k6_theme": false,
+          "new_math_equation_handling": true
+        },
+        "current_user": {
+          "id": "5639",
+          "display_name": "Bryan Guner",
+          "avatar_image_url": "https://lambdaschool.instructure.com/images/messages/avatar-50.png",
+          "html_url": "https://lambdaschool.instructure.com/about/5639",
+          "pronouns": null,
+          "avatar_is_fallback": true
+        },
+        "page_view_update_url": "/page_views/06132421-c45c-4b7e-b32e-989ae7a76930?page_view_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpIjoiMDYxMzI0MjEtYzQ1Yy00YjdlLWIzMmUtOTg5YWU3YTc2OTMwIiwidSI6MTY4NTUwMDAwMDAwMDA1NjM5LCJjIjoiMjAyMS0wNC0wNVQxNTo0NjoxMy42NFoifQ.6FyEgByCGPXxLtTON5wnIe4APnHQDBPt_IuAPfYhahg",
+        "context_asset_string": "course_1068",
+        "ping_url": "https://lambdaschool.instructure.com/api/v1/courses/1068/ping",
+        "TIMEZONE": "America/Los_Angeles",
+        "CONTEXT_TIMEZONE": "America/Los_Angeles",
+        "LOCALE": "en",
+        "BIGEASY_LOCALE": "en_US",
+        "FULLCALENDAR_LOCALE": "en",
+        "MOMENT_LOCALE": "en",
+        "rce_auto_save_max_age_ms": 86400000,
+        "HOMEROOM_COURSE": false,
+        "WIKI_RIGHTS": {
+          "read": true
+        },
+        "PAGE_RIGHTS": {
+          "read": true
+        },
+        "DEFAULT_EDITING_ROLES": null,
+        "WIKI_PAGES_PATH": "/courses/1068/pages",
+        "WIKI_PAGE": {
+          "title": "Module 1 Class Recordings",
+          "created_at": "2021-04-02T15:36:03-07:00",
+          "url": "module-1-class-recordings",
+          "editing_roles": "",
+          "page_id": "17195",
+          "last_edited_by": {
+            "id": "849",
+            "display_name": "API User",
+            "avatar_image_url": "https://lambdaschool.instructure.com/images/messages/avatar-50.png",
+            "html_url": "https://lambdaschool.instructure.com/courses/1068/users/849",
+            "pronouns": null
+          },
+          "published": true,
+          "hide_from_students": false,
+          "front_page": false,
+          "html_url": "https://lambdaschool.instructure.com/courses/1068/pages/module-1-class-recordings",
+          "todo_date": null,
+          "updated_at": "2021-04-02T15:36:03-07:00",
+          "locked_for_user": false,
+          "body": "\u003cul\u003e\n\u003cli\u003e\u003cp\u003e\u003ca href=\"https://youtu.be/blWlE4r2qDE\"\u003eUser
+          Interface Web41 with Brit Hemming\u003c / a\u003e\u003c / p\u003e\u003c /
+          li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/xdFQ75xKv3o\"\u003eUser Interface Web40 with Dave
+          Kidd\u003c / a\u003e\u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/QSKpcCyJGwU\"\u003eUser Interface Web39 with Dave
+          Kidd\u003c / a\u003e\u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/c4gHuThxNH0\"\u003eUser Interface Web37 with Brit
+          Hemming\u003c / a\u003e\u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/K3XfKioV0_8\"\u003eUser Interface Web37 with Dave
+          Kidd\u003c / a\u003e\u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/Jte8Z7nGxQg\"\u003eUser Interface for WebPT22 w/Nathan
+          Braun\u003c / a\u003e\u003c /
+          p\u003e\ n\u003cp\u003eEven the most complex web applications start with simple HTML
+          elements.Knowing how to use HTML and style it with CSS has a massive impact
+          for your future as a developer.This
+          module will explore the fundamentals of HTML and
+          CSS.\u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/V9XlcIOW3u4\"\u003eUser Interface for Web35 w/ Brit
+          Hemming\u003c / a\u003e\u003c / p\u003e\ n\u003cp\u003eUser
+          Interface\u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/hA-D7WBSazk\"\u003eUser Interface for WEBPT21 with Pace
+          Ellsworth\u003c / a\u003e\u003c / p\u003e\ n\u003cp\u003eUser Interface
+          7 / 8 / 2020 \u003c / p\u003e\u003c / li\u003e\ n\u003cli\u003e\u003cp\u003e\u003ca
+          href = \"https://youtu.be/A3fT0SyQAUA\"\u003eUser Interface for Web34 Unit I with Brit
+          Hemming\u003c / a\u003e\u003c / p\u003e\ n\u003cp\u003eUser Interface and Git - User
+          Interface\u003c / p\u003e\u003c / li\u003e\ n\u003c / ul\u003e "
+        },
+        "WIKI_PAGE_REVISION": "1",
+        "WIKI_PAGE_SHOW_PATH": "/courses/1068/pages/module-1-class-recordings",
+        "WIKI_PAGE_EDIT_PATH": "/courses/1068/pages/module-1-class-recordings/edit",
+        "WIKI_PAGE_HISTORY_PATH": "/courses/1068/pages/module-1-class-recordings/revisions",
+        "COURSE_ID": "1068",
+        "MODULES_PATH": "/courses/1068/modules",
+        "wiki_page_menu_tools": [],
+        "wiki_index_menu_tools": [],
+        "DISPLAY_SHOW_ALL_LINK": false,
+        "CAN_SET_TODO_DATE": false,
+        "IMMERSIVE_READER_ENABLED": true,
+        "badge_counts": {
+          "submissions": 0
+        },
+        "notices": [],
+        "active_context_tab": "pages"
       };
 
     </script>
@@ -270,91 +274,93 @@
 
       ;
       [
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.js",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/Los_Angeles-d9cac65c52.js",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/Los_Angeles-d9cac65c52.js",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/en_US-80a0ce259b.js",
-      "https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/main-e-143ab5dd29.js"
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/Los_Angeles-d9cac65c52.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/Los_Angeles-d9cac65c52.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/en_US-80a0ce259b.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/main-e-143ab5dd29.js"
       ].forEach( function ( src ) {
-      var s = document.createElement( 'script' )
+        var s = document.createElement( 'script' )
         s.src = src
         s.async = false
         document.head.appendChild( s )
-        } );
+      } );
       //]]>
-</script>
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/0-c-de89641551.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/1-c-9b44b2f2f0.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/2-c-19bafc247d.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/3-c-bf5d0b5766.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/4-c-77108e1975.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/5-c-997ac8ee90.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/7-c-5a101fc0a0.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/6-c-ddb3f25666.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/8-c-56e76d9e87.js" as="script"
-  type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/12-c-8e44d6013e.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/16-c-51ce4a3f60.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/17-c-55328f2d21.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/21-c-df7a8ed9cc.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/26-c-549a6bb121.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/23-c-3525285db4.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/25-c-f5176ea595.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/28-c-48edc0c862.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/33-c-468b5e4088.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/35-c-519738d831.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/37-c-756bd506b6.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/39-c-31043a153b.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/41-c-d4c6b9c421.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/47-c-da860a467c.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/43-c-50e3bea253.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/52-c-53c2b73542.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/59-c-89eacab77e.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/61-c-b3fbe58336.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/63-c-8069ddedeb.js"
-  as="script" type="text/javascript">
-<link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/68-c-d7067aa4c8.js"
-  as="script" type="text/javascript">
-<link rel="preload"
-  href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/wiki_page_show-c-869bf76d0d.js" as="script"
-  type="text/javascript">
-<script>
+
+    </script>
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/0-c-de89641551.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/1-c-9b44b2f2f0.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/2-c-19bafc247d.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/3-c-bf5d0b5766.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/4-c-77108e1975.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/5-c-997ac8ee90.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/7-c-5a101fc0a0.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/6-c-ddb3f25666.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/8-c-56e76d9e87.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/12-c-8e44d6013e.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/16-c-51ce4a3f60.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/17-c-55328f2d21.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/21-c-df7a8ed9cc.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/26-c-549a6bb121.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/23-c-3525285db4.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/25-c-f5176ea595.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/28-c-48edc0c862.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/33-c-468b5e4088.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/35-c-519738d831.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/37-c-756bd506b6.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/39-c-31043a153b.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/41-c-d4c6b9c421.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/47-c-da860a467c.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/43-c-50e3bea253.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/52-c-53c2b73542.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/59-c-89eacab77e.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/61-c-b3fbe58336.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/63-c-8069ddedeb.js"
+      as="script" type="text/javascript">
+    <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/68-c-d7067aa4c8.js"
+      as="script" type="text/javascript">
+    <link rel="preload"
+      href="https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/wiki_page_show-c-869bf76d0d.js" as="script"
+      type="text/javascript">
+    <script>
       //<![CDATA[
       ( window.bundles || ( window.bundles = [] ) ).push( 'wiki_page_show' );
       ( window.bundles || ( window.bundles = [] ) ).push( 'navigation_header' );
       //]]>
+
     </script>
     <title>Module 1 Class Recordings: WEB43 - 1.1 - User Interface and Git</title>
 
     <script>
       window.ga = window.ga || function () {
-      ( ga.q = ga.q || [] ).push( arguments )
+        ( ga.q = ga.q || [] ).push( arguments )
       };
       ga.l = +new Date;
       ga( 'create', "UA-9138420-1", 'auto' );
@@ -365,19 +371,19 @@
       ga( 'set', 'dimension4', "Higher Ed" );
       ga( 'send', 'pageview' );
       ( window.requestIdleCallback || window.setTimeout )( function () {
-      var s = document.createElement( 'script' ),
-      m = document.getElementsByTagName( 'script' )[ 0 ]
-      s.async = 1;
-      s.src = 'https://www.google-analytics.com/analytics.js'
-      m.parentNode.insertBefore( s, m )
+        var s = document.createElement( 'script' ),
+          m = document.getElementsByTagName( 'script' )[ 0 ]
+        s.async = 1;
+        s.src = 'https://www.google-analytics.com/analytics.js'
+        m.parentNode.insertBefore( s, m )
       } );
 
     </script>
 
 
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
 
   <body
     class="with-left-side course-menu-expanded padless-content pages primary-nav-expanded full-width context-course_1068 responsive_awareness responsive_misc">
@@ -596,11 +602,11 @@
                         <span class="screenreader-only">My Dashboard</span>
                       </i>
                     </span></a></li>
-                    <li><a href="/courses/1068"><span class="ellipsible">WEB_1.1_WEB43</span></a></li>
-                    <li><a href="/courses/1068/pages"><span class="ellipsible">Pages</span></a></li>
-                    <li><span class="ellipsible">Module 1 Class Recordings</span></li>
-                    </ul>
-                    </nav>
+                <li><a href="/courses/1068"><span class="ellipsible">WEB_1.1_WEB43</span></a></li>
+                <li><a href="/courses/1068/pages"><span class="ellipsible">Pages</span></a></li>
+                <li><span class="ellipsible">Module 1 Class Recordings</span></li>
+              </ul>
+            </nav>
           </div>
           <div class="TutorialToggleHolder"></div>
         </div>
@@ -652,6 +658,7 @@
         Object.assign(
           ENV, {}
         )
+
       </script>
 
       <link rel="preload"
@@ -665,26 +672,31 @@
         ( window.bundles || ( window.bundles = [] ) ).push( 'nav_tourpoints' );
         ( window.bundles || ( window.bundles = [] ) ).push( 'inst_fs_service_worker' );
         //]]>
+
       </script>
       <script>
         //<![CDATA[
 
         ;
         [
-        "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/4765/main.js"
+          "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/4765/main.js"
         ]
         .forEach( function ( src ) {
-        var s = document.createElement( 'script' )
+          var s = document.createElement( 'script' )
           s.src = src
           s.async = false
           document.head.appendChild( s )
-          } );
+        } );
         //]]>
+
       </script>
 
     </div> <!-- #application -->
-  <script>
-    document.write( '<a href="' + document.referrer + '">Go Back</a>' );
-  </script>
-    <input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" /></body>
+    <script>
+      document.write( '<a href="' + document.referrer + '">Go Back</a>' );
+
+    </script>
+    <input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" />
+  </body>
+
 </html>
