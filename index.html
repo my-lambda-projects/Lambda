@@ -13,6 +13,7 @@
       <link rel="apple-touch-icon"
         href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png">
       <style>
+        .ignore-css{all:unset;}
         a {
           color: black;
           text-transform: inherit;
@@ -102,14 +103,28 @@ ul{
           border-left: 1px solid #18047a;
         }
 
-        iframe {
-          padding: 0.2em;;
-          background: red;
-          overflow: scroll;
-          border: solid 6px steelblue;
+        iframe.animate{
+                border-radius: 10px;
+                min-width: 45em;
+                /* padding: 1.2em 1em 0; */
+                box-shadow: 0 0 9px;
+                margin: 0.4em;
+                /* display: grid; */
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+        }
+        
+        
+        iframe.embed {
+          padding: 2em;
+    margin: auto;
+          overflow: auto;
+          border: solid 14px rgb(41, 54, 204);
           -moz-border-radius: 6px 6px 4px 4px;
           -webkit-border-radius: 6px 6px 4px 4px;
-          border-radius: 6px 6px 3px 3px;
+          border-radius: 6px 6px 6px 6px;
         }
 
       </style>
@@ -140,9 +155,10 @@ ul{
 
     <body>
 
-<iframe height="365" style="width: 100%;" scrolling="no" title="descendant selectors"
+<iframe class="animate" height="365" style="width: 100%;" scrolling="no" title="descendant selectors"
    src="https://embedable-content.netlify.app/standalone/test.html" frameborder="no"
-   loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+   <!-- loading="lazy" allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="8px white" /*background:
+   url('black50.jpg');*></iframe> -->
 
 
 </br>
@@ -150,6 +166,8 @@ ul{
 </br>
 <br>
 </br>
+
+
       <ul>
         <li class="btn"><a href="https://lambda-prep.netlify.app/">Prep-Resource Site&nbsp;</a></li>
         <li class="btn"><a href="./directory.html">NAVIGATION&nbsp;</a></li>
@@ -166,7 +184,7 @@ ul{
       </br>
       <br>
       </br>
-      <iframe height="565" style="width: 100%;" scrolling="no" title="descendant selectors"
+      <iframe class="embed" height="565" style="width: 100%;" scrolling="no" title="descendant selectors"
         src="https://codepen.io/bgoonz/embed/gOgRqrO?height=265&theme-id=light&default-tab=html,result" frameborder="no"
         loading="lazy" allowtransparency="true" allowfullscreen="true">
         See the Pen <a href='https://codepen.io/bgoonz/pen/gOgRqrO'>descendant selectors</a> by Bryan C Guner
@@ -174,14 +192,14 @@ ul{
       </iframe>
 
 
-      <iframe height="565" style="width: 100%;" scrolling="no" title="Practicing class selectors"
+      <iframe class="embed"  height="565" style="width: 100%;" scrolling="no" title="Practicing class selectors"
         src="https://codepen.io/bgoonz/embed/NWdgZpM?height=265&theme-id=light&default-tab=html,result" frameborder="no"
         loading="lazy" allowtransparency="true" allowfullscreen="true">
         See the Pen <a href='https://codepen.io/bgoonz/pen/NWdgZpM'>Practicing class selectors</a> by Bryan C Guner
         (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
       </iframe>
 
-      <iframe src="https://embedable-content.netlify.app/main.html" style="width:100%; height:800px;"></iframe>
+      <iframe src="https://embedable-content.netlify.app/main.html" style="width:100%; height:1000px;"></iframe>
       <script>
         document.write( '<a href="' + document.referrer + '">Go Back</a>' );
 
