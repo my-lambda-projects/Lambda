@@ -2,9 +2,50 @@
 <html>
 
   <head>
+      <meta http-equiv="Content-Type" content="text/html">
+      <meta name="Author" content="Bryan Guner">
+      <!-- <link rel="stylesheet" href="./assets/prism.css"> -->
+      <!-- <link rel="stylesheet" href="./assets/style.css"> -->
+      <!-- <script async defer src="./assets/prism.js"></script> -->
+      <title> Lambda Student Resources</title>
+      <link type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet">
+      <link type="image/x-icon"
+        href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/536/favicon_lambda_32.png"
+        rel="shortcut icon">
+      <link
+        href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png"
+        rel="apple-touch-icon">
+
+      <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <style>
+        body {
+          background-color: transparent;
+        }
+      </style>
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script async defer src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+      <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyDvXFb7DcVrgl30Xk-RlRr9izNcYyafJbo",
+          authDomain: "lambda-prep.firebaseapp.com",
+          projectId: "lambda-prep",
+          storageBucket: "lambda-prep.appspot.com",
+          messagingSenderId: "766640070050",
+          appId: "1:766640070050:web:9feff0ce3eb9faf88826fb",
+          measurementId: "G-391F01VMEM"
+        };
+        // Initialize Firebase
+        firebase.initializeApp( firebaseConfig );
+        firebase.analytics();
+      </script>
   </head>
 
   <body>
+    <img src="./assets/schedule.PNG" alt="schedule">
     <div class="p-rich_text_section" style="box-sizing: inherit; counter-reset: list-0 0 list-1 0 list-2 0 list-3 0 list-4 0 list-5 0 list-6 0 list-7 0 list-8 0 list-9 0; color: rgb(209, 210, 211); font-family: Slack-Lato, appleLogo, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: common-ligatures; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: transparent; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
       <span class="c-mrkdwn__broadcast c-mrkdwn__broadcast--link c-mrkdwn__broadcast--mention" data-broadcast-id="BKchannel" data-stringify-text="@channel" style="box-sizing: inherit; padding: 0px 2px 1px; border-radius: 3px; font-weight: 700; background: transparent; color: rgba(var(--sk_secondary_highlight,242,199,68),1);">@channel</span><span style="background-color: transparent;">&nbsp;Welcome back from lunch!&nbsp;<span class="c-emoji c-emoji__medium c-emoji--inline" data-qa="emoji" data-sk="tooltip_parent" style="box-sizing: inherit; overflow: visible; display: inline-flex; vertical-align: top; align-items: center; object-fit: contain; width: 22px; height: auto; position: relative;"><img data-stringify-emoji=":knife_fork_plate:" data-stringify-type="emoji" src="data:image/png;base64,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" alt=":knife_fork_plate:" style="margin: 0 auto 0 0; display: block; text-align:left; box-sizing: inherit; top: 10.7407px; object-fit: contain; height: 22px; width: 22px;"></span>
         You are now in your project work time. Over *** **** several hours *** should be completing everything inside of
@@ -46,6 +87,10 @@
       <li data-stringify-indent="0" style="box-sizing: inherit; margin-bottom: 0px; list-style-type: none; margin-left: 28px;"><span style="background-color: transparent;">Once you *** finished the project, check for understanding Quiz and
           **** pulse check then *** should be studying *** warm up section in canvas for tomorrow.</span></li>
     </ul>
+    <center>
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=c_2q0kvam9h9k5i6t40qp5n18dh8%40group.calendar.google.com&ctz=America%2FNew_York"
+        style="border: 0" width="800" height="600" frameborder="0" scrolling="yes"></iframe></center>
   </body>
 
 </html>
