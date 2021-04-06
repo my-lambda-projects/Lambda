@@ -1,4 +1,4 @@
-# \| bgoonz \| GistLog - Your dev blog delivered
+# \| bgoonz \| GistLog
 
 ## Contents
 
