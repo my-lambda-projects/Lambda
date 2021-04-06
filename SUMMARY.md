@@ -1,4 +1,4 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [\| bgoonz \| GistLog - Your dev blog delivered](README.md)
 
