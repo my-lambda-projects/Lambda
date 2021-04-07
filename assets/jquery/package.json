@@ -57,7 +57,7 @@
     "promises-aplus-tests": "2.1.2",
     "q": "1.5.1",
     "qunit": "2.9.2",
-    "raw-body": "2.3.3",
+    "raw-body": "2.4.1",
     "requirejs": "2.3.6",
     "sinon": "2.3.7",
     "sizzle": "2.3.6",
