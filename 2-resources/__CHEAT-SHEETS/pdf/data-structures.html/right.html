@@ -12,23 +12,92 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"
         type="text/css" />
     <!-- Latest compiled and minified JavaScript -->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
-        type="text/javascript"></script>-->
+        type="text/javascript"></script>
     <style type="text/css">
         /*<![CDATA[*/
         /* Basic */
         @-ms-viewport {
             width: device-width;
         }
-        body {
-  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
-  background-size: 400% 400%;
-  -webkit-animation: gradient 15s ease infinite;
-  animation: gradient 15s ease infinite;
-            -ms-overflow-style: scrollbar;
-		zoom:0.73;
-        }
+  
+a {
+  text-transform: inherit;
+  box-shadow: 0 5px 0 gold;
+  color: white;
+  padding: 1em 1.em;
+  position: relative;
+  text-transform: uppercase;
+}
+a:hover {
+  background-color: yellow;
+}
+a:active {
+  box-shadow: none;
+  top: 8px;
+}
+/* Non-Demo Styles */
+body {
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 1.4;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+}
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-radius: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #18047a;
+}
+iframe.animate {
+  overflow-y: scroll;
+  border-radius: 2px;
+  min-width: 45em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+iframe.embed {
+  overflow-y: scroll;
+  padding: 2em;
+  margin: auto;
+  overflow: auto;
+  border: solid 4px rgb(41, 54, 204);
+  -moz-border-radius: 6px 6px 4px 4px;
+  -webkit-border-radius: 6px 6px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
+}
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0.4em 0;
+}
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  color: #888;
+  font-size: 2em;
+}
 @-webkit-keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -137,13 +206,19 @@
             padding-right: 3px;
         }
         TABLE.fancy {
-            background: #fffefe;
+           background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
             border-left: 3px solid;
             border-collapse: collapse;
             margin: 15px 0;
             font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 250px;
+            min-width: 150px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             border-top: 1px solid;
             border-bottom: 0px solid;
@@ -152,34 +227,41 @@
             width: 80%;
             display: table;
             padding: 0 0 8em 0;
-overflow-wrap: break-word;
+overflow:auto:: ;
         }
         TABLE.fancy TD {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
             border-right: 1px solid;
             border-bottom: 1px solid;
             border-color: #FFF;
             text-align: left;
-            padding-right: 2%px;
-            padding-bottom: 2%;
-            padding-top: 2%;
-            padding-left: 2%;
-            border: 4px solid gold !important;
-            font-size: 16px;
-            letter-spacing: 1px;
-            font-weight: 570;
+            padding-right: 4%px;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            padding-left: 4%;
+            border: 2px solid gold !important;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            font-weight: 470;
             line-height: 18px;
             text-decoration: none !important;
             text-transform: uppercase;
-            background: #07122daf !important;
-            color: black !important;
+     
+           
             cursor: pointer;
-            justify-content: center;
-            padding: 30px 50px;
-            height: 55px;
-            text-align: center;
+            justify-content: left;
+            padding: 20px 300px;
+            height: 75px;
+            text-align:left;
             white-space: normal;
             border-radius: 10px;
-            min-width: 10em;
+            min-width: 14em;
             padding: .9em .9em 0;
             box-shadow: 0 0 5px;
             margin: 1em;
@@ -187,8 +269,6 @@ overflow-wrap: break-word;
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 20px;
-overflow-wrap: break-word;
-        }
         TABLE.fancy tr:nth-child(odd) {
             background-color: #323C50;
         }
@@ -262,8 +342,13 @@ overflow-wrap: break-word;
             border-top: 0px solid;
             text-align: left;
             border-bottom: 1px solid;
-            background: black;
-            color: #FFF
+            background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa  
         }
         .no-top-border {
             border-top: 0px
@@ -539,18 +624,17 @@ div.clear {
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
 <tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="cs311-20200904-iter.pdf">cs311-20...r.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200918-recurse_iter.pdf">cs311-20...r.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200930-comp2.pdf">cs311-20...2.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201014-array_impl.pdf">cs311-20...l.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201026-seq_stl.pdf">cs311-20...l.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201106-heapalg.pdf">cs311-20...g.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201118-hash_b.pdf">cs311-20...b.pdf</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="cs311-20200824-intro.pdf">cs311-20...o.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200909-iter_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200921-recurse_elim.pdf">cs311-20...m.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201002-comp3.pdf">cs311-20...3.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201016-excep_safe.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201028-stack.pdf">cs311-20...k.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201109-heapalg_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201120-table_stl.pdf">cs311-20...l.pdf</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="cs311-20200826-op.pdf">cs311-20...p.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200911-excep.pdf">cs311-20...p.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200923-backtrack.pdf">cs311-20...k.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201005-comp3_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201019-excep_safe_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201030-queue.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201111-tree23.pdf">cs311-20...3.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201123-extern.pdf">cs311-20...n.pdf</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="cs311-20200828-ex.pdf">cs311-20...x.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200914-recurse.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200925-analysis.pdf">cs311-20...s.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201007-sort_stl.pdf">cs311-20...l.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201021-generic.pdf">cs311-20...c.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201102-bintree.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201113-tree23_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201130-graph_traverse.pdf">cs311-20...e.pdf</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="cs311-20200831-ex_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200916-search.pdf">cs311-20...h.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200928-comp1.pdf">cs311-20...1.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201012-data_abst.pdf">cs311-20...t.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201023-node.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201104-table.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201116-hash.pdf">cs311-20...h.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201202-span_tree.pdf">cs311-20...e.pdf</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="cs311-20200902-raii.pdf">cs311-20...i.pdf</a>&nbsp;</td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left"><a href="cs311-20200824-intro.pdf">cs311-20...o.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200904-iter.pdf">cs311-20...r.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200918-recurse_iter.pdf">cs311-20...r.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200930-comp2.pdf">cs311-20...2.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201014-array_impl.pdf">cs311-20...l.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201026-seq_stl.pdf">cs311-20...l.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201106-heapalg.pdf">cs311-20...g.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201118-hash_b.pdf">cs311-20...b.pdf</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="cs311-20200826-op.pdf">cs311-20...p.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200909-iter_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200921-recurse_elim.pdf">cs311-20...m.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201002-comp3.pdf">cs311-20...3.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201016-excep_safe.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201028-stack.pdf">cs311-20...k.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201109-heapalg_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201120-table_stl.pdf">cs311-20...l.pdf</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="cs311-20200828-ex.pdf">cs311-20...x.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200911-excep.pdf">cs311-20...p.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200923-backtrack.pdf">cs311-20...k.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201005-comp3_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201019-excep_safe_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201030-queue.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201111-tree23.pdf">cs311-20...3.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201123-extern.pdf">cs311-20...n.pdf</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="cs311-20200831-ex_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200914-recurse.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200925-analysis.pdf">cs311-20...s.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201007-sort_stl.pdf">cs311-20...l.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201021-generic.pdf">cs311-20...c.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201102-bintree.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201113-tree23_b.pdf">cs311-20...b.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201130-graph_traverse.pdf">cs311-20...e.pdf</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="cs311-20200902-raii.pdf">cs311-20...i.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200916-search.pdf">cs311-20...h.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20200928-comp1.pdf">cs311-20...1.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201012-data_abst.pdf">cs311-20...t.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201023-node.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201104-table.pdf">cs311-20...e.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201116-hash.pdf">cs311-20...h.pdf</a>&nbsp;</td><td class="left"><a href="cs311-20201202-span_tree.pdf">cs311-20...e.pdf</a>&nbsp;</td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
 Folders:  1<br>
-Files: 41<br>
-Size of all files: 11638399 KB</p>
+Files: 40<br>
+Size of all files: 11620699 KB</p>
 
 </body>
 </html>
