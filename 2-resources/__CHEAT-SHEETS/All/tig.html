@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="installing">Installing</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># MacOS + Homebrew</span></a>
+<a class="sourceLine" id="cb1-2" title="2">$ <span class="ex">brew</span> install tig --HEAD</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># Ubuntu</span></a>
+<a class="sourceLine" id="cb2-2" title="2">$ <span class="fu">sudo</span> apt install tig</a></code></pre></div>
+<h3 id="invocation">Invocation</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tig</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>tig status</code></td>
+<td>Status</td>
+</tr>
+<tr class="even">
+<td><code>tig blame FILE</code></td>
+<td>Blame</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>tig master</code></td>
+<td>Show a branch</td>
+</tr>
+<tr class="odd">
+<td><code>tig test..master</code></td>
+<td>Show difference between two branches</td>
+</tr>
+<tr class="even">
+<td><code>tig FILE</code></td>
+<td>Show history of file</td>
+</tr>
+<tr class="odd">
+<td><code>tig v0.0.3:README</code></td>
+<td>Show contents of file in a specific revision</td>
+</tr>
+<tr class="even">
+<td><code>tig -C /repo/path</code></td>
+<td>Run in dir <code>/repo/path</code> (like <code>git -C</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>You can substitute <code>git log</code> → <code>tig</code>.</p>
+<h2 id="shortcut-keys">Shortcut keys</h2>
+<p>{: .-three-column}</p>
+<h3 id="switching-views">Switching views</h3>
+<div class="line-block"><code>m</code> | Main view |<br />
+<code>s</code> | Status |<br />
+<code>t</code> | Tree (files) |<br />
+<code>y</code> | Stash view |<br />
+<code>g</code> | Grep |<br />
+<code>h</code> | Help |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="all-views">All views</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>j</code> <code>k</code></td>
+<td>Up/down</td>
+</tr>
+<tr class="even">
+<td><code>J</code> <code>K</code></td>
+<td>Next/previous</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>Back</td>
+</tr>
+<tr class="odd">
+<td><code>R</code></td>
+<td>Refresh</td>
+</tr>
+<tr class="even">
+<td><code>q</code></td>
+<td>Close</td>
+</tr>
+<tr class="odd">
+<td><code>Q</code></td>
+<td>Close all</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>^N</code></td>
+<td>Next on parent view</td>
+</tr>
+<tr class="even">
+<td><code>^P</code></td>
+<td>Previous on parent view</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="m---main-view"><code>m</code> - Main view</h3>
+<div class="line-block"><code>D</code> | Toggle date display modes |<br />
+<code>A</code> | Toggle author display modes |<br />
+<code>X</code> | Toggle commit sha |<br />
+<code>C</code> | Cherry pick a commit |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="s---status-view"><code>s</code> - Status view</h3>
+<div class="line-block"><code>u</code> | Stage/unstage file or chunk |<br />
+<code>!</code> | Revert file or chunk |<br />
+<code>C</code> | Commit |<br />
+<code>M</code> | Merge |<br />
+<code>1</code> | Stage line |<br />
+<code>[</code> <code>]</code> | Increase/decrease the diff context |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="h---branch-view"><code>h</code> - Branch view</h3>
+<div class="line-block"><code>i</code> | Change sort header |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="h---blame-view"><code>h</code> - Blame view</h3>
+<div class="line-block"><code>,</code> | Parent commit |</div>
+<p>{: .-shortcuts}</p>
+</body></html>

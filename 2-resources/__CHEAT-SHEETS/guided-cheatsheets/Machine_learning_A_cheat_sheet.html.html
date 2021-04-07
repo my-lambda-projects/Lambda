@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="machine-learning-a-cheat-sheet">Machine learning: A cheat sheet</h1>
+  <blockquote>
+    <p>From Apple to Google to Toyota, companies across the world are pouring resources into developing AI systems with
+      machine learning. This comprehensive guide explains what machine learning really means.</p>
+  </blockquote>
+  <p>From Apple to Google to Toyota, companies across the world are pouring resources into developing AI systems with
+    machine learning. This comprehensive guide explains what machine learning really means.</p>
+  <p><img
+      src="https://www.techrepublic.com/a/hub/i/r/2018/02/28/0b23d692-86fe-4992-ac77-01704623cc2b/thumbnail/768x432/d449ceaeaacc4e4796e0b5992723261e/20180227machinelearningtom.jpg" />
+  </p>
+  <p><a href="https://www.techrepublic.com/article/artificial-intelligence-cheat-sheet/">Artificial intelligence</a>
+    (AI), which has been around since the 1950s, has seen ebbs and flows in popularity over the last 60+ years. But
+    today, with the recent explosion of big data, high-powered parallel processing, and advanced neural algorithms, we
+    are seeing a renaissance in AI–and companies from Amazon to Facebook to Google are scrambling to take the lead.
+    According to AI expert Roman Yampolskiy, 2016 was the year of “<a
+      href="https://www.techrepublic.com/article/7-trends-for-artificial-intelligence-in-2016-like-2015-on-steroids/">AI
+      on steroids</a>,” and its explosive growth hasn’t stopped.</p>
+  <p>While there are different forms of AI, machine learning (ML) represents today’s most widely valued mechanism for
+    reaching intelligence. Here’s what it means.</p>
+  <p><strong>SEE:</strong> <a href="https://www.zdnet.com/topic/managing-ai-and-ml-in-the-enterprise/"><strong>Managing
+        AI and ML in the enterprise</strong></a> <strong>(ZDNet special report) |</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/special-report-managing-ai-and-ml-in-the-enterprise-free-pdf/"><strong>Download
+        the report as a PDF</strong></a> <strong>(TechRepublic)</strong></p>
+  <h2 id="executive-summary"><strong>Executive summary</strong></h2>
+  <ul>
+    <li><strong>What is machine learning?</strong> Machine learning is a subfield of artificial intelligence. Instead of
+      relying on explicit programming, it is a system through which computers use a massive set of data and apply
+      algorithms to “train” on–to teach themselves–and make predictions.</li>
+    <li><strong>When did machine learning become popular?</strong> The term “artificial intelligence” was coined in the
+      1950s by <a href="https://www.techrepublic.com/article/alan-turing-the-man-behind-the-myth/">Alan Turing</a>.
+      Machine learning became popular in the 1990s, and returned to the public eye when <a
+        href="https://www.techrepublic.com/article/google-deepmind-the-smart-persons-guide/">Google’s DeepMind</a> beat
+      the world champion of <a
+        href="https://www.techrepublic.com/article/learn-to-play-go-the-worlds-oldest-and-most-strategic-game/">Go</a>
+      in 2016. Since then, ML applications and machine learning’s popularity have only increased.</li>
+    <li><strong>Why does machine learning matter?</strong> Machine learning systems are able to quickly apply knowledge
+      and training from large data sets to excel at facial recognition, speech recognition, object recognition,
+      translation, and many other tasks.</li>
+    <li><strong>Which industries use machine learning?</strong> Machine learning touches industries spanning from
+      government to education to healthcare. It can be used by businesses focused on marketing, social media, customer
+      service, driverless cars, and many more. It is now widely regarded as a core tool for decision making.</li>
+    <li><strong>How do businesses use machine learning?</strong> Business applications of machine learning are numerous,
+      but all boil down to one type of use: Processing, sorting, and finding patterns in huge amounts of data that would
+      be impractical for humans to make sense of.</li>
+    <li><strong>What are the security and ethical concerns about machine learning?</strong> AI has already been trained
+      to bypass advanced antimalware software, and it has the potential to be a huge security risk in the future.
+      Ethical concerns also abound, especially in relation to the loss of jobs and the practicality of allowing machines
+      to make moral decisions like those that would be necessary in self-driving vehicles.</li>
+    <li><strong>What machine learning tools are available?</strong> Businesses like IBM, Amazon, Microsoft, Google, and
+      others offer tools for machine learning. There are free platforms as well.</li>
+  </ul>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/managing-ai-and-ml-in-the-enterprise-2020-tech-leaders-increase-project-development-and-implementation/"><strong>Managing
+        AI and ML in the enterprise 2020: Tech leaders increase project development and implementation</strong></a>
+    <strong>(TechRepublic Premium)</strong></p>
+  <h2 id="what-is-machine-learning">What is machine learning?</h2>
+  <p>Machine learning is a branch of AI. Other tools for reaching AI include rule-based engines, evolutionary
+    algorithms, and Bayesian statistics. While many early AI programs, like IBM’s Deep Blue, which defeated Garry
+    Kasparov in chess in 1997, were rule-based and dependent on human programming, machine learning is a tool through
+    which computers have the ability to teach themselves, and set their own rules. In 2016, Google’s DeepMind beat the
+    world champion in Go by using machine learning–training itself on a large data set of expert moves.</p>
+  <p>There are several kinds of machine learning:</p>
+  <ul>
+    <li>In <strong>supervised learning</strong>, the “trainer” will present the computer with certain rules that connect
+      an input (an object’s feature, like “smooth,” for example) with an output (the object itself, like a marble).</li>
+    <li>In <strong>unsupervised learning</strong>, the computer is given inputs and is left alone to discover patterns.
+    </li>
+    <li>In <strong>reinforcement learning</strong>, a computer system receives input continuously (in the case of a
+      driverless car receiving input about the road, for example) and constantly is improving.</li>
+  </ul>
+  <p>A massive amount of data is required to train algorithms for machine learning. First, the “training data” must be
+    labeled (e.g., a GPS location attached to a photo). Then it is “classified.” This happens when features of the
+    object in question are labeled and put into the system with a set of rules that lead to a prediction. For example,
+    “red” and “round” are inputs into the system that leads to the output: Apple. Similarly, a learning algorithm could
+    be left alone to create its own rules that will apply when it is provided with a large set of the object–like a
+    group of apples, and the machine figures out that they have properties like “round” and “red” in common.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.zdnet.com/article/what-is-machine-learning-everything-you-need-to-know/"><strong>What is machine
+        learning? Everything you need to know</strong></a> <strong>(ZDNet)</strong></p>
+  <p>Many cases of machine learning involve “deep learning,” a subset of ML that uses algorithms that are layered, and
+    form a network to process information and reach predictions. What distinguishes deep learning is the fact that the
+    system can learn on its own, without human training.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/understanding-the-differences-between-ai-machine-learning-and-deep-learning/">Understanding
+        the differences between AI, machine learning, and deep learning</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/videos/is-machine-learning-right-for-your-business/">Video: Is machine
+        learning right for your business?</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/microsoft-says-ai-and-machine-learning-driven-by-open-source-and-the-cloud/">Microsoft
+          says AI and machine learning driven by open source and the cloud</a> (ZDNet)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/ibm-watson-the-inside-story-of-how-the-jeopardy-winning-supercomputer-was-born-and-what-it-wants-to-do-next/">IBM
+          Watson: The inside story of how the Jeopardy-winning supercomputer was born, and what it wants to do next</a>
+        (TechRepublic cover story)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/google-ai-gets-better-at-seeing-the-world-by-learning-what-to-focus-on/">Google
+          AI gets better at ‘seeing’ the world by learning what to focus on</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="when-did-machine-learning-become-popular">When did machine learning become popular?</h2>
+  <p>Machine learning was popular in the 1990s, and has seen a recent resurgence. Here are some timeline highlights.</p>
+  <ul>
+    <li><strong>2011</strong>: Google Brain was created, which was a deep neural network that could identify and
+      categorize objects.</li>
+    <li><strong>2014</strong>: Facebook’s DeepFace algorithm was introduced. The algorithm could recognize people from a
+      set of photos.</li>
+    <li><strong>2015</strong>: Amazon launched its machine learning platform, and Microsoft offered a Distributed
+      Machine Learning Toolkit.</li>
+    <li><strong>2016</strong>: Google’s DeepMind program “AlphaGo” beat the world champion, Lee Sedol, at the complex
+      game of Go.</li>
+    <li><strong>2017</strong>: Google announced that its machine learning tools can recognize objects in photos and
+      understand speech better than humans.</li>
+    <li><strong>2018:</strong> Alphabet subsidiary Waymo launched the ML-powered <a
+        href="https://www.techrepublic.com/article/business-travelers-self-driving-waymo-service-will-be-available-in-phoenix-in-2018/">self-driving
+        ride hailing service</a> in Phoenix, AZ.</li>
+    <li><strong>2020:</strong> <a
+        href="https://www.techrepublic.com/article/mit-develops-machine-learning-model-to-quicken-release-of-covid-19-vaccine/">Machine
+        learning algorithms are brought into play against the COVID-19 pandemic</a>, helping to speed vaccine research
+      and improve the ability to track the virus’ spread.</li>
+  </ul>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/google-announces-hum-to-search-machine-learning-music-search-feature/">Google
+        announces “hum to search” machine learning music search feature</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/microsoft-releases-preview-of-lobe-training-app-for-machine-learning/">Microsoft
+          releases preview of Lobe training app for machine-learning</a> (ZDNet)</p>
+    </li>
+    <li>
+      <p><a href="https://www.zdnet.com/article/alibaba-neural-network-defeats-human-in-global-reading-test/">Alibaba
+          neural network defeats human in global reading test</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h2 id="why-does-machine-learning-matter">Why does machine learning matter?</h2>
+  <p>Aside from the tremendous power machine learning has to beat humans at games like Jeopardy, chess, and Go, machine
+    learning has many practical applications. Machine learning tools are used to translate messages on Facebook, spot
+    faces from photos, and <a
+      href="https://www.techrepublic.com/article/google-maps-meets-ai-carnegie-mellons-terrapattern-can-find-and-map-every-pool-in-new-york-city/">find
+      locations around the globe</a> that have certain geographic features. <a
+      href="https://www.techrepublic.com/article/ibm-watsons-latest-gig-improving-cancer-treatment-with-genomic-sequencing/">IBM
+      Watson</a> is used to help doctors make cancer treatment decisions. Driverless cars use machine learning to gather
+    information from the environment. Machine learning is also central to fraud prevention. Unsupervised machine
+    learning, combined with human experts, has been proven to be very accurate in <a
+      href="https://www.techrepublic.com/article/how-one-ai-security-system-combines-humans-and-machine-learning-to-detect-cyberthreats/">detecting
+      cybersecurity threats</a>, for example.</p>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic’s cheat sheets
+        and smart person’s guides</a></strong></p>
+  <p>While there are many potential benefits of AI, there are also concerns about its usage. Many worry that AI (like
+    automation) will <a
+      href="https://www.techrepublic.com/article/ai-is-destroying-more-jobs-than-it-creates-what-it-means-and-how-we-can-stop-it/">put
+      human jobs at risk</a>. And whether or not AI replaces humans at work, it will definitely shift the kinds of jobs
+    that are necessary. Machine learning’s requirement for labeled data, for example, has meant a <a
+      href="https://www.techrepublic.com/article/is-tech-turning-contract-work-into-the-future-of-employment/">huge need
+      for humans to manually do the labeling</a>.</p>
+  <p>As machine learning and AI in the workplace have evolved, many of its applications have centered on <a
+      href="https://www.techrepublic.com/article/70-of-customer-support-agents-believe-ai-will-free-them-to-focus-on-higher-value-work/">assisting
+      workers rather than replacing them outright</a>. This was especially true during the COVID-19 pandemic, which
+    forced many companies to send large portions of their workforce home to work remotely, leading to <a
+      href="https://www.techrepublic.com/article/forrester-ai-and-automation-will-help-organizations-rethink-the-future-of-work/">AI
+      bots and machine learning supplementing humans to take care of mundane tasks</a>.</p>
+  <p>There are several institutions dedicated to exploring the impact of artificial intelligence. Here are a few (culled
+    from our <a
+      href="https://www.techrepublic.com/article/10-artificial-intelligence-insiders-to-follow-on-twitter/">Twitter list
+      of AI insiders</a>).</p>
+  <ul>
+    <li><a href="https://futureoflife.org/"><strong>The Future of Life Institute</strong></a> brings together some of
+      the greatest minds–from the co-founder of Skype to professors at Harvard and MIT–to explore some of the big
+      questions about our future with machines. This Cambridge-based institute also has a stellar lineup on its
+      scientific advisory board, from Nick Bostrom to Elon Musk to Morgan Freeman.</li>
+    <li><a href="https://www.fhi.ox.ac.uk/"><strong>The Future of Humanity Institute</strong></a> at Oxford is one of
+      the premier sites for cutting-edge academic research. The <a href="https://twitter.com/FHIOxford">FHI Twitter
+        feed</a> is a wonderful place for content on the latest in AI, and the many retweets by the account are also
+      useful in finding other Twitter users who are working on the latest in artificial intelligence.</li>
+    <li>The <a href="https://intelligence.org/"><strong>Machine Intelligence Research Institute at Berkeley</strong></a>
+      is an excellent resource for the latest academic work in artificial intelligence. <a
+        href="https://twitter.com/MIRIBerkeley">MIRI</a> exists, according to Twitter, not only to investigate AI, but
+      also to “ensure that the creation of smarter-than-human intelligence has a positive impact.”</li>
+  </ul>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/ibm-watson-cto-the-3-ethical-principles-ai-needs-to-embrace/">IBM
+        Watson CTO: The 3 ethical principles AI needs to embrace</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/forrester-automation-could-lead-to-another-jobless-recovery/">Forrester:
+        Automation could lead to another jobless recovery</a> (TechRepublic)</li>
+    <li><a href="https://www.cbsnews.com/news/machine-learning-helps-science-tackle-alzheimers/">Machine learning helps
+        science tackle Alzheimer’s</a> (CBS News)</li>
+  </ul>
+  <h2 id="which-industries-use-machine-learning"><strong>Which industries use machine learning?</strong></h2>
+  <p>Just about any organization that wants to capitalize on its data to gain insights, improve relationships with
+    customers, increase sales, or be competitive at a specific task will rely on machine learning. It has applications
+    in government, business, education–virtually anyone who wants to make predictions, and has a large enough data set,
+    can use machine learning to achieve their goals.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.zdnet.com/topic/sensord-enterprise-iot-ml-and-big-data/"><strong>Sensor’d enterprise: IoT, ML,
+        and big data</strong></a> <strong>(ZDNet special report) |</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/special-report-iot-and-the-sensor-d-enterprise-free-pdf/"><strong>Download
+        the report as a PDF</strong></a> <strong>(TechRepublic)</strong></p>
+  <p>Along with analytics, machine learning can be used to supplement human workers by <a
+      href="https://www.techrepublic.com/article/how-ai-is-impacting-the-workplace/">taking on mundane tasks</a> and
+    freeing them to do more meaningful, innovative, and productive work. Like with analytics, and business that has
+    employees dealing with repetitive, high-volume tasks can benefit from machine learning.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/the-6-most-in-demand-ai-jobs-and-how-to-get-them/">The 6 most
+        in-demand AI jobs, and how to get them</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/cheat-sheet-how-to-become-a-data-scientist/">Cheat sheet: How to
+        become a data scientist</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/mits-automated-machine-learning-works-100x-faster-than-human-data-scientists/">MIT’s
+        automated machine learning works 100x faster than human data scientists</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/apple-ibm-add-machine-learning-muscle-to-enterprise-ios-pact/">Apple, IBM
+        add machine learning muscle to enterprise iOS pact</a> (ZDNet)</li>
+  </ul>
+  <h2 id="how-do-businesses-use-machine-learning"><strong>How do businesses use machine learning?</strong></h2>
+  <p>2017 was a huge year for growth in the capabilities of machine learning, and <a
+      href="https://www.techrepublic.com/article/6-reasons-why-ai-adoption-will-thrive-in-2019/">2018 set the stage</a>
+    for explosive growth that, by early 2020, found that <a
+      href="https://www.techrepublic.com/article/85-of-organizations-are-using-ai-in-deployed-applications/">85% of
+      businesses were using some form of AI</a> in their deployed applications. </p>
+  <p>One of the things that may be holding that growth back, Deloitte said, is confusion–just what is machine learning
+    capable of doing for businesses?</p>
+  <p>There are numerous examples of how businesses are leveraging machine learning, and all of it breaks down to the
+    same basic thing: Processing massive amounts of data to draw conclusions much faster than a team of data scientists
+    ever could.</p>
+  <p>Some examples of business uses of machine learning include:</p>
+  <ul>
+    <li>Alphabet-owned security firm <a
+        href="https://www.techrepublic.com/article/new-alphabet-security-firm-uses-big-data-and-machine-learning-to-protect-businesses/">Chronicle
+        is using machine learning to identify cyberthreats</a> and minimize the damage they can cause.</li>
+    <li>Airbus Defense &amp; Space is using ML-based image recognition technology to <a
+        href="https://www.techrepublic.com/article/7-companies-that-used-machine-learning-to-solve-real-business-problems/">decrease
+        the error rate</a> of cloud recognition in satellite images.</li>
+    <li>Global Fishing Watch is fighting overfishing by monitoring the GPS coordinates of fishing vessels, which has
+      enabled them to monitor the whole ocean at once.</li>
+    <li>Insurance firm AXA raised accident prediction accuracy by 78% by using machine learning to build accurate driver
+      risk profiles.</li>
+    <li>Japanese food safety company Kewpie has automated detection of defective potato cubes so that workers don’t have
+      to spend hours watching for them.</li>
+    <li>
+      <p><a
+          href="https://engineeringblog.yelp.com/2015/10/how-we-use-deep-learning-to-classify-business-photos-at-yelp.html">Yelp
+          uses deep learning</a> to classify photos people take of businesses by certain tags.</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/mit-develops-machine-learning-model-to-quicken-release-of-covid-19-vaccine/">MIT’s
+          OptiVax</a> can develop and test peptide vaccines for COVID-19 and other diseases in a completely virtual
+        environment with variables including geographic coverage, population data, and more.</p>
+    </li>
+  </ul>
+  <p><strong>SEE: <a
+        href="https://www.techrepublic.com/resource-library/whitepapers/executive-s-guide-to-ai-in-business-free-ebook/">Executive’s
+        guide to AI in business (free ebook)</a> (TechRepublic)</strong></p>
+  <p>Any business that deals with big data analysis can use machine learning technology to speed up the process and put
+    humans to better use, and the particulars can vary greatly from industry to industry.</p>
+  <p>AI applications don’t come first–they’re tools used to solve business problems, and should be seen as such. Finding
+    the proper application for machine learning technology involves asking the right questions, or being faced with a
+    massive wall of data that would be impossible for a human to process.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/5-tips-to-overcome-machine-learning-adoption-barriers-in-the-enterprise/">5
+        tips to overcome machine learning adoption barriers in the enterprise</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-the-nfl-and-amazon-unleashed-next-gen-stats-to-grok-football-games/">How
+        the NFL and Amazon unleashed ‘Next Gen Stats’ to grok football games</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/robot-boats-from-mit-can-now-carry-passengers/">Robot boats from
+        MIT can now carry passengers</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/predictive-analytics-the-smart-persons-guide/">Predictive
+        analytics: A cheat sheet</a> (TechRepublic)</li>
+    <li><a
+        href="http://www.zdnet.com/article/how-machine-learning-and-artificial-intelligence-will-transform-business-intelligence-and-analytics/">How
+        ML and AI will transform business intelligence and analytics</a> (ZDNet)</li>
+    <li><a
+        href="https://www.zdnet.com/article/zoom-meetings-you-can-now-add-live-captions-to-your-call-and-they-actually-work/">Zoom
+        meetings: You can now add live captions to your call – and they actually work</a> (ZDNet)</li>
+    <li><a href="https://www.zdnet.com/topic/ai-and-the-future-of-business/">AI and the Future of Business</a> (ZDNet
+      special feature)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-launch-a-successful-ai-startup/">How to launch a successful
+        AI startup</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/the-practical-applications-of-ai-6-videos/">The practical
+        applications of AI: 6 videos</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="what-are-the-security-and-ethical-concerns-about-machine-learning">What are the security and ethical concerns
+    about machine learning?</h2>
+  <p>There are a number of concerns about using machine learning and AI, including the security of cloud-hosted data and
+    the ethical considerations of self-driving cars.</p>
+  <p>From a security perspective, there are always concerns about the theft of large amounts of data, but security fears
+    go beyond how to lock down data repositories.</p>
+  <p>Security professionals are <a
+      href="https://www.techrepublic.com/article/91-of-cybersecurity-pros-fear-hackers-will-use-ai-to-attack-their-company/">nearly
+      universally concerned</a> about the potential of AI to bypass antimalware software and other security measures,
+    and they’re right to be worried: Artificial intelligence software has been developed that can <a
+      href="https://www.techrepublic.com/article/ai-experts-weigh-in-on-microsoft-ceos-10-new-rules-for-artificial-intelligence/">modify
+      malware</a> to bypass AI-powered antimalware platforms.</p>
+  <p>Several tech leaders, like Elon Musk, Stephen Hawking, and Bill Gates, have expressed worries about how AI may be
+    misused, and the importance of creating ethical AI. Evidenced by the disaster of <a
+      href="https://www.techrepublic.com/article/why-microsofts-tay-ai-bot-went-wrong/">Microsoft’s racist chatbot,
+      Tay</a>, AI can go wrong if left unmonitored.</p>
+  <p><strong>SEE: <a href="https://www.zdnet.com/article/can-we-teach-machine-learning-privacy/">Machine learning as a
+        service: Can privacy be taught?</a> (ZDNet)</strong></p>
+  <p>Ethical concerns abound in the machine learning world as well; one example is a self-driving vehicle adaptation of
+    the <a href="http://www.trolleydilemma.com/">trolley problem</a> thought experiment. In short, when <a
+      href="https://www.techrepublic.com/article/mits-moral-machine-crowdsources-decisions-about-autonomous-driving-but-experts-call-it-misguided/">a
+      self-driving vehicle is presented with a choice</a> between killing its occupants or a pedestrian, which is the
+    right choice to make? There’s no clear answer with philosophical problems like this one–no matter how the machine is
+    programmed, it has to make a moral judgement about the value of human lives.</p>
+  <p><a href="https://www.techrepublic.com/article/the-sinister-timing-of-deepfakes-and-the-2020-election/">Deep fake
+      videos</a>, which realistically replace one person’s face and/or voice with someone else’s based on photos and
+    other recordings, have the potential to upset elections, insert unwilling people into pornography, and otherwise
+    insert individuals into situtations they aren’t okay with. <a
+      href="https://www.techrepublic.com/article/why-deepfakes-are-a-real-threat-to-elections-and-society/">The
+      far-reaching effects</a> of this machine learning-powered tool could be devastating.</p>
+  <p>Along with whether giving learning machines the ability to make moral decisions is correct, or whether access to
+    certain ML tools is socially dangerous, there are issues of the other major human cost likely to come with machine
+    learning: Job loss.</p>
+  <p>If the AI revolution is truly the next major shift in the world, there are a lot of jobs that will cease to exist,
+    and it isn’t necessarily the ones you’d think. While many <a
+      href="https://www.techrepublic.com/article/50-of-low-skilled-jobs-will-be-replaced-by-ai-and-automation-report-claims/">low-skilled
+      jobs are definitely at risk</a> of being eliminated, so are jobs that require a high degree of training but are
+    based on simple concepts like pattern recognition.</p>
+  <p><a
+      href="https://www.techrepublic.com/article/why-ai-is-about-to-make-some-of-the-highest-paid-doctors-obsolete/">Radiologists,
+      pathologists, oncologists</a>, and other similar professions are all based on finding and diagnosing
+    irregularities, something that machine learning is particularly suited to do.</p>
+  <p>There’s also the ethical concern of barrier to entry–while machine learning software itself isn’t expensive, <a
+      href="https://www.techrepublic.com/article/why-machine-learning-benefits-the-rich-and-everyone-else-is-toast/">only
+      the largest enterprises in the world</a> have the vast stores of data necessary to properly train learning
+    machines to provide reliable results.</p>
+  <p>As time goes on, some experts predict that it’s going to become more difficult for smaller firms to make an impact,
+    making machine learning primarily a game for the largest, wealthiest companies.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/why-ai-bias-could-be-a-good-thing/">Why AI bias could be a good
+        thing</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/google-ai-executive-sees-a-world-of-trillions-of-devices-untethered-from-human-care/">Google
+        AI executive sees a world of trillions of devices untethered from human care</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/ai-and-ethics-one-third-of-executives-are-not-aware-of-potential-ai-bias/">AI
+        and ethics: One-third of executives are not aware of potential AI bias</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/artificial-data-reduces-privacy-concerns-and-helps-with-big-data-analysis/">Artificial
+        data reduces privacy concerns and helps with big data analysis</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/can-ai-really-be-ethical-and-unbiased/">Can AI really be ethical and
+        unbiased?</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/3-ways-criminals-use-artificial-intelligence-in-cybersecurity-attacks/">3
+        ways criminals use artificial intelligence in cybersecurity attacks</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/artificial-intelligence-legal-ethical-and-policy-issues/">Artificial
+        Intelligence: Legal, ethical, and policy issues</a> (ZDNet)</li>
+  </ul>
+  <h2 id="what-machine-learning-tools-are-available"><strong>What machine learning tools are available?</strong></h2>
+  <p>There are many online resources about machine learning. To get an overview of how to create a machine learning
+    system, check out <a href="https://www.youtube.com/watch?v=cKxRvEZd3Mw">this series of YouTube videos by Google
+      Developer</a>. There are also <a
+      href="https://www.coursera.org/specializations/machine-learning?utm_source=gg&amp;utm_medium=sem&amp;utm_campaign=machine_learning_search_us&amp;campaignid=325492147&amp;device=c&amp;keyword=coursera%20machine%20learning&amp;matchtype=e&amp;network=g&amp;devicemodel=&amp;adpostion=1t1&amp;hide_mobile_promo&amp;gclid=CKmsx8TZqs0CFdgRgQodMVUMmQ">classes
+      on machine learning from Coursera</a> and many other institutions.</p>
+  <p>And to integrate machine learning into your organization, you can use resources like <a
+      href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft’s Azure</a>, <a
+      href="https://www.techrepublic.com/article/google-cloud-machine-learning-engine-the-smart-persons-guide/">Google
+      Cloud Machine Learning</a>, <a href="https://aws.amazon.com/machine-learning/">Amazon Machine Learning</a>, <a
+      href="https://www.techrepublic.com/article/ibm-watson-the-smart-persons-guide/">IBM Watson</a>, and free platforms
+    like <a href="http://scikit-learn.org/">Scikit</a>.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/amazon-unveils-dozens-of-machine-learning-tools/">Amazon unveils
+        dozens of machine learning tools</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/microsoft-offers-developers-pre-built-machine-learning-models-for-windows-10-apps/">Microsoft
+        offers developers pre-built machine learning models for Windows 10 apps</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/google-launches-cloud-automl-an-effort-to-simplify-and-automate-the-grunt-work-behind-ai-and-machine/">Cloud
+        AutoML: How Google aims to simplify the grunt work behind AI and machine learning models</a> (ZDNet)</li>
+    <li><a href="https://www.techrepublic.com/article/amazon-ai-the-smart-persons-guide/">Amazon AI: Cheat sheet</a>
+      (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/ai-investment-increased-during-the-pandemic-and-many-business-plan-to-do-more-gartner-found/">AI
+        investment increased during the pandemic, and many business plan to do more, Gartner found</a> (TechRepublic)
+    </li>
+    <li><a
+        href="https://www.techrepublic.com/article/facebooks-machine-learning-director-shares-tips-for-building-a-successful-ai-platform/">Facebook’s
+        machine learning director shares tips for building a successful AI platform</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/ai-helpers-arent-just-for-facebooks-zuckerberg-heres-how-to-build-your-own/">AI
+        helpers aren’t just for Facebook’s Zuckerberg: Here’s how to build your own</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-developers-can-take-advantage-of-machine-learning-on-google-cloud-platform/">How
+        developers can take advantage of machine learning on Google Cloud Platform</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-prepare-your-business-to-include-ai/">How to prepare your
+        business to benefit from AI</a> (TechRepublic)</li>
+  </ul>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="innovation-newsletter">Innovation Newsletter</h3>
+  <p>Be in the know about smart cities, AI, Internet of Things, VR, AR, robotics, drones, autonomous driving, and more
+    of the coolest tech innovations. Delivered Wednesdays and Fridays</p>
+  <p>Sign up today</p>
+  <p><em><strong>Editor’s note:</strong> This article was updated by Brandon Vigliarolo.</em></p>
+  <p><a href="https://www.techrepublic.com/article/machine-learning-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

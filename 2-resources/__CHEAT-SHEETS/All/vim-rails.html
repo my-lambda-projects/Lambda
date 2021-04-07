@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="alternate-files">Alternate files</h2>
+<div class="line-block"><code>:A</code> | alternate file (test) |<br />
+<code>:R</code> | related file (controller/view) |</div>
+<h3 id="what-it-does">What it does</h3>
+<table>
+<thead>
+<tr class="header">
+<th>.</th>
+<th>:A</th>
+<th>:R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Model</strong></td>
+<td>test/models/</td>
+<td>db/schema.rb</td>
+</tr>
+<tr class="even">
+<td><strong>Controller method</strong></td>
+<td>test/controllers/</td>
+<td>app/views/</td>
+</tr>
+<tr class="odd">
+<td><strong>View template</strong></td>
+<td>test/views/</td>
+<td>app/controllers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="abbreviations">Abbreviations</h2>
+<p>Type <code>:Rabbrev</code> for a full list.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Abbrev</th>
+<th>Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>AC::</code></td>
+<td>ActionController</td>
+</tr>
+<tr class="even">
+<td><code>AR::</code></td>
+<td>ActiveRecord</td>
+</tr>
+<tr class="odd">
+<td><code>AV::</code></td>
+<td>ActionView</td>
+</tr>
+<tr class="even">
+<td><code>...</code></td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>logd(</code></td>
+<td>logger.debug</td>
+</tr>
+<tr class="odd">
+<td><code>logi(</code></td>
+<td>logger.info</td>
+</tr>
+<tr class="even">
+<td><code>...</code></td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>{:.no-head.greycode}</p>
+<h3 id="model">Model</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Abbrev</th>
+<th>Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>bt(</code></td>
+<td><code>belongs_to</code></td>
+</tr>
+<tr class="even">
+<td><code>hm(</code></td>
+<td><code>has_many</code></td>
+</tr>
+<tr class="odd">
+<td><code>ho(</code></td>
+<td><code>has_one</code></td>
+</tr>
+<tr class="even">
+<td><code>habtm(</code></td>
+<td><code>has_and_belongs_to_many</code></td>
+</tr>
+</tbody>
+</table>
+<p>{:.no-head.greycode}</p>
+<h3 id="controllers">Controllers</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Abbrev</th>
+<th>Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pa[</code></td>
+<td>params</td>
+</tr>
+<tr class="even">
+<td><code>re(</code></td>
+<td>redirect_to</td>
+</tr>
+<tr class="odd">
+<td><code>rp(</code></td>
+<td>render partial:</td>
+</tr>
+<tr class="even">
+<td><code>rst(</code></td>
+<td>respond_to</td>
+</tr>
+</tbody>
+</table>
+<p>{:.no-head.greycode}</p>
+<h3 id="views">Views</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Abbrev</th>
+<th>Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dotiw</code></td>
+<td><code>distance_of_time_in_words</code></td>
+</tr>
+<tr class="even">
+<td><code>taiw</code></td>
+<td><code>time_ago_in_words</code></td>
+</tr>
+</tbody>
+</table>
+<p>{:.no-head.greycode}</p>
+<h2 id="extracting-partials">Extracting partials</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># from view =&gt; app/views/home/_foo_partial.haml</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="st">:Rextract</span> home/foo_partial</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co"># from model =&gt; app/models/concerns/foo_concern.rb</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="st">:Rextract</span> <span class="dt">FooConcern</span></a></code></pre></div>
+<h2 id="loading-files">Loading files</h2>
+<h3 id="app">App</h3>
+<pre><code>:Econtroller &lt;file&gt;     # app/controllers/*_controller.rb
+:Ehelper                # app/helpers/*_helper.rb
+:Emodel &lt;file&gt;          # app/models/*.rb
+:Ejob &lt;file&gt;            # app/jobs/*_job.rb
+:Emailer &lt;file&gt;         # app/mailers/*.rb</code></pre>
+<h3 id="db">DB</h3>
+<pre><code>:Emigration &lt;file&gt;     # db/migrations/*.rb
+:Eschema               # db/schema.rb</code></pre>
+<h3 id="lib">Lib</h3>
+<pre><code>:Elib &lt;file&gt;      # lib/*.rb
+:Elib             # Gemfile
+:Etask &lt;file&gt;     # lib/tasks/*.rake</code></pre>
+<h3 id="assets">Assets</h3>
+<pre><code>:Estylesheet
+:Ejavascript</code></pre>
+<h3 id="views-1">Views</h3>
+<pre><code>:Eview
+:Elayout</code></pre>
+<h3 id="test">Test</h3>
+<pre><code>:Espec
+:Eunittest
+  # test/{unit,models,helpers}/*_test.rb
+  # spec/{unit,models,helpers}/*_spec.rb
+
+:Efunctionaltest
+  # test/{functional,controllers,mailers}/*_test.rb
+  # spec/{functional,controllers,mailers}/*_spec.rb
+
+:Eintegrationtest
+  # test/integration/*_test.rb
+  # spec/{features,requests,integration}/*_spec.rb
+  # features/*.feature
+
+:Efixtures
+:Efunctionaltest</code></pre>
+<h3 id="config">Config</h3>
+<pre><code>:Einitializer &lt;file&gt;          # config/initializers/*.rb
+:Elocale                      # config/locales/*.yml
+:Eenvironment                 # application.rb
+:Eenvironment development     # config/environments/*.rb</code></pre>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://github.com/tpope/vim-rails">vim-rails</a></li>
+</ul>
+</body></html>

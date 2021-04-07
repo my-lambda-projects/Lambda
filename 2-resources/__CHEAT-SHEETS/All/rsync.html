@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="basic-example">Basic example</h3>
+<p>{: .-prime}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># syncing folder src into dest:</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">rsync</span> -avz ./src /dest</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co"># syncing the content of src into dest:</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="fu">rsync</span> -avz ./src/ /dest</a></code></pre></div>
+<h3 id="osx">OSX</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">--exclude</span> <span class="st">&#39;.Trashes&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">--exclude</span> <span class="st">&#39;.Spotlight-V100&#39;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">--exclude</span> <span class="st">&#39;.fseventsd&#39;</span></a></code></pre></div>
+<h3 id="transfer-options">Transfer options</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">-z</span>, --compress</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">-n</span>, --dry-run</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="ex">--partial</span>   <span class="co"># allows resuming of aborted syncs</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="ex">--bwlimit</span>=RATE    <span class="co"># limit socket I/O bandwidth</span></a></code></pre></div>
+<h3 id="display-options">Display options</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">-q</span>, --quiet</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">-v</span>, --verbose</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="ex">--stats</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="ex">-h</span>, --human-readable</a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="ex">--progress</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="ex">-P</span>                     <span class="co"># same as --partial --progress</span></a></code></pre></div>
+<h3 id="skipping-options">Skipping options</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">-u</span>, --update     <span class="co"># skip files newer on dest</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">-c</span>, --checksum   <span class="co"># skip based on checksum, not mod-time &amp; size</span></a></code></pre></div>
+<h3 id="backup-options">Backup options</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">-b</span>, --backup           <span class="co"># backup with suffix</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="ex">--suffix</span>=SUFFIX    <span class="co"># default ~ without --backup-dir</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="ex">--backup-dir</span>=DIR</a></code></pre></div>
+<h3 id="include-options">Include options</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">--exclude</span>=PATTERN</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="ex">--include</span>=PATTERN</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">--exclude-from</span>=FILE</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">--include-from</span>=FILE</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="ex">--files-from</span>=FILE    <span class="co"># read list of filenames from FILE</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">-C</span>, --cvs-exclude    <span class="co"># exclude from local/global .cvsignore</span></a></code></pre></div>
+<h3 id="archive-options">Archive options</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">-a</span>, --archive    <span class="co"># archive (-rlptgoD)</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="ex">-r</span>, --recursive</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="ex">-l</span>, --links      <span class="co"># copy symlinks as links</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="ex">-p</span>, --perms      <span class="co"># preserve permissions</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="ex">-t</span>, --times      <span class="co"># preserve times</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="ex">-g</span>, --group      <span class="co"># preserve group</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="ex">-o</span>, --owner      <span class="co"># preserve owner</span></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="ex">-D</span>               <span class="co"># --devices --specials</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="ex">--delete</span>         <span class="co"># Delete extra files</span></a></code></pre></div>
+</body></html>

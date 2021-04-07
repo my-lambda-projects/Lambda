@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="loading">Loading</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1">image = <span class="dt">ChunkyPNG</span>::<span class="dt">Image</span>.from_file(<span class="st">&#39;file.png&#39;</span>)</a></code></pre></div>
+<h4 id="alternate-ways">Alternate ways</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1">image = <span class="dt">ChunkyPNG</span>::<span class="dt">Image</span>.from_blob(<span class="dt">File</span>.read(<span class="st">&#39;file.png&#39;</span>))</a>
+<a class="sourceLine" id="cb2-2" title="2">image = <span class="dt">ChunkyPNG</span>::<span class="dt">Image</span>.from_io(io) </a></code></pre></div>
+<p>Loads from <code>file.png</code>.</p>
+<h3 id="saving">Saving</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">image.save(<span class="st">&#39;filename.png&#39;</span>)</a></code></pre></div>
+<h4 id="alternate-ways-1">Alternate ways</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">File</span>.open(<span class="st">&#39;newfile.png&#39;</span>, <span class="st">&#39;wb&#39;</span>) { |io| image.write(io) }</a>
+<a class="sourceLine" id="cb4-2" title="2">binary_string = image.to_blob</a></code></pre></div>
+<p>Writes an image to <code>newfile.png</code>.</p>
+<h3 id="drawing">Drawing</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1">image[<span class="dv">0</span>, <span class="dv">0</span>] = <span class="dt">ChunkyPNG</span>::<span class="dt">Color</span>.rgba(<span class="dv">255</span>, <span class="dv">0</span>,<span class="dv">0</span>, <span class="dv">128</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2">image.line(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dt">ChunkyPNG</span>::<span class="dt">Color</span>.from_hex(<span class="st">&#39;#aa007f&#39;</span>))</a></code></pre></div>
+<h3 id="canvas">Canvas</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1">crop(x, y, w, h)</a></code></pre></div>
+<h3 id="transforms">Transforms</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">new_image = image.flip_horizontally.rotate_right</a></code></pre></div>
+</body></html>

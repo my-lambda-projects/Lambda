@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="manage-images">Manage images</h2>
+<h3 id="docker-build"><code>docker build</code></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" title="1">docker build <span class="kw">[</span>options<span class="kw">]</span> .</a>
+<a class="sourceLine" id="cb1-2" title="2">  -t <span class="st">&quot;app/container_name&quot;</span>    <span class="co"># name</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  --build-arg APP_HOME=$APP_HOME    <span class="co"># Set build-time variables</span></a></code></pre></div>
+<p>Create an <code>image</code> from a Dockerfile.</p>
+<h3 id="docker-run"><code>docker run</code></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb2-1" title="1">docker run <span class="kw">[</span>options<span class="kw">]</span> IMAGE</a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="co"># see `docker create` for options</span></a></code></pre></div>
+<h4 id="example">Example</h4>
+<pre><code>$ docker run -it debian:buster /bin/bash</code></pre>
+<p>Run a command in an <code>image</code>.</p>
+<h2 id="manage-containers">Manage containers</h2>
+<h3 id="docker-create"><code>docker create</code></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" title="1">docker create <span class="kw">[</span>options<span class="kw">]</span> IMAGE</a>
+<a class="sourceLine" id="cb4-2" title="2">  -a, --attach               <span class="co"># attach stdout/err</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  -i, --interactive          <span class="co"># attach stdin (interactive)</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  -t, --tty                  <span class="co"># pseudo-tty</span></a>
+<a class="sourceLine" id="cb4-5" title="5">      --name NAME            <span class="co"># name your image</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  -p, --publish 5000:5000    <span class="co"># port map (host:container)</span></a>
+<a class="sourceLine" id="cb4-7" title="7">      --expose 5432          <span class="co"># expose a port to linked containers</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  -P, --publish-all          <span class="co"># publish all ports</span></a>
+<a class="sourceLine" id="cb4-9" title="9">      --link container:alias <span class="co"># linking</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  -v, --volume `pwd`:/app    <span class="co"># mount (absolute paths needed)</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  -e, --env NAME=hello       <span class="co"># env vars</span></a></code></pre></div>
+<h4 id="example-1">Example</h4>
+<pre><code>$ docker create --name app_redis_1 \
+  --expose 6379 \
+  redis:3.0.2</code></pre>
+<p>Create a <code>container</code> from an <code>image</code>.</p>
+<h3 id="docker-exec"><code>docker exec</code></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" title="1">docker exec <span class="kw">[</span>options<span class="kw">]</span> CONTAINER COMMAND</a>
+<a class="sourceLine" id="cb6-2" title="2">  -d, --detach        <span class="co"># run in background</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  -i, --interactive   <span class="co"># stdin</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  -t, --tty           <span class="co"># interactive</span></a></code></pre></div>
+<h4 id="example-2">Example</h4>
+<pre><code>$ docker exec app_web_1 tail logs/development.log
+$ docker exec -t -i app_web_1 rails c</code></pre>
+<p>Run commands in a <code>container</code>.</p>
+<h3 id="docker-start"><code>docker start</code></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb8-1" title="1">docker start <span class="kw">[</span>options<span class="kw">]</span> CONTAINER</a>
+<a class="sourceLine" id="cb8-2" title="2">  -a, --attach        <span class="co"># attach stdout/err</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  -i, --interactive   <span class="co"># attach stdin</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5">docker stop <span class="kw">[</span>options<span class="kw">]</span> CONTAINER</a></code></pre></div>
+<p>Start/stop a <code>container</code>.</p>
+<h3 id="docker-ps"><code>docker ps</code></h3>
+<pre><code>$ docker ps
+$ docker ps -a
+$ docker kill $ID</code></pre>
+<p>Manage <code>container</code>s using ps/kill.</p>
+<h3 id="docker-logs"><code>docker logs</code></h3>
+<pre><code>$ docker logs $ID
+$ docker logs $ID 2&gt;&amp;1 | less
+$ docker logs -f $ID # Follow log output</code></pre>
+<p>See what’s being logged in an <code>container</code>.</p>
+<h2 id="images">Images</h2>
+<h3 id="docker-images"><code>docker images</code></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1">$ <span class="ex">docker</span> images</a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="ex">REPOSITORY</span>   TAG        ID</a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="ex">ubuntu</span>       12.10      b750fe78269d</a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="ex">me/myapp</span>     latest     7b2431a8d968</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1">$ <span class="ex">docker</span> images -a   <span class="co"># also show intermediate</span></a></code></pre></div>
+<p>Manages <code>image</code>s.</p>
+<h3 id="docker-rmi"><code>docker rmi</code></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb13-1" title="1">docker rmi b750fe78269d</a></code></pre></div>
+<p>Deletes <code>image</code>s.</p>
+<h2 id="clean-up">Clean up</h2>
+<h3 id="clean-all">Clean all</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">docker</span> system prune</a></code></pre></div>
+<p>Cleans up dangling images, containers, volumes, and networks (ie, not associated with a container)</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="ex">docker</span> system prune -a</a></code></pre></div>
+<p>Additionally remove any stopped containers and all unused images (not just dangling images)</p>
+<h3 id="containers">Containers</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># Stop all running containers</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="ex">docker</span> stop <span class="va">$(</span><span class="ex">docker</span> ps -a -q<span class="va">)</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="co"># Delete stopped containers</span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="ex">docker</span> container prune</a></code></pre></div>
+<h3 id="images-1">Images</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" title="1"><span class="ex">docker</span> image prune [-a]</a></code></pre></div>
+<p>Delete all the images</p>
+<h3 id="volumes">Volumes</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"><span class="ex">docker</span> volume prune</a></code></pre></div>
+<p>Delete all the volumes</p>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="http://www.docker.io/gettingstarted/">Getting Started</a> <em>(docker.io)</em></li>
+</ul>
+</body></html>

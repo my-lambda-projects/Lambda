@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="types">Types</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Stream</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Readable</code></td>
+<td>Data emitter</td>
+</tr>
+<tr class="even">
+<td><code>Writable</code></td>
+<td>Data receiver</td>
+</tr>
+<tr class="odd">
+<td><code>Transform</code></td>
+<td>Emitter and receiver</td>
+</tr>
+<tr class="even">
+<td><code>Duplex</code></td>
+<td>Emitter and receiver (independent)</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href="https://nodejs.org/api/stream.html#stream_stream">Stream</a> <em>(nodejs.org)</em></p>
+<h3 id="streams">Streams</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> Readable <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;stream&#39;</span>).<span class="at">Readable</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">const</span> Writable <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;stream&#39;</span>).<span class="at">Writable</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">const</span> Transform <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;stream&#39;</span>).<span class="at">Transform</span></a></code></pre></div>
+<h3 id="piping">Piping</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">clock</span>()              <span class="co">// Readable stream</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  .<span class="at">pipe</span>(<span class="at">xformer</span>())   <span class="co">// Transform stream</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  .<span class="at">pipe</span>(<span class="at">renderer</span>())  <span class="co">// Writable stream</span></a></code></pre></div>
+<h3 id="methods">Methods</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">stream</span>.<span class="at">push</span>(<span class="co">/*...*/</span>)         <span class="co">// Emit a chunk</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">stream</span>.<span class="at">emit</span>(<span class="st">&#39;error&#39;</span><span class="op">,</span> error)  <span class="co">// Raise an error</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">stream</span>.<span class="at">push</span>(<span class="kw">null</span>)            <span class="co">// Close a stream</span></a></code></pre></div>
+<h3 id="events">Events</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> st <span class="op">=</span> <span class="at">source</span>()</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">st</span>.<span class="at">on</span>(<span class="st">&#39;data&#39;</span><span class="op">,</span> (data) <span class="kw">=&gt;</span> <span class="op">{</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;&lt;-&#39;</span><span class="op">,</span> data) <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="va">st</span>.<span class="at">on</span>(<span class="st">&#39;error&#39;</span><span class="op">,</span> (err) <span class="kw">=&gt;</span> <span class="op">{</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;!&#39;</span><span class="op">,</span> <span class="va">err</span>.<span class="at">message</span>) <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="va">st</span>.<span class="at">on</span>(<span class="st">&#39;close&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;** bye&#39;</span>) <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">st</span>.<span class="at">on</span>(<span class="st">&#39;finish&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;** bye&#39;</span>) <span class="op">}</span>)</a></code></pre></div>
+<p>Assuming <code>source()</code> is a readable stream.</p>
+<h3 id="flowing-mode">Flowing mode</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// Toggle flowing mode</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">st</span>.<span class="at">resume</span>()</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">st</span>.<span class="at">pause</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// Automatically turns on flowing mode</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="va">st</span>.<span class="at">on</span>(<span class="st">&#39;data&#39;</span><span class="op">,</span> <span class="co">/*...*/</span>)</a></code></pre></div>
+<h2 id="stream-types">Stream types</h2>
+<p>{: .-three-column}</p>
+<h3 id="readable">Readable</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">clock</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">const</span> stream <span class="op">=</span> <span class="kw">new</span> <span class="at">Readable</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="dt">objectMode</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="at">read</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="at">setInterval</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="va">stream</span>.<span class="at">push</span>(<span class="op">{</span> <span class="dt">time</span><span class="op">:</span> <span class="kw">new</span> <span class="at">Date</span>() <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="op">},</span> <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb7-10" title="10"></a>
+<a class="sourceLine" id="cb7-11" title="11">  <span class="cf">return</span> stream</a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-13" title="13"></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="co">// Implement read() if you</span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="co">// need on-demand reading.</span></a></code></pre></div>
+<p>Readable streams are generators of data. Write data using <code>stream.push()</code>.</p>
+<h3 id="transform">Transform</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">xformer</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="kw">let</span> count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="cf">return</span> <span class="kw">new</span> <span class="at">Transform</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="dt">objectMode</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="dt">transform</span><span class="op">:</span> (data<span class="op">,</span> _<span class="op">,</span> done) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-7" title="7">      <span class="at">done</span>(<span class="kw">null</span><span class="op">,</span> <span class="op">{</span> ...<span class="at">data</span><span class="op">,</span> <span class="dt">index</span><span class="op">:</span> count<span class="op">++</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-9" title="9">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="op">}</span></a></code></pre></div>
+<p>Pass the updated chunk to <code>done(null, chunk)</code>.</p>
+<h3 id="writable">Writable</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">function</span> <span class="at">renderer</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">return</span> <span class="kw">new</span> <span class="at">Writable</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="dt">objectMode</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="dt">write</span><span class="op">:</span> (data<span class="op">,</span> _<span class="op">,</span> done) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-5" title="5">      <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;&lt;-&#39;</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb9-6" title="6">      <span class="at">done</span>()</a>
+<a class="sourceLine" id="cb9-7" title="7">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-8" title="8">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="op">}</span></a></code></pre></div>
+<h3 id="all-together-now">All together now</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">clock</span>()              <span class="co">// Readable stream</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  .<span class="at">pipe</span>(<span class="at">xformer</span>())   <span class="co">// Transform stream</span></a>
+<a class="sourceLine" id="cb10-3" title="3">  .<span class="at">pipe</span>(<span class="at">renderer</span>())  <span class="co">// Writable stream</span></a></code></pre></div>
+<h2 id="also-see">Also see</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://nodejs.org/api/stream.html" class="uri">https://nodejs.org/api/stream.html</a></li>
+<li><a href="https://github.com/substack/stream-handbook" class="uri">https://github.com/substack/stream-handbook</a></li>
+</ul>
+</body></html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="bookmarking">Bookmarking</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">ncftp</span></a>
+<a class="sourceLine" id="cb1-2" title="2">$ <span class="ex">open</span> -u username ftp.host.com</a>
+<a class="sourceLine" id="cb1-3" title="3">$ <span class="ex">bookmark</span> bookmarkname</a></code></pre></div>
+<h3 id="mass-download">Mass download</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">ncftpget</span> -R bookmarkname /www/ .</a></code></pre></div>
+<h3 id="mass-upload">Mass upload</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$ <span class="ex">ncftpput</span> -R bookmarkname /www/ .</a></code></pre></div>
+<h3 id="upload-just-the-changed-files">Upload just the changed files</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">$ <span class="fu">git</span> show --pretty=<span class="st">&quot;format:&quot;</span> --name-only HEAD~1</a>
+<a class="sourceLine" id="cb4-2" title="2">$ <span class="ex">ncftpget</span> -R -C log bookmarkname /www/ .</a></code></pre></div>
+</body></html>

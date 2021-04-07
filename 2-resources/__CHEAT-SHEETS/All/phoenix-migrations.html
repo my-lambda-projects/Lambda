@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="creating">Creating</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">mix</span> ecto.gen.migration update_posts_table</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="ex">creating</span> priv/repo/migrations/20160602085927_update_posts_table.exs</a>
+<a class="sourceLine" id="cb1-3" title="3">  ···</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">mix</span> ecto.migrate</a>
+<a class="sourceLine" id="cb2-2" title="2">$ <span class="ex">mix</span> ecto.rollback</a></code></pre></div>
+<p>Creates a migration (no models).</p>
+<h3 id="creating-models">Creating models</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$ <span class="ex">mix</span> phoenix.gen.model Message messages user_id:integer content:text</a></code></pre></div>
+<p>This is only for Phoenix 1.2 or older; models aren’t available in Phoenix 1.3+.</p>
+<h3 id="creating-context">Creating context</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">$ <span class="ex">mix</span> phx.gen.context Images Album albums title:string subtitle:string privacy:string</a></code></pre></div>
+<h2 id="migration-functions">Migration functions</h2>
+<h3 id="creating-tables">Creating tables</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb5-1" title="1">create table(<span class="va">:documents</span>) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  add <span class="va">:title</span>, <span class="va">:string</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  add <span class="va">:title</span>, <span class="va">:string</span>, <span class="va">size:</span> <span class="dv">40</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  add <span class="va">:title</span>, <span class="va">:string</span>, <span class="va">default:</span> <span class="st">&quot;Hello&quot;</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  add <span class="va">:title</span>, <span class="va">:string</span>, <span class="va">default:</span> fragment(<span class="st">&quot;now()&quot;</span>)</a>
+<a class="sourceLine" id="cb5-6" title="6">  add <span class="va">:title</span>, <span class="va">:string</span>, <span class="va">null:</span> <span class="cn">false</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  add <span class="va">:body</span>, <span class="va">:text</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  add <span class="va">:age</span>, <span class="va">:integer</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  add <span class="va">:price</span>, <span class="va">:float</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  add <span class="va">:price</span>, <span class="va">:float</span></a>
+<a class="sourceLine" id="cb5-11" title="11">  add <span class="va">:price</span>, <span class="va">:decimal</span>, <span class="va">precision:</span> <span class="dv">10</span>, <span class="va">scale:</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  add <span class="va">:published_at</span>, <span class="va">:utc_datetime</span></a>
+<a class="sourceLine" id="cb5-13" title="13">  add <span class="va">:group_id</span>, references(<span class="va">:groups</span>)</a>
+<a class="sourceLine" id="cb5-14" title="14">  add <span class="va">:object</span>, <span class="va">:json</span></a>
+<a class="sourceLine" id="cb5-15" title="15"></a>
+<a class="sourceLine" id="cb5-16" title="16">  timestamps  <span class="co"># inserted_at and updated_at</span></a>
+<a class="sourceLine" id="cb5-17" title="17"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb5-18" title="18"></a>
+<a class="sourceLine" id="cb5-19" title="19">create_if_not_exists table(<span class="va">:documents</span>) <span class="kw">do</span>: <span class="op">...</span> <span class="kw">end</span></a></code></pre></div>
+<h3 id="other-operations">Other operations</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb6-1" title="1">alter table(<span class="va">:posts</span>) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  add <span class="va">:summary</span>, <span class="va">:text</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  modify <span class="va">:title</span>, <span class="va">:text</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  remove <span class="va">:views</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">end</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb7-1" title="1">rename table(<span class="va">:posts</span>), <span class="va">:title</span>, <span class="va">to:</span> <span class="va">:summary</span></a>
+<a class="sourceLine" id="cb7-2" title="2">rename table(<span class="va">:posts</span>), <span class="va">to:</span> table(<span class="va">:new_posts</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb8-1" title="1">drop table(<span class="va">:documents</span>)</a>
+<a class="sourceLine" id="cb8-2" title="2">drop_if_exists table(<span class="va">:documents</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb9-1" title="1">table(<span class="va">:documents</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2">table(<span class="va">:weather</span>, <span class="va">prefix:</span> <span class="va">:north_america</span>)</a></code></pre></div>
+<h3 id="indices">Indices</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb10-1" title="1">create index(<span class="va">:posts</span>, [<span class="va">:slug</span>], <span class="va">concurrently:</span> <span class="cn">true</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2">create unique_index(<span class="va">:posts</span>, [<span class="va">:slug</span>])</a>
+<a class="sourceLine" id="cb10-3" title="3">drop index(<span class="va">:posts</span>, [<span class="va">:name</span>])</a></code></pre></div>
+<h3 id="execute-sql">Execute SQL</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb11-1" title="1">execute <span class="st">&quot;UPDATE posts SET published_at = NULL&quot;</span></a>
+<a class="sourceLine" id="cb11-2" title="2">execute <span class="va">create:</span> <span class="st">&quot;posts&quot;</span>, <span class="va">capped:</span> <span class="cn">true</span>, <span class="va">size:</span> <span class="dv">1024</span></a></code></pre></div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://devdocs.io/phoenix/ecto/ecto.migration">Ecto.Migration</a></li>
+</ul>
+</body></html>

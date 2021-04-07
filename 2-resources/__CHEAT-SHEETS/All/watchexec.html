@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="installation">Installation</h3>
+<h4 id="osx">OSX</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">brew</span> install watchexec</a></code></pre></div>
+<h4 id="rust">Rust</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">cargo</span> install watchexec</a></code></pre></div>
+<p>For Linux and Windows, get it from <a href="https://github.com/mattgreen/watchexec">GitHub releases</a>.</p>
+<h3 id="getting-started">Getting started</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">watchexec</span> --exts js,jsx -- npm test</a></code></pre></div>
+<p>Runs <code>npm test</code> when <code>js,jsx</code> files change.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">watchman</span> -w lib -w test -- npm test</a></code></pre></div>
+<p>Runs <code>npm test</code> when <code>lib/</code> and <code>test/</code> files change.</p>
+<h3 id="other-options">Other options</h3>
+<h4 id="flags">Flags</h4>
+<div class="line-block"><code>-c</code> <code>--clear</code> | Clear screen |<br />
+<code>-r</code> <code>--restart</code> | Restart process if its still running |</div>
+<h4 id="options">Options</h4>
+<div class="line-block"><code>-s</code> <code>--signal SIGKILL</code> | Kill signal to use |<br />
+<code>-d</code> <code>--debounce MS</code> | Debounce by <code>MS</code> milliseconds |<br />
+<code>-e</code> <code>--exts EXTS</code> | Extensions |<br />
+<code>-i</code> <code>--ignore PATTERN</code> | Ignore these files |<br />
+<code>-w</code> <code>--watch PATH</code> | Watch these directories |</div>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="https://github.com/mattgreen/watchexec">mattgreen/watchexec</a> <em>(github.com)</em></li>
+</ul>
+</body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="maps">Maps</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> map <span class="op">=</span> <span class="va">Immutable</span>.<span class="at">Map</span>(<span class="op">{</span> <span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">c</span><span class="op">:</span> <span class="dv">3</span> <span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">map</a>
+<a class="sourceLine" id="cb2-2" title="2">  .<span class="at">set</span>(<span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3">  .<span class="at">get</span>(<span class="st">&#39;b&#39;</span>) <span class="co">// 50</span></a></code></pre></div>
+<h3 id="lists">Lists</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">var</span> list <span class="op">=</span> <span class="va">Immutable</span>.<span class="va">List</span>.<span class="at">of</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">list</a>
+<a class="sourceLine" id="cb3-4" title="4">  .<span class="at">push</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb3-5" title="5">  .<span class="at">unshift</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-6" title="6">  .<span class="at">concat</span>(list2<span class="op">,</span> list3)</a>
+<a class="sourceLine" id="cb3-7" title="7">  .<span class="at">get</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-8" title="8">  .<span class="at">size</span></a></code></pre></div>
+<h3 id="nested-maps">Nested maps</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">var</span> nested <span class="op">=</span> <span class="va">Immutable</span>.<span class="at">fromJS</span>(<span class="op">{</span> <span class="dt">user</span><span class="op">:</span> <span class="op">{</span> <span class="dt">profile</span><span class="op">:</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;John&#39;</span> <span class="op">}</span> <span class="op">}</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">nested</a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="co">// Update</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  .<span class="at">mergeDeep</span>(<span class="op">{</span> <span class="dt">user</span><span class="op">:</span> <span class="op">{</span> <span class="dt">profile</span><span class="op">:</span> <span class="op">{</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">90</span> <span class="op">}</span> <span class="op">}</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-6" title="6">  .<span class="at">setIn</span>([ <span class="st">&#39;user&#39;</span><span class="op">,</span> <span class="st">&#39;profile&#39;</span><span class="op">,</span> <span class="st">&#39;name&#39;</span> ]<span class="op">,</span> <span class="st">&#39;Jack&#39;</span>)</a>
+<a class="sourceLine" id="cb4-7" title="7">  .<span class="at">updateIn</span>([ <span class="st">&#39;user&#39;</span><span class="op">,</span> <span class="st">&#39;profile&#39;</span><span class="op">,</span> <span class="st">&#39;name&#39;</span> ]<span class="op">,</span> (s) <span class="kw">=&gt;</span> <span class="va">s</span>.<span class="at">toUpperCase</span>())</a>
+<a class="sourceLine" id="cb4-8" title="8"></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="co">// Get</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  .<span class="at">getIn</span>([<span class="st">&#39;user&#39;</span><span class="op">,</span> <span class="st">&#39;profile&#39;</span><span class="op">,</span> <span class="st">&#39;name&#39;</span>]) <span class="co">// &#39;JACK&#39;</span></a></code></pre></div>
+</body></html>

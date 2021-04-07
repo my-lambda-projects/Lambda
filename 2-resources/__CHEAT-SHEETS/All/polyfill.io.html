@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="usage">Usage</h2>
+<h3 id="default-usage">Default usage</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://cdn.polyfill.io/v2/polyfill.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<p>{: .-wrap}</p>
+<p>This is the default script for Polyfill.io.</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://polyfill.io/v2/docs/api">API example</a> <em>(polyfill.io)</em></li>
+<li><a href="https://polyfill.io/v2/docs/features">List of features</a> <em>(polyfill.io)</em></li>
+</ul>
+<h2 id="optimized">Optimized</h2>
+<h3 id="for-modern-browsers">For modern browsers</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;script&gt;</span><span class="cf">if</span>(<span class="op">!</span>(<span class="va">window</span>.<span class="at">Promise</span><span class="op">&amp;&amp;</span>[].<span class="at">includes</span><span class="op">&amp;&amp;</span><span class="va">Object</span>.<span class="at">assign</span><span class="op">&amp;&amp;</span><span class="va">window</span>.<span class="at">Map</span>))<span class="op">{</span><span class="va">document</span>.<span class="at">write</span>(<span class="st">&#39;&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js&quot;&gt;&lt;/scr&#39;</span><span class="op">+</span><span class="st">&#39;ipt&gt;&#39;</span>)<span class="op">}</span><span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+<p>This only includes polyfill.io when necessary, skipping it for modern browsers for faster load times.</p>
+<h3 id="extra-features">Extra features</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;script&gt;</span><span class="cf">if</span>(<span class="op">!</span>(<span class="va">window</span>.<span class="at">fetch</span><span class="op">&amp;&amp;</span><span class="va">window</span>.<span class="at">Promise</span><span class="op">&amp;&amp;</span>[].<span class="at">includes</span><span class="op">&amp;&amp;</span><span class="va">Object</span>.<span class="at">assign</span><span class="op">&amp;&amp;</span><span class="va">window</span>.<span class="at">Map</span>))<span class="op">{</span><span class="va">document</span>.<span class="at">write</span>(<span class="st">&#39;&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch&quot;&gt;&lt;/scr&#39;</span><span class="op">+</span><span class="st">&#39;ipt&gt;&#39;</span>)<span class="op">}</span><span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+<p>This is the same as the previous, but also adds a polyfill for <code>window.fetch()</code>. We add a <code>window.fetch</code> check and loads the additional <code>fetch</code> feature.</p>
+</body></html>

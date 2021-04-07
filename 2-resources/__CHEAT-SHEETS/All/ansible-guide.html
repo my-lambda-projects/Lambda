@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="install-ansible">Install Ansible</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">brew</span> install ansible            <span class="co"># OSX</span></a>
+<a class="sourceLine" id="cb1-2" title="2">$ [<span class="ex">sudo</span>] apt install ansible      <span class="co"># elsewhere</span></a></code></pre></div>
+<p>Ansible is available as a package in most OS’s.</p>
+<p>See: <a href="http://docs.ansible.com/ansible/latest/intro_installation.html">Installation</a></p>
+<h3 id="start-your-project">Start your project</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">~</span>$ <span class="fu">mkdir</span> setup</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">~</span>$ <span class="bu">cd</span> setup</a></code></pre></div>
+<p>Make a folder for your Ansible files.</p>
+<p>See: <a href="http://docs.ansible.com/ansible/latest/intro_getting_started.html">Getting started</a></p>
+<h2 id="creating-your-files">Creating your files</h2>
+<h3 id="inventory-file">Inventory file</h3>
+<h4 id="setuphosts">~/setup/hosts</h4>
+<pre class="dosini"><code>[sites]
+127.0.0.1
+192.168.0.1
+192.168.0.2
+192.168.0.3</code></pre>
+<p>This is a list of hosts you want to manage, grouped into groups. (Hint: try using <code>localhost ansible_connection=local</code> to deploy to your local machine.)</p>
+<p>See: <a href="http://docs.ansible.com/ansible/latest/intro_inventory.html">Intro to Inventory</a></p>
+<h3 id="playbook">Playbook</h3>
+<h4 id="setupplaybook.yml">~/setup/playbook.yml</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">-</span> <span class="fu">hosts:</span><span class="at"> </span><span class="fl">127.0.0.1</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="fu">user:</span><span class="at"> root</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="fu">tasks:</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="kw">-</span> <span class="fu">name:</span><span class="at"> install nginx</span></a>
+<a class="sourceLine" id="cb4-5" title="5">      <span class="fu">apt:</span><span class="at"> pkg=nginx state=present</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="kw">-</span> <span class="fu">name:</span><span class="at"> start nginx every bootup</span></a>
+<a class="sourceLine" id="cb4-8" title="8">      <span class="fu">service:</span><span class="at"> name=nginx state=started enabled=yes</span></a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="kw">-</span> <span class="fu">name:</span><span class="at"> do something in the shell</span></a>
+<a class="sourceLine" id="cb4-11" title="11">      <span class="fu">shell:</span><span class="at"> echo hello &gt; /tmp/abc.txt</span></a>
+<a class="sourceLine" id="cb4-12" title="12"></a>
+<a class="sourceLine" id="cb4-13" title="13">    <span class="kw">-</span> <span class="fu">name:</span><span class="at"> install bundler</span></a>
+<a class="sourceLine" id="cb4-14" title="14">      <span class="fu">gem:</span><span class="at"> name=bundler state=latest</span></a></code></pre></div>
+<p>See: <a href="http://docs.ansible.com/ansible/latest/playbooks_intro.html">Intro to Playbooks</a></p>
+<h2 id="running">Running</h2>
+<h3 id="running-ansible-playbook">Running ansible-playbook</h3>
+<pre><code>~/setup$ ls
+hosts
+playbook.yml</code></pre>
+<h4 id="running-the-playbook">Running the playbook</h4>
+<pre><code>~/setup$ ansible-playbook -i hosts playbook.yml
+PLAY [all] ********************************************************************
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [install nginx] *********************************************************
+ok: [127.0.0.1]
+
+TASK: start nginx every bootup] ***********************************************
+ok: [127.0.0.1]
+...</code></pre>
+<h2 id="read-more">Read more</h2>
+<ul>
+<li><a href="http://lowendbox.com/blog/getting-started-with-ansible/">Getting started with Ansible</a> <em>(lowendbox.com)</em></li>
+<li><a href="http://docs.ansible.com/ansible/latest/intro_getting_started.html">Getting started</a> <em>(docs.ansible.com)</em></li>
+<li><a href="http://docs.ansible.com/ansible/latest/intro_inventory.html">Intro to Inventory</a> <em>(docs.ansible.com)</em></li>
+<li><a href="http://docs.ansible.com/ansible/latest/playbooks_intro.html">Intro to Playbooks</a> <em>(docs.ansible.com)</em></li>
+</ul>
+</body></html>

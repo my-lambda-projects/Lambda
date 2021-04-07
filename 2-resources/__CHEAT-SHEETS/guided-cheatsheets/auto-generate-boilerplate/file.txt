@@ -1,0 +1,26 @@
+./Amazon S3 A cheat sheet.html
+./Amazon S3 A cheat sheet.md
+./Amazon Web Services (AWS) A cheat sheet.html
+./Amazon Web Services (AWS) A cheat sheet.md
+./Containers A cheat sheet for tech pros.html
+./Containers A cheat sheet for tech pros.md
+./files
+./Google Cloud Platform A cheat sheet.html
+./Google Cloud Platform A cheat sheet.md
+./index.html
+./Kubernetes A cheat sheet.html
+./Kubernetes A cheat sheet.md
+./Machine learning A cheat sheet.html
+./Machine learning A cheat sheet.md
+./Multicloud A cheat sheet.html
+./Multicloud A cheat sheet.md
+./Quantum computing A cheat sheet.html
+./Quantum computing A cheat sheet.md
+./Serverless computing A cheat sheet.html
+./Serverless computing A cheat sheet.md
+./Ubuntu Server A cheat sheet.html
+./Ubuntu Server A cheat sheet.md
+./Windows 10 A cheat sheet.html
+./Windows 10 A cheat sheet.md
+solution.html
+solution.md

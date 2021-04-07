@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/** </span><span class="an">@jsx</span><span class="co"> element */</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="im">import</span> element <span class="im">from</span> <span class="st">&#39;virtual-element&#39;</span> <span class="co">// replacement for React.createElement</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="im">import</span> <span class="op">{</span> render<span class="op">,</span> tree <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;deku&#39;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">var</span> app <span class="op">=</span> <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">&#39;my-app&#39;</span><span class="op">&gt;</span>Hello World<span class="op">!</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="at">render</span>(<span class="at">tree</span>(app)<span class="op">,</span> <span class="va">document</span>.<span class="at">body</span>)</a></code></pre></div>
+<h3 id="components">Components</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">Button <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="cf">return</span> <span class="op">&lt;</span>button<span class="op">&gt;</span>Submit&lt;/button<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7">App <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb2-10" title="10">      <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-11" title="11">        <span class="op">&lt;</span>Button /<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-12" title="12">      &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-13" title="13">    )</a>
+<a class="sourceLine" id="cb2-14" title="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="at">render</span>(<span class="at">tree</span>(<span class="op">&lt;</span>App /<span class="op">&gt;</span>)<span class="op">,</span> <span class="va">document</span>.<span class="at">body</span>)</a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="at">render</span>(<span class="at">tree</span>(<span class="at">element</span>(App))<span class="op">,</span> <span class="va">document</span>.<span class="at">body</span>)</a></code></pre></div>
+<h3 id="component-propsstate">Component props/state</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">App <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">render</span> (<span class="op">{</span> props<span class="op">,</span> state <span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">return</span> <span class="op">&lt;</span>div<span class="op">&gt;{</span> <span class="co">/*...use state.store here*/</span> <span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="at">initialState</span> (props) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="cf">return</span> <span class="op">{</span> <span class="dt">store</span><span class="op">:</span> <span class="va">store</span>.<span class="at">getState</span>() <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="at">afterMount</span> (comp<span class="op">,</span> el<span class="op">,</span> setState) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="va">store</span>.<span class="at">subscribe</span>(() <span class="kw">=&gt;</span> <span class="at">setState</span>(<span class="op">{</span> <span class="dt">store</span><span class="op">:</span> <span class="va">store</span>.<span class="at">getState</span>() <span class="op">}</span>))</a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-14" title="14"></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="at">render</span>(<span class="at">tree</span>(<span class="op">&lt;</span>App /<span class="op">&gt;</span>)<span class="op">,</span> <span class="va">document</span>.<span class="at">body</span>)</a></code></pre></div>
+<h3 id="events">Events</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="op">&lt;</span>a onClick<span class="op">={</span>onClick<span class="op">}&gt;{</span><span class="va">props</span>.<span class="at">text</span><span class="op">}</span>&lt;/a<span class="op">&gt;</span></a></code></pre></div>
+<h3 id="magic-virtual-element">Magic virtual element</h3>
+<p>Use <a href="https://github.com/dekujs/magic-virtual-element">magic-virtual-element</a> to enable nice classnames.</p>
+<pre><code>import element from &#39;magic-virtual-element&#39;
+&lt;div style={style} class={[ &#39;button&#39;, &#39;-active&#39; ]}&gt;</code></pre>
+<h3 id="reference">Reference</h3>
+<pre><code>name = &#39;MyComponent&#39;
+
+// Defaults
+initialState (props) {...} // return initial state
+defaultProps = { hi: &#39;hello&#39; }
+
+// Render
+render ({props, state}, setState) {...}
+
+// Lifecycle
+beforeUpdate  ({props, state, id}, nextProps, nextState) {}
+afterRender   ({props, state, id}, el) {}
+afterUpdate   ({props, state, id}, prevProps, prevState, setState) {}
+afterMount    ({props, state, id}, el, setState) {}
+beforeUnmount ({props, state, id}, el) {}</code></pre>
+<p>See: <a href="https://www.npmjs.com/package/deku" class="uri">https://www.npmjs.com/package/deku</a></p>
+</body></html>

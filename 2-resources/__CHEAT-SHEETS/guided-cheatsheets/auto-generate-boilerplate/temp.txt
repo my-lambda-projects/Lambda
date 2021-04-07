@@ -1,0 +1,38 @@
+const fs = require ('fs');
+
+
+
+// fs.readFile takes the file path and the callback
+fs.readFile('file.txt', (err, data) => {
+
+	// if there's an error, log it and return
+	if (err) {
+		console.error(err)
+		return
+	}
+// const data1 = str => str.split(/\r?\n/);
+	// Print the string representation of the data
+  console.log( data1.toString() )
+  fs.appendFile ('create.js', `${data1}`, err => {
+  // In case of a error throw err.
+  if (err) throw err;
+});
+
+  
+  
+})
+
+
+
+
+
+
+
+
+// console.log('listArr(): ', listArr());
+// 
+// fs.writeFile ('boilerplate.html', data, err => {
+//   // In case of a error throw err.
+//   if (err) throw err;
+// });
+str => str.split(/\r?\n/)

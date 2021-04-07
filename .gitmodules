@@ -1,3 +1,6 @@
 [submodule "master"]
 	path = master
 	url = https://github.com/bgoonz/Git-for-Web-Development-Project.git
+[submodule "web-module-project-intro-css"]
+	path = web-module-project-intro-css
+	url = https://github.com/bgoonz/web-module-project-intro-css.git

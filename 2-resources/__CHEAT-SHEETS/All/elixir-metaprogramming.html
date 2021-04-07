@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="kernel">Kernel</h2>
+<p>Most of these magic is defined in <a href="http://devdocs.io/elixir/elixir/kernel.specialforms">Kernel.SpecialForms</a>.</p>
+<h3 id="pseudo-variables">Pseudo-variables</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb1-1" title="1"><span class="cn">__DIR__</span>     <span class="co"># current dir</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="cn">__MODULE__</span>  <span class="co"># current module</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="cn">__CALLER__</span>  <span class="co"># caller of the function</span></a></code></pre></div>
+<h3 id="env__"><a href="http://devdocs.io/elixir/elixir/kernel.specialforms#__ENV__/0"><code>__ENV__</code></a></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb2-1" title="1"><span class="cn">Map</span><span class="op">.</span>keys(__ENV__)</a>
+<a class="sourceLine" id="cb2-2" title="2">[<span class="va">:__struct__</span>, <span class="va">:aliases</span>, <span class="va">:context</span>, <span class="va">:context_modules</span>, <span class="va">:export_vars</span>, <span class="va">:file</span>,</a>
+<a class="sourceLine" id="cb2-3" title="3"> <span class="va">:function</span>, <span class="va">:functions</span>, <span class="va">:lexical_tracker</span>, <span class="va">:line</span>, <span class="va">:macro_aliases</span>, <span class="va">:macros</span>,</a>
+<a class="sourceLine" id="cb2-4" title="4"> <span class="va">:module</span>, <span class="va">:requires</span>, <span class="va">:vars</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb3-1" title="1"><span class="cn">__CALLER__</span><span class="op">.</span>module <span class="op">|&gt;</span> <span class="cn">Module</span><span class="op">.</span>definitions_in <span class="op">|&gt;</span> <span class="cn">IO</span><span class="op">.</span>inspect</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb4-1" title="1">apply(<span class="cn">Enum</span>, <span class="va">:reverse</span>, [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]])</a></code></pre></div>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="configuration">Configuration</h3>
+<ul>
+<li><code>parse_block_html</code> - process kramdown syntax inside blocks</li>
+<li><code>parse_span_html</code> - process kramdown syntax inside inlines</li>
+<li><p><code>html_to_native</code> - convert html elements to native elements</p>
+<p>{::options parse_block_html=“true” /}</p></li>
+</ul>
+<p>For the GFM parser:</p>
+<ul>
+<li><code>hard_wrap</code></li>
+</ul>
+<p>http://kramdown.gettalong.org/parser/gfm.html</p>
+<h3 id="for-jekyll-gh-pages">For jekyll (gh-pages)</h3>
+<pre><code># _config.yml
+markdown: kramdown
+kramdown:
+  input: GFM</code></pre>
+<h3 id="footnotes-kramdown">Footnotes (Kramdown)</h3>
+<pre><code>This is some text.[^1]. Other text.[^footnote].
+
+[^1]: Some *crazy* footnote definition.</code></pre>
+<h3 id="abbreviations-kramdown">Abbreviations (Kramdown)</h3>
+<pre><code>This is some text not written in HTML but in another language!
+
+*[another language]: It&#39;s called Markdown
+*[HTML]: HyperTextMarkupLanguage</code></pre>
+<h3 id="classes-and-ids-kramdown">Classes and IDs (Kramdown)</h3>
+<pre><code>A simple paragraph with an ID attribute.
+{: #para-one}
+
+&gt; A blockquote with a title
+{:title=&quot;The blockquote title&quot;}
+{: #myid}
+
+* {:.cls} This item has the class &quot;cls&quot;
+
+{:.ruby}
+    Some code here</code></pre>
+<h3 id="references">References</h3>
+<ul>
+<li>http://kramdown.gettalong.org/syntax.html</li>
+<li>http://kramdown.gettalong.org/parser/kramdown.html</li>
+</ul>
+</body></html>

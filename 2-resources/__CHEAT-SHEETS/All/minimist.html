@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="usage">Usage</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> minimist <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;minimist&#39;</span>)</a></code></pre></div>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">var</span> args <span class="op">=</span> <span class="at">minimist</span>(<span class="va">process</span>.<span class="va">argv</span>.<span class="at">slice</span>(<span class="dv">2</span>)<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">string</span><span class="op">:</span> <span class="st">&#39;lang&#39;</span><span class="op">,</span>           <span class="co">// --lang xml</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">boolean</span><span class="op">:</span> [<span class="st">&#39;version&#39;</span>]<span class="op">,</span>     <span class="co">// --version</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="dt">alias</span><span class="op">:</span> <span class="op">{</span> <span class="dt">v</span><span class="op">:</span> <span class="st">&#39;version&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">console</span>.<span class="at">log</span>(args)</a></code></pre></div>
+<p>All options are optional, but it’s recommended you set <code>string</code> and <code>boolean</code> at least.</p>
+<h3 id="all-options">All options</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">var</span> args <span class="op">=</span> <span class="at">minimist</span>(<span class="va">process</span>.<span class="va">argv</span>.<span class="at">slice</span>(<span class="dv">2</span>)<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">string</span><span class="op">:</span> [ <span class="st">&#39;lang&#39;</span> ]<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="dt">boolean</span><span class="op">:</span> [ <span class="st">&#39;pager&#39;</span> ]<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="dt">alias</span><span class="op">:</span> <span class="op">{</span> <span class="dt">h</span><span class="op">:</span> <span class="st">&#39;help&#39;</span><span class="op">,</span> <span class="dt">v</span><span class="op">:</span> <span class="st">&#39;version&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="cf">default</span><span class="op">:</span> <span class="op">{</span> <span class="dt">lang</span><span class="op">:</span> <span class="st">&#39;en&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="st">&#39;--&#39;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="dt">stopEarly</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="co">/* populate _ with first non-option */</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="dt">unknown</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span> ... <span class="op">}</span> <span class="co">/* invoked on unknown param */</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">}</span>)</a></code></pre></div>
+<p>All options are optional.</p>
+<h3 id="result">Result</h3>
+<p>With <code>--lang xml --no-pager -h index.js package.json</code>, you get: {: .-setup}</p>
+<pre><code>args == {
+  lang: &#39;xml&#39;,
+  version: false,
+  h: true,
+  help: true,
+  _: [ &#39;index.js&#39;, &#39;package.json&#39; ]
+}</code></pre>
+<h2 id="meow">Meow</h2>
+<h3 id="help-and-version">Help and version</h3>
+<p>Use <a href="https://www.npmjs.com/package/meow">meow</a> to automatically add support for <code>--help</code>, <code>--version</code> and more. {: .-setup}</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">meow</span>(<span class="vs">`</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="vs">    Usage:</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="vs">        $0 FILES [options]</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="vs">    Options:</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="vs">        -h, --help         print usage information</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="vs">        -v, --version      show version info and exit</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="vs">`</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-9" title="9">  <span class="dt">alias</span><span class="op">:</span> <span class="op">{</span> <span class="dt">h</span><span class="op">:</span> <span class="st">&#39;help&#39;</span><span class="op">,</span> <span class="dt">v</span><span class="op">:</span> <span class="st">&#39;version&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="co">/* minimist options */</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="op">}</span>)</a></code></pre></div>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://www.npmjs.org/package/minimist" class="uri">https://www.npmjs.org/package/minimist</a></li>
+<li><a href="https://github.com/substack/minimist" class="uri">https://github.com/substack/minimist</a></li>
+</ul>
+</body></html>
