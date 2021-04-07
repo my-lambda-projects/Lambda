@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="./prism.css">
-<script async defer src="./prism.js"></script>
-</head>
-<body>;
-<pre><code>browserify input.js
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <pre><code>browserify input.js
   -o output.js
   -t coffeeify
   -t [ coffeeify --extension coffee ]
@@ -19,8 +22,8 @@
   -i react (--ignore: stub a file)
   -s Myapp (--standalone: generate a UMD bundle)
   --debug</code></pre>
-<h3 id="programmatic-usage">Programmatic usage</h3>
-<pre><code>browserify = require(&#39;browserify&#39;)
+    <h3 id="programmatic-usage">Programmatic usage</h3>
+    <pre><code>browserify = require(&#39;browserify&#39;)
 browserify()
   .add(&#39;main.js&#39;)
   .bundle()
@@ -29,20 +32,22 @@ browserify()
   .pipe(process.stdout)
 
 browserify({})</code></pre>
-<h3 id="tools">Tools</h3>
-<ul>
-<li>watchify (recompiles on demand)</li>
-<li>beefy (http server)</li>
-<li>debowerify</li>
-<li>es6ify (es6 to es5)</li>
-</ul>
-<p>Transforms</p>
-<ul>
-<li>coffeeify</li>
-<li>ractify</li>
-<li>reactify</li>
-<li>brfs</li>
-<li>cssify</li>
-<li>https://github.com/substack/node-browserify/wiki/list-of-transforms</li>
-</ul>
-</body></html>
+    <h3 id="tools">Tools</h3>
+    <ul>
+      <li>watchify (recompiles on demand)</li>
+      <li>beefy (http server)</li>
+      <li>debowerify</li>
+      <li>es6ify (es6 to es5)</li>
+    </ul>
+    <p>Transforms</p>
+    <ul>
+      <li>coffeeify</li>
+      <li>ractify</li>
+      <li>reactify</li>
+      <li>brfs</li>
+      <li>cssify</li>
+      <li>https://github.com/substack/node-browserify/wiki/list-of-transforms</li>
+    </ul>
+  </body>
+
+</html>

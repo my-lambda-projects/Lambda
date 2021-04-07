@@ -270,7 +270,14 @@ iframe.embed {
   padding: 2em;
   margin: auto;
   overflow: auto;
-  border: solid 4px rgb(41, 54, 204);
+ width: '100%';
+ padding: 24;
+ border-radius: 8;
+ border-color: '#33CC99';
+ border-width: 1;
+ box-shadow:2.22;
+   background: url(https://i.gifer.com/76YS.gif);
+  border: solid 2px rgb(41, 54, 204);
   -moz-border-radius: 6px 6px 4px 4px;
   -webkit-border-radius: 6px 6px 4px 4px;
   border-radius: 6px 6px 6px 6px;

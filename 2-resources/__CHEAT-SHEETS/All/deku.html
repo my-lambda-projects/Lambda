@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="./prism.css">
-<script async defer src="./prism.js"></script>
-</head>
-<body>;
-<h3 id="components">Components</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/** </span><span class="an">@jsx</span><span class="co"> element */</span></a>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="components">Components</h3>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/** </span><span class="an">@jsx</span><span class="co"> element */</span></a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="im">import</span> <span class="op">{</span> element <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;deku&#39;</span></a>
 <a class="sourceLine" id="cb1-3" title="3"></a>
 <a class="sourceLine" id="cb1-4" title="4"><span class="kw">function</span> <span class="at">render</span> (<span class="op">{</span> props<span class="op">,</span> children<span class="op">,</span> context<span class="op">,</span> path <span class="op">}</span>) <span class="op">{</span></a>
@@ -30,9 +35,12 @@
 <a class="sourceLine" id="cb1-18" title="18"><span class="kw">function</span> <span class="at">onRemove</span> (<span class="op">{</span> props<span class="op">,</span> dispatch<span class="op">,</span> path <span class="op">}</span>) <span class="op">{</span> ... <span class="op">}</span></a>
 <a class="sourceLine" id="cb1-19" title="19"><span class="co">// actually { children, props, path, context }</span></a>
 <a class="sourceLine" id="cb1-20" title="20"></a>
-<a class="sourceLine" id="cb1-21" title="21"><span class="im">export</span> <span class="im">default</span> <span class="op">{</span> render<span class="op">,</span> onCreate<span class="op">,</span> onRemove <span class="op">}</span></a></code></pre></div>
-<h3 id="rendering">Rendering</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> <span class="op">{</span> createStore <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;redux&#39;</span></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="im">export</span> <span class="im">default</span> <span class="op">{</span> render<span class="op">,</span> onCreate<span class="op">,</span> onRemove <span class="op">}</span></a></code></pre>
+    </div>
+    <h3 id="rendering">Rendering</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> <span class="op">{</span> createStore <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;redux&#39;</span></a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="im">import</span> <span class="op">{</span> dom<span class="op">,</span> element <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;deku&#39;</span></a>
 <a class="sourceLine" id="cb2-3" title="3"></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co">// Create a Redux store to handle all UI actions and side-effects</span></a>
@@ -42,5 +50,8 @@
 <a class="sourceLine" id="cb2-8" title="8"><span class="kw">let</span> render <span class="op">=</span> <span class="at">createRenderer</span>(<span class="va">document</span>.<span class="at">body</span><span class="op">,</span> <span class="va">store</span>.<span class="at">dispatch</span>)</a>
 <a class="sourceLine" id="cb2-9" title="9"></a>
 <a class="sourceLine" id="cb2-10" title="10"><span class="co">// Update the page and add redux state to the context</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="at">render</span>(<span class="op">&lt;</span>MyButton<span class="op">&gt;</span>Hello World<span class="op">!</span>&lt;/MyButton<span class="op">&gt;,</span> <span class="va">store</span>.<span class="at">getState</span>())</a></code></pre></div>
-</body></html>
+<a class="sourceLine" id="cb2-11" title="11"><span class="at">render</span>(<span class="op">&lt;</span>MyButton<span class="op">&gt;</span>Hello World<span class="op">!</span>&lt;/MyButton<span class="op">&gt;,</span> <span class="va">store</span>.<span class="at">getState</span>())</a></code></pre>
+    </div>
+  </body>
+
+</html>

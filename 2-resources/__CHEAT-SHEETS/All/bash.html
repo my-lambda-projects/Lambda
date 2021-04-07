@@ -1,94 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link rel="stylesheet" href="./prism.css">
-<script async defer src="./prism.js"></script>
-</head>
-<body>;
-<h2 id="getting-started">Getting started</h2>
-<p>{: .-three-column}</p>
-<h3 id="introduction">Introduction</h3>
-<p>{: .-intro}</p>
-<p>This is a quick reference to getting started with Bash scripting.</p>
-<ul>
-<li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
-<li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>
-</ul>
-<h3 id="example">Example</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co">#!/usr/bin/env bash</span></a>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h2 id="getting-started">Getting started</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="introduction">Introduction</h3>
+    <p>{: .-intro}</p>
+    <p>This is a quick reference to getting started with Bash scripting.</p>
+    <ul>
+      <li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em>
+      </li>
+      <li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>
+    </ul>
+    <h3 id="example">Example</h3>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co">#!/usr/bin/env bash</span></a>
 <a class="sourceLine" id="cb1-2" title="2"></a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="va">NAME=</span><span class="st">&quot;John&quot;</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="bu">echo</span> <span class="st">&quot;Hello </span><span class="va">$NAME</span><span class="st">!&quot;</span></a></code></pre></div>
-<h3 id="variables">Variables</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="va">NAME=</span><span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="bu">echo</span> <span class="st">&quot;Hello </span><span class="va">$NAME</span><span class="st">!&quot;</span></a></code></pre>
+    </div>
+    <h3 id="variables">Variables</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="va">NAME=</span><span class="st">&quot;John&quot;</span></a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="bu">echo</span> <span class="va">$NAME</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$NAME</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">${NAME}</span><span class="st">!&quot;</span></a></code></pre></div>
-<h3 id="string-quotes">String quotes</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="va">NAME=</span><span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">${NAME}</span><span class="st">!&quot;</span></a></code></pre>
+    </div>
+    <h3 id="string-quotes">String quotes</h3>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="va">NAME=</span><span class="st">&quot;John&quot;</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="bu">echo</span> <span class="st">&quot;Hi </span><span class="va">$NAME</span><span class="st">&quot;</span>  <span class="co">#=&gt; Hi John</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="bu">echo</span> <span class="st">&#39;Hi $NAME&#39;</span>  <span class="co">#=&gt; Hi $NAME</span></a></code></pre></div>
-<h3 id="shell-execution">Shell execution</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in </span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="bu">echo</span> <span class="st">&#39;Hi $NAME&#39;</span>  <span class="co">#=&gt; Hi $NAME</span></a></code></pre>
+    </div>
+    <h3 id="shell-execution">Shell execution</h3>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in </span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">&quot;</span></a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="bu">echo</span> <span class="st">&quot;I&#39;m in </span><span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="co"># Same</span></a></code></pre></div>
-<p>See <a href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst">Command substitution</a></p>
-<h3 id="conditional-execution">Conditional execution</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">git</span> commit <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="fu">git</span> commit <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Commit failed&quot;</span></a></code></pre></div>
-<h3 id="functions">Functions</h3>
-<p>{: id=‘functions-example’}</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">get_name()</span> <span class="kw">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co"># Same</span></a></code></pre>
+    </div>
+    <p>See <a href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst">Command substitution</a></p>
+    <h3 id="conditional-execution">Conditional execution</h3>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">git</span> commit <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="fu">git</span> commit <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot;Commit failed&quot;</span></a></code></pre>
+    </div>
+    <h3 id="functions">Functions</h3>
+    <p>{: id=‘functions-example’}</p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">get_name()</span> <span class="kw">{</span></a>
 <a class="sourceLine" id="cb6-2" title="2">  <span class="bu">echo</span> <span class="st">&quot;John&quot;</span></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="kw">}</span></a>
 <a class="sourceLine" id="cb6-4" title="4"></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="bu">echo</span> <span class="st">&quot;You are </span><span class="va">$(</span><span class="ex">get_name</span><span class="va">)</span><span class="st">&quot;</span></a></code></pre></div>
-<p>See: <a href="#functions">Functions</a></p>
-<h3 id="conditionals">Conditionals</h3>
-<p>{: id=‘conditionals-example’}</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">if [[</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="va">$string</span><span class="st">&quot;</span><span class="kw"> ]]</span>; <span class="kw">then</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="bu">echo</span> <span class="st">&quot;You are </span><span class="va">$(</span><span class="ex">get_name</span><span class="va">)</span><span class="st">&quot;</span></a></code></pre>
+    </div>
+    <p>See: <a href="#functions">Functions</a></p>
+    <h3 id="conditionals">Conditionals</h3>
+    <p>{: id=‘conditionals-example’}</p>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">if [[</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="va">$string</span><span class="st">&quot;</span><span class="kw"> ]]</span>; <span class="kw">then</span></a>
 <a class="sourceLine" id="cb7-2" title="2">  <span class="bu">echo</span> <span class="st">&quot;String is empty&quot;</span></a>
 <a class="sourceLine" id="cb7-3" title="3"><span class="kw">elif [[</span> <span class="ot">-n</span> <span class="st">&quot;</span><span class="va">$string</span><span class="st">&quot;</span><span class="kw"> ]]</span>; <span class="kw">then</span></a>
 <a class="sourceLine" id="cb7-4" title="4">  <span class="bu">echo</span> <span class="st">&quot;String is not empty&quot;</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw">fi</span></a></code></pre></div>
-<p>See: <a href="#conditionals">Conditionals</a></p>
-<h3 id="strict-mode">Strict mode</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">set</span> <span class="ex">-euo</span> pipefail</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="va">IFS=</span><span class="st">$&#39;</span><span class="dt">\n\t</span><span class="st">&#39;</span></a></code></pre></div>
-<p>See: <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">Unofficial bash strict mode</a></p>
-<h3 id="brace-expansion">Brace expansion</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="bu">echo</span> <span class="dt">{A,B}</span>.js</a></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>Expression</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>{A,B}</code></td>
-<td>Same as <code>A B</code></td>
-</tr>
-<tr class="even">
-<td><code>{A,B}.js</code></td>
-<td>Same as <code>A.js B.js</code></td>
-</tr>
-<tr class="odd">
-<td><code>{1..5}</code></td>
-<td>Same as <code>1 2 3 4 5</code></td>
-</tr>
-</tbody>
-</table>
-<p>See: <a href="http://wiki.bash-hackers.org/syntax/expansion/brace">Brace expansion</a></p>
-<h2 id="parameter-expansions">Parameter expansions</h2>
-<p>{: .-three-column}</p>
-<h3 id="basics">Basics</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="va">name=</span><span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">fi</span></a></code></pre>
+    </div>
+    <p>See: <a href="#conditionals">Conditionals</a></p>
+    <h3 id="strict-mode">Strict mode</h3>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">set</span> <span class="ex">-euo</span> pipefail</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">IFS=</span><span class="st">$&#39;</span><span class="dt">\n\t</span><span class="st">&#39;</span></a></code></pre>
+    </div>
+    <p>See: <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">Unofficial bash strict mode</a></p>
+    <h3 id="brace-expansion">Brace expansion</h3>
+    <div class="sourceCode" id="cb9">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="bu">echo</span> <span class="dt">{A,B}</span>.js</a></code></pre>
+    </div>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Expression</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>{A,B}</code></td>
+          <td>Same as <code>A B</code></td>
+        </tr>
+        <tr class="even">
+          <td><code>{A,B}.js</code></td>
+          <td>Same as <code>A.js B.js</code></td>
+        </tr>
+        <tr class="odd">
+          <td><code>{1..5}</code></td>
+          <td>Same as <code>1 2 3 4 5</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>See: <a href="http://wiki.bash-hackers.org/syntax/expansion/brace">Brace expansion</a></p>
+    <h2 id="parameter-expansions">Parameter expansions</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="basics">Basics</h3>
+    <div class="sourceCode" id="cb10">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="va">name=</span><span class="st">&quot;John&quot;</span></a>
 <a class="sourceLine" id="cb10-2" title="2"><span class="bu">echo</span> <span class="va">${name}</span></a>
 <a class="sourceLine" id="cb10-3" title="3"><span class="bu">echo</span> <span class="va">${name/</span>J<span class="va">/</span>j<span class="va">}</span>    <span class="co">#=&gt; &quot;john&quot; (substitution)</span></a>
 <a class="sourceLine" id="cb10-4" title="4"><span class="bu">echo</span> <span class="va">${name:0:2}</span>    <span class="co">#=&gt; &quot;Jo&quot; (slicing)</span></a>
@@ -96,11 +127,17 @@
 <a class="sourceLine" id="cb10-6" title="6"><span class="bu">echo</span> <span class="va">${name::-1}</span>    <span class="co">#=&gt; &quot;Joh&quot; (slicing)</span></a>
 <a class="sourceLine" id="cb10-7" title="7"><span class="bu">echo</span> <span class="va">${name:</span><span class="er">(-1)</span><span class="va">}</span>   <span class="co">#=&gt; &quot;n&quot; (slicing from right)</span></a>
 <a class="sourceLine" id="cb10-8" title="8"><span class="bu">echo</span> <span class="va">${name:</span><span class="er">(-2)</span><span class="va">:1}</span> <span class="co">#=&gt; &quot;h&quot; (slicing from right)</span></a>
-<a class="sourceLine" id="cb10-9" title="9"><span class="bu">echo</span> <span class="va">${food:-</span>Cake<span class="va">}</span>  <span class="co">#=&gt; $food or &quot;Cake&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="va">length=</span>2</a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="bu">echo</span> <span class="va">${name:0:length}</span>  <span class="co">#=&gt; &quot;Jo&quot;</span></a></code></pre></div>
-<p>See: <a href="http://wiki.bash-hackers.org/syntax/pe">Parameter expansion</a></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="va">STR=</span><span class="st">&quot;/path/to/foo.cpp&quot;</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="bu">echo</span> <span class="va">${food:-</span>Cake<span class="va">}</span>  <span class="co">#=&gt; $food or &quot;Cake&quot;</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb11">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="va">length=</span>2</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="bu">echo</span> <span class="va">${name:0:length}</span>  <span class="co">#=&gt; &quot;Jo&quot;</span></a></code></pre>
+    </div>
+    <p>See: <a href="http://wiki.bash-hackers.org/syntax/pe">Parameter expansion</a></p>
+    <div class="sourceCode" id="cb12">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="va">STR=</span><span class="st">&quot;/path/to/foo.cpp&quot;</span></a>
 <a class="sourceLine" id="cb12-2" title="2"><span class="bu">echo</span> <span class="va">${STR%</span>.cpp<span class="va">}</span>    <span class="co"># /path/to/foo</span></a>
 <a class="sourceLine" id="cb12-3" title="3"><span class="bu">echo</span> <span class="va">${STR%</span>.cpp<span class="va">}</span>.o  <span class="co"># /path/to/foo.o</span></a>
 <a class="sourceLine" id="cb12-4" title="4"><span class="bu">echo</span> <span class="va">${STR%</span>/*<span class="va">}</span>      <span class="co"># /path/to</span></a>
@@ -111,105 +148,117 @@
 <a class="sourceLine" id="cb12-9" title="9"><span class="bu">echo</span> <span class="va">${STR#</span>*/<span class="va">}</span>      <span class="co"># path/to/foo.cpp</span></a>
 <a class="sourceLine" id="cb12-10" title="10"><span class="bu">echo</span> <span class="va">${STR##</span>*/<span class="va">}</span>     <span class="co"># foo.cpp</span></a>
 <a class="sourceLine" id="cb12-11" title="11"></a>
-<a class="sourceLine" id="cb12-12" title="12"><span class="bu">echo</span> <span class="va">${STR/</span>foo<span class="va">/</span>bar<span class="va">}</span> <span class="co"># /path/to/bar.cpp</span></a></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"><span class="va">STR=</span><span class="st">&quot;Hello world&quot;</span></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="bu">echo</span> <span class="va">${STR/</span>foo<span class="va">/</span>bar<span class="va">}</span> <span class="co"># /path/to/bar.cpp</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb13">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"><span class="va">STR=</span><span class="st">&quot;Hello world&quot;</span></a>
 <a class="sourceLine" id="cb13-2" title="2"><span class="bu">echo</span> <span class="va">${STR:6:5}</span>   <span class="co"># &quot;world&quot;</span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="bu">echo</span> <span class="va">${STR: -5:5}</span>  <span class="co"># &quot;world&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="va">SRC=</span><span class="st">&quot;/path/to/foo.cpp&quot;</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="bu">echo</span> <span class="va">${STR: -5:5}</span>  <span class="co"># &quot;world&quot;</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb14">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="va">SRC=</span><span class="st">&quot;/path/to/foo.cpp&quot;</span></a>
 <a class="sourceLine" id="cb14-2" title="2"><span class="va">BASE=${SRC##</span>*/<span class="va">}</span>   <span class="co">#=&gt; &quot;foo.cpp&quot; (basepath)</span></a>
-<a class="sourceLine" id="cb14-3" title="3"><span class="va">DIR=${SRC%$BASE}</span>  <span class="co">#=&gt; &quot;/path/to/&quot; (dirpath)</span></a></code></pre></div>
-<h3 id="substitution">Substitution</h3>
-<table>
-<thead>
-<tr class="header">
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>${FOO%suffix}</code></td>
-<td>Remove suffix</td>
-</tr>
-<tr class="even">
-<td><code>${FOO#prefix}</code></td>
-<td>Remove prefix</td>
-</tr>
-<tr class="odd">
-<td>—</td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td><code>${FOO%%suffix}</code></td>
-<td>Remove long suffix</td>
-</tr>
-<tr class="odd">
-<td><code>${FOO##prefix}</code></td>
-<td>Remove long prefix</td>
-</tr>
-<tr class="even">
-<td>—</td>
-<td>—</td>
-</tr>
-<tr class="odd">
-<td><code>${FOO/from/to}</code></td>
-<td>Replace first match</td>
-</tr>
-<tr class="even">
-<td><code>${FOO//from/to}</code></td>
-<td>Replace all</td>
-</tr>
-<tr class="odd">
-<td>—</td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td><code>${FOO/%from/to}</code></td>
-<td>Replace suffix</td>
-</tr>
-<tr class="odd">
-<td><code>${FOO/#from/to}</code></td>
-<td>Replace prefix</td>
-</tr>
-</tbody>
-</table>
-<h3 id="comments">Comments</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="co"># Single line comment</span></a></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"><span class="bu">:</span> <span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="va">DIR=${SRC%$BASE}</span>  <span class="co">#=&gt; &quot;/path/to/&quot; (dirpath)</span></a></code></pre>
+    </div>
+    <h3 id="substitution">Substitution</h3>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Code</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>${FOO%suffix}</code></td>
+          <td>Remove suffix</td>
+        </tr>
+        <tr class="even">
+          <td><code>${FOO#prefix}</code></td>
+          <td>Remove prefix</td>
+        </tr>
+        <tr class="odd">
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr class="even">
+          <td><code>${FOO%%suffix}</code></td>
+          <td>Remove long suffix</td>
+        </tr>
+        <tr class="odd">
+          <td><code>${FOO##prefix}</code></td>
+          <td>Remove long prefix</td>
+        </tr>
+        <tr class="even">
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr class="odd">
+          <td><code>${FOO/from/to}</code></td>
+          <td>Replace first match</td>
+        </tr>
+        <tr class="even">
+          <td><code>${FOO//from/to}</code></td>
+          <td>Replace all</td>
+        </tr>
+        <tr class="odd">
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr class="even">
+          <td><code>${FOO/%from/to}</code></td>
+          <td>Replace suffix</td>
+        </tr>
+        <tr class="odd">
+          <td><code>${FOO/#from/to}</code></td>
+          <td>Replace prefix</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="comments">Comments</h3>
+    <div class="sourceCode" id="cb15">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="co"># Single line comment</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb16">
+      <pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"><span class="bu">:</span> <span class="st">&#39;</span></a>
 <a class="sourceLine" id="cb16-2" title="2"><span class="st">This is a</span></a>
 <a class="sourceLine" id="cb16-3" title="3"><span class="st">multi line</span></a>
 <a class="sourceLine" id="cb16-4" title="4"><span class="st">comment</span></a>
-<a class="sourceLine" id="cb16-5" title="5"><span class="st">&#39;</span></a></code></pre></div>
-<h3 id="substrings">Substrings</h3>
-<table>
-<thead>
-<tr class="header">
-<th>Expression</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>${FOO:0:3}</code></td>
-<td>Substring <em>(position, length)</em></td>
-</tr>
-<tr class="even">
-<td><code>${FOO:(-3):3}</code></td>
-<td>Substring from the right</td>
-</tr>
-</tbody>
-</table>
-<h3 id="length">Length</h3>
-<table>
-<thead>
-<tr class="header">
-<th>Expression</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>${#FOO}</code></td>
+<a class="sourceLine" id="cb16-5" title="5"><span class="st">&#39;</span></a></code></pre>
+    </div>
+    <h3 id="substrings">Substrings</h3>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Expression</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>${FOO:0:3}</code></td>
+          <td>Substring <em>(position, length)</em></td>
+        </tr>
+        <tr class="even">
+          <td><code>${FOO:(-3):3}</code></td>
+          <td>Substring from the right</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="length">Length</h3>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Expression</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>${#FOO}</code></td>
 <td>Length of <code>$FOO</code></td>
 </tr>
 </tbody>
