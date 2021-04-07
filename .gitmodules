@@ -1,0 +1,3 @@
+[submodule "master"]
+	path = master
+	url = https://github.com/bgoonz/Git-for-Web-Development-Project.git
