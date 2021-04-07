@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bgoonz/Lambda-W1/issues"
   },
-  "homepage": "https://github.com/bgoonz/Lambda-W1#readme"
+  "homepage": "https://github.com/bgoonz/Lambda-W1#readme",
+  "dependencies": {
+    "pageres": "^6.2.1"
+  }
 }
