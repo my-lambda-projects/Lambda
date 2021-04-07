@@ -1,0 +1,24 @@
+{
+  "name": "loadashes6",
+  "version": "1.0.0",
+  "description": "loadash but implemented with es6 syntax",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgoonz/loadash-es6-refactor.git"
+  },
+  "keywords": [
+    "modules",
+    "stdlib",
+    "util"
+  ],
+  "author": "Bryan Guner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bgoonz/loadash-es6-refactor/issues"
+  },
+  "homepage": "https://github.com/bgoonz/loadash-es6-refactor#readme"
+}
