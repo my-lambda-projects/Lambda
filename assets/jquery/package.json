@@ -46,7 +46,7 @@
     "insight": "0.10.1",
     "jsdom": "13.2.0",
     "karma": "5.2.3",
-    "karma-browserstack-launcher": "1.4.0",
+    "karma-browserstack-launcher": "1.6.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
     "karma-ie-launcher": "1.0.0",
