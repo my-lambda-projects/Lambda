@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="short-example">Short example</h3>
+<p>{: .-prime}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini"><code class="sourceCode ini"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># editorconfig.org</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dt">root </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">[*]</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="dt">indent_style </span><span class="ot">=</span><span class="st"> space</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="dt">indent_size </span><span class="ot">=</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="dt">tab_width </span><span class="ot">=</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="dt">end_of_line </span><span class="ot">=</span><span class="st"> lf</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="dt">charset </span><span class="ot">=</span><span class="st"> utf</span><span class="dv">-8</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="dt">trim_trailing_whitespace </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="dt">insert_final_newline </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></a></code></pre></div>
+<p>This example should be fine for most projects indented by 2 spaces. See: <a href="https://github.com/daneden/animate.css/blob/master/.editorconfig">animate.css editorconfig</a></p>
+<h3 id="properties">Properties</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini"><code class="sourceCode ini"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">indent_style </span><span class="ot">=</span><span class="st"> {space|tab}</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dt">indent_size </span><span class="ot">=</span><span class="st"> {</span><span class="dv">4</span><span class="st">|tab}</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="dt">tab_width </span><span class="ot">=</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="dt">end_of_line </span><span class="ot">=</span><span class="st"> {cr|lf|crlf}</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="dt">charset </span><span class="ot">=</span><span class="st"> {utf</span><span class="dv">-8</span><span class="st">|utf-16be|utf-16le|latin1}</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="dt">trim_trailing_whitespace </span><span class="ot">=</span><span class="st"> </span><span class="kw">false</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="dt">insert_final_newline </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="dt">max_line_length </span><span class="ot">=</span><span class="st"> </span><span class="dv">80</span></a></code></pre></div>
+<h3 id="full-example">Full example</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini"><code class="sourceCode ini"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># top-most EditorConfig file</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="dt">root </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co"># Unix-style newlines with a newline ending every file</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">[*]</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="dt">end_of_line </span><span class="ot">=</span><span class="st"> lf</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="dt">insert_final_newline </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co"># 4 space indentation</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="kw">[*.py]</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="dt">indent_style </span><span class="ot">=</span><span class="st"> space</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="dt">indent_size </span><span class="ot">=</span><span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb3-13" title="13"></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co"># Tab indentation (no size specified)</span></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="kw">[*.js]</span></a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="dt">indent_style </span><span class="ot">=</span><span class="st"> tab</span></a>
+<a class="sourceLine" id="cb3-17" title="17"></a>
+<a class="sourceLine" id="cb3-18" title="18"><span class="co"># Indentation override for all JS under lib directory</span></a>
+<a class="sourceLine" id="cb3-19" title="19"><span class="kw">[lib/**.js]</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="dt">indent_style </span><span class="ot">=</span><span class="st"> space</span></a>
+<a class="sourceLine" id="cb3-21" title="21"><span class="dt">indent_size </span><span class="ot">=</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-22" title="22"></a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="co"># Matches the exact files either package.json or .travis.yml</span></a>
+<a class="sourceLine" id="cb3-24" title="24"><span class="kw">[{package.json,.travis.yml}]</span></a>
+<a class="sourceLine" id="cb3-25" title="25"><span class="dt">indent_style </span><span class="ot">=</span><span class="st"> space</span></a>
+<a class="sourceLine" id="cb3-26" title="26"><span class="dt">indent_size </span><span class="ot">=</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://EditorConfig.org" class="uri">https://EditorConfig.org</a></li>
+</ul>
+</body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="kubernetes-a-cheat-sheet">Kubernetes: A cheat sheet</h1>
+  <blockquote>
+    <p>Kubernetes is a series of open source projects for automating the deployment, scaling, and management of
+      containerized applications. Find out why the ecosystem matters, how to use it, and more.</p>
+  </blockquote>
+  <p>Kubernetes is a series of open source projects for automating the deployment, scaling, and management of
+    containerized applications. Find out why the ecosystem matters, how to use it, and more.</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/05/09/344f29ca-bf77-4c32-b65a-97531d2f5ee9/resize/770x/6bb262c628ab720faafb8f254f51b402/kubernetes.jpg"
+      alt="kubernetes.jpg" />
+    <figcaption>kubernetes.jpg</figcaption>
+  </figure>
+  <p>Image: iStock/123dartist</p>
+  <p>As <a href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">containers</a> have become
+    more important to businesses across the globe, it was necessary to create a system that would allow containers to
+    scale out to meet the needs of enterprise-level deployments. That’s where <a
+      href="https://kubernetes.io/">Kubernetes</a> comes into play.</p>
+  <p>Unlike <a href="https://www.techrepublic.com/article/docker-the-smart-persons-guide/">Docker</a>, Kubernetes is a
+    very robust ecosystem. Instead of deploying a single container, Kubernetes enables you to deploy multiple containers
+    to multiple hosts, making it ideal for larger deployments and load balancing.</p>
+  <p>This smart person’s guide is an easy way to get up to speed on Kubernetes. We’ll update this guide periodically
+    when news about Kubernetes is released.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/downloads/kubernetes-a-cheat-sheet-free-pdf/"><strong>Kubernetes:
+        A cheat sheet (free PDF)</strong></a> <strong>(TechRepublic)</strong></p>
+  <p>Executive summary</p>
+  <ul>
+    <li><strong>What is Kubernetes?</strong> Kubernetes is an open source project that enables the management of
+      large-scale container and pod deployment.</li>
+    <li><strong>Why does Kubernetes matter?</strong> Containerized applications are being used by most of the major
+      enterprise companies as a way to roll out large-scale, highly-available, load-balanced clusters of apps and
+      services. If this is something your business is looking to do, Kubernetes might be the right tool for you.</li>
+    <li><strong>Who does Kubernetes affect?</strong> Kubernetes affects companies that want to roll out massive
+      containerized applications, as well as clients, customers, consumers…anyone that would benefit from
+      highly-available services. Kubernetes also helps developers build distributed applications and makes it much
+      easier for IT operators to manage scalable infrastructure for applications.</li>
+    <li><strong>When is Kubernetes happening?</strong> Kubernetes was first announced in mid-2014 and was first released
+      on July 21, 2015.</li>
+    <li><strong>How do I start using Kubernetes?</strong> Install the system on a supported platform such as <a
+        href="https://www.redhat.com/en">Red Hat</a>, <a href="https://www.suse.com/">SUSE</a>, <a
+        href="https://www.centos.org/">CentOS</a>, <a href="https://getfedora.org/en/server/">Fedora Server</a>, <a
+        href="https://www.ubuntu.com/download/server">Ubuntu Server</a>, etc., and you’ll have access to kubernetes,
+      kubernetes-client, kubernetes-master, kubernetes-node, and more.</li>
+  </ul>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic’s cheat sheets
+        and smart person’s guides</a></strong></p>
+  <h2 id="what-is-kubernetes">What is Kubernetes?</h2>
+  <p>Kubernetes is an open source system that allows you to run containers across multiple hosts, effectively offering
+    the co-location of containers, service discovery, and replication control. It was originally called K8s and was
+    designed by Google and donated to the Cloud Native Computing Foundation.</p>
+  <p>The primary functions of Kubernetes are:</p>
+  <ul>
+    <li>schedule, start, manage, and scale containers across multiple hosts; and</li>
+    <li>add a higher-level API to define how containers are logically grouped to define container pools and handle load
+      balancing.</li>
+  </ul>
+  <p>Its features include the following:</p>
+  <ul>
+    <li><strong>Automated scheduling:</strong> Allows you to deploy containers and services at scheduled times.</li>
+    <li>
+      <p><strong>Self-healing capabilities:</strong> When a container or pod falls out of its desired state, Kubernetes
+        can attempt to automatically resolve the problem.</p>
+    </li>
+    <li>
+      <p><strong>Automated rollouts and rollback:</strong> Add automated rollouts and rollbacks to create a CI/CD
+        pipeline.</p>
+    </li>
+    <li>
+      <p><strong>Horizontal scaling and load balancing:</strong> Scale your deployments as needed.</p>
+    </li>
+    <li><strong>Environment consistency for development:</strong> Your testing and production infrastructures are
+      loosely coupled to each individual component and can act as a separate unit to the cluster.</li>
+    <li><strong>Deploy containers and manage rollout control:</strong> With this complex system you can describe your
+      containers and/or pods and define how many you want in a single deployment. Kubernetes will not only manage the
+      running of those containers or pods (even across multiple hosts), but it will also handle deploying changes (e.g.,
+      updating images, changing variables, etc.) to your containers.</li>
+    <li><strong>Resource Bin packing</strong> allows you to declare minimum and maximum computer resources (CPU and
+      memory) for all containers.</li>
+    <li><strong>Built-in service discovery:</strong> Automatic exposure of containers to the internet or other
+      containers in the Kubernetes cluster.</li>
+    <li><strong>Autoscaling:</strong> Kubernetes automatically load balances traffic across matching containers.</li>
+    <li><strong>Heterogeneous clusters:</strong> Kubernetes allows you to build a cluster with a mixture of virtual
+      machines, on-premises servers, or bare metal in your company data center.</li>
+    <li><strong>Persistent storage support</strong> is available to Kubernetes, with support for <a
+        href="https://aws.amazon.com/ebs/">Amazon Web Services EBS</a>, <a
+        href="https://cloud.google.com/persistent-disk/">Google Cloud Platform persistent disks</a>, and more. Vendors,
+      including Red Hat, Dell EMC, and NetApp, provide persistent storage for Kubernetes.</li>
+    <li>
+      <p><strong>High availability</strong>, such as multi-master and cluster federation, allowing the linking of
+        clusters together for load balancing.</p>
+    </li>
+  </ul>
+  <p>Kubernetes allows you to easily:</p>
+  <ul>
+    <li>deploy containerized applications quickly and predictably;</li>
+    <li>scale containerized applications on the fly;</li>
+    <li>seamlessly roll out new features to your containerized applications; and</li>
+    <li>optimize your hardware specifically for your containerized applications.</li>
+  </ul>
+  <p>Kubernetes, at its minimum, can schedule and run containerized applications on clusters of physical machines or
+    virtual machines or a combination of physical and virtual machines; this allows developers to leave behind the
+    traditional method of working with physical and virtual machines. Although this can be achieved with the simpler <a
+      href="https://docs.docker.com/engine/swarm/">Docker Swarm</a>, Kubernetes allows the deployment of much larger
+    clusters, which can include containers and/or pods. In other words, create your containers and then deploy them over
+    a massive, load balanced cluster with Kubernetes.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/downloads/kubernetes-security-guide-free-pdf/"><strong>Kubernetes
+        security guide (free PDF)</strong></a> <strong>(TechRepublic)</strong></p>
+  <p>Kubernetes consists of the following components.</p>
+  <ul>
+    <li><strong>Pods:</strong> Containers are placed into pods to be managed by Kubernetes.</li>
+    <li><strong>Labels and selectors:</strong> Key-value pairs used to identify and group resources within Kubernetes.
+    </li>
+    <li><strong>Controllers:</strong> A reconciliation loop that drives <em>actual</em> cluster state toward the
+      <em>desired</em> cluster state.</li>
+    <li><strong>Services:</strong> A way to identify elements used by applications (name-resolution, caching, etc.).
+    </li>
+    <li><strong>Kubernetes control plane:</strong> Main controlling unit of the cluster that manages workload and
+      directs communication across the system.</li>
+    <li><strong>etcd:</strong> Persistent, lightweight, distributed key-value data store.</li>
+    <li><strong>API server:</strong> Serves the Kubernetes API using JSON over HTTP.</li>
+    <li><strong>Scheduler:</strong> Pluggable component that selects which node a pod should run on based on resource
+      availability.</li>
+    <li><strong>Controller manager:</strong> The process that runs the Kubernetes controllers such as DaemonSet and
+      Replication.</li>
+    <li><strong>Kublet:</strong> Responsible for the running state of each node (starting, stopping, and maintaining
+      application containers).</li>
+    <li><strong>Kube-proxy:</strong> The implementation of a network proxy and load balancer that supports the service
+      abstraction.</li>
+    <li><strong>cAdvisor:</strong> An agent that monitors and gathers resource usage.</li>
+    <li><strong>Container runtime:</strong> As of the upcoming 1.22 release, Kubernetes support for Docker will be
+      deprecated. Once this happens, Kubernetes will allows runtimes that use the Container Runtime Interface(CRI), such
+      as containerd.</li>
+  </ul>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/how-red-hat-aims-to-make-kubernetes-boring-and-successful/">How
+        Red Hat aims to make Kubernetes boring…and successful</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/resource-library/whitepapers/riding-the-devops-revolution-free-pdf/">Special
+          report: Riding the DevOps revolution (free PDF)</a> (TechRepublic)</p>
+    </li>
+    <li><a
+        href="https://www.techrepublic.com/article/microsoft-azures-kubernetes-support-demonstrates-growing-importance-of-containers/">Microsoft
+        Azure’s Kubernetes support demonstrates growing importance of containers</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/vmware-goes-all-in-on-containers-with-kubernetes-as-a-service/">VMware
+        goes all in on containers with Kubernetes as a Service</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/why-kubernetes-could-be-crowned-king-of-container-management/">Why
+        Kubernetes could be crowned king of container management</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="http://www.zdnet.com/article/enterprise-container-devops-steps-up-its-game-with-kubernetes-1-6/">Enterprise
+          container DevOps steps up its game with Kubernetes 1.6</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h2 id="why-does-kubernetes-matter">Why does Kubernetes matter?</h2>
+  <p>Containers are a powerful and flexible way to safely and reliably deploy applications and microservices to extend
+    and expand your company’s services. When the need grows beyond a standard Docker deployment or you need to
+    deploy/manage multiple containerized applications from different systems (such as Docker), you need a way to deploy
+    and control such systems.</p>
+  <p>With the help of Docker Swarm, you can deploy containerized applications over a cluster, but you’re limited to
+    Docker-only containers and to only using the architecture security, registry of Docker, Inc. With Kubernetes, those
+    containers can come from a number of sources (Docker, Windows Server Containers, etc.), making Kubernetes incredibly
+    flexible and significantly more complex.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="http://www.zdnet.com/article/containers-devops-it-automation-top-of-mind-as-complexity-grows/">Containers,
+        DevOps, IT automation seen as antidotes to complexity</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-establish-strong-microservice-security-using-ssl-tls-and-api-gateways/">How
+        to establish strong microservice security using SSL, TLS and API gateways</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/docker-the-smart-persons-guide/">Docker: The smart person’s
+        guide</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/3-hybrid-cloud-alternatives-to-aws-cloudformation/">3 hybrid cloud
+        alternatives to AWS CloudFormation</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/why-your-traditional-virtualization-vendor-cant-help-you-with-containers/">Why
+        your traditional virtualization vendor can’t help you with containers</a> (TechRepublic)</li>
+    <li><a
+        href="http://www.zdnet.com/article/kubernetes-orchestrator-now-available-on-microsofts-azure-container-service/">Kubernetes
+        orchestrator now available on Microsoft’s Azure Container Service</a> (ZDNet)</li>
+  </ul>
+  <h2 id="who-does-kubernetes-affect">Who does Kubernetes affect?</h2>
+  <p>Kubernetes affects any company that needs to deploy massive rollouts of containerized applications and services;
+    this means anyone involved with the deployment should be familiar with the Kubernetes tools and Docker. And
+    considering Kubernetes is a rather complex system, administrators will need to do a fair amount of homework in order
+    to successfully implement the technology.</p>
+  <p>The effect of Kubernetes goes well beyond those that administer the system–customers, clients, staff, and
+    consumers…no one is immune to the effect of containerized applications. When we’re talking about business and
+    enterprise-level deployments, Kubernetes takes center stage.</p>
+  <p>Developers are also affected by Kubernetes. As of 2020, Kubernetes had over 43,000 contributors from across varying
+    industries, with over 43 branches and over 96,000 commits on <a
+      href="https://github.com/kubernetes/kubernetes">GitHub</a>. Kubernetes also has more developers working on it than
+    <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a>, <a href="http://mesos.apache.org/">Mesos</a>, and
+    <a href="https://docs.cloudfoundry.org/concepts/diego/diego-architecture.html">Cloud Foundry Diego</a> combined.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/why-red-hat-makes-more-money-on-docker-than-docker-does/">Why Red
+        Hat makes more money on Docker than Docker does</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/5-data-center-ready-linux-distributions/">5 data center-ready
+        Linux distributions</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/resource-library/whitepapers/the-cloud-v-data-center-decision-free-pdf/">Special
+        report: The cloud v. data center decision (free PDF)</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/ebay-builds-its-own-tool-to-integrate-kubernetes-and-openstack/">eBay
+        builds its own tool to integrate Kubernetes and OpenStack</a> (ZDNet)</li>
+  </ul>
+  <h2 id="when-is-kubernetes-happening">When is Kubernetes happening?</h2>
+  <p>Kubernetes was created by Joe Beda, Brendan Burns, and Craig McLuckie, who were soon joined by other Google
+    engineers, and was first announced by Google in mid-2014. The original name for Kubernetes was Seven Of Nine (from
+    Star Trek Borg fame). Once the Google lawyers swayed the original developers away from the original name, they
+    agreed upon the name Kubernetes.</p>
+  <p>Kubernetes v1.0 was released July 21, 2015 and very quickly wound up in the top 0.01% in stars and number 1 in
+    terms of activity on <a href="https://www.techrepublic.com/article/github-the-smart-persons-guide/">GitHub</a>. That
+    translates to significant development on the project.</p>
+  <p>As of December, 2020, the latest release of Kubernetes is 1.18.12 with 27 merged pull requests, 87 open pull
+    requests, 3.3k users watching the project, and 72.3k stars.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="http://www.zdnet.com/article/mirantis-enters-the-kubernetes-game-and-ups-its-openstack-play/">Mirantis
+        enters the Kubernetes game and ups its OpenStack play</a> (ZDNet)</li>
+    <li><a href="http://www.zdnet.com/article/red-hat-steps-up-its-kubernetes-game-with-openshift-container-3-5/">Red
+        Hat steps up its Kubernetes game with OpenShift Container 3.5</a> (ZDNet)</li>
+    <li><a href="http://www.zdnet.com/article/microsoft-to-buy-kubernetes-orchestration-vendor-deis/">Microsoft to buy
+        Kubernetes container-orchestration vendor Deis</a> (ZDNet)</li>
+    <li><a href="http://www.zdnet.com/article/docker-open-sources-container-runtime-and-management-program/">Docker open
+        sources container runtime and management program containerd</a> (ZDNet)</li>
+  </ul>
+  <h2 id="how-do-i-start-using-kubernetes">How do I start using Kubernetes?</h2>
+  <p>Kubernetes can be deployed on numerous platforms, including:</p>
+  <ul>
+    <li><a href="https://cloud.google.com/container-engine/">Google Container Engine</a></li>
+    <li><a href="https://www.vagrantup.com/downloads.html">Vagrant</a></li>
+    <li>Any supporting Linux platform, such as <a href="https://www.redhat.com/en">Red Hat</a></li>
+    <li><a href="https://kubernetes.io/docs/getting-started-guides/minikube">minikube</a></li>
+  </ul>
+  <p>For a full list of vendors/platforms supporting Kubernetes deployment, check out <a
+      href="https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0">this
+      spreadsheet</a>.</p>
+  <p>You will need to set up:</p>
+  <ul>
+    <li><strong>Kubernetes Controller:</strong> This is where you direct API calls to services that control the
+      activities of the pods, replication controllers, services, nodes, and other components of the cluster.</li>
+    <li><strong>Kubernetes Node(s):</strong> This system provides the run-time environments for the containers.</li>
+  </ul>
+  <p>The Controller and Node can be on the same system, but traditionally they will be separated.</p>
+  <p>You will also need your containers. The most widely used containers deployed by Kubernetes are from Docker, which
+    makes sense considering docker containers are the most widely used on the planet. And even though Kubernetes has
+    deprecated support for Docker, you can still develop your containers or images with Docker and use them with
+    Kubernetes.</p>
+  <p>Kubernetes must be installed on the Controller and all nodes. Remember, however, now that Kubernetes is about to
+    deprecate Docker, you must install with a different runtime (such as containerd). For example, on Ubuntu Server
+    20.04, install Kubernetes and containerd with the following steps:</p>
+  <p>sudo apt-get update &amp;&amp; sudo apt-get install -y apt-transport-https curl curl -s
+    https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - sudo -s cat
+    &lt;/etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main EOF exit sudo
+    apt-get update sudo apt-get install kubelet kubeadm kubectl containerd -y</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/">Kubernetes tutorials</a>
+      (Kubernetes)</li>
+    <li><a
+        href="https://www.techrepublic.com/resource-library/whitepapers/it-leader-s-guide-to-making-devops-work/">Ebook:
+        IT leader’s guide to making DevOps work</a> (TechRepublic Premium)</li>
+    <li><a href="https://www.techrepublic.com/article/6-quick-docker-tips-to-make-managing-your-containers-easier/">6
+        quick Docker tips to make managing your containers easier</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-install-wordpress-with-docker/">How to install WordPress
+        with Docker</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-manage-docker-containers-from-the-command-line/">How to
+        manage Docker containers from the command line</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-install-docker-on-fedora-25/">How to install Docker on
+        Fedora 25</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-install-and-use-portainer-for-easy-docker-container-management/">How
+        to install and use Portainer for easy Docker container management</a> (TechRepublic)</li>
+  </ul>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="data-center-trends-newsletter">Data Center Trends Newsletter</h3>
+  <p>DevOps, virtualization, the hybrid cloud, storage, and operational efficiency are just some of the data center
+    topics we’ll highlight. Delivered Mondays and Wednesdays</p>
+  <p>Sign up today</p>
+  <p><a href="https://www.techrepublic.com/article/kubernetes-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

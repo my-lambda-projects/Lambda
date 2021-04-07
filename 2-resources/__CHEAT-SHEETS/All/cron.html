@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="format">Format</h2>
+<p>{: .-two-column}</p>
+<h3 id="format-1">Format</h3>
+<pre><code>Min  Hour Day  Mon  Weekday</code></pre>
+<p>{: .-setup}</p>
+<pre><code>*    *    *    *    *  command to be executed</code></pre>
+<pre><code>┬    ┬    ┬    ┬    ┬
+│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
+│    │    │    └──────  Month    (1..12)
+│    │    └───────────  Day      (1..31)
+│    └────────────────  Hour     (0..23)
+└─────────────────────  Minute   (0..59)</code></pre>
+<p>{: .-setup.-box-chars}</p>
+<h3 id="examples">Examples</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0 * * * *</code></td>
+<td>every hour</td>
+</tr>
+<tr class="even">
+<td><code>*/15 * * * *</code></td>
+<td>every 15 mins</td>
+</tr>
+<tr class="odd">
+<td><code>0 */2 * * *</code></td>
+<td>every 2 hours</td>
+</tr>
+<tr class="even">
+<td><code>0 0 * * 0</code></td>
+<td>every Sunday midnight</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>@reboot</code></td>
+<td>every reboot</td>
+</tr>
+</tbody>
+</table>
+<h3 id="crontab">Crontab</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># Adding tasks easily</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="bu">echo</span> <span class="st">&quot;@reboot echo hi&quot;</span> <span class="kw">|</span> <span class="ex">crontab</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Open in editor</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">crontab</span> -e</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># List tasks</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">crontab</span> -l [-u user]</a></code></pre></div>
+</body></html>

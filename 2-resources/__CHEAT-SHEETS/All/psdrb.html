@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="opening">Opening</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1">psd = <span class="dt">PSD</span>.new(file, <span class="st">parse_layer_images: </span><span class="dv">true</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2">psd.parse!</a></code></pre></div>
+<h3 id="traversing">Traversing</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># Gets the root node.</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># A #&lt;Node&gt; can be a Group or a Layer.</span></a>
+<a class="sourceLine" id="cb2-3" title="3">node = psd.tree</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">node.root</a>
+<a class="sourceLine" id="cb3-2" title="2">node.descendants</a>
+<a class="sourceLine" id="cb3-3" title="3">node.ancestors</a>
+<a class="sourceLine" id="cb3-4" title="4">node.siblings</a>
+<a class="sourceLine" id="cb3-5" title="5">node.subtree</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1">node.descendant_groups</a>
+<a class="sourceLine" id="cb4-2" title="2">node.descendant_layers</a></code></pre></div>
+<h3 id="layer-info">Layer info</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1">node.name   <span class="co">#=&gt; &quot;Layer 2&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1">node.top    <span class="co">#=&gt; 3</span></a>
+<a class="sourceLine" id="cb6-2" title="2">node.left   <span class="co">#=&gt; 3</span></a>
+<a class="sourceLine" id="cb6-3" title="3">node.bottom</a>
+<a class="sourceLine" id="cb6-4" title="4">node.right</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># Note: these are interchanged (?)</span></a>
+<a class="sourceLine" id="cb7-2" title="2">node.width</a>
+<a class="sourceLine" id="cb7-3" title="3">node.height</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">node.visible?</a>
+<a class="sourceLine" id="cb8-2" title="2">node.hidden?</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb9-1" title="1">node.layer?</a>
+<a class="sourceLine" id="cb9-2" title="2">node.group?</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb10-1" title="1">node.blending_mode  <span class="co">#=&gt; &quot;normal&quot;</span></a>
+<a class="sourceLine" id="cb10-2" title="2">node.opacity        <span class="co">#=&gt; 0..255</span></a>
+<a class="sourceLine" id="cb10-3" title="3">node.fill_opacity   <span class="co">#=&gt; 0..255</span></a></code></pre></div>
+<h3 id="layer-text">Layer text</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" title="1">node.text                  <span class="co">#=&gt; (Hash)</span></a>
+<a class="sourceLine" id="cb11-2" title="2">node.text[<span class="st">:value</span>]          <span class="co">#=&gt; &quot;Text here&quot;</span></a>
+<a class="sourceLine" id="cb11-3" title="3">node.text[<span class="st">:font</span>][<span class="st">:name</span>]    <span class="co">#=&gt; &quot;Arial&quot;</span></a>
+<a class="sourceLine" id="cb11-4" title="4">node.text[<span class="st">:font</span>][<span class="st">:sizes</span>]   <span class="co">#=&gt; [6.9]</span></a>
+<a class="sourceLine" id="cb11-5" title="5">node.text[<span class="st">:font</span>][<span class="st">:colors</span>]  <span class="co">#=&gt; [[255,255,255,255]]</span></a>
+<a class="sourceLine" id="cb11-6" title="6">node.text[<span class="st">:font</span>][<span class="st">:css</span>]     <span class="co">#=&gt; &quot;font-family: ...;&quot;</span></a>
+<a class="sourceLine" id="cb11-7" title="7">node.text[<span class="st">:left</span>]           <span class="co">#=&gt; 3</span></a>
+<a class="sourceLine" id="cb11-8" title="8">node.text[<span class="st">:top</span>]</a>
+<a class="sourceLine" id="cb11-9" title="9">node.text[<span class="st">:right</span>]</a>
+<a class="sourceLine" id="cb11-10" title="10">node.text[<span class="st">:bottom</span>]</a>
+<a class="sourceLine" id="cb11-11" title="11">node.text[<span class="st">:transform</span>]      <span class="co">#=&gt; (Hash)</span></a></code></pre></div>
+<h3 id="layer-effects">Layer effects</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb12-1" title="1">fx = node.info[<span class="st">:object_effects</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb13-1" title="1">fx.data[<span class="st">&#39;Scl &#39;</span>]   <span class="co"># ?</span></a>
+<a class="sourceLine" id="cb13-2" title="2">fx.data[<span class="st">&#39;GrFl&#39;</span>]   <span class="co"># Gradient fill</span></a></code></pre></div>
+<h3 id="layer-mask">Layer mask</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb14-1" title="1">node.mask[<span class="st">&quot;mask_size&quot;</span>] == <span class="dv">0</span>    <span class="co"># No mask</span></a>
+<a class="sourceLine" id="cb14-2" title="2">node.mask[<span class="st">&quot;mask_size&quot;</span>] == <span class="dv">20</span>   <span class="co"># Has mask</span></a>
+<a class="sourceLine" id="cb14-3" title="3">node.mask[<span class="st">&quot;top&quot;</span>]</a>
+<a class="sourceLine" id="cb14-4" title="4">node.mask[<span class="st">&quot;left&quot;</span>]</a>
+<a class="sourceLine" id="cb14-5" title="5">node.mask[<span class="st">&quot;bottom&quot;</span>]</a>
+<a class="sourceLine" id="cb14-6" title="6">node.mask[<span class="st">&quot;right&quot;</span>]</a></code></pre></div>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://github.com/layervault/psd.rb">layervault/psd.rb</a> <em>(github.com)</em></li>
+</ul>
+</body></html>

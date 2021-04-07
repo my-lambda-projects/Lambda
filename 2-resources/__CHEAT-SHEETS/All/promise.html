@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="reference">Reference</h2>
+<p>{:.-three-column}</p>
+<h3 id="introduction">Introduction</h3>
+<p>{: .-intro}</p>
+<p>intro: A quick reference to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise API</a>.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using Promises guide</a> <em>(developer.mozilla.org)</em></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise documentation</a> <em>(developer.mozilla.org)</em></li>
+</ul>
+<h3 id="creating-promises">Creating promises</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">new</span> <span class="at">Promise</span>((resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">doStuff</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">if</span> (success) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">      <span class="at">resolve</span>(<span class="st">&#39;good&#39;</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">      <span class="at">reject</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;oops&#39;</span>))</a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">}</span>)</a></code></pre></div>
+<p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Contstructor">new Promise</a> to create new promises.</p>
+<h3 id="consuming-promises">Consuming promises</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">promise</a>
+<a class="sourceLine" id="cb2-2" title="2">  .<span class="at">then</span>((result) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="co">/* success */</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5">  .<span class="at">catch</span>((error) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="co">/* failure */</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="op">}</span>)</a></code></pre></div>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a> runs a function when a promise resolves. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">catch()</a> runs when a promise fails.</p>
+<h3 id="multiple-promises">Multiple promises</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> promises <span class="op">=</span> [<span class="at">promise1</span>()<span class="op">,</span> <span class="at">promise2</span>() <span class="co">/* ... */</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Succeeds when all succeed</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">Promise</span>.<span class="at">all</span>(promises).<span class="at">then</span>((results) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">/* ... */</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// Succeeds when one finishes first</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">Promise</span>.<span class="at">race</span>(promises).<span class="at">then</span>((result) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="co">/* ... */</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">}</span>)</a></code></pre></div>
+<h3 id="converting-other-promises">Converting other promises</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="cf">return</span> <span class="va">Promise</span>.<span class="at">resolve</span>(<span class="st">&#39;result&#39;</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="cf">return</span> <span class="va">Promise</span>.<span class="at">resolve</span>(promise)</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="cf">return</span> <span class="va">Promise</span>.<span class="at">resolve</span>(thenable)</a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="cf">return</span> <span class="va">Promise</span>.<span class="at">reject</span>(<span class="st">&#39;reason&#39;</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="va">Promise</span>.<span class="at">resolve</span>(result).<span class="at">then</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="co">/* ... */</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="op">}</span>)</a></code></pre></div>
+<p><code>Promise.resolve(val)</code> will return a promise that resolves to the value given to it.</p>
+</body></html>

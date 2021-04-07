@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="log-format">Log format</h2>
+<p>{: .-three-column}</p>
+<h3 id="pretty-format">Pretty format</h3>
+<p>{: .-prime}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">git</span> log --pretty=<span class="st">&quot;format:%H&quot;</span></a></code></pre></div>
+<p>See the next tables on format variables.</p>
+<h3 id="hash">Hash</h3>
+<h4 id="commit">Commit</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%H</code></td>
+<td>commit hash</td>
+</tr>
+<tr class="even">
+<td><code>%h</code></td>
+<td>(abbrev) commit hash</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tree">Tree</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%T</code></td>
+<td>tree hash</td>
+</tr>
+<tr class="even">
+<td><code>%t</code></td>
+<td>(abbrev) tree hash</td>
+</tr>
+</tbody>
+</table>
+<h4 id="parent">Parent</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%P</code></td>
+<td>parent hash</td>
+</tr>
+<tr class="even">
+<td><code>%p</code></td>
+<td>(abbrev) parent hash</td>
+</tr>
+</tbody>
+</table>
+<h3 id="commit-1">Commit</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%s</code></td>
+<td>commit subject</td>
+</tr>
+<tr class="even">
+<td><code>%f</code></td>
+<td>commit subject, filename style</td>
+</tr>
+<tr class="odd">
+<td><code>%b</code></td>
+<td>commit body</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>%d</code></td>
+<td>ref names</td>
+</tr>
+<tr class="even">
+<td><code>%e</code></td>
+<td>encoding</td>
+</tr>
+</tbody>
+</table>
+<h2 id="author-and-committer">Author and committer</h2>
+<h3 id="author">Author</h3>
+<h4 id="name">Name</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%an</code></td>
+<td>author</td>
+</tr>
+<tr class="even">
+<td><code>%aN</code></td>
+<td>author, respecting mailmap</td>
+</tr>
+</tbody>
+</table>
+<h4 id="email">Email</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%ae</code></td>
+<td>author email</td>
+</tr>
+<tr class="even">
+<td><code>%aE</code></td>
+<td>author email, respecting mailmap</td>
+</tr>
+</tbody>
+</table>
+<h4 id="date">Date</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%aD</code></td>
+<td>author date (rfc2882)</td>
+</tr>
+<tr class="even">
+<td><code>%ar</code></td>
+<td>author date (relative)</td>
+</tr>
+<tr class="odd">
+<td><code>%at</code></td>
+<td>author date (unix timestamp)</td>
+</tr>
+<tr class="even">
+<td><code>%ai</code></td>
+<td>author date (iso8601)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="committer">Committer</h3>
+<h4 id="name-1">Name</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%cn</code></td>
+<td>committer name</td>
+</tr>
+<tr class="even">
+<td><code>%cN</code></td>
+<td>committer name, respecting mailmap</td>
+</tr>
+</tbody>
+</table>
+<h4 id="email-1">Email</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%ce</code></td>
+<td>committer email</td>
+</tr>
+<tr class="even">
+<td><code>%cE</code></td>
+<td>committer email, respecting mailmap</td>
+</tr>
+</tbody>
+</table>
+<h4 id="date-1">Date</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%cD</code></td>
+<td>committer date (rfc2882)</td>
+</tr>
+<tr class="even">
+<td><code>%cr</code></td>
+<td>committer date (relative)</td>
+</tr>
+<tr class="odd">
+<td><code>%ct</code></td>
+<td>committer date (unix timestamp)</td>
+</tr>
+<tr class="even">
+<td><code>%ci</code></td>
+<td>committer date (iso8601)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="./git-log">Git log cheatsheet</a></li>
+</ul>
+</body></html>

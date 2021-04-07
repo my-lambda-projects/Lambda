@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>This is a mocha template that loads js/css from cdn.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&#39;utf-8&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="kw">&lt;title&gt;</span>Mocha<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="kw">&lt;meta</span><span class="ot"> name=</span><span class="st">&#39;viewport&#39;</span><span class="ot"> content=</span><span class="st">&#39;width=device-width, initial-scale=1.0&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&#39;https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css&#39;</span><span class="ot"> rel=</span><span class="st">&#39;stylesheet&#39;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&#39;mocha&#39;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;https://cdn.rawgit.com/chaijs/chai/2.3.0/chai.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="kw">&lt;script&gt;</span><span class="va">window</span>.<span class="at">onerror</span><span class="op">=</span><span class="kw">function</span>(msg<span class="op">,</span>url<span class="op">,</span>line)<span class="op">{</span><span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;mocha&#39;</span>).<span class="at">innerHTML</span><span class="op">+=</span><span class="st">&#39;&lt;h1&gt;&#39;</span><span class="op">+</span>msg<span class="op">+</span><span class="st">&#39;&lt;/&#39;</span><span class="op">+</span><span class="st">&#39;h1&gt;&#39;</span><span class="op">+</span><span class="st">&#39;&lt;h2&gt;&#39;</span><span class="op">+</span>url<span class="op">+</span><span class="st">&#39;:&#39;</span><span class="op">+</span>line<span class="op">+</span><span class="st">&#39;&lt;/&#39;</span><span class="op">+</span><span class="st">&#39;h2&gt;&#39;</span><span class="op">;</span><span class="cf">return</span> <span class="kw">false</span><span class="op">}</span><span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-14" title="14">  <span class="kw">&lt;script&gt;</span><span class="va">mocha</span>.<span class="at">setup</span>(<span class="st">&#39;bdd&#39;</span>)<span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-15" title="15">  <span class="co">&lt;!-- what to test: --&gt;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;../index.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-17" title="17">  <span class="co">&lt;!-- tests to run: --&gt;</span></a>
+<a class="sourceLine" id="cb1-18" title="18">  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;first_test.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;second_test.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-20" title="20">  <span class="kw">&lt;script&gt;</span><span class="va">mocha</span>.<span class="at">run</span>()<span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb1-22" title="22"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+</body></html>

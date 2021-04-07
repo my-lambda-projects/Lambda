@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="google-cloud-platform-a-cheat-sheet">Google Cloud Platform: A cheat sheet</h1>
+  <blockquote>
+    <p>This comprehensive guide covers the history of Google Cloud Platform, the products and services GCP offers, and
+      where it fits in the overall cloud market.</p>
+  </blockquote>
+  <p>This comprehensive guide covers the history of Google Cloud Platform, the products and services GCP offers, and
+    where it fits in the overall cloud market.</p>
+  <p><img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/03/21/57a279f5-6449-4ef6-8b0e-af00e3801dee/thumbnail/768x432/fc2706f66957033ffc9d64a7c77d96dd/google-cloud-platform.jpg" />
+  </p>
+  <p>Google Cloud Platform (GCP) is a portfolio of cloud computing services that grew around the initial Google App
+    Engine framework for hosting web applications from Google’s data centers. Since the launch of Google App Engine in
+    2008, GCP has grown into one of the premier cloud computing platforms on the market, though it still trails Amazon
+    Web Services (AWS) and Microsoft Azure in terms of market share. That said, Google continues to hold its own in the
+    cloud wars and continues to make investments in GCP to make it competitive with other public cloud providers, and
+    more attractive to big customers. (<strong>Note:</strong> This article about the <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/google-cloud-platform-an-insider-s-guide-free-pdf/">Google
+      Cloud Platform is also available as a free PDF download</a>.)</p>
+  <p>To help CXOs, IT leaders, operations administrators, and developers better understand Google’s role as a cloud
+    provider, we’ve put together the most important details and resources in this cheat sheet. This is a “living”
+    article that will be updated and refreshed as new, relevant information becomes public. </p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/a-business-pro-s-guide-to-google-cloud-platform-gcp-free-pdf/"><strong>A
+        business pro’s guide to Google Cloud Platform (GCP) (free PDF)</strong></a> <strong>(TechRepublic)</strong></p>
+  <h2 id="executive-summary">Executive summary </h2>
+  <ul>
+    <li><strong>What is Google Cloud Platform?</strong> Google Cloud Platform, as the name implies, is a cloud computing
+      platform that provides infrastructure tools and services for users to build applications and services on top of.
+    </li>
+    <li><strong>Why does Google Cloud Platform matter?</strong> Google Cloud Platform is regarded as the third biggest
+      cloud provider in terms of revenue behind <a
+        href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">AWS</a> in first place
+      and <a href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft Azure</a> in
+      second.</li>
+    <li><strong>Who does Google Cloud Platform affect?</strong> Any organization in need of cloud computing should
+      consider Google Cloud Platform for their needs–especially SMBs, which the platform was initially geared toward.
+    </li>
+    <li><strong>When was Google Cloud Platform announced?</strong> Google announced its first cloud tool, Google App
+      Engine, back in 2008, and it continued to add more tools and services until they collectively became known as the
+      Google Cloud Platform later on.</li>
+    <li><strong>How can I use Google Cloud Platform?</strong> Google has provided <a
+        href="https://cloud.google.com/docs/">documentation</a> for getting started and a <a
+        href="https://cloud.google.com/storage/docs/faq">frequently asked questions</a> page for developers and IT
+      leaders to investigate the platform.</li>
+  </ul>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic’s cheat sheets
+        and smart person’s guides</a></strong></p>
+  <h2 id="what-is-google-cloud-platform">What is Google Cloud Platform?</h2>
+  <p>To capture the growing interest in web applications, Google App Engine was launched in April 2008 as a Platform as
+    a Service (PaaS) resource allowing developers to build and host apps on Google’s infrastructure. App Engine came out
+    of preview in September 2011, and the Google Cloud Platform name was formally adopted in 2013.</p>
+  <p>Since the introduction of Google App Engine, the company subsequently released a variety of complementary tools,
+    such as its data storage layer, and its Infrastructure as a Service (IaaS) component known as the Google Compute
+    Engine, which supports the use of virtual machines. After growing as an IaaS provider, Google added additional
+    products including a load balancer, DNS, monitoring tools, and data analysis services, bringing GCP closer to
+    feature parity with AWS and Azure, making it better able to compete in the cloud market.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/interview-questions-cloud-engineer/"><strong>Interview
+        questions: Cloud engineer</strong></a> <strong>(TechRepublic Premium)</strong></p>
+  <p>Google Cloud Platform <a href="https://cloud.google.com/products/">products</a> span the following categories:</p>
+  <ol type="1">
+    <li><strong><a href="https://www.techrepublic.com/article/artificial-intelligence-cheat-sheet/">Artificial
+          intelligence</a> &amp; <a
+          href="https://www.techrepublic.com/article/machine-learning-the-smart-persons-guide/">machine
+          learning</a>:</strong> AI building blocks, AutoML, Cloud TPU, Media translation (beta), Diagflow Enterprise
+      Edition, Cloud Natural Language, Speech-to-Text, Text-to-Speech, Translation, Vision AI, Video AI, Cloud Inference
+      API (alpha), and more</li>
+    <li>
+      <p><strong>API management:</strong> API Analytics, API Monetization, Cloud Endpoints, Developer Portal, Cloud
+        Healthcare API, and more</p>
+    </li>
+    <li>
+      <p><strong>Compute:</strong> Compute Engine, Shielded VMs, Bare Metal, Cloud Run, App Engine, Cloud Functions,
+        Cloud GPU, and more</p>
+    </li>
+    <li>
+      <p><strong>Containers:</strong> Artifact Registry, Cloud Build, Container Registry, Container Security, Google
+        Kubernetes Engine, and more</p>
+    </li>
+    <li>
+      <p><strong>Data analytics:</strong> BigQuery, Dataflow, Dataproc, Dataflow, Dataprep, Cloud Composer, and more</p>
+    </li>
+    <li>
+      <p><strong>Databases:</strong> Cloud SQL, Cloud Bigtable, Cloud Spanner, Firestore,  Memorystore, and more</p>
+    </li>
+    <li>
+      <p><strong>Developer tools:</strong> Cloud SDK, Container Registry, Cloud Build, Cloud Source Repositories, Cloud
+        Tasks, and more, as well as Cloud Tools for PowerShell and Eclipse</p>
+    </li>
+    <li>
+      <p><strong>Healthcare and life sciences:</strong> Apigee Healthcare APIx, Cloud Healthcare API, Cloud Life
+        Sciences (beta), and Healthcare Natural Language AI</p>
+    </li>
+    <li>
+      <p><strong><a href="https://www.techrepublic.com/article/internet-of-things-iot-cheat-sheet/">Internet of Things
+            (IoT)</a>:</strong> IoT Core, Edge TPU </p>
+    </li>
+    <li>
+      <p><strong>Hybrid and multicloud:</strong> Anthos, Apigee API management, Cloud Build, Looker, and Migrate for
+        Anthos</p>
+    </li>
+    <li>
+      <p><strong>Management Tools:</strong> Anthos Service Mesh, Cloud APIs, Cloud Console, Cloud Deployment Manager,
+        Cloud Mobile App, Cloud Shell, and more</p>
+    </li>
+    <li>
+      <p><strong>Media:</strong> Game Servers, OpenCue, and Transcoder API (beta)</p>
+    </li>
+    <li>
+      <p><strong>Migration:</strong> Cloud Data Transfer, Transfer Appliance, BigQuery Data Transfer Service,
+        Application migrate, Storage Transfer Service, and more</p>
+    </li>
+    <li>
+      <p><strong>Networking:</strong> Virtual Private Cloud (VPC), Cloud Load Balancing, Cloud Armor, Cloud CDN, Cloud
+        NAT, Cloud DNS, Network Service Tiers, Network Telemetry, Network Intelligence Center, and more</p>
+    </li>
+    <li>
+      <p><strong>Operations:</strong> Cloud Debugger, Cloud Logging, Cloud Monitoring, Cloud Trace, Cloud Profiler, and
+        Kubernetes Engine Monitoring</p>
+    </li>
+    <li>
+      <p><strong>Security and Identity:</strong> Access Transparency, Cloud Identity, Cloud Data Loss Prevention, Cloud
+        Key Management, Identity-Aware Proxy, reCAPTCHA Enterprise, and more</p>
+    </li>
+    <li>
+      <p><strong>Serverless computing:</strong> App Engine, Cloud Functions, Cloud Run, and Workflows</p>
+    </li>
+    <li>
+      <p><strong>Storage:</strong> Cloud Storage, Persistent Disk, Filestore, Archive Storage, and more</p>
+    </li>
+    <li>
+      <p><strong>Additional services:</strong> Google Workspace, Meet, Chrome Enterprise, and Google Maps Platform</p>
+    </li>
+  </ol>
+  <p>Google provides other cloud services, which are not strictly part of Cloud Platform, such as its G Suite
+    productivity and collaboration apps, mobile and web application development platform Firebase, and Orbitera manages
+    multicloud billing and cost management.</p>
+  <p><strong>SEE:</strong> <a href="https://www.zdnet.com/topic/managing-the-multicloud/"><strong>Managing the
+        multicloud</strong></a> <strong>(ZDNet/TechRepublic special feature) |</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/managing-the-multicloud-challenges-opportunities-and-best-practices-free-pdf/"><strong>Download
+        the free PDF version</strong></a> <strong>(TechRepublic)</strong></p>
+  <p>Google Cloud Platform is primarily a public cloud provider, though Google has dramatically increased its focus on
+    <a href="https://www.techrepublic.com/article/hybrid-cloud-the-smart-persons-guide/">hybrid</a> and <a
+      href="https://www.techrepublic.com/article/multicloud-the-smart-persons-guide/">multicloud</a> workloads using <a
+      href="https://cloud.google.com/anthos/">Anthos</a>, allowing users to manage workloads on GCP and Google
+    Kubernetes Engine (and <a href="https://cloud.google.com/gke-on-prem/">GKE On-Prem</a>) as well as on AWS and Azure.
+    Though the cloud price wars have cooled over the last few years, Google follows its own pricing pattern and <a
+      href="https://www.techrepublic.com/article/googles-master-cloud-plan-buy-more-infrastructure-charge-less-for-it/">routinely
+      boasts</a> that it offers the lowest cost of the top three providers. However, Google really differentiates itself
+    in its services.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/the-google-cloud-platform-10-things-you-need-to-know/">The Google
+          Cloud Platform: 10 things you need to know</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/googles-master-cloud-plan-buy-more-infrastructure-charge-less-for-it/">Google’s
+          master cloud plan: Buy more infrastructure, charge less for it</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a href="http://www.cnet.com/news/google-on-cloud-storage-pricing-follow-moores-law/">Google on cloud storage
+          pricing: ‘Follow Moore’s Law’</a> (CNET)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/cloud-services-spending-jumps-by-10-billion-in-final-quarter-of-2020/">Cloud
+          services spending jumps by $10 billion in final quarter of 2020</a> (TechRepublic)</p>
+    </li>
+    <li><a href="https://www.techrepublic.com/resource-library/whitepapers/cloud-migration-decision-tool/">Cloud
+        migration decision tool</a> (TechRepublic Premium)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/google-cloud-vpc-flow-logs-allow-admins-to-track-network-flows-in-near-real-time/">Google
+          Cloud VPC Flow Logs allow admins to track network flows in ‘near real-time’</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="why-does-google-cloud-platform-matter">Why does Google Cloud Platform matter?</h2>
+  <p>Google Cloud Platform offers the same core data storage and virtual machine functionality of AWS and Azure, or any
+    other cloud provider. Google’s strength lies in big data processing tools, artificial intelligence (AI) and <a
+      href="https://www.techrepublic.com/article/machine-learning-the-smart-persons-guide/">machine learning</a>
+    initiatives, and <a href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">container</a>
+    support.</p>
+  <p>Google’s BigQuery and Dataflow bring strong analytics and processing capabilities for companies that work heavily
+    with data, while Google’s <a
+      href="https://www.techrepublic.com/article/kubernetes-the-smart-persons-guide/">Kubernetes</a> container
+    technology allows for container cluster management and eases container deployment. Google’s <a
+      href="https://www.techrepublic.com/article/google-cloud-machine-learning-engine-the-smart-persons-guide/">Cloud
+      Machine Learning Engine</a> and various machine learning APIs make it easier for businesses to leverage AI in the
+    cloud.</p>
+  <p>Google is a company that thrives on the collection and subsequent leveraging of data. Whether that is user data,
+    machine data, or geographic data is irrelevant–if an enterprise wants to experiment with data, Google Cloud Platform
+    may be a good option as a cloud provider.</p>
+  <p>Data privacy and security features are also very mature in Google Cloud Platform. <a
+      href="https://cloud.google.com/access-transparency/">Access Transparency</a> creates near-real time logs of when
+    GCP support representatives or system engineers interact with your data. Similarly, Access Approval–available in
+    beta–allows clients to actively approve or deny access to stored data or configurations to Google administrators.
+  </p>
+  <p><a
+      href="https://www.techrepublic.com/article/googles-open-source-partner-play-is-good-business-not-some-sort-of-generous-magical-deal/">By
+      popular demand</a>, Google offers <a
+      href="https://www.zdnet.com/article/google-challenges-aws-with-open-source-support/">managed instances of
+      open-source software</a> from partners including MongoDB, Confluent, DataStax, Elastic, InfluxData, Neo4j, and
+    Redis Labs.</p>
+  <p>Google also has mature <a
+      href="https://www.techrepublic.com/article/serverless-computing-the-smart-persons-guide/">serverless computing</a>
+    infrastructure, eliminating a previous gap between it and Amazon’s <a
+      href="https://www.techrepublic.com/article/amazon-lambda-the-smart-persons-guide/">AWS Lambda</a>. Google Cloud
+    Platform’s <a href="https://cloud.google.com/serverless/">serverless solutions</a> cover a variety of areas include
+    app development, analytics, workflow creation, and more. It <a href="https://www.elastic.co/gcp">also has</a> an
+    integration with Elastic Cloud to support open source search and analytics.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/how-google-cloud-platform-supports-iot-development/">How Google
+        Cloud Platform supports IoT development</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/databricks-wins-triple-crown-with-launch-on-google-cloud/">Databricks
+        wins “triple crown” with launch on Google Cloud</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-developers-can-take-advantage-of-machine-learning-on-google-cloud-platform/">How
+        developers can take advantage of machine learning on Google Cloud Platform</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/key-ways-to-embrace-the-hybrid-cloud/">Key ways to embrace the
+        hybrid cloud</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/videos/the-3-technologies-that-are-critical-to-the-evolution-of-cloud-computing/">The
+        3 technologies that are critical to the evolution of cloud computing</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/google-cloud-platform-adds-more-managed-database-services/">Google
+        Cloud Platform adds more managed database services</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/google-transforms-android-phones-into-security-keys/">Google transforms
+        Android phones into security keys</a> (ZDNet)</li>
+  </ul>
+  <h2 id="who-does-google-cloud-platform-affect">Who does Google Cloud Platform affect?</h2>
+  <p>As with many of Google’s innovations, the set of tools that Google Cloud Platform comprises were originally
+    internal tools built for internal use. This eventually proved problematic. Google originally targeted cloud services
+    for startups and SMBs, <a
+      href="https://www.zdnet.com/article/google-cloud-platform-sets-up-new-global-startup-fund/">offering up to
+      $100,000 of Cloud Platform and Firebase credits</a> to startups. However, limited uptake prompted Google to make
+    GCP more adaptable for diverse use cases.</p>
+  <p>At the outset, Google expected users to build apps the same way Google did, though this philosophy is counter to
+    the way enterprise app development tends to occur. In 2016, Google pivoted, <a
+      href="https://www.techrepublic.com/article/google-admits-original-enterprise-cloud-strategy-was-wrong-why-its-gone-in-a-different/">admitting
+      this was the wrong approach</a>, with then-Alphabet executive chairman Eric Schmidt stating that “We decided to
+    meet you where you are, as opposed to where we think you should be.”</p>
+  <p>Google subsequently added more utilities to ease the transition to Cloud Platform, making the platform more
+    accessible to businesses of any size looking to decommission some or all of their data centers.</p>
+  <p>It seems that large corporations are paying attention. In 2016, Google <a
+      href="https://www.techrepublic.com/article/google-cloud-platform-signs-up-enterprise-giants-how-does-it-compare-to-aws/">added
+      big names to its Cloud Platform roster</a>, including Disney, Coca-Cola, Spotify, Apple, <a
+      href="http://www.zdnet.com/article/google-cloud-touts-major-enterprise-customers-as-it-runs-to-catch-up-to-aws/">Colgate-Palmolive,
+      and Home Depot</a>, among others, proving that it can cater to the needs of major players. In 2018, <a
+      href="https://www.techrepublic.com/article/twitter-chooses-google-cloud-what-it-means-for-enterprise-cloud-adoption/">Twitter
+      announced its adoption of Google Cloud Platform</a>, migrating 300 petabytes of data to the platform. Accenture
+    and Deloitte announced expansions of their GCP alliances in 2019, with Google focusing on <a
+      href="https://www.techrepublic.com/article/how-google-cloud-for-retail-will-help-digitally-transform-shopping/">GCP
+      capabilities to transform shopping experiences</a>. By early 2021, <a
+      href="https://cloud.google.com/customers">Google’s list of high-profile Cloud clients</a> includes simply too many
+    to list individually.</p>
+  <p>Many of these companies also use other platforms such as AWS or Azure, which means that GCP could also act as a
+    complementary provider for existing AWS or Azure customers who need additional capabilities or flexibility.</p>
+  <p>Since it is a platform on which applications are built and hosted, the choice of a cloud provider also affects
+    developers. For developers, Google Cloud Platform supports Go, Node.js, Python, Ruby, PHP, .NET, and Java.
+    Developers should make sure they are involved in any conversations about selecting a cloud provider to ensure it is
+    a platform that they, and their team, are comfortable working in.</p>
+  <p>As Google continues to expand its cloud offerings to compete with other providers and “<a
+      href="https://cloud.google.com/blog/topics/inside-google-cloud/how-businesses-can-transform-digitally-with-google-cloud">accelerate
+      digital transformation</a>,” the range of who it affects will continue to grow. Any business with plans for
+    large-scale data analytics, AI or ML development, remote collaboration, or one of the many X-as-a-Service products
+    available in the cloud can expect Google Cloud to have some impact on them in the years to come. </p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/heres-what-developers-really-think-about-aws-microsoft-azure-and-google-cloud/">Here’s
+        what developers really think about AWS, Microsoft Azure, and Google Cloud</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/google-admits-original-enterprise-cloud-strategy-was-wrong-why-its-gone-in-a-different/">Google
+        admits original enterprise cloud strategy was wrong, why it’s gone in a different direction</a> (TechRepublic)
+    </li>
+    <li><a href="https://www.zdnet.com/article/twitter-signs-multi-year-deal-with-google-cloud/">Twitter signs
+        multi-year deal with Google Cloud</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/remote-working-is-here-to-stay-these-eight-strategies-can-make-it-more-successful-for-everyone/">Remote
+        working is here to stay: These eight strategies can make it more successful for everyone</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/google-cloud-adds-new-hybrid-file-storage-partnership-with-nasuni/">Google
+        Cloud adds new hybrid file storage partnership with Nasuni</a> (ZDNet)</li>
+  </ul>
+  <h2 id="when-was-google-cloud-platform-announced">When was Google Cloud Platform announced?</h2>
+  <p>As mentioned, Google’s first foray into cloud services was the <a
+      href="https://googleblog.blogspot.com/2008/04/developers-start-your-engines.html">Google App Engine back in
+      2008</a>. Two years later, Google announced that it was adding a storage layer and, in 2012, the company began its
+    partner program for the platform. Then came BigQuery, the Compute Engine, Cloud SQL, and the rest of the tools that
+    make up today’s Google Cloud Platform.</p>
+  <p>However, like all providers, Google constantly adds new tools and features in preview, alpha, or beta, which will
+    likely make it to the general public.</p>
+  <p>Some of the latest products added to Google Cloud Platform are Cloud Inference API, allowing developers to run
+    large-scale correlations over datasets, Shielded VMs, Cloud Tasks, Cloud IoT Edge, Cloud AutoML, and the AI Hub,
+    allowing developers to share and deploy AI technologies on Google Cloud.</p>
+  <p>At Google Cloud Next 2019, further enhancements to GCP’s AI capabilities were announced. <a
+      href="https://cloud.google.com/ai-platform/">AI Platform</a> allows developers, data scientists, and data
+    engineers to collaborate on machine learning projects. New capabilities were added to <a
+      href="https://cloud.google.com/automl/">Cloud AutoML</a>, now allowing for data from structured tables and video
+    content to be classified automatically. Likewise, the existing AutoML Vision has an <a
+      href="https://cloud.google.com/vision/automl/docs/terminology">edge computing variant</a>.</p>
+  <p>Google Cloud Next 2020, which was all online over the course of eight weeks due to the COVID-19 pandemic, brought
+    the announcement of several new features, such as beta testing of Confidential VMs, which encrypt data in use while
+    being processed. <a
+      href="https://www.techrepublic.com/article/google-cloud-announces-bigquery-omni-multicloud-analytics-solution/">BigQuery
+      Omni</a>, a cross-platform cloud analytics tool, was also announced, as were other <a
+      href="https://cloud.google.com/blog/topics/google-cloud-next/complete-list-of-announcements-from-google-cloud-next20-onair">minor
+      announcements</a> and updates to Google’s various cloud services.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.zdnet.com/article/google-cloud-vs-aws-two-vastly-different-profit-pictures/">Google Cloud
+        vs. AWS: Two vastly different profit pictures</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/googles-new-zero-trust-product-is-completely-cloud-native/">Google’s
+        new zero trust product is completely cloud native</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/google-quietly-launches-github-cloud-rival/">Google quietly launches
+        GitHub cloud rival</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/why-machine-learning-and-data-analysis-are-critical-to-googles-success-in-the-cloud/">Why
+        machine learning and data analysis are critical to Google’s success in the cloud</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/google-cloud-gives-open-source-data-vendors-a-break-will-that-save-open-source/">Google
+        Cloud gives open-source data vendors a break. Will that save open source?</a> (ZDNet)</li>
+  </ul>
+  <h2 id="how-can-i-use-google-cloud-platform">How can I use Google Cloud Platform?</h2>
+  <p>Since Google Cloud Platform is a publicly-available product, it’s not very difficult to acquire its services. The
+    bigger issue is two-fold: Deciding whether or not the platform is the best option for your business, and planning
+    your migration.</p>
+  <p>To effectively compare Google Cloud Platform against the other options out there, you need to do your research. If
+    you are looking at comparing it against AWS and Microsoft Azure, try starting with our other smart person’s guides
+    for <a href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">AWS</a> and <a
+      href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft Azure</a>,
+    respectively. A list of other good cloud vendors can be found in this <a
+      href="http://www.zdnet.com/article/the-15-most-important-hybrid-cloud-vendors/">list of 15 of the top hybrid cloud
+      vendors</a>.</p>
+  <p>As your organization begins to plan its deployment, start by making a list of questions you have about the service
+    and check them against the <a href="https://cloud.google.com/storage/docs/faq">FAQ section</a> on the Google Cloud
+    Platform website. To understand the specifics of a GCP deployment, make sure you familiarize yourself with <a
+      href="https://cloud.google.com/docs/">the proper documentation</a>.</p>
+  <p>Google does offer a <a href="https://cloud.google.com/free/">free tier</a> for Cloud Platform, as well as a <a
+      href="https://console.cloud.google.com/freetrial?_ga=1.144971252.1119317518.1453479728&amp;pli=1&amp;page=0">free
+      12-month trial</a> with credit for organizations that may need to dip their toes in the water. Google offers free
+    credits to select startups working with affiliated investors, incubators, or accelerators through the <a
+      href="https://cloud.google.com/developers/startups/">Google Cloud for Startups</a> promotion. A tool for live
+    migrations is also offered (simply titled <a
+      href="https://cloud.google.com/compute/docs/instances/live-migration">Live Migration</a>), which allows a virtual
+    machine instance to keep running even during a host system event.</p>
+  <p>Additional tutorials and a quick start guide are available <a
+      href="https://cloud.google.com/getting-started/">here</a>.</p>
+</body>
+
+</html>

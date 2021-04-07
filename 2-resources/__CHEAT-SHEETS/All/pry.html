@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="cd">cd</h3>
+<pre><code>&gt; cd Array</code></pre>
+<pre class="nohighlight"><code>&gt; ls
+  Array.methods: [] try_convert
+  Array#methods: &amp; * + abbrev assoc at ...</code></pre>
+<pre><code>&gt; show-source</code></pre>
+<h3 id="code">Code</h3>
+<pre class="nohighlight"><code>&gt; show-method Array#select</code></pre>
+<h3 id="docs">Docs</h3>
+<pre class="nohighlight"><code>&gt; ri Array
+&gt; ri Array#each
+
+&gt; cd Gem
+&gt; show-doc try_activate</code></pre>
+<h3 id="finding">Finding</h3>
+<pre class="nohighlight"><code>&gt; find-method each
+  Array#each
+  Array#each_index
+  Enumerable#each_slice
+  ...</code></pre>
+<h3 id="editing">Editing</h3>
+<pre><code>&gt; edit Pry#repl</code></pre>
+<h3 id="gems">Gems</h3>
+<pre><code>&gt; gem-cd foo      # Switch to gem&#39;s dir
+&gt; gem-install foo
+&gt; gem-list</code></pre>
+<h3 id="misc-commands">Misc commands</h3>
+<pre><code>&gt; hist          # History
+&gt; wtf?          # Trace of recent exception</code></pre>
+<h2 id="rails">Rails</h2>
+<h3 id="rails-console">Rails console</h3>
+<p>Also consider <a href="https://rubygems.org/gems/pry-rails">pry-rails</a>.</p>
+<pre><code>$ pry -r ./config/environment</code></pre>
+<h3 id="rails-1">Rails</h3>
+<pre><code>&gt; show-models
+&gt; show-routes
+&gt; show-middleware</code></pre>
+<h3 id="ls">ls</h3>
+<pre><code>&gt; ls         # All
+
+&gt; ls -m      # Methods
+&gt; ls -M      # Instance methods
+
+&gt; ls -g      # Globals
+&gt; ls -l      # Local vars
+&gt; ls -c      # Constants
+
+&gt; ls -i      # Instance vars
+
+&gt; ls -G xx   # Grey by regex</code></pre>
+<h2 id="shell-integration">Shell integration</h2>
+<p>shell-mode adds dir to the prompt.</p>
+<pre><code>pry(main)&gt; shell-mode
+pry(main):/home/x $</code></pre>
+<p>Commands with <code>.</code> are shell commands.</p>
+<pre><code>pry(main)&gt; .cat hello.txt</code></pre>
+<h2 id="hirb">hirb</h2>
+<p>Add the <a href="https://rubygems.org/gems/hirb">hirb</a> gem.</p>
+<pre><code>&gt; table User.all
+&gt; view User.all
+&gt; view User.all, fields: %w[id name email]</code></pre>
+<h2 id="pry-rescue">pry-rescue</h2>
+<p>Add the <a href="https://github.com/ConradIrwin/pry-rescue">pry-rescue</a> gem.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb16-1" title="1"><span class="dt">Pry</span>::rescue {</a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="co"># raise exceptions here</span></a>
+<a class="sourceLine" id="cb16-3" title="3">}</a></code></pre></div>
+<p>Or run:</p>
+<pre><code>bundle exec rescue rspec</code></pre>
+<p>Additional commands:</p>
+<pre><code>pry(main)&gt; cd-cause
+pry(main)&gt; try-again</code></pre>
+<h2 id="pry-remote">pry-remote</h2>
+<p>Add the <a href="https://github.com/Mon-Ouie/pry-remote">pry-remote</a> gem.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># In your code:</span></a>
+<a class="sourceLine" id="cb19-2" title="2">binding.remote_pry</a>
+<a class="sourceLine" id="cb19-3" title="3"></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="co"># In the shell:</span></a>
+<a class="sourceLine" id="cb19-5" title="5">bundle exec pry-remote</a></code></pre></div>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://github.com/pry/pry">Pry</a></li>
+<li><a href="https://github.com/cldwalker/hirb">Hirb</a></li>
+</ul>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="options">Options</h2>
+<h3 id="options-1">Options</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">-o</span> <span class="op">&lt;</span>file<span class="op">&gt;</span>    <span class="co"># --output: write to file</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">-u</span> user:pass <span class="co"># --user: Authentication</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">-v</span>           <span class="co"># --verbose</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">-vv</span>          <span class="co"># Even more verbose</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">-s</span>           <span class="co"># --silent</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">-i</span>           <span class="co"># --include: Include the HTTP-header in the output</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">-I</span>           <span class="co"># --head: headers only</span></a></code></pre></div>
+<h3 id="request">Request</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">-X</span> POST          <span class="co"># --request</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">-L</span>               <span class="co"># follow link if page redirects </span></a></code></pre></div>
+<h3 id="data">Data</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">-d</span> <span class="st">&#39;data&#39;</span>    <span class="co"># --data: HTTP post data, URL encoded (eg, status=&quot;Hello&quot;)</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">-d</span> @file     <span class="co"># --data via file</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="ex">-G</span>           <span class="co"># --get: send -d data via get</span></a></code></pre></div>
+<h3 id="headers">Headers</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">-A</span> <span class="op">&lt;</span>str<span class="op">&gt;</span>         <span class="co"># --user-agent</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">-b</span> name=val      <span class="co"># --cookie</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="ex">-b</span> FILE          <span class="co"># --cookie</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="ex">-H</span> <span class="st">&quot;X-Foo: y&quot;</span>    <span class="co"># --header</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="ex">--compressed</span>     <span class="co"># use deflate/gzip</span></a></code></pre></div>
+<h3 id="ssl">SSL</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1">    <span class="ex">--cacert</span> <span class="op">&lt;</span>file<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="ex">--capath</span> <span class="op">&lt;</span>dir<span class="op">&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">-E</span>, --cert <span class="op">&lt;</span>cert<span class="op">&gt;</span>     <span class="co"># --cert: Client cert file</span></a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="ex">--cert-type</span>       <span class="co"># der/pem/eng</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="ex">-k</span>, --insecure        <span class="co"># for self-signed certs</span></a></code></pre></div>
+<h2 id="examples">Examples</h2>
+<p>{: .-one-column}</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># Post data:</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="ex">curl</span> -d password=x http://x.com/y</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># Auth/data:</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="ex">curl</span> -u user:pass -d status=<span class="st">&quot;Hello&quot;</span> http://twitter.com/statuses/update.xml</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># multipart file upload</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="ex">curl</span> -v -include --form key1=value1 --form upload=@localfilename URL</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># Use Curl to Check if a remote resource is available</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="co"># details: https://matthewsetter.com/check-if-file-is-available-with-curl/</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="ex">curl</span> -o /dev/null --silent -Iw <span class="st">&quot;%{http_code}&quot;</span> https://example.com/my.remote.tarball.gz</a></code></pre></div>
+</body></html>

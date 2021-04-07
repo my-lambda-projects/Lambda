@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="developer-notes">Developer notes</h1>
+<h2 id="gitpod">Gitpod</h2>
+<p>This repository supports contribution using <a href="https://gitpod.io">gitpod</a> which is online IDE using <a href="https://github.com/eclipse-theia/theia">Theia</a>.</p>
+<p>To open-up the environment simple natigate on https://gitpod.io/#https://github.com/rstacruz/cheatsheets</p>
+<p>Or using a button:<br> <a href="https://gitpod.io/#https://github.com/rstacruz/cheatsheets"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod" /></a></p>
+<h3 id="preview-built-website">Preview built website</h3>
+<p>To preview the website you need to first build it then you can navigate to file that you are trying to contribute and preview directly.</p>
+<p><img src='_docs/images/gitpod_preview_tut.png' width=828 height=459/></p>
+<h2 id="starting-a-local-instance">Starting a local instance</h2>
+<p>This starts Jekyll and Parcel. This requires recent versions of <a href="https://nodejs.org/en/download/package-manager/">Node.js</a>, <a href="https://yarnpkg.com/en/docs/install">Yarn</a>, <a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby</a> and <a href="https://bundler.io/">Bundler</a> installed.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">yarn</span> install</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">bundle</span> install</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="fu">env</span> PORT=4001 yarn run dev</a></code></pre></div>
+<h3 id="docker">Docker</h3>
+<p>You can also run a local instance using Docker. This is the preferred method, especially for Windows. You only need to install Docker (<a href="https://docs.docker.com/docker-for-mac/install/">macOS</a>, <a href="https://docs.docker.com/docker-for-windows/install/">Windows</a>, <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Ubuntu</a>, <a href="https://www.archlinux.org/packages/community/x86_64/docker/">Arch Linux</a>, <a href="https://www.docker.com/community-edition#download">other</a>).</p>
+<p>First time setup:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># Build images (takes ~12mins)</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">docker-compose</span> build</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># First-time setup</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="ex">docker-compose</span> run --rm web bundle install <span class="kw">&amp;&amp;</span> <span class="ex">docker-compose</span> run --rm web yarn install</a></code></pre></div>
+<p>Starting the server:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">docker-compose</span> up</a></code></pre></div>
+<h2 id="css-classes">CSS classes</h2>
+<p>See <a href="https://devhints.io/cheatsheet-styles" class="uri">https://devhints.io/cheatsheet-styles</a> for a reference on styling.</p>
+<h2 id="javascript">JavaScript</h2>
+<p>When updating JavaScript, be sure Parcel is running (<code>yarn dev</code> takes care of this).</p>
+<p>This auto-updates <code>/assets/packed/</code> and <code>_includes/2017/critical/</code> with sources in <code>_parcel/</code>.</p>
+<p>Before committing, run <code>yarn parcel:build</code> first.</p>
+<h2 id="javascript-tests">JavaScript tests</h2>
+<p>There are also automated tests:</p>
+<pre><code>yarn run test --watch</code></pre>
+<h2 id="frontmatter">Frontmatter</h2>
+<p>Each sheet supports these metadata:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="fu">title:</span><span class="at"> React.js</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">layout:</span><span class="at"> 2017/sheet </span><span class="co"># &#39;default&#39; | &#39;2017/sheet&#39;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co"># Optional:</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="fu">category:</span><span class="at"> React</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="fu">updated:</span><span class="at"> 2020-06-14</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="fu">ads:</span><span class="at"> </span><span class="ch">false</span><span class="at"> </span><span class="co"># Add this to disable ads</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="fu">weight:</span><span class="at"> </span><span class="dv">-5</span><span class="at"> </span><span class="co"># lower number = higher in related posts list</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="fu">deprecated:</span><span class="at"> </span><span class="ch">true</span><span class="at"> </span><span class="co"># Don&#39;t show in related posts</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="fu">deprecated_by:</span><span class="at"> /enzyme </span><span class="co"># Point to latest version</span></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="fu">prism_languages:</span><span class="at"> </span><span class="kw">[</span>vim<span class="kw">]</span><span class="at"> </span><span class="co"># Extra syntax highlighting</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="fu">intro:</span> <span class="st">|</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  This is some *Markdown* at the beginning of the article.</a>
+<a class="sourceLine" id="cb5-15" title="15"><span class="fu">tags:</span></a>
+<a class="sourceLine" id="cb5-16" title="16">  <span class="kw">-</span> WIP</a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="kw">-</span> Featured</a>
+<a class="sourceLine" id="cb5-18" title="18"></a>
+<a class="sourceLine" id="cb5-19" title="19"><span class="co"># Special pages:</span></a>
+<a class="sourceLine" id="cb5-20" title="20"><span class="co"># (don&#39;t set these for cheatsheets)</span></a>
+<a class="sourceLine" id="cb5-21" title="21"><span class="fu">type:</span><span class="at"> home </span><span class="co"># home | article | error</span></a>
+<a class="sourceLine" id="cb5-22" title="22"><span class="fu">og_type:</span><span class="at"> website </span><span class="co"># opengraph type</span></a>
+<a class="sourceLine" id="cb5-23" title="23"><span class="ot">---</span></a></code></pre></div>
+<h2 id="prism-languages">Prism languages</h2>
+<p>For supported prism languages:</p>
+<ul>
+<li><a href="https://github.com/PrismJS/prism/tree/gh-pages/components" class="uri">https://github.com/PrismJS/prism/tree/gh-pages/components</a></li>
+</ul>
+<h2 id="setting-up-redirects">Setting up redirects</h2>
+<p>This example sets up a redirect from <code>es2015</code> to <code>es6</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># /es2015.md</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="fu">title:</span><span class="at"> ES2015</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="fu">category:</span><span class="at"> Hidden</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="fu">redirect_to:</span><span class="at"> /es6</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="ot">---</span></a></code></pre></div>
+<h2 id="localizations">Localizations</h2>
+<p>See <code>_data/content.yml</code> for chrome strings.</p>
+<h2 id="forking">Forking</h2>
+<p>So you want to fork this repo? Sure, here’s what you need to know to whitelabel this:</p>
+<ul>
+<li>It’s all GitHub pages, so the branch has to be <code>gh-pages</code>.</li>
+<li>All other GitHub pages gotchas apply (CNAME, etc).</li>
+<li>Edit everything in <code>_data/</code> - this holds all ‘config’ for the site: ad IDs, strings, etc.</li>
+<li>Edit <code>_config.yml</code> as well, lots of things may not apply to you.</li>
+</ul>
+<h2 id="cloudflare-purging">CloudFlare purging</h2>
+<p>The site devhints.io is backed by CloudFlare. Updates will take 2 days to propagate to the website by default. To make sure recent changes will propagate, use this helper script. It will give instructions on how manual selective cache purging can be done.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">./_support/cf-purge.sh</span></a></code></pre></div>
+<h2 id="seo-description">SEO description</h2>
+<p>There are multiple ways to set meta description.</p>
+<h3 id="keywords-and-intro">Keywords (and intro)</h3>
+<p>Set <code>keywords</code> (and optionally <code>intro</code>). This is the easiest and the preferred way for now.</p>
+<pre><code>React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+React.Component · render() · componentDidMount() · props/state · React is a
+JavaScript library for building web...</code></pre>
+<h3 id="description-and-intro">Description (and intro)</h3>
+<p>Set <code>description</code> (and optionally <code>intro</code>)</p>
+<pre><code>React cheatsheet - devhints.io
+------------------------------
+https://devhints.io/react ▼
+One-page reference to React and its API. React is a JavaScript library for
+building web user interfaces...</code></pre>
+<h3 id="intro-only">Intro only</h3>
+<p>If you left out <code>description</code> or <code>keywords</code>, a default description will be added.</p>
+</body></html>

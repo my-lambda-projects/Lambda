@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="common-switches">Common switches</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">-codecs</span>          <span class="co"># list codecs</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">-c</span>:v             <span class="co"># video codec (-vcodec) - &#39;copy&#39; to copy stream</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="ex">-c</span>:a             <span class="co"># audio codec (-acodec)</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">-fs</span> SIZE         <span class="co"># limit file size (bytes)</span></a></code></pre></div>
+<h3 id="bitrate">Bitrate</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">-b</span>:v 1M          <span class="co"># video bitrate (1M = 1Mbit/s)</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">-b</span>:a 1M          <span class="co"># audio bitrate</span></a></code></pre></div>
+<h3 id="video">Video</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">-aspect</span> RATIO    <span class="co"># aspect ratio (4:3, 16:9, or 1.25)</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">-r</span> RATE          <span class="co"># frame rate per sec</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="ex">-s</span> WIDTHxHEIGHT  <span class="co"># frame size</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="ex">-vn</span>              <span class="co"># no video</span></a></code></pre></div>
+<h3 id="audio">Audio</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">-aq</span> QUALITY      <span class="co"># audio quality (codec-specific)</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">-ar</span> 44100        <span class="co"># audio sample rate (hz)</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="ex">-ac</span> 1            <span class="co"># audio channels (1=mono, 2=stereo)</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="ex">-an</span>              <span class="co"># no audio</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="ex">-vol</span> N           <span class="co"># volume (256=normal)</span></a></code></pre></div>
+<h2 id="example">Example</h2>
+<h3 id="ringtone-conversion-using-ffmpeg">Ringtone conversion using ffmpeg</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">ffmpeg</span> -i foo.mp3 -ac 1 -ab 128000 -f mp4 -acodec libfaac -y target.m4r</a></code></pre></div>
+<h3 id="to-web">To web</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># no audio</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="ex">ffmpeg</span> -i input.mov -vcodec h264   -an -strict -2 output.mp4</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="ex">ffmpeg</span> -i input.mov -vcodec libvpx -an output.webm</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">ffmpeg</span> -i input.mov -vcodec h264 -acodec aac -strict -2 output.mp4</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">ffmpeg</span> -i input.mov -vcodec libvpx -acodec libvorbis output.webm</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">&lt;video</span><span class="ot"> width=</span><span class="st">&quot;320&quot;</span><span class="ot"> height=</span><span class="st">&quot;240&quot;</span><span class="ot"> controls</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;movie.mp4&quot;</span><span class="ot"> type=</span><span class="st">&#39;video/mp4&#39;</span><span class="kw">&gt;&lt;/source&gt;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="kw">&lt;source</span><span class="ot"> src=</span><span class="st">&quot;movie.webm&quot;</span><span class="ot"> type=</span><span class="st">&#39;video/ogg&#39;</span><span class="kw">&gt;&lt;/source&gt;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="kw">&lt;/video&gt;</span></a></code></pre></div>
+</body></html>

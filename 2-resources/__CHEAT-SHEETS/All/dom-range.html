@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="reference">Reference</h2>
+<p>{:.-three-column}</p>
+<h3 id="creating-ranges">Creating ranges</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> range <span class="op">=</span> <span class="va">document</span>.<span class="at">createRange</span>()</a></code></pre></div>
+<p>See: <a href="https://devdocs.io/dom/document/createrange" class="uri">https://devdocs.io/dom/document/createrange</a></p>
+<h2 id="methods">Methods</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">range</a>
+<a class="sourceLine" id="cb2-2" title="2">  .<span class="at">setStart</span>(startNode<span class="op">,</span> startOffset)</a>
+<a class="sourceLine" id="cb2-3" title="3">  .<span class="at">setEnd</span>(endNode<span class="op">,</span> endOffset)</a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5">  .<span class="at">setStartBefore</span>(node)</a>
+<a class="sourceLine" id="cb2-6" title="6">  .<span class="at">setStartAfter</span>(node)</a>
+<a class="sourceLine" id="cb2-7" title="7">  .<span class="at">setEndBefore</span>(node)</a>
+<a class="sourceLine" id="cb2-8" title="8">  .<span class="at">setEndAfter</span>(node)</a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10">  .<span class="at">selectNode</span>(node)</a>
+<a class="sourceLine" id="cb2-11" title="11">  .<span class="at">selectNodeContents</span>(node)</a></code></pre></div>
+<p>See: <a href="https://devdocs.io/dom/range" class="uri">https://devdocs.io/dom/range</a></p>
+<h3 id="collapsing">Collapsing</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">range</span>.<span class="at">collapse</span>() <span class="co">// to end (a single point)</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">range</span>.<span class="at">collapse</span>(<span class="kw">true</span>) <span class="co">// to start (a single point)</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">range</span>.<span class="at">collapsed</span> <span class="co">// true | false</span></a></code></pre></div>
+<h3 id="operations">Operations</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">range</span>.<span class="at">cloneContents</span>() <span class="co">// copy =&gt; DocumentFragment</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">range</span>.<span class="at">extractContents</span>() <span class="co">// cut  =&gt; DocumentFragment</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="va">range</span>.<span class="at">deleteContents</span>() <span class="co">// delete</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">range</span>.<span class="at">insertNode</span>(node)</a></code></pre></div>
+<h3 id="string">String</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">range</span>.<span class="at">toString</span>()</a></code></pre></div>
+<h3 id="read-only-attributes">Read-only attributes</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">range</span>.<span class="at">collapsed</span> <span class="co">//       =&gt; true/false</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="va">range</span>.<span class="at">startContainer</span> <span class="co">//  =&gt; Node</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">range</span>.<span class="at">startOffset</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="va">range</span>.<span class="at">endContainer</span> <span class="co">//    =&gt; Node</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="va">range</span>.<span class="at">endOffset</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="va">range</span>.<span class="at">commonAncestorContainer</span> <span class="co">// closest of start and end containers</span></a></code></pre></div>
+</body></html>

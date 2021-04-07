@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="usage">Usage</h3>
+<h4 id="install">Install:</h4>
+<pre><code>$ npm install -g weinre</code></pre>
+<h4 id="start-the-server">Start the server:</h4>
+<pre><code>$ weinre --boundHost 0.0.0.0
+$ open http://localhost:8080</code></pre>
+<h3 id="html-to-inject">HTML to inject</h3>
+<!--prettier-ignore -->
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;script&gt;</span><span class="op">!</span><span class="kw">function</span>(d<span class="op">,</span>s<span class="op">,</span>id)<span class="op">{</span><span class="kw">var</span> js<span class="op">,</span>fjs<span class="op">=</span><span class="va">d</span>.<span class="at">getElementsByTagName</span>(s)[<span class="dv">0</span>]<span class="op">;</span><span class="cf">if</span>(<span class="op">!</span><span class="va">d</span>.<span class="at">getElementById</span>(id))<span class="op">{</span>js<span class="op">=</span><span class="va">d</span>.<span class="at">createElement</span>(s)<span class="op">;</span><span class="va">js</span>.<span class="at">id</span><span class="op">=</span>id<span class="op">;</span><span class="va">js</span>.<span class="at">async</span><span class="op">=</span><span class="dv">1</span><span class="op">;</span><span class="va">js</span>.<span class="at">src</span><span class="op">=</span><span class="st">&#39;http://&#39;</span><span class="op">+</span><span class="va">location</span>.<span class="at">hostname</span><span class="op">+</span><span class="st">&#39;:8080/target/target-script-min.js#anonymous&#39;</span><span class="op">;</span><span class="va">fjs</span>.<span class="va">parentNode</span>.<span class="at">insertBefore</span>(js<span class="op">,</span>fjs)<span class="op">;}}</span>(document<span class="op">,</span><span class="st">&#39;script&#39;</span><span class="op">,</span><span class="st">&#39;weinre&#39;</span>)<span class="op">;</span><span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="http://people.apache.org/~pmuellr/weinre/">Weinre</a></li>
+</ul>
+</body></html>

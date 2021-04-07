@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="initialize">Initialize</h3>
+<pre><code>var cli = require(&#39;commander&#39;);</code></pre>
+<h3 id="options">Options</h3>
+<pre><code>cli
+  .version(require(&#39;../package&#39;).version)
+  .usage(&#39;[options] &lt;command&gt;&#39;)
+  .option(&#39;-w, --words &lt;n&gt;&#39;, &#39;generate &lt;n&gt; words&#39;)
+  .option(&#39;-i, --interval &lt;n&gt;&#39;, &#39;interval [1000]&#39;, 1000)
+  .option(&#39;-s, --symbols&#39;, &#39;include symbols&#39;)
+  .parse(process.argv);</code></pre>
+<h3 id="help">Help</h3>
+<pre><code>.on(&#39;--help&#39;, function() {
+  console.log(&#39;&#39;);
+})</code></pre>
+<h3 id="commands">Commands</h3>
+<pre><code>cli.outputHelp();
+cli.args == [&quot;hello&quot;];</code></pre>
+<h3 id="other-useful-things">Other useful things</h3>
+<pre><code>process.exit(0);</code></pre>
+</body></html>

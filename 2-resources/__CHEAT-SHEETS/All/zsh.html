@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="expressions">Expressions</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Expression</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>!!</code></td>
+<td><code>sudo !!</code></td>
+<td>Last command (<code>sudo !!</code>)</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>!*</code></td>
+<td><code>vim !*</code></td>
+<td>Last command’s parameters (<code>vim !*</code>)</td>
+</tr>
+<tr class="even">
+<td><code>!^</code></td>
+<td></td>
+<td>Last command’s first parameter</td>
+</tr>
+<tr class="odd">
+<td><code>!$</code></td>
+<td></td>
+<td>Last command’s last parameter</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>!?ls</code> <code>&lt;tab&gt;</code></td>
+<td><code>sudo !?mv</code> <code>&lt;tab&gt;</code></td>
+<td>Command and params of last <code>ls</code> command</td>
+</tr>
+<tr class="even">
+<td><code>!?ls?:*</code> <code>&lt;tab&gt;</code></td>
+<td></td>
+<td>Params of last <code>ls</code> command</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>*(m0)</code></td>
+<td><code>rm *(m0)</code></td>
+<td>Last modified today</td>
+</tr>
+<tr class="odd">
+<td><code>*(m-4)</code></td>
+<td></td>
+<td>Last modified &lt;4 days ago</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-headers}</p>
+<h3 id="change-default-shell">Change default shell</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">chsh</span> -s <span class="kw">`</span><span class="fu">which</span> zsh<span class="kw">`</span></a></code></pre></div>
+<h3 id="process-substitution">Process Substitution</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Expression</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;(COMMAND)</code></td>
+<td><code>grep "needle" &lt;(curl "https://haystack.io")</code></td>
+<td>Replace argument with <em>named pipe/FIFO</em> (read-only) with command output</td>
+</tr>
+<tr class="even">
+<td><code>=(COMMAND)</code></td>
+<td><code>vim =(curl "https://haystack.io")</code></td>
+<td>Replace argument with <em>file</em> (writable) containing command output</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-headers}</p>
+<h3 id="also-see">Also see</h3>
+<ul>
+<li><a href="./bash">Bash cheatsheet</a></li>
+</ul>
+<p>Zsh is mostly compatible with Bash, so most everything in Bash’s cheatsheet also applies.</p>
+</body></html>

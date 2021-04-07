@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="serverless-computing-a-cheat-sheet">Serverless computing: A cheat sheet</h1>
+  <blockquote>
+    <p>This comprehensive guide covers what serverless computing is and how it could reduce the complexity and cost of
+      your cloud infrastructure.</p>
+  </blockquote>
+  <p>This comprehensive guide covers what serverless computing is and how it could reduce the complexity and cost of
+    your cloud infrastructure.</p>
+  <p><img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/11/14/a6c0edf0-c8cd-4a9a-b142-84479c3bfcc5/thumbnail/768x432/391d5dc890984a67d2109bb950ecc0c3/20171108jeffserverlessarchitectureconner.jpg" />
+  </p>
+  <p>The world’s major cloud providers are rushing to offer serverless computing services. Here’s everything you need to
+    know about what it means to go serverless and how it could benefit your business.</p>
+  <p><strong>SEE: <a
+        href="https://www.techrepublic.com/resource-library/whitepapers/how-to-build-a-successful-career-as-a-cloud-engineer-free-pdf/">How
+        to build a successful career as a cloud engineer (free PDF)</a> (TechRepublic)</strong></p>
+  <h2 id="executive-summary"><strong>Executive summary</strong></h2>
+  <ul>
+    <li><strong>What is serverless computing?</strong> Pay-per-use services that allow you to run snippets of back-end
+      code for apps and websites without any overhead of managing servers.</li>
+    <li><strong>Why does </strong>serverless computing** matter?** Serverless computing services reduce the overhead and
+      cost of managing either physical or virtual infrastructure.</li>
+    <li><strong>Who does </strong>serverless computing** affect?** Businesses running websites and apps with a need for
+      back-end services or analytics.</li>
+    <li><strong>When is </strong>serverless computing** happening?** Now–all of the major cloud computing platform
+      providers offer a serverless computing service.</li>
+    <li><strong>How can I get </strong>serverless computing?**** Via your cloud platform of choice. Serverless computing
+      is available via <a
+        href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">AWS</a>, <a
+        href="https://www.techrepublic.com/article/google-cloud-platform-the-smart-persons-guide/">Google Cloud
+        Platform</a>, <a href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft
+        Azure</a>, <a href="https://www.cloudflare.com/products/cloudflare-workers/">CloudFlare Workers</a>, and <a
+        href="https://developer.ibm.com/openwhisk/">IBM Cloud Functions</a>.</li>
+  </ul>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic’s cheat sheets
+        and smart person’s guides</a></strong></p>
+  <h2 id="what-is-serverless-computing">What is serverless computing?</h2>
+  <p>Serverless computing is a category of <a
+      href="http://www.zdnet.com/article/what-is-cloud-computing-everything-you-need-to-know-from-public-and-private-cloud-to-software-as-a/">cloud
+      computing</a> service that encapsulates two of the main selling points of the as-a-service model–offering
+    computing that is nearly entirely hands-off and where you really do only pay for what you use.</p>
+  <p>With serverless computing there is no virtual infrastructure for the user to manage and the user is only billed for
+    when their code is running, down to the nearest 100 milliseconds (or, in the case of <a
+      href="https://www.techrepublic.com/article/amazon-lambda-the-smart-persons-guide/">AWS Lambda</a>, a single
+    millisecond). Everything from the scaling to the fault tolerance and redundancy of the underlying infrastructure is
+    taken care of. There are servers involved, of course, it’s just the user doesn’t have to worry about any aspect of
+    looking after them as all of that is handled by the cloud service provider.</p>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/resource-library/whitepapers/cloud-computing-policy/">Cloud
+        computing policy</a> (TechRepublic Premium)</strong></p>
+  <p>Serverless computing services, such as <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS
+      Lambda</a>, are built to run snippets of code that carry out a single short-lived task.</p>
+  <p>These small self-contained blocks of code, known as functions, have no dependencies on any other code and, as such,
+    can be deployed and executed wherever and whenever they are needed. An example of a Lambda function could be code
+    that applies a filter to every image uploaded from a website to Amazon’s S3 storage service.</p>
+  <p>Unlike a cloud application where the backend code is structured in a more monolithic fashion and may handle several
+    tasks, code running on serverless services like Lambda is more typical of that found in a <a
+      href="https://www.techrepublic.com/article/microservices-a-cheat-sheet/">microservices</a> software architecture.
+    Under this model, applications are broken down into their core functions, which are written to be run independently
+    and communicate via API.</p>
+  <p>These small functions run by serverless services are triggered by what are called events. Taking Lambda as an
+    example, an event could be a user uploading a file to S3 or a video being placed into an AWS Kinesis stream. The
+    Lambda function runs every time one of these relevant events is fired. Once the function has run the cloud service
+    will spin down the underlying infrastructure. This approach results in users being billed only for the time the code
+    is running, in the case of AWS Lambda and its Microsoft Azure alternative, down to the nearest 100ms.</p>
+  <p>The name Lambda is derived from the term Lambda function, which refers to small anonymous functions used in Lambda
+    calculus.</p>
+  <p><strong>SEE: <a href="https://flipboard.com/@techrepublic/cloud-computing-2ceedle1y">Cloud computing: More
+        must-read coverage</a> (TechRepublic on Flipboard)</strong></p>
+  <p>In some respects, while the technology that underpins serverless computing is relatively new, the idea isn’t. In
+    fact, it’s been around since the dawn of the information age, as John Graham-Cumming, CTO of internet services
+    company Cloudflare, told the QCon London 2019 conference.</p>
+  <p>Graham-Cumming referenced a paper written by D. J. Wheeler in 1952, ‘The use of sub-routines in programmes’, which
+    talks about packaging computer instructions up into small reusable units, albeit with the expectation these
+    instructions would be stored on punched tape. The paper even argues that ‘all the complexities should, if possible,
+    be buried out of sight,’ very much in line with the existing vision for serverless computing.</p>
+  <p>“In a way, nothing has changed since 1952, it’s just that we’ve got all this compute power,” says Graham-Cumming,
+    who referred to serverless computing as “functions-as-a-service” or FaaS.</p>
+  <p>“What’s interesting about functions-as-a-service is it’s about getting back to this sense of ‘I can just write a
+    program and it’ll run anywhere.’”</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/serverless-computing-pros-and-cons-5-benefits-and-3-drawbacks/">Serverless
+          computing pros and cons: 5 benefits and 3 drawbacks</a> (TechRepublic)</p>
+    </li>
+    <li><a
+        href="http://www.zdnet.com/article/aws-lambda-garners-interest-production-workloads-as-serverless-world-evolves/">AWS
+        Lambda garners interest, production workloads as serverless world evolves</a> (ZDNet)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/top-5-things-to-know-about-serverless-computing/">Top 5 things to
+          know about serverless computing</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/aws-vs-microsoft-azure-understanding-the-serverless-application-trend/">AWS
+          vs Microsoft Azure: Understanding the serverless application trend</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h3 id="why-does-serverless-computing-matter">Why does <strong>serverless computing matter?</strong></h3>
+  <p>This more granular, pay-per-use approach can be much cheaper for the right kind of workloads. A case in point is
+    the web app that was built to allow football fans to upload themselves singing along with the official Euro 2016
+    anthem by David Guetta. The agency that built the web app, Parallax, used AWS Lambda for various functions,
+    including generating a custom album artwork based on information shared by the user.</p>
+  <p>James Hall, director of Parallax, said the service needed an infrastructure that could cope from going from no
+    users to “millions” after Guetta read out the web address on TV.</p>
+  <p>Rather than paying to repeatedly spin virtual machines up on AWS EC2 in an attempt to meet demand, the team instead
+    paid only for the time their code was running on Lambda.</p>
+  <p>Using “a more traditional architecture” with an AWS EC2 Auto Scaling pool would have cost between £500 to £1,500
+    per month, he said, compared to “less than £300 a month” it ended up costing to use Lambda and other AWS services to
+    power the site.</p>
+  <p>The first one million requests on Lambda per month are free, followed by $0.2 per million requests thereafter, so
+    for “for small applications, you could ostensibly run for absolutely nothing”, said Hall. That same free tier is
+    available in Microsoft’s competing service, Azure Functions, with AWS’ and Microsoft’s free options also restricting
+    usage to 400,000 gigabyte seconds (GB/s) or under, where GB/s is the memory used by the function multiplied by the
+    time the function is running.</p>
+  <p>Using Lambda can also be simpler than meshing together several other AWS services yourself, said Hall.</p>
+  <p>“The reason doing that in Lambda is so good is because you don’t have a load of servers sat around waiting to
+    process these images, you don’t need to write a queuing system, you don’t need any of that plumbing and leg work,
+    you can just have one function that returns an image,” he said.</p>
+  <p><strong>SEE: <a
+        href="https://www.techrepublic.com/resource-library/whitepapers/aws-lambda-a-guide-to-the-serverless-computing-framework-free-pdf/">AWS
+        Lambda: A guide to the serverless computing framework (free PDF)</a> (TechRepublic)</strong></p>
+  <p>Serverless services or FaaS offerings, such as Lambda, are not suited to running existing applications without
+    those applications being rewritten, however, due to the code they run being structured very differently to that
+    found inside most existing apps and not being able to rely on the state of the application being saved. Serverless
+    services run small modular functions, which are event-driven, as explained above, and <a
+      href="https://en.wikipedia.org/wiki/Stateful">stateless</a>.</p>
+  <p>Long-running computational tasks are also not suited to Lambda at present, with each function running for a maximum
+    of 15 minutes, although Google’s serverless offering doesn’t have this restriction. A Lambda function can also only
+    be executed 1000 times concurrently, although this limit can be raised on request.</p>
+  <p>Not every application is suited to being run on a serverless computing platform, with the vision being that
+    serverless code will form part of an application, serving as part of a larger whole. That said there are plenty of
+    use cases today for serverless computing. AWS Lambda can easily be integrated with many different AWS services and
+    NoSQL databases via API and there are no charges for transferring data between Lambda and a range of other AWS
+    services within the same AWS region. Amazon has also recently added <a
+      href="https://www.techrepublic.com/article/aws-reinvent-day-1-top-5-announcements-include-machine-learning-storage-innovations-and-container-capabilities/">an
+      automated tool</a> for SQL database users to migrate to Amazon Aurora Serverless, a new serverless version of its
+    PostgreSQL platform.</p>
+  <p>For Lambda, other possible uses include data processing, with Lambda carrying out real-time ETL on data within a
+    Kinesis stream and loading it into a database after it’s been transformed. A more concrete example is Lambda@Edge
+    function could be used to select the type of content a web application should return to a user, based on their
+    location and the type of device they’re using. Lambda functions can also be used to glue AWS services together,
+    being triggered by Auto Scaling events or CloudWatch alarms and in turn calling other AWS services.</p>
+  <p>“We think there’s a revolution going on called network-based serverless or network-based functions-as-a-service,”
+    says Cloudflare’s Graham-Cumming.</p>
+  <p>“The idea is you start to forget about where the code runs, you have it all over the world, near where end users
+    are and it just gets distributed and executed at scale.”</p>
+  <p>Like every computing paradigm, serverless has its drawbacks, particularly in its current form. One <a
+      href="https://arxiv.org/pdf/1812.03651.pdf">recent paper by UC Berkeley researchers</a> highlighted the issues
+    with the limited lifetimes of serverless instances, the network bottlenecks from constantly shunting data back and
+    forth, and the fact that specialized chips such as GPUs aren’t available via serverless offerings such as AWS
+    Lambda. Another common criticism is the latency when running a serverless function for the first time, stemming from
+    the time it takes to spin up the underlying IT infrastructure.</p>
+  <p>However, the researchers are ultimately optimistic that many of the limitations in offerings today will be overcome
+    by future services, and the major cloud platform providers are trying to address shortcomings.</p>
+  <p>For example, not only do many serverless offerings today require applications to be rewritten, they generally only
+    support a limited range of languages and increase the risk of locking users into a single computing platform.</p>
+  <p>To try to address these limitations, Google launched <a href="https://cloud.google.com/run/">Cloud Run</a>, which
+    aims to provide the managed infrastructure benefits of serverless while allowing users to deploy a wider range of
+    existing applications, to write code in the language of their choice, and be able to more easily move that code to
+    different platforms.</p>
+  <p>Cloud Run allows developers to deploy code inside a stateless HTTP container, with the service taking care of
+    provisioning and management of the underlying infrastructure, including scaling with demand and, like other
+    serverless offerings, is pay-per-use to the nearest 100ms. AWS provides a similar service in AWS Fargate, allowing
+    users to run <a href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">containers</a>
+    without having to manage servers or clusters, although it offers slightly less granular pay-per-use options.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="http://www.zdnet.com/article/where-aws-is-headed-every-function-as-a-managed-cloud-service/">Where AWS
+        is headed: Every function as a managed cloud service</a> (ZDNet)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/smb-study-finds-google-cloud-increases-productivity-and-lowers-it-costs/">SMB
+          study finds Google Cloud increases productivity and lowers IT costs</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a href="http://www.zdnet.com/article/google-alpha-tests-cloud-events-feature/">Google alpha-tests cloud events
+          feature</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h3 id="who-does-serverless-computing-affect">Who does serverless computing affect?</h3>
+  <p>Serverless computing services are available on all of the major cloud platforms, both to individuals and
+    businesses.</p>
+  <p>Firms from many sectors are using AWS Lambda, including Coca-Cola, Major League Baseball, AdRoll, Localytics for
+    app usage analytics, FireEye, which built an intrusion detection system that processes events using Lambda, and US
+    retailer Bustle. Amazon’s own smart virtual assistant Alexa is also built in-part on Lambda.</p>
+  <p>AWS technical evangelist Ian Massingham says Lambda is well suited to web applications, analytics and IoT and, as
+    such, should have cross-sector appeal.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="http://www.zdnet.com/article/microsoft-releases-preview-of-new-azure-serverless-compute-service-to-take-on-aws-lambda/">Microsoft
+        releases preview of new Azure ‘serverless compute’ service to take on AWS Lambda</a> (ZDNet)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/how-liberty-mutual-is-transforming-its-it-using-serverless-computing/">How
+          Liberty Mutual is transforming its IT using serverless computing</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a href="http://www.zdnet.com/article/amazon-web-services-wants-to-run-your-world/">Amazon Web Services wants
+          to run your world</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h3 id="when-is-serverless-computing-happening">When is serverless computing happening?</h3>
+  <p>You can get started with serverless computing right now. Since Amazon revealed Lambda in November 2014, competing
+    services have been launched on each of the major cloud platforms.</p>
+  <p>Microsoft’s <a
+      href="https://www.techrepublic.com/article/how-to-create-a-serverless-computing-function-app-in-microsoft-azure/">Azure
+      Functions</a>, Google’s <a
+      href="https://www.techrepublic.com/article/google-cloud-platform-the-smart-persons-guide/">Google Cloud
+      Functions</a>, and <a href="https://workers.cloudflare.com/">Cloudflare Workers</a> all offer similar serverless
+    products to AWS Lambda.  </p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/why-amazon-lambda-could-be-the-worst-thing-to-happen-to-open-source/">Why
+        AWS Lambda could be the worst thing to happen to open source</a> (TechRepublic)</li>
+    <li><a
+        href="http://www.zdnet.com/article/aws-cloud-computing-ops-data-centers-1-3-million-servers-creating-efficiency-flywheel/">AWS
+        cloud computing ops, data centers, 1.3 million servers creating efficiency flywheel</a> (ZDNet)</li>
+  </ul>
+  <h3 id="what-serverless-computing-options-are-available"><strong>What serverless computing options are
+      available?</strong></h3>
+  <p>Various serverless computing services are available via the major cloud platforms but the most mature is AWS
+    Lambda. There are plenty of <a href="http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html">guides to
+      getting started with</a> setting up a Lambda instance.</p>
+  <p>Lambda functions can be written in the Java, Go, PowerShell, Node.js JavaScript, C#, Python, and Ruby code. There’s
+    also a Runtime API that allows developers to use any additional programming languages to author their functions and
+    there are software frameworks that help you build serverless applications, such as the appropriately-named <a
+      href="https://github.com/serverless/serverless">Serverless Framework</a>.</p>
+  <p>Other options for serverless services include <a href="https://cloud.google.com/functions/docs/">Google Cloud
+      Functions</a>, which only supports Node.js JavaScript, Python, and Go but allows for unlimited execution time for
+    functions. <a href="https://azure.microsoft.com/en-gb/documentation/articles/functions-overview/">Microsoft’s Azure
+      Functions</a>, which supports a wider range of languages including Bash, Batch, C#, F#, Java, JavaScript
+    (Node.js), PHP, PowerShell, Python, and TypeScript, and that has <a
+      href="https://azure.microsoft.com/en-us/pricing/details/functions/">similar pricing to Lambda</a>. There’s also <a
+      href="https://developer.ibm.com/openwhisk/">IBM Cloud Functions</a>, whose language support includes JavaScript
+    (Node.js) and Swift, and <a href="https://www.cloudflare.com/products/cloudflare-workers/">Cloudflare’s Workers</a>
+    option, which runs functions written in JavaScript or any language that can be compiled to <a
+      href="https://www.techrepublic.com/article/web-programming-languages-how-webassembly-will-change-the-way-you-build-web-apps/">WebAssembly</a>.
+  </p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/resource-library/whitepapers/serverless-architectures-10-serious-security-problems-free-pdf/">Serverless
+        architectures: 10 serious security problems (free PDF)</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/ibm-forges-vmware-pact-pushes-more-swift-developer-tools/">IBM forges
+        VMware pact, pushes more Swift developer tools</a> (ZDNet)</li>
+    <li><a href="https://www.techrepublic.com/article/microsoft-build-5-big-moves-you-need-to-know/">Microsoft Build: 5
+        big moves you need to know</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/docker-the-smart-persons-guide/">Docker: A cheat
+        sheet</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/kubernetes-the-smart-persons-guide/">Kubernetes: A cheat
+        sheet</a> (TechRepublic)</li>
+  </ul>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="cloud-and-everything-as-a-service-newsletter">Cloud and Everything as a Service Newsletter</h3>
+  <p>This is your go-to resource for XaaS, AWS, Microsoft Azure, Google Cloud Platform, cloud engineering jobs, and
+    cloud security news and tips. Delivered Mondays</p>
+  <p>Sign up today</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2016/08/15/b1a3a422-4722-484a-93b8-723641bbe464/resize/770x/6497d39711c0abe1bf85202705314897/cloud-computing.jpg"
+      alt="cloud-computing.jpg" />
+    <figcaption>cloud-computing.jpg</figcaption>
+  </figure>
+  <p>Image: Getty Images/iStockphoto</p>
+  <p><a href="https://www.techrepublic.com/article/serverless-computing-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

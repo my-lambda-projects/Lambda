@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="head-stuff">Head stuff</h3>
+<pre><code>&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot;&gt;
+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;/favicon.png&quot;&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</code></pre>
+<h3 id="iphone-viewport">iPhone viewport</h3>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, maximum-scale=1.0&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;/&gt; &lt;!-- full example --&gt;</code></pre>
+<h3 id="default-opengraph-meta-tags">Default OpenGraph meta tags</h3>
+<pre><code>&lt;meta content=&quot;...&quot; name=&quot;description&quot;&gt;
+&lt;meta content=&quot;...&quot; property=&quot;og:description&quot;&gt;
+&lt;meta content=&quot;http://.../preview.jpg&quot; property=&quot;og:image&quot;&gt;
+&lt;meta content=&quot;Hello There&quot; property=&quot;og:title&quot;&gt;
+&lt;meta content=&quot;Hello There&quot; property=&quot;og:site_name&quot;&gt;
+&lt;meta content=&quot;hellothere&quot; property=&quot;fb:admins&quot;&gt;
+&lt;meta content=&quot;website&quot; property=&quot;og:type&quot;&gt;</code></pre>
+<h3 id="webfonts">Webfonts</h3>
+<pre><code>&lt;script&gt;WebFontConfig={    },function(a,b){var c=a.createElement(b);c.src=&quot;//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js&quot;,c.async=1;var d=a.getElementsByTagName(b)[0];d.parentNode.insertBefore(c,d)}(document,&quot;script&quot;)&lt;/script&gt;
+
+// {typekit{id:&quot;...&quot;}}
+// {google:{families:[&#39;Exo:400&#39;]}}</code></pre>
+<h3 id="google-analytics">Google Analytics</h3>
+<pre><code>&lt;script&gt;location.hostname.match(/helloworld\.com/)&amp;&amp;(_gaq=[[&quot;_setAccount&quot;,&quot;UA-XXXXX-1&quot;],[&quot;_trackPageview&quot;]],function(a,b){var c=a.createElement(b),d=a.getElementsByTagName(b)[0];c.async=1,c.src=(&quot;https:&quot;==location.protocol?&quot;//ssl&quot;:&quot;//www&quot;)+&quot;.google-analytics.com/ga.js&quot;,d.parentNode.insertBefore(c,d)}(document,&quot;script&quot;))&lt;/script&gt;</code></pre>
+<h3 id="fbtwitter">FB/Twitter</h3>
+<pre><code>&lt;div id=&quot;fb-root&quot;&gt;&lt;/div&gt;&lt;script&gt;fbAsyncInit=function(){FB.init({&quot;appId&quot;:&quot;___APPIDGOESHERE___&quot;,&quot;status&quot;:true,&quot;cookie&quot;:true,&quot;xfbml&quot;:true})};!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=1;js.src=&#39;//connect.facebook.net/en_US/all.js&#39;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#39;script&#39;,&#39;facebook-jssdk&#39;);&lt;/script&gt;
+
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=1;js.src=&quot;//platform.twitter.com/widgets.js&quot;;fjs.parentNode.insertBefore(js,fjs);}}(document,&quot;script&quot;,&quot;twitter-wjs&quot;);&lt;/script&gt;</code></pre>
+<h3 id="html5-shiv-for-ie8">HTML5 Shiv for IE8</h3>
+<pre><code>&lt;!--[if lte IE 8]&gt;&lt;script src=&#39;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js&#39;&gt;&lt;/script&gt;&lt;![endif]--&gt;</code></pre>
+<h3 id="h5bp-html-tag-ie8-and-ie9-only">H5BP HTML tag (IE8 and IE9 only)</h3>
+<pre><code>&lt;!--[if lte IE 8]&gt;&lt;html class=&quot;ie8&quot;&gt;&lt;![endif]--&gt;&lt;!--[if IE 9]&gt;&lt;html class=&quot;ie9&quot;&gt;&lt;![endif]--&gt;&lt;!--[if gt IE 9]&gt;&lt;!--&gt;
+&lt;html&gt;&lt;!--&lt;![endif]--&gt;</code></pre>
+<h3 id="touch-icons">Touch icons</h3>
+<ul>
+<li>apple-touch-icon-precomposed.png</li>
+<li>apple-touch-icon-57x57-precomposed.png</li>
+<li>apple-touch-icon-72x72-precomposed.png</li>
+<li>apple-touch-icon-114x114-precomposed.png</li>
+<li>apple-touch-icon-144x144-precomposed.png</li>
+</ul>
+<h3 id="icons">Icons</h3>
+<pre><code>&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;favicon.png&quot;&gt;
+&lt;link href=&quot;apple-touch-icon-precomposed.png&quot; rel=&quot;apple-touch-icon&quot;&gt;
+&lt;link href=&quot;apple-touch-icon-57x57-precomposed.png&quot; size=&quot;57x57&quot; rel=&quot;apple-touch-icon&quot;&gt;
+&lt;link href=&quot;apple-touch-icon-72x72-precomposed.png&quot; size=&quot;72x72&quot; rel=&quot;apple-touch-icon&quot;&gt;
+&lt;link href=&quot;apple-touch-icon-114x114-precomposed.png&quot; size=&quot;114x114&quot; rel=&quot;apple-touch-icon&quot;&gt;
+&lt;link href=&quot;apple-touch-icon-144x144-precomposed.png&quot; size=&quot;144x144&quot; rel=&quot;apple-touch-icon&quot;&gt;</code></pre>
+<p>Only do this if you’re not placing the site in the root!</p>
+<h3 id="h5bp-html-tag">H5BP HTML tag</h3>
+<pre><code>&lt;!--[if lt IE 7 ]&gt; &lt;html class=&quot;ie6&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7 ]&gt;    &lt;html class=&quot;ie7&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8 ]&gt;    &lt;html class=&quot;ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 9 ]&gt;    &lt;html class=&quot;ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html class=&quot;&quot;&gt; &lt;!--&lt;![endif]--&gt;</code></pre>
+<h3 id="google-jquery">Google jQuery</h3>
+<pre><code>&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<h3 id="unsupported-message">Unsupported message</h3>
+<pre><code>&lt;!--[if lt IE 8]&gt;
+&lt;div class=&quot;unsupported-browser&quot;&gt;
+  &lt;strong&gt;
+    You are using an outdated browser.
+  &lt;/strong&gt;
+  &lt;span&gt;
+    Please &lt;a class=&quot;upgrade-browser&quot;
+    href=&quot;http://browsehappy.com/&quot;&gt;
+    upgrade your browser&lt;/a&gt; or &lt;a  class=&quot;chrome-frame&quot;
+    href=&quot;http://www.google.com/chromeframe/?redirect=true&quot;&gt;activate Google 
+    Chrome Frame&lt;/a&gt; to improve your experience.
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;![endif]--&gt;</code></pre>
+<h3 id="html-compatibility-inspector">HTML Compatibility inspector</h3>
+<pre><code>&lt;script src=&quot;http://ie.microsoft.com/testdrive/HTML5/CompatInspector/inspector.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>More info here: <a href="http://ie.microsoft.com/testdrive/HTML5/CompatInspector/">microsoft.com</a></p>
+</body></html>

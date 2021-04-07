@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="components">Components</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/** </span><span class="an">@jsx</span><span class="co"> element */</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="im">import</span> <span class="op">{</span> element <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;deku&#39;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">function</span> <span class="at">render</span> (<span class="op">{</span> props<span class="op">,</span> children<span class="op">,</span> context<span class="op">,</span> path <span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="co">// props    = properties object</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="co">// children = children array</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="co">// path     = path to current component (like 0.1.5.2)</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="co">// context  = common properties in all components</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">&#39;App&#39;</span> hidden<span class="op">={</span><span class="va">props</span>.<span class="at">hidden</span><span class="op">}</span> color<span class="op">={</span><span class="va">context</span>.<span class="va">theme</span>.<span class="at">color</span><span class="op">}&gt;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">      <span class="op">{</span>children<span class="op">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12">    &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-14" title="14">}</a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="kw">function</span> <span class="at">onCreate</span> (<span class="op">{</span> props<span class="op">,</span> dispatch<span class="op">,</span> path <span class="op">}</span>) <span class="op">{</span> ... <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="kw">function</span> <span class="at">onUpdate</span> (<span class="op">{</span> props<span class="op">,</span> dispatch<span class="op">,</span> path <span class="op">}</span>) <span class="op">{</span> ... <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="kw">function</span> <span class="at">onRemove</span> (<span class="op">{</span> props<span class="op">,</span> dispatch<span class="op">,</span> path <span class="op">}</span>) <span class="op">{</span> ... <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co">// actually { children, props, path, context }</span></a>
+<a class="sourceLine" id="cb1-20" title="20"></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="im">export</span> <span class="im">default</span> <span class="op">{</span> render<span class="op">,</span> onCreate<span class="op">,</span> onRemove <span class="op">}</span></a></code></pre></div>
+<h3 id="rendering">Rendering</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> <span class="op">{</span> createStore <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;redux&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="im">import</span> <span class="op">{</span> dom<span class="op">,</span> element <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;deku&#39;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">// Create a Redux store to handle all UI actions and side-effects</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> store <span class="op">=</span> <span class="at">createStore</span>(reducer)</a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">// Create a renderer that can turn vnodes into real DOM elements</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="kw">let</span> render <span class="op">=</span> <span class="at">createRenderer</span>(<span class="va">document</span>.<span class="at">body</span><span class="op">,</span> <span class="va">store</span>.<span class="at">dispatch</span>)</a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">// Update the page and add redux state to the context</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="at">render</span>(<span class="op">&lt;</span>MyButton<span class="op">&gt;</span>Hello World<span class="op">!</span>&lt;/MyButton<span class="op">&gt;,</span> <span class="va">store</span>.<span class="at">getState</span>())</a></code></pre></div>
+</body></html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="getting-started">Getting started</h2>
+<p>{: .-three-column}</p>
+<h3 id="exiting">Exiting</h3>
+<p>{: .-prime}</p>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:qa</code></td>
+<td>Close all files</td>
+</tr>
+<tr class="even">
+<td><code>:qa!</code></td>
+<td>Close all files, abandon changes</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>:w</code></td>
+<td>Save</td>
+</tr>
+<tr class="odd">
+<td><code>:wq</code> <em>/</em> <code>:x</code></td>
+<td>Save and close file</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>:q</code></td>
+<td>Close file</td>
+</tr>
+<tr class="even">
+<td><code>:q!</code></td>
+<td>Close file, abandon changes</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>ZZ</code></td>
+<td>Save and quit</td>
+</tr>
+<tr class="odd">
+<td><code>ZQ</code></td>
+<td>Quit without checking changes</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="navigating">Navigating</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td>
+<td>Arrow keys</td>
+</tr>
+<tr class="even">
+<td><code>&lt;C-U&gt;</code> <em>/</em> <code>&lt;C-D&gt;</code></td>
+<td>Half-page up/down</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;C-B&gt;</code> <em>/</em> <code>&lt;C-F&gt;</code></td>
+<td>Page up/down</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="words">Words</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>b</code> <em>/</em> <code>w</code></td>
+<td>Previous/next word</td>
+</tr>
+<tr class="even">
+<td><code>ge</code> <em>/</em> <code>e</code></td>
+<td>Previous/next end of word</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="line">Line</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code> <em>(zero)</em></td>
+<td>Start of line</td>
+</tr>
+<tr class="even">
+<td><code>^</code></td>
+<td>Start of line <em>(after whitespace)</em></td>
+</tr>
+<tr class="odd">
+<td><code>$</code></td>
+<td>End of line</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="character">Character</h4>
+<div class="line-block"><code>fc</code> | Go forward to character <code>c</code> |<br />
+<code>Fc</code> | Go backward to character <code>c</code> |</div>
+<p>{: .-shortcuts}</p>
+<h4 id="document">Document</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>gg</code></td>
+<td>First line</td>
+</tr>
+<tr class="even">
+<td><code>G</code></td>
+<td>Last line</td>
+</tr>
+<tr class="odd">
+<td><code>:n</code></td>
+<td>Go to line <code>n</code></td>
+</tr>
+<tr class="even">
+<td><code>nG</code></td>
+<td>Go to line <code>n</code></td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="window">Window</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>zz</code></td>
+<td>Center this line</td>
+</tr>
+<tr class="even">
+<td><code>zt</code></td>
+<td>Top this line</td>
+</tr>
+<tr class="odd">
+<td><code>zb</code></td>
+<td>Bottom this line</td>
+</tr>
+<tr class="even">
+<td><code>H</code></td>
+<td>Move to top of screen</td>
+</tr>
+<tr class="odd">
+<td><code>M</code></td>
+<td>Move to middle of screen</td>
+</tr>
+<tr class="even">
+<td><code>L</code></td>
+<td>Move to bottom of screen</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="search">Search</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>n</code></td>
+<td>Next matching search pattern</td>
+</tr>
+<tr class="even">
+<td><code>N</code></td>
+<td>Previous match</td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>Next whole word under cursor</td>
+</tr>
+<tr class="even">
+<td><code>#</code></td>
+<td>Previous whole word under cursor</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="tab-pages">Tab pages</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:tabedit [file]</code></td>
+<td>Edit file in a new tab</td>
+</tr>
+<tr class="even">
+<td><code>:tabfind [file]</code></td>
+<td>Open file if exists in new tab</td>
+</tr>
+<tr class="odd">
+<td><code>:tabclose</code></td>
+<td>Close current tab</td>
+</tr>
+<tr class="even">
+<td><code>:tabs</code></td>
+<td>List all tabs</td>
+</tr>
+<tr class="odd">
+<td><code>:tabfirst</code></td>
+<td>Go to first tab</td>
+</tr>
+<tr class="even">
+<td><code>:tablast</code></td>
+<td>Go to last tab</td>
+</tr>
+<tr class="odd">
+<td><code>:tabn</code></td>
+<td>Go to next tab</td>
+</tr>
+<tr class="even">
+<td><code>:tabp</code></td>
+<td>Go to previous tab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="editing">Editing</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>a</code></td>
+<td>Append</td>
+</tr>
+<tr class="even">
+<td><code>A</code></td>
+<td>Append from end of line</td>
+</tr>
+<tr class="odd">
+<td><code>i</code></td>
+<td>Insert</td>
+</tr>
+<tr class="even">
+<td><code>o</code></td>
+<td>Next line</td>
+</tr>
+<tr class="odd">
+<td><code>O</code></td>
+<td>Previous line</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>s</code></td>
+<td>Delete char and insert</td>
+</tr>
+<tr class="even">
+<td><code>S</code></td>
+<td>Delete line and insert</td>
+</tr>
+<tr class="odd">
+<td><code>C</code></td>
+<td>Delete until end of line and insert</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>r</code></td>
+<td>Replace one character</td>
+</tr>
+<tr class="even">
+<td><code>R</code></td>
+<td>Enter Replace mode</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>u</code></td>
+<td>Undo changes</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;C-R&gt;</code></td>
+<td>Redo changes</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="exiting-insert-mode">Exiting insert mode</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Esc</code> <em>/</em> <code>&lt;C-[&gt;</code></td>
+<td>Exit insert mode</td>
+</tr>
+<tr class="even">
+<td><code>&lt;C-C&gt;</code></td>
+<td>Exit insert mode, and abort current command</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="clipboard">Clipboard</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x</code></td>
+<td>Delete character</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>dd</code></td>
+<td>Delete line <em>(Cut)</em></td>
+</tr>
+<tr class="even">
+<td><code>yy</code></td>
+<td>Yank line <em>(Copy)</em></td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>p</code></td>
+<td>Paste</td>
+</tr>
+<tr class="odd">
+<td><code>P</code></td>
+<td>Paste before</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>"*p</code> <em>/</em> <code>"+p</code></td>
+<td>Paste from system clipboard</td>
+</tr>
+<tr class="even">
+<td><code>"*y</code> <em>/</em> <code>"+y</code></td>
+<td>Paste to system clipboard</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="visual-mode">Visual mode</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>v</code></td>
+<td>Enter visual mode</td>
+</tr>
+<tr class="even">
+<td><code>V</code></td>
+<td>Enter visual line mode</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;C-V&gt;</code></td>
+<td>Enter visual block mode</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h4 id="in-visual-mode">In visual mode</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>d</code> <em>/</em> <code>x</code></td>
+<td>Delete selection</td>
+</tr>
+<tr class="even">
+<td><code>s</code></td>
+<td>Replace selection</td>
+</tr>
+<tr class="odd">
+<td><code>y</code></td>
+<td>Yank selection <em>(Copy)</em></td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<p>See <a href="#operators">Operators</a> for other things you can do.</p>
+<h2 id="operators">Operators</h2>
+<p>{: .-three-column}</p>
+<h3 id="usage">Usage</h3>
+<p>{: .-prime}</p>
+<p>Operators let you operate in a range of text (defined by <em>motion</em>). These are performed in normal mode. {: .-setup}</p>
+<div class="line-block"><code>d</code> | <code>w</code> |<br />
+Operator | Motion |</div>
+<p>{: .-css-breakdown}</p>
+<h3 id="operators-list">Operators list</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>d</code></td>
+<td>Delete</td>
+</tr>
+<tr class="even">
+<td><code>y</code></td>
+<td>Yank <em>(copy)</em></td>
+</tr>
+<tr class="odd">
+<td><code>c</code></td>
+<td>Change <em>(delete then insert)</em></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>Indent right</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>Indent left</td>
+</tr>
+<tr class="odd">
+<td><code>=</code></td>
+<td>Autoindent</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>g~</code></td>
+<td>Swap case</td>
+</tr>
+<tr class="even">
+<td><code>gU</code></td>
+<td>Uppercase</td>
+</tr>
+<tr class="odd">
+<td><code>gu</code></td>
+<td>Lowercase</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>Filter through external program</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<p>See <code>:help operator</code></p>
+<h3 id="examples">Examples</h3>
+<p>Combine operators with <em>motions</em> to use them. {: .-setup}</p>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>d</code><em>d</em></td>
+<td><em>(repeat the letter)</em> Delete current line</td>
+</tr>
+<tr class="even">
+<td><code>d</code><em>w</em></td>
+<td>Delete to next word</td>
+</tr>
+<tr class="odd">
+<td><code>d</code><em>b</em></td>
+<td>Delete to beginning of word</td>
+</tr>
+<tr class="even">
+<td><em>2</em><code>dd</code></td>
+<td>Delete 2 lines</td>
+</tr>
+<tr class="odd">
+<td><code>d</code><em>ip</em></td>
+<td>Delete a text object <em>(inside paragraph)</em></td>
+</tr>
+<tr class="even">
+<td><em>(in visual mode)</em> <code>d</code></td>
+<td>Delete selection</td>
+</tr>
+</tbody>
+</table>
+<p>See: <code>:help motion.txt</code></p>
+<h2 id="text-objects">Text objects</h2>
+<p>{: .-three-column}</p>
+<h3 id="usage-1">Usage</h3>
+<p>{: .-prime}</p>
+<p>Text objects let you operate (with an <em>operator</em>) in or around text blocks (<em>objects</em>). {: .-setup}</p>
+<div class="line-block"><code>v</code> | <code>i</code> | <code>p</code> |<br />
+Operator | [i]nside or [a]round | Text object |</div>
+<p>{: .-css-breakdown}</p>
+<h3 id="text-objects-1">Text objects</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>p</code></td>
+<td>Paragraph</td>
+</tr>
+<tr class="even">
+<td><code>w</code></td>
+<td>Word</td>
+</tr>
+<tr class="odd">
+<td><code>s</code></td>
+<td>Sentence</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>[</code> <code>(</code> <code>{</code> <code>&lt;</code></td>
+<td>A [], (), or {} block</td>
+</tr>
+<tr class="even">
+<td><code>'</code> <code>"</code> <code><code>&lt;/code&gt; | A quoted string       | | ---                    | ---                   | |</code>b<code>| A block [(            | |</code>B<code>| A block in [{         | |</code>t`</td>
+<td>A XML tag block</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="examples-1">Examples</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>vip</code></td>
+<td>Select paragraph</td>
+</tr>
+<tr class="even">
+<td><code>vipipipip</code></td>
+<td>Select more</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>yip</code></td>
+<td>Yank inner paragraph</td>
+</tr>
+<tr class="odd">
+<td><code>yap</code></td>
+<td>Yank paragraph (including newline)</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>dip</code></td>
+<td>Delete inner paragraph</td>
+</tr>
+<tr class="even">
+<td><code>cip</code></td>
+<td>Change inner paragraph</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<p>See <a href="#operators">Operators</a> for other things you can do.</p>
+<h3 id="diff">Diff</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>gvimdiff file1 file2 [file3]</code></td>
+<td>See differences between files, in HMI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="misc">Misc</h2>
+<h3 id="folds">Folds</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>zo</code> <em>/</em> <code>zO</code></td>
+<td>Open</td>
+</tr>
+<tr class="even">
+<td><code>zc</code> <em>/</em> <code>zC</code></td>
+<td>Close</td>
+</tr>
+<tr class="odd">
+<td><code>za</code> <em>/</em> <code>zA</code></td>
+<td>Toggle</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>zv</code></td>
+<td>Open folds for this line</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>zM</code></td>
+<td>Close all</td>
+</tr>
+<tr class="even">
+<td><code>zR</code></td>
+<td>Open all</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>zm</code></td>
+<td>Fold more <em>(foldlevel += 1)</em></td>
+</tr>
+<tr class="odd">
+<td><code>zr</code></td>
+<td>Fold less <em>(foldlevel -= 1)</em></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>zx</code></td>
+<td>Update folds</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<p>Uppercase ones are recursive (eg, <code>zO</code> is open recursively).</p>
+<h3 id="navigation">Navigation</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%</code></td>
+<td>Nearest/matching <code>{[()]}</code></td>
+</tr>
+<tr class="even">
+<td><code>[(</code> <code>[{</code> <code>[&lt;</code></td>
+<td>Previous <code>(</code> or <code>{</code> or <code>&lt;</code></td>
+</tr>
+<tr class="odd">
+<td><code>])</code></td>
+<td>Next</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>[m</code></td>
+<td>Previous method start</td>
+</tr>
+<tr class="even">
+<td><code>[M</code></td>
+<td>Previous method end</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="jumping">Jumping</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;C-O&gt;</code></td>
+<td>Go back to previous location</td>
+</tr>
+<tr class="even">
+<td><code>&lt;C-I&gt;</code></td>
+<td>Go forward</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>gf</code></td>
+<td>Go to file in cursor</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="counters">Counters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;C-A&gt;</code></td>
+<td>Increment number</td>
+</tr>
+<tr class="even">
+<td><code>&lt;C-X&gt;</code></td>
+<td>Decrement</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="windows">Windows</h3>
+<div class="line-block"><code>z{height}&lt;Cr&gt;</code> | Resize pane to <code>{height}</code> lines tall |</div>
+<h3 id="tags">Tags</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:tag Classname</code></td>
+<td>Jump to first definition of Classname</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;C-]&gt;</code></td>
+<td>Jump to definition</td>
+</tr>
+<tr class="even">
+<td><code>g]</code></td>
+<td>See all definitions</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;C-T&gt;</code></td>
+<td>Go back to last tag</td>
+</tr>
+<tr class="even">
+<td><code>&lt;C-O&gt; &lt;C-I&gt;</code></td>
+<td>Back/forward</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>:tselect Classname</code></td>
+<td>Find definitions of Classname</td>
+</tr>
+<tr class="odd">
+<td><code>:tjump Classname</code></td>
+<td>Find definitions of Classname (auto-select 1st)</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="case">Case</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>~</code></td>
+<td>Toggle case (Case =&gt; cASE)</td>
+</tr>
+<tr class="even">
+<td><code>gU</code></td>
+<td>Uppercase</td>
+</tr>
+<tr class="odd">
+<td><code>gu</code></td>
+<td>Lowercase</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>gUU</code></td>
+<td>Uppercase current line (also <code>gUgU</code>)</td>
+</tr>
+<tr class="even">
+<td><code>guu</code></td>
+<td>Lowercase current line (also <code>gugu</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<p>Do these in visual or normal mode.</p>
+<h3 id="marks">Marks</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code><code>^&lt;/code&gt;    | Last position of cursor in insert mode               | | &lt;code&gt;</code>.</code></td>
+<td>Last change in current buffer</td>
+</tr>
+<tr class="even">
+<td><code><code>"&lt;/code&gt;    | Last exited current buffer                           | | &lt;code&gt;</code>0</code></td>
+<td>In last file edited</td>
+</tr>
+<tr class="odd">
+<td><code>’’</code></td>
+<td>Back to line in current buffer where jumped from</td>
+</tr>
+<tr class="even">
+<td><code>`<code>&lt;/code&gt;    | Back to position in current buffer where jumped from | | &lt;code&gt;</code>[</code></td>
+<td>To beginning of previously changed or yanked text</td>
+</tr>
+<tr class="odd">
+<td><code><code>]&lt;/code&gt;    | To end of previously changed or yanked text          | | &lt;code&gt;</code>&lt;</code></td>
+<td>To beginning of last visual selection</td>
+</tr>
+<tr class="even">
+<td><code><code>&amp;gt;&lt;/code&gt; | To end of last visual selection                      | | ---                | ---                                                  | |</code>ma<code>| Mark this cursor position as</code>a<code>| | &lt;code&gt;</code>a</code></td>
+<td>Jump to the cursor position <code>a</code></td>
+</tr>
+<tr class="odd">
+<td><code>'a</code></td>
+<td>Jump to the beginning of the line with position <code>a</code></td>
+</tr>
+<tr class="even">
+<td><code>d’a</code></td>
+<td>Delete from current line to line of mark <code>a</code></td>
+</tr>
+<tr class="odd">
+<td><code>d<code>a&lt;/code&gt;   | Delete from current position to position of mark</code>a<code>| | &lt;code&gt;c'a&lt;/code&gt;   | Change text from current line to line of</code>a<code>| | &lt;code&gt;y</code>a</code></td>
+<td>Yank text from current position to position of <code>a</code></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>:marks</code></td>
+<td>List all current marks</td>
+</tr>
+<tr class="even">
+<td><code>:delm a</code></td>
+<td>Delete mark <code>a</code></td>
+</tr>
+<tr class="odd">
+<td><code>:delm a-d</code></td>
+<td>Delete marks <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code></td>
+</tr>
+<tr class="even">
+<td><code>:delm abc</code></td>
+<td>Delete marks <code>a</code>, <code>b</code>, <code>c</code></td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="misc-1">Misc</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.</code></td>
+<td>Repeat last command</td>
+</tr>
+<tr class="even">
+<td><code>]p</code></td>
+<td>Paste under the current indentation level</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>:set ff=unix</code></td>
+<td>Convert Windows line endings to Unix line endings</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="command-line">Command line</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;C-R&gt;&lt;C-W&gt;</code></td>
+<td>Insert current word into the command line</td>
+</tr>
+<tr class="even">
+<td><code>&lt;C-R&gt;"</code></td>
+<td>Paste from " register</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;C-X&gt;&lt;C-F&gt;</code></td>
+<td>Auto-completion of path in insert mode</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<h3 id="text-alignment">Text alignment</h3>
+<pre><code>:center [width]
+:right [width]
+:left</code></pre>
+<p>See <code>:help formatting</code></p>
+<h3 id="calculator">Calculator</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;C-R&gt;=128/2</code></td>
+<td>Shows the result of the division : ‘64’</td>
+</tr>
+</tbody>
+</table>
+<p>Do this in insert mode.</p>
+<h3 id="exiting-with-an-error">Exiting with an error</h3>
+<pre><code>:cq
+:cquit</code></pre>
+<p>Works like <code>:qa</code>, but throws an error. Great for aborting Git commands.</p>
+<h3 id="spell-checking">Spell checking</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:set spell spelllang=en_us</code></td>
+<td>Turn on US English spell checking</td>
+</tr>
+<tr class="even">
+<td><code>]s</code></td>
+<td>Move to next misspelled word after the cursor</td>
+</tr>
+<tr class="odd">
+<td><code>[s</code></td>
+<td>Move to previous misspelled word before the cursor</td>
+</tr>
+<tr class="even">
+<td><code>z=</code></td>
+<td>Suggest spellings for the word under/after the cursor</td>
+</tr>
+<tr class="odd">
+<td><code>zg</code></td>
+<td>Add word to spell list</td>
+</tr>
+<tr class="even">
+<td><code>zw</code></td>
+<td>Mark word as bad/mispelling</td>
+</tr>
+<tr class="odd">
+<td><code>zu</code> / <code>C-X (Insert Mode)</code></td>
+<td>Suggest words for bad word under cursor from spellfile</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-shortcuts}</p>
+<p>See <code>:help spell</code></p>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="https://vim.rtorr.com/">Vim cheatsheet</a> <em>(vim.rotrr.com)</em></li>
+<li><a href="http://vimdoc.sourceforge.net/htmldoc/">Vim documentation</a> <em>(vimdoc.sourceforge.net)</em></li>
+<li><a href="http://openvim.com/">Interactive Vim tutorial</a> <em>(openvim.com)</em></li>
+</ul>
+</body></html>

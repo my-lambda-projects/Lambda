@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="shortcuts">Shortcuts</h2>
+<p>{: .-left-reference}</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">n <span class="op">=</span> <span class="op">+</span><span class="st">&#39;4096&#39;</span>    <span class="co">// n === 4096</span></a>
+<a class="sourceLine" id="cb1-2" title="2">s <span class="op">=</span> <span class="st">&#39;&#39;</span> <span class="op">+</span> <span class="dv">200</span>   <span class="co">// s === &#39;200&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">now <span class="op">=</span> <span class="op">+</span><span class="kw">new</span> <span class="at">Date</span>()</a>
+<a class="sourceLine" id="cb2-2" title="2">isPublished <span class="op">=</span> <span class="op">!!</span><span class="va">post</span>.<span class="at">publishedAt</span></a></code></pre></div>
+<h3 id="shortcuts-1">Shortcuts</h3>
+<table>
+<thead>
+<tr class="header">
+<th>What</th>
+<th>Lazy mode</th>
+<th>“The right way”</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>String to number</td>
+<td><code>+str</code></td>
+<td><code>parseInt(str, 10)</code> <em>or</em> <code>parseFloat()</code></td>
+</tr>
+<tr class="even">
+<td>Math floor</td>
+<td><code>num | 0</code></td>
+<td><code>Math.floor(num)</code></td>
+</tr>
+<tr class="odd">
+<td>Number to string</td>
+<td><code>'' + num</code></td>
+<td><code>num.toString()</code></td>
+</tr>
+<tr class="even">
+<td>Date to UNIX timestamp</td>
+<td><code>+new Date()</code></td>
+<td><code>new Date().getTime()</code></td>
+</tr>
+<tr class="odd">
+<td>Any to boolean</td>
+<td><code>!!value</code></td>
+<td><code>Boolean(value)</code></td>
+</tr>
+<tr class="even">
+<td>Check array contents</td>
+<td><code>if (~arr.indexOf(v))</code></td>
+<td><code>if (arr.includes(v))</code></td>
+</tr>
+</tbody>
+</table>
+<p>{: .-left-align.-headers}</p>
+<p><code>.includes</code> is ES6-only, otherwise use <code>.indexOf(val) !== -1</code> if you don’t polyfill.</p>
+</body></html>

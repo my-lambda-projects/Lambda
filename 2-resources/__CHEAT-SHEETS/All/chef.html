@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="install">Install</h3>
+<p>In your server: {: .-setup}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="fu">sudo</span> apt-get install curl</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">curl</span> -L https://omnitruck.chef.io/install.sh <span class="kw">|</span> <span class="fu">sudo</span> bash</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">Thank</span> you for installing Chef!</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$ <span class="ex">chef-solo</span> -v</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">...</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ex">Chef</span>: 14.5.33</a></code></pre></div>
+<h3 id="start-the-cookbook">Start the cookbook</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"> <span class="fu">wget</span> http://github.com/chef-cookbooks/chef-repo/tarball/master -O - <span class="kw">|</span> <span class="fu">tar</span> xzf - --strip-components=1</a></code></pre></div>
+<h3 id="knife">Knife</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1">$ <span class="ex">knife</span> supermarket download mysql</a></code></pre></div>
+<h3 id="invoking-chef-solo">Invoking chef-solo</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1">$ <span class="ex">chef-solo</span> -c solo.rb -j web.json</a></code></pre></div>
+<h2 id="examples">Examples</h2>
+<h3 id="simple-compile-from-source">Simple compile-from-source</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">execute <span class="st">&quot;tar --no-same-owner -zxf hi.tar.gz&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  cwd <span class="st">&quot;/usr/local/src&quot;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  creates <span class="st">&quot;/usr/local/src/node-v</span><span class="ot">#{</span>version<span class="ot">}</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="kw">end</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">bash <span class="st">&quot;compile&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  cwd <span class="st">&quot;/usr/local/src/node-v</span><span class="ot">#{</span>version<span class="ot">}</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  code <span class="ot">%[</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="st">    PATH=/usr/local/bin:$PATH</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="st">    ./configure</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="st">    make</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="st">  </span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb8-8" title="8">  creates <span class="st">&quot;/usr/local/src/node-v</span><span class="ot">#{</span>version<span class="ot">}</span><span class="st">/node&quot;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="kw">end</span></a></code></pre></div>
+<h3 id="remote-file">remote file</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb9-1" title="1">remote_file <span class="st">&quot;/usr/local/src/hi.tar.gz&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  source <span class="st">&quot;http://...&quot;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  checksum <span class="st">&quot;ab83be...&quot;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  mode <span class="bn">0644</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  action <span class="st">:create_if_missing</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="kw">end</span></a></code></pre></div>
+<h3 id="ruby_block">ruby_block</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb10-1" title="1">ruby_block <span class="st">&quot;name&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  block { <span class="dt">File</span>.read ... }</a>
+<a class="sourceLine" id="cb10-3" title="3">  not_if { <span class="dt">File</span>.exists?(...) }</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">end</span></a></code></pre></div>
+<h3 id="execute">Execute</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" title="1">execute <span class="st">&quot;name&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  cwd <span class="st">&quot;...&quot;</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  environment({ <span class="st">&quot;PATH&quot;</span> =&gt; <span class="st">&quot;...&quot;</span> })</a>
+<a class="sourceLine" id="cb11-4" title="4">  command <span class="st">&quot;make install&quot;</span></a>
+<a class="sourceLine" id="cb11-5" title="5">  creates <span class="st">&quot;...&quot;</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="kw">end</span></a></code></pre></div>
+<h3 id="conditions">Conditions</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb12-1" title="1">  creates <span class="st">&quot;/usr/local/src/node-v</span><span class="ot">#{</span>version<span class="ot">}</span><span class="st">/node&quot;</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  not_if { <span class="dt">File</span>.exists?(<span class="st">&#39;...&#39;</span>) }</a></code></pre></div>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="https://learn.chef.io">Learn Chef Rally</a> <em>(learn.chef.io)</em></li>
+<li><a href="https://github.com/mdxp/nodejs-cookbook/blob/master/recipes/install_from_source.rb">install_from_source.rb recipe</a> <em>(github.com)</em></li>
+</ul>
+</body></html>

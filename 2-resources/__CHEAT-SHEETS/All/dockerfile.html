@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="reference">Reference</h2>
+<p>{: .-three-column}</p>
+<h3 id="inheritance">Inheritance</h3>
+<pre class="docker"><code>FROM ruby:2.2.2</code></pre>
+<h3 id="variables">Variables</h3>
+<pre class="docker"><code>ENV APP_HOME /myapp
+RUN mkdir $APP_HOME</code></pre>
+<pre class="docker"><code>ARG APP_HOME=&quot;&quot;
+RUN mkdir $APP_HOME</code></pre>
+<h3 id="initialization">Initialization</h3>
+<pre class="docker"><code>RUN bundle install</code></pre>
+<pre class="docker"><code>WORKDIR /myapp</code></pre>
+<pre class="docker"><code>VOLUME [&quot;/data&quot;]
+# Specification for mount point</code></pre>
+<pre class="docker"><code>ADD file.xyz /file.xyz
+COPY --chown=user:group host_file.xyz /path/container_file.xyz</code></pre>
+<h3 id="onbuild">Onbuild</h3>
+<pre class="docker"><code>ONBUILD RUN bundle install
+# when used with another file</code></pre>
+<h3 id="commands">Commands</h3>
+<pre class="docker"><code>EXPOSE 5900
+CMD    [&quot;bundle&quot;, &quot;exec&quot;, &quot;rails&quot;, &quot;server&quot;]</code></pre>
+<h3 id="entrypoint">Entrypoint</h3>
+<pre class="docker"><code>ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]
+ENTRYPOINT command param1 param2</code></pre>
+<p>Configures a container that will run as an executable.</p>
+<pre class="docker"><code>ENTRYPOINT exec top -b</code></pre>
+<p>This will use shell processing to substitute shell variables, and will ignore any <code>CMD</code> or <code>docker run</code> command line arguments.</p>
+<h3 id="metadata">Metadata</h3>
+<pre class="docker"><code>LABEL version=&quot;1.0&quot;</code></pre>
+<pre class="docker"><code>LABEL &quot;com.example.vendor&quot;=&quot;ACME Incorporated&quot;
+LABEL com.example.label-with-value=&quot;foo&quot;</code></pre>
+<pre class="docker"><code>LABEL description=&quot;This text illustrates \
+that label-values can span multiple lines.&quot;</code></pre>
+<h2 id="see-also">See also</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/builder/" class="uri">https://docs.docker.com/engine/reference/builder/</a></li>
+</ul>
+</body></html>

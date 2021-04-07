@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="doctype">Doctype</h3>
+<pre class="haml"><code>!!! 5</code></pre>
+<h3 id="tags">Tags</h3>
+<pre class="haml"><code>%html
+  %head
+    %title
+  %body
+    %h1 Hello World
+    %br/</code></pre>
+<h3 id="classes-and-ids">Classes and ID’s</h3>
+<pre class="haml"><code>%p.class-example
+.no-tag-defaults-to-div
+%div#butItCanBeIncluded</code></pre>
+<h3 id="inline-attributes">Inline Attributes</h3>
+<p>Either hash syntax works</p>
+<pre class="haml"><code>%meta{ name: &quot;viewport&quot;, content: &quot;width=device-width, initial-scale=1.0&quot; }
+%input{ :type =&gt; &quot;text&quot;, :required =&gt; true }</code></pre>
+<h3 id="ruby">Ruby</h3>
+<pre class="haml"><code>-# This is a comment
+-# Anything starting with a hyphen signals to Haml that Ruby is coming
+- @arr = [1, 2, 3]
+- @str = &quot;test&quot;
+-# Equal signals output
+= render partial: &quot;shared/header&quot;
+= yield
+= link_to page_url</code></pre>
+</body></html>

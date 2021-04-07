@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="create---create-an-app"><code>create</code> - Create an app</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">heroku</span> create sushi</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">git</span> push heroku master</a></code></pre></div>
+<h3 id="access---collaboration"><code>access</code> - Collaboration</h3>
+<h4 id="manage-collaborators">Manage collaborators</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">heroku</span> access                     <span class="co"># List</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">heroku</span> access:add me@xy.com</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ex">heroku</span> access:remove me@xy.com</a></code></pre></div>
+<h4 id="transfer-to-another-owner">Transfer to another owner</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">heroku</span> apps:transfer new@owner.com</a></code></pre></div>
+<h3 id="logs---show-logs"><code>logs</code> - Show logs</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">heroku</span> logs</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">heroku</span> logs -t      <span class="co"># --tail (stream)</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="ex">heroku</span> logs -s app  <span class="co"># --source (only on app logs)</span></a></code></pre></div>
+<h3 id="releases"><code>releases</code></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">heroku</span> releases</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">heroku</span> releases:info v25</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="ex">heroku</span> rollback</a></code></pre></div>
+<h3 id="pg---postgresql"><code>pg</code> - PostgreSQL</h3>
+<h4 id="start-a-database">Start a database</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">heroku</span> addons:add heroku-postgresql</a></code></pre></div>
+<h4 id="enable-backups">Enable backups</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">heroku</span> addons:add pgbackups:auto-month</a></code></pre></div>
+<p>See: <a href="https://devcenter.heroku.com/articles/heroku-postgresql">Heroku PostgreSQL</a> <em>(devcenter.heroku.com)</em></p>
+<h3 id="config---environment-var-configuration"><code>config</code> - Environment var configuration</h3>
+<h4 id="listing">Listing</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">heroku</span> config        <span class="co"># List</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="ex">heroku</span> config -s     <span class="co"># List in shell format</span></a></code></pre></div>
+<h4 id="getting">Getting</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">heroku</span> config:get KEY</a></code></pre></div>
+<h4 id="setting">Setting</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="ex">heroku</span> config:set KEY=val</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="ex">heroku</span> config:set KEY1=val KEY2=val ...</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="ex">heroku</span> config:unset KEY1</a></code></pre></div>
+<h3 id="apps---applications"><code>apps</code> - Applications</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"><span class="ex">heroku</span> apps                  <span class="co"># list</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="ex">heroku</span> apps:create [NAME]</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="ex">heroku</span> apps:destroy --app APP</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="ex">heroku</span> apps:info</a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="ex">heroku</span> apps:open             <span class="co"># open in browser</span></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="ex">heroku</span> apps:rename NEWNAME</a></code></pre></div>
+<h3 id="maintenance"><code>maintenance</code></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">heroku</span> maintenance:on</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="ex">heroku</span> maintenance:off</a></code></pre></div>
+<h2 id="processes">Processes</h2>
+<h3 id="ps---managing-processes"><code>ps</code> - Managing processes</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"><span class="ex">heroku</span> ps              <span class="co"># list</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="ex">heroku</span> ps:scale web=1  <span class="co"># spawn more dynos</span></a></code></pre></div>
+<h3 id="restart"><code>restart</code></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" title="1"><span class="ex">heroku</span> restart</a></code></pre></div>
+<h3 id="run---running-tasks"><code>run</code> - Running tasks</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"><span class="ex">heroku</span> run bash</a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="ex">heroku</span> run console                  <span class="co"># Rails console</span></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="ex">heroku</span> run rake assets:precompile</a></code></pre></div>
+<h2 id="domains">Domains</h2>
+<h3 id="domains---custom-domains"><code>domains</code> - Custom domains</h3>
+<h4 id="add-both">Add both!</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" title="1"><span class="ex">heroku</span> domains:add example.com</a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="ex">heroku</span> domains:add www.example.com</a></code></pre></div>
+<h4 id="removing">Removing</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" title="1"><span class="ex">heroku</span> domains:clear</a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="ex">heroku</span> domains:remove example.com</a></code></pre></div>
+<p>See: <a href="https://devcenter.heroku.com/articles/custom-domains">Custom domains</a> <em>(devcenter.heroku.com)</em></p>
+<h3 id="wildcard-domains">Wildcard domains</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" title="1"><span class="ex">heroku</span> addons:add wildcard_domains</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" title="1"><span class="ex">*.yourdomain.com</span> =<span class="op">&gt;</span> heroku.com</a></code></pre></div>
+<h2 id="other-tricks">Other tricks</h2>
+<h3 id="htpasswd-for-php-apps">htpasswd (for PHP apps)</h3>
+<p>Create an <code>.htaccess</code> file in the webroot:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" title="1"><span class="ex">AuthUserFile</span> /app/www/.htpasswd</a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="ex">AuthType</span> Basic</a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="ex">AuthName</span> <span class="st">&quot;Restricted Access&quot;</span></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="ex">Require</span> valid-user</a></code></pre></div>
+<p>Create a <code>.htpasswd</code> file:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb24-1" title="1">$ <span class="ex">htpasswd</span> -c .htpasswd [username]</a></code></pre></div>
+<p>See: <a href="https://gist.github.com/3316425">gist.github.com</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://addons.heroku.com/" class="uri">https://addons.heroku.com/</a></li>
+<li><a href="https://devcenter.heroku.com/" class="uri">https://devcenter.heroku.com/</a></li>
+</ul>
+</body></html>

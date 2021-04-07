@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="working-with-branches">Working with branches</h2>
+<p>{: .-three-column}</p>
+<h3 id="creating">Creating</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">git</span> checkout -b <span class="va">$branchname</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">git</span> push origin <span class="va">$branchname</span> --set-upstream</a></code></pre></div>
+<p>Creates a new branch locally then pushes it.</p>
+<h3 id="getting-from-remote">Getting from remote</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">git</span> fetch origin</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">git</span> checkout --track origin/<span class="va">$branchname</span></a></code></pre></div>
+<p>Gets a branch in a remote.</p>
+<h3 id="delete-local-remote-tracking-branches">Delete local remote-tracking branches</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">git</span> remote prune origin</a></code></pre></div>
+<p>Deletes <code>origin/*</code> branches in your local copy. Doesn’t affect the remote.</p>
+<h3 id="list-existing-branches">List existing branches</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">git</span> branch --list</a></code></pre></div>
+<p>Existing branches are listed. Current branch will be highlighted with an asterisk.</p>
+<h3 id="list-merged-branches">List merged branches</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">git</span> branch -a --merged</a></code></pre></div>
+<p>List outdated branches that have been merged into the current one.</p>
+<h3 id="delete-a-local-branch">Delete a local branch</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">git</span> branch -d <span class="va">$branchname</span></a></code></pre></div>
+<p>Deletes the branch only if the changes have been pushed and merged with remote.</p>
+<h3 id="delete-branch-forcefully">Delete branch forcefully</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">git</span> branch -D <span class="va">$branchname</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">git</span> branch -d <span class="va">$branchname</span></a></code></pre></div>
+<blockquote>
+<p>Note: You can also use the -D flag which is synonymous with –delete –force instead of -d. This will delete the branch regardless of its merge status. Delete a branch irrespective of its merged status.</p>
+</blockquote>
+<h3 id="delete-remote-branch">Delete remote branch</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="fu">git</span> push origin --delete :<span class="va">$branchname</span></a></code></pre></div>
+<p>Works for tags, too!</p>
+<h3 id="get-current-sha1">Get current sha1</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">git</span> show-ref HEAD -s</a></code></pre></div>
+<h3 id="reset-branch-and-remove-all-changes">Reset branch and remove all changes</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">git</span> reset --hard</a></code></pre></div>
+<h3 id="undo-commits-to-a-specific-commit">Undo commits to a specific commit</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="fu">git</span> reset --hard <span class="va">$commit_id</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="co"># Now push safely to your branch</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="fu">git</span> push --force-with-lease</a>
+<a class="sourceLine" id="cb12-5" title="5"></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="co"># Or push brutally to your branch</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="fu">git</span> push --force</a></code></pre></div>
+</body></html>

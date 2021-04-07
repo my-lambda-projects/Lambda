@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="getting-started">Getting started</h2>
+<p>{: .-three-column}</p>
+<h3 id="introduction">Introduction</h3>
+<p>{: .-intro}</p>
+<p><strong>(Deprecated)</strong> <a href="http://airbnb.io/enzyme">Enzyme</a> lets you write unit tests for React components. This guide covers a previous version (v2.x).</p>
+<h3 id="mounting">Mounting</h3>
+<p>{: .-prime}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> <span class="op">{</span>shallow<span class="op">,</span> mount<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;enzyme&#39;</span></a></code></pre></div>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">wrap <span class="op">=</span> <span class="at">shallow</span>(<span class="op">&lt;</span>MyComponent /<span class="op">&gt;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">wrap <span class="op">=</span> <span class="at">mount</span>(<span class="op">&lt;</span>MyComponent /<span class="op">&gt;</span>)</a></code></pre></div>
+<p>Shallow wrapping doesn’t descend down to sub-components. A full mount also mounts sub-components. See: <a href="http://airbnb.io/enzyme/docs/api/shallow.html">Shallow rendering</a>, <a href="http://airbnb.io/enzyme/docs/api/mount.html">Full rendering</a></p>
+<h3 id="jest">Jest</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="im">import</span> toJson <span class="im">from</span> <span class="st">&#39;enzyme-to-json&#39;</span></a></code></pre></div>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">it</span>(<span class="st">&#39;works&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  wrap <span class="op">=</span> <span class="at">mount</span>(<span class="op">&lt;</span>MyComponent /<span class="op">&gt;</span>)</a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="at">expect</span>(<span class="at">toJson</span>(wrap)).<span class="at">toMatchSnapshot</span>()</a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">}</span>)</a></code></pre></div>
+<p>Converts an Enzyme wrapper to a format compatible with Jest snapshots. See: <a href="https://www.npmjs.com/package/enzyme-to-json">enzyme-to-json</a></p>
+<h3 id="debugging">Debugging</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="va">wrap</span>.<span class="at">debug</span>())</a></code></pre></div>
+<p>Shows HTML for debugging purposes. See: <a href="http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html">debug()</a></p>
+<h2 id="reactwrapper">ReactWrapper</h2>
+<h3 id="traversing">Traversing</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">wrap</span>.<span class="at">find</span>(<span class="st">&#39;button&#39;</span>)   <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="va">wrap</span>.<span class="at">filter</span>(<span class="st">&#39;button&#39;</span>) <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">wrap</span>.<span class="at">not</span>(<span class="st">&#39;span&#39;</span>)      <span class="co">// =&gt; ReactWrapper (inverse of filter())</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="va">wrap</span>.<span class="at">children</span>()       <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="va">wrap</span>.<span class="at">parent</span>()         <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="va">wrap</span>.<span class="at">closest</span>(<span class="st">&#39;div&#39;</span>)   <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="va">wrap</span>.<span class="at">childAt</span>(<span class="dv">0</span>)       <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="va">wrap</span>.<span class="at">at</span>(<span class="dv">0</span>)            <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="va">wrap</span>.<span class="at">first</span>()          <span class="co">// =&gt; ReactWrapper</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="va">wrap</span>.<span class="at">last</span>()           <span class="co">// =&gt; ReactWrapper</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">wrap</span>.<span class="at">get</span>(<span class="dv">0</span>)           <span class="co">// =&gt; ReactElement</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">wrap</span>.<span class="at">getNode</span>()        <span class="co">// =&gt; ReactElement</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="va">wrap</span>.<span class="at">getNodes</span>()       <span class="co">// =&gt; Array&lt;ReactElement&gt;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="va">wrap</span>.<span class="at">getDOMNode</span>()     <span class="co">// =&gt; DOMComponent</span></a></code></pre></div>
+<p>See: <a href="http://airbnb.io/enzyme/docs/api/mount.html">Full rendering API</a></p>
+<h3 id="actions">Actions</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="va">wrap</span>.<span class="at">simulate</span>(<span class="st">&#39;click&#39;</span>)</a></code></pre></div>
+<h3 id="react-components">React components</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">wrap</span>.<span class="at">setState</span>(<span class="op">{</span> ... <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="va">wrap</span>.<span class="at">setProps</span>(<span class="op">{</span> ... <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="va">wrap</span>.<span class="at">setContext</span>(<span class="op">{</span> ... <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="va">wrap</span>.<span class="at">state</span>()            <span class="co">// =&gt; Any (get state)</span></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="va">wrap</span>.<span class="at">props</span>()            <span class="co">// =&gt; object (get props)</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="va">wrap</span>.<span class="at">context</span>()          <span class="co">// =&gt; Any (get context)</span></a>
+<a class="sourceLine" id="cb10-8" title="8"></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="va">wrap</span>.<span class="at">instance</span>()         <span class="co">// =&gt; ReactComponent</span></a></code></pre></div>
+<h3 id="mount">Mount</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">wrap</span>.<span class="at">mount</span>()</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="va">wrap</span>.<span class="at">unmount</span>()</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="va">wrap</span>.<span class="at">update</span>()      <span class="co">// calls forceUpdate()</span></a></code></pre></div>
+<h3 id="tests">Tests</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="va">wrap</span>.<span class="at">debug</span>()               <span class="co">// =&gt; string</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="va">wrap</span>.<span class="at">html</span>()                <span class="co">// =&gt; string</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="va">wrap</span>.<span class="at">text</span>()                <span class="co">// =&gt; string</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="va">wrap</span>.<span class="at">type</span>()                <span class="co">// =&gt; string | function</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="va">wrap</span>.<span class="at">name</span>()                <span class="co">// =&gt; string</span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="va">wrap</span>.<span class="at">is</span>(<span class="st">&#39;.classname&#39;</span>)      <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="va">wrap</span>.<span class="at">hasClass</span>(<span class="st">&#39;class&#39;</span>)     <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="va">wrap</span>.<span class="at">exists</span>()              <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="va">wrap</span>.<span class="at">contains</span>(<span class="op">&lt;</span>div /<span class="op">&gt;</span>)     <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="va">wrap</span>.<span class="at">contains</span>([ <span class="op">&lt;</span>div /<span class="op">&gt;</span> ]) <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-11" title="11"></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="va">wrap</span>.<span class="at">containsMatchingElement</span>(<span class="op">&lt;</span>div /<span class="op">&gt;</span>)         <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-13" title="13"><span class="va">wrap</span>.<span class="at">containsAllMatchingElements</span>([ <span class="op">&lt;</span>div /<span class="op">&gt;</span> ]) <span class="co">// =&gt; boolean</span></a>
+<a class="sourceLine" id="cb12-14" title="14"><span class="va">wrap</span>.<span class="at">containsAnyMatchingElements</span>([ <span class="op">&lt;</span>div /<span class="op">&gt;</span> ]) <span class="co">// =&gt; boolean</span></a></code></pre></div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://airbnb.io/enzyme" class="uri">https://airbnb.io/enzyme</a></li>
+</ul>
+</body></html>

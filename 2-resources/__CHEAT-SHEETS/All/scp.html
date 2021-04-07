@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="usage">Usage</h3>
+<p>{: .-prime}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">scp</span> <span class="op">&lt;</span>options<span class="op">&gt;</span> source_path destination_path</a></code></pre></div>
+<h3 id="conditions">Conditions</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">-r</span>      <span class="co"># transfer directory </span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">-v</span>      <span class="co"># see the transfer details</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">-C</span>      <span class="co"># copy files with compression</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ex">-l</span> 800  <span class="co"># limit bandwith with 800</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="ex">-p</span>      <span class="co"># preserving the original attributes of the copied files</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="ex">-P</span>      <span class="co"># connection port</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="ex">-q</span>      <span class="co"># hidden the output</span></a></code></pre></div>
+<h3 id="commands">Commands</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$ <span class="fu">scp</span> file user@host:/path/to/file                        <span class="co"># copying a file to the remote system using scp command</span></a>
+<a class="sourceLine" id="cb3-2" title="2">$ <span class="fu">scp</span> user@host:/path/to/file /local/path/to/file         <span class="co"># copying a file from the remote system using scp command</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">$ <span class="fu">scp</span> file1 file2 user@host:/path/to/directory            <span class="co"># copying multiple files using scp command</span></a>
+<a class="sourceLine" id="cb4-2" title="2">$ <span class="fu">scp</span> -r /path/to/directory user@host:/path/to/directory  <span class="co"># Copying an entire directory with scp command</span></a></code></pre></div>
+</body></html>

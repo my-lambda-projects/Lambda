@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="basic-compiling">Basic compiling</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode makefile"><code class="sourceCode makefile"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">bin </span><span class="ch">:=</span><span class="st"> ./node_modules/.bin</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dv">all:</span><span class="dt"> build/foo.js</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="dv">build/%.js:</span><span class="dt"> src/%.coffee</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="ch">@$(</span><span class="dt">bin</span><span class="ch">)</span><span class="fu">/coffee &lt; </span><span class="ch">$^</span><span class="fu"> &gt; </span><span class="ch">$@</span></a></code></pre></div>
+<h2 id="stylus-autoprefixer">Stylus + Autoprefixer</h2>
+<pre><code>bin := ./node_modules/.bin
+stylus := $(bin)/stylus
+autoprefixer := $(bin)/autoprefixer
+styl_files := $(shell find web/ -name &quot;*.styl&quot;)
+
+all: public/app.css
+
+public/app.css: css/app.styl
+
+%.css: %.styl $(styl_files)
+    @$(stylus) $&lt; | $(autoprefixer) -b &quot;&gt; 1%&quot; &gt; $@</code></pre>
+<h2 id="hint">Hint</h2>
+<pre><code>hint:
+   $(js_files)</code></pre>
+<h2 id="watching">Watching</h2>
+<pre><code>watch:
+    @echo &quot;... watching for changes&quot;
+    @while true; do make -s; sleep 1; done</code></pre>
+<h2 id="browserify">Browserify</h2>
+<pre><code>js_files := $(shell find web/ -name &quot;*.js&quot;)
+
+public/app.js: web/app.js
+public/vendor.js: web/vendor.js
+
+public/%.js: web/%.js $(js_files)
+    $(browserify) -t [ cssify -x .css ] $&lt; &gt; $@</code></pre>
+</body></html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="reference">Reference</h2>
+<p>{: .-three-column}</p>
+<h3 id="inlines">Inlines</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>_em_</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>*strong*</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>__bold-italic__</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>@code@</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>??citation??</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>-strikethrough-</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>+insertion+</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>%span%</code></td>
+<td>HTML tag</td>
+</tr>
+<tr class="odd">
+<td><code>%{color:red}formatting%</code></td>
+<td>CSS styles</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="blocks">Blocks</h3>
+<pre class="textile"><code>h1. Header 1</code></pre>
+<pre class="textile"><code>h2. Header 2</code></pre>
+<pre class="textile"><code>bq. Blockquote</code></pre>
+<pre class="textile"><code>p(classname). Class.</code></pre>
+<pre class="textile"><code>p(#id). ID.</code></pre>
+<h3 id="lists">Lists</h3>
+<pre class="textile"><code>## ordered list</code></pre>
+<pre class="textile"><code>* unordered list</code></pre>
+<h3 id="links">Links</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>"Hypertext":index.html</code></td>
+<td>Link</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>"Text link":link</code> <br> <code>[link]http://link.com</code></td>
+<td>Link via reference</td>
+</tr>
+</tbody>
+</table>
+<h3 id="images">Images</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>!image.jpg!</code></td>
+<td>Image</td>
+</tr>
+<tr class="even">
+<td><code>!image.jpg(title text)!</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>!image.jpg!:link.html</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>!&gt;right.jpg!</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="escaped-html">Escaped HTML</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">&lt;pre&gt;</span></a>
+<a class="sourceLine" id="cb8-2" title="2">I am <span class="kw">&lt;b&gt;</span>very serious.<span class="kw">&lt;/b&gt;</span> -- this</a>
+<a class="sourceLine" id="cb8-3" title="3">will get escaped.</a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">&lt;/pre&gt;</span></a></code></pre></div>
+<h3 id="line-breaks">Line breaks</h3>
+<pre class="textile"><code>Line breaks.
+Just break the lines.</code></pre>
+<h3 id="entities">Entities</h3>
+<pre class="textile"><code>one(TM), two(R), three(C).</code></pre>
+<h3 id="horizontal-line">Horizontal line</h3>
+<pre class="textile"><code>--</code></pre>
+<h3 id="footnotes">Footnotes</h3>
+<pre class="textile"><code>Footnotes[1].</code></pre>
+<pre class="textile"><code>fn1. Something.</code></pre>
+</body></html>

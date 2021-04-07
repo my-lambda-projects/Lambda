@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="format">Format</h3>
+    <pre><code>\033[#m</code></pre>
+    <h3 id="ansi-codes">ANSI codes</h3>
+    <pre><code>0      clear
+1      bold
+4      underline
+5      blink
+
+30-37  fg color
+40-47  bg color
+
+1K     clear line (to beginning of line)
+2K     clear line (entire line)
+2J     clear screen
+0;0H   move cursor to 0;0
+
+1A     move up 1 line</code></pre>
+    <h3 id="colors">Colors</h3>
+    <pre><code>0      black
+1      red
+2      green
+3      yellow
+4      blue
+5      magenta
+6      cyan
+7      white</code></pre>
+    <h3 id="bash-utilities">Bash utilities</h3>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">hide_cursor()</span> <span class="kw">{</span> <span class="bu">printf</span> <span class="st">&quot;\e[?25l&quot;</span><span class="kw">;</span> <span class="kw">}</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="fu">show_cursor()</span> <span class="kw">{</span> <span class="bu">printf</span> <span class="st">&quot;\e[?25h&quot;</span><span class="kw">;</span> <span class="kw">}</span></a></code></pre>
+    </div>
+  </body>
+
+</html>

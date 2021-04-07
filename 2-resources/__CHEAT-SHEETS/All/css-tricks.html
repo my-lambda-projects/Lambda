@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="heading-kerning-pairs-and-ligature">Heading kerning pairs and ligature</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1">h1<span class="op">,</span> h2<span class="op">,</span> h3 {</a>
+<a class="sourceLine" id="cb1-2" title="2">  text-rendering: optimizeLegibility<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">}</a></code></pre></div>
+<h3 id="native-like-ios-scrolling">Native-like iOS scrolling</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" title="1">-webkit-overflow-scrolling<span class="in">: touch</span>;</a>
+<a class="sourceLine" id="cb2-2" title="2">overflow-y<span class="in">: auto</span>;</a></code></pre></div>
+<h3 id="gradient-text">Gradient text</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb3-1" title="1">background<span class="in">: -webkit-gradient(linear, left top, left bottom, from(#eee)</span><span class="op">,</span> to(#333));</a>
+<a class="sourceLine" id="cb3-2" title="2">-webkit-background-clip<span class="in">: text</span>;</a>
+<a class="sourceLine" id="cb3-3" title="3">-webkit-text-fill-color<span class="in">: transparent</span>;</a></code></pre></div>
+<h3 id="text-stroke">Text stroke</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb4-1" title="1">-webkit-text-stroke<span class="in">: 3px black</span>;</a></code></pre></div>
+<p>See: <a href="http://www.webkit.org/blog/85/introducing-text-stroke/">Introducing text stroke</a></p>
+<h3 id="ios-scrolling-prevention">iOS Scrolling prevention</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" title="1">document<span class="fu">.ontouchstart</span> = (e) -<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  $pane = $(e<span class="fu">.target</span>)<span class="fu">.closest</span>(&#39;<span class="fu">.scrollable</span><span class="op">&gt;</span>div&#39;)</a>
+<a class="sourceLine" id="cb5-3" title="3">  if $pane<span class="fu">.length</span> is 0 or $pane<span class="ex">[0]</span><span class="fu">.scrollHeight</span> &lt;= $pane<span class="fu">.innerHeight</span>()</a>
+<a class="sourceLine" id="cb5-4" title="4">    e<span class="fu">.preventDefault</span>()</a></code></pre></div>
+<pre class="scss"><code>%ios-scrollable {
+  &amp;, &gt;div {
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+  }
+
+  &gt;div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}</code></pre>
+<p>Relevant in iOS6, but maybe not anymore.</p>
+<h3 id="uiwebview-optimizations">UIWebView optimizations</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb7-1" title="1"><span class="op">*</span> {</a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">-webkit-tap-highlight-color</span>: <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">-webkit-user-select</span>: <span class="dv">none</span><span class="op">;</span>                <span class="co">/* disable text select */</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  -webkit-touch-callout: <span class="dv">none</span><span class="op">;</span>              <span class="co">/* disable callout, image save panel (popup) */</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="kw">-webkit-tap-highlight-color</span>: <span class="dv">transparent</span><span class="op">;</span> <span class="co">/* &quot;turn off&quot; link highlight */</span></a>
+<a class="sourceLine" id="cb7-6" title="6">}</a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8">a<span class="in">:focus</span> {</a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="kw">outline</span>: <span class="dv">0</span><span class="op">;</span> <span class="er">// Firefox (remove border on link click)</span></a>
+<a class="sourceLine" id="cb7-10" title="10">}</a></code></pre></div>
+<p>See: <a href="http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/" class="uri">http://www.bitsandpix.com/entry/ios-webkit-uiwebview-remove-tapclick-highlightborder-with-css/</a></p>
+<p>See: <a href="http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/" class="uri">http://www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/</a></p>
+<h2 id="browser-hacks">Browser hacks</h2>
+<p>{: .-three-column}</p>
+<h3 id="disclaimer">Disclaimer</h3>
+<p>Not recommended, but here they are if you ever need them. Note that vendor prefixes may go away eventually.</p>
+<h3 id="mozilla-only">Mozilla-only</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb8-1" title="1"><span class="im">@-moz-document</span> url-prefix<span class="fu">()</span> {</a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="fu">.box</span> { <span class="kw">color</span>: <span class="cn">blue</span><span class="op">;</span> }</a>
+<a class="sourceLine" id="cb8-3" title="3">}</a></code></pre></div>
+<h3 id="webkit-only">Webkit-only</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb9-1" title="1"><span class="im">@media</span> <span class="dv">all</span> <span class="kw">and</span> (<span class="kw">-webkit-min-device-pixel-ratio</span>: <span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb9-2" title="2">}</a></code></pre></div>
+</body></html>
