@@ -23726,7 +23726,7 @@ createjs.deprecate = function(fallbackMethod, name) {
  * 		smoothly and you are supporting non-web audio browsers, do not use audio sprites for that sound if you can avoid
  * 		it.</li>
  *     <li>No guarantee that HTML audio will play back immediately, especially the first time. In some browsers
- *     (Chrome!), HTML audio will only load enough to play through at the current download speed – so we rely on the
+ *     (Chrome!), HTML audio will only load enough to play through at the current download speed - so we rely on the
  *     `canplaythrough` event to determine if the audio is loaded. Since audio sprites must jump ahead to play specific
  *     sounds, the audio may not yet have downloaded fully.</li>
  *     <li>Audio sprites share the same core source, so if you have a sprite with 5 sounds and are limited to 2

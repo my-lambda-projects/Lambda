@@ -35,7 +35,7 @@ const Error = () => {
           maxWidth="700px"
         >
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
-            451 – Unavailable For Legal Reasons
+            451 - Unavailable For Legal Reasons
           </Heading>
           <Text color={secondaryTextColor[colorMode]} my={4}>
             I'm guessing you spelled something wrong. Can you double
