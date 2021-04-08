@@ -1,0 +1,67 @@
+<div class="parent">                                              ---> .parent {}
+    <div class="child">                                           ---> .parent .child {}
+        <div class="grandchild">                                  ---> .parent .grandchild {}
+    
+              <div class="greatgrandchild">                       ---> .parent .greatgrandchild {}
+              </div>
+
+              <div class="greatgrandchild greatgrandchild2">      ---> .parent .greatgrandchild.greatgrandchild2 {}
+              </div><!-- grandchild2 -->
+              
+        </div><!-- grandchild -->    
+    </div><!-- child -->
+  
+    <div class="child child2">                                    ---> .child.child2 {}
+        <div class="grandchild">                                  ---> .child.child2 .grandchild {}
+      
+              <div class="greatgrandchild">                       ---> .child.child2 .greatgrandchild {}
+              </div>
+              
+        </div>
+    
+        <div class="grandchild grandchild2">                      ---> .child.child2 .grandchild.grandchild2 {}
+      
+      
+              <div class="greatgrandchild">                       ---> .child.child2 .grandchild.grandchild2 .greatgrandchild {}
+              </div>
+      
+        </div><!-- grandchild -->
+    
+      </div>
+</div><!-- parent -->
+
+
+########################
+Calculating pecificity
+########################
+
+ID selector ('#whatever') = 100
+Class selector ('.whatever') = 10
+HTML selector ('whatever') = 1
+Multiple-Classes (class="one two") = Bottom of the CSS page has more weight
+
+p = 1
+div p = 2
+.tree = 10
+div p.tree = 12
+#something = 100
+body #something .alternative p = 112
+(regardless of order)
+source: http://www.htmldog.com/guides/css/intermediate/specificity/
+
+##################
+Specificity Weight
+##################
+
+* < elements < classes, psuedo-classes, attributes < IDs < inline styles < !important
+
+* (universal) < elements (p div h1 head) < classes ('.whatever'), psuedo-classes ('p.last-child'), attributes  
+< IDs ('#whatever') < inline styles ('<h1 style="color: red">some text</h1>')
+< !important ('<h1 style="color: red !important">some text</h1>')  
+
+
+
+
+
+
+

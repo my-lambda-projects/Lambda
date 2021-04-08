@@ -1,0 +1,70 @@
+//create constructor function called Car
+function Car() {
+  model: "mazda"
+}
+
+//check that Car has a prototype 'object'
+// typeof Car.prototype 
+
+
+//add drive() method to its prototype
+Car.prototype.drive = function() {
+  console.log('vroom');
+}
+
+//create new instance of car
+let cx = new Car();
+
+//call drive() on the new car
+cx.drive();
+
+
+
+//create Rectangle constructor
+function Rectangle(width, height) {
+  this.width = width;
+  this.height = height;
+}
+
+//new instace of Rectangle called rect 
+const rect = new Rectangle(3,4);
+
+rect; // Rectangle { width: 3, height: 4 }
+
+//give Rectangle a method called area 
+Rectangle.prototype.area = function() {
+  return this.width * this.height;
+}
+
+// new instance of Rectangle called rect has access
+// to all methods in the Rectangle constructor has
+rect.area();
+
+// proof that area is not a method of rect, but rect 
+// has access via invisible link to Rectangle
+rect.hasOwnProperty('area'); //false
+
+//create a new class of objects that inherits from Rectangle
+function Square(length) {
+  this.width = this.height = length;
+}
+
+Square; // function
+
+// remember all functions get initialized with a prototype object
+typeof Square.prototype; 
+
+// make Square inherit from Rectangle
+Square.prototype = Object.create(Rectangle.prototype);
+
+// smallSquare is instance of Square, which has access to the methods of Rectangle, including area
+let smallSquare = new Square(4);
+
+smallSquare.area();
+
+// also add new methods that are specific to Square
+Square.prototype.diagonal = function() {
+  return Math.sqrt( this.area() * 2);
+}
+
+smallSquare.diagonal();

@@ -187,6 +187,7 @@ html {
     344px 1876px #fff, 1017px 1606px #fff;
   animation: animStar 50s linear infinite;
 }
+
 #stars:after {
   content: ' ';
   position: absolute;
@@ -430,6 +431,7 @@ html {
     704px 141px #fff;
   animation: animStar 100s linear infinite;
 }
+
 #stars2:after {
   content: ' ';
   position: absolute;
@@ -522,6 +524,7 @@ html {
     1199px 1035px #fff, 455px 1496px #fff, 1028px 1652px #fff, 1556px 263px #fff;
   animation: animStar 150s linear infinite;
 }
+
 #stars3:after {
   content: ' ';
   position: absolute;
@@ -571,6 +574,7 @@ html {
   margin-top: -60px;
   padding-left: 10px;
 }
+
 #title span {
   background: -webkit-linear-gradient(white, #38495a);
 
@@ -581,6 +585,7 @@ html {
   from {
     transform: translateY(0px);
   }
+
   to {
     transform: translateY(-2000px);
   }
