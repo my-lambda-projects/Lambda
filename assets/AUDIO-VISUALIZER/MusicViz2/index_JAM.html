@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Music Visualizer</title>
+	<style>
+		body {
+			background: #000;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+		}
+
+		#demo {
+			background-color: #000;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="demo" width="1024" height="768">
+	</canvas>
+
+
+	<script src="js/createjs.js"></script>
+	<script src="js/JustAddMusic.min.js"></script>
+	<script src="js/Kaleidoscope.js"></script>
+	<script>
+		var c = createjs;
+		var jam, radius, stage, source, kal, particles, screen, sc, fps = 24;
+		var hue = 0, hueOffset = 0, next = 1, pulse = 1, oldT = 0;
+
+		init();
+
+		function init() {
+			jam = new JustAddMusic({ src: "../../assets/sounds/MK21.mp3", ontick: tick });
+			stage = new c.Stage("demo");
+			var w = stage.canvas.width = Math.ceil(window.innerWidth / 2) * 2;
+			var h = stage.canvas.height = Math.ceil(window.innerHeight / 2) * 2;
+
+			// calculate the radius of the kaleidoscope:
+			radius = Math.sqrt(w * w + h * h) / 2;
+
+			source = new c.Container();
+			sc = source.scaleX = source.scaleY = radius / 600;
+			source.cache(-radius / sc, -radius / sc, radius * 2 / sc, radius * 2 / sc);
+
+			screen = source.addChild(new c.Shape());
+			screen.lightness = 0;
+
+			// create the kaleidoscope:
+			kal = stage.addChild(new Kaleidoscope(radius, source, 6, [1, 1.5]));
+			kal.pad = 0.5;
+			// center on the stage:
+			kal.x = w / 2;
+			kal.y = h / 2;
+
+			particles = [];
+		}
+
+		function tick(data) {
+			;
+			// t is a multiplier based on the elapsed time:
+			var t = Math.min(1, (data.t - oldT) / (1000 / fps));
+			oldT = data.t;
+
+			// we'll use the "all" bucket for almost everything, so shortcut it:
+			var o = data.all, col;
+
+			// update our base hue value:
+			hueOffset += o.val * t;
+
+			// create new particles:
+			while ((next -= o.val * o.val * t) <= 0 && particles.length < 300) {
+				next += 0.8;
+				var particle = (new c.Shape()).set({
+					a: Math.random() * Math.PI * 2,
+					d: 0, av: Math.random() * 0.2 - 0.1,
+					dv: Math.random() * 2 + 1,
+					dv2: Math.max(0, o.delta) * 8 + o.val * 3,
+					rot: (Math.random() * 2 | 0) * 60,
+					sc: (Math.random() + 1),
+					compositeOperation: "lighter",
+					hue: hueOffset
+				});
+				particles.push(source.addChild(particle));
+			};
+
+			// pulse the background:
+			screen.lightness *= (1 - 0.07 * t);
+			pulse = Math.max(0.5, pulse * (1 - 0.02 * t));
+			if (o.delta > pulse) {
+				var r = o.delta - pulse * 0.5;
+				hue += r * 180;
+				screen.lightness = Math.min(1, screen.lightness + r * 0.75 + (o.val - 0.3) * 0.5);
+				pulse = 0.9;
+			}
+
+			col = createjs.Graphics.getHSL(hue + hueOffset + 90, o.avg * 80, screen.lightness * o.avg * o.avg * 50 + 10);
+			screen.graphics.clear().beginFill(col).drawRect(-radius / sc, -radius / sc, radius * 2 / sc, radius * 2 / sc);
+			source.rotation += (0.05 + o.avg * 0.1) * t;
+
+			// update particles:
+			for (var i = particles.length - 1; i >= 0; i--) {
+				particle = particles[i];
+				particle.a += particle.av * (o.val * o.val * 0.5 + 0.03) * t;
+				particle.d += (particle.dv * o.val * 5 + particle.dv2) * t;
+				var r = particle.d / (radius / sc);
+				if (r > 1.1) {
+					particles.splice(i, 1);
+					source.removeChild(particle);
+					continue;
+				}
+				particle.sc += 0.03 * t;
+				particle.scale = particle.sc * (o.avg * 0.4 + 1);
+				particle.x = Math.cos(particle.a) * particle.d;
+				particle.y = Math.sin(particle.a) * particle.d;
+
+				col = createjs.Graphics.getHSL(hue + particle.hue, o.avg * 80, o.avg * o.avg * 50 * (1 - r));
+				particle.graphics.clear()
+					.beginLinearGradientFill(["#000", col], [0, 1], particle.x * 0.1, particle.y * 0.1, -particle.x * 0.1, -particle.y * 0.1)
+					.drawPolyStar(0, 0, 25, 6, 0, -source.rotation);
+			}
+
+			// rotate the kaleidoscope:
+			kal.rotation = Math.sin(hueOffset * 0.005) * 360 - 30;
+			kal.scaleX = kal.scaleY = 1 + o.avg * 0.15;
+
+			// draw:
+			source.updateCache();
+			stage.update();
+		}
+	</script>
+</body>
+
+</html>
