@@ -4,3 +4,6 @@
 [submodule "web-module-project-intro-css"]
 	path = web-module-project-intro-css
 	url = https://github.com/bgoonz/web-module-project-intro-css.git
+[submodule "screenshot-preview"]
+	path = screenshot-preview
+	url = https://github.com/Jaex/screenshot-preview.git
