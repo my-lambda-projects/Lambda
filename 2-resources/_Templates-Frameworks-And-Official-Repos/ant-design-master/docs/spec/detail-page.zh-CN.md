@@ -137,7 +137,7 @@ title: 详情页
 
 ### 外部参考文章
 
-- [Fiori – How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
+- [Fiori - How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
 - [SAP Fiori 2.0: The Object Page —— Part 1: It's History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)
 - [Fiori 详情页汇总](https://experience.sap.com/fiori-design-web/?s=Details+page)
 - [Object Page Floorplan](https://experience.sap.com/fiori-design-web/object-page/)

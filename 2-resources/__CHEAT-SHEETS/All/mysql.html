@@ -124,11 +124,11 @@
 <a class="sourceLine" id="cb24-4" title="4"><span class="dt">INT</span> (4o: <span class="op">+-</span> <span class="dv">2</span> <span class="dv">000</span> <span class="dv">000</span> <span class="dv">000</span>)</a>
 <a class="sourceLine" id="cb24-5" title="5">BIGINT (8o: <span class="op">+-</span><span class="fl">9.10</span>^<span class="dv">18</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb25"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb25-1" title="1">Precise <span class="dt">interval</span>: <span class="op">-</span>(<span class="dv">2</span>^(<span class="dv">8</span><span class="op">*</span>N<span class="op">-</span><span class="dv">1</span>)) <span class="op">-&gt;</span> (<span class="dv">2</span>^<span class="dv">8</span><span class="op">*</span>N)<span class="op">-</span><span class="dv">1</span></a></code></pre></div>
-<p>⚠ INT(2) = “2 digits displayed” – NOT “number with 2 digits max”</p>
+<p>⚠ INT(2) = “2 digits displayed” - NOT “number with 2 digits max”</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb26-1" title="1"><span class="dt">FLOAT</span>(M,D)</a>
 <a class="sourceLine" id="cb26-2" title="2"><span class="dt">DOUBLE</span>(M,D)</a>
 <a class="sourceLine" id="cb26-3" title="3"><span class="dt">FLOAT</span>(D<span class="op">=</span><span class="dv">0</span><span class="op">-&gt;</span><span class="dv">53</span>)</a></code></pre></div>
-<p>⚠ 8,3 -&gt; 12345,678 – NOT 12345678,123!</p>
+<p>⚠ 8,3 -&gt; 12345,678 - NOT 12345678,123!</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb27-1" title="1"><span class="dt">TIME</span> (HH<span class="ch">:MM</span>)</a>
 <a class="sourceLine" id="cb27-2" title="2"><span class="dt">YEAR</span> (AAAA)</a>
 <a class="sourceLine" id="cb27-3" title="3"><span class="dt">DATE</span> (AAAA<span class="op">-</span>MM<span class="op">-</span>JJ)</a>

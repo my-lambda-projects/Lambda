@@ -111,7 +111,7 @@ let items = [
     imageUrl:
       "https://www.uncommongoods.com/images/items/43000/43021_1_360px.jpg",
     description:
-      "We once toasted a marshmallow THIS BIG. Hook and roast your favorite campfire food with this fishing pole–inspired skewer. Made of powder-coated steel and finished with a maple handle, this flipping-fun roaster will occupy a prime spot in your camp tackle box. Find a comfy spot in front of the fire, then jig the pole to flip your snack so it's evenly roasted on all sides. Made in Taiwan.",
+      "We once toasted a marshmallow THIS BIG. Hook and roast your favorite campfire food with this fishing pole-inspired skewer. Made of powder-coated steel and finished with a maple handle, this flipping-fun roaster will occupy a prime spot in your camp tackle box. Find a comfy spot in front of the fire, then jig the pole to flip your snack so it's evenly roasted on all sides. Made in Taiwan.",
     shipping:
       "Most of our items are in stock and will ship quickly. Orders for in-stock items placed before 5pm ET Monday through Friday, excluding Federal holidays, will ship in the US: ECONOMY SHIPPING: within 8 days, arriving no later than the 9th business day after the order was placed. STANDARD SHIPPING: within 4 days, arriving 5 business days after the order was placed. PREFERRED SHIPPING: within 2 days, arriving 3 business days after the order was placed. EXPEDITED SHIPPING: within 1 day, arriving 2 business days after the order was placed. EXPRESS SHIPPING: will ship the same day and arrive 1 business day later."
   },

@@ -1280,7 +1280,7 @@ Highlight.languages.insertBefore( "c", "string", {
 })(Highlight);
 Highlight.languages.git = {
   comment: /^#.*/m,
-  deleted: /^[-–].*/m,
+  deleted: /^[--].*/m,
   inserted: /^\+.*/m,
   string: /("|')(?:\\.|(?!\1)[^\\\r\n])*\1/m,
   command: {

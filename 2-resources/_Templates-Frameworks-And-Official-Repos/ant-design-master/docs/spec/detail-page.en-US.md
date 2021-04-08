@@ -135,7 +135,7 @@ Select presentation modes of the information according to its types and complexi
 
 #### Reference
 
-- [Fiori – How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
+- [Fiori - How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
 - [SAP Fiori 2.0: The Object Page —— Part 1: It's History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)
 - [Object Page Floorplan](https://experience.sap.com/fiori-design-web/object-page/)
 - [Principle of Product Display in Supermarkets](https://experience.sap.com/fiori-design-web/object-page/)

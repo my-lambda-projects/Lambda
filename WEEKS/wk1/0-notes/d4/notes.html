@@ -345,12 +345,12 @@ pre[data-line] .line-highlight[data-end]:after {
 <p><img src="./notes_files/00-basic-terminology.svg" alt="A diagram explaining flexbox terminology. The size across the main axis of flexbox is called the main size, the other direction is the cross size. Those sizes have a main start, main end, cross start, and cross end."></p>
 <p>Items will be laid out following either the <code>main axis</code> (from <code>main-start</code> to <code>main-end</code>) or the cross axis (from <code>cross-start</code> to <code>cross-end</code>).</p>
 <ul>
-<li><strong>main axis</strong> – The main axis of a flex container is the primary axis along which flex items are laid out. Beware, it is not necessarily horizontal; it depends on the <code>flex-direction</code> property (see below).</li>
-<li><strong>main-start | main-end</strong> – The flex items are placed within the container starting from main-start and going to main-end.</li>
-<li><strong>main size</strong> – A flex item's width or height, whichever is in the main dimension, is the item's main size. The flex item's main size property is either the 'width' or 'height' property, whichever is in the main dimension.</li>
-<li><strong>cross axis</strong> – The axis perpendicular to the main axis is called the cross axis. Its direction depends on the main axis direction.</li>
-<li><strong>cross-start | cross-end</strong> – Flex lines are filled with items and placed into the container starting on the cross-start side of the flex container and going toward the cross-end side.</li>
-<li><strong>cross size</strong> – The width or height of a flex item, whichever is in the cross dimension, is the item's cross size. The cross size property is whichever of 'width' or 'height' that is in the cross dimension.</li>
+<li><strong>main axis</strong> - The main axis of a flex container is the primary axis along which flex items are laid out. Beware, it is not necessarily horizontal; it depends on the <code>flex-direction</code> property (see below).</li>
+<li><strong>main-start | main-end</strong> - The flex items are placed within the container starting from main-start and going to main-end.</li>
+<li><strong>main size</strong> - A flex item's width or height, whichever is in the main dimension, is the item's main size. The flex item's main size property is either the 'width' or 'height' property, whichever is in the main dimension.</li>
+<li><strong>cross axis</strong> - The axis perpendicular to the main axis is called the cross axis. Its direction depends on the main axis direction.</li>
+<li><strong>cross-start | cross-end</strong> - Flex lines are filled with items and placed into the container starting on the cross-start side of the flex container and going toward the cross-end side.</li>
+<li><strong>cross size</strong> - The width or height of a flex item, whichever is in the cross dimension, is the item's cross size. The cross size property is whichever of 'width' or 'height' that is in the cross dimension.</li>
 </ul>
 <h4 class="mume-header" id="get-the-poster">Get the poster!</h4>
 
@@ -487,7 +487,7 @@ pre[data-line] .line-highlight[data-end]:after {
 </pre><p>Negative numbers are invalid.</p>
 <h4 class="mume-header" id="flex-basis">flex-basis</h4>
 
-<p>This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The <code>auto</code> keyword means "look at my width or height property" (which was temporarily done by the <code>main-size</code> keyword until deprecated). The <code>content</code> keyword means "size it based on the item's content" – this keyword isn't well supported yet, so it's hard to test and harder to know what its brethren <code>max-content</code>, <code>min-content</code>, and <code>fit-content</code> do.</p>
+<p>This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The <code>auto</code> keyword means "look at my width or height property" (which was temporarily done by the <code>main-size</code> keyword until deprecated). The <code>content</code> keyword means "size it based on the item's content" - this keyword isn't well supported yet, so it's hard to test and harder to know what its brethren <code>max-content</code>, <code>min-content</code>, and <code>fit-content</code> do.</p>
 <pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
       <span class="token property">flex-basis</span><span class="token punctuation">:</span>  | auto<span class="token punctuation">;</span> 
     <span class="token punctuation">}</span>

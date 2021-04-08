@@ -511,7 +511,7 @@
   * [Autocomplete Using Trie](https://github.com/TheAlgorithms/Python/blob/master/other/autocomplete_using_trie.py)
   * [Binary Exponentiation](https://github.com/TheAlgorithms/Python/blob/master/other/binary_exponentiation.py)
   * [Binary Exponentiation 2](https://github.com/TheAlgorithms/Python/blob/master/other/binary_exponentiation_2.py)
-  * [Davis–Putnam–Logemann–Loveland](https://github.com/TheAlgorithms/Python/blob/master/other/davis–putnam–logemann–loveland.py)
+  * [Davis-Putnam-Logemann-Loveland](https://github.com/TheAlgorithms/Python/blob/master/other/davis-putnam-logemann-loveland.py)
   * [Detecting English Programmatically](https://github.com/TheAlgorithms/Python/blob/master/other/detecting_english_programmatically.py)
   * [Dijkstra Bankers Algorithm](https://github.com/TheAlgorithms/Python/blob/master/other/dijkstra_bankers_algorithm.py)
   * [Doomsday](https://github.com/TheAlgorithms/Python/blob/master/other/doomsday.py)

@@ -42,6 +42,6 @@ suffixes = ['MAOO', 'AOO', 'OO', 'O']
 
 #### _References_
 
-_[Wikipedia — Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)_
+_[Wikipedia — Knuth-Morris-Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)_
 
 [↑](#Knuth-Morris-Pratt)

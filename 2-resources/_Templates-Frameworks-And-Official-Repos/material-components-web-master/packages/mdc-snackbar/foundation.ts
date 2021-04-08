@@ -146,7 +146,7 @@ export class MDCSnackbarFoundation extends MDCFoundation<MDCSnackbarAdapter> {
       this.autoDismissTimeoutMs_ = timeoutMs;
     } else {
       throw new Error(`
-        timeoutMs must be an integer in the range ${minValue}–${maxValue}
+        timeoutMs must be an integer in the range ${minValue}-${maxValue}
         (or ${indeterminateValue} to disable), but got '${timeoutMs}'`);
     }
   }
