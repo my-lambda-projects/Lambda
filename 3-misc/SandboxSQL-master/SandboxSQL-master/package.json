@@ -10,7 +10,7 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "devDependencies": {
-    "babel-register": "6.3.13"
+    "babel-register": "6.26.0"
   },
   "dependencies": {
     "react-native": "0.17.0",
