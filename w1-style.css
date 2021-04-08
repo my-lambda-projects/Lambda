@@ -180,7 +180,21 @@ figure {
   margin: auto;
 
 }
+input#un-mute {
+  display: none;
+}
 
+.unmute img {
+  display: none;
+}
+
+input#un-mute:checked~.unmute img {
+  display: initial;
+}
+
+input#un-mute:checked~.mute img {
+  display: none;
+}
 /* Use overscroll-behavior to stop the "bounce" or refresh effect you get on mobile
   browsers when getting to the top or bottom scroll limits of the page */
 body {
