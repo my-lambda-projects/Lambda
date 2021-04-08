@@ -1,0 +1,26 @@
+{
+  "name": "@material/touch-target",
+  "description": "Touch target mixins and variables for Material Components for the web",
+  "version": "10.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "accessibility",
+    "touch target"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-touch-target"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@material/base": "^10.0.0",
+    "@material/feature-targeting": "^10.0.0",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

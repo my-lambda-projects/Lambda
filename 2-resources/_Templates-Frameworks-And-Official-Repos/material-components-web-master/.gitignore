@@ -1,0 +1,33 @@
+# macOS filesystem
+.DS_Store
+
+# Editors and IDEs
+.idea/
+.vscode/
+
+# Generated files
+*.log
+*.sw*
+node_modules/
+
+# Build output
+/build/
+/dist/
+/coverage/
+packages/*/dist
+packages/**/*.js
+packages/**/*.d.ts
+packages/**/*.map
+packages/**/test/**.css
+packages/**/package-lock.json
+
+# Used by internal sync & rewrite scripts
+.rewrite-tmp/
+
+# Individual CHANGELOG files
+packages/**/CHANGELOG.md
+
+#documentation
+docs.json
+methodDescriptionTable.md
+scripts/documentation/tsdoc.js

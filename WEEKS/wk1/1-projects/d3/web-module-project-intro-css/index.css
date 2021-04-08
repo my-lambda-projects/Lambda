@@ -76,9 +76,11 @@ nav a{
 .left{
     width:30%;
 }
-/* .left img{
-    border-radius:100%;
-} */
+.image{
+
+
+  border-radius:50%;
+}
 .right{
     width:55%;
     margin-left:5%;
