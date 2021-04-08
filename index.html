@@ -26,18 +26,7 @@
    
     </script> -->
     <script async src="./index.js"></script>
-       <script>
-         function mute() {
-           let button = document.querySelector( 'button' );
-           button.onclick = function () {
-             document.getElementById( "audio" ).muted = true;
-                var iframe = document.getElementsByTagName( 'iframe' )[ 0 ];
-                //iframe volume
-                iframe.contentWindow.postMessage( '{"method":"setVolume", "value":0}', '*' );
-           }
-         }
-         mute
-       </script>
+
     <!----------------------jQuery------------------------------------------------------------------------------------------->
     <!-- <script async defer src="./jQuery-min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -78,10 +67,13 @@
         style="background: url('./giphy.gif') no-repeat center center;height: 100%;width: 80%;z-index: 9999999;">
       </div>
       <h2> One Drive Cohort Cloud Storage</h2>
-      <br><iframe
-        src="https://onedrive.live.com/embed?cid=D21009FDD967A241&resid=D21009FDD967A241%21538729&authkey=AHSDSyoYqzg2K2E"
-        width="165" height="128" frameborder="0" scrolling="no"></iframe>
-
+      <br>
+      <div style="display:flex; flex-direction: row;">
+        <iframe
+          src="https://onedrive.live.com/embed?cid=D21009FDD967A241&resid=D21009FDD967A241%21538729&authkey=AHSDSyoYqzg2K2E"
+          width="165" height="128" frameborder="0" scrolling="no"></iframe>
+      
+      </div>
       <h2>One-Drive-File-Storage!</h2>
       <br>
       <br>
@@ -108,7 +100,7 @@
       <iframe class="animate" id="ann" src="https://embedable-content.netlify.app/standalone/test.html" height="365"
         style="width: 25%;" scrolling="no" frameborder="yes" border-radius:350 loading="lazy" align-content:center
         allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white"></iframe>
-      <button onclick="mute()" id="myBtn">Mute</button>
+      <button onclick="removeaudio()" id="myBtn">Mute</button>
       <iframe class="animate" id="audio"
         src="https://project-showcase-bgoonz.netlify.app/future-tech-innov-creative/etc/musicviz/index_starter.html"
         height="365" style="width: 25%;" scrolling="no" frameborder="yes" border-radius:350 allow="autoplay" id="audio"
@@ -154,7 +146,37 @@
         type="text/javascript"></script>
       <script async src="https://www.freevisitorcounters.com/en/home/counter/814984/t/0" type="text/javascript">
       </script>
-   
+      <script>
+       
+
+
+          function removeaudio() {
+            var elem = document.getElementById( 'audio' );
+            elem.parentNode.removeChild( elem );
+            return false;
+          }
+
+          function pageInit() {
+            // Hook up the "remove audio" button
+            var btn = document.getElementById( 'btnRemoveaudio' );
+            if ( btn.addEventListener ) {
+              // DOM2 standard
+              btn.addEventListener( 'click', removeaudio, false );
+            } else if ( btn.attachEvent ) {
+              // IE (IE9 finally supports the above, though)
+              btn.attachEvent( 'onclick', removeaudio );
+            } else {
+              // Really old or non-standard browser, try DOM0
+              btn.onclick = removeaudio;
+            }
+          }
+  
+
+      </script>
+  <a style="color:black;" href='https://free-hit-counters.net/'>Free Hit Counters</a>
+      <script type='text/javascript'
+        src='https://www.freevisitorcounters.com/auth.php?id=f904dfc58ec6c182f5b6f3c4144fb84f03f356bc'></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/815451/t/0"></script>
   </body>
 
 </html>
