@@ -1,0 +1,34 @@
+# Jetbrains IntelliJ Idea
+.idea
+*.iml
+
+# Linux
+# backup files
+*~
+
+# Windows
+# thumbnails
+Thumbs.db
+
+# Mac OS X
+# metadata
+.DS_Store
+# thumbnails
+._*
+
+# GIT
+.git/
+
+# Java
+*.class
+
+# packages 
+*.jar
+*.war
+*.ear
+
+# Logging
+*.log
+
+# jME (binaries)
+*.so
