@@ -1,0 +1,35 @@
+{
+  "name": "@material/snackbar",
+  "description": "The Material Components for the web snackbar component",
+  "version": "10.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "snackbar"
+  ],
+  "main": "dist/mdc.snackbar.js",
+  "module": "index.js",
+  "sideEffects": false,
+  "types": "dist/mdc.snackbar.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-snackbar"
+  },
+  "dependencies": {
+    "@material/animation": "^10.0.0",
+    "@material/base": "^10.0.0",
+    "@material/button": "^10.0.0",
+    "@material/dom": "^10.0.0",
+    "@material/elevation": "^10.0.0",
+    "@material/feature-targeting": "^10.0.0",
+    "@material/icon-button": "^10.0.0",
+    "@material/ripple": "^10.0.0",
+    "@material/rtl": "^10.0.0",
+    "@material/shape": "^10.0.0",
+    "@material/theme": "^10.0.0",
+    "@material/typography": "^10.0.0",
+    "tslib": "^2.1.0"
+  }
+}
