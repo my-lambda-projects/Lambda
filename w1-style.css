@@ -1,32 +1,4 @@
-#ToC {
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(136, 247, 221);
-  background-color: whitesmoke;
-  border-radius: 15px;
-  position: fixed;
-  font-size: 8px;
-  top: 0px;
-  right: 0;
-  width: 12%;
-  border: 3px solid gold;
-  padding: 0px;
-  margin: 2px;
-  overflow: visible;
-  overflow-y: scroll;
-  height: 550px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  overflow-wrap: break-word;
-  zoom: 0.5;
-}
 
-div.my_class {
-  resize: both;
-  overflow: auto;
-  /* something other than visible */
-}
 
 /* cyrillic-ext */
 @font-face {
@@ -180,25 +152,11 @@ figure {
   margin: auto;
 
 }
-input#un-mute {
-  display: none;
-}
 
-.unmute img {
-  display: none;
-}
-
-input#un-mute:checked~.unmute img {
-  display: initial;
-}
-
-input#un-mute:checked~.mute img {
-  display: none;
-}
 /* Use overscroll-behavior to stop the "bounce" or refresh effect you get on mobile
   browsers when getting to the top or bottom scroll limits of the page */
 body {
-  overscroll-behavior: none;
+  overscroll-behavior: auto;
 }
 
 .ignore-css {

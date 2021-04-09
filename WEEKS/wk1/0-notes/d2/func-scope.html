@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)https://lambdaschool.instructure.com/courses/1079/pages/objective-1-explain-function-scope?module_item_id=565583 -->
+<html class="focus-outline-hidden" dir="ltr" lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="stylesheet" media="screen" href="./func-scope_files/lato_extended-a29d3d859f.css">
+    <script async="" src="./func-scope_files/analytics.js"></script>
+    <script>
+      if ( navigator.userAgent.match( /(MSIE|Trident\/)/ ) ) location.replace( '/ie-is-not-supported.html' )
+
+    </script>
+
+    <link rel="shortcut icon" type="image/x-icon"
+      href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/536/favicon_lambda_32.png">
+    <link rel="apple-touch-icon"
+      href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png">
+    <link rel="stylesheet" media="all" href="./func-scope_files/variables-8391c84da435c9cfceea2b2b3317ff66.css">
+    <link rel="stylesheet" media="all" href="./func-scope_files/common-cb02a4f563.css">
+    <meta name="apple-itunes-app" content="app-id=480883488">
+    <link rel="manifest" href="https://lambdaschool.instructure.com/web-app-manifest/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#4571C9">
+    <link rel="stylesheet" media="all" href="./func-scope_files/wiki_page-532fb0ad99.css">
+    <link rel="stylesheet" media="all" href="./func-scope_files/new_user_tutorials-2e3774c277.css">
+    <link rel="stylesheet" media="all" href="./func-scope_files/main.css">
+    <script>
+      function _earlyClick( e ) {
+        var c = e.target
+        while ( c && c.ownerDocument ) {
+          if ( c.getAttribute( 'href' ) == '#' || c.getAttribute( 'data-method' ) ) {
+            e.preventDefault()
+              ( _earlyClick.clicks = _earlyClick.clicks || [] ).push( c )
+            break
+          }
+          c = c.parentNode
+        }
+      }
+      document.addEventListener( 'click', _earlyClick )
+
+    </script>
+
+
+    <script>
+      INST = {
+        "environment": "production",
+        "allowMediaComments": true,
+        "kalturaSettings": {
+          "domain": "pdx.nv.instructuremedia.com",
+          "resource_domain": "pdx.nv.instructuremedia.com",
+          "rtmp_domain": "pdx.rtmp.instructuremedia.com",
+          "partner_id": 3,
+          "subpartner_id": 0,
+          "player_ui_conf": 0,
+          "kcw_ui_conf": 0,
+          "upload_ui_conf": 0,
+          "max_file_size_bytes": 534773760,
+          "js_uploader": "yes"
+        },
+        "logPageViews": true,
+        "maxVisibleEditorButtons": 3,
+        "editorButtons": [ {
+          "name": "YouTube",
+          "id": 2,
+          "favorite": false,
+          "url": "https://www.edu-apps.org/lti_public_resources/?tool_id=youtube",
+          "icon_url": "https://www.edu-apps.org/assets/lti_public_resources/youtube_icon.png",
+          "canvas_icon_class": null,
+          "width": 560,
+          "height": 600,
+          "use_tray": false,
+          "description": "\u003cp\u003eSearch publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.\u003c/p\u003e\n"
+        }, {
+          "name": "Vimeo",
+          "id": 3,
+          "favorite": false,
+          "url": "https://www.edu-apps.org/lti_public_resources/?tool_id=vimeo",
+          "icon_url": "https://www.edu-apps.org/assets/lti_public_resources/vimeo_icon.png",
+          "canvas_icon_class": null,
+          "width": 560,
+          "height": 600,
+          "use_tray": false,
+          "description": "\u003cp\u003eVimeo is a video sharing website on which users can upload, share, and view videos. The community of Vimeo includes indie, professional, and novice filmmakers.\u003c/p\u003e\n"
+        }, {
+          "name": "Studio",
+          "id": 43,
+          "favorite": false,
+          "url": "https://lambdaschool.instructuremedia.com/lti/launch?custom_arc_launch_type=content_select",
+          "icon_url": "https://files.instructuremedia.com/logos/studio-logo-squid-tiny-electric.svg",
+          "canvas_icon_class": null,
+          "width": 560,
+          "height": 600,
+          "use_tray": false,
+          "description": "\u003cp\u003eVideo for Education\u003c/p\u003e\n"
+        } ]
+      };
+      ENV = {
+        "ASSET_HOST": "https://du11hjcvx0uqb.cloudfront.net/br",
+        "active_brand_config_json_url": "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.json",
+        "url_to_what_gets_loaded_inside_the_tinymce_editor_css": [
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-8bf5101009.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/lato_extended-a29d3d859f.css"
+        ],
+        "url_for_high_contrast_tinymce_editor_css": [
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/default/variables-high_contrast-8391c84da435c9cfceea2b2b3317ff66.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/responsive_layout_high_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-9bad98d5d7.css",
+          "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/lato_extended-a29d3d859f.css"
+        ],
+        "current_user_id": "5639",
+        "current_user_roles": [ "user", "student" ],
+        "current_user_types": [],
+        "current_user_disabled_inbox": false,
+        "files_domain": "cluster296.canvas-user-content.com",
+        "DOMAIN_ROOT_ACCOUNT_ID": "168550000000000001",
+        "k12": false,
+        "use_responsive_layout": true,
+        "use_rce_enhancements": true,
+        "rce_auto_save": true,
+        "help_link_name": "Help",
+        "help_link_icon": "help",
+        "use_high_contrast": false,
+        "disable_celebrations": false,
+        "disable_keyboard_shortcuts": false,
+        "LTI_LAUNCH_FRAME_ALLOWANCES": [ "geolocation *", "microphone *", "camera *", "midi *", "encrypted-media *",
+          "autoplay *"
+        ],
+        "DEEP_LINKING_POST_MESSAGE_ORIGIN": "https://lambdaschool.instructure.com",
+        "DEEP_LINKING_LOGGING": null,
+        "SETTINGS": {
+          "open_registration": false,
+          "collapse_global_nav": false,
+          "show_feedback_link": true
+        },
+        "DIRECT_SHARE_ENABLED": false,
+        "FEATURES": {
+          "cc_in_rce_video_tray": true,
+          "featured_help_links": true,
+          "rce_lti_favorites": true,
+          "rce_pretty_html_editor": true,
+          "rce_better_file_downloading": true,
+          "rce_better_file_previewing": true,
+          "responsive_awareness": true,
+          "responsive_misc": true,
+          "product_tours": true,
+          "module_dnd": true,
+          "files_dnd": true,
+          "unpublished_courses": true,
+          "usage_rights_discussion_topics": true,
+          "inline_math_everywhere": true,
+          "granular_permissions_manage_users": true,
+          "canvas_for_elementary": false,
+          "canvas_k6_theme": false,
+          "new_math_equation_handling": true
+        },
+        "current_user": {
+          "id": "5639",
+          "display_name": "Bryan Guner",
+          "avatar_image_url": "https://lambdaschool.instructure.com/images/messages/avatar-50.png",
+          "html_url": "https://lambdaschool.instructure.com/about/5639",
+          "pronouns": null,
+          "avatar_is_fallback": true
+        },
+        "page_view_update_url": "/page_views/ac16e0cd-8266-43d5-b362-33151eb0b114?page_view_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpIjoiYWMxNmUwY2QtODI2Ni00M2Q1LWIzNjItMzMxNTFlYjBiMTE0IiwidSI6MTY4NTUwMDAwMDAwMDA1NjM5LCJjIjoiMjAyMS0wNC0wNVQxOToyODo1NC40M1oifQ.PLcSHdKQ5AL-FaP6j8QDv-xqkYn6CStdcTLOMifgOFo",
+        "context_asset_string": "course_1079",
+        "ping_url": "https://lambdaschool.instructure.com/api/v1/courses/1079/ping",
+        "TIMEZONE": "America/Los_Angeles",
+        "CONTEXT_TIMEZONE": "America/Los_Angeles",
+        "LOCALE": "en",
+        "BIGEASY_LOCALE": "en_US",
+        "FULLCALENDAR_LOCALE": "en",
+        "MOMENT_LOCALE": "en",
+        "rce_auto_save_max_age_ms": 86400000,
+        "HOMEROOM_COURSE": false,
+        "WIKI_RIGHTS": {
+          "read": true
+        },
+        "PAGE_RIGHTS": {
+          "read": true
+        },
+        "DEFAULT_EDITING_ROLES": null,
+        "WIKI_PAGES_PATH": "/courses/1079/pages",
+        "WIKI_PAGE": {
+          "title": "Objective 1 - explain function scope",
+          "created_at": "2021-04-02T15:39:43-07:00",
+          "url": "objective-1-explain-function-scope",
+          "editing_roles": "",
+          "page_id": "17265",
+          "last_edited_by": {
+            "id": "849",
+            "display_name": "API User",
+            "avatar_image_url": "https://lambdaschool.instructure.com/images/messages/avatar-50.png",
+            "html_url": "https://lambdaschool.instructure.com/courses/1079/users/849",
+            "pronouns": null
+          },
+          "published": true,
+          "hide_from_students": false,
+          "front_page": false,
+          "html_url": "https://lambdaschool.instructure.com/courses/1079/pages/objective-1-explain-function-scope",
+          "todo_date": null,
+          "updated_at": "2021-04-02T15:39:43-07:00",
+          "locked_for_user": false,
+          "body": "\u003cp\u003e\u003c/p\u003e\u003cdiv class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"\u003e\u003cdiv class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"\u003e\u003ciframe src=\"https://lambdaschool-1.wistia.com/medias/cu101kblpe\" allow=\"autoplay; fullscreen\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" allowfullscreen=\"\" width=\"100%\" height=\"100%\"\u003e\u003c/iframe\u003e\u003c/div\u003e\u003c/div\u003e\u003cp\u003e\u003c/p\u003e\n\u003ch2 id=\"overview\"\u003eOverview\u003c/h2\u003e\n\u003ch3 id=\"scope\"\u003eScope\u003c/h3\u003e\n\u003cp\u003eRemember our cookie analogy from our original discussion on Arrays? If not, recall that you have a robot baking cookies for you with the function \u003ccode\u003ebakeCookies()\u003c/code\u003e! Things are going great. Fresh cookies every day - until suddenly, your robot starts burning the lemon crisps! Come on, robot. To fix this, you decide to add a parameter \u003ccode\u003etemperature\u003c/code\u003e, such that you can specify how your robot should be baking cookies. So now, \u003ccode\u003ebakeCookies(chocolateChip, 400)\u003c/code\u003e and \u003ccode\u003ebakeCookies(lemonCrisps, 350)\u003c/code\u003e are valid. Later on, you go to print a recipe (for a cookie-baking robot friend) with \u003ccode\u003econsole.log(temperature)\u003c/code\u003e, but it comes back as \u003ccode\u003eundefined\u003c/code\u003e! what? isn't it clearly defined in the function? You've just run into your first scoping issue.\u003c/p\u003e\n\u003cp\u003eScope is defined as which variables we currently have access to and where. So far in this course, we have mostly been working in \u003ccode\u003eglobal\u003c/code\u003e scope, in that we can access any variable we have created, anywhere in our code. There are a couple different levels of scope: \u003ccode\u003eblock\u003c/code\u003e level scope is used in \u003ccode\u003eif\u003c/code\u003e statements and \u003ccode\u003efor\u003c/code\u003e loops. In \u003ccode\u003eblock\u003c/code\u003e level scope, a variable declared using either \u003ccode\u003elet\u003c/code\u003e or \u003ccode\u003econst\u003c/code\u003e is only available within the statement or loop (like \u003ccode\u003ei\u003c/code\u003e in a \u003ccode\u003efor\u003c/code\u003e loop). Similarly, there is function scope, where \u003ccode\u003etemperature\u003c/code\u003e exists inside the function, but not elsewhere in your code file.\u003c/p\u003e\n\u003ch4 id=\"function-level-scope\"\u003eFunction Level Scope\u003c/h4\u003e\n\u003cp\u003eFunction scope allows us to create variables inside of functions, that are essentially private to that function. We can not reach into a function from the outside and get access to these variables. But we are free to use these variables anywhere within our function. Conversely, we \u003cem\u003edo\u003c/em\u003e have access to variables outside of the function. It is a one-way street. Functions can reach out and grab variables outside of their scope, but we can not reach into a function to get a variable.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst var1 = 'Lambda'\n\nfunction myFunc(){\n  const var2 = 'School';\n  console.log(var1); // Lambda\n  console.log(var2); // School\n  }\n\nconsole.log(var1); // Lambda\nconsole.log(var2); // undefined\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBecause \u003ccode\u003evar2\u003c/code\u003e is defined inside the function, it can't be accessed later on. \u003ccode\u003evar1\u003c/code\u003e, however, is global, and can be accessed anywhere.\u003c/p\u003e\n\u003ciframe height=\"400px\" width=\"100%\" src=\"https://repl.it/@sunjieming/Function-Scope?lite=true\" scrolling=\"no\" frameborder=\"no\" allowfullscreen=\"true\" sandbox=\"allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals\"\u003e\u003c/iframe\u003e\n\u003cp\u003e\u003cstrong\u003eCheck For Understanding:\u003c/strong\u003e Edit the code above such that \u003ccode\u003evar2\u003c/code\u003e has global scope (and can be accessed outside of the function).\u003c/p\u003e\n\u003ch3 id=\"hoisting\"\u003eHoisting\u003c/h3\u003e\n\u003cp\u003eTypically when we use variables we declare and initialize them in the same line. That looks something like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003e// declare \u0026amp; initialize variable\nvar myVariable = \"this is a variable\";\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAccording to the rules of JavaScript though, we don't actually have to do it this way. For example, the below is also perfectly acceptable and more closely mirrors what JavaScript is doing under the hood. When you run JavaScript, the compiler will declare all variables \u003cem\u003ebefore\u003c/em\u003e initializing them and \u003cem\u003ebefore\u003c/em\u003e running the rest of the script. First the compiler will declare all functions, then the variables. This is one of the quirky things about JavaScript as a language.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003e// declare variable\nvar myVariable;\n// initialize variable\nmyVariable = \"this is a variable\";\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eGiven what you now know, consider the example below. What would you expect the output to be? \u003ccode\u003eNull\u003c/code\u003e? \u003ccode\u003eundefined\u003c/code\u003e? \u003ccode\u003ethis is a variable\u003c/code\u003e?\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003e// use variable\nconsole.log(myVariable);\n// declare and initialize variable\nvar myVariable = 'this is a variable';\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe answer is undefined. This is because of how the compiler runs. It first declares the variable with a value of \u003ccode\u003eundefined\u003c/code\u003e, then runs the script, including the initialization of the variables with the values we give them. The compiler would take the code above and interpret is as this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003evar myVariable;\nconsole.log(myVariable);\nmyVariable = \"this is a variable\";\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eLet's consider another example. What would you expect the output here to be?\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003esayHello();\n\nfunction sayHello(){\n  console.log(\"hello\");\n}\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you guessed \u003ccode\u003e\"hello\"\u003c/code\u003e, you'd be correct. After declaring all of the variables and functions, your compiler will also \u003cstrong\u003einitialize\u003c/strong\u003e functions. This means that functions can be used before they are declared \u003cem\u003eor\u003c/em\u003e initialized. Quick note that this only applies to declared functions, not function expressions.\u003c/p\u003e\n\u003cp\u003eAll of that encompasses the idea of \u003cstrong\u003e\u003cem\u003ehoisting\u003c/em\u003e\u003c/strong\u003e, Hoisting is the ability to call functions and variables before they are declared, like we see above. It is usually preferable to declare your function before you call it, but because of hoisting, you won't get an error either way. The only time you'd want to break that rule is if you wanted to invoke all the functions at the top of a file so that another developer looking at your file could see at the top what that file does\u003c/p\u003e\n\u003cp\u003eWe've mentioned some minor differences between variable declaration types in the past. Those are explained by hoisting. Declarations with \u003ccode\u003evar\u003c/code\u003e and the \u003ccode\u003efunction\u003c/code\u003e keyword are hoisted and can therefore be used anywhere in a script. These will return undefined if not yet initialized. Variables declared with \u003ccode\u003elet\u003c/code\u003e and \u003ccode\u003econst\u003c/code\u003e are not hoisted and thus can not be used anywhere without throwing a \u003ccode\u003eReferenceError\u003c/code\u003e. Basically, you can't use \u003ccode\u003elet\u003c/code\u003e variables or \u003ccode\u003econst\u003c/code\u003e variables before you've given them a value. That difference is illustrated here:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econsole.log('1a', myName1); // undefined\nif (1) {\n console.log('1b' myName1); // undefined\n var myName1 = 'Sunil';\n}\nconsole.log('2a', myName2); // error: myName2 is not defined\nif (1) {\n    console.log('2b', myName2); // undefined\n    let myName2 = 'Sunil';\n}\nconsole.log('3a', myName3); // error: myName3 is not defined\nif (1) {\n    console.log('3b', myName3); // undefined\n    const myName3 = 'Sunil';\n}\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eHoisting is a really tricky part of JavaScript development, and shouldn't come up too often. That said, if you ever find yourself getting weird reference errors and can't figure out why, consider hoisting as the culprit.\u003c/p\u003e\n\u003ch2 id=\"follow-along\"\u003eFollow Along\u003c/h2\u003e\n\u003cp\u003eLast time we saw our \u003ccode\u003eflip\u003c/code\u003e function it logged a result of any number of coin flips. Our challenge now is to include a summative number that calculates the proportion of \u003ccode\u003eheads\u003c/code\u003e/\u003ccode\u003etotal flips\u003c/code\u003e. So, if \u003ccode\u003eflip\u003c/code\u003e returns heads 4 times and tails 6 times, our function should not only return a list of 4 heads and 6 tails, it should also return \u003ccode\u003e0.4\u003c/code\u003e.\u003c/p\u003e\n\u003ciframe height=\"400px\" width=\"100%\" src=\"https://repl.it/@sunjieming/coinFlip-V?lite=true\" scrolling=\"no\" frameborder=\"no\" allowfullscreen=\"true\" sandbox=\"allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals\"\u003e\u003c/iframe\u003e\n\u003cp\u003eIn order to perform this calculation we'll utilize a common programing trick and create a counter called \u003ccode\u003ecountHeads\u003c/code\u003e, this counter will be declared with \u003ccode\u003evar\u003c/code\u003e and we will add \u003ccode\u003e1\u003c/code\u003e to it every time the flip lands on heads (or \u003ccode\u003e1\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eTo make this counter functional we have to rely on scope. It will be important that we declare the variable \u003cem\u003eoutside\u003c/em\u003e the loop but \u003cem\u003einside\u003c/em\u003e the function.\u003c/p\u003e\n\u003cp\u003eThis way the variable can be referenced and changed inside of the for loop, but will reset to 0 every time the function is run.\u003c/p\u003e\n\u003ciframe height=\"400px\" width=\"100%\" src=\"https://repl.it/@sunjieming/coinFlip-VI?lite=true\" scrolling=\"no\" frameborder=\"no\" allowfullscreen=\"true\" sandbox=\"allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals\"\u003e\u003c/iframe\u003e\n\u003cp\u003eTo further demonstrate the importance of scope here let's lets consider a few non-examples, where \u003ccode\u003ecountHeads\u003c/code\u003e is out of scope. To be completely clear, the examples below are \u003cstrong\u003ewrong\u003c/strong\u003e, \u003cstrong\u003eincorrect programming\u003c/strong\u003e, but are used to illustrate the importance of scope.\u003c/p\u003e\n\u003ch3 id=\"non-example-1\"\u003eNon-Example 1\u003c/h3\u003e\n\u003cp\u003eWhen countHeads is outside of the function, our program would work perfectly fine the first time we called \u003ccode\u003eflip(x)\u003c/code\u003e, but would not reset if we called it again. Make this change in the repl.it above and see if you get the same errors as outlined below.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003evar countHeads = 0 // won't reset when function is called\n\nfunction flip(repeat){\nfor (let i = 0; i \u0026lt; repeat; i++){\n  var coinFlip = Math.round(Math.random());\n  if (coinFlip === 1){\n    countHeads = countHeads + 1\n    console.log(\"Heads\");\n  } else{\n    console.log(\"Tails\");\n  }\n}\nreturn(countHeads/repeat)\n}\n\nflip(10); // \u0026lt;- will return a % under 100 (the correct %)\nflip(10); // \u0026lt;- will return a % close to or over 100 (accumulates heads)\nflip(10); // \u0026lt;- will return an even higher % (continues to accumulate heads)\u003c/code\u003e\u003c/pre\u003e\n\u003ch3 id=\"non-example-2\"\u003eNon-Example 2\u003c/h3\u003e\n\u003cp\u003eSimilarly, if \u003ccode\u003ecountHeads\u003c/code\u003e was within the for loop it would be declared at 0 every time the loop ran. So \u003ccode\u003ecountHeads\u003c/code\u003e would only ever equal \u003ccode\u003e1\u003c/code\u003e or \u003ccode\u003e0\u003c/code\u003e depending on the result of the flip.\u003c/p\u003e\n\u003cp\u003eEven more problematic, our return statement would throw an error because \u003ccode\u003ecountHeads\u003c/code\u003e only exists within the for loop. In other words, it is out of scope at the return statement because we are referencing a variable that does not exist at that location.\u003c/p\u003e\n\u003cp\u003eAgain, make these changes changes in the repl.it above to see the errors happen in real time.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003efunction flip(repeat) {\n    for (let i = 0; i \u0026lt; repeat; i++) {\n        var countHeads = 0 // will reset every time the loop starts over\n        var coinFlip = Math.round(Math.random());\n        if (coinFlip === 1) {\n            countHeads = countHeads + 1\n            console.log(\"Heads\");\n        } else {\n            console.log(\"Tails\");\n        }\n    }\n    return (countHeads / repeat); // will cause an error because countHeads is out of scope\n    }\n\nflip(10); // \u0026lt;- will cause an error\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"challenge\"\u003eChallenge\u003c/h2\u003e\n\u003cp\u003eCheck your knowledge with the \u003ca href=\"https://codepen.io/lambdaschool/pen/gOpOjbp?editors=0012\"\u003efunction scope challenge\u003c/a\u003e.\u003c/p\u003e"
+        },
+        "WIKI_PAGE_REVISION": "1",
+        "WIKI_PAGE_SHOW_PATH": "/courses/1079/pages/objective-1-explain-function-scope",
+        "WIKI_PAGE_EDIT_PATH": "/courses/1079/pages/objective-1-explain-function-scope/edit",
+        "WIKI_PAGE_HISTORY_PATH": "/courses/1079/pages/objective-1-explain-function-scope/revisions",
+        "COURSE_ID": "1079",
+        "MODULES_PATH": "/courses/1079/modules",
+        "wiki_page_menu_tools": [],
+        "wiki_index_menu_tools": [],
+        "DISPLAY_SHOW_ALL_LINK": false,
+        "CAN_SET_TODO_DATE": false,
+        "IMMERSIVE_READER_ENABLED": true,
+        "badge_counts": {
+          "submissions": 0
+        },
+        "notices": [],
+        "active_context_tab": "pages"
+      };
+
+    </script>
+
+    <link rel="preload" href="./func-scope_files/variables-8391c84da435c9cfceea2b2b3317ff66.js" as="script"
+      type="text/javascript">
+    <link rel="preload" href="./func-scope_files/Los_Angeles-d9cac65c52.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/Los_Angeles-d9cac65c52.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/en_US-80a0ce259b.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/main-e-7a352db8bb.js" as="script" type="text/javascript">
+    <script>
+      //<![CDATA[
+
+      ;
+      [ "https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/754e89439c06d94dc8fbc68ea55a73ad/variables-8391c84da435c9cfceea2b2b3317ff66.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/Los_Angeles-d9cac65c52.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/America/Los_Angeles-d9cac65c52.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/timezone/en_US-80a0ce259b.js",
+        "https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/main-e-7a352db8bb.js"
+      ].forEach( function ( src ) {
+        var s = document.createElement( 'script' )
+        s.src = src
+        s.async = false
+        document.head.appendChild( s )
+      } );
+      //]]>
+
+    </script>
+    <script src="./func-scope_files/variables-8391c84da435c9cfceea2b2b3317ff66.js"></script>
+    <script src="./func-scope_files/Los_Angeles-d9cac65c52.js"></script>
+    <script src="./func-scope_files/Los_Angeles-d9cac65c52.js"></script>
+    <script src="./func-scope_files/en_US-80a0ce259b.js"></script>
+    <script src="./func-scope_files/main-e-7a352db8bb.js"></script>
+    <link rel="preload" href="./func-scope_files/0-c-de89641551.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/1-c-9b44b2f2f0.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/2-c-19bafc247d.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/3-c-bf5d0b5766.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/4-c-77108e1975.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/5-c-997ac8ee90.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/7-c-5a101fc0a0.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/6-c-ddb3f25666.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/8-c-56e76d9e87.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/12-c-8e44d6013e.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/16-c-51ce4a3f60.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/17-c-55328f2d21.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/21-c-df7a8ed9cc.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/26-c-549a6bb121.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/23-c-3525285db4.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/25-c-f5176ea595.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/28-c-48edc0c862.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/33-c-468b5e4088.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/35-c-519738d831.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/37-c-756bd506b6.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/39-c-31043a153b.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/41-c-d4c6b9c421.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/47-c-da860a467c.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/43-c-50e3bea253.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/52-c-53c2b73542.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/59-c-89eacab77e.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/61-c-b3fbe58336.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/63-c-8069ddedeb.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/68-c-d7067aa4c8.js" as="script" type="text/javascript">
+    <link rel="preload" href="./func-scope_files/wiki_page_show-c-869bf76d0d.js" as="script" type="text/javascript">
+    <script>
+      //<![CDATA[
+      ( window.bundles || ( window.bundles = [] ) ).push( 'wiki_page_show' );
+      ( window.bundles || ( window.bundles = [] ) ).push( 'navigation_header' );
+      //]]>
+
+    </script>
+    <title>Objective 1 - explain function scope: WEB43 - 1.3 - JavaScript Fundamentals</title>
+
+    <script>
+      window.ga = window.ga || function () {
+        ( ga.q = ga.q || [] ).push( arguments )
+      };
+      ga.l = +new Date;
+      ga( 'create', "UA-9138420-1", 'auto' );
+      ga( 'set', 'userId', "4557b3f12709be2e6fdc4cb8651ee577" );
+      ga( 'set', 'dimension1', "100" );
+      ga( 'set', 'dimension2', "00" );
+      ga( 'set', 'dimension3', "0" );
+      ga( 'set', 'dimension4', "Higher Ed" );
+      ga( 'send', 'pageview' );
+      ( window.requestIdleCallback || window.setTimeout )( function () {
+        var s = document.createElement( 'script' ),
+          m = document.getElementsByTagName( 'script' )[ 0 ]
+        s.async = 1;
+        s.src = 'https://www.google-analytics.com/analytics.js'
+        m.parentNode.insertBefore( s, m )
+      } );
+
+    </script>
+
+
+
+    <script src="./func-scope_files/main.js"></script>
+    <style type="text/css"></style>
+    <script charset="utf-8" src="./func-scope_files/0-c-de89641551.js"></script>
+    <script charset="utf-8" src="./func-scope_files/1-c-9b44b2f2f0.js"></script>
+    <script charset="utf-8" src="./func-scope_files/2-c-19bafc247d.js"></script>
+    <script charset="utf-8" src="./func-scope_files/3-c-bf5d0b5766.js"></script>
+    <script charset="utf-8" src="./func-scope_files/4-c-77108e1975.js"></script>
+    <script charset="utf-8" src="./func-scope_files/5-c-997ac8ee90.js"></script>
+    <script charset="utf-8" src="./func-scope_files/7-c-5a101fc0a0.js"></script>
+    <script charset="utf-8" src="./func-scope_files/6-c-ddb3f25666.js"></script>
+    <script charset="utf-8" src="./func-scope_files/8-c-56e76d9e87.js"></script>
+    <script charset="utf-8" src="./func-scope_files/12-c-8e44d6013e.js"></script>
+    <script charset="utf-8" src="./func-scope_files/16-c-51ce4a3f60.js"></script>
+    <script charset="utf-8" src="./func-scope_files/17-c-55328f2d21.js"></script>
+    <script charset="utf-8" src="./func-scope_files/21-c-df7a8ed9cc.js"></script>
+    <script charset="utf-8" src="./func-scope_files/26-c-549a6bb121.js"></script>
+    <script charset="utf-8" src="./func-scope_files/23-c-3525285db4.js"></script>
+    <script charset="utf-8" src="./func-scope_files/25-c-f5176ea595.js"></script>
+    <script charset="utf-8" src="./func-scope_files/28-c-48edc0c862.js"></script>
+    <script charset="utf-8" src="./func-scope_files/33-c-468b5e4088.js"></script>
+    <script charset="utf-8" src="./func-scope_files/35-c-519738d831.js"></script>
+    <script charset="utf-8" src="./func-scope_files/37-c-756bd506b6.js"></script>
+    <script charset="utf-8" src="./func-scope_files/39-c-31043a153b.js"></script>
+    <script charset="utf-8" src="./func-scope_files/41-c-d4c6b9c421.js"></script>
+    <script charset="utf-8" src="./func-scope_files/47-c-da860a467c.js"></script>
+    <script charset="utf-8" src="./func-scope_files/43-c-50e3bea253.js"></script>
+    <script charset="utf-8" src="./func-scope_files/52-c-53c2b73542.js"></script>
+    <script charset="utf-8" src="./func-scope_files/59-c-89eacab77e.js"></script>
+    <script charset="utf-8" src="./func-scope_files/61-c-b3fbe58336.js"></script>
+    <script charset="utf-8" src="./func-scope_files/63-c-8069ddedeb.js"></script>
+    <script charset="utf-8" src="./func-scope_files/68-c-d7067aa4c8.js"></script>
+    <script charset="utf-8" src="./func-scope_files/wiki_page_show-c-869bf76d0d.js"></script>
+    <script charset="utf-8" src="./func-scope_files/nav_tourpoints-c-9a847d0a0c.js"></script>
+    <script charset="utf-8" src="./func-scope_files/inst_fs_service_worker-c-89ccbc32d7.js"></script>
+    <script charset="utf-8" src="./func-scope_files/737-c-7d643a67b8.js"></script>
+    <style type="text/css" data-glamor=""></style>
+    <script charset="utf-8" src="./func-scope_files/15-c-6b979a68d2.js"></script>
+    <script charset="utf-8" src="./func-scope_files/20-c-95eefedc23.js"></script>
+    <script charset="utf-8" src="./func-scope_files/22-c-e8cd9231ba.js"></script>
+    <script charset="utf-8" src="./func-scope_files/32-c-7abb3c6dcd.js"></script>
+    <script charset="utf-8" src="./func-scope_files/42-c-0f3fc11ec0.js"></script>
+    <script charset="utf-8" src="./func-scope_files/79-c-c4a369ae88.js"></script>
+    <script charset="utf-8" src="./func-scope_files/110-c-2d90132d94.js"></script>
+    <script charset="utf-8" src="./func-scope_files/746-c-4949d9ad18.js"></script>
+    <script charset="utf-8" src="./func-scope_files/681-c-187e99ecdf.js"></script>
+    <script charset="utf-8" src="./func-scope_files/624-c-c63e76e567.js"></script>
+    <style type="text/css">
+      .mejs-offscreen {
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: polygon(0px 0, 0 0, 0 0, 0 0);
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden
+      }
+
+      .mejs-container {
+        position: relative;
+        background: #000;
+        font-family: Helvetica, Arial, serif;
+        text-align: left;
+        vertical-align: top;
+        text-indent: 0
+      }
+
+      .mejs-fill-container,
+      .mejs-fill-container .mejs-container {
+        width: 100%;
+        height: 100%
+      }
+
+      .mejs-fill-container {
+        overflow: hidden
+      }
+
+      .mejs-container:focus {
+        outline: 0
+      }
+
+      .me-plugin {
+        position: absolute
+      }
+
+      .mejs-embed,
+      .mejs-embed body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #000;
+        overflow: hidden
+      }
+
+      .mejs-fullscreen {
+        overflow: hidden !important
+      }
+
+      .mejs-container-fullscreen {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 1000
+      }
+
+      .mejs-container-fullscreen .mejs-mediaelement,
+      .mejs-container-fullscreen video {
+        width: 100%;
+        height: 100%
+      }
+
+      .mejs-clear {
+        clear: both
+      }
+
+      .mejs-background {
+        position: absolute;
+        top: 0;
+        left: 0
+      }
+
+      .mejs-mediaelement {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%
+      }
+
+      .mejs-poster {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat
+      }
+
+      :root .mejs-poster img {
+        display: none
+      }
+
+      .mejs-poster img {
+        border: 0;
+        padding: 0
+      }
+
+      .mejs-overlay {
+        position: absolute;
+        top: 0;
+        left: 0
+      }
+
+      .mejs-overlay-play {
+        cursor: pointer
+      }
+
+      .mejs-overlay-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin: -50px 0 0 -50px;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/746c3af7a145a09239a36e5ef61cfea0.svg) no-repeat
+      }
+
+      .no-svg .mejs-overlay-button {
+        background-image: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/716436fb3df0d29e6b37dd62d952676a.png)
+      }
+
+      .mejs-overlay:hover .mejs-overlay-button {
+        background-position: 0 -100px
+      }
+
+      .mejs-overlay-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        margin: -40px 0 0 -40px;
+        background: #333;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(0, 0, 0, .9);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(50, 50, 50, .9)), to(rgba(0, 0, 0, .9)));
+        background: -webkit-linear-gradient(top, rgba(50, 50, 50, .9), rgba(0, 0, 0, .9));
+        background: -moz-linear-gradient(top, rgba(50, 50, 50, .9), rgba(0, 0, 0, .9));
+        background: -o-linear-gradient(top, rgba(50, 50, 50, .9), rgba(0, 0, 0, .9));
+        background: -ms-linear-gradient(top, rgba(50, 50, 50, .9), rgba(0, 0, 0, .9));
+        background: linear-gradient(rgba(50, 50, 50, .9), rgba(0, 0, 0, .9))
+      }
+
+      .mejs-overlay-loading span {
+        display: block;
+        width: 80px;
+        height: 80px;
+        background: transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/76b326f4d44222126fee21076595bef5.gif) 50% 50% no-repeat
+      }
+
+      .mejs-container .mejs-controls {
+        position: absolute;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        bottom: 0;
+        left: 0;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(0, 0, 0, .7);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(50, 50, 50, .7)), to(rgba(0, 0, 0, .7)));
+        background: -webkit-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: -moz-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: -o-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: -ms-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: linear-gradient(rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        height: 30px;
+        width: 100%
+      }
+
+      .mejs-container .mejs-controls div {
+        list-style-type: none;
+        background-image: none;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+        line-height: 11px;
+        font-family: Helvetica, Arial, serif;
+        border: 0
+      }
+
+      .mejs-controls .mejs-button button {
+        cursor: pointer;
+        display: block;
+        font-size: 0;
+        line-height: 0;
+        text-decoration: none;
+        margin: 7px 5px;
+        padding: 0;
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        border: 0;
+        background: transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/40f56f5a736da4effeb790cedb8a52f0.svg) no-repeat
+      }
+
+      .no-svg .mejs-controls .mejs-button button {
+        background-image: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/24a0227fbdd3acfd86ff03fc3fc6c8a4.png)
+      }
+
+      .mejs-controls .mejs-button button:focus {
+        outline: dotted 1px #999
+      }
+
+      .mejs-container .mejs-controls .mejs-time {
+        color: #fff;
+        display: block;
+        height: 17px;
+        width: auto;
+        padding: 10px 3px 0;
+        overflow: hidden;
+        text-align: center;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box
+      }
+
+      .mejs-container .mejs-controls .mejs-time a {
+        color: #fff;
+        font-size: 11px;
+        line-height: 12px;
+        display: block;
+        float: left;
+        margin: 1px 2px 0 0;
+        width: auto
+      }
+
+      .mejs-controls .mejs-play button {
+        background-position: 0 0
+      }
+
+      .mejs-controls .mejs-pause button {
+        background-position: 0 -16px
+      }
+
+      .mejs-controls .mejs-stop button {
+        background-position: -112px 0
+      }
+
+      .mejs-controls div.mejs-time-rail {
+        direction: ltr;
+        width: 200px;
+        padding-top: 5px
+      }
+
+      .mejs-controls .mejs-time-rail span,
+      .mejs-controls .mejs-time-rail a {
+        display: block;
+        position: absolute;
+        width: 180px;
+        height: 10px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        cursor: pointer
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-total {
+        margin: 5px;
+        background: #333;
+        background: rgba(50, 50, 50, .8);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(30, 30, 30, .8)), to(rgba(60, 60, 60, .8)));
+        background: -webkit-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: -moz-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: -o-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: -ms-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: linear-gradient(rgba(30, 30, 30, .8), rgba(60, 60, 60, .8))
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-buffering {
+        width: 100%;
+        background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));
+        background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        -webkit-background-size: 15px 15px;
+        -moz-background-size: 15px 15px;
+        -o-background-size: 15px 15px;
+        background-size: 15px 15px;
+        -webkit-animation: buffering-stripes 2s linear infinite;
+        -moz-animation: buffering-stripes 2s linear infinite;
+        -ms-animation: buffering-stripes 2s linear infinite;
+        -o-animation: buffering-stripes 2s linear infinite;
+        animation: buffering-stripes 2s linear infinite
+      }
+
+      @-webkit-keyframes buffering-stripes {
+        from {
+          background-position: 0 0
+        }
+
+        to {
+          background-position: 30px 0
+        }
+      }
+
+      @-moz-keyframes buffering-stripes {
+        from {
+          background-position: 0 0
+        }
+
+        to {
+          background-position: 30px 0
+        }
+      }
+
+      @-ms-keyframes buffering-stripes {
+        from {
+          background-position: 0 0
+        }
+
+        to {
+          background-position: 30px 0
+        }
+      }
+
+      @-o-keyframes buffering-stripes {
+        from {
+          background-position: 0 0
+        }
+
+        to {
+          background-position: 30px 0
+        }
+      }
+
+      @keyframes buffering-stripes {
+        from {
+          background-position: 0 0
+        }
+
+        to {
+          background-position: 30px 0
+        }
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-loaded {
+        background: #3caac8;
+        background: rgba(60, 170, 200, .8);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(44, 124, 145, .8)), to(rgba(78, 183, 212, .8)));
+        background: -webkit-linear-gradient(top, rgba(44, 124, 145, .8), rgba(78, 183, 212, .8));
+        background: -moz-linear-gradient(top, rgba(44, 124, 145, .8), rgba(78, 183, 212, .8));
+        background: -o-linear-gradient(top, rgba(44, 124, 145, .8), rgba(78, 183, 212, .8));
+        background: -ms-linear-gradient(top, rgba(44, 124, 145, .8), rgba(78, 183, 212, .8));
+        background: linear-gradient(rgba(44, 124, 145, .8), rgba(78, 183, 212, .8));
+        width: 0
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-current {
+        background: #fff;
+        background: rgba(255, 255, 255, .8);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .9)), to(rgba(200, 200, 200, .8)));
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: -o-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: -ms-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: linear-gradient(rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        width: 0
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-handle {
+        display: none;
+        position: absolute;
+        margin: 0;
+        width: 10px;
+        background: #fff;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: solid 2px #333;
+        top: -2px;
+        text-align: center
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-float {
+        position: absolute;
+        display: none;
+        background: #eee;
+        width: 36px;
+        height: 17px;
+        border: solid 1px #333;
+        top: -26px;
+        margin-left: -18px;
+        text-align: center;
+        color: #111
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-float-current {
+        margin: 2px;
+        width: 30px;
+        display: block;
+        text-align: center;
+        left: 0
+      }
+
+      .mejs-controls .mejs-time-rail .mejs-time-float-corner {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        border: solid 5px #eee;
+        border-color: #eee transparent transparent;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        top: 15px;
+        left: 13px
+      }
+
+      .mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float {
+        width: 48px
+      }
+
+      .mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float-current {
+        width: 44px
+      }
+
+      .mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float-corner {
+        left: 18px
+      }
+
+      .mejs-controls .mejs-fullscreen-button button {
+        background-position: -32px 0
+      }
+
+      .mejs-controls .mejs-unfullscreen button {
+        background-position: -32px -16px
+      }
+
+      .mejs-controls .mejs-volume-button {}
+
+      .mejs-controls .mejs-mute button {
+        background-position: -16px -16px
+      }
+
+      .mejs-controls .mejs-unmute button {
+        background-position: -16px 0
+      }
+
+      .mejs-controls .mejs-volume-button {
+        position: relative
+      }
+
+      .mejs-controls .mejs-volume-button .mejs-volume-slider {
+        height: 115px;
+        width: 25px;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(50, 50, 50, .7);
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        top: -115px;
+        left: 0;
+        z-index: 1;
+        position: absolute;
+        margin: 0
+      }
+
+      .mejs-controls .mejs-volume-button:hover {
+        -webkit-border-radius: 0 0 4px 4px;
+        -moz-border-radius: 0 0 4px 4px;
+        border-radius: 0 0 4px 4px
+      }
+
+      .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-total {
+        position: absolute;
+        left: 11px;
+        top: 8px;
+        width: 2px;
+        height: 100px;
+        background: #ddd;
+        background: rgba(255, 255, 255, .5);
+        margin: 0
+      }
+
+      .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-current {
+        position: absolute;
+        left: 11px;
+        top: 8px;
+        width: 2px;
+        height: 100px;
+        background: #ddd;
+        background: rgba(255, 255, 255, .9);
+        margin: 0
+      }
+
+      .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
+        position: absolute;
+        left: 4px;
+        top: -3px;
+        width: 16px;
+        height: 6px;
+        background: #ddd;
+        background: rgba(255, 255, 255, .9);
+        cursor: N-resize;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        margin: 0
+      }
+
+      .mejs-controls a.mejs-horizontal-volume-slider {
+        height: 26px;
+        width: 56px;
+        position: relative;
+        display: block;
+        float: left;
+        vertical-align: middle
+      }
+
+      .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+        position: absolute;
+        left: 0;
+        top: 11px;
+        width: 50px;
+        height: 8px;
+        margin: 0;
+        padding: 0;
+        font-size: 1px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        background: #333;
+        background: rgba(50, 50, 50, .8);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(30, 30, 30, .8)), to(rgba(60, 60, 60, .8)));
+        background: -webkit-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: -moz-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: -o-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: -ms-linear-gradient(top, rgba(30, 30, 30, .8), rgba(60, 60, 60, .8));
+        background: linear-gradient(rgba(30, 30, 30, .8), rgba(60, 60, 60, .8))
+      }
+
+      .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+        position: absolute;
+        left: 0;
+        top: 11px;
+        width: 50px;
+        height: 8px;
+        margin: 0;
+        padding: 0;
+        font-size: 1px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        background: #fff;
+        background: rgba(255, 255, 255, .8);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .9)), to(rgba(200, 200, 200, .8)));
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: -o-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: -ms-linear-gradient(top, rgba(255, 255, 255, .9), rgba(200, 200, 200, .8));
+        background: linear-gradient(rgba(255, 255, 255, .9), rgba(200, 200, 200, .8))
+      }
+
+      .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-handle {
+        display: none
+      }
+
+      .mejs-controls .mejs-captions-button {
+        position: relative
+      }
+
+      .mejs-controls .mejs-captions-button button {
+        background-position: -48px 0
+      }
+
+      .mejs-controls .mejs-captions-button .mejs-captions-selector {
+        position: absolute;
+        bottom: 26px;
+        right: -51px;
+        width: 85px;
+        height: 100px;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(50, 50, 50, .7);
+        border: solid 1px transparent;
+        padding: 10px 10px 0;
+        overflow: hidden;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0
+      }
+
+      .mejs-controls .mejs-captions-button .mejs-captions-selector ul {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none !important;
+        overflow: hidden
+      }
+
+      .mejs-controls .mejs-captions-button .mejs-captions-selector ul li {
+        margin: 0 0 6px;
+        padding: 0;
+        list-style-type: none !important;
+        display: block;
+        color: #fff;
+        overflow: hidden
+      }
+
+      .mejs-controls .mejs-captions-button .mejs-captions-selector ul li input {
+        clear: both;
+        float: left;
+        margin: 3px 3px 0 5px
+      }
+
+      .mejs-controls .mejs-captions-button .mejs-captions-selector ul li label {
+        width: 55px;
+        float: left;
+        padding: 4px 0 0;
+        line-height: 15px;
+        font-family: Helvetica, Arial, serif;
+        font-size: 10px
+      }
+
+      .mejs-controls .mejs-captions-button .mejs-captions-translations {
+        font-size: 10px;
+        margin: 0 0 5px
+      }
+
+      .mejs-chapters {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-right: solid 1px #fff;
+        width: 10000px;
+        z-index: 1
+      }
+
+      .mejs-chapters .mejs-chapter {
+        position: absolute;
+        float: left;
+        background: #222;
+        background: rgba(0, 0, 0, .7);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(50, 50, 50, .7)), to(rgba(0, 0, 0, .7)));
+        background: -webkit-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: -moz-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: -o-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: -ms-linear-gradient(top, rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        background: linear-gradient(rgba(50, 50, 50, .7), rgba(0, 0, 0, .7));
+        filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#323232, endColorstr=#000000);
+        overflow: hidden;
+        border: 0
+      }
+
+      .mejs-chapters .mejs-chapter .mejs-chapter-block {
+        font-size: 11px;
+        color: #fff;
+        padding: 5px;
+        display: block;
+        border-right: solid 1px #333;
+        border-bottom: solid 1px #333;
+        cursor: pointer
+      }
+
+      .mejs-chapters .mejs-chapter .mejs-chapter-block-last {
+        border-right: 0
+      }
+
+      .mejs-chapters .mejs-chapter .mejs-chapter-block:hover {
+        background: #666;
+        background: rgba(102, 102, 102, .7);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(102, 102, 102, .7)), to(rgba(50, 50, 50, .6)));
+        background: -webkit-linear-gradient(top, rgba(102, 102, 102, .7), rgba(50, 50, 50, .6));
+        background: -moz-linear-gradient(top, rgba(102, 102, 102, .7), rgba(50, 50, 50, .6));
+        background: -o-linear-gradient(top, rgba(102, 102, 102, .7), rgba(50, 50, 50, .6));
+        background: -ms-linear-gradient(top, rgba(102, 102, 102, .7), rgba(50, 50, 50, .6));
+        background: linear-gradient(rgba(102, 102, 102, .7), rgba(50, 50, 50, .6));
+        filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#666666, endColorstr=#323232)
+      }
+
+      .mejs-chapters .mejs-chapter .mejs-chapter-block .ch-title {
+        font-size: 12px;
+        font-weight: 700;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0 0 3px;
+        line-height: 12px
+      }
+
+      .mejs-chapters .mejs-chapter .mejs-chapter-block .ch-timespan {
+        font-size: 12px;
+        line-height: 12px;
+        margin: 3px 0 4px;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis
+      }
+
+      .mejs-captions-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        line-height: 20px;
+        font-size: 16px;
+        color: #fff
+      }
+
+      .mejs-captions-layer a {
+        color: #fff;
+        text-decoration: underline
+      }
+
+      .mejs-captions-layer[lang=ar] {
+        font-size: 20px;
+        font-weight: 400
+      }
+
+      .mejs-captions-position {
+        position: absolute;
+        width: 100%;
+        bottom: 15px;
+        left: 0
+      }
+
+      .mejs-captions-position-hover {
+        bottom: 35px
+      }
+
+      .mejs-captions-text,
+      .mejs__captions-text * {
+        padding: 0;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(20, 20, 20, .5);
+        white-space: pre-wrap;
+        -webkit-box-shadow: 5px 0 0 rgba(20, 20, 20, .5), -5px 0 0 rgba(20, 20, 20, .5);
+        box-shadow: 5px 0 0 rgba(20, 20, 20, .5), -5px 0 0 rgba(20, 20, 20, .5)
+      }
+
+      .me-cannotplay {}
+
+      .me-cannotplay a {
+        color: #fff;
+        font-weight: 700
+      }
+
+      .me-cannotplay span {
+        padding: 15px;
+        display: block
+      }
+
+      .mejs-controls .mejs-loop-off button {
+        background-position: -64px -16px
+      }
+
+      .mejs-controls .mejs-loop-on button {
+        background-position: -64px 0
+      }
+
+      .mejs-controls .mejs-backlight-off button {
+        background-position: -80px -16px
+      }
+
+      .mejs-controls .mejs-backlight-on button {
+        background-position: -80px 0
+      }
+
+      .mejs-controls .mejs-picturecontrols-button {
+        background-position: -96px 0
+      }
+
+      .mejs-contextmenu {
+        position: absolute;
+        width: 150px;
+        padding: 10px;
+        border-radius: 4px;
+        top: 0;
+        left: 0;
+        background: #fff;
+        border: solid 1px #999;
+        z-index: 1001
+      }
+
+      .mejs-contextmenu .mejs-contextmenu-separator {
+        height: 1px;
+        font-size: 0;
+        margin: 5px 6px;
+        background: #333
+      }
+
+      .mejs-contextmenu .mejs-contextmenu-item {
+        font-family: Helvetica, Arial, serif;
+        font-size: 12px;
+        padding: 4px 6px;
+        cursor: pointer;
+        color: #333
+      }
+
+      .mejs-contextmenu .mejs-contextmenu-item:hover {
+        background: #2C7C91;
+        color: #fff
+      }
+
+      .mejs-controls .mejs-sourcechooser-button {
+        position: relative
+      }
+
+      .mejs-controls .mejs-sourcechooser-button button {
+        background-position: -128px 0
+      }
+
+      .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
+        position: absolute;
+        bottom: 26px;
+        right: -10px;
+        width: 130px;
+        height: 100px;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(50, 50, 50, .7);
+        border: solid 1px transparent;
+        padding: 10px;
+        overflow: hidden;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0
+      }
+
+      .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none !important;
+        overflow: hidden
+      }
+
+      .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li {
+        margin: 0 0 6px;
+        padding: 0;
+        list-style-type: none !important;
+        display: block;
+        color: #fff;
+        overflow: hidden
+      }
+
+      .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input {
+        clear: both;
+        float: left;
+        margin: 3px 3px 0 5px
+      }
+
+      .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label {
+        width: 100px;
+        float: left;
+        padding: 4px 0 0;
+        line-height: 15px;
+        font-family: Helvetica, Arial, serif;
+        font-size: 10px
+      }
+
+      .mejs-postroll-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(50, 50, 50, .7);
+        z-index: 1000;
+        overflow: hidden
+      }
+
+      .mejs-postroll-layer-content {
+        width: 100%;
+        height: 100%
+      }
+
+      .mejs-postroll-close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(50, 50, 50, .7);
+        color: #fff;
+        padding: 4px;
+        z-index: 100;
+        cursor: pointer
+      }
+
+      div.mejs-speed-button {
+        width: 46px !important;
+        position: relative
+      }
+
+      .mejs-controls .mejs-button.mejs-speed-button button {
+        background: transparent;
+        width: 36px;
+        font-size: 11px;
+        line-height: normal;
+        color: #fff
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector {
+        position: absolute;
+        top: -100px;
+        left: -10px;
+        width: 60px;
+        height: 100px;
+        background: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/703c659e4bf563a05c6338a1727e006c.png);
+        background: rgba(50, 50, 50, .7);
+        border: solid 1px transparent;
+        padding: 0;
+        overflow: hidden;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector ul li label.mejs-speed-selected {
+        color: rgba(33, 248, 248, 1)
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector ul {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none !important;
+        overflow: hidden
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector ul li {
+        margin: 0 0 6px;
+        padding: 0 10px;
+        list-style-type: none !important;
+        display: block;
+        color: #fff;
+        overflow: hidden
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector ul li input {
+        clear: both;
+        float: left;
+        margin: 3px 3px 0 5px
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector ul li label {
+        width: 60px;
+        float: left;
+        padding: 4px 0 0;
+        line-height: 15px;
+        font-family: Helvetica, Arial, serif;
+        font-size: 11px;
+        color: #fff;
+        margin-left: 5px;
+        cursor: pointer
+      }
+
+      .mejs-controls .mejs-speed-button .mejs-speed-selector ul li:hover {
+        background-color: #c8c8c8 !important;
+        background-color: rgba(255, 255, 255, .4) !important
+      }
+
+      .mejs-controls .mejs-button.mejs-jump-forward-button {
+        background: transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/15e1ac8cbacc2efdf1ac2677de48a253.png) no-repeat 3px 3px
+      }
+
+      .mejs-controls .mejs-button.mejs-jump-forward-button button {
+        background: transparent;
+        font-size: 9px;
+        line-height: normal;
+        color: #fff
+      }
+
+      .mejs-controls .mejs-button.mejs-skip-back-button {
+        background: transparent url(https://du11hjcvx0uqb.cloudfront.net/br/dist/webpack-production/cd6dc830eb45b3a5a96bbc936ff54846.png) no-repeat 3px 3px
+      }
+
+      .mejs-controls .mejs-button.mejs-skip-back-button button {
+        background: transparent;
+        font-size: 9px;
+        line-height: normal;
+        color: #fff
+      }
+
+    </style>
+    <style type="text/css">
+      /*
+ * Copyright (C) 2014 - present Instructure, Inc.
+ *
+ * This file is part of Canvas.
+ *
+ * Canvas is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License as published by the Free
+ * Software Foundation, version 3 of the License.
+ *
+ * Canvas is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+      /* customizations to mediaelementplayer css */
+
+      /*
+  Because this file is not proccessed by our brandable_css sass pipeline,
+  it cannot use our sass-direction helpers. So we have to handle RTL manually
+  by putting direction-specific styles in [dir="ltr"] or [dir="rtl"] blocks.
+*/
+      /* stylelint-disable property-disallowed-list, declaration-property-value-disallowed-list */
+
+      /* good menu widths */
+      .mejs-sourcechooser-selector {
+        width: 160px;
+      }
+
+      .mejs-sourcechooser-selector label {
+        width: 160px !important;
+      }
+
+      .mejs-captions-selector {
+        width: 105px;
+      }
+
+      [dir="ltr"] .mejs-captions-selector {
+        text-align: left
+      }
+
+      [dir="rtl"] .mejs-captions-selector {
+        text-align: right
+      }
+
+      .mejs-captions-selector label {
+        width: 70px !important;
+      }
+
+      /* Subtitile upload link */
+      .mejs-captions-selector .upload-track {
+        color: white;
+        margin-top: 3px;
+        margin-bottom: 5px;
+      }
+
+      [dir="ltr"] .mejs-captions-selector .upload-track {
+        margin-right: 0px;
+        margin-left: 5px;
+        float: left;
+      }
+
+      [dir="rtl"] .mejs-captions-selector .upload-track {
+        margin-left: 0px;
+        margin-right: 5px;
+        float: right;
+      }
+
+      /* "x" button to remove a subtitle */
+      .mejs-captions-selector a[data-remove] {
+        position: absolute;
+        top: 0;
+        color: white;
+      }
+
+      [dir="ltr"] .mejs-captions-selector a[data-remove] {
+        right: 0
+      }
+
+      [dir="rtl"] .mejs-captions-selector a[data-remove] {
+        left: 0
+      }
+
+
+      /* style menu items without a radio button */
+      .mejs-button [role="menu"] {
+        padding: 0 !important;
+      }
+
+      /* compensate for above 0 padding */
+      .mejs-button [role="menu"] ul li {
+        position: relative;
+        padding: 0 10px !important;
+      }
+
+      /* add a hover effect */
+      .mejs-button [role="menu"] ul li:hover {
+        background-color: #c8c8c8 !important;
+        background-color: rgba(255, 255, 255, 0.4) !important;
+      }
+
+      .mejs-button [role="menu"] ul li input {
+        border: 0;
+        clip: rect(0 0 0 0);
+        position: absolute;
+        overflow: hidden;
+        margin: -1px;
+        padding: 0;
+        width: 1px;
+        height: 1px;
+      }
+
+      .mejs-button [role="menu"] ul li label {
+        cursor: pointer;
+      }
+
+      [dir="ltr"] .mejs-button [role="menu"] ul li label {
+        margin-left: 5px
+      }
+
+      [dir="rtl"] .mejs-button [role="menu"] ul li label {
+        margin-right: 5px
+      }
+
+
+      .mejs-button [role="menu"] label.mejs-selected {
+        color: #21f8f8 !important;
+      }
+
+      /* stylelint-enable property-disallowed-list, declaration-property-value-disallowed-list */
+
+    </style>
+    <script charset="utf-8" src="./func-scope_files/268-c-a795924b34.js"></script>
+    <script charset="utf-8" src="./func-scope_files/750-c-ecd2a02a77.js"></script>
+    <style type="text/css">
+      .fancybox-margin {
+        margin-right: 0px;
+      }
+
+    </style>
+    <style>
+      .immersive-reader-button {
+        cursor: pointer;
+        display: inline-block;
+        padding: 5px;
+      }
+
+      .immersive-reader-button:hover {
+        background: rgba(0, 0, 0, .05);
+        border-radius: 2px
+
+    </style>
+  </head>
+
+  <body
+    class="with-left-side course-menu-expanded padless-content pages full-width context-course_1079 responsive_awareness responsive_misc show webkit chrome no-touch primary-nav-transitions"
+    data-gclp-initialized="true" data-gistbox-initialized="true">
+
+    <noscript>
+      <div role="alert" class="ic-flash-static ic-flash-error">
+        <div class="ic-flash__icon" aria-hidden="true">
+          <i class="icon-warning"></i>
+        </div>
+        <h1>You need to have JavaScript enabled in order to access this site.</h1>
+      </div>
+    </noscript>
+
+
+
+
+    <ul id="flash_message_holder"></ul>
+    <div id="flash_screenreader_holder" role="alert" aria-live="assertive" aria-relevant="additions"
+      class="screenreader-only" aria-atomic="false"></div>
+
+    <div id="application" class="ic-app">
+
+
+
+      <header id="mobile-header" class="no-print">
+        <button type="button" class="Button Button--icon-action-rev Button--large mobile-header-hamburger">
+          <i class="icon-solid icon-hamburger"></i>
+          <span id="mobileHeaderInboxUnreadBadge" class="menu-item__badge"
+            style="min-width: 0; top: 12px; height: 12px; right: 6px; display:none;"></span>
+          <span class="screenreader-only">Dashboard</span>
+        </button>
+        <div class="mobile-header-space"></div>
+        <a class="mobile-header-title expandable" href="https://lambdaschool.instructure.com/courses/1079" role="button"
+          aria-controls="mobileContextNavContainer">
+          <div>WEB_1.3_WEB43</div>
+          <div>Objective 1 - explain function scope</div>
+        </a>
+        <div class="mobile-header-space"></div>
+        <button type="button" class="Button Button--icon-action-rev Button--large mobile-header-arrow"
+          aria-label="Navigation Menu">
+          <i class="icon-arrow-open-down" id="mobileHeaderArrowIcon"></i>
+        </button>
+      </header>
+      <nav id="mobileContextNavContainer"></nav>
+      <header id="header" class="ic-app-header no-print ">
+        <a href="https://lambdaschool.instructure.com/courses/1079/pages/objective-1-explain-function-scope?module_item_id=565583#content"
+          id="skip_navigation_link">Skip To Content</a>
+        <div role="region" class="ic-app-header__main-navigation" aria-label="Global Navigation">
+          <div class="ic-app-header__logomark-container">
+            <a href="https://lambdaschool.instructure.com/" class="ic-app-header__logomark">
+              <span class="screenreader-only">Dashboard</span>
+            </a>
+          </div>
+          <ul id="menu" class="ic-app-header__menu-list">
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <button id="global_nav_profile_link" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container">
+                  <div aria-hidden="true" class="fs-exclude ic-avatar ">
+                    <img src="./func-scope_files/avatar-50.png" alt="Bryan Guner">
+                  </div>
+                  <span class="menu-item__badge"></span>
+                </div>
+                <div class="menu-item__text">
+                  Account
+                </div>
+              </button>
+            </li>
+            <li class="ic-app-header__menu-list-item ">
+              <a id="global_nav_dashboard_link" href="https://lambdaschool.instructure.com/"
+                class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--dashboard" version="1.1" x="0"
+                    y="0" viewBox="0 0 280 200" enable-background="new 0 0 280 200" xml:space="preserve">
+                    <path
+                      d="M273.09,180.75H197.47V164.47h62.62A122.16,122.16,0,1,0,17.85,142a124,124,0,0,0,2,22.51H90.18v16.29H6.89l-1.5-6.22A138.51,138.51,0,0,1,1.57,142C1.57,65.64,63.67,3.53,140,3.53S278.43,65.64,278.43,142a137.67,137.67,0,0,1-3.84,32.57ZM66.49,87.63,50.24,71.38,61.75,59.86,78,76.12Zm147,0L202,76.12l16.25-16.25,11.51,11.51ZM131.85,53.82v-23h16.29v23Zm15.63,142.3a31.71,31.71,0,0,1-28-16.81c-6.4-12.08-15.73-72.29-17.54-84.25a8.15,8.15,0,0,1,13.58-7.2c8.88,8.21,53.48,49.72,59.88,61.81a31.61,31.61,0,0,1-27.9,46.45ZM121.81,116.2c4.17,24.56,9.23,50.21,12,55.49A15.35,15.35,0,1,0,161,157.3C158.18,152,139.79,133.44,121.81,116.2Z">
+                    </path>
+                  </svg>
+
+                </div>
+                <div class="menu-item__text">Dashboard</div>
+              </a>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item ic-app-header__menu-list-item--active">
+              <button id="global_nav_courses_link" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0"
+                    y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve">
+                    <path
+                      d="M73.31,198c-11.93,0-22.22,8-24,18.73a26.67,26.67,0,0,0-.3,3.63v.3a22,22,0,0,0,5.44,14.65,22.47,22.47,0,0,0,17.22,8H200V228.19h-134V213.08H200V198Zm21-105.74h90.64V62H94.3ZM79.19,107.34V46.92H200v60.42Zm7.55,30.21V122.45H192.49v15.11ZM71.65,16.71A22.72,22.72,0,0,0,49,39.36V190.88a41.12,41.12,0,0,1,24.32-8h157V16.71ZM33.88,39.36A37.78,37.78,0,0,1,71.65,1.6H245.36V198H215.15v45.32h22.66V258.4H71.65a37.85,37.85,0,0,1-37.76-37.76Z">
+                    </path>
+                  </svg>
+
+                </div>
+                <div class="menu-item__text">
+                  Courses
+                </div>
+              </button>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <a id="global_nav_calendar_link" href="https://lambdaschool.instructure.com/calendar"
+                class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--calendar" version="1.1" x="0"
+                    y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve">
+                    <path
+                      d="M197.07,213.38h16.31V197.07H197.07Zm-16.31,16.31V180.76h48.92v48.92Zm-48.92-16.31h16.31V197.07H131.85Zm-16.31,16.31V180.76h48.92v48.92ZM66.62,213.38H82.93V197.07H66.62ZM50.32,229.68V180.76H99.24v48.92Zm146.75-81.53h16.31V131.85H197.07Zm-16.31,16.31V115.54h48.92v48.92Zm-48.92-16.31h16.31V131.85H131.85Zm-16.31,16.31V115.54h48.92v48.92ZM66.62,148.15H82.93V131.85H66.62ZM50.32,164.46V115.54H99.24v48.92ZM34,262.29H246V82.93H34ZM246,66.62V42.16A8.17,8.17,0,0,0,237.84,34H213.38v8.15a8.15,8.15,0,1,1-16.31,0V34H82.93v8.15a8.15,8.15,0,0,1-16.31,0V34H42.16A8.17,8.17,0,0,0,34,42.16V66.62Zm-8.15-48.92a24.49,24.49,0,0,1,24.46,24.46V278.6H17.71V42.16A24.49,24.49,0,0,1,42.16,17.71H66.62V9.55a8.15,8.15,0,0,1,16.31,0v8.15H197.07V9.55a8.15,8.15,0,1,1,16.31,0v8.15Z">
+                    </path>
+                  </svg>
+
+                </div>
+                <div class="menu-item__text">
+                  Calendar
+                </div>
+              </a>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <a id="global_nav_conversations_link" href="https://lambdaschool.instructure.com/conversations"
+                class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container">
+                  <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                      class="ic-icon-svg ic-icon-svg--inbox" version="1.1" x="0" y="0" viewBox="0 0 280 280"
+                      enable-background="new 0 0 280 280" xml:space="preserve">
+                      <path
+                        d="M91.72,120.75h96.56V104.65H91.72Zm0,48.28h80.47V152.94H91.72Zm0-96.56h80.47V56.37H91.72Zm160.94,34.88H228.52V10.78h-177v96.56H27.34A24.17,24.17,0,0,0,3.2,131.48V244.14a24.17,24.17,0,0,0,24.14,24.14H252.66a24.17,24.17,0,0,0,24.14-24.14V131.48A24.17,24.17,0,0,0,252.66,107.34Zm0,16.09a8.06,8.06,0,0,1,8,8v51.77l-32.19,19.31V123.44ZM67.58,203.91v-177H212.42v177ZM27.34,123.44H51.48v79.13L19.29,183.26V131.48A8.06,8.06,0,0,1,27.34,123.44ZM252.66,252.19H27.34a8.06,8.06,0,0,1-8-8V202l30,18H230.75l30-18v42.12A8.06,8.06,0,0,1,252.66,252.19Z">
+                      </path>
+                    </svg>
+                  </span>
+                  <span class="menu-item__badge"></span>
+                </div>
+                <div class="menu-item__text">
+                  Inbox
+                </div>
+              </a>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item">
+              <button id="global_nav_history_link" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg viewBox="0 0 1920 1920" class="ic-icon-svg menu-item__icon svg-icon-history" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M960 112.941c-467.125 0-847.059 379.934-847.059 847.059 0 467.125 379.934 847.059 847.059 847.059 467.125 0 847.059-379.934 847.059-847.059 0-467.125-379.934-847.059-847.059-847.059M960 1920C430.645 1920 0 1489.355 0 960S430.645 0 960 0s960 430.645 960 960-430.645 960-960 960m417.905-575.955L903.552 988.28V395.34h112.941v536.47l429.177 321.77-67.765 90.465z"
+                      stroke="none" stroke-width="1" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="menu-item__text">
+                  History
+                </div>
+              </button>
+            </li>
+
+
+            <li id="context_external_tool_43_menu_item"
+              class="globalNavExternalTool menu-item ic-app-header__menu-list-item">
+              <a class="ic-app-header__menu-list-link"
+                href="https://lambdaschool.instructure.com/accounts/1/external_tools/43?launch_type=global_navigation">
+                <svg version="1.1" class="ic-icon-svg ic-icon-svg--lti menu-item__icon"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+                  <path
+                    d="M37.5331419,41.3325083 L25.3997411,41.3325083 L25.3997411,52.8756632 C27.5972597,53.6451225 29.1733531,55.7378472 29.1733531,58.198822 C29.1733531,61.3127847 26.6499049,63.8371501 23.5370738,63.8371501 C20.4242427,63.8371501 17.9007945,61.3127847 17.9007945,58.198822 C17.9007945,55.7378472 19.4768879,53.6451225 21.6744065,52.8756632 L21.6744065,41.3325083 L17.5706263,41.3325083 L17.5717453,47.9192726 C17.5717453,50.4825483 15.4945548,52.5604939 12.9322104,52.5604939 L10.9667199,52.5588751 C10.2051449,54.7710384 8.10625368,56.3604121 5.63627929,56.3604121 C2.52344819,56.3604121 2.84217094e-14,53.8360466 2.84217094e-14,50.722084 C2.84217094e-14,47.6081214 2.52344819,45.0837559 5.63627929,45.0837559 C8.08603407,45.0837559 10.1707563,46.6472143 10.9477485,48.8310912 L12.9905507,48.8310912 C13.4625615,48.8310912 13.8452018,48.4483118 13.8452018,47.9761294 L13.8452018,41.3325083 L5.65400042,41.3325083 C4.57511859,41.3325083 3.70051205,40.4575839 3.70051205,39.3783099 L3.70051205,1.95419847 C3.70051205,0.874924458 4.57511859,-1.42108547e-14 5.65400042,-1.42108547e-14 L57.2376164,-1.42108547e-14 C58.3164983,-1.42108547e-14 59.1911048,0.874924458 59.1911048,1.95419847 L59.1911048,39.3783099 C59.1911048,40.4575839 58.3164983,41.3325083 57.2376164,41.3325083 L49.085452,41.3325083 L49.085452,47.9761294 C49.085452,48.4483118 49.4680923,48.8310912 49.9401031,48.8310912 L51.9829054,48.8310912 C52.7598976,46.6472143 54.8446197,45.0837559 57.2943745,45.0837559 C60.4072056,45.0837559 62.9306538,47.6081214 62.9306538,50.722084 C62.9306538,53.8360466 60.4072056,56.3604121 57.2943745,56.3604121 C54.8244001,56.3604121 52.725509,54.7710384 51.9639339,52.5588751 L49.9996524,52.5604938 C47.436099,52.5604939 45.3589085,50.4825483 45.3589085,47.9192726 L45.3600275,41.3325083 L41.2584765,41.3325083 L41.2584765,52.8756632 C43.4559951,53.6451225 45.0320885,55.7378472 45.0320885,58.198822 C45.0320885,61.3127847 42.5086403,63.8371501 39.3958092,63.8371501 C36.2829781,63.8371501 33.7595299,61.3127847 33.7595299,58.198822 C33.7595299,55.7378472 35.3356233,53.6451225 37.5331419,52.8756632 L37.5331419,41.3325083 Z M39.4407163,60.0484002 C40.4618389,60.0484002 41.2896223,59.2203158 41.2896223,58.198822 C41.2896223,57.1773282 40.4618389,56.3492439 39.4407163,56.3492439 C38.4195937,56.3492439 37.5918102,57.1773282 37.5918102,58.198822 C37.5918102,59.2203158 38.4195937,60.0484002 39.4407163,60.0484002 Z M23.5819809,60.0484002 C24.6031035,60.0484002 25.4308869,59.2203158 25.4308869,58.198822 C25.4308869,57.1773282 24.6031035,56.3492439 23.5819809,56.3492439 C22.5608582,56.3492439 21.7330748,57.1773282 21.7330748,58.198822 C21.7330748,59.2203158 22.5608582,60.0484002 23.5819809,60.0484002 Z M57.3392816,52.5716621 C58.3604042,52.5716621 59.1881877,51.7435778 59.1881877,50.722084 C59.1881877,49.7005902 58.3604042,48.8725058 57.3392816,48.8725058 C56.318159,48.8725058 55.4903755,49.7005902 55.4903755,50.722084 C55.4903755,51.7435778 56.318159,52.5716621 57.3392816,52.5716621 Z M5.59137222,52.5716621 C6.61249484,52.5716621 7.44027829,51.7435778 7.44027829,50.722084 C7.44027829,49.7005902 6.61249484,48.8725058 5.59137222,48.8725058 C4.57024959,48.8725058 3.74246615,49.7005902 3.74246615,50.722084 C3.74246615,51.7435778 4.57024959,52.5716621 5.59137222,52.5716621 Z M30.1554353,12.9293586 L35.7525093,16.2831044 C36.070684,16.5163802 36.2591714,16.8906762 36.2591714,17.2892282 C36.2591714,17.6877801 36.070684,18.0620761 35.7525093,18.2953519 L30.1554353,21.6490977 C29.7776345,21.8706324 29.3121961,21.8707698 28.9342686,21.6494581 C28.5563411,21.4281465 28.3232712,21.0189676 28.3227651,20.575899 L28.3227651,14.0025573 C28.3232712,13.5594887 28.5563411,13.1503099 28.9342686,12.9289982 C29.3121961,12.7076865 29.7776345,12.7078239 30.1554353,12.9293586 Z M55.6445081,31.031948 L55.6445081,4.52360758 C55.6445081,3.98397057 55.2072048,3.54650834 54.6677639,3.54650834 L8.22385298,3.54650834 C7.68441206,3.54650834 7.24710879,3.98397057 7.24710879,4.52360758 L7.24710879,31.031948 L55.6445081,31.031948 Z M55.6445081,34.5784563 L7.24710879,34.5784563 L7.24710879,36.8093831 C7.24710879,37.3490201 7.68441206,37.7864824 8.22385298,37.7864824 L54.6677639,37.7864824 C55.2072048,37.7864824 55.6445081,37.3490201 55.6445081,36.8093831 L55.6445081,34.5784563 Z">
+                  </path>
+                </svg>
+                <div class="menu-item__text">
+                  Studio
+                </div>
+              </a>
+            </li>
+
+            <li class="ic-app-header__menu-list-item">
+              <a id="global_nav_help_link" role="button" class="ic-app-header__menu-list-link"
+                data-track-category="help system" data-track-label="help button" href="http://help.instructure.com/">
+                <div class="menu-item-icon-container" role="presentation">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg menu-item__icon svg-icon-help"
+                    version="1.1" x="0" y="0" viewBox="0 0 200 200" enable-background="new 0 0 200 200"
+                    xml:space="preserve" fill="currentColor">
+                    <path
+                      d="M100,127.88A11.15,11.15,0,1,0,111.16,139,11.16,11.16,0,0,0,100,127.88Zm8.82-88.08a33.19,33.19,0,0,1,23.5,23.5,33.54,33.54,0,0,1-24,41.23,3.4,3.4,0,0,0-2.74,3.15v9.06H94.42v-9.06a14.57,14.57,0,0,1,11.13-14,22.43,22.43,0,0,0,13.66-10.27,22.73,22.73,0,0,0,2.31-17.37A21.92,21.92,0,0,0,106,50.59a22.67,22.67,0,0,0-19.68,3.88,22.18,22.18,0,0,0-8.65,17.64H66.54a33.25,33.25,0,0,1,13-26.47A33.72,33.72,0,0,1,108.82,39.8ZM100,5.2A94.8,94.8,0,1,0,194.8,100,94.91,94.91,0,0,0,100,5.2m0,178.45A83.65,83.65,0,1,1,183.65,100,83.73,83.73,0,0,1,100,183.65"
+                      transform="translate(-5.2 -5.2)"></path>
+                  </svg>
+
+                </div>
+                <div class="menu-item__text">
+                  Help
+                </div>
+              </a> </li>
+          </ul>
+        </div>
+        <div class="ic-app-header__secondary-navigation">
+          <ul class="ic-app-header__menu-list">
+            <li class="menu-item ic-app-header__menu-list-item">
+              <button id="primaryNavToggle"
+                class="ic-app-header__menu-list-link ic-app-header__menu-list-link--nav-toggle"
+                aria-label="Expand global navigation" title="Expand global navigation">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--navtoggle" version="1.1" x="0"
+                    y="0" width="40" height="32" viewBox="0 0 40 32" xml:space="preserve">
+                    <path
+                      d="M39.5,30.28V2.48H37.18v27.8Zm-4.93-13.9L22.17,4,20.53,5.61l9.61,9.61H.5v2.31H30.14l-9.61,9.61,1.64,1.64Z">
+                    </path>
+                  </svg>
+
+                </div>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div id="global_nav_tray_container"></div>
+        <div id="global_nav_tour"></div>
+      </header>
+
+
+      <div id="instructure_ajax_error_box">
+        <div style="text-align: right; background-color: #fff;"><a
+            href="https://lambdaschool.instructure.com/courses/1079/pages/objective-1-explain-function-scope?module_item_id=565583#"
+            class="close_instructure_ajax_error_box_link">Close</a></div>
+        <iframe id="instructure_ajax_error_result" src="./func-scope_files/saved_resource.html" style="border: 0;"
+          title="Error"></iframe>
+      </div>
+
+      <div id="wrapper" class="ic-Layout-wrapper">
+        <div class="ic-app-nav-toggle-and-crumbs no-print">
+          <button type="button" id="courseMenuToggle" class="Button Button--link ic-app-course-nav-toggle"
+            aria-live="polite" aria-label="Hide Courses Navigation Menu">
+            <i class="icon-hamburger" aria-hidden="true"></i>
+          </button>
+          <div class="ic-app-crumbs">
+            <nav id="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+              <ul>
+                <li class="home"><a href="https://lambdaschool.instructure.com/"><span class="ellipsible"> <i
+                        class="icon-home" title="My Dashboard">
+                        <span class="screenreader-only">My Dashboard</span>
+                      </i>
+                    </span></a></li>
+                <li><a href="https://lambdaschool.instructure.com/courses/1079"><span
+                      class="ellipsible">WEB_1.3_WEB43</span></a></li>
+                <li><a href="https://lambdaschool.instructure.com/courses/1079/pages"><span
+                      class="ellipsible">Pages</span></a></li>
+                <li><span class="ellipsible">Objective 1 - explain function scope</span></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="TutorialToggleHolder"></div>
+        </div>
+        <div id="main" class="ic-Layout-columns">
+          <div class="ic-Layout-watermark"></div>
+          <div id="left-side" class="ic-app-course-menu list-view" style="display: block">
+            <nav role="navigation" aria-label="Courses Navigation Menu">
+              <ul id="section-tabs">
+                <li class="section"><a href="https://lambdaschool.instructure.com/courses/1079" class="home"
+                    tabindex="0">Home</a></li>
+                <li class="section"><a href="https://lambdaschool.instructure.com/courses/1079/grades" class="grades"
+                    tabindex="0">Grades</a></li>
+                <li class="section"><a href="https://lambdaschool.instructure.com/courses/1079/modules" class="modules"
+                    tabindex="0">Modules</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div id="not_right_side" class="ic-app-main-content">
+            <div id="content-wrapper" class="ic-Layout-contentWrapper">
+
+              <div id="content" class="ic-Layout-contentMain" role="main">
+
+
+
+
+                <div id="wiki_page_show">
+                  <div class="header-bar-outer-container">
+                    <div class="sticky-toolbar sticky" data-sticky="">
+                      <div class="header-bar page-toolbar ">
+                        <div class="page-toolbar-start">
+                          <div class="page-heading">
+
+
+
+                          </div>
+
+
+
+                        </div>
+                        <div class="page-toolbar-end">
+
+                          <div class="blueprint-label"></div>
+                          <div class="publishing">
+                            <div class="published">
+
+
+
+                            </div>
+                          </div>
+
+                          <div class="buttons">
+
+
+
+
+                            <div id="immersive_reader_mount_point" class="inline-block">
+                              <div><button cursor="pointer" type="button" tabindex="0"
+                                  class="fOyUs_bGBk fOyUs_fKyb fOyUs_cuDs fOyUs_cBHs fOyUs_eWbJ fOyUs_fmDy fOyUs_eeJl fOyUs_cBtr fOyUs_fuTR fOyUs_cnfU fQfxa_bGBk"
+                                  style="margin: 0px; padding: 0px; border-radius: 0.25rem; border-width: 0px; width: auto; cursor: pointer;"><span
+                                    class="fQfxa_caGd fQfxa_fKcQ fQfxa_buuG fQfxa_ImeN undefined fQfxa_dqAF"><span
+                                      direction="row" wrap="no-wrap"
+                                      class="fOyUs_bGBk fOyUs_desw bDzpk_bGBk bDzpk_eRIA bDzpk_fZWR bDzpk_qOas"
+                                      style="width: 100%; height: 100%;"><span class="fOyUs_bGBk dJCgj_bGBk"
+                                        style="padding: 0px 0.5rem 0px 0px;"><span class="fQfxa_eoCh"><svg
+                                            viewBox="0 0 40 37" rotate="0" width="1em" height="1em" aria-hidden="true"
+                                            role="presentation" focusable="false"
+                                            class="esvoZ_bGBk esvoZ_drOs esvoZ_eXrk cGqzL_bGBk"
+                                            style="width: 1em; height: 1em;">
+                                            <g role="presentation">
+                                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g fill-rule="nonzero">
+                                                  <path
+                                                    d="M37.4,0.9 L37.4,9.6 L35.4,9.6 L35.4,2.9 L24.4,2.9 C22.9,3.3 20,4.5 20,6 L20,17.2 L18,17.2 L18,6 C18,5 15.6,3.6 13.8,2.9 L2,2.9 L2,29 L12.4,29 L12.4,31 L0,31 L0,0.9 L14.1,0.9 L14.3,1 C15,1.2 17.5,2.2 18.9,3.7 C20.5,1.9 23.5,1.1 23.9,1 L24.1,1 L37.4,1 L37.4,0.9 Z"
+                                                    fill="#000000"></path>
+                                                  <path
+                                                    d="M27.4,37 L25.8,37 L18.4,29.4 L14,29.4 L14,21 L18.4,20.9 L26.1,13 L27.4,13 L27.4,37 Z M16,27.4 L19.2,27.4 L25.3,33.7 L25.3,16.6 L19.2,22.9 L15.9,22.9 L15.9,27.4 L16,27.4 Z"
+                                                    fill="#0197F2"></path>
+                                                  <path
+                                                    d="M31.3,32.7 L29.6,31.7 C29.6,31.7 31.7,28.3 31.7,25.2 C31.7,21.9 29.6,18.5 29.6,18.4 L31.3,17.4 C31.4,17.6 33.7,21.3 33.7,25.2 C33.7,28.8 31.4,32.6 31.3,32.7 Z"
+                                                    fill="#0197F2"></path>
+                                                  <path
+                                                    d="M36.4,36.2 L34.8,35 C34.8,35 38,30.8 38,25.2 C38,19.6 34.8,15.4 34.8,15.4 L36.4,14.2 C36.5,14.4 40,19 40,25.3 C40,31.5 36.5,36 36.4,36.2 Z"
+                                                    fill="#0197F2"></path>
+                                                </g>
+                                              </g>
+                                            </g>
+                                          </svg></span></span><span class="fOyUs_bGBk dJCgj_bGBk dJCgj_dfFp"><span
+                                          class="fQfxa_biBD">Immersive Reader</span></span></span></span></button></div>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="page-changed-alert" role="alert" aria-atomic="true" aria-live="polite"></div>
+                  </div>
+
+                  <div id="direct-share-mount-point"></div>
+
+
+                  <div class="show-content user_content clearfix enhanced">
+                    <h1 class="page-title">Objective 1 - explain function scope</h1>
+
+
+                    <p></p>
+                    <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                      <div class="wistia_responsive_wrapper"
+                        style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe
+                          src="./func-scope_files/cu101kblpe.html" allow="autoplay; fullscreen" frameborder="0"
+                          scrolling="yes" class="wistia_embed" name="wistia_embed" allowfullscreen="" width="100%"
+                          height="100%"></iframe></div>
+                    </div>
+                    <p></p>
+                    <h2 id="overview">Overview</h2>
+                    <h3 id="scope">Scope</h3>
+                    <p>Remember our cookie analogy from our original discussion on Arrays? If not, recall that you have
+                      a robot baking cookies for you with the function <code>bakeCookies()</code>! Things are going
+                      great. Fresh cookies every day - until suddenly, your robot starts burning the lemon crisps! Come
+                      on, robot. To fix this, you decide to add a parameter <code>temperature</code>, such that you can
+                      specify how your robot should be baking cookies. So now, <code>bakeCookies(chocolateChip,
+                        400)</code> and <code>bakeCookies(lemonCrisps, 350)</code> are valid. Later on, you go to print
+                      a recipe (for a cookie-baking robot friend) with <code>console.log(temperature)</code>, but it
+                      comes back as <code>undefined</code>! what? isn't it clearly defined in the function? You've just
+                      run into your first scoping issue.</p>
+                    <p>Scope is defined as which variables we currently have access to and where. So far in this course,
+                      we have mostly been working in <code>global</code> scope, in that we can access any variable we
+                      have created, anywhere in our code. There are a couple different levels of scope:
+                      <code>block</code> level scope is used in <code>if</code> statements and <code>for</code> loops.
+                      In <code>block</code> level scope, a variable declared using either <code>let</code> or
+                      <code>const</code> is only available within the statement or loop (like <code>i</code> in a
+                      <code>for</code> loop). Similarly, there is function scope, where <code>temperature</code> exists
+                      inside the function, but not elsewhere in your code file.</p>
+                    <h4 id="function-level-scope">Function Level Scope</h4>
+                    <p>Function scope allows us to create variables inside of functions, that are essentially private to
+                      that function. We can not reach into a function from the outside and get access to these
+                      variables. But we are free to use these variables anywhere within our function. Conversely, we
+                      <em>do</em> have access to variables outside of the function. It is a one-way street. Functions
+                      can reach out and grab variables outside of their scope, but we can not reach into a function to
+                      get a variable.</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="0"><code class="javascript  language-javascript"><span class="token keyword">const</span> var1 <span class="token operator">=</span> <span class="token string">'Lambda'</span>
+
+<span class="token keyword">function</span> <span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">const</span> var2 <span class="token operator">=</span> <span class="token string">'School'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lambda</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>var2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// School</span>
+  <span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Lambda</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>var2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span></code></pre>
+                    <p>Because <code>var2</code> is defined inside the function, it can't be accessed later on.
+                      <code>var1</code>, however, is global, and can be accessed anywhere.</p>
+                    <iframe height="400px" width="100%" src="./func-scope_files/Function-Scope.html" scrolling="yes"
+                      frameborder="no" allowfullscreen="true"
+                      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+                    <p><strong>Check For Understanding:</strong> Edit the code above such that <code>var2</code> has
+                      global scope (and can be accessed outside of the function).</p>
+                    <h3 id="hoisting">Hoisting</h3>
+                    <p>Typically when we use variables we declare and initialize them in the same line. That looks
+                      something like this:</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="1"><code class="javascript  language-javascript"><span class="token comment">// declare &amp; initialize variable</span>
+<span class="token keyword">var</span> myVariable <span class="token operator">=</span> <span class="token string">"this is a variable"</span><span class="token punctuation">;</span></code></pre>
+                    <p>According to the rules of JavaScript though, we don't actually have to do it this way. For
+                      example, the below is also perfectly acceptable and more closely mirrors what JavaScript is doing
+                      under the hood. When you run JavaScript, the compiler will declare all variables <em>before</em>
+                      initializing them and <em>before</em> running the rest of the script. First the compiler will
+                      declare all functions, then the variables. This is one of the quirky things about JavaScript as a
+                      language.</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="2"><code class="javascript  language-javascript"><span class="token comment">// declare variable</span>
+<span class="token keyword">var</span> myVariable<span class="token punctuation">;</span>
+<span class="token comment">// initialize variable</span>
+myVariable <span class="token operator">=</span> <span class="token string">"this is a variable"</span><span class="token punctuation">;</span></code></pre>
+                    <p>Given what you now know, consider the example below. What would you expect the output to be?
+                      <code>Null</code>? <code>undefined</code>? <code>this is a variable</code>?</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="3"><code class="javascript  language-javascript"><span class="token comment">// use variable</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myVariable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// declare and initialize variable</span>
+<span class="token keyword">var</span> myVariable <span class="token operator">=</span> <span class="token string">'this is a variable'</span><span class="token punctuation">;</span></code></pre>
+                    <p>The answer is undefined. This is because of how the compiler runs. It first declares the variable
+                      with a value of <code>undefined</code>, then runs the script, including the initialization of the
+                      variables with the values we give them. The compiler would take the code above and interpret is as
+                      this:</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="4"><code class="javascript  language-javascript"><span class="token keyword">var</span> myVariable<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myVariable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+myVariable <span class="token operator">=</span> <span class="token string">"this is a variable"</span><span class="token punctuation">;</span></code></pre>
+                    <p>Let's consider another example. What would you expect the output here to be?</p>
+                    <pre class=" language-javascript" data-initialized="true" data-gclp-id="5"><code class="javascript  language-javascript"><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                    <p>If you guessed <code>"hello"</code>, you'd be correct. After declaring all of the variables and
+                      functions, your compiler will also <strong>initialize</strong> functions. This means that
+                      functions can be used before they are declared <em>or</em> initialized. Quick note that this only
+                      applies to declared functions, not function expressions.</p>
+                    <p>All of that encompasses the idea of <strong><em>hoisting</em></strong>, Hoisting is the ability
+                      to call functions and variables before they are declared, like we see above. It is usually
+                      preferable to declare your function before you call it, but because of hoisting, you won't get an
+                      error either way. The only time you'd want to break that rule is if you wanted to invoke all the
+                      functions at the top of a file so that another developer looking at your file could see at the top
+                      what that file does</p>
+                    <p>We've mentioned some minor differences between variable declaration types in the past. Those are
+                      explained by hoisting. Declarations with <code>var</code> and the <code>function</code> keyword
+                      are hoisted and can therefore be used anywhere in a script. These will return undefined if not yet
+                      initialized. Variables declared with <code>let</code> and <code>const</code> are not hoisted and
+                      thus can not be used anywhere without throwing a <code>ReferenceError</code>. Basically, you can't
+                      use <code>let</code> variables or <code>const</code> variables before you've given them a value.
+                      That difference is illustrated here:</p>
+                    <pre class=" language-javascript" data-initialized="true" data-gclp-id="6"><code class="javascript  language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1a'</span><span class="token punctuation">,</span> myName1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1b'</span> myName1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+ <span class="token keyword">var</span> myName1 <span class="token operator">=</span> <span class="token string">'Sunil'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'2a'</span><span class="token punctuation">,</span> myName2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// error: myName2 is not defined</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'2b'</span><span class="token punctuation">,</span> myName2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+    <span class="token keyword">let</span> myName2 <span class="token operator">=</span> <span class="token string">'Sunil'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'3a'</span><span class="token punctuation">,</span> myName3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// error: myName3 is not defined</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'3b'</span><span class="token punctuation">,</span> myName3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+    <span class="token keyword">const</span> myName3 <span class="token operator">=</span> <span class="token string">'Sunil'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                    <p>Hoisting is a really tricky part of JavaScript development, and shouldn't come up too often. That
+                      said, if you ever find yourself getting weird reference errors and can't figure out why, consider
+                      hoisting as the culprit.</p>
+                    <h2 id="follow-along">Follow Along</h2>
+                    <p>Last time we saw our <code>flip</code> function it logged a result of any number of coin flips.
+                      Our challenge now is to include a summative number that calculates the proportion of
+                      <code>heads</code>/<code>total flips</code>. So, if <code>flip</code> returns heads 4 times and
+                      tails 6 times, our function should not only return a list of 4 heads and 6 tails, it should also
+                      return <code>0.4</code>.</p>
+                    <iframe height="400px" width="100%" src="./func-scope_files/coinFlip-V.html" scrolling="yes"
+                      frameborder="no" allowfullscreen="true"
+                      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+                    <p>In order to perform this calculation we'll utilize a common programing trick and create a counter
+                      called <code>countHeads</code>, this counter will be declared with <code>var</code> and we will
+                      add <code>1</code> to it every time the flip lands on heads (or <code>1</code>).</p>
+                    <p>To make this counter functional we have to rely on scope. It will be important that we declare
+                      the variable <em>outside</em> the loop but <em>inside</em> the function.</p>
+                    <p>This way the variable can be referenced and changed inside of the for loop, but will reset to 0
+                      every time the function is run.</p>
+                    <iframe height="400px" width="100%" src="./func-scope_files/coinFlip-VI.html" scrolling="yes"
+                      frameborder="no" allowfullscreen="true"
+                      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+                    <p>To further demonstrate the importance of scope here let's lets consider a few non-examples, where
+                      <code>countHeads</code> is out of scope. To be completely clear, the examples below are
+                      <strong>wrong</strong>, <strong>incorrect programming</strong>, but are used to illustrate the
+                      importance of scope.</p>
+                    <h3 id="non-example-1">Non-Example 1</h3>
+                    <p>When countHeads is outside of the function, our program would work perfectly fine the first time
+                      we called <code>flip(x)</code>, but would not reset if we called it again. Make this change in the
+                      repl.it above and see if you get the same errors as outlined below.</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="7"><code class="javascript  language-javascript"><span class="token keyword">var</span> countHeads <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// won't reset when function is called</span>
+
+<span class="token keyword">function</span> <span class="token function">flip</span><span class="token punctuation">(</span><span class="token parameter">repeat</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> repeat<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> coinFlip <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>coinFlip <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    countHeads <span class="token operator">=</span> countHeads <span class="token operator">+</span> <span class="token number">1</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Heads"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Tails"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">return</span><span class="token punctuation">(</span>countHeads<span class="token operator">/</span>repeat<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">flip</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;- will return a % under 100 (the correct %)</span>
+<span class="token function">flip</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;- will return a % close to or over 100 (accumulates heads)</span>
+<span class="token function">flip</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;- will return an even higher % (continues to accumulate heads)</span></code></pre>
+                    <h3 id="non-example-2">Non-Example 2</h3>
+                    <p>Similarly, if <code>countHeads</code> was within the for loop it would be declared at 0 every
+                      time the loop ran. So <code>countHeads</code> would only ever equal <code>1</code> or
+                      <code>0</code> depending on the result of the flip.</p>
+                    <p>Even more problematic, our return statement would throw an error because <code>countHeads</code>
+                      only exists within the for loop. In other words, it is out of scope at the return statement
+                      because we are referencing a variable that does not exist at that location.</p>
+                    <p>Again, make these changes changes in the repl.it above to see the errors happen in real time.</p>
+                    <pre class=" language-javascript" data-initialized="true"
+                      data-gclp-id="8"><code class="javascript  language-javascript"><span class="token keyword">function</span> <span class="token function">flip</span><span class="token punctuation">(</span><span class="token parameter">repeat</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> repeat<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> countHeads <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// will reset every time the loop starts over</span>
+        <span class="token keyword">var</span> coinFlip <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>coinFlip <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            countHeads <span class="token operator">=</span> countHeads <span class="token operator">+</span> <span class="token number">1</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Heads"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Tails"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>countHeads <span class="token operator">/</span> repeat<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// will cause an error because countHeads is out of scope</span>
+    <span class="token punctuation">}</span>
+
+<span class="token function">flip</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;- will cause an error</span></code></pre>
+                    <h2 id="challenge">Challenge</h2>
+                    <p>Check your knowledge with the <a href="https://codepen.io/lambdaschool/pen/gOpOjbp?editors=0012"
+                        class="external" target="_blank" rel="noreferrer noopener"><span>function scope
+                          challenge</span><span aria-hidden="true" class="ui-icon ui-icon-extlink ui-icon-inline"
+                          title="Links to an external site."></span><span class="screenreader-only">&nbsp;(Links to an
+                          external site.)</span></a>.</p>
+
+                  </div>
+                </div>
+                <div id="module_navigation_target">
+                  <div style="">
+                    <div class="module-sequence-padding"></div>
+                    <div class="module-sequence-footer" role="navigation" aria-label="Module Navigation">
+                      <div class="module-sequence-footer-content">
+
+
+
+                        <span class="module-sequence-footer-button--next" data-tooltip="left"
+                          data-html-tooltip-title="&lt;i class=&#39;icon-document&#39;&gt;&lt;/i&gt; Objective 2 - describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript">
+                          <a href="https://lambdaschool.instructure.com/courses/1079/modules/items/565590" role="button"
+                            class="Button" aria-describedby="msf0-next-desc" aria-label="Next Module Item">
+                            Next<i class="icon-mini-arrow-right"></i>
+                            <span id="msf0-next-desc" class="hidden" hidden="">Next: Objective 2 - describe what closure
+                              is, how closure is created in a program and why it is important to understand closures in
+                              JavaScript</span>
+                          </a>
+                        </span>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div id="right-side-wrapper" class="ic-app-main-content__secondary">
+              <aside id="right-side" role="complementary">
+
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div style="display:none;">
+        <!-- Everything inside of this should always stay hidden -->
+        <div id="page_view_id">ac16e0cd-8266-43d5-b362-33151eb0b114</div>
+      </div>
+      <div id="aria_alerts" class="hide-text affix" role="alert" aria-live="assertive"></div>
+      <div id="StudentTray__Container"></div>
+      <div class="NewUserTutorialTray__Container"></div>
+
+
+      <script>
+        Object.assign(
+          ENV, {}
+        )
+
+      </script>
+
+      <link rel="preload" href="./func-scope_files/nav_tourpoints-c-9a847d0a0c.js.download" as="script"
+        type="text/javascript">
+      <link rel="preload" href="./func-scope_files/inst_fs_service_worker-c-89ccbc32d7.js.download" as="script"
+        type="text/javascript">
+      <script>
+        //<![CDATA[
+        ( window.bundles || ( window.bundles = [] ) ).push( 'nav_tourpoints' );
+        ( window.bundles || ( window.bundles = [] ) ).push( 'inst_fs_service_worker' );
+        //]]>
+
+      </script>
+      <script>
+        //<![CDATA[
+
+        ;
+        [
+          "https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/4765/main.js"
+        ]
+        .forEach( function ( src ) {
+          var s = document.createElement( 'script' )
+          s.src = src
+          s.async = false
+          document.head.appendChild( s )
+        } );
+        //]]>
+
+      </script>
+
+    </div> <!-- #application -->
+
+
+    <svg id="zcomponents__svg" style="display: none;"></svg>
+    <div id="nav-tray-portal" style="position: relative; z-index: 99;"></div>
+    <form id="gclp-frame-form" target="gclp-frame" method="post" style="display: none;"></form>
+    <div class="gclp-code-grabber" data-gclp-id="0" data-hasqtip="true"
+      style="left: 1798.98px; top: 1261.39px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="1" data-hasqtip="true"
+      style="left: 1798.98px; top: 2141.71px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="2" data-hasqtip="true"
+      style="left: 1798.98px; top: 2330.02px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="3" data-hasqtip="true"
+      style="left: 1798.98px; top: 2511.4px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="4" data-hasqtip="true"
+      style="left: 1798.98px; top: 2720.45px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="5" data-hasqtip="true"
+      style="left: 1798.98px; top: 2877.14px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="6" data-hasqtip="true"
+      style="left: 1798.98px; top: 3302.76px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="7" data-hasqtip="true"
+      style="left: 1798.98px; top: 5095.91px; display: none;"></div>
+    <div class="gclp-code-grabber" data-gclp-id="8" data-hasqtip="true"
+      style="left: 1798.98px; top: 5774.61px; display: none;"></div><span
+      style="margin: 0px auto; border: 2px dotted rgb(0, 0, 0); position: absolute; z-index: 2147483647; visibility: hidden; left: 143px; width: 0px; top: 1099px; height: 0px;"></span><span
+      style="z-index: 2147483647; position: absolute; visibility: hidden; left: 128px; width: 50px; top: 1084px; height: 20px; font-size: 10px; color: black;"></span>
+  </body>
+
+</html>
