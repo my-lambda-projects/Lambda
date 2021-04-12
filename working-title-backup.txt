@@ -13,7 +13,7 @@
       rel="apple-touch-icon">
     <link type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./w1-style.css" rel="stylesheet">
+    <link href="./main-style.css" rel="stylesheet">
     <style>
       #out {
         display: flex;
