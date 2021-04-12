@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":105,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Phploy</title>
+<meta name="description" content="PHPloy - Incremental Git (S)FTP deployment tool that supports multiple servers, submodules and rollbacks.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/banago/PHPloy">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "banago/PHPloy",
+  "description": "PHPloy - Incremental Git (S)FTP deployment tool that supports multiple servers, submodules and rollbacks.",
+  "url": "https://awesomeopensource.com/project/banago/PHPloy",
+  "sku": "project/banago/PHPloy",
+  "mpn": "project/banago/PHPloy",
+  "image": "https://github.com/banago.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "banago/PHPloy",
+    "logo": "https://github.com/banago.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.92",
+    "ratingCount": "1358"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="p1BtB+syfuji9UUFsmhcfhxCl9LG5Yaebq41Xm9GV3yosaCXFlU2LdHl2sfvfqSMIG5PvEU3bLCiTOhZdu7EzQ==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/banago/PHPloy","location":"/project/banago/PHPloy","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/banago/PHPloy","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-c37c3026-f6f5-4d89-8e08-050dc85cd07c"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Phploy</div><div class="aos_project_metadata_description">PHPloy - Incremental Git (S)FTP deployment tool that supports multiple servers, submodules and rollbacks.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,358</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content"></span><span><div class="aos_project_metadata_header"><a href="http://wplancer.com/phploy/" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="http://wplancer.com/phploy/" target="_blank">http://wplancer.com/phploy/</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/banago/PHPloy" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/banago/PHPloy" target="_blank">https://github.com/banago/PHPloy</a></span><div class="aos_project_metadata_header"><a href="https://github.com/banago/PHPloy/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/banago/PHPloy/issues" target="_blank">21</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">13 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/php"><div style="display:block;text-decoration:none;padding-bottom:10px">php<span> (<!-- -->15,812<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/workflow"><div style="display:block;text-decoration:none;padding-bottom:10px">workflow<span> (<!-- -->315<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/deployment"><div style="display:block;text-decoration:none;padding-bottom:10px">deployment<span> (<!-- -->212<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="phploy" class="anchor" href="#phploy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHPloy</h1>
+<p><strong>Version 4.9.2</strong></p>
+<p>PHPloy is an incremental Git FTP and SFTP deployment tool. By keeping track of the state of the remote server(s) it deploys only the files that were committed since the last deployment. PHPloy supports submodules, sub-submodules, deploying to multiple servers and rollbacks. PHPloy requires <strong>PHP 7.0+</strong> and <strong>Git 1.8+</strong>.</p>
+<h2>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How it works</h2>
+<p>PHPloy stores a file called <code>.revision</code> on your server. This file contains the hash of the commit that you have deployed to that server. When you run phploy, it downloads that file and compares the commit reference in it with the commit you are trying to deploy to find out which files to upload. PHPloy also stores a <code>.revision</code> file for each submodule in your repository.</p>
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+<h3>
+<a id="via-composer" class="anchor" href="#via-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Via Composer</h3>
+<p>If you have composer installed in your machine, you can pull PHPloy globally like this:</p>
+<pre lang="bash" class="highlight-bash">composer global require <span class="s2">"banago/phploy"</span>
+</pre>
+<p>Make sure to place the <code>$HOME/.composer/vendor/bin</code> directory (or the <a href="http://stackoverflow.com/a/40470979/512277" rel="nofollow">equivalent directory</a> for your OS)
+in your <code>$PATH</code> so the PHPloy executable can be located by your system.</p>
+<h3>
+<a id="via-phar-archive" class="anchor" href="#via-phar-archive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Via Phar Archive</h3>
+<p>You can install PHPloy Phar globally, in your <code>/usr/local/bin</code> directory or, locally, in your project directory. <strong>Rename</strong> <code>phploy.phar</code> to <code>phploy</code> for ease of use.</p>
+<ol>
+<li>
+<strong>Globally:</strong> Move <code>phploy</code> into <code>/usr/local/bin</code>. Make it executable by running <code>sudo chmod +x phploy</code>.</li>
+<li>
+<strong>Locally</strong> Move <code>phploy</code> into your project directory.</li>
+</ol>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<p><em>When using PHPloy locally, proceed the command with <code>php</code></em></p>
+<ol>
+<li>Run <code>phploy --init</code> in the terminal to create the <code>phploy.ini</code> file or create one manually.</li>
+<li>Run <code>phploy</code> in terminal to deploy.</li>
+</ol>
+<p>Windows Users: <a href="https://github.com/banago/PHPloy/issues/214" rel="nofollow">Installing PHPloy globally on Windows</a></p>
+<h2>
+<a id="phployini" class="anchor" href="#phployini" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>phploy.ini</h2>
+<p>The <code>phploy.ini</code> file holds your project configuration. It should be located in the root directory of the project. <code>phploy.ini</code> is never uploaded to server.  Check the sample below for all available options:</p>
+<pre lang="ini" class="highlight-ini"><span class="c">; This is a sample deploy.ini file. You can specify as many
+; servers as you need and use normal or quickmode configuration.
+;
+; NOTE: If a value in the .ini file contains any non-alphanumeric 
+; characters it needs to be enclosed in double-quotes (").
+</span>
+<span class="nn">[staging]</span>
+    <span class="py">scheme</span> <span class="p">=</span> <span class="s">sftp</span>
+    <span class="py">user</span> <span class="p">=</span> <span class="s">example</span>
+    <span class="c">; When connecting via SFTP, you can opt for password-based authentication:
+</span>    <span class="py">pass</span> <span class="p">=</span> <span class="s">password</span>
+    <span class="c">; Or private key-based authentication:
+</span>    <span class="py">privkey</span> <span class="p">=</span> <span class="s">'path/to/or/contents/of/privatekey'</span>
+    <span class="py">host</span> <span class="p">=</span> <span class="s">staging-example.com</span>
+    <span class="py">path</span> <span class="p">=</span> <span class="s">/path/to/installation</span>
+    <span class="py">port</span> <span class="p">=</span> <span class="s">22</span>
+    <span class="c">; You can specify a branch to deploy from
+</span>    <span class="py">branch</span> <span class="p">=</span> <span class="s">develop</span>
+    <span class="c">; File permission set on the uploaded files/directories
+</span>    <span class="py">permissions</span> <span class="p">=</span> <span class="s">0700</span>
+    <span class="c">; File permissions set on newly created directories
+</span>    <span class="py">directoryPerm</span> <span class="p">=</span> <span class="s">0775</span>
+    <span class="c">; Deploy only this directory as base directory
+</span>    <span class="py">base</span> <span class="p">=</span> <span class="s">'directory-name/'</span>
+    <span class="c">; Files that should be ignored and not uploaded to your server, but still tracked in your repository
+</span>    <span class="err">exclude</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'src/*.scss'</span>
+    <span class="err">exclude</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'*.ini'</span>
+    <span class="c">; Files that are ignored by Git, but you want to send the the server
+</span>    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'js/scripts.min.js'</span>
+    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'directory-name/'</span>
+    <span class="c">; conditional include - if source file has changed, inclue file
+</span>    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'css/style.min.css:src/style.css'</span> 
+    <span class="c">; Directories that should be copied after deploy, from-&gt;to
+</span>    <span class="err">copy</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'public-&gt;www'</span>
+    <span class="c">; Directories that should be purged before deploy
+</span>    <span class="err">purge-before</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"dist/"</span>
+    <span class="c">; Directories that should be purged after deploy
+</span>    <span class="err">purge</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"cache/"</span>
+    <span class="c">; Pre- and Post-deploy hooks
+</span>    <span class="c">; Use "DQOUTE" inside your double-quoted strings to insert a literal double quote
+</span>    <span class="c">; Use 'QUOTE' inside your qouted strings to insert a literal quote
+</span>    <span class="c">; For example pre-deploy[] = 'echo "that'QUOTE's nice"' to get a literal "that's".
+</span>    <span class="c">; That workaround is based on http://php.net/manual/de/function.parse-ini-file.php#70847
+</span>    <span class="err">pre-deploy</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"wget</span> <span class="err">http://staging-example.com/pre-deploy/test.php</span> <span class="err">--spider</span> <span class="err">--quiet"</span>
+    <span class="err">post-deploy</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"wget</span> <span class="err">http://staging-example.com/post-deploy/test.php</span> <span class="err">--spider</span> <span class="err">--quiet"</span>
+    <span class="c">; Works only via SSH2 connection
+</span>    <span class="err">pre-deploy-remote</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"touch</span> <span class="err">.maintenance"</span>
+    <span class="err">post-deploy-remote</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"mv</span> <span class="err">cache</span> <span class="err">cache2"</span>
+    <span class="err">post-deploy-remote</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"rm</span> <span class="err">.maintenance"</span>
+    <span class="c">; You can specify a timeout for the underlying connection which might be useful for long running remote 
+</span>    <span class="c">; operations (cache clear, dependency update, etc.)
+</span>    <span class="py">timeout</span> <span class="p">=</span> <span class="s">60</span>
+
+<span class="nn">[production]</span>
+    <span class="py">quickmode</span> <span class="p">=</span> <span class="s">ftp://example:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7202130101051d00163202001d160711061b1d1c5f170a131f021e175c111d1f">[email&#160;protected]</a>:21/path/to/installation</span>
+    <span class="py">passive</span> <span class="p">=</span> <span class="s">true</span>
+    <span class="py">ssl</span> <span class="p">=</span> <span class="s">false</span>
+    <span class="c">; You can specify a branch to deploy from
+</span>    <span class="py">branch</span> <span class="p">=</span> <span class="s">master</span>
+    <span class="c">; File permission set on the uploaded files/directories
+</span>    <span class="py">permissions</span> <span class="p">=</span> <span class="s">0774</span>
+    <span class="c">; File permissions set on newly created directories
+</span>    <span class="py">directoryPerm</span> <span class="p">=</span> <span class="s">0755</span>
+    <span class="c">; Files that should be ignored and not uploaded to your server, but still tracked in your repository
+</span>    <span class="err">exclude</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'libs/*'</span>
+    <span class="err">exclude</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'config/*'</span>
+    <span class="err">exclude</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'src/*.scss'</span>
+    <span class="c">; Files that are ignored by Git, but you want to send the the server
+</span>    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'js/scripts.min.js'</span>
+    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'js/style.min.css'</span>
+    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'directory-name/'</span>
+    <span class="err">purge-before</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"dist/"</span> 
+    <span class="err">purge</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"cache/"</span> 
+    <span class="err">pre-deploy</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"wget</span> <span class="err">http://staging-example.com/pre-deploy/test.php</span> <span class="err">--spider</span> <span class="err">--quiet"</span>
+    <span class="err">post-deploy</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"wget</span> <span class="err">http://staging-example.com/post-deploy/test.php</span> <span class="err">--spider</span> <span class="err">--quiet"</span>
+</pre>
+<p>If your password is missing in the <code>phploy.ini</code> file or the <code>PHPLOY_PASS</code> environment variable, PHPloy will interactively ask you for your password.
+There is also an option to store the user and password in a file called <code>.phploy</code>.</p>
+<pre><code>[staging]
+    user="theUser"
+    pass="thePassword"
+    
+[production]
+    user="theUser"
+    pass="thePassword"
+</code></pre>
+<p>This feature is especially useful if you would like to share your phploy.ini via Git but hide your password from the public.</p>
+<p>You can also use environment variables to deploy without storing your credentials in a file.
+These variables will be used if they do not exist in the <code>phploy.ini</code> file:</p>
+<pre><code>PHPLOY_HOST
+PHPLOY_PORT
+PHPLOY_PASS
+PHPLOY_PATH
+PHPLOY_USER
+PHPLOY_PRIVKEY
+</code></pre>
+<p>These variables can be used like this;</p>
+<pre><code>$ PHPLOY_PORT="21" PHPLOY_HOST="myftphost.com" PHPLOY_USER="ftp" PHPLOY_PASS="ftp-password" PHPLOY_PATH="/home/user/public_html/example.com" phploy -s servername
+</code></pre>
+<p>Or export them like this, the script will automatically use them:</p>
+<pre><code>$ export PHPLOY_PORT="21"
+$ export PHPLOY_HOST="myftphost.com"
+$ export PHPLOY_USER="ftp"
+$ export PHPLOY_PASS="ftp-password"
+$ export PHPLOY_PATH="/home/user/public_html/example.com"
+$ export PHPLOY_PRIVKEY="path/to/or/contents/of/privatekey"
+$ phploy -s servername
+</code></pre>
+<h2>
+<a id="multiple-servers" class="anchor" href="#multiple-servers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multiple servers</h2>
+<p>PHPloy allows you to configure multiple servers in the deploy file and deploy to any of them with ease.</p>
+<p>By default PHPloy will deploy to <em>ALL</em> specified servers.  Alternatively, if an entry named 'default' exists in your server configuration, PHPloy will default to that server configuration. To specify one single server, run:</p>
+<pre><code>phploy -s servername
+</code></pre>
+<p>or:</p>
+<pre><code>phploy --server servername
+</code></pre>
+<p><code>servername</code> stands for the name you have given to the server in the <code>phploy.ini</code> configuration file.</p>
+<p>If you have a 'default' server configured, you can specify to deploy to all configured servers by running:</p>
+<pre><code>phploy --all
+</code></pre>
+<h2>
+<a id="shared-configuration-custom-defaults" class="anchor" href="#shared-configuration-custom-defaults" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shared configuration (custom defaults)</h2>
+<p>If you specify a server configuration named <code>*</code>, all options configured in this section will be shared with other
+servers. This basically allows you to inject custom default values.</p>
+<pre lang="ini" class="highlight-ini"><span class="c">; The special '*' configuration is shared between all other configurations (think include)
+</span><span class="nn">[*]</span>
+    <span class="err">exclude</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">'src/*'</span>
+    <span class="err">include</span><span class="nn">[]</span> <span class="err">=</span> <span class="err">"dist/app.css"</span>
+
+<span class="c">; As a result both shard1 and shard2 will have the same exclude[] and include[] "default" values
+</span><span class="nn">[shard1]</span>
+    <span class="py">quickmode</span> <span class="p">=</span> <span class="s">ftp://example:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb9b8a98989c84998fab98838a998fdac68e938a869b878ec5888486">[email&#160;protected]</a>:21/path/to/installation</span>
+
+<span class="nn">[shard2]</span>
+    <span class="py">quickmode</span> <span class="p">=</span> <span class="s">ftp://example:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f2f3e2c2c28302d3b1f2c373e2d3b6d723a273e322f333a713c3032">[email&#160;protected]</a>:21/path/to/installation</span>
+</pre>
+<h2>
+<a id="rollbacks" class="anchor" href="#rollbacks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rollbacks</h2>
+<p><strong>Warning: the --rollback option does not currently update your submodules correctly.</strong></p>
+<p>PHPloy allows you to roll back to an earlier version when you need to. Rolling back is very easy.</p>
+<p>To roll back to the previous commit, you just run:</p>
+<pre><code>phploy --rollback
+</code></pre>
+<p>To roll back to whatever commit you want, you run:</p>
+<pre><code>phploy --rollback commit-hash-goes-here
+</code></pre>
+<p>When you run a rollback, the files in your working copy will revert <strong>temporarily</strong> to the version of the rollback you are deploying. When the deployment has finished, everything will go back as it was.</p>
+<p>Note that there is not a short version of <code>--rollback</code>.</p>
+<h2>
+<a id="listing-changed-files" class="anchor" href="#listing-changed-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Listing changed files</h2>
+<p>PHPloy allows you to see what files are going to be uploaded/deleted before you actually push them. Just run:</p>
+<pre><code>phploy -l
+</code></pre>
+<p>Or:</p>
+<pre><code>phploy --list
+</code></pre>
+<h2>
+<a id="updating-or-syncing-the-remote-revision" class="anchor" href="#updating-or-syncing-the-remote-revision" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Updating or "syncing" the remote revision</h2>
+<p>If you want to update the <code>.revision</code> file on the server to match your current local revision, run:</p>
+<pre><code>phploy --sync
+</code></pre>
+<p>If you want to set it to a previous commit revision, just specify the revision like this:</p>
+<pre><code>phploy --sync your-revision-hash-here
+</code></pre>
+<h2>
+<a id="creating-deployment-directory-on-first-deploy" class="anchor" href="#creating-deployment-directory-on-first-deploy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating deployment directory on first deploy</h2>
+<p>If the deployment directory does not exits, you can instruct PHPloy to create it for you:</p>
+<pre><code>phploy --force
+</code></pre>
+<h2>
+<a id="manual-fresh-upload" class="anchor" href="#manual-fresh-upload" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manual fresh upload</h2>
+<p>If you want to do a fresh upload, even if you have deployed earlier, use the <code>--fresh</code> argument like this:</p>
+<pre><code>phploy --fresh
+</code></pre>
+<h2>
+<a id="submodules" class="anchor" href="#submodules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submodules</h2>
+<p>Submodules are supported, but are turned off by default since you don't expect them to change very often and you only update them once in a while. To run a deployment with submodule scanning, add the <code>--submodules</code> parameter to the command:</p>
+<pre><code>phploy --submodules
+</code></pre>
+<h2>
+<a id="purging" class="anchor" href="#purging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Purging</h2>
+<p>In many cases, we need to purge the contents of a directory after a deployment. This can be achieved by specifying the directories in <code>phploy.ini</code> like this:</p>
+<pre><code>; relative to the deployment path
+purge[] = "cache/"
+</code></pre>
+<p>To purge a directory before deployment, specify the directories in <code>phploy.ini</code> like this:</p>
+<pre><code>; relative to the deployment path
+purge-before[] = "dist/"
+</code></pre>
+<h2>
+<a id="hooks" class="anchor" href="#hooks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hooks</h2>
+<p>PHPloy allows you to execute commands before and after the deployment. For example you can use <code>wget</code>  call a script on my server to execute a <code>composer update</code>.</p>
+<pre><code>; To execute before deployment
+pre-deploy[] = "wget http://staging-example.com/pre-deploy/test.php --spider --quiet"
+; To execute after deployment
+post-deploy[] = "wget http://staging-example.com/post-deploy/test.php --spider --quiet"
+</code></pre>
+<h2>
+<a id="logging" class="anchor" href="#logging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logging</h2>
+<p>PHPloy supports simple logging of the activity. Logging is saved in a <code>phploy.log</code> file in your project in the following format:</p>
+<pre><code>2016-03-28 08:12:37+02:00 --- INFO: [SHA: 59a387c26641f731df6f0d1098aaa86cd55f4382] Deployment to server: "default" from branch "master". 2 files uploaded; 0 files deleted.
+</code></pre>
+<p>To turn logging on, add this to <code>phploy.ini</code>:</p>
+<pre><code>[production]
+    logger = on
+</code></pre>
+<h2>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribute</h2>
+<p>Contributions are very welcome; PHPloy is great because of the contributors. Please check out the <a href="https://github.com/banago/PHPloy/issues" rel="nofollow">issues</a>.</p>
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+<ul>
+<li><a href="https://twitter.com/banago" rel="nofollow">Baki Goxhaj</a></li>
+<li><a href="https://github.com/banago/PHPloy/graphs/contributors?type=a" rel="nofollow">Contributors</a></li>
+</ul>
+<h2>
+<a id="version-history" class="anchor" href="#version-history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version history</h2>
+<p>Please check <a href="https://github.com/banago/PHPloy/releases" rel="nofollow">release history</a> for details.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>PHPloy is licensed under the MIT License (MIT).</p>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bcf2fb35e738',m:'e8a691184571cc4101de9848a616d8ba7f9af74d-1610725676-1800-Af8HcjW29Ybux9PvKr9/PhL5tN9Hxk21tcCrq/uQhhl0kBY+4OFUvNBp9An2p7qu+uS6jkbo7V9N+/o/Yet91JrspT7iItHkbhFJdzh99oKvll0MAjSGiaeKSHdjYOx1Qv+HZtgtQrz3Vlco1ZLg/7g=',s:[0xb02382d852,0x7fbe9bdfe6],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="php"/> <!-- -->php<!-- --> (<!-- -->15,812<!-- -->) </div><div><input type="checkbox" name="topics" value="workflow"/> <!-- -->workflow<!-- --> (<!-- -->315<!-- -->) </div><div><input type="checkbox" name="topics" value="deployment"/> <!-- -->deployment<!-- --> (<!-- -->212<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Phploy<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/banago" target="_blank">Banago</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/banago" target="_blank">Banago</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-c37c3026-f6f5-4d89-8e08-050dc85cd07c">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"deployment","count":212},{"id":null,"name":"php","count":15812},{"id":null,"name":"workflow","count":315}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/banago/PHPloy","projects":[],"project":{"id":109471,"created_at":"2018-08-21T02:03:31.135Z","updated_at":"2021-01-14T03:27:13.514Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"phploy\" class=\"anchor\" href=\"#phploy\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePHPloy\u003c/h1\u003e\n\u003cp\u003e\u003cstrong\u003eVersion 4.9.2\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003ePHPloy is an incremental Git FTP and SFTP deployment tool. By keeping track of the state of the remote server(s) it deploys only the files that were committed since the last deployment. PHPloy supports submodules, sub-submodules, deploying to multiple servers and rollbacks. PHPloy requires \u003cstrong\u003ePHP 7.0+\u003c/strong\u003e and \u003cstrong\u003eGit 1.8+\u003c/strong\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"how-it-works\" class=\"anchor\" href=\"#how-it-works\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow it works\u003c/h2\u003e\n\u003cp\u003ePHPloy stores a file called \u003ccode\u003e.revision\u003c/code\u003e on your server. This file contains the hash of the commit that you have deployed to that server. When you run phploy, it downloads that file and compares the commit reference in it with the commit you are trying to deploy to find out which files to upload. PHPloy also stores a \u003ccode\u003e.revision\u003c/code\u003e file for each submodule in your repository.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"install\" class=\"anchor\" href=\"#install\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"via-composer\" class=\"anchor\" href=\"#via-composer\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVia Composer\u003c/h3\u003e\n\u003cp\u003eIf you have composer installed in your machine, you can pull PHPloy globally like this:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003ecomposer global require \u003cspan class=\"s2\"\u003e\"banago/phploy\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eMake sure to place the \u003ccode\u003e$HOME/.composer/vendor/bin\u003c/code\u003e directory (or the \u003ca href=\"http://stackoverflow.com/a/40470979/512277\" rel=\"nofollow\"\u003eequivalent directory\u003c/a\u003e for your OS)\nin your \u003ccode\u003e$PATH\u003c/code\u003e so the PHPloy executable can be located by your system.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"via-phar-archive\" class=\"anchor\" href=\"#via-phar-archive\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVia Phar Archive\u003c/h3\u003e\n\u003cp\u003eYou can install PHPloy Phar globally, in your \u003ccode\u003e/usr/local/bin\u003c/code\u003e directory or, locally, in your project directory. \u003cstrong\u003eRename\u003c/strong\u003e \u003ccode\u003ephploy.phar\u003c/code\u003e to \u003ccode\u003ephploy\u003c/code\u003e for ease of use.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cstrong\u003eGlobally:\u003c/strong\u003e Move \u003ccode\u003ephploy\u003c/code\u003e into \u003ccode\u003e/usr/local/bin\u003c/code\u003e. Make it executable by running \u003ccode\u003esudo chmod +x phploy\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eLocally\u003c/strong\u003e Move \u003ccode\u003ephploy\u003c/code\u003e into your project directory.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eWhen using PHPloy locally, proceed the command with \u003ccode\u003ephp\u003c/code\u003e\u003c/em\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eRun \u003ccode\u003ephploy --init\u003c/code\u003e in the terminal to create the \u003ccode\u003ephploy.ini\u003c/code\u003e file or create one manually.\u003c/li\u003e\n\u003cli\u003eRun \u003ccode\u003ephploy\u003c/code\u003e in terminal to deploy.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eWindows Users: \u003ca href=\"https://github.com/banago/PHPloy/issues/214\" rel=\"nofollow\"\u003eInstalling PHPloy globally on Windows\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"phployini\" class=\"anchor\" href=\"#phployini\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ephploy.ini\u003c/h2\u003e\n\u003cp\u003eThe \u003ccode\u003ephploy.ini\u003c/code\u003e file holds your project configuration. It should be located in the root directory of the project. \u003ccode\u003ephploy.ini\u003c/code\u003e is never uploaded to server.  Check the sample below for all available options:\u003c/p\u003e\n\u003cpre lang=\"ini\" class=\"highlight-ini\"\u003e\u003cspan class=\"c\"\u003e; This is a sample deploy.ini file. You can specify as many\n; servers as you need and use normal or quickmode configuration.\n;\n; NOTE: If a value in the .ini file contains any non-alphanumeric \n; characters it needs to be enclosed in double-quotes (\").\n\u003c/span\u003e\n\u003cspan class=\"nn\"\u003e[staging]\u003c/span\u003e\n    \u003cspan class=\"py\"\u003escheme\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003esftp\u003c/span\u003e\n    \u003cspan class=\"py\"\u003euser\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003eexample\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; When connecting via SFTP, you can opt for password-based authentication:\n\u003c/span\u003e    \u003cspan class=\"py\"\u003epass\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003epassword\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Or private key-based authentication:\n\u003c/span\u003e    \u003cspan class=\"py\"\u003eprivkey\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e'path/to/or/contents/of/privatekey'\u003c/span\u003e\n    \u003cspan class=\"py\"\u003ehost\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003estaging-example.com\u003c/span\u003e\n    \u003cspan class=\"py\"\u003epath\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e/path/to/installation\u003c/span\u003e\n    \u003cspan class=\"py\"\u003eport\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e22\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; You can specify a branch to deploy from\n\u003c/span\u003e    \u003cspan class=\"py\"\u003ebranch\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003edevelop\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; File permission set on the uploaded files/directories\n\u003c/span\u003e    \u003cspan class=\"py\"\u003epermissions\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e0700\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; File permissions set on newly created directories\n\u003c/span\u003e    \u003cspan class=\"py\"\u003edirectoryPerm\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e0775\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Deploy only this directory as base directory\n\u003c/span\u003e    \u003cspan class=\"py\"\u003ebase\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e'directory-name/'\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Files that should be ignored and not uploaded to your server, but still tracked in your repository\n\u003c/span\u003e    \u003cspan class=\"err\"\u003eexclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'src/*.scss'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003eexclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'*.ini'\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Files that are ignored by Git, but you want to send the the server\n\u003c/span\u003e    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'js/scripts.min.js'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'directory-name/'\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; conditional include - if source file has changed, inclue file\n\u003c/span\u003e    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'css/style.min.css:src/style.css'\u003c/span\u003e \n    \u003cspan class=\"c\"\u003e; Directories that should be copied after deploy, from-\u0026gt;to\n\u003c/span\u003e    \u003cspan class=\"err\"\u003ecopy\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'public-\u0026gt;www'\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Directories that should be purged before deploy\n\u003c/span\u003e    \u003cspan class=\"err\"\u003epurge-before\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"dist/\"\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Directories that should be purged after deploy\n\u003c/span\u003e    \u003cspan class=\"err\"\u003epurge\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"cache/\"\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Pre- and Post-deploy hooks\n\u003c/span\u003e    \u003cspan class=\"c\"\u003e; Use \"DQOUTE\" inside your double-quoted strings to insert a literal double quote\n\u003c/span\u003e    \u003cspan class=\"c\"\u003e; Use 'QUOTE' inside your qouted strings to insert a literal quote\n\u003c/span\u003e    \u003cspan class=\"c\"\u003e; For example pre-deploy[] = 'echo \"that'QUOTE's nice\"' to get a literal \"that's\".\n\u003c/span\u003e    \u003cspan class=\"c\"\u003e; That workaround is based on http://php.net/manual/de/function.parse-ini-file.php#70847\n\u003c/span\u003e    \u003cspan class=\"err\"\u003epre-deploy\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"wget\u003c/span\u003e \u003cspan class=\"err\"\u003ehttp://staging-example.com/pre-deploy/test.php\u003c/span\u003e \u003cspan class=\"err\"\u003e--spider\u003c/span\u003e \u003cspan class=\"err\"\u003e--quiet\"\u003c/span\u003e\n    \u003cspan class=\"err\"\u003epost-deploy\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"wget\u003c/span\u003e \u003cspan class=\"err\"\u003ehttp://staging-example.com/post-deploy/test.php\u003c/span\u003e \u003cspan class=\"err\"\u003e--spider\u003c/span\u003e \u003cspan class=\"err\"\u003e--quiet\"\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Works only via SSH2 connection\n\u003c/span\u003e    \u003cspan class=\"err\"\u003epre-deploy-remote\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"touch\u003c/span\u003e \u003cspan class=\"err\"\u003e.maintenance\"\u003c/span\u003e\n    \u003cspan class=\"err\"\u003epost-deploy-remote\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"mv\u003c/span\u003e \u003cspan class=\"err\"\u003ecache\u003c/span\u003e \u003cspan class=\"err\"\u003ecache2\"\u003c/span\u003e\n    \u003cspan class=\"err\"\u003epost-deploy-remote\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"rm\u003c/span\u003e \u003cspan class=\"err\"\u003e.maintenance\"\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; You can specify a timeout for the underlying connection which might be useful for long running remote \n\u003c/span\u003e    \u003cspan class=\"c\"\u003e; operations (cache clear, dependency update, etc.)\n\u003c/span\u003e    \u003cspan class=\"py\"\u003etimeout\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e60\u003c/span\u003e\n\n\u003cspan class=\"nn\"\u003e[production]\u003c/span\u003e\n    \u003cspan class=\"py\"\u003equickmode\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003eftp://example:password@production-example.com:21/path/to/installation\u003c/span\u003e\n    \u003cspan class=\"py\"\u003epassive\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003etrue\u003c/span\u003e\n    \u003cspan class=\"py\"\u003essl\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003efalse\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; You can specify a branch to deploy from\n\u003c/span\u003e    \u003cspan class=\"py\"\u003ebranch\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003emaster\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; File permission set on the uploaded files/directories\n\u003c/span\u003e    \u003cspan class=\"py\"\u003epermissions\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e0774\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; File permissions set on newly created directories\n\u003c/span\u003e    \u003cspan class=\"py\"\u003edirectoryPerm\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e0755\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Files that should be ignored and not uploaded to your server, but still tracked in your repository\n\u003c/span\u003e    \u003cspan class=\"err\"\u003eexclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'libs/*'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003eexclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'config/*'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003eexclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'src/*.scss'\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e; Files that are ignored by Git, but you want to send the the server\n\u003c/span\u003e    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'js/scripts.min.js'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'js/style.min.css'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'directory-name/'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003epurge-before\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"dist/\"\u003c/span\u003e \n    \u003cspan class=\"err\"\u003epurge\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"cache/\"\u003c/span\u003e \n    \u003cspan class=\"err\"\u003epre-deploy\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"wget\u003c/span\u003e \u003cspan class=\"err\"\u003ehttp://staging-example.com/pre-deploy/test.php\u003c/span\u003e \u003cspan class=\"err\"\u003e--spider\u003c/span\u003e \u003cspan class=\"err\"\u003e--quiet\"\u003c/span\u003e\n    \u003cspan class=\"err\"\u003epost-deploy\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"wget\u003c/span\u003e \u003cspan class=\"err\"\u003ehttp://staging-example.com/post-deploy/test.php\u003c/span\u003e \u003cspan class=\"err\"\u003e--spider\u003c/span\u003e \u003cspan class=\"err\"\u003e--quiet\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eIf your password is missing in the \u003ccode\u003ephploy.ini\u003c/code\u003e file or the \u003ccode\u003ePHPLOY_PASS\u003c/code\u003e environment variable, PHPloy will interactively ask you for your password.\nThere is also an option to store the user and password in a file called \u003ccode\u003e.phploy\u003c/code\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e[staging]\n    user=\"theUser\"\n    pass=\"thePassword\"\n    \n[production]\n    user=\"theUser\"\n    pass=\"thePassword\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis feature is especially useful if you would like to share your phploy.ini via Git but hide your password from the public.\u003c/p\u003e\n\u003cp\u003eYou can also use environment variables to deploy without storing your credentials in a file.\nThese variables will be used if they do not exist in the \u003ccode\u003ephploy.ini\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ePHPLOY_HOST\nPHPLOY_PORT\nPHPLOY_PASS\nPHPLOY_PATH\nPHPLOY_USER\nPHPLOY_PRIVKEY\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThese variables can be used like this;\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ PHPLOY_PORT=\"21\" PHPLOY_HOST=\"myftphost.com\" PHPLOY_USER=\"ftp\" PHPLOY_PASS=\"ftp-password\" PHPLOY_PATH=\"/home/user/public_html/example.com\" phploy -s servername\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr export them like this, the script will automatically use them:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ export PHPLOY_PORT=\"21\"\n$ export PHPLOY_HOST=\"myftphost.com\"\n$ export PHPLOY_USER=\"ftp\"\n$ export PHPLOY_PASS=\"ftp-password\"\n$ export PHPLOY_PATH=\"/home/user/public_html/example.com\"\n$ export PHPLOY_PRIVKEY=\"path/to/or/contents/of/privatekey\"\n$ phploy -s servername\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"multiple-servers\" class=\"anchor\" href=\"#multiple-servers\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMultiple servers\u003c/h2\u003e\n\u003cp\u003ePHPloy allows you to configure multiple servers in the deploy file and deploy to any of them with ease.\u003c/p\u003e\n\u003cp\u003eBy default PHPloy will deploy to \u003cem\u003eALL\u003c/em\u003e specified servers.  Alternatively, if an entry named 'default' exists in your server configuration, PHPloy will default to that server configuration. To specify one single server, run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy -s servername\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --server servername\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eservername\u003c/code\u003e stands for the name you have given to the server in the \u003ccode\u003ephploy.ini\u003c/code\u003e configuration file.\u003c/p\u003e\n\u003cp\u003eIf you have a 'default' server configured, you can specify to deploy to all configured servers by running:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --all\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"shared-configuration-custom-defaults\" class=\"anchor\" href=\"#shared-configuration-custom-defaults\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eShared configuration (custom defaults)\u003c/h2\u003e\n\u003cp\u003eIf you specify a server configuration named \u003ccode\u003e*\u003c/code\u003e, all options configured in this section will be shared with other\nservers. This basically allows you to inject custom default values.\u003c/p\u003e\n\u003cpre lang=\"ini\" class=\"highlight-ini\"\u003e\u003cspan class=\"c\"\u003e; The special '*' configuration is shared between all other configurations (think include)\n\u003c/span\u003e\u003cspan class=\"nn\"\u003e[*]\u003c/span\u003e\n    \u003cspan class=\"err\"\u003eexclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e'src/*'\u003c/span\u003e\n    \u003cspan class=\"err\"\u003einclude\u003c/span\u003e\u003cspan class=\"nn\"\u003e[]\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"err\"\u003e\"dist/app.css\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e; As a result both shard1 and shard2 will have the same exclude[] and include[] \"default\" values\n\u003c/span\u003e\u003cspan class=\"nn\"\u003e[shard1]\u003c/span\u003e\n    \u003cspan class=\"py\"\u003equickmode\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003eftp://example:password@shard1-example.com:21/path/to/installation\u003c/span\u003e\n\n\u003cspan class=\"nn\"\u003e[shard2]\u003c/span\u003e\n    \u003cspan class=\"py\"\u003equickmode\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003eftp://example:password@shard2-example.com:21/path/to/installation\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"rollbacks\" class=\"anchor\" href=\"#rollbacks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRollbacks\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eWarning: the --rollback option does not currently update your submodules correctly.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003ePHPloy allows you to roll back to an earlier version when you need to. Rolling back is very easy.\u003c/p\u003e\n\u003cp\u003eTo roll back to the previous commit, you just run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --rollback\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo roll back to whatever commit you want, you run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --rollback commit-hash-goes-here\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen you run a rollback, the files in your working copy will revert \u003cstrong\u003etemporarily\u003c/strong\u003e to the version of the rollback you are deploying. When the deployment has finished, everything will go back as it was.\u003c/p\u003e\n\u003cp\u003eNote that there is not a short version of \u003ccode\u003e--rollback\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"listing-changed-files\" class=\"anchor\" href=\"#listing-changed-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eListing changed files\u003c/h2\u003e\n\u003cp\u003ePHPloy allows you to see what files are going to be uploaded/deleted before you actually push them. Just run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy -l\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --list\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"updating-or-syncing-the-remote-revision\" class=\"anchor\" href=\"#updating-or-syncing-the-remote-revision\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUpdating or \"syncing\" the remote revision\u003c/h2\u003e\n\u003cp\u003eIf you want to update the \u003ccode\u003e.revision\u003c/code\u003e file on the server to match your current local revision, run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --sync\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you want to set it to a previous commit revision, just specify the revision like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --sync your-revision-hash-here\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"creating-deployment-directory-on-first-deploy\" class=\"anchor\" href=\"#creating-deployment-directory-on-first-deploy\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCreating deployment directory on first deploy\u003c/h2\u003e\n\u003cp\u003eIf the deployment directory does not exits, you can instruct PHPloy to create it for you:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --force\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"manual-fresh-upload\" class=\"anchor\" href=\"#manual-fresh-upload\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eManual fresh upload\u003c/h2\u003e\n\u003cp\u003eIf you want to do a fresh upload, even if you have deployed earlier, use the \u003ccode\u003e--fresh\u003c/code\u003e argument like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --fresh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"submodules\" class=\"anchor\" href=\"#submodules\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSubmodules\u003c/h2\u003e\n\u003cp\u003eSubmodules are supported, but are turned off by default since you don't expect them to change very often and you only update them once in a while. To run a deployment with submodule scanning, add the \u003ccode\u003e--submodules\u003c/code\u003e parameter to the command:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ephploy --submodules\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"purging\" class=\"anchor\" href=\"#purging\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePurging\u003c/h2\u003e\n\u003cp\u003eIn many cases, we need to purge the contents of a directory after a deployment. This can be achieved by specifying the directories in \u003ccode\u003ephploy.ini\u003c/code\u003e like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e; relative to the deployment path\npurge[] = \"cache/\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo purge a directory before deployment, specify the directories in \u003ccode\u003ephploy.ini\u003c/code\u003e like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e; relative to the deployment path\npurge-before[] = \"dist/\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"hooks\" class=\"anchor\" href=\"#hooks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHooks\u003c/h2\u003e\n\u003cp\u003ePHPloy allows you to execute commands before and after the deployment. For example you can use \u003ccode\u003ewget\u003c/code\u003e  call a script on my server to execute a \u003ccode\u003ecomposer update\u003c/code\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e; To execute before deployment\npre-deploy[] = \"wget http://staging-example.com/pre-deploy/test.php --spider --quiet\"\n; To execute after deployment\npost-deploy[] = \"wget http://staging-example.com/post-deploy/test.php --spider --quiet\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"logging\" class=\"anchor\" href=\"#logging\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLogging\u003c/h2\u003e\n\u003cp\u003ePHPloy supports simple logging of the activity. Logging is saved in a \u003ccode\u003ephploy.log\u003c/code\u003e file in your project in the following format:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e2016-03-28 08:12:37+02:00 --- INFO: [SHA: 59a387c26641f731df6f0d1098aaa86cd55f4382] Deployment to server: \"default\" from branch \"master\". 2 files uploaded; 0 files deleted.\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo turn logging on, add this to \u003ccode\u003ephploy.ini\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e[production]\n    logger = on\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"contribute\" class=\"anchor\" href=\"#contribute\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContribute\u003c/h2\u003e\n\u003cp\u003eContributions are very welcome; PHPloy is great because of the contributors. Please check out the \u003ca href=\"https://github.com/banago/PHPloy/issues\" rel=\"nofollow\"\u003eissues\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"credits\" class=\"anchor\" href=\"#credits\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCredits\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://twitter.com/banago\" rel=\"nofollow\"\u003eBaki Goxhaj\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/banago/PHPloy/graphs/contributors?type=a\" rel=\"nofollow\"\u003eContributors\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"version-history\" class=\"anchor\" href=\"#version-history\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVersion history\u003c/h2\u003e\n\u003cp\u003ePlease check \u003ca href=\"https://github.com/banago/PHPloy/releases\" rel=\"nofollow\"\u003erelease history\u003c/a\u003e for details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003ePHPloy is licensed under the MIT License (MIT).\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":16645488,"name":"PHPloy","owner_login":"banago","description":"PHPloy - Incremental Git (S)FTP deployment tool that supports multiple servers, submodules and rollbacks.","pushed_at":"2021-01-03T07:51:17.000Z","stargazers_count":1358,"open_issues_count":21,"has_downloads":true,"archived":false,"license_key":null,"homepage":"http://wplancer.com/phploy/","private":false,"project_created_at":"2014-02-08T15:06:32.000Z","project_updated_at":"2021-01-13T13:54:17.000Z","language":"PHP","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

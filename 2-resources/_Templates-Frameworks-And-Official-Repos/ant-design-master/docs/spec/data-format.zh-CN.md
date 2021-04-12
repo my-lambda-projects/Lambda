@@ -28,7 +28,7 @@ title: 数据格式
 
 <img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3CXaSK6NcrwAAAAAAAAAAABkARQnAQ">
 
-**位置排列**：便于用户直观而又准确地读取数据，要做到一眼观定、简洁明了。在表格中，诸如金额、数量等数值分布排列时，通常采用“右对齐”方式，既方便用户快捷读取数据，还可以使用户进行纵向数据对比。
+**位置排列**：便于用户直观而又准确地读取数据，要做到一眼观定、简洁明了。在表格中，诸如金额、数量等数值分布排列时，通常采用“右对齐"方式，既方便用户快捷读取数据，还可以使用户进行纵向数据对比。
 
 <br />
 
@@ -57,9 +57,9 @@ title: 数据格式
 
 <img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dHYhQ4iqnJkAAAAAAAAAAABkARQnAQ">
 <img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T6hbQJdz5usAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="“千”不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" align="right" alt="不推荐示例" description="“千"不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
 
-**大额计量：**如果一个金额很大，那么数值中的“万”“亿”单位可采用汉字。如果一个数值很大，那么数值中的“万”“亿”单位可采用汉字。
+**大额计量：**如果一个金额很大，那么数值中的“万"“亿"单位可采用汉字。如果一个数值很大，那么数值中的“万"“亿"单位可采用汉字。
 
 ### 日期时间
 
@@ -82,7 +82,7 @@ title: 数据格式
 | 二十四小时制 | 二十四小时时间格式  `HH:mm:ss` 。 | 14:08:00                 |
 | 十二小时制   | 十二小时时间格式 `h:mm:ss` 。     | 2:08:00 PM \| 2:08:00 AM |
 
-**标准格式**：日期与时间连在一起时，两者之间用「空格」隔开，如“2019-12-08 06:00:00”。
+**标准格式**：日期与时间连在一起时，两者之间用「空格」隔开，如“2019-12-08 06:00:00"。
 
 #### 相对时间
 

@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":7,"applicationTime":92,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>React Slingshot</title>
+<meta name="description" content="React + Redux starter kit / boilerplate with Babel, hot reloading, testing, linting and a working example app built in">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/coryhouse/react-slingshot">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "coryhouse/react-slingshot",
+  "description": "React + Redux starter kit / boilerplate with Babel, hot reloading, testing, linting and a working example app built in",
+  "url": "https://awesomeopensource.com/project/coryhouse/react-slingshot",
+  "sku": "project/coryhouse/react-slingshot",
+  "mpn": "project/coryhouse/react-slingshot",
+  "image": "https://github.com/coryhouse.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "coryhouse/react-slingshot",
+    "logo": "https://github.com/coryhouse.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "9729"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="cOOTZpemVMg25LjQWWbdEaAPMfulCK6bActDtOSiIJKc258+iwQQMiwCucSfvL265SwuBp6psWkoToXVLeBO6A==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/coryhouse/react-slingshot","location":"/project/coryhouse/react-slingshot","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/coryhouse/react-slingshot","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-d98ac4c2-a53a-44b2-80d7-2099fcd92dbd"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">React <!-- -->Slingshot</div><div class="aos_project_metadata_description">React + Redux starter kit / boilerplate with Babel, hot reloading, testing, linting and a working example app built in</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">9,729</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><div class="aos_project_metadata_header"><a href="https://github.com/coryhouse/react-slingshot" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/coryhouse/react-slingshot" target="_blank">https://github.com/coryhouse/react-slingshot</a></span><div class="aos_project_metadata_header"><a href="https://github.com/coryhouse/react-slingshot/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/coryhouse/react-slingshot/issues" target="_blank">43</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">a month ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/javascript"><div style="display:block;text-decoration:none;padding-bottom:10px">javascript<span> (<!-- -->67,310<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/react"><div style="display:block;text-decoration:none;padding-bottom:10px">react<span> (<!-- -->5,029<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/redux"><div style="display:block;text-decoration:none;padding-bottom:10px">redux<span> (<!-- -->1,134<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/boilerplate"><div style="display:block;text-decoration:none;padding-bottom:10px">boilerplate<span> (<!-- -->590<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/starter-kit"><div style="display:block;text-decoration:none;padding-bottom:10px">starter-kit<span> (<!-- -->166<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p align="center">
+  <a href="https://cloud.githubusercontent.com/assets/3129129/22811426/bb69dc06-ef0c-11e6-8092-a0bea9060b35.png" target="_blank" rel="nofollow"><img src="https://cloud.githubusercontent.com/assets/3129129/22811426/bb69dc06-ef0c-11e6-8092-a0bea9060b35.png" style="max-width:100%;"></a>
+</p>
+<hr>
+<p><a href="https://travis-ci.org/coryhouse/react-slingshot" rel="nofollow"><img src="https://img.shields.io/travis/coryhouse/react-slingshot.svg?style=flat-square" alt="Build status: Linux" style="max-width:100%;"></a>
+<a href="https://ci.appveyor.com/project/coryhouse/react-slingshot/branch/master" rel="nofollow"><img src="https://img.shields.io/appveyor/ci/coryhouse/react-slingshot/master.svg?style=flat-square" alt="Build status: Windows" style="max-width:100%;"></a>
+<a href="https://david-dm.org/coryhouse/react-slingshot" rel="nofollow"><img src="https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square" alt="Dependency Status" style="max-width:100%;"></a>
+<a href="https://coveralls.io/github/coryhouse/react-slingshot?branch=master" rel="nofollow"><img src="https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square" alt="Coverage Status" style="max-width:100%;"></a></p>
+<p>A comprehensive starter kit for rapid application development using React.</p>
+<p>Why Slingshot?</p>
+<ol>
+<li>
+<strong>One command to get started</strong> - Type <code>npm start</code> to start development in your default browser.</li>
+<li>
+<strong>Rapid feedback</strong> - Each time you hit save, changes hot reload and linting and automated tests run.</li>
+<li>
+<strong>One command line to check</strong> - All feedback is displayed on a single command line.</li>
+<li>
+<strong>No more JavaScript fatigue</strong> - Slingshot uses <a href="#technologies">the most popular and powerful libraries</a> for working with React.</li>
+<li>
+<strong>Working example app</strong> - The included example app shows how this all works together.</li>
+<li>
+<strong>Automated production build</strong> - Type <code>npm run build</code> to do all this:</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=qlfDLsX-J0U" rel="nofollow"><img src="https://img.youtube.com/vi/qlfDLsX-J0U/0.jpg" alt="React Slingshot Production Build" style="max-width:100%;"></a></p>
+<h1>
+<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Started</h1>
+<ol>
+<li>
+<p><strong>Initial Machine Setup</strong></p>
+<p>First time running the starter kit? Then complete the <a href="#initial-machine-setup">Initial Machine Setup</a>.</p>
+</li>
+<li>
+<p><strong>Click "Use this template"</strong></p>
+<p>Click the green "Use this template" button at the top of this page and enter a name and description for your repo.</p>
+</li>
+<li>
+<p><strong>Run the setup script</strong></p>
+<p><code>npm run setup</code></p>
+</li>
+<li>
+<p><strong>Run the example app</strong></p>
+<p><code>npm start -s</code></p>
+<p>This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.</p>
+</li>
+<li>
+<p><strong>Review the example app.</strong></p>
+<p>This starter kit includes a working example app that calculates fuel savings. Note how all source code is placed under /src. Tests are placed alongside the file under test. The final built app is placed under /dist. These are the files you run in production.</p>
+</li>
+<li>
+<p><strong>Delete the example app files.</strong></p>
+<p>Once you're comfortable with how the example app works, you can <a href="https://github.com/coryhouse/react-slingshot/blob/master/./docs/FAQ.md#i-just-want-an-empty-starter-kit" rel="nofollow">delete those files and begin creating your own app</a>.</p>
+</li>
+<li>
+<p><strong>Having issues?</strong> See <a href="#having-issues-try-these-things-first">Having Issues?</a>.</p>
+</li>
+</ol>
+<h2>
+<a id="initial-machine-setup" class="anchor" href="#initial-machine-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initial Machine Setup</h2>
+<ol>
+<li>
+<p><strong>Install <a href="https://nodejs.org" rel="nofollow">Node 8.0.0 or greater</a></strong></p>
+<p>Need to run multiple versions of Node? Use <a href="https://github.com/creationix/nvm" rel="nofollow">nvm</a>.</p>
+</li>
+<li>
+<p><strong>Install <a href="https://git-scm.com/downloads" rel="nofollow">Git</a></strong>.</p>
+</li>
+<li>
+<p><strong><a href="https://webpack.js.org/guides/development/#adjusting-your-text-editor" rel="nofollow">Disable safe write in your editor</a></strong> to assure hot reloading works properly.</p>
+</li>
+<li>
+<p>Complete the steps below for your operating system:</p>
+<h3>
+<a id="macos" class="anchor" href="#macos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>macOS</h3>
+<ul>
+<li>Install <a href="https://facebook.github.io/watchman/" rel="nofollow">watchman</a> via <code>brew install watchman</code> or fswatch via <code>brew install fswatch</code> to avoid <a href="https://github.com/facebook/create-react-app/issues/871" rel="nofollow">this issue</a> which occurs if your macOS has no appropriate file watching service installed.</li>
+</ul>
+<h3>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h3>
+<ul>
+<li>
+<p>Run this to <a href="http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc" rel="nofollow">increase the limit</a> on the number of files Linux will watch. <a href="https://github.com/coryhouse/react-slingshot/issues/6" rel="nofollow">Here's why</a>.</p>
+<p><code>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</code>.</p>
+</li>
+</ul>
+<h3>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h3>
+<ul>
+<li>
+<p><strong>Install <a href="https://www.python.org/downloads/" rel="nofollow">Python 2.7</a></strong>. Some node modules may rely on node-gyp, which requires Python on Windows.</p>
+</li>
+<li>
+<p><strong>Install C++ Compiler</strong>. Browser-sync requires a C++ compiler on Windows.</p>
+<p><a href="https://www.visualstudio.com/en-US/products/visual-studio-express-vs" rel="nofollow">Visual Studio Express</a> comes bundled with a free C++ compiler.</p>
+<p>If you already have Visual Studio installed:
+Open Visual Studio and go to File -&gt; New -&gt; Project -&gt; Visual C++ -&gt; Install Visual C++ Tools for Windows Desktop.
+The C++ compiler is used to compile browser-sync (and perhaps other Node modules).</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>
+<a id="having-issues-try-these-things-first" class="anchor" href="#having-issues-try-these-things-first" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Having Issues? Try these things first</h2>
+<ol>
+<li>
+<p>Make sure you ran all steps in <a href="#get-started">Get started</a> including the <a href="#initial-machine-setup">initial machine setup</a>.</p>
+</li>
+<li>
+<p>Run <code>npm install</code> - If you forget to do this, you'll see this: <code>babel-node: command not found</code>.</p>
+</li>
+<li>
+<p>Install the latest version of Node.</p>
+</li>
+<li>
+<p>Make sure files with names that begin with a dot (.editorconfig, .gitignore, .npmrc) are copied to the project directory root. This is easy to overlook if you copy this repository manually.</p>
+</li>
+<li>
+<p>Don't run the project from a symbolic link. It may cause issues with file watches.</p>
+</li>
+<li>
+<p>Delete any .eslintrc that you're storing in your user directory. Also, disable any ESLint plugin / custom rules that you've enabled within your editor. These will conflict with the ESLint rules defined in this project.</p>
+</li>
+<li>
+<p>Make sure you don't have NODE_ENV set to production on your machine. If you do then the <a href="https://github.com/coryhouse/react-slingshot/issues/400#issuecomment-290497767" rel="nofollow">development dependencies won't be installed</a>. Here's <a href="http://stackoverflow.com/a/27939821/26180" rel="nofollow">how to check</a>.</p>
+</li>
+<li>
+<p>Install watchman with <code>brew install watchman</code> if you are having the following error after an initial <code>npm start -s</code>:</p>
+<pre lang="bash" class="highlight-bash">2017-09-05 00:44 node[68587] <span class="o">(</span>FSEvents.framework<span class="o">)</span> FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc<span class="o">()</span> <span class="o">=&gt;</span> <span class="o">(</span>null<span class="o">)</span> <span class="o">(</span><span class="nt">-22</span><span class="o">)</span>
+2017-09-05 00:44 node[68587] <span class="o">(</span>FSEvents.framework<span class="o">)</span> FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc<span class="o">()</span> <span class="o">=&gt;</span> <span class="o">(</span>null<span class="o">)</span> <span class="o">(</span><span class="nt">-22</span><span class="o">)</span>
+events.js:160
+      throw er<span class="p">;</span> // Unhandled <span class="s1">'error'</span> event
+      ^
+
+Error: Error watching file <span class="k">for </span>changes: EMFILE
+    at exports._errnoException <span class="o">(</span>util.js:1022:11<span class="o">)</span>
+    at FSEvent.FSWatcher._handle.onchange <span class="o">(</span>fs.js:1406:11<span class="o">)</span>
+</pre>
+</li>
+<li>
+<p>Tip: Things to check if you get an <code>npm run lint</code> error or build error:</p>
+<ul>
+<li>
+<p>If ESW found an error or warning in your project (e.g. console statement or a missing semi-colon), the lint thread will exit with <code>Exit status 1</code>. To fix:</p>
+<ol>
+<li>Change the <code>npm run lint</code> script to <code>"esw webpack.config.* src tools; exit 0"</code>
+</li>
+<li>Change the <code>npm run lint:watch</code> script to <code>"esw webpack.config.* src tools --watch; exit 0"</code>
+</li>
+</ol>
+<blockquote>
+<p>Note: Adding <code>exit 0</code> will allow the npm scripts to ignore the status 1 and allow ESW to print all warnings and errors.</p>
+</blockquote>
+</li>
+<li>
+<p>Ensure the <code>eslint</code>/<code>esw</code> globally installed version matches the version used in the project. This will ensure the <code>esw</code> keyword is resolved.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Rebuild node-sass with <code>npm rebuild node-sass</code> if you are having and error like <code>Node Sass does not yet support your current environment on macOS XXX</code> after an initial <code>npm start -s</code>.</p>
+</li>
+</ol>
+<hr>
+<h2>
+<a id="technologies" class="anchor" href="#technologies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technologies</h2>
+<p>Slingshot offers a rich development experience using the following technologies:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tech</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Learn More</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://facebook.github.io/react/" rel="nofollow">React</a></td>
+<td>Fast, composable client-side components.</td>
+<td><a href="https://www.pluralsight.com/courses/react-flux-building-applications" rel="nofollow">Pluralsight Course</a></td>
+</tr>
+<tr>
+<td><a href="http://redux.js.org" rel="nofollow">Redux</a></td>
+<td>Enforces unidirectional data flows and immutable, hot reloadable store. Supports time-travel debugging. Lean alternative to <a href="https://facebook.github.io/flux/docs/overview.html" rel="nofollow">Facebook's Flux</a>.</td>
+<td>
+<a href="https://egghead.io/courses/getting-started-with-redux" rel="nofollow">Getting Started with Redux</a>, <a href="https://egghead.io/courses/building-react-applications-with-idiomatic-redux" rel="nofollow">Building React Applications with Idiomatic Redux</a>, <a href="http://www.pluralsight.com/courses/react-redux-react-router-es6" rel="nofollow">Pluralsight Course</a>
+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reactjs/react-router" rel="nofollow">React Router</a></td>
+<td>A complete routing library for React</td>
+<td><a href="https://www.pluralsight.com/courses/react-flux-building-applications" rel="nofollow">Pluralsight Course</a></td>
+</tr>
+<tr>
+<td><a href="http://babeljs.io" rel="nofollow">Babel</a></td>
+<td>Compiles ES6 to ES5. Enjoy the new version of JavaScript today.</td>
+<td>
+<a href="https://babeljs.io/repl/" rel="nofollow">ES6 REPL</a>, <a href="http://es6-features.org" rel="nofollow">ES6 vs ES5</a>, <a href="http://es6katas.org" rel="nofollow">ES6 Katas</a>, <a href="https://www.pluralsight.com/courses/javascript-fundamentals-es6" rel="nofollow">Pluralsight course</a>
+</td>
+</tr>
+<tr>
+<td><a href="https://webpack.js.org" rel="nofollow">Webpack</a></td>
+<td>Bundles npm packages and our JS into a single file. Includes hot reloading via <a href="https://www.npmjs.com/package/react-transform-hmr" rel="nofollow">react-transform-hmr</a>.</td>
+<td>
+<a href="https://github.com/petehunt/webpack-howto" rel="nofollow">Quick Webpack How-to</a> <a href="https://www.pluralsight.com/courses/webpack-fundamentals" rel="nofollow">Pluralsight Course</a>
+</td>
+</tr>
+<tr>
+<td><a href="https://www.browsersync.io/" rel="nofollow">Browsersync</a></td>
+<td>Lightweight development HTTP server that supports synchronized testing and debugging on multiple devices.</td>
+<td><a href="https://www.youtube.com/watch?time_continue=1&amp;v=heNWfzc7ufQ" rel="nofollow">Intro vid</a></td>
+</tr>
+<tr>
+<td><a href="https://facebook.github.io/jest/" rel="nofollow">Jest</a></td>
+<td>Automated tests with built-in expect assertions and <a href="https://github.com/airbnb/enzyme" rel="nofollow">Enzyme</a> for DOM testing without a browser using Node.</td>
+<td><a href="https://www.pluralsight.com/courses/testing-javascript" rel="nofollow">Pluralsight Course</a></td>
+</tr>
+<tr>
+<td><a href="https://trackjs.com/" rel="nofollow">TrackJS</a></td>
+<td>JavaScript error tracking.</td>
+<td><a href="https://my.trackjs.com/signup" rel="nofollow">Free trial</a></td>
+</tr>
+<tr>
+<td><a href="http://eslint.org/" rel="nofollow">ESLint</a></td>
+<td>Lint JS. Reports syntax and style issues. Using <a href="https://github.com/yannickcr/eslint-plugin-react" rel="nofollow">eslint-plugin-react</a> for additional React specific linting rules.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://sass-lang.com/" rel="nofollow">SASS</a></td>
+<td>Compiled CSS styles with variables, functions, and more.</td>
+<td><a href="https://www.pluralsight.com/courses/better-css" rel="nofollow">Pluralsight Course</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/postcss/postcss" rel="nofollow">PostCSS</a></td>
+<td>Transform styles with JS plugins. Used to autoprefix CSS</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://editorconfig.org" rel="nofollow">Editor Config</a></td>
+<td>Enforce consistent editor settings (spaces vs tabs, etc).</td>
+<td><a href="http://editorconfig.org/#download" rel="nofollow">IDE Plugins</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.npmjs.com/misc/scripts" rel="nofollow">npm Scripts</a></td>
+<td>Glues all this together in a handy automated build.</td>
+<td>
+<a href="https://www.pluralsight.com/courses/npm-build-tool-introduction" rel="nofollow">Pluralsight course</a>, <a href="https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.vtaziro8n" rel="nofollow">Why not Gulp?</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The starter kit includes a working example app that puts all of the above to use.</p>
+<hr>
+<h2>
+<a id="questions" class="anchor" href="#questions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Questions?</h2>
+<p>Check out the <a href="https://github.com/coryhouse/react-slingshot/blob/master/./docs/FAQ.md" rel="nofollow">FAQ</a></p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b7704f42e738',m:'567bfc8fdf9aaedef6a5464add9addf61eeaf629-1610725450-1800-AcVUfDIfD3pR0ODXq5K1f8szplq/BnbwJVtj+aaWkjh1cBp7yuxHwbs4Wt4d+kwUxvmNUn8TLaKZu0QEvqLeIjumDuzlXfx9rFdX1M+iGdx0erRqNwaWFMdPVx8e35JNcW/z3F52E53M1cMpFvqIxcwlkCIRZU6y0MiWNvOk4pUK',s:[0xc619a956f6,0xeb16087225],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="javascript"/> <!-- -->javascript<!-- --> (<!-- -->67,310<!-- -->) </div><div><input type="checkbox" name="topics" value="react"/> <!-- -->react<!-- --> (<!-- -->5,029<!-- -->) </div><div><input type="checkbox" name="topics" value="redux"/> <!-- -->redux<!-- --> (<!-- -->1,134<!-- -->) </div><div><input type="checkbox" name="topics" value="boilerplate"/> <!-- -->boilerplate<!-- --> (<!-- -->590<!-- -->) </div><div><input type="checkbox" name="topics" value="starter-kit"/> <!-- -->starter-kit<!-- --> (<!-- -->166<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->React <!-- -->Slingshot<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/coryhouse" target="_blank">Coryhouse</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/coryhouse" target="_blank">Coryhouse</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-d98ac4c2-a53a-44b2-80d7-2099fcd92dbd">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"boilerplate","count":590},{"id":null,"name":"javascript","count":67310},{"id":null,"name":"react","count":5029},{"id":null,"name":"redux","count":1134},{"id":null,"name":"starter-kit","count":166}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/coryhouse/react-slingshot","projects":[],"project":{"id":121221,"created_at":"2018-08-21T02:24:11.994Z","updated_at":"2021-01-14T07:27:17.009Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cp align=\"center\"\u003e\n  \u003ca href=\"https://cloud.githubusercontent.com/assets/3129129/22811426/bb69dc06-ef0c-11e6-8092-a0bea9060b35.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://cloud.githubusercontent.com/assets/3129129/22811426/bb69dc06-ef0c-11e6-8092-a0bea9060b35.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.org/coryhouse/react-slingshot\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/travis/coryhouse/react-slingshot.svg?style=flat-square\" alt=\"Build status: Linux\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://ci.appveyor.com/project/coryhouse/react-slingshot/branch/master\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/appveyor/ci/coryhouse/react-slingshot/master.svg?style=flat-square\" alt=\"Build status: Windows\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://david-dm.org/coryhouse/react-slingshot\" rel=\"nofollow\"\u003e\u003cimg src=\"https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square\" alt=\"Dependency Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://coveralls.io/github/coryhouse/react-slingshot?branch=master\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square\" alt=\"Coverage Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eA comprehensive starter kit for rapid application development using React.\u003c/p\u003e\n\u003cp\u003eWhy Slingshot?\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cstrong\u003eOne command to get started\u003c/strong\u003e - Type \u003ccode\u003enpm start\u003c/code\u003e to start development in your default browser.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eRapid feedback\u003c/strong\u003e - Each time you hit save, changes hot reload and linting and automated tests run.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eOne command line to check\u003c/strong\u003e - All feedback is displayed on a single command line.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo more JavaScript fatigue\u003c/strong\u003e - Slingshot uses \u003ca href=\"#technologies\"\u003ethe most popular and powerful libraries\u003c/a\u003e for working with React.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWorking example app\u003c/strong\u003e - The included example app shows how this all works together.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAutomated production build\u003c/strong\u003e - Type \u003ccode\u003enpm run build\u003c/code\u003e to do all this:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=qlfDLsX-J0U\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.youtube.com/vi/qlfDLsX-J0U/0.jpg\" alt=\"React Slingshot Production Build\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"get-started\" class=\"anchor\" href=\"#get-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGet Started\u003c/h1\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInitial Machine Setup\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eFirst time running the starter kit? Then complete the \u003ca href=\"#initial-machine-setup\"\u003eInitial Machine Setup\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eClick \"Use this template\"\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eClick the green \"Use this template\" button at the top of this page and enter a name and description for your repo.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRun the setup script\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003enpm run setup\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRun the example app\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003enpm start -s\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReview the example app.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThis starter kit includes a working example app that calculates fuel savings. Note how all source code is placed under /src. Tests are placed alongside the file under test. The final built app is placed under /dist. These are the files you run in production.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eDelete the example app files.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eOnce you're comfortable with how the example app works, you can \u003ca href=\"https://github.com/coryhouse/react-slingshot/blob/master/./docs/FAQ.md#i-just-want-an-empty-starter-kit\" rel=\"nofollow\"\u003edelete those files and begin creating your own app\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHaving issues?\u003c/strong\u003e See \u003ca href=\"#having-issues-try-these-things-first\"\u003eHaving Issues?\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"initial-machine-setup\" class=\"anchor\" href=\"#initial-machine-setup\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInitial Machine Setup\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInstall \u003ca href=\"https://nodejs.org\" rel=\"nofollow\"\u003eNode 8.0.0 or greater\u003c/a\u003e\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eNeed to run multiple versions of Node? Use \u003ca href=\"https://github.com/creationix/nvm\" rel=\"nofollow\"\u003envm\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInstall \u003ca href=\"https://git-scm.com/downloads\" rel=\"nofollow\"\u003eGit\u003c/a\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://webpack.js.org/guides/development/#adjusting-your-text-editor\" rel=\"nofollow\"\u003eDisable safe write in your editor\u003c/a\u003e\u003c/strong\u003e to assure hot reloading works properly.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eComplete the steps below for your operating system:\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"macos\" class=\"anchor\" href=\"#macos\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003emacOS\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eInstall \u003ca href=\"https://facebook.github.io/watchman/\" rel=\"nofollow\"\u003ewatchman\u003c/a\u003e via \u003ccode\u003ebrew install watchman\u003c/code\u003e or fswatch via \u003ccode\u003ebrew install fswatch\u003c/code\u003e to avoid \u003ca href=\"https://github.com/facebook/create-react-app/issues/871\" rel=\"nofollow\"\u003ethis issue\u003c/a\u003e which occurs if your macOS has no appropriate file watching service installed.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"linux\" class=\"anchor\" href=\"#linux\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLinux\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eRun this to \u003ca href=\"http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc\" rel=\"nofollow\"\u003eincrease the limit\u003c/a\u003e on the number of files Linux will watch. \u003ca href=\"https://github.com/coryhouse/react-slingshot/issues/6\" rel=\"nofollow\"\u003eHere's why\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eecho fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf \u0026amp;\u0026amp; sudo sysctl -p\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"windows\" class=\"anchor\" href=\"#windows\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWindows\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInstall \u003ca href=\"https://www.python.org/downloads/\" rel=\"nofollow\"\u003ePython 2.7\u003c/a\u003e\u003c/strong\u003e. Some node modules may rely on node-gyp, which requires Python on Windows.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eInstall C++ Compiler\u003c/strong\u003e. Browser-sync requires a C++ compiler on Windows.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.visualstudio.com/en-US/products/visual-studio-express-vs\" rel=\"nofollow\"\u003eVisual Studio Express\u003c/a\u003e comes bundled with a free C++ compiler.\u003c/p\u003e\n\u003cp\u003eIf you already have Visual Studio installed:\nOpen Visual Studio and go to File -\u0026gt; New -\u0026gt; Project -\u0026gt; Visual C++ -\u0026gt; Install Visual C++ Tools for Windows Desktop.\nThe C++ compiler is used to compile browser-sync (and perhaps other Node modules).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\n\u003ca id=\"having-issues-try-these-things-first\" class=\"anchor\" href=\"#having-issues-try-these-things-first\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHaving Issues? Try these things first\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eMake sure you ran all steps in \u003ca href=\"#get-started\"\u003eGet started\u003c/a\u003e including the \u003ca href=\"#initial-machine-setup\"\u003einitial machine setup\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun \u003ccode\u003enpm install\u003c/code\u003e - If you forget to do this, you'll see this: \u003ccode\u003ebabel-node: command not found\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInstall the latest version of Node.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMake sure files with names that begin with a dot (.editorconfig, .gitignore, .npmrc) are copied to the project directory root. This is easy to overlook if you copy this repository manually.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDon't run the project from a symbolic link. It may cause issues with file watches.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDelete any .eslintrc that you're storing in your user directory. Also, disable any ESLint plugin / custom rules that you've enabled within your editor. These will conflict with the ESLint rules defined in this project.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMake sure you don't have NODE_ENV set to production on your machine. If you do then the \u003ca href=\"https://github.com/coryhouse/react-slingshot/issues/400#issuecomment-290497767\" rel=\"nofollow\"\u003edevelopment dependencies won't be installed\u003c/a\u003e. Here's \u003ca href=\"http://stackoverflow.com/a/27939821/26180\" rel=\"nofollow\"\u003ehow to check\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInstall watchman with \u003ccode\u003ebrew install watchman\u003c/code\u003e if you are having the following error after an initial \u003ccode\u003enpm start -s\u003c/code\u003e:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e2017-09-05 00:44 node[68587] \u003cspan class=\"o\"\u003e(\u003c/span\u003eFSEvents.framework\u003cspan class=\"o\"\u003e)\u003c/span\u003e FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"o\"\u003e(\u003c/span\u003enull\u003cspan class=\"o\"\u003e)\u003c/span\u003e \u003cspan class=\"o\"\u003e(\u003c/span\u003e\u003cspan class=\"nt\"\u003e-22\u003c/span\u003e\u003cspan class=\"o\"\u003e)\u003c/span\u003e\n2017-09-05 00:44 node[68587] \u003cspan class=\"o\"\u003e(\u003c/span\u003eFSEvents.framework\u003cspan class=\"o\"\u003e)\u003c/span\u003e FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"o\"\u003e(\u003c/span\u003enull\u003cspan class=\"o\"\u003e)\u003c/span\u003e \u003cspan class=\"o\"\u003e(\u003c/span\u003e\u003cspan class=\"nt\"\u003e-22\u003c/span\u003e\u003cspan class=\"o\"\u003e)\u003c/span\u003e\nevents.js:160\n      throw er\u003cspan class=\"p\"\u003e;\u003c/span\u003e // Unhandled \u003cspan class=\"s1\"\u003e'error'\u003c/span\u003e event\n      ^\n\nError: Error watching file \u003cspan class=\"k\"\u003efor \u003c/span\u003echanges: EMFILE\n    at exports._errnoException \u003cspan class=\"o\"\u003e(\u003c/span\u003eutil.js:1022:11\u003cspan class=\"o\"\u003e)\u003c/span\u003e\n    at FSEvent.FSWatcher._handle.onchange \u003cspan class=\"o\"\u003e(\u003c/span\u003efs.js:1406:11\u003cspan class=\"o\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTip: Things to check if you get an \u003ccode\u003enpm run lint\u003c/code\u003e error or build error:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eIf ESW found an error or warning in your project (e.g. console statement or a missing semi-colon), the lint thread will exit with \u003ccode\u003eExit status 1\u003c/code\u003e. To fix:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eChange the \u003ccode\u003enpm run lint\u003c/code\u003e script to \u003ccode\u003e\"esw webpack.config.* src tools; exit 0\"\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eChange the \u003ccode\u003enpm run lint:watch\u003c/code\u003e script to \u003ccode\u003e\"esw webpack.config.* src tools --watch; exit 0\"\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNote: Adding \u003ccode\u003eexit 0\u003c/code\u003e will allow the npm scripts to ignore the status 1 and allow ESW to print all warnings and errors.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eEnsure the \u003ccode\u003eeslint\u003c/code\u003e/\u003ccode\u003eesw\u003c/code\u003e globally installed version matches the version used in the project. This will ensure the \u003ccode\u003eesw\u003c/code\u003e keyword is resolved.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRebuild node-sass with \u003ccode\u003enpm rebuild node-sass\u003c/code\u003e if you are having and error like \u003ccode\u003eNode Sass does not yet support your current environment on macOS XXX\u003c/code\u003e after an initial \u003ccode\u003enpm start -s\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch2\u003e\n\u003ca id=\"technologies\" class=\"anchor\" href=\"#technologies\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTechnologies\u003c/h2\u003e\n\u003cp\u003eSlingshot offers a rich development experience using the following technologies:\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eTech\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003eDescription\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003eLearn More\u003c/strong\u003e\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://facebook.github.io/react/\" rel=\"nofollow\"\u003eReact\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eFast, composable client-side components.\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://www.pluralsight.com/courses/react-flux-building-applications\" rel=\"nofollow\"\u003ePluralsight Course\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"http://redux.js.org\" rel=\"nofollow\"\u003eRedux\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eEnforces unidirectional data flows and immutable, hot reloadable store. Supports time-travel debugging. Lean alternative to \u003ca href=\"https://facebook.github.io/flux/docs/overview.html\" rel=\"nofollow\"\u003eFacebook's Flux\u003c/a\u003e.\u003c/td\u003e\n\u003ctd\u003e\n\u003ca href=\"https://egghead.io/courses/getting-started-with-redux\" rel=\"nofollow\"\u003eGetting Started with Redux\u003c/a\u003e, \u003ca href=\"https://egghead.io/courses/building-react-applications-with-idiomatic-redux\" rel=\"nofollow\"\u003eBuilding React Applications with Idiomatic Redux\u003c/a\u003e, \u003ca href=\"http://www.pluralsight.com/courses/react-redux-react-router-es6\" rel=\"nofollow\"\u003ePluralsight Course\u003c/a\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://github.com/reactjs/react-router\" rel=\"nofollow\"\u003eReact Router\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eA complete routing library for React\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://www.pluralsight.com/courses/react-flux-building-applications\" rel=\"nofollow\"\u003ePluralsight Course\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"http://babeljs.io\" rel=\"nofollow\"\u003eBabel\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eCompiles ES6 to ES5. Enjoy the new version of JavaScript today.\u003c/td\u003e\n\u003ctd\u003e\n\u003ca href=\"https://babeljs.io/repl/\" rel=\"nofollow\"\u003eES6 REPL\u003c/a\u003e, \u003ca href=\"http://es6-features.org\" rel=\"nofollow\"\u003eES6 vs ES5\u003c/a\u003e, \u003ca href=\"http://es6katas.org\" rel=\"nofollow\"\u003eES6 Katas\u003c/a\u003e, \u003ca href=\"https://www.pluralsight.com/courses/javascript-fundamentals-es6\" rel=\"nofollow\"\u003ePluralsight course\u003c/a\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://webpack.js.org\" rel=\"nofollow\"\u003eWebpack\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eBundles npm packages and our JS into a single file. Includes hot reloading via \u003ca href=\"https://www.npmjs.com/package/react-transform-hmr\" rel=\"nofollow\"\u003ereact-transform-hmr\u003c/a\u003e.\u003c/td\u003e\n\u003ctd\u003e\n\u003ca href=\"https://github.com/petehunt/webpack-howto\" rel=\"nofollow\"\u003eQuick Webpack How-to\u003c/a\u003e \u003ca href=\"https://www.pluralsight.com/courses/webpack-fundamentals\" rel=\"nofollow\"\u003ePluralsight Course\u003c/a\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://www.browsersync.io/\" rel=\"nofollow\"\u003eBrowsersync\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eLightweight development HTTP server that supports synchronized testing and debugging on multiple devices.\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://www.youtube.com/watch?time_continue=1\u0026amp;v=heNWfzc7ufQ\" rel=\"nofollow\"\u003eIntro vid\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://facebook.github.io/jest/\" rel=\"nofollow\"\u003eJest\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eAutomated tests with built-in expect assertions and \u003ca href=\"https://github.com/airbnb/enzyme\" rel=\"nofollow\"\u003eEnzyme\u003c/a\u003e for DOM testing without a browser using Node.\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://www.pluralsight.com/courses/testing-javascript\" rel=\"nofollow\"\u003ePluralsight Course\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://trackjs.com/\" rel=\"nofollow\"\u003eTrackJS\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eJavaScript error tracking.\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://my.trackjs.com/signup\" rel=\"nofollow\"\u003eFree trial\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"http://eslint.org/\" rel=\"nofollow\"\u003eESLint\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eLint JS. Reports syntax and style issues. Using \u003ca href=\"https://github.com/yannickcr/eslint-plugin-react\" rel=\"nofollow\"\u003eeslint-plugin-react\u003c/a\u003e for additional React specific linting rules.\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"http://sass-lang.com/\" rel=\"nofollow\"\u003eSASS\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eCompiled CSS styles with variables, functions, and more.\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://www.pluralsight.com/courses/better-css\" rel=\"nofollow\"\u003ePluralsight Course\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://github.com/postcss/postcss\" rel=\"nofollow\"\u003ePostCSS\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eTransform styles with JS plugins. Used to autoprefix CSS\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"http://editorconfig.org\" rel=\"nofollow\"\u003eEditor Config\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eEnforce consistent editor settings (spaces vs tabs, etc).\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"http://editorconfig.org/#download\" rel=\"nofollow\"\u003eIDE Plugins\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://docs.npmjs.com/misc/scripts\" rel=\"nofollow\"\u003enpm Scripts\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eGlues all this together in a handy automated build.\u003c/td\u003e\n\u003ctd\u003e\n\u003ca href=\"https://www.pluralsight.com/courses/npm-build-tool-introduction\" rel=\"nofollow\"\u003ePluralsight course\u003c/a\u003e, \u003ca href=\"https://medium.com/@housecor/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.vtaziro8n\" rel=\"nofollow\"\u003eWhy not Gulp?\u003c/a\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eThe starter kit includes a working example app that puts all of the above to use.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\n\u003ca id=\"questions\" class=\"anchor\" href=\"#questions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuestions?\u003c/h2\u003e\n\u003cp\u003eCheck out the \u003ca href=\"https://github.com/coryhouse/react-slingshot/blob/master/./docs/FAQ.md\" rel=\"nofollow\"\u003eFAQ\u003c/a\u003e\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":48863418,"name":"react-slingshot","owner_login":"coryhouse","description":"React + Redux starter kit / boilerplate with Babel, hot reloading, testing, linting and a working example app built in","pushed_at":"2020-12-11T02:38:41.000Z","stargazers_count":9729,"open_issues_count":43,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"","private":false,"project_created_at":"2015-12-31T22:04:53.000Z","project_updated_at":"2021-01-14T00:43:54.000Z","language":"JavaScript","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

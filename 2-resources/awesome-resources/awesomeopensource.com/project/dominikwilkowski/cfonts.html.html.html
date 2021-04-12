@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":0,"applicationTime":191,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Cfonts</title>
+<meta name="description" content="Sexy fonts for the console">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/dominikwilkowski/cfonts">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "dominikwilkowski/cfonts",
+  "description": "Sexy fonts for the console",
+  "url": "https://awesomeopensource.com/project/dominikwilkowski/cfonts",
+  "sku": "project/dominikwilkowski/cfonts",
+  "mpn": "project/dominikwilkowski/cfonts",
+  "image": "https://github.com/dominikwilkowski.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "dominikwilkowski/cfonts",
+    "logo": "https://github.com/dominikwilkowski.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "ratingCount": "759"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="lvEO/pWbZuE6pVaCsrmbIWefEMNAiitQ37sJx3u2kEStnY96QhWj7u5q1VfCpbkNky4KBJaLh+8rdamRzh3c5Q==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/dominikwilkowski/cfonts","location":"/project/dominikwilkowski/cfonts","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/dominikwilkowski/cfonts","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-05d2204c-997b-43d3-8fb6-40ae29b93368"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Cfonts</div><div class="aos_project_metadata_description">Sexy fonts for the console</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">759</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">gpl-2.0</span><span><div class="aos_project_metadata_header"><a href="https://www.npmjs.com/package/cfonts" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://www.npmjs.com/package/cfonts" target="_blank">https://www.npmjs.com/package/cfonts</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/dominikwilkowski/cfonts" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/dominikwilkowski/cfonts" target="_blank">https://github.com/dominikwilkowski/cfonts</a></span><div class="aos_project_metadata_header"><a href="https://github.com/dominikwilkowski/cfonts/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/dominikwilkowski/cfonts/issues" target="_blank">1</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">21 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/javascript"><div style="display:block;text-decoration:none;padding-bottom:10px">javascript<span> (<!-- -->67,310<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/shell"><div style="display:block;text-decoration:none;padding-bottom:10px">shell<span> (<!-- -->9,677<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nodejs"><div style="display:block;text-decoration:none;padding-bottom:10px">nodejs<span> (<!-- -->3,563<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cli"><div style="display:block;text-decoration:none;padding-bottom:10px">cli<span> (<!-- -->1,650<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/generator"><div style="display:block;text-decoration:none;padding-bottom:10px">generator<span> (<!-- -->322<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/font"><div style="display:block;text-decoration:none;padding-bottom:10px">font<span> (<!-- -->241<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ascii"><div style="display:block;text-decoration:none;padding-bottom:10px">ascii<span> (<!-- -->82<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ascii-art"><div style="display:block;text-decoration:none;padding-bottom:10px">ascii-art<span> (<!-- -->74<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ansi"><div style="display:block;text-decoration:none;padding-bottom:10px">ansi<span> (<!-- -->48<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<pre lang="shell" class="highlight-shell">     ██████╗ ███████╗  ██████╗  ███╗   ██╗ ████████╗ ███████╗
+    ██╔════╝ ██╔════╝ ██╔═══██╗ ████╗  ██║ ╚══██╔══╝ ██╔════╝
+    ██║      █████╗   ██║   ██║ ██╔██╗ ██║    ██║    ███████╗
+    ██║      ██╔══╝   ██║   ██║ ██║╚██╗██║    ██║    ╚════██║
+    ╚██████╗ ██║      ╚██████╔╝ ██║ ╚████║    ██║    ███████║
+     ╚═════╝ ╚═╝       ╚═════╝  ╚═╝  ╚═══╝    ╚═╝    ╚══════╝
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example1.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example1.png" alt="cfont styles" style="max-width:100%;"></a></p>
+<p align="center"><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example2.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example2.png" alt="api example" style="max-width:100%;"></a></p>
+<p align="center"><a href="https://nodei.co/npm/cfonts/" rel="nofollow"><img src="https://nodei.co/npm/cfonts.png?downloads=true" alt="npm status" style="max-width:100%;"></a></p>
+<p align="center">
+	<a href="https://travis-ci.org/dominikwilkowski/cfonts" rel="nofollow"><img src="https://travis-ci.org/dominikwilkowski/cfonts.svg?branch=released" alt="build status" style="max-width:100%;"></a>
+	<a href="https://coveralls.io/github/dominikwilkowski/cfonts?branch=released" rel="nofollow"><img src="https://coveralls.io/repos/github/dominikwilkowski/cfonts/badge.svg?branch=released" alt="CFont Coverage Status" style="max-width:100%;"></a>
+</p>
+<p align="center">This is a silly little command line tool for sexy fonts in the console. <strong>Give your cli some love.</strong></p>
+<h2>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing</h2>
+<p>To install the CLI app, simply NPM install it globally.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>npm <span class="nb">install </span>cfonts <span class="nt">-g</span>
+</pre>
+<p>To use it in your shell:</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"Hello|World</span><span class="se">\!</span><span class="s2">"</span>
+</pre>
+<p><em>Remember to escape the <code>!</code> character with <code>\</code> in the shell</em></p>
+<p>Or use it in your project:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">CFonts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cfonts'</span><span class="p">);</span>
+
+<span class="nx">CFonts</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="s1">'Hello|world!'</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">font</span><span class="p">:</span> <span class="s1">'block'</span><span class="p">,</span>              <span class="c1">// define the font face</span>
+	<span class="na">align</span><span class="p">:</span> <span class="s1">'left'</span><span class="p">,</span>              <span class="c1">// define text alignment</span>
+	<span class="na">colors</span><span class="p">:</span> <span class="p">[</span><span class="s1">'system'</span><span class="p">],</span>         <span class="c1">// define all colors</span>
+	<span class="na">background</span><span class="p">:</span> <span class="s1">'transparent'</span><span class="p">,</span>  <span class="c1">// define the background color, you can also use `backgroundColor` here as key</span>
+	<span class="na">letterSpacing</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>           <span class="c1">// define letter spacing</span>
+	<span class="na">lineHeight</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>              <span class="c1">// define the line height</span>
+	<span class="na">space</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                <span class="c1">// define if the output text should have empty lines on top and on the bottom</span>
+	<span class="na">maxLength</span><span class="p">:</span> <span class="s1">'0'</span><span class="p">,</span>             <span class="c1">// define how many character can be on one line</span>
+	<span class="na">gradient</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>            <span class="c1">// define your two gradient colors</span>
+	<span class="na">independentGradient</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// define if you want to recalculate the gradient for each new line</span>
+	<span class="na">transitionGradient</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// define if this is a transition between colors directly</span>
+	<span class="na">env</span><span class="p">:</span> <span class="s1">'node'</span>                 <span class="c1">// define the environment CFonts is being executed in</span>
+<span class="p">});</span>
+</pre>
+<p><em>All settings are optional and shown here with their default</em></p>
+<p>You can use CFonts in your project without the direct output to the console:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">CFonts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cfonts'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">prettyFont</span> <span class="o">=</span> <span class="nx">CFonts</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'Hello|world!'</span><span class="p">,</span> <span class="p">{</span><span class="cm">/* same settings object as above */</span><span class="p">});</span>
+
+<span class="nx">prettyFont</span><span class="p">.</span><span class="nx">string</span>  <span class="c1">// the ansi string for sexy console font</span>
+<span class="nx">prettyFont</span><span class="p">.</span><span class="nx">array</span>   <span class="c1">// returns the array for the output</span>
+<span class="nx">prettyFont</span><span class="p">.</span><span class="nx">lines</span>   <span class="c1">// returns the lines used</span>
+<span class="nx">prettyFont</span><span class="p">.</span><span class="nx">options</span> <span class="c1">// returns the options used</span>
+</pre>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<p>Using the CLI is easy.</p>
+<pre><code>Usage: cfonts  "&lt;value&gt;" [option1] &lt;input1&gt; [option2] &lt;input1&gt;,&lt;input2&gt; [option3] etc...
+</code></pre>
+<p>At any point you can run the <em>help</em> command to get a full list of commands and
+how to use them.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="nt">--help</span>
+</pre>
+<h2>
+<a id="supported-characters" class="anchor" href="#supported-characters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported Characters</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>A</code></td>
+<td><code>P</code></td>
+<td><code>4</code></td>
+<td><code>$</code></td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td><code>Q</code></td>
+<td><code>5</code></td>
+<td><code>%</code></td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td><code>R</code></td>
+<td><code>6</code></td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td><code>S</code></td>
+<td><code>7</code></td>
+<td><code>(</code></td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>T</code></td>
+<td><code>8</code></td>
+<td><code>)</code></td>
+</tr>
+<tr>
+<td><code>F</code></td>
+<td><code>U</code></td>
+<td><code>9</code></td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td><code>V</code></td>
+<td><code>!</code></td>
+<td><code>:</code></td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td><code>W</code></td>
+<td><code>?</code></td>
+<td><code>;</code></td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td><code>X</code></td>
+<td><code>.</code></td>
+<td><code>,</code></td>
+</tr>
+<tr>
+<td><code>J</code></td>
+<td><code>Y</code></td>
+<td><code>+</code></td>
+<td><code>'</code></td>
+</tr>
+<tr>
+<td><code>K</code></td>
+<td><code>Z</code></td>
+<td><code>-</code></td>
+<td><code>"</code></td>
+</tr>
+<tr>
+<td><code>L</code></td>
+<td><code>0</code></td>
+<td><code>_</code></td>
+<td>
+<code></code> (space)</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td><code>1</code></td>
+<td><code>=</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td><code>2</code></td>
+<td><code>@</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td><code>3</code></td>
+<td><code>#</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>The <code>|</code> character will be replaced with a line break</em></p>
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+<h4>
+<a id="-h---help" class="anchor" href="#-h---help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-h, --help</h4>
+<p>Type: <code>&lt;command&gt;</code><br>
+Default value: <code>none</code></p>
+<p>This shows a list of all available options.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="nt">--help</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/help.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/help.png" alt="Help command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-v---version" class="anchor" href="#-v---version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-V, --version</h4>
+<p>Type: <code>&lt;command&gt;</code><br>
+Default value: <code>none</code></p>
+<p>This shows the installed version.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="nt">--version</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/version.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/version.png" alt="Version command" style="max-width:100%;"></a></p>
+<h4>
+<a id="text" class="anchor" href="#text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>text</h4>
+<p>Type: <code>&lt;string&gt;</code><br>
+Default value: <code>""</code></p>
+<p>This is the "text input" to be converted into a nice font.<br>
+The <code>|</code> character will be replaced with a line break.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"Hello world"</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/text.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/text.png" alt="Text command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-f---font" class="anchor" href="#-f---font" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-f, --font</h4>
+<p>Type: <code>&lt;string&gt;</code><br>
+Default value: <code>"block"</code></p>
+<p>This is the font face you want to use. So far this plugin ships with with following font faces:</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--font</span> <span class="s2">"chrome"</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/font.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/font.png" alt="Font command" style="max-width:100%;"></a></p>
+<ul>
+<li>
+<code>block</code>       [colors: 2] <em>(default)</em>
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/block.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/block.png" alt="block font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>slick</code>       [colors: 2]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/slick.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/slick.png" alt="slick font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>tiny</code>        [colors: 1]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/tiny.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/tiny.png" alt="tiny font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>grid</code>        [colors: 2]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/grid.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/grid.png" alt="grid font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>pallet</code>      [colors: 2]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/pallet.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/pallet.png" alt="pallet font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>shade</code>       [colors: 2]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/shade.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/shade.png" alt="shade font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>chrome</code>      [colors: 3]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/chrome.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/chrome.png" alt="chrome font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>simple</code>      [colors: 1]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple.png" alt="simple font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>simpleBlock</code> [colors: 1]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-block.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-block.png" alt="simple-block font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>3d</code>          [colors: 2]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/3d.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/3d.png" alt="3d font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>simple3d</code>    [colors: 1]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-3d.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-3d.png" alt="simple-3d font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>huge</code>        [colors: 2]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/huge.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/huge.png" alt="huge font style" style="max-width:100%;"></a>
+</li>
+<li>
+<code>console</code>     [colors: 1]
+<a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/console.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/console.png" alt="console font style" style="max-width:100%;"></a>
+</li>
+</ul>
+<h4>
+<a id="-a---align" class="anchor" href="#-a---align" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-a, --align</h4>
+<p>Type: <code>&lt;string&gt;</code><br>
+Default value: <code>"left"</code></p>
+<p>You can align your text in the terminal with this option. Use the keywords below:</p>
+<ul>
+<li>
+<code>left</code> <em>(default)</em>
+</li>
+<li><code>center</code></li>
+<li><code>right</code></li>
+<li>
+<code>top</code> <em>(Will be ignored if used with the spaceless option)</em>
+</li>
+<li>
+<code>bottom</code> <em>(Will be ignored if used with the spaceless option)</em>
+</li>
+</ul>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--align</span> <span class="s2">"center"</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/align.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/align.png" alt="Align command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-c---colors" class="anchor" href="#-c---colors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-c, --colors</h4>
+<p>Type: <code>&lt;string list&gt;</code><br>
+Default value: <code>['system']</code></p>
+<p>With this setting you can set the colors for your font.
+Use the below color strings built in by <a href="https://github.com/chalk/chalk" rel="nofollow">chalk</a> or a hex color.<br>
+Provide colors in a comma-separated string, eg: <code>red,blue</code>. <em>(no spaces)</em><br>
+If you use a hex color make sure you include the <code>#</code> prefix. <em>(In the terminal wrap the hex in quotes)</em><br>
+The <code>system</code> color falls back to the system color of your terminal.</p>
+<ul>
+<li>
+<code>system</code> <em>(default)</em>
+</li>
+<li><code>black</code></li>
+<li><code>red</code></li>
+<li><code>green</code></li>
+<li><code>yellow</code></li>
+<li><code>blue</code></li>
+<li><code>magenta</code></li>
+<li><code>cyan</code></li>
+<li><code>white</code></li>
+<li><code>gray</code></li>
+<li><code>redBright</code></li>
+<li><code>greenBright</code></li>
+<li><code>yellowBright</code></li>
+<li><code>blueBright</code></li>
+<li><code>magentaBright</code></li>
+<li><code>cyanBright</code></li>
+<li><code>whiteBright</code></li>
+<li>
+<code>#ff8800</code> <em>(any valid hex color)</em>
+</li>
+<li>
+<code>#f80</code> <em>(short form is supported as well)</em>
+</li>
+</ul>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--colors</span> white,<span class="s2">"#f80"</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/colors.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/colors.png" alt="Colors command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-g---gradient" class="anchor" href="#-g---gradient" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-g, --gradient</h4>
+<p>Type: <code>&lt;string list&gt;</code><br>
+Default value: <code>false</code></p>
+<p>With this setting you can set a gradient over your output.<br>
+This setting supersedes the color open.<br>
+The gradient requires two colors, a start color and an end color from left to right.<br>
+<em>(If you want to set your own colors for the gradient, use the <a href="#-t---transition-gradient">transition</a> option.)</em><br>
+CFonts will then generate a gradient through as many colors as it can find to make the output most impressive.<br>
+Provide two colors in a comma-separated string, eg: <code>red,blue</code>. <em>(no spaces)</em><br>
+If you use a hex color make sure you include the <code>#</code> prefix. <em>(In the terminal wrap the hex in quotes)</em></p>
+<ul>
+<li><code>black</code></li>
+<li><code>red</code></li>
+<li><code>green</code></li>
+<li><code>yellow</code></li>
+<li><code>blue</code></li>
+<li><code>magenta</code></li>
+<li><code>cyan</code></li>
+<li><code>white</code></li>
+<li><code>gray</code></li>
+<li><code>grey</code></li>
+<li>
+<code>#ff8800</code> <em>(any valid hex color)</em>
+</li>
+<li>
+<code>#f80</code> <em>(short form is supported as well)</em>
+</li>
+</ul>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--gradient</span> red,<span class="s2">"#f80"</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/gradient.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/gradient.png" alt="Gradient command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-i---independent-gradient" class="anchor" href="#-i---independent-gradient" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-i, --independent-gradient</h4>
+<p>Type: <code>&lt;boolean&gt;</code><br>
+Default value: <code>false</code></p>
+<p>Set this option to re-calculate the gradient colors for each new line.<br>
+Only works in combination with the <a href="#-g---gradient">gradient</a> option.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text|next line"</span> <span class="nt">--gradient</span> red,<span class="s2">"#f80"</span> <span class="nt">--independent-gradient</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/independent-gradient.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/independent-gradient.png" alt="Independent gradient command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-t---transition-gradient" class="anchor" href="#-t---transition-gradient" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-t, --transition-gradient</h4>
+<p>Type: <code>&lt;boolean&gt;</code><br>
+Default value: <code>false</code></p>
+<p>Set this option to generate your own gradients.
+Each color set in the gradient option will then be transitioned to directly.
+This option allows you to specify more than just two colors for your gradient.<br>
+Only works in combination with the <a href="#-g---gradient">gradient</a> option.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--gradient</span> red,<span class="s2">"#f80"</span>,green,blue <span class="nt">--transition-gradient</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/transition-gradient.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/transition-gradient.png" alt="Independent gradient command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-b---background" class="anchor" href="#-b---background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-b, --background</h4>
+<p>Type: <code>&lt;string&gt;</code><br>
+Default value: <code>"transparent"</code></p>
+<p>With this setting you can set the background colors for the output. Use the below color strings built in by <a href="https://github.com/chalk/chalk" rel="nofollow">chalk</a>.
+Provide the background color from the below supported list, eg: 'white'</p>
+<ul>
+<li>
+<code>transparent</code> <em>(default)</em>
+</li>
+<li><code>black</code></li>
+<li><code>red</code></li>
+<li><code>green</code></li>
+<li><code>yellow</code></li>
+<li><code>blue</code></li>
+<li><code>magenta</code></li>
+<li><code>cyan</code></li>
+<li><code>white</code></li>
+<li><code>blackBright</code></li>
+<li><code>redBright</code></li>
+<li><code>greenBright</code></li>
+<li><code>yellowBright</code></li>
+<li><code>blueBright</code></li>
+<li><code>magentaBright</code></li>
+<li><code>cyanBright</code></li>
+<li><code>whiteBright</code></li>
+</ul>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--background</span> <span class="s2">"Green"</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/background.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/background.png" alt="Background command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-l---letter-spacing" class="anchor" href="#-l---letter-spacing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-l, --letter-spacing</h4>
+<p>Type: <code>&lt;integer&gt;</code><br>
+Default value: <code>1</code></p>
+<p>Set this option to widen the space between characters.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--letter-spacing</span> 2
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/letter-spacing.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/letter-spacing.png" alt="Letter spacing command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-z---line-height" class="anchor" href="#-z---line-height" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-z, --line-height</h4>
+<p>Type: <code>&lt;integer&gt;</code><br>
+Default value: <code>1</code></p>
+<p>Set this option to widen the space between lines.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--line-height</span> 2
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/line-height.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/line-height.png" alt="Line height command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-s---spaceless" class="anchor" href="#-s---spaceless" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-s, --spaceless</h4>
+<p>Type: <code>&lt;boolean&gt;</code><br>
+Default value: <code>true</code></p>
+<p>Set this option to false if you don't want the plugin to insert two empty lines on top and on the bottom of the output.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--spaceless</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/spaceless.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/spaceless.png" alt="Spaceless command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-m---max-length" class="anchor" href="#-m---max-length" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-m, --max-length</h4>
+<p>Type: <code>&lt;integer&gt;</code><br>
+Default value: <code>0</code></p>
+<p>This option sets the maximum characters that will be printed on one line.<br>
+CFonts detects the size of your terminal but you can opt out and determine your own max width.<br>
+<code>0</code> means no max width and the text will break at the edge of the terminal window.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">$ </span>cfonts <span class="s2">"text"</span> <span class="nt">--max-length</span> 15
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/max-length.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/max-length.png" alt="Max length command" style="max-width:100%;"></a></p>
+<h4>
+<a id="-e---env" class="anchor" href="#-e---env" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>-e, --env</h4>
+<p>Type: <code>&lt;string&gt;</code><br>
+Default value: <code>node</code></p>
+<p>This option let's you use CFonts to generate HTML instead of ANSI code.<br>
+Note that <code>max-length</code> won't be automatically detected anymore and you will have to supply it if you want the text to wrap.
+Best used in a node script.</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">CFonts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cfonts'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">CFonts</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'My text'</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">colors</span><span class="p">:</span> <span class="p">[</span><span class="s1">'white'</span><span class="p">],</span>
+	<span class="na">gradient</span><span class="p">:</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">],</span>
+	<span class="na">background</span><span class="p">:</span> <span class="s1">'black'</span><span class="p">,</span>
+	<span class="na">space</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+	<span class="na">env</span><span class="p">:</span> <span class="s1">'browser'</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span>
+	<span class="nx">path</span><span class="p">.</span><span class="nx">normalize</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span> <span class="nx">__dirname</span> <span class="p">}</span><span class="s2">/test.html`</span><span class="p">),</span>
+	<span class="nx">output</span><span class="p">.</span><span class="nx">string</span><span class="p">,</span>
+	<span class="p">{</span>
+		<span class="na">encoding</span><span class="p">:</span> <span class="s1">'utf8'</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">);</span>
+</pre>
+<p><a href="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/env.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/env.png" alt="Max length command" style="max-width:100%;"></a></p>
+<h2>
+<a id="consistency" class="anchor" href="#consistency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Consistency</h2>
+<p><a href="https://github.com/chalk/chalk" rel="nofollow">Chalk</a> detects what colors are supported on your platform.
+It sets a <a href="https://github.com/chalk/chalk#256-and-truecolor-color-support" rel="nofollow">level of support</a> automatically.
+In CFonts you can override this by passing in the <code>FORCE_COLOR</code> environment variable.</p>
+<pre lang="shell" class="highlight-shell"><span class="nv">FORCE_COLOR</span><span class="o">=</span>3 cfonts <span class="s2">"hello world"</span> <span class="nt">-c</span> <span class="s2">"#0088ff"</span>
+</pre>
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+<p>To build the repo install dependencies via:<br>
+<em>(Since we ship a <code>yarn.lock</code> file please use <a href="https://yarnpkg.com/" rel="nofollow"><code>yarn</code></a> for development.)</em></p>
+<pre lang="shell" class="highlight-shell">yarn
+</pre>
+<p>and run the watch to continuously transpile the code.</p>
+<pre lang="shell" class="highlight-shell">yarn watch
+</pre>
+<p>Please look at the coding style and work with it, not against it ;)</p>
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tests</h2>
+<p>This package is tested on the below platform and node combinations as part of our <a href="https://github.com/dominikwilkowski/cfonts/tree/released/.travis.yml" rel="nofollow">CI</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Node</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td>v10</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>v12</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>latest</td>
+</tr>
+<tr>
+<td>OSX</td>
+<td>v10</td>
+</tr>
+<tr>
+<td>OSX</td>
+<td>v12</td>
+</tr>
+<tr>
+<td>OSX</td>
+<td>latest</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>v10</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>v12</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>latest</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="unit-tests" class="anchor" href="#unit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unit tests</h3>
+<p>The package comes with a bunch of <a href="https://github.com/dominikwilkowski/cfonts/tree/released/test/unit" rel="nofollow">unit tests</a> that aim to cover 100% of the code base.
+For more details about the code coverage check out <a href="https://coveralls.io/github/dominikwilkowski/cfonts?branch=released" rel="nofollow">coveralls</a>.</p>
+<pre lang="shell" class="highlight-shell">npm run <span class="nb">test</span>:unit
+</pre>
+<h3>
+<a id="type-tests" class="anchor" href="#type-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Type tests</h3>
+<p>Since the code base uses <a href="https://jsdoc.app/" rel="nofollow">JSDocs</a> we use <a href="https://www.typescriptlang.org/" rel="nofollow">typescript</a> to test the inferred types from those comments.
+Typescript <a href="https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html#supported-jsdoc" rel="nofollow">supports JSDocs</a> and we use it in our
+<a href="https://github.com/dominikwilkowski/cfonts/blob/released/package.json#L38" rel="nofollow">test</a>.</p>
+<pre lang="shell" class="highlight-shell">npm run <span class="nb">test</span>:types
+</pre>
+<h3>
+<a id="font-file-test" class="anchor" href="#font-file-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Font file test</h3>
+<p>There is also a <a href="https://github.com/dominikwilkowski/cfonts/blob/released/test/fonttest.js" rel="nofollow">test suite</a> for font files.</p>
+<pre lang="shell" class="highlight-shell">npm run <span class="nb">test</span>:fonts
+</pre>
+<p>This tool checks:</p>
+<ul>
+<li>the existence of the font</li>
+<li>all attributes of a font</li>
+<li>each character for:
+<ul>
+<li>existence</li>
+<li>consistent width</li>
+<li>consistent lines</li>
+</ul>
+</li>
+</ul>
+<h3>
+<a id="all-tests" class="anchor" href="#all-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>All tests</h3>
+<p>Run all tests via:</p>
+<pre lang="shell" class="highlight-shell">npm run <span class="nb">test</span>
+</pre>
+<h2>
+<a id="release-history" class="anchor" href="#release-history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Release History</h2>
+<ul>
+<li>2.9.1  -  bumped dependencies</li>
+<li>2.9.0  -  added <code>top</code> and <code>bottom</code> align options</li>
+<li>2.8.6  -  bumped dependencies</li>
+<li>2.8.5  -  renamed branches</li>
+<li>2.8.4  -  fixed block double quote</li>
+<li>2.8.3  -  bumped dependencies</li>
+<li>2.8.2  -  bumped dependencies, added linting, fixed #22 (again)</li>
+<li>2.8.1  -  bumped dependencies</li>
+<li>2.8.0  -  added environment support, added font <code>tiny</code>
+</li>
+<li>2.7.0  -  added font <code>slick</code>, <code>grid</code> and <code>pallet</code>, added double quote to all fonts</li>
+<li>2.6.1  -  fixed console <code>maxLength</code>, <code>gradient</code> and <code>lineHeight</code>, added more end-to-end tests</li>
+<li>2.6.0  -  added transition gradients and sets</li>
+<li>2.5.2  -  fixed jsDocs, added typescript type test</li>
+<li>2.5.1  -  fixed array output to include everything including colors</li>
+<li>2.5.0  -  added gradient option, separated code into files, added 100% unit testing coverage</li>
+<li>2.4.8  -  removed <code>ansi-styles</code> from direct dependencies</li>
+<li>2.4.7  -  fixed bug from adopting chalk v3 and hex colors</li>
+<li>2.4.6  -  bumped dependencies, removed <code>change-case</code> dependency, added <code>UpperCaseFirst</code> with tests</li>
+<li>2.4.5  -  bumped dependencies, moved to relative links for fonts for webpack support (#22)</li>
+<li>2.4.4  -  bumped dependencies</li>
+<li>2.4.3  -  bumped dependencies</li>
+<li>2.4.2  -  bumped dependencies</li>
+<li>2.4.1  -  updated to babel 7, removed runtime from dependencies</li>
+<li>2.4.0  -  added font <code>shade</code>, added hex color support</li>
+<li>2.3.1  -  added tests, fixed options, updated dependencies</li>
+<li>2.3.0  -  added apostrophe support in all fonts</li>
+<li>2.2.3  -  bumped dependencies</li>
+<li>2.2.2  -  bumped dependencies</li>
+<li>2.2.1  -  bumped dependencies</li>
+<li>2.2.0  -  inside the API you can use line breaks as well as the pipe</li>
+<li>2.1.3  -  refactored some loops</li>
+<li>2.1.2  -  made WinSize more robust</li>
+<li>2.1.1  -  fixed size detection in non-tty environments</li>
+<li>2.1.0  -  rebuilt cfonts with pure functions, made colors case-insensitive</li>
+<li>2.0.1  -  fixed terminal width detection</li>
+<li>2.0.0  -  added tests, split into more pure functions</li>
+<li>1.2.0  -  added <code>transparent</code> and <code>system</code> as default background and color option, added <code>backgroundColor</code> as alias for <code>background</code>, upgraded deps</li>
+<li>1.1.3  -  fixed help text, removing old -t option</li>
+<li>1.1.2  -  fixed issue with older commander version #3, updated docs</li>
+<li>1.1.1  -  moved from <code>babel-polyfill</code> to <code>babel-plugin-transform-runtime</code>, added files to package.json, added images to docs, fixed dependencies</li>
+<li>1.1.0  -  transpiled code to support node 0.12.15 and up</li>
+<li>1.0.2  -  fixed background in <code>console</code> font, added comma, added font <code>huge</code>, added render method, added candy color</li>
+<li>1.0.1  -  added <code>chrome</code> font, fonttest</li>
+<li>1.0.0  -  refactor, added alignment and line height option, new cli commands, added <code>simpleBlock</code>
+</li>
+<li>0.0.13 -  fixed <code>simple3d</code>
+</li>
+<li>0.0.12 -  fixed <code>simple3d</code> and added to grunt test</li>
+<li>0.0.11 -  added <code>simple3d</code> font</li>
+<li>0.0.10 -  added npmignore, added to docs</li>
+<li>0.0.9  -  added <code>console</code> font</li>
+<li>0.0.8  -  fixed bugs, docs</li>
+<li>0.0.7  -  changed to settings object</li>
+<li>0.0.6  -  added <code>3d</code> font</li>
+<li>0.0.5  -  added grunt test</li>
+<li>0.0.4  -  fixed <code>simple</code> font</li>
+<li>0.0.3  -  fixes, added <code>simple</code> font</li>
+<li>0.0.2  -  fixed paths</li>
+<li>0.0.1  -  alpha test</li>
+</ul>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>Copyright (c) 2018 Dominik Wilkowski. Licensed under the <a href="https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE" rel="nofollow">GNU GPLv2</a>.</p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bbc0ab4de738',m:'95ae06904f8553608e0ce431569c079ef1d36cad-1610725627-1800-AbMi6q7UjBcCOOJJRVkGBuTBIevg5vEsX1ktvwXTopWb//RKqKQi3QpdCdIElWCJk0JSYqR+PvyOXxcvQ508KguD2HA3xlkGyFm0LBYmznx4kL0cjO0ld9GCk5FSczuhjyO+LsULIhxHV0QYBvLkVjt3175pPs3qidbNFQzXN8u3',s:[0x6f8b6f145a,0xc5103a1282],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="javascript"/> <!-- -->javascript<!-- --> (<!-- -->67,310<!-- -->) </div><div><input type="checkbox" name="topics" value="shell"/> <!-- -->shell<!-- --> (<!-- -->9,677<!-- -->) </div><div><input type="checkbox" name="topics" value="nodejs"/> <!-- -->nodejs<!-- --> (<!-- -->3,563<!-- -->) </div><div><input type="checkbox" name="topics" value="cli"/> <!-- -->cli<!-- --> (<!-- -->1,650<!-- -->) </div><div><input type="checkbox" name="topics" value="generator"/> <!-- -->generator<!-- --> (<!-- -->322<!-- -->) </div><div><input type="checkbox" name="topics" value="font"/> <!-- -->font<!-- --> (<!-- -->241<!-- -->) </div><div><input type="checkbox" name="topics" value="ascii"/> <!-- -->ascii<!-- --> (<!-- -->82<!-- -->) </div><div><input type="checkbox" name="topics" value="ascii-art"/> <!-- -->ascii-art<!-- --> (<!-- -->74<!-- -->) </div><div><input type="checkbox" name="topics" value="ansi"/> <!-- -->ansi<!-- --> (<!-- -->48<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Cfonts<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/dominikwilkowski" target="_blank">Dominikwilkowski</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/dominikwilkowski" target="_blank">Dominikwilkowski</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-05d2204c-997b-43d3-8fb6-40ae29b93368">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"ansi","count":48},{"id":null,"name":"ascii","count":82},{"id":null,"name":"ascii-art","count":74},{"id":null,"name":"cli","count":1650},{"id":null,"name":"font","count":241},{"id":null,"name":"generator","count":322},{"id":null,"name":"javascript","count":67310},{"id":null,"name":"nodejs","count":3563},{"id":null,"name":"shell","count":9677}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/dominikwilkowski/cfonts","projects":[],"project":{"id":77722,"created_at":"2018-08-21T01:11:01.136Z","updated_at":"2021-01-14T00:21:17.905Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e     ██████╗ ███████╗  ██████╗  ███╗   ██╗ ████████╗ ███████╗\n    ██╔════╝ ██╔════╝ ██╔═══██╗ ████╗  ██║ ╚══██╔══╝ ██╔════╝\n    ██║      █████╗   ██║   ██║ ██╔██╗ ██║    ██║    ███████╗\n    ██║      ██╔══╝   ██║   ██║ ██║╚██╗██║    ██║    ╚════██║\n    ╚██████╗ ██║      ╚██████╔╝ ██║ ╚████║    ██║    ███████║\n     ╚═════╝ ╚═╝       ╚═════╝  ╚═╝  ╚═══╝    ╚═╝    ╚══════╝\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example1.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example1.png\" alt=\"cfont styles\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp align=\"center\"\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example2.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/example2.png\" alt=\"api example\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp align=\"center\"\u003e\u003ca href=\"https://nodei.co/npm/cfonts/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://nodei.co/npm/cfonts.png?downloads=true\" alt=\"npm status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\t\u003ca href=\"https://travis-ci.org/dominikwilkowski/cfonts\" rel=\"nofollow\"\u003e\u003cimg src=\"https://travis-ci.org/dominikwilkowski/cfonts.svg?branch=released\" alt=\"build status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\t\u003ca href=\"https://coveralls.io/github/dominikwilkowski/cfonts?branch=released\" rel=\"nofollow\"\u003e\u003cimg src=\"https://coveralls.io/repos/github/dominikwilkowski/cfonts/badge.svg?branch=released\" alt=\"CFont Coverage Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cp align=\"center\"\u003eThis is a silly little command line tool for sexy fonts in the console. \u003cstrong\u003eGive your cli some love.\u003c/strong\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"installing\" class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h2\u003e\n\u003cp\u003eTo install the CLI app, simply NPM install it globally.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003enpm \u003cspan class=\"nb\"\u003einstall \u003c/span\u003ecfonts \u003cspan class=\"nt\"\u003e-g\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eTo use it in your shell:\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"Hello|World\u003c/span\u003e\u003cspan class=\"se\"\u003e\\!\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003cem\u003eRemember to escape the \u003ccode\u003e!\u003c/code\u003e character with \u003ccode\u003e\\\u003c/code\u003e in the shell\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eOr use it in your project:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eCFonts\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'cfonts'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\n\u003cspan class=\"nx\"\u003eCFonts\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003esay\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'Hello|world!'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003efont\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'block'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e              \u003cspan class=\"c1\"\u003e// define the font face\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003ealign\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'left'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e              \u003cspan class=\"c1\"\u003e// define text alignment\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003ecolors\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'system'\u003c/span\u003e\u003cspan class=\"p\"\u003e],\u003c/span\u003e         \u003cspan class=\"c1\"\u003e// define all colors\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003ebackground\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'transparent'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e  \u003cspan class=\"c1\"\u003e// define the background color, you can also use `backgroundColor` here as key\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003eletterSpacing\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"mi\"\u003e1\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e           \u003cspan class=\"c1\"\u003e// define letter spacing\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003elineHeight\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"mi\"\u003e1\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e              \u003cspan class=\"c1\"\u003e// define the line height\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003espace\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e                \u003cspan class=\"c1\"\u003e// define if the output text should have empty lines on top and on the bottom\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003emaxLength\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'0'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e             \u003cspan class=\"c1\"\u003e// define how many character can be on one line\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003egradient\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003efalse\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e            \u003cspan class=\"c1\"\u003e// define your two gradient colors\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003eindependentGradient\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003efalse\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"c1\"\u003e// define if you want to recalculate the gradient for each new line\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003etransitionGradient\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003efalse\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e  \u003cspan class=\"c1\"\u003e// define if this is a transition between colors directly\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003eenv\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'node'\u003c/span\u003e                 \u003cspan class=\"c1\"\u003e// define the environment CFonts is being executed in\u003c/span\u003e\n\u003cspan class=\"p\"\u003e});\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003cem\u003eAll settings are optional and shown here with their default\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eYou can use CFonts in your project without the direct output to the console:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eCFonts\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'cfonts'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eprettyFont\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003eCFonts\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003erender\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'Hello|world!'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"cm\"\u003e/* same settings object as above */\u003c/span\u003e\u003cspan class=\"p\"\u003e});\u003c/span\u003e\n\n\u003cspan class=\"nx\"\u003eprettyFont\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003estring\u003c/span\u003e  \u003cspan class=\"c1\"\u003e// the ansi string for sexy console font\u003c/span\u003e\n\u003cspan class=\"nx\"\u003eprettyFont\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003earray\u003c/span\u003e   \u003cspan class=\"c1\"\u003e// returns the array for the output\u003c/span\u003e\n\u003cspan class=\"nx\"\u003eprettyFont\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elines\u003c/span\u003e   \u003cspan class=\"c1\"\u003e// returns the lines used\u003c/span\u003e\n\u003cspan class=\"nx\"\u003eprettyFont\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eoptions\u003c/span\u003e \u003cspan class=\"c1\"\u003e// returns the options used\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003eUsing the CLI is easy.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eUsage: cfonts  \"\u0026lt;value\u0026gt;\" [option1] \u0026lt;input1\u0026gt; [option2] \u0026lt;input1\u0026gt;,\u0026lt;input2\u0026gt; [option3] etc...\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAt any point you can run the \u003cem\u003ehelp\u003c/em\u003e command to get a full list of commands and\nhow to use them.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"nt\"\u003e--help\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"supported-characters\" class=\"anchor\" href=\"#supported-characters\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupported Characters\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eA\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eP\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e4\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e$\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eB\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eQ\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e5\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e%\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eC\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eR\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e6\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e\u0026amp;\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eD\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eS\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e7\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e(\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eE\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eT\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e8\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e)\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eF\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eU\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e9\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e/\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eG\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eV\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e!\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e:\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eH\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eW\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e?\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e;\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eI\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eX\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e.\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e,\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eJ\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eY\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e+\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e'\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eK\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eZ\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e-\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e\"\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eL\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e0\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e_\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\n\u003ccode\u003e\u003c/code\u003e (space)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eM\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e1\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e=\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eN\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e2\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e@\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eO\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e3\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e#\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cem\u003eThe \u003ccode\u003e|\u003c/code\u003e character will be replaced with a line break\u003c/em\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"options\" class=\"anchor\" href=\"#options\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOptions\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"-h---help\" class=\"anchor\" href=\"#-h---help\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-h, --help\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;command\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003enone\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis shows a list of all available options.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"nt\"\u003e--help\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/help.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/help.png\" alt=\"Help command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-v---version\" class=\"anchor\" href=\"#-v---version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-V, --version\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;command\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003enone\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis shows the installed version.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"nt\"\u003e--version\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/version.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/version.png\" alt=\"Version command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"text\" class=\"anchor\" href=\"#text\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etext\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e\"\"\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis is the \"text input\" to be converted into a nice font.\u003cbr\u003e\nThe \u003ccode\u003e|\u003c/code\u003e character will be replaced with a line break.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"Hello world\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/text.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/text.png\" alt=\"Text command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-f---font\" class=\"anchor\" href=\"#-f---font\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-f, --font\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e\"block\"\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis is the font face you want to use. So far this plugin ships with with following font faces:\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--font\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"chrome\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/font.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/font.png\" alt=\"Font command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eblock\u003c/code\u003e       [colors: 2] \u003cem\u003e(default)\u003c/em\u003e\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/block.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/block.png\" alt=\"block font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eslick\u003c/code\u003e       [colors: 2]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/slick.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/slick.png\" alt=\"slick font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etiny\u003c/code\u003e        [colors: 1]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/tiny.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/tiny.png\" alt=\"tiny font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003egrid\u003c/code\u003e        [colors: 2]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/grid.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/grid.png\" alt=\"grid font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003epallet\u003c/code\u003e      [colors: 2]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/pallet.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/pallet.png\" alt=\"pallet font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eshade\u003c/code\u003e       [colors: 2]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/shade.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/shade.png\" alt=\"shade font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003echrome\u003c/code\u003e      [colors: 3]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/chrome.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/chrome.png\" alt=\"chrome font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003esimple\u003c/code\u003e      [colors: 1]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple.png\" alt=\"simple font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003esimpleBlock\u003c/code\u003e [colors: 1]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-block.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-block.png\" alt=\"simple-block font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e3d\u003c/code\u003e          [colors: 2]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/3d.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/3d.png\" alt=\"3d font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003esimple3d\u003c/code\u003e    [colors: 1]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-3d.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/simple-3d.png\" alt=\"simple-3d font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ehuge\u003c/code\u003e        [colors: 2]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/huge.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/huge.png\" alt=\"huge font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003econsole\u003c/code\u003e     [colors: 1]\n\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/console.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/console.png\" alt=\"console font style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"-a---align\" class=\"anchor\" href=\"#-a---align\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-a, --align\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e\"left\"\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eYou can align your text in the terminal with this option. Use the keywords below:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eleft\u003c/code\u003e \u003cem\u003e(default)\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecenter\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etop\u003c/code\u003e \u003cem\u003e(Will be ignored if used with the spaceless option)\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ebottom\u003c/code\u003e \u003cem\u003e(Will be ignored if used with the spaceless option)\u003c/em\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--align\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"center\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/align.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/align.png\" alt=\"Align command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-c---colors\" class=\"anchor\" href=\"#-c---colors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-c, --colors\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string list\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e['system']\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eWith this setting you can set the colors for your font.\nUse the below color strings built in by \u003ca href=\"https://github.com/chalk/chalk\" rel=\"nofollow\"\u003echalk\u003c/a\u003e or a hex color.\u003cbr\u003e\nProvide colors in a comma-separated string, eg: \u003ccode\u003ered,blue\u003c/code\u003e. \u003cem\u003e(no spaces)\u003c/em\u003e\u003cbr\u003e\nIf you use a hex color make sure you include the \u003ccode\u003e#\u003c/code\u003e prefix. \u003cem\u003e(In the terminal wrap the hex in quotes)\u003c/em\u003e\u003cbr\u003e\nThe \u003ccode\u003esystem\u003c/code\u003e color falls back to the system color of your terminal.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003esystem\u003c/code\u003e \u003cem\u003e(default)\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblack\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ered\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egreen\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eyellow\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblue\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emagenta\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecyan\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ewhite\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egray\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eredBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egreenBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eyellowBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblueBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emagentaBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecyanBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ewhiteBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e#ff8800\u003c/code\u003e \u003cem\u003e(any valid hex color)\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e#f80\u003c/code\u003e \u003cem\u003e(short form is supported as well)\u003c/em\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--colors\u003c/span\u003e white,\u003cspan class=\"s2\"\u003e\"#f80\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/colors.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/colors.png\" alt=\"Colors command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-g---gradient\" class=\"anchor\" href=\"#-g---gradient\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-g, --gradient\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string list\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eWith this setting you can set a gradient over your output.\u003cbr\u003e\nThis setting supersedes the color open.\u003cbr\u003e\nThe gradient requires two colors, a start color and an end color from left to right.\u003cbr\u003e\n\u003cem\u003e(If you want to set your own colors for the gradient, use the \u003ca href=\"#-t---transition-gradient\"\u003etransition\u003c/a\u003e option.)\u003c/em\u003e\u003cbr\u003e\nCFonts will then generate a gradient through as many colors as it can find to make the output most impressive.\u003cbr\u003e\nProvide two colors in a comma-separated string, eg: \u003ccode\u003ered,blue\u003c/code\u003e. \u003cem\u003e(no spaces)\u003c/em\u003e\u003cbr\u003e\nIf you use a hex color make sure you include the \u003ccode\u003e#\u003c/code\u003e prefix. \u003cem\u003e(In the terminal wrap the hex in quotes)\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eblack\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ered\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egreen\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eyellow\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblue\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emagenta\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecyan\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ewhite\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egray\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egrey\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e#ff8800\u003c/code\u003e \u003cem\u003e(any valid hex color)\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e#f80\u003c/code\u003e \u003cem\u003e(short form is supported as well)\u003c/em\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--gradient\u003c/span\u003e red,\u003cspan class=\"s2\"\u003e\"#f80\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/gradient.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/gradient.png\" alt=\"Gradient command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-i---independent-gradient\" class=\"anchor\" href=\"#-i---independent-gradient\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-i, --independent-gradient\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;boolean\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eSet this option to re-calculate the gradient colors for each new line.\u003cbr\u003e\nOnly works in combination with the \u003ca href=\"#-g---gradient\"\u003egradient\u003c/a\u003e option.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text|next line\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--gradient\u003c/span\u003e red,\u003cspan class=\"s2\"\u003e\"#f80\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--independent-gradient\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/independent-gradient.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/independent-gradient.png\" alt=\"Independent gradient command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-t---transition-gradient\" class=\"anchor\" href=\"#-t---transition-gradient\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-t, --transition-gradient\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;boolean\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003efalse\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eSet this option to generate your own gradients.\nEach color set in the gradient option will then be transitioned to directly.\nThis option allows you to specify more than just two colors for your gradient.\u003cbr\u003e\nOnly works in combination with the \u003ca href=\"#-g---gradient\"\u003egradient\u003c/a\u003e option.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--gradient\u003c/span\u003e red,\u003cspan class=\"s2\"\u003e\"#f80\"\u003c/span\u003e,green,blue \u003cspan class=\"nt\"\u003e--transition-gradient\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/transition-gradient.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/transition-gradient.png\" alt=\"Independent gradient command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-b---background\" class=\"anchor\" href=\"#-b---background\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-b, --background\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e\"transparent\"\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eWith this setting you can set the background colors for the output. Use the below color strings built in by \u003ca href=\"https://github.com/chalk/chalk\" rel=\"nofollow\"\u003echalk\u003c/a\u003e.\nProvide the background color from the below supported list, eg: 'white'\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003etransparent\u003c/code\u003e \u003cem\u003e(default)\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblack\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ered\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egreen\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eyellow\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblue\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emagenta\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecyan\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ewhite\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblackBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eredBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egreenBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eyellowBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eblueBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003emagentaBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecyanBright\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ewhiteBright\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--background\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Green\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/background.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/background.png\" alt=\"Background command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-l---letter-spacing\" class=\"anchor\" href=\"#-l---letter-spacing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-l, --letter-spacing\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;integer\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e1\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eSet this option to widen the space between characters.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--letter-spacing\u003c/span\u003e 2\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/letter-spacing.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/letter-spacing.png\" alt=\"Letter spacing command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-z---line-height\" class=\"anchor\" href=\"#-z---line-height\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-z, --line-height\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;integer\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e1\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eSet this option to widen the space between lines.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--line-height\u003c/span\u003e 2\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/line-height.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/line-height.png\" alt=\"Line height command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-s---spaceless\" class=\"anchor\" href=\"#-s---spaceless\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-s, --spaceless\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;boolean\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003etrue\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eSet this option to false if you don't want the plugin to insert two empty lines on top and on the bottom of the output.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--spaceless\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/spaceless.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/spaceless.png\" alt=\"Spaceless command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-m---max-length\" class=\"anchor\" href=\"#-m---max-length\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-m, --max-length\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;integer\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003e0\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis option sets the maximum characters that will be printed on one line.\u003cbr\u003e\nCFonts detects the size of your terminal but you can opt out and determine your own max width.\u003cbr\u003e\n\u003ccode\u003e0\u003c/code\u003e means no max width and the text will break at the edge of the terminal window.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003ecfonts \u003cspan class=\"s2\"\u003e\"text\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e--max-length\u003c/span\u003e 15\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/max-length.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/max-length.png\" alt=\"Max length command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"-e---env\" class=\"anchor\" href=\"#-e---env\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e-e, --env\u003c/h4\u003e\n\u003cp\u003eType: \u003ccode\u003e\u0026lt;string\u0026gt;\u003c/code\u003e\u003cbr\u003e\nDefault value: \u003ccode\u003enode\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis option let's you use CFonts to generate HTML instead of ANSI code.\u003cbr\u003e\nNote that \u003ccode\u003emax-length\u003c/code\u003e won't be automatically detected anymore and you will have to supply it if you want the text to wrap.\nBest used in a node script.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eCFonts\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'cfonts'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003epath\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'path'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003efs\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'fs'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eoutput\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003eCFonts\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003erender\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'My text'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003ecolors\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'white'\u003c/span\u003e\u003cspan class=\"p\"\u003e],\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003egradient\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'cyan'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s1\"\u003e'red'\u003c/span\u003e\u003cspan class=\"p\"\u003e],\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003ebackground\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'black'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003espace\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003efalse\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"na\"\u003eenv\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'browser'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\u003cspan class=\"p\"\u003e});\u003c/span\u003e\n\n\u003cspan class=\"nx\"\u003efs\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003ewriteFileSync\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epath\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003enormalize\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s2\"\u003e`\u003c/span\u003e\u003cspan class=\"p\"\u003e${\u003c/span\u003e \u003cspan class=\"nx\"\u003e__dirname\u003c/span\u003e \u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e/test.html`\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003eoutput\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003estring\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\t\u003cspan class=\"na\"\u003eencoding\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'utf8'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/env.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/dominikwilkowski/cfonts/released/img/env.png\" alt=\"Max length command\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"consistency\" class=\"anchor\" href=\"#consistency\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConsistency\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/chalk/chalk\" rel=\"nofollow\"\u003eChalk\u003c/a\u003e detects what colors are supported on your platform.\nIt sets a \u003ca href=\"https://github.com/chalk/chalk#256-and-truecolor-color-support\" rel=\"nofollow\"\u003elevel of support\u003c/a\u003e automatically.\nIn CFonts you can override this by passing in the \u003ccode\u003eFORCE_COLOR\u003c/code\u003e environment variable.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"nv\"\u003eFORCE_COLOR\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e3 cfonts \u003cspan class=\"s2\"\u003e\"hello world\"\u003c/span\u003e \u003cspan class=\"nt\"\u003e-c\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"#0088ff\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eTo build the repo install dependencies via:\u003cbr\u003e\n\u003cem\u003e(Since we ship a \u003ccode\u003eyarn.lock\u003c/code\u003e file please use \u003ca href=\"https://yarnpkg.com/\" rel=\"nofollow\"\u003e\u003ccode\u003eyarn\u003c/code\u003e\u003c/a\u003e for development.)\u003c/em\u003e\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003eyarn\n\u003c/pre\u003e\n\u003cp\u003eand run the watch to continuously transpile the code.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003eyarn watch\n\u003c/pre\u003e\n\u003cp\u003ePlease look at the coding style and work with it, not against it ;)\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"tests\" class=\"anchor\" href=\"#tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTests\u003c/h2\u003e\n\u003cp\u003eThis package is tested on the below platform and node combinations as part of our \u003ca href=\"https://github.com/dominikwilkowski/cfonts/tree/released/.travis.yml\" rel=\"nofollow\"\u003eCI\u003c/a\u003e.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003ePlatform\u003c/th\u003e\n\u003cth\u003eNode\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eLinux\u003c/td\u003e\n\u003ctd\u003ev10\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eLinux\u003c/td\u003e\n\u003ctd\u003ev12\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eLinux\u003c/td\u003e\n\u003ctd\u003elatest\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eOSX\u003c/td\u003e\n\u003ctd\u003ev10\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eOSX\u003c/td\u003e\n\u003ctd\u003ev12\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eOSX\u003c/td\u003e\n\u003ctd\u003elatest\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWindows\u003c/td\u003e\n\u003ctd\u003ev10\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWindows\u003c/td\u003e\n\u003ctd\u003ev12\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWindows\u003c/td\u003e\n\u003ctd\u003elatest\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003e\n\u003ca id=\"unit-tests\" class=\"anchor\" href=\"#unit-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnit tests\u003c/h3\u003e\n\u003cp\u003eThe package comes with a bunch of \u003ca href=\"https://github.com/dominikwilkowski/cfonts/tree/released/test/unit\" rel=\"nofollow\"\u003eunit tests\u003c/a\u003e that aim to cover 100% of the code base.\nFor more details about the code coverage check out \u003ca href=\"https://coveralls.io/github/dominikwilkowski/cfonts?branch=released\" rel=\"nofollow\"\u003ecoveralls\u003c/a\u003e.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003enpm run \u003cspan class=\"nb\"\u003etest\u003c/span\u003e:unit\n\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"type-tests\" class=\"anchor\" href=\"#type-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eType tests\u003c/h3\u003e\n\u003cp\u003eSince the code base uses \u003ca href=\"https://jsdoc.app/\" rel=\"nofollow\"\u003eJSDocs\u003c/a\u003e we use \u003ca href=\"https://www.typescriptlang.org/\" rel=\"nofollow\"\u003etypescript\u003c/a\u003e to test the inferred types from those comments.\nTypescript \u003ca href=\"https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html#supported-jsdoc\" rel=\"nofollow\"\u003esupports JSDocs\u003c/a\u003e and we use it in our\n\u003ca href=\"https://github.com/dominikwilkowski/cfonts/blob/released/package.json#L38\" rel=\"nofollow\"\u003etest\u003c/a\u003e.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003enpm run \u003cspan class=\"nb\"\u003etest\u003c/span\u003e:types\n\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"font-file-test\" class=\"anchor\" href=\"#font-file-test\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFont file test\u003c/h3\u003e\n\u003cp\u003eThere is also a \u003ca href=\"https://github.com/dominikwilkowski/cfonts/blob/released/test/fonttest.js\" rel=\"nofollow\"\u003etest suite\u003c/a\u003e for font files.\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003enpm run \u003cspan class=\"nb\"\u003etest\u003c/span\u003e:fonts\n\u003c/pre\u003e\n\u003cp\u003eThis tool checks:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ethe existence of the font\u003c/li\u003e\n\u003cli\u003eall attributes of a font\u003c/li\u003e\n\u003cli\u003eeach character for:\n\u003cul\u003e\n\u003cli\u003eexistence\u003c/li\u003e\n\u003cli\u003econsistent width\u003c/li\u003e\n\u003cli\u003econsistent lines\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"all-tests\" class=\"anchor\" href=\"#all-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAll tests\u003c/h3\u003e\n\u003cp\u003eRun all tests via:\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003enpm run \u003cspan class=\"nb\"\u003etest\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"release-history\" class=\"anchor\" href=\"#release-history\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRelease History\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e2.9.1  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.9.0  -  added \u003ccode\u003etop\u003c/code\u003e and \u003ccode\u003ebottom\u003c/code\u003e align options\u003c/li\u003e\n\u003cli\u003e2.8.6  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.8.5  -  renamed branches\u003c/li\u003e\n\u003cli\u003e2.8.4  -  fixed block double quote\u003c/li\u003e\n\u003cli\u003e2.8.3  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.8.2  -  bumped dependencies, added linting, fixed #22 (again)\u003c/li\u003e\n\u003cli\u003e2.8.1  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.8.0  -  added environment support, added font \u003ccode\u003etiny\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e2.7.0  -  added font \u003ccode\u003eslick\u003c/code\u003e, \u003ccode\u003egrid\u003c/code\u003e and \u003ccode\u003epallet\u003c/code\u003e, added double quote to all fonts\u003c/li\u003e\n\u003cli\u003e2.6.1  -  fixed console \u003ccode\u003emaxLength\u003c/code\u003e, \u003ccode\u003egradient\u003c/code\u003e and \u003ccode\u003elineHeight\u003c/code\u003e, added more end-to-end tests\u003c/li\u003e\n\u003cli\u003e2.6.0  -  added transition gradients and sets\u003c/li\u003e\n\u003cli\u003e2.5.2  -  fixed jsDocs, added typescript type test\u003c/li\u003e\n\u003cli\u003e2.5.1  -  fixed array output to include everything including colors\u003c/li\u003e\n\u003cli\u003e2.5.0  -  added gradient option, separated code into files, added 100% unit testing coverage\u003c/li\u003e\n\u003cli\u003e2.4.8  -  removed \u003ccode\u003eansi-styles\u003c/code\u003e from direct dependencies\u003c/li\u003e\n\u003cli\u003e2.4.7  -  fixed bug from adopting chalk v3 and hex colors\u003c/li\u003e\n\u003cli\u003e2.4.6  -  bumped dependencies, removed \u003ccode\u003echange-case\u003c/code\u003e dependency, added \u003ccode\u003eUpperCaseFirst\u003c/code\u003e with tests\u003c/li\u003e\n\u003cli\u003e2.4.5  -  bumped dependencies, moved to relative links for fonts for webpack support (#22)\u003c/li\u003e\n\u003cli\u003e2.4.4  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.4.3  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.4.2  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.4.1  -  updated to babel 7, removed runtime from dependencies\u003c/li\u003e\n\u003cli\u003e2.4.0  -  added font \u003ccode\u003eshade\u003c/code\u003e, added hex color support\u003c/li\u003e\n\u003cli\u003e2.3.1  -  added tests, fixed options, updated dependencies\u003c/li\u003e\n\u003cli\u003e2.3.0  -  added apostrophe support in all fonts\u003c/li\u003e\n\u003cli\u003e2.2.3  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.2.2  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.2.1  -  bumped dependencies\u003c/li\u003e\n\u003cli\u003e2.2.0  -  inside the API you can use line breaks as well as the pipe\u003c/li\u003e\n\u003cli\u003e2.1.3  -  refactored some loops\u003c/li\u003e\n\u003cli\u003e2.1.2  -  made WinSize more robust\u003c/li\u003e\n\u003cli\u003e2.1.1  -  fixed size detection in non-tty environments\u003c/li\u003e\n\u003cli\u003e2.1.0  -  rebuilt cfonts with pure functions, made colors case-insensitive\u003c/li\u003e\n\u003cli\u003e2.0.1  -  fixed terminal width detection\u003c/li\u003e\n\u003cli\u003e2.0.0  -  added tests, split into more pure functions\u003c/li\u003e\n\u003cli\u003e1.2.0  -  added \u003ccode\u003etransparent\u003c/code\u003e and \u003ccode\u003esystem\u003c/code\u003e as default background and color option, added \u003ccode\u003ebackgroundColor\u003c/code\u003e as alias for \u003ccode\u003ebackground\u003c/code\u003e, upgraded deps\u003c/li\u003e\n\u003cli\u003e1.1.3  -  fixed help text, removing old -t option\u003c/li\u003e\n\u003cli\u003e1.1.2  -  fixed issue with older commander version #3, updated docs\u003c/li\u003e\n\u003cli\u003e1.1.1  -  moved from \u003ccode\u003ebabel-polyfill\u003c/code\u003e to \u003ccode\u003ebabel-plugin-transform-runtime\u003c/code\u003e, added files to package.json, added images to docs, fixed dependencies\u003c/li\u003e\n\u003cli\u003e1.1.0  -  transpiled code to support node 0.12.15 and up\u003c/li\u003e\n\u003cli\u003e1.0.2  -  fixed background in \u003ccode\u003econsole\u003c/code\u003e font, added comma, added font \u003ccode\u003ehuge\u003c/code\u003e, added render method, added candy color\u003c/li\u003e\n\u003cli\u003e1.0.1  -  added \u003ccode\u003echrome\u003c/code\u003e font, fonttest\u003c/li\u003e\n\u003cli\u003e1.0.0  -  refactor, added alignment and line height option, new cli commands, added \u003ccode\u003esimpleBlock\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e0.0.13 -  fixed \u003ccode\u003esimple3d\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e0.0.12 -  fixed \u003ccode\u003esimple3d\u003c/code\u003e and added to grunt test\u003c/li\u003e\n\u003cli\u003e0.0.11 -  added \u003ccode\u003esimple3d\u003c/code\u003e font\u003c/li\u003e\n\u003cli\u003e0.0.10 -  added npmignore, added to docs\u003c/li\u003e\n\u003cli\u003e0.0.9  -  added \u003ccode\u003econsole\u003c/code\u003e font\u003c/li\u003e\n\u003cli\u003e0.0.8  -  fixed bugs, docs\u003c/li\u003e\n\u003cli\u003e0.0.7  -  changed to settings object\u003c/li\u003e\n\u003cli\u003e0.0.6  -  added \u003ccode\u003e3d\u003c/code\u003e font\u003c/li\u003e\n\u003cli\u003e0.0.5  -  added grunt test\u003c/li\u003e\n\u003cli\u003e0.0.4  -  fixed \u003ccode\u003esimple\u003c/code\u003e font\u003c/li\u003e\n\u003cli\u003e0.0.3  -  fixes, added \u003ccode\u003esimple\u003c/code\u003e font\u003c/li\u003e\n\u003cli\u003e0.0.2  -  fixed paths\u003c/li\u003e\n\u003cli\u003e0.0.1  -  alpha test\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eCopyright (c) 2018 Dominik Wilkowski. Licensed under the \u003ca href=\"https://github.com/dominikwilkowski/cfonts/blob/released/LICENSE\" rel=\"nofollow\"\u003eGNU GPLv2\u003c/a\u003e.\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":29108449,"name":"cfonts","owner_login":"dominikwilkowski","description":"Sexy fonts for the console","pushed_at":"2020-12-26T01:12:35.000Z","stargazers_count":759,"open_issues_count":1,"has_downloads":true,"archived":false,"license_key":"gpl-2.0","homepage":"https://www.npmjs.com/package/cfonts","private":false,"project_created_at":"2015-01-11T22:27:44.000Z","project_updated_at":"2021-01-13T08:48:50.000Z","language":"JavaScript","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Creates an array of elements, grouped based on the position in the original arrays and using a function to specify how grouped values should be combined.</p>
+<ul>
+<li>Check if the last argument provided is a function.</li>
+<li>Use <code>Math.max()</code> to get the longest array in the arguments.</li>
+<li>Use <code>Array.from()</code> to create an array with appropriate length and a mapping function to create array of grouped elements.</li>
+<li>If lengths of the argument arrays vary, <code>undefined</code> is used where no value could be found.</li>
+<li>The function is invoked with the elements of each group.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> zipWith <span class="op">=</span> (...<span class="at">array</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> fn <span class="op">=</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">typeof</span> array[<span class="va">array</span>.<span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> <span class="st">&#39;function&#39;</span> <span class="op">?</span> <span class="va">array</span>.<span class="at">pop</span>() : <span class="kw">undefined</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">return</span> <span class="va">Array</span>.<span class="at">from</span>(<span class="op">{</span> <span class="dt">length</span><span class="op">:</span> <span class="va">Math</span>.<span class="at">max</span>(...<span class="va">array</span>.<span class="at">map</span>(a <span class="kw">=&gt;</span> <span class="va">a</span>.<span class="at">length</span>)) <span class="op">},</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    fn <span class="op">?</span> <span class="at">fn</span>(...<span class="va">array</span>.<span class="at">map</span>(a <span class="kw">=&gt;</span> a[i])) : <span class="va">array</span>.<span class="at">map</span>(a <span class="kw">=&gt;</span> a[i])</a>
+<a class="sourceLine" id="cb1-6" title="6">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">zipWith</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> [<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span>]<span class="op">,</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">,</span> (a<span class="op">,</span> b<span class="op">,</span> c) <span class="kw">=&gt;</span> a <span class="op">+</span> b <span class="op">+</span> c)<span class="op">;</span> <span class="co">// [111, 222]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">zipWith</span>(</a>
+<a class="sourceLine" id="cb2-3" title="3">  [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  [<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  [<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  (a<span class="op">,</span> b<span class="op">,</span> c) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    (a <span class="op">!=</span> <span class="kw">null</span> <span class="op">?</span> a : <span class="st">&#39;a&#39;</span>) <span class="op">+</span> (b <span class="op">!=</span> <span class="kw">null</span> <span class="op">?</span> b : <span class="st">&#39;b&#39;</span>) <span class="op">+</span> (c <span class="op">!=</span> <span class="kw">null</span> <span class="op">?</span> c : <span class="st">&#39;c&#39;</span>)</a>
+<a class="sourceLine" id="cb2-8" title="8">)<span class="op">;</span> <span class="co">// [111, 222, &#39;3bc&#39;]</span></a></code></pre></div>
+</body></html>

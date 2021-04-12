@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":5,"applicationTime":85,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Garden</title>
+<meta name="description" content="Automation for Kubernetes development and testing. Spin up production-like environments for development, testing, and CI on demand. Use the same configuration and workflows at every step of the process. Speed up your builds and test runs via shared result caching.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/garden-io/garden">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "garden-io/garden",
+  "description": "Automation for Kubernetes development and testing. Spin up production-like environments for development, testing, and CI on demand. Use the same configuration and workflows at every step of the process. Speed up your builds and test runs via shared result caching.",
+  "url": "https://awesomeopensource.com/project/garden-io/garden",
+  "sku": "project/garden-io/garden",
+  "mpn": "project/garden-io/garden",
+  "image": "https://github.com/garden-io.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "garden-io/garden",
+    "logo": "https://github.com/garden-io.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "1977"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="F3nQuRfz4ligQnxvxvr62HhL5JetcgKcLN5a7lZGp0qsjwnZMeoV/LvPJKq9rtGRCCXxrmSrBNzoKdzU9jc6uw==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/garden-io/garden","location":"/project/garden-io/garden","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/garden-io/garden","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-55db71d4-0ea3-463f-b672-d4ad4e641130"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Garden</div><div class="aos_project_metadata_description">Automation for Kubernetes development and testing. Spin up production-like environments for development, testing, and CI on demand. Use the same configuration and workflows at every step of the process. Speed up your builds and test runs via shared result caching.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,977</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mpl-2.0</span><span><div class="aos_project_metadata_header"><a href="https://garden.io" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://garden.io" target="_blank">https://garden.io</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/garden-io/garden" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/garden-io/garden" target="_blank">https://github.com/garden-io/garden</a></span><div class="aos_project_metadata_header"><a href="https://github.com/garden-io/garden/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/garden-io/garden/issues" target="_blank">74</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">2 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/typescript"><div style="display:block;text-decoration:none;padding-bottom:10px">typescript<span> (<!-- -->9,902<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/kubernetes"><div style="display:block;text-decoration:none;padding-bottom:10px">kubernetes<span> (<!-- -->1,606<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/testing"><div style="display:block;text-decoration:none;padding-bottom:10px">testing<span> (<!-- -->909<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/containers"><div style="display:block;text-decoration:none;padding-bottom:10px">containers<span> (<!-- -->391<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/developer-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">developer-tools<span> (<!-- -->323<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/testing-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">testing-tools<span> (<!-- -->194<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p align="center">
+  <a href="https://github.com/garden-io/garden/blob/master/docs/logo.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/garden-io/garden/master/docs/logo.png" align="center" style="max-width:100%;"></a>
+</p>
+<p><strong>Garden is an automation platform for Kubernetes development and testing.</strong> Remove barriers between development, testing, and CI. Use the same workflows and production-like Kubernetes environments for every step of the development process.</p>
+<p>Common use cases:</p>
+<ul>
+<li>
+<strong>In-cluster development</strong> for Kubernetes applications.</li>
+<li>
+<strong>Fast &amp; consistent CI pipelines</strong> via a common configuration for development, testing, and CI and shared build &amp; test caches.</li>
+<li>
+<strong>Integration testing</strong> in a production-like environment that captures the complete configuration of the application.</li>
+<li>
+<strong>Manual QA &amp; review</strong> via production-like preview environments that can easily be shared with teammates.</li>
+</ul>
+<p><a href="#common-use-cases-what-can-i-do-with-garden">Learn more about common Garden use cases.</a></p>
+<p>Featuring:</p>
+<ul>
+<li>
+<strong>In-cluster builds:</strong> Build images in your Kubernetes development cluster–and avoid having to use local Kubernetes clusters.</li>
+<li>
+<strong>Test orchestration:</strong> Garden has first-class support for testing, and allows you to easily define tests that run in-cluster, alongside your services.</li>
+<li>
+<strong>Result caching:</strong> Build and test results are shared between users when using the same cluster. Teams can easily share build and test results, and your CI can use the same build caches as the team.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Resources</th>
+<th>What is it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://garden.io/?utm_source=github" rel="nofollow">Garden Website</a></td>
+<td>The official Garden website</td>
+</tr>
+<tr>
+<td><a href="https://docs.garden.io/?utm_source=github" rel="nofollow">Garden Documentation / Getting Started</a></td>
+<td>Documentation for all editions of Garden, and the best place to get started</td>
+</tr>
+<tr>
+<td><a href="https://garden.io/blog?utm_source=github" rel="nofollow">Blog</a></td>
+<td>The Garden blog, where we share product updates, how-to guides, and other resources</td>
+</tr>
+<tr>
+<td><a href="https://chat.garden.io" rel="nofollow">Community Slack</a></td>
+<td>The best place to ask questions as a user of Garden</td>
+</tr>
+<tr>
+<td><a href="https://garden.io/product?utm_source=github#enterprise" rel="nofollow">Garden Enterprise</a></td>
+<td>Garden Enterprise is built on top of the open source product and includes centralized environment management, secrets and user management, direct integration with VCS, and more.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>If you’re using Garden or if you like the project, please ★ star this repository to show your support 💖</em></p>
+</blockquote>
+<p><a href="https://github.com/garden-io/garden/blob/master/docs/dashboard.gif" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/garden-io/garden/master/docs/dashboard.gif" alt="Dashboard" style="max-width:100%;"></a></p>
+<ul>
+<li><a href="#common-use-cases-what-can-i-do-with-garden">Common Use Cases: What Can I Do With Garden?</a></li>
+<li><a href="#features-why-use-garden">Features: Why Use Garden?</a></li>
+<li><a href="#how-does-garden-work">How does Garden work?</a></li>
+<li><a href="#faqs">FAQs</a></li>
+<li><a href="#project-status">Project Status</a></li>
+<li><a href="#stay-in-touch">Stay in Touch</a></li>
+</ul>
+<h2>
+<a id="common-use-cases-what-can-i-do-with-garden" class="anchor" href="#common-use-cases-what-can-i-do-with-garden" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Common Use Cases: What Can I Do With Garden?</h2>
+<p>Users typically implement Garden for one or more of the following:</p>
+<ul>
+<li>
+<strong>In-cluster Development:</strong> With Garden, developers working on Kubernetes applications can spin up a production-like, namespaced environment in a cluster, on demand. With in-cluster environments, devs don't need to run Docker, Kubernetes, or a complex distributed application on their laptops.</li>
+<li>
+<strong>Fast &amp; Consistent CI Pipelines:</strong> Garden makes it possible to use the same configuration for development, testing, and CI, which ensures consistency across different environments. You can run the exact same tests from a production-like development environment that will later be run in CI, meaning a much more predictable pipeline. In addition, Garden's shared cached results for image builds and tests means that your CI pipeline will run much faster, reducing cycle time and getting new features merged more quickly.</li>
+<li>
+<strong>Integration Testing:</strong> Because Garden environments capture the full configuration of an application, it’s possible to run proper integration tests with runtime dependencies–no mocking or stubbing required. A developer can run integration tests with a single command before creating a PR to get fast feedback and iterate more quickly, or integration tests can be run against a feature branch every time a PR is created.</li>
+<li>
+<strong>Manual QA &amp; Code Review:</strong> Garden enables developers, QA engineers, and product managers to spin up production-like preview environments on demand. These preview environments can be used, for example, to QA any part of an application that can’t be covered by automated testing (e.g. complex frontend functionality) or in cases when client developers need a fully-functioning backend to validate new features. Product managers can use Garden preview environments to review a working version of an application for pre-release acceptance testing.</li>
+</ul>
+<h2>
+<a id="features-why-use-garden" class="anchor" href="#features-why-use-garden" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features: Why Use Garden?</h2>
+<ul>
+<li>
+<strong>Common configuration for development, testing, and CI:</strong> With Garden, use the same configuration and set of workflows for development, testing, and CI. Ensure consistency at every step of your development process.</li>
+<li>
+<strong>Production-like Kubernetes environments:</strong> A Garden environment captures the full configuration of an application, <a href="https://docs.garden.io/using-garden/tests" rel="nofollow">including all adjacent services and dependencies</a>. Garden environments provide consistency across your entire org–no more, “Well, it works fine on my laptop.”</li>
+<li>
+<strong>Namespaced environments on demand:</strong> Any developer can spin up (and tear down) a namespaced environment in a shared cluster without help from DevOps, or an environment can be created by CI on every pull request.</li>
+<li>
+<strong>Stack-aware builds and testing with result caching:</strong> Garden is aware of the relationships between the services in your stack, and so instead of building an entire application or running a full suite of integration tests every time, Garden will only build or test what’s necessary based on what’s been changed. These build and test results are cached and can be shared across developers on a team. The result: much faster builds and test runs, which means faster feedback loops for developers.</li>
+<li>
+<strong>Shared development clusters with fast in-cluster building:</strong> Build images in your Kubernetes development cluster, thus eliminating the need for local Kubernetes clusters (in other words, no Docker or Kubernetes on your local machine).</li>
+<li>
+<strong>Define <a href="https://github.com/garden-io/garden/tree/0.12.11/examples/tasks" rel="nofollow">tasks</a></strong> that run as part of your deployment process—e.g. database migrations or scaffolding.</li>
+<li>
+<strong><a href="https://docs.garden.io/advanced/using-remote-sources" rel="nofollow">Remote sources (multi-repository) support:</a></strong> Garden allows your project to automatically pull code from different repositories.</li>
+<li>
+<strong>Hardware and platform flexibility:</strong> Run Garden on-prem or in one of several supported cloud providers. Build, test, and deploy Docker containers, <a href="https://docs.garden.io/guides/using-helm-charts" rel="nofollow">Helm charts</a>, and more. Choose from a variety of Kubernetes platforms and CI tools.</li>
+<li>
+<strong>Terraform integration:</strong> Garden includes a <a href="https://docs.garden.io/advanced/terraform" rel="nofollow">Terraform provider</a> that you can use to automatically validate and provision infrastructure as part of your project.</li>
+<li>
+<strong>Extensible plugin system:</strong> Garden’s plugin system ensures you’ll be able to create custom module types tailored to your needs or take advantage of existing plugins (e.g. conftest, hadolint).</li>
+<li>
+<strong>Enterprise edition with support (if you need it):</strong> Garden offers an enterprise edition of the product which provides secrets management, centralized environment management, direct integration with GitHub and other VCS providers, and enterprise security features (e.g. RBAC, SSO). The enterprise product comes with support SLAs and access to technical consulting. To learn more, <a href="https://garden.io/product?utm_source=github#enterprise" rel="nofollow">check out our website</a> or <a href="https://garden.io/contact?utm_source=github" rel="nofollow">get in touch</a>.</li>
+</ul>
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
+<p>You can find Garden’s full documentation at <a href="https://docs.garden.io" rel="nofollow">https://docs.garden.io</a>.</p>
+<h2>
+<a id="how-does-garden-work" class="anchor" href="#how-does-garden-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How does Garden work?</h2>
+<p>Garden Core is a standalone tool that can run from CI or from a developer’s machine. It allows you to codify a complete description of your stack, including how it's built, deployed and tested, using the <a href="https://docs.garden.io/basics/stack-graph" rel="nofollow">Stack Graph</a>—making your workflows reproducible and portable.</p>
+<p><a href="https://github.com/garden-io/garden/blob/master/./docs/stack-graph-screenshot.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/garden-io/garden/master/docs/stack-graph-screenshot.png" alt="The Stack Graph" title="The Stack Graph, shown in the Garden dashboard" style="max-width:100%;"></a></p>
+<p>With the Stack Graph, each part of your stack can describe itself using simple, intuitive declarations, without changing any of your code. Garden collects all of your declarations—even across multiple repositories—into a full graph of your stack, and leverages that information to help you develop and test faster.</p>
+<p>When you run Garden with a shared Kubernetes cluster, Garden sets up its own namespace with a small set of services, including:</p>
+<ul>
+<li>
+<strong>Image cache and test cache:</strong> Every time an image is built for a service, Garden saves it a cache. If a different developer wants to deploy the same version of an image, the image doesn’t have to be rebuilt—instead, Garden will check if the image exists in the Docker registry and skip the build step if it does. Test results are also saved in a test cache and can be shared across developers. These caches can reduce build and test time significantly, often by 80% or more.</li>
+<li>
+<strong>Build service:</strong> Developers and CI processes don’t need to run Docker and Kubernetes on their machine (unless they want to). The build service makes it possible for all of this to be handled in the cluster.</li>
+</ul>
+<p>Every developer, in turn, has a private namespace in the cluster. With one command, a dev can spin up a development and testing environment in their private namespace. In other words, they get a full instance of the application running in a namespace that they can then test and develop against.</p>
+<p><a href="https://github.com/garden-io/garden/blob/master/./docs/cluster-diagram.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/garden-io/garden/master/docs/cluster-diagram.png" alt="Cluster Diagram" title="Cluster Diagram" style="max-width:100%;"></a></p>
+<p>And whenever you open a PR or merge a branch, your CI processes can also spin up a testing environment in a namespace on the same Kubernetes cluster.</p>
+<p>See our <a href="https://docs.garden.io" rel="nofollow">documentation</a> for more details.</p>
+<h2>
+<a id="faqs" class="anchor" href="#faqs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQs</h2>
+<p><strong>How is Garden different from other Kubernetes development tools?</strong></p>
+<p>Garden goes beyond inner-loop development and unifies development, testing, and CI with a common configuraiton and set of workflows. You can use Garden to give developers a production-like environment in a cluster where they can iterate quickly and run integration tests on demand, to spin up preview environments to manually QA a new feature, to optimize your CI pipeline via a shared cache of build and test results, and more. Garden has many features to manage dependencies, tests and other relationships between different parts of your stack. In turn, Garden might take a little bit longer to get started with, and has some additional terminology to learn.</p>
+<p>Tools such as Skaffold and Tilt, for example, are coupled to Kubernetes, whereas Garden is designed to be more extensible and flexible. Tight coupling can in some cases enable more specific Kubernetes-related features. But even with its flexibility, we still believe that Garden offers some of the most comprehensive Kubernetes functionality available.</p>
+<p>We also strongly feel that testing and development tools should be adaptable across platforms, especially considering all the interesting technologies that are on the horizon, such as WASM, serverless, edge functions, etc.</p>
+<p><strong>Is Garden a CI platform/tool?</strong></p>
+<p>Not exactly, but you can certainly use Garden to make your CI faster and easier to work with. We highly recommend <a href="https://docs.garden.io/guides/using-garden-in-ci" rel="nofollow">running Garden from your CI</a> setup, so that you can re-use the same structure and config, as well as your build and test result caches (if you’re using shared dev clusters).</p>
+<p><strong>Does Garden work with Nomad/Fargate/Lambda/?</strong></p>
+<p>We currently primarily support Kubernetes, but Garden is designed to be pluggable to work with any operational platform. Our focus is on making development and testing of distributed systems faster and easier. Kubernetes is where we’re focusing our efforts today because that’s the platform of choice for a large majority of our user base. That said, we have made experimental plugins for Google Cloud Functions and more.</p>
+<p>When we release our plugin SDK (tentatively later this year), we plan on working with the developer community to support a variety of platforms, including a number of serverless/FaaS platforms. This will allow users to pick and choose platforms for individual services, but keep the same testing and development workflows across the board.</p>
+<p><strong>Should I use Garden to deploy to production?</strong></p>
+<p>Technically, there are many cases where you can use Garden to deploy to production. But at this point in time, Garden is not expressly designed for production rollouts and does not yet support capabilities such as gradual rollouts or canary deployments.</p>
+<p>As your needs evolve (if they haven’t already), we recommend using helm modules or raw Kubernetes manifests using the kubernetes module type. You can then use those same Helm charts and manifests with any CD/GitOps tool of your choosing.</p>
+<p><strong>Is there an enterprise edition, or is enterprise support available?</strong></p>
+<p>Yes, Garden (the company) offers an enterprise version of the product–and enterprise support is only available to customers of the enterprise product. If you’d like to ask questions about our enterprise offering, <a href="https://garden.io/contact?utm_source=github" rel="nofollow">you can reach out here</a>.</p>
+<p><strong>Why TypeScript?</strong></p>
+<p>We find TypeScript strikes a good balance between power and simplicity, and it handles asynchronous work really well. We also get rid of some of the key weaknesses of Node.js by using Zeit’s <a href="https://github.com/zeit/pkg" rel="nofollow">pkg</a> to distribute Garden as a single binary, so users don’t need to think about npm and all that stuff. We plan on splitting Garden into more components, some of which will be written in Go, and to make plugin SDKs for both TypeScript/JavaScript and Go.</p>
+<p><strong>Why the name "Garden”?</strong></p>
+<p>We feel it’s a nice and welcoming name :) And we like the notion that your software grows in a living environment. Like a well kept garden of flowers and plants, your software stack is a living system of living things. Seasons change, as technologies do. New ideas come alive and some die or fall out of favor. Most importantly, all of them need to work and thrive together in their little ecosystem—your own Garden.</p>
+<h2>
+<a id="project-status" class="anchor" href="#project-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Status</h2>
+<p>Garden is in active use by a number of teams. Until Garden reaches 1.0, APIs may still change between minor releases (0.x). Patch releases (0.x.y) are guaranteed not to include any breaking changes. We detail all breaking changes in our release notes.</p>
+<p>To learn about Garden Enterprise (generally available from November 2020), <a href="https://garden.io/product?utm_source=github#enterprise" rel="nofollow">please visit the Garden website</a>.</p>
+<h2>
+<a id="stay-in-touch" class="anchor" href="#stay-in-touch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stay in Touch</h2>
+<ul>
+<li>Join the #garden channel on the <a href="https://chat.garden.io/" rel="nofollow">Kubernetes Slack</a> to ask questions and give feedback</li>
+<li>
+<a href="https://twitter.com/garden_io" rel="nofollow">Follow us on Twitter</a> to stay up to date on product announcements, blog posts, webinars, and other resources.</li>
+<li>To discuss an enterprise license and enterprise support, <a href="https://garden.io/contact?utm_source=github" rel="nofollow">contact us here</a>.</li>
+</ul>
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+<p>Garden would not be possible without an amazing ecosystem of open-source projects. Here are some of the projects that Garden uses, either directly or indirectly:</p>
+<ul>
+<li><a href="https://kubernetes.io/" rel="nofollow">Kubernetes</a></li>
+<li><a href="https://www.typescriptlang.org/" rel="nofollow">TypeScript</a></li>
+<li><a href="https://github.com/zeit/pkg" rel="nofollow">zeit/pkg</a></li>
+<li><a href="https://github.com/moby/moby" rel="nofollow">Moby</a></li>
+<li><a href="https://helm.sh/" rel="nofollow">Helm</a></li>
+<li><a href="https://www.openfaas.com/" rel="nofollow">OpenFaaS</a></li>
+<li><a href="https://golang.org/" rel="nofollow">Golang</a></li>
+<li><a href="https://github.com/hadolint/hadolint" rel="nofollow">Hadolint</a></li>
+<li><a href="https://www.conftest.dev/" rel="nofollow">conftest</a></li>
+</ul>
+<p>Garden, as a company, is also a proud member of the <a href="https://www.cncf.io/" rel="nofollow">CNCF</a>.</p>
+<h2>
+<a id="telemetry" class="anchor" href="#telemetry" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Telemetry</h2>
+<p>We are trying to make Garden the best tool possible, and it's very useful for us to inform the future development of Garden with data on how it's being used.</p>
+<p>When you use Garden we collect information about the commands you run, the tasks getting executed, the project and operating system. We care about your privacy and we take special care to anonymize all the information. For example, we hash module names, and use randomly generated IDs to identify projects.</p>
+<p>If you are curious to see an example of the data we collect or if you would like to update your preference, please visit the <a href="https://docs.garden.io/telemetry" rel="nofollow">Telemetry</a> page.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>Garden is licensed according to <a href="https://github.com/garden-io/garden/blob/master/LICENSE.md" rel="nofollow">Mozilla Public License 2.0 (MPL-2.0)</a>.</p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bafc7846e738',m:'7e66ab2af9fca1e15123d50d3a1ea50bf47362d4-1610725595-1800-AUegQWLZTjoYNPIsxrrpAYJnwckMH/ToxBjLWS4UTgnouB353CL3oel5h8FueDNi3F9P2msHfw4qasN2yd2XovWihq+A75qzc9btnosmd/C0lE682xKPPvSp3Yfa+SjaYJTcm0gL4TcJjDk83Jj7DzY=',s:[0x78096beaff,0x22978d58d0],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="typescript"/> <!-- -->typescript<!-- --> (<!-- -->9,902<!-- -->) </div><div><input type="checkbox" name="topics" value="kubernetes"/> <!-- -->kubernetes<!-- --> (<!-- -->1,606<!-- -->) </div><div><input type="checkbox" name="topics" value="testing"/> <!-- -->testing<!-- --> (<!-- -->909<!-- -->) </div><div><input type="checkbox" name="topics" value="containers"/> <!-- -->containers<!-- --> (<!-- -->391<!-- -->) </div><div><input type="checkbox" name="topics" value="developer-tools"/> <!-- -->developer-tools<!-- --> (<!-- -->323<!-- -->) </div><div><input type="checkbox" name="topics" value="testing-tools"/> <!-- -->testing-tools<!-- --> (<!-- -->194<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Garden<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/garden-io" target="_blank">Garden <!-- -->Io</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/garden-io" target="_blank">Garden <!-- -->Io</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-55db71d4-0ea3-463f-b672-d4ad4e641130">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"containers","count":391},{"id":null,"name":"developer-tools","count":323},{"id":null,"name":"kubernetes","count":1606},{"id":null,"name":"testing","count":909},{"id":null,"name":"testing-tools","count":194},{"id":null,"name":"typescript","count":9902}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/garden-io/garden","projects":[],"project":{"id":139328,"created_at":"2019-01-18T13:58:19.676Z","updated_at":"2021-01-14T05:17:20.458Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cp align=\"center\"\u003e\n  \u003ca href=\"https://github.com/garden-io/garden/blob/master/docs/logo.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/garden-io/garden/master/docs/logo.png\" align=\"center\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eGarden is an automation platform for Kubernetes development and testing.\u003c/strong\u003e Remove barriers between development, testing, and CI. Use the same workflows and production-like Kubernetes environments for every step of the development process.\u003c/p\u003e\n\u003cp\u003eCommon use cases:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eIn-cluster development\u003c/strong\u003e for Kubernetes applications.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFast \u0026amp; consistent CI pipelines\u003c/strong\u003e via a common configuration for development, testing, and CI and shared build \u0026amp; test caches.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIntegration testing\u003c/strong\u003e in a production-like environment that captures the complete configuration of the application.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eManual QA \u0026amp; review\u003c/strong\u003e via production-like preview environments that can easily be shared with teammates.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"#common-use-cases-what-can-i-do-with-garden\"\u003eLearn more about common Garden use cases.\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eFeaturing:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eIn-cluster builds:\u003c/strong\u003e Build images in your Kubernetes development cluster–and avoid having to use local Kubernetes clusters.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTest orchestration:\u003c/strong\u003e Garden has first-class support for testing, and allows you to easily define tests that run in-cluster, alongside your services.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eResult caching:\u003c/strong\u003e Build and test results are shared between users when using the same cluster. Teams can easily share build and test results, and your CI can use the same build caches as the team.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eResources\u003c/th\u003e\n\u003cth\u003eWhat is it?\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://garden.io/?utm_source=github\" rel=\"nofollow\"\u003eGarden Website\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eThe official Garden website\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://docs.garden.io/?utm_source=github\" rel=\"nofollow\"\u003eGarden Documentation / Getting Started\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eDocumentation for all editions of Garden, and the best place to get started\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://garden.io/blog?utm_source=github\" rel=\"nofollow\"\u003eBlog\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eThe Garden blog, where we share product updates, how-to guides, and other resources\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://chat.garden.io\" rel=\"nofollow\"\u003eCommunity Slack\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eThe best place to ask questions as a user of Garden\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ca href=\"https://garden.io/product?utm_source=github#enterprise\" rel=\"nofollow\"\u003eGarden Enterprise\u003c/a\u003e\u003c/td\u003e\n\u003ctd\u003eGarden Enterprise is built on top of the open source product and includes centralized environment management, secrets and user management, direct integration with VCS, and more.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cem\u003eIf you’re using Garden or if you like the project, please ★ star this repository to show your support 💖\u003c/em\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/garden-io/garden/blob/master/docs/dashboard.gif\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/garden-io/garden/master/docs/dashboard.gif\" alt=\"Dashboard\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#common-use-cases-what-can-i-do-with-garden\"\u003eCommon Use Cases: What Can I Do With Garden?\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#features-why-use-garden\"\u003eFeatures: Why Use Garden?\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#how-does-garden-work\"\u003eHow does Garden work?\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#faqs\"\u003eFAQs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#project-status\"\u003eProject Status\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#stay-in-touch\"\u003eStay in Touch\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"common-use-cases-what-can-i-do-with-garden\" class=\"anchor\" href=\"#common-use-cases-what-can-i-do-with-garden\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Use Cases: What Can I Do With Garden?\u003c/h2\u003e\n\u003cp\u003eUsers typically implement Garden for one or more of the following:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eIn-cluster Development:\u003c/strong\u003e With Garden, developers working on Kubernetes applications can spin up a production-like, namespaced environment in a cluster, on demand. With in-cluster environments, devs don't need to run Docker, Kubernetes, or a complex distributed application on their laptops.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFast \u0026amp; Consistent CI Pipelines:\u003c/strong\u003e Garden makes it possible to use the same configuration for development, testing, and CI, which ensures consistency across different environments. You can run the exact same tests from a production-like development environment that will later be run in CI, meaning a much more predictable pipeline. In addition, Garden's shared cached results for image builds and tests means that your CI pipeline will run much faster, reducing cycle time and getting new features merged more quickly.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIntegration Testing:\u003c/strong\u003e Because Garden environments capture the full configuration of an application, it’s possible to run proper integration tests with runtime dependencies–no mocking or stubbing required. A developer can run integration tests with a single command before creating a PR to get fast feedback and iterate more quickly, or integration tests can be run against a feature branch every time a PR is created.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eManual QA \u0026amp; Code Review:\u003c/strong\u003e Garden enables developers, QA engineers, and product managers to spin up production-like preview environments on demand. These preview environments can be used, for example, to QA any part of an application that can’t be covered by automated testing (e.g. complex frontend functionality) or in cases when client developers need a fully-functioning backend to validate new features. Product managers can use Garden preview environments to review a working version of an application for pre-release acceptance testing.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"features-why-use-garden\" class=\"anchor\" href=\"#features-why-use-garden\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures: Why Use Garden?\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eCommon configuration for development, testing, and CI:\u003c/strong\u003e With Garden, use the same configuration and set of workflows for development, testing, and CI. Ensure consistency at every step of your development process.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eProduction-like Kubernetes environments:\u003c/strong\u003e A Garden environment captures the full configuration of an application, \u003ca href=\"https://docs.garden.io/using-garden/tests\" rel=\"nofollow\"\u003eincluding all adjacent services and dependencies\u003c/a\u003e. Garden environments provide consistency across your entire org–no more, “Well, it works fine on my laptop.”\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNamespaced environments on demand:\u003c/strong\u003e Any developer can spin up (and tear down) a namespaced environment in a shared cluster without help from DevOps, or an environment can be created by CI on every pull request.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eStack-aware builds and testing with result caching:\u003c/strong\u003e Garden is aware of the relationships between the services in your stack, and so instead of building an entire application or running a full suite of integration tests every time, Garden will only build or test what’s necessary based on what’s been changed. These build and test results are cached and can be shared across developers on a team. The result: much faster builds and test runs, which means faster feedback loops for developers.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eShared development clusters with fast in-cluster building:\u003c/strong\u003e Build images in your Kubernetes development cluster, thus eliminating the need for local Kubernetes clusters (in other words, no Docker or Kubernetes on your local machine).\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDefine \u003ca href=\"https://github.com/garden-io/garden/tree/0.12.11/examples/tasks\" rel=\"nofollow\"\u003etasks\u003c/a\u003e\u003c/strong\u003e that run as part of your deployment process—e.g. database migrations or scaffolding.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003ca href=\"https://docs.garden.io/advanced/using-remote-sources\" rel=\"nofollow\"\u003eRemote sources (multi-repository) support:\u003c/a\u003e\u003c/strong\u003e Garden allows your project to automatically pull code from different repositories.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHardware and platform flexibility:\u003c/strong\u003e Run Garden on-prem or in one of several supported cloud providers. Build, test, and deploy Docker containers, \u003ca href=\"https://docs.garden.io/guides/using-helm-charts\" rel=\"nofollow\"\u003eHelm charts\u003c/a\u003e, and more. Choose from a variety of Kubernetes platforms and CI tools.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTerraform integration:\u003c/strong\u003e Garden includes a \u003ca href=\"https://docs.garden.io/advanced/terraform\" rel=\"nofollow\"\u003eTerraform provider\u003c/a\u003e that you can use to automatically validate and provision infrastructure as part of your project.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eExtensible plugin system:\u003c/strong\u003e Garden’s plugin system ensures you’ll be able to create custom module types tailored to your needs or take advantage of existing plugins (e.g. conftest, hadolint).\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnterprise edition with support (if you need it):\u003c/strong\u003e Garden offers an enterprise edition of the product which provides secrets management, centralized environment management, direct integration with GitHub and other VCS providers, and enterprise security features (e.g. RBAC, SSO). The enterprise product comes with support SLAs and access to technical consulting. To learn more, \u003ca href=\"https://garden.io/product?utm_source=github#enterprise\" rel=\"nofollow\"\u003echeck out our website\u003c/a\u003e or \u003ca href=\"https://garden.io/contact?utm_source=github\" rel=\"nofollow\"\u003eget in touch\u003c/a\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003eYou can find Garden’s full documentation at \u003ca href=\"https://docs.garden.io\" rel=\"nofollow\"\u003ehttps://docs.garden.io\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"how-does-garden-work\" class=\"anchor\" href=\"#how-does-garden-work\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow does Garden work?\u003c/h2\u003e\n\u003cp\u003eGarden Core is a standalone tool that can run from CI or from a developer’s machine. It allows you to codify a complete description of your stack, including how it's built, deployed and tested, using the \u003ca href=\"https://docs.garden.io/basics/stack-graph\" rel=\"nofollow\"\u003eStack Graph\u003c/a\u003e—making your workflows reproducible and portable.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/garden-io/garden/blob/master/./docs/stack-graph-screenshot.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/garden-io/garden/master/docs/stack-graph-screenshot.png\" alt=\"The Stack Graph\" title=\"The Stack Graph, shown in the Garden dashboard\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWith the Stack Graph, each part of your stack can describe itself using simple, intuitive declarations, without changing any of your code. Garden collects all of your declarations—even across multiple repositories—into a full graph of your stack, and leverages that information to help you develop and test faster.\u003c/p\u003e\n\u003cp\u003eWhen you run Garden with a shared Kubernetes cluster, Garden sets up its own namespace with a small set of services, including:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eImage cache and test cache:\u003c/strong\u003e Every time an image is built for a service, Garden saves it a cache. If a different developer wants to deploy the same version of an image, the image doesn’t have to be rebuilt—instead, Garden will check if the image exists in the Docker registry and skip the build step if it does. Test results are also saved in a test cache and can be shared across developers. These caches can reduce build and test time significantly, often by 80% or more.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBuild service:\u003c/strong\u003e Developers and CI processes don’t need to run Docker and Kubernetes on their machine (unless they want to). The build service makes it possible for all of this to be handled in the cluster.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEvery developer, in turn, has a private namespace in the cluster. With one command, a dev can spin up a development and testing environment in their private namespace. In other words, they get a full instance of the application running in a namespace that they can then test and develop against.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/garden-io/garden/blob/master/./docs/cluster-diagram.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/garden-io/garden/master/docs/cluster-diagram.png\" alt=\"Cluster Diagram\" title=\"Cluster Diagram\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eAnd whenever you open a PR or merge a branch, your CI processes can also spin up a testing environment in a namespace on the same Kubernetes cluster.\u003c/p\u003e\n\u003cp\u003eSee our \u003ca href=\"https://docs.garden.io\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e for more details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"faqs\" class=\"anchor\" href=\"#faqs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFAQs\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eHow is Garden different from other Kubernetes development tools?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eGarden goes beyond inner-loop development and unifies development, testing, and CI with a common configuraiton and set of workflows. You can use Garden to give developers a production-like environment in a cluster where they can iterate quickly and run integration tests on demand, to spin up preview environments to manually QA a new feature, to optimize your CI pipeline via a shared cache of build and test results, and more. Garden has many features to manage dependencies, tests and other relationships between different parts of your stack. In turn, Garden might take a little bit longer to get started with, and has some additional terminology to learn.\u003c/p\u003e\n\u003cp\u003eTools such as Skaffold and Tilt, for example, are coupled to Kubernetes, whereas Garden is designed to be more extensible and flexible. Tight coupling can in some cases enable more specific Kubernetes-related features. But even with its flexibility, we still believe that Garden offers some of the most comprehensive Kubernetes functionality available.\u003c/p\u003e\n\u003cp\u003eWe also strongly feel that testing and development tools should be adaptable across platforms, especially considering all the interesting technologies that are on the horizon, such as WASM, serverless, edge functions, etc.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIs Garden a CI platform/tool?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eNot exactly, but you can certainly use Garden to make your CI faster and easier to work with. We highly recommend \u003ca href=\"https://docs.garden.io/guides/using-garden-in-ci\" rel=\"nofollow\"\u003erunning Garden from your CI\u003c/a\u003e setup, so that you can re-use the same structure and config, as well as your build and test result caches (if you’re using shared dev clusters).\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eDoes Garden work with Nomad/Fargate/Lambda/?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWe currently primarily support Kubernetes, but Garden is designed to be pluggable to work with any operational platform. Our focus is on making development and testing of distributed systems faster and easier. Kubernetes is where we’re focusing our efforts today because that’s the platform of choice for a large majority of our user base. That said, we have made experimental plugins for Google Cloud Functions and more.\u003c/p\u003e\n\u003cp\u003eWhen we release our plugin SDK (tentatively later this year), we plan on working with the developer community to support a variety of platforms, including a number of serverless/FaaS platforms. This will allow users to pick and choose platforms for individual services, but keep the same testing and development workflows across the board.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eShould I use Garden to deploy to production?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eTechnically, there are many cases where you can use Garden to deploy to production. But at this point in time, Garden is not expressly designed for production rollouts and does not yet support capabilities such as gradual rollouts or canary deployments.\u003c/p\u003e\n\u003cp\u003eAs your needs evolve (if they haven’t already), we recommend using helm modules or raw Kubernetes manifests using the kubernetes module type. You can then use those same Helm charts and manifests with any CD/GitOps tool of your choosing.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eIs there an enterprise edition, or is enterprise support available?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eYes, Garden (the company) offers an enterprise version of the product–and enterprise support is only available to customers of the enterprise product. If you’d like to ask questions about our enterprise offering, \u003ca href=\"https://garden.io/contact?utm_source=github\" rel=\"nofollow\"\u003eyou can reach out here\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy TypeScript?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWe find TypeScript strikes a good balance between power and simplicity, and it handles asynchronous work really well. We also get rid of some of the key weaknesses of Node.js by using Zeit’s \u003ca href=\"https://github.com/zeit/pkg\" rel=\"nofollow\"\u003epkg\u003c/a\u003e to distribute Garden as a single binary, so users don’t need to think about npm and all that stuff. We plan on splitting Garden into more components, some of which will be written in Go, and to make plugin SDKs for both TypeScript/JavaScript and Go.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhy the name \"Garden”?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWe feel it’s a nice and welcoming name :) And we like the notion that your software grows in a living environment. Like a well kept garden of flowers and plants, your software stack is a living system of living things. Seasons change, as technologies do. New ideas come alive and some die or fall out of favor. Most importantly, all of them need to work and thrive together in their little ecosystem—your own Garden.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"project-status\" class=\"anchor\" href=\"#project-status\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProject Status\u003c/h2\u003e\n\u003cp\u003eGarden is in active use by a number of teams. Until Garden reaches 1.0, APIs may still change between minor releases (0.x). Patch releases (0.x.y) are guaranteed not to include any breaking changes. We detail all breaking changes in our release notes.\u003c/p\u003e\n\u003cp\u003eTo learn about Garden Enterprise (generally available from November 2020), \u003ca href=\"https://garden.io/product?utm_source=github#enterprise\" rel=\"nofollow\"\u003eplease visit the Garden website\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"stay-in-touch\" class=\"anchor\" href=\"#stay-in-touch\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStay in Touch\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eJoin the #garden channel on the \u003ca href=\"https://chat.garden.io/\" rel=\"nofollow\"\u003eKubernetes Slack\u003c/a\u003e to ask questions and give feedback\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://twitter.com/garden_io\" rel=\"nofollow\"\u003eFollow us on Twitter\u003c/a\u003e to stay up to date on product announcements, blog posts, webinars, and other resources.\u003c/li\u003e\n\u003cli\u003eTo discuss an enterprise license and enterprise support, \u003ca href=\"https://garden.io/contact?utm_source=github\" rel=\"nofollow\"\u003econtact us here\u003c/a\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"acknowledgements\" class=\"anchor\" href=\"#acknowledgements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgements\u003c/h2\u003e\n\u003cp\u003eGarden would not be possible without an amazing ecosystem of open-source projects. Here are some of the projects that Garden uses, either directly or indirectly:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://kubernetes.io/\" rel=\"nofollow\"\u003eKubernetes\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.typescriptlang.org/\" rel=\"nofollow\"\u003eTypeScript\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/zeit/pkg\" rel=\"nofollow\"\u003ezeit/pkg\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/moby/moby\" rel=\"nofollow\"\u003eMoby\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://helm.sh/\" rel=\"nofollow\"\u003eHelm\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.openfaas.com/\" rel=\"nofollow\"\u003eOpenFaaS\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://golang.org/\" rel=\"nofollow\"\u003eGolang\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/hadolint/hadolint\" rel=\"nofollow\"\u003eHadolint\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.conftest.dev/\" rel=\"nofollow\"\u003econftest\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eGarden, as a company, is also a proud member of the \u003ca href=\"https://www.cncf.io/\" rel=\"nofollow\"\u003eCNCF\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"telemetry\" class=\"anchor\" href=\"#telemetry\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTelemetry\u003c/h2\u003e\n\u003cp\u003eWe are trying to make Garden the best tool possible, and it's very useful for us to inform the future development of Garden with data on how it's being used.\u003c/p\u003e\n\u003cp\u003eWhen you use Garden we collect information about the commands you run, the tasks getting executed, the project and operating system. We care about your privacy and we take special care to anonymize all the information. For example, we hash module names, and use randomly generated IDs to identify projects.\u003c/p\u003e\n\u003cp\u003eIf you are curious to see an example of the data we collect or if you would like to update your preference, please visit the \u003ca href=\"https://docs.garden.io/telemetry\" rel=\"nofollow\"\u003eTelemetry\u003c/a\u003e page.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eGarden is licensed according to \u003ca href=\"https://github.com/garden-io/garden/blob/master/LICENSE.md\" rel=\"nofollow\"\u003eMozilla Public License 2.0 (MPL-2.0)\u003c/a\u003e.\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":112892985,"name":"garden","owner_login":"garden-io","description":"Automation for Kubernetes development and testing. Spin up production-like environments for development, testing, and CI on demand. Use the same configuration and workflows at every step of the process. Speed up your builds and test runs via shared result caching.","pushed_at":"2021-01-14T00:33:46.000Z","stargazers_count":1977,"open_issues_count":74,"has_downloads":true,"archived":false,"license_key":"mpl-2.0","homepage":"https://garden.io","private":false,"project_created_at":"2017-12-03T02:10:59.000Z","project_updated_at":"2021-01-12T19:49:19.000Z","language":"TypeScript","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

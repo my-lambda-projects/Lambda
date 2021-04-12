@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+</head>
+<body>;
+<h3 id="hello-world-ghost">HELLO WORLD :ghost:</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="co">//Text file name HelloWorld.java</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">public</span> <span class="kw">class</span> HelloWorld {</a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co">// main() is the method</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (<span class="bu">String</span>[] arfs)</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="co">//Prints &quot;Hello World&quot; in the terminal window.</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">pritn</span>(<span class="st">&quot;Hello World&quot;</span>);</a>
+<a class="sourceLine" id="cb1-7" title="7">}</a></code></pre></div>
+<h3 id="compilation-executing-java-code">COMPILATION &amp; EXECUTING JAVA CODE</h3>
+<ul>
+<li>Goto your program directory in terminal (Assumed JAVA Path is set)</li>
+<li>After for compile your code</li>
+</ul>
+<blockquote>
+<p><strong>javac HelloWorld.java (your program file name)</strong></p>
+</blockquote>
+<ul>
+<li>For run program</li>
+</ul>
+<blockquote>
+<p><strong>java HelloWorld (main class name)</strong></p>
+</blockquote>
+<h3 id="data-types">DATA TYPES</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Set of values</th>
+<th style="text-align: center;">Values</th>
+<th style="text-align: center;">Operators</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">integers</td>
+<td style="text-align: center;">between -2^31 and + (2^31)-1</td>
+<td style="text-align: center;">+ - * / %</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">floating-point numbers</td>
+<td style="text-align: center;">real numbers</td>
+<td style="text-align: center;">+ - * /</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">boolean values</td>
+<td style="text-align: center;">true or false</td>
+<td style="text-align: center;">&amp;&amp; || !</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">char</td>
+<td style="text-align: center;">characters</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">String</td>
+<td style="text-align: center;">sequences of characters</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="declaration-and-assignment-statements">DECLARATION AND ASSIGNMENT STATEMENTS</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="co">//Declaration statement</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dt">int</span> a,b;</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">//Assignment statement</span></a>
+<a class="sourceLine" id="cb2-5" title="5">a = <span class="dv">13212</span>; <span class="co">//a is the variable name; 13212 is the literal which is assign to the variable a</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">//Initialization statement</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="dt">int</span> c = a + b;</a></code></pre></div>
+<h3 id="comparison-operators">COMPARISON OPERATORS</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operation</th>
+<th style="text-align: center;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">==</td>
+<td style="text-align: center;">equal</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">!=</td>
+<td style="text-align: center;">not equal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">&lt;</td>
+<td style="text-align: center;">less than</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&gt;</td>
+<td style="text-align: center;">greater than</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">&lt;=</td>
+<td style="text-align: center;">less than or equal</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&gt;=</td>
+<td style="text-align: center;">greater than or equal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="printing">PRINTING</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">  <span class="bu">String</span> s = <span class="st">&quot;Happy Coding Folks!!&quot;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">void</span> <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="bu">String</span> s) <span class="co">//print s</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">void</span> <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="bu">String</span> s) <span class="co">//print s, followed by a newline</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="dt">void</span> <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>() <span class="co">//print a newline</span></a></code></pre></div>
+<h3 id="parsing-command-line-arguments">PARSING COMMAND-LINE ARGUMENTS</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">  <span class="bu">String</span> s = <span class="st">&quot;Java is the best!!&quot;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">int</span> <span class="bu">Integer</span>.<span class="fu">parseInt</span>(<span class="bu">String</span> s) <span class="co">//convert s to an int value</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="dt">double</span> <span class="bu">Double</span>.<span class="fu">parseDouble</span>(<span class="bu">String</span>) <span class="co">//convert s to a double value</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="dt">long</span> <span class="bu">Long</span>.<span class="fu">parseLong</span>(<span class="bu">String</span> s) <span class="co">// convert s to a long value</span></a></code></pre></div>
+<h3 id="math-library">MATH LIBRARY</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1">  Public <span class="bu">Class</span> <span class="bu">Math</span>{</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="dt">double</span> <span class="fu">abs</span>(<span class="dt">double</span> a)    <span class="co">// absolute value of a</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="dt">double</span> <span class="fu">max</span>(<span class="dt">double</span> a, <span class="dt">double</span> b)  <span class="co">//maximum of a and b</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="dt">double</span> <span class="fu">min</span>(<span class="dt">double</span> a, dobule a)  <span class="co">//minimum of a and b</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="dt">double</span> <span class="fu">sin</span>(<span class="dt">double</span> theta) <span class="co">//sine of theta</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="dt">double</span> <span class="fu">cos</span>(<span class="dt">double</span> theta) <span class="co">//cosine of theta</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="dt">double</span> <span class="fu">tan</span>(<span class="dt">double</span> theta) <span class="co">//tangent of theta</span></a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="dt">double</span> <span class="fu">toRadians</span>(<span class="dt">double</span> degrees) <span class="co">// convert angle from degrees to radians</span></a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="dt">double</span> toDegreestouble radians)  <span class="co">// convert angle from radians to degrees</span></a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="dt">double</span> <span class="fu">exp</span>(doube a)  <span class="co">// exponential (e^a)</span></a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="dt">double</span> <span class="fu">pow</span>(<span class="dt">double</span> a, <span class="dt">double</span> p) <span class="co">//raise a to the bth power (a^b)</span></a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="dt">double</span> <span class="fu">random</span>() <span class="co">//random in [0,1)</span></a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="dt">double</span> <span class="fu">sqrt</span>(<span class="dt">double</span> a)  <span class="co">//square root of a</span></a>
+<a class="sourceLine" id="cb5-14" title="14">    }</a></code></pre></div>
+<h3 id="examples-of-type-conversion">EXAMPLES OF TYPE CONVERSION</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Expression</th>
+<th style="text-align: center;">Expression type</th>
+<th style="text-align: center;">Expression value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">(1 + 2 + 3 + 4) / 4.0</td>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Math.sqrt(4)</td>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">“123343” + 99</td>
+<td style="text-align: center;">String</td>
+<td style="text-align: center;">“12334399”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11 * 0.25</td>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">2.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">(int) 11 * 0.25</td>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">2.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11 * (int) 0.25</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">(int) (11 * 0.25)</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="conditional-loop-statement">CONDITIONAL &amp; LOOP STATEMENT</h3>
+<h4 id="anatomy-of-conditional-statement">ANATOMY OF CONDITIONAL STATEMENT</h4>
+<blockquote>
+<p>IF Statement</p>
+</blockquote>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1">  <span class="kw">if</span> (x&gt;y) { <span class="co">// x &gt; y is the boolean expression</span></a>
+<a class="sourceLine" id="cb6-2" title="2">   <span class="co">//Sequence of statements</span></a>
+<a class="sourceLine" id="cb6-3" title="3">   x = y;</a>
+<a class="sourceLine" id="cb6-4" title="4">  } </a></code></pre></div>
+<blockquote>
+<p>IF-ELSE STATEMENT</p>
+</blockquote>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1">   <span class="kw">if</span> (BOOLEAN EXPRESSION) { </a>
+<a class="sourceLine" id="cb7-2" title="2">   <span class="co">//Sequence of statements</span></a>
+<a class="sourceLine" id="cb7-3" title="3">   } <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb7-4" title="4">   <span class="co">//Sequence of statements</span></a>
+<a class="sourceLine" id="cb7-5" title="5">   }</a></code></pre></div>
+<blockquote>
+<p>NESTED IF STATEMENT</p>
+</blockquote>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1">   <span class="kw">if</span> (BOOLEAN EXPRESSION) { </a>
+<a class="sourceLine" id="cb8-2" title="2">   <span class="co">//Sequence of statements</span></a>
+<a class="sourceLine" id="cb8-3" title="3">   } <span class="kw">else</span> <span class="kw">if</span> {</a>
+<a class="sourceLine" id="cb8-4" title="4">   <span class="co">//Sequence of statements</span></a>
+<a class="sourceLine" id="cb8-5" title="5">   }</a>
+<a class="sourceLine" id="cb8-6" title="6">   .</a>
+<a class="sourceLine" id="cb8-7" title="7">   .</a>
+<a class="sourceLine" id="cb8-8" title="8">   .</a>
+<a class="sourceLine" id="cb8-9" title="9">   <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb8-10" title="10">   <span class="co">//Sequence of statements</span></a>
+<a class="sourceLine" id="cb8-11" title="11">   }</a></code></pre></div>
+<blockquote>
+<p>SWITCH STATEMENT</p>
+</blockquote>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1">  <span class="kw">switch</span> (VARIABLE TO EVALUATE ITS VALUE) {</a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="kw">case</span> value: <span class="bu">Statement</span>; <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb9-3" title="3">    ...</a>
+<a class="sourceLine" id="cb9-4" title="4">    ...</a>
+<a class="sourceLine" id="cb9-5" title="5">    ...</a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="kw">default</span>: <span class="bu">Statement</span>; <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb9-7" title="7">  }</a></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb10-1" title="1">  <span class="dt">int</span> month = <span class="dv">8</span>;</a>
+<a class="sourceLine" id="cb10-2" title="2">        <span class="bu">String</span> monthString;</a>
+<a class="sourceLine" id="cb10-3" title="3">        <span class="kw">switch</span> (month) {</a>
+<a class="sourceLine" id="cb10-4" title="4">            <span class="kw">case</span> <span class="dv">1</span>:  monthString = <span class="st">&quot;January&quot;</span>;</a>
+<a class="sourceLine" id="cb10-5" title="5">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-6" title="6">            <span class="kw">case</span> <span class="dv">2</span>:  monthString = <span class="st">&quot;February&quot;</span>;</a>
+<a class="sourceLine" id="cb10-7" title="7">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-8" title="8">            <span class="kw">case</span> <span class="dv">3</span>:  monthString = <span class="st">&quot;March&quot;</span>;</a>
+<a class="sourceLine" id="cb10-9" title="9">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-10" title="10">            <span class="kw">case</span> <span class="dv">4</span>:  monthString = <span class="st">&quot;April&quot;</span>;</a>
+<a class="sourceLine" id="cb10-11" title="11">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-12" title="12">            <span class="kw">case</span> <span class="dv">5</span>:  monthString = <span class="st">&quot;May&quot;</span>;</a>
+<a class="sourceLine" id="cb10-13" title="13">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-14" title="14">            <span class="kw">case</span> <span class="dv">6</span>:  monthString = <span class="st">&quot;June&quot;</span>;</a>
+<a class="sourceLine" id="cb10-15" title="15">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-16" title="16">            <span class="kw">case</span> <span class="dv">7</span>:  monthString = <span class="st">&quot;July&quot;</span>;</a>
+<a class="sourceLine" id="cb10-17" title="17">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-18" title="18">            <span class="kw">case</span> <span class="dv">8</span>:  monthString = <span class="st">&quot;August&quot;</span>;</a>
+<a class="sourceLine" id="cb10-19" title="19">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-20" title="20">            <span class="kw">case</span> <span class="dv">9</span>:  monthString = <span class="st">&quot;September&quot;</span>;</a>
+<a class="sourceLine" id="cb10-21" title="21">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-22" title="22">            <span class="kw">case</span> <span class="dv">10</span>: monthString = <span class="st">&quot;October&quot;</span>;</a>
+<a class="sourceLine" id="cb10-23" title="23">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-24" title="24">            <span class="kw">case</span> <span class="dv">11</span>: monthString = <span class="st">&quot;November&quot;</span>;</a>
+<a class="sourceLine" id="cb10-25" title="25">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-26" title="26">            <span class="kw">case</span> <span class="dv">12</span>: monthString = <span class="st">&quot;December&quot;</span>;</a>
+<a class="sourceLine" id="cb10-27" title="27">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-28" title="28">            <span class="kw">default</span>: monthString = <span class="st">&quot;Invalid month&quot;</span>;</a>
+<a class="sourceLine" id="cb10-29" title="29">                     <span class="kw">break</span>;</a>
+<a class="sourceLine" id="cb10-30" title="30">        }</a></code></pre></div>
+<h4 id="anatomy-of-a-loop-statement">ANATOMY OF A LOOP STATEMENT</h4>
+<blockquote>
+<p>FOR LOOP STATEMENT</p>
+</blockquote>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb11-1" title="1">  <span class="kw">for</span> (declare and initialize a loop control variable; loop-continuation condition/s; increment or decrement of the variable of control)</a>
+<a class="sourceLine" id="cb11-2" title="2">  {</a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="co">//Statement</span></a>
+<a class="sourceLine" id="cb11-4" title="4">  }</a></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb12-1" title="1">  <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt;= n; i++) {</a>
+<a class="sourceLine" id="cb12-2" title="2">     <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(i);</a>
+<a class="sourceLine" id="cb12-3" title="3">  }</a></code></pre></div>
+<blockquote>
+<p>WHILE LOOP STATEMENT</p>
+</blockquote>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb13-1" title="1">    <span class="kw">while</span>(condition){  <span class="co">//till condition will be true.</span></a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="co">//code to be executed </span></a>
+<a class="sourceLine" id="cb13-3" title="3">    }</a></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb14-1" title="1">  <span class="co">//Initialization is a separate statement</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="dt">int</span> power = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb14-3" title="3"></a>
+<a class="sourceLine" id="cb14-4" title="4">  <span class="kw">while</span> ( power &lt;= <span class="dv">10</span>/<span class="dv">2</span> ) <span class="co">// power &lt;= n/2 is an example of the loop-continuation condition</span></a>
+<a class="sourceLine" id="cb14-5" title="5">  {</a>
+<a class="sourceLine" id="cb14-6" title="6">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(power);</a>
+<a class="sourceLine" id="cb14-7" title="7">  }</a></code></pre></div>
+<blockquote>
+<p>DO-WHILE LOOP STATEMENT</p>
+</blockquote>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb15-1" title="1">  <span class="kw">do</span>{ <span class="co">//always run one time even if condition would be false</span></a>
+<a class="sourceLine" id="cb15-2" title="2">    <span class="co">//Statement</span></a>
+<a class="sourceLine" id="cb15-3" title="3">  } <span class="kw">while</span>(loop-continuation condition);</a></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb16-1" title="1">    <span class="dt">int</span> i=<span class="dv">1</span>;  </a>
+<a class="sourceLine" id="cb16-2" title="2">    <span class="kw">do</span>{  </a>
+<a class="sourceLine" id="cb16-3" title="3">      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(i);  </a>
+<a class="sourceLine" id="cb16-4" title="4">      i++;  </a>
+<a class="sourceLine" id="cb16-5" title="5">    }<span class="kw">while</span>(i&lt;=<span class="dv">10</span>); </a></code></pre></div>
+<h3 id="array">ARRAY</h3>
+<blockquote>
+<p>ARRAY DECLARATION</p>
+</blockquote>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb17-1" title="1">    <span class="dt">int</span>[]           ai;        <span class="co">// array of int</span></a>
+<a class="sourceLine" id="cb17-2" title="2">    <span class="dt">short</span>[][]       as;        <span class="co">// array of array of short</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="dt">short</span>           s,         <span class="co">// scalar short</span></a>
+<a class="sourceLine" id="cb17-4" title="4">                    aas[][];   <span class="co">// array of array of short</span></a>
+<a class="sourceLine" id="cb17-5" title="5">    <span class="bu">Object</span>[]        ao;        <span class="co">// array of Object</span></a>
+<a class="sourceLine" id="cb17-6" title="6">    <span class="bu">Collection</span>&lt;?&gt;[] ca;  <span class="co">// array of Collection of unknown type</span></a></code></pre></div>
+<blockquote>
+<p>DECLARATION OF ARRAY VARIABLE</p>
+</blockquote>
+<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb18-1" title="1">  <span class="bu">Exception</span> ae[]  = <span class="kw">new</span> <span class="bu">Exception</span>[<span class="dv">3</span>];</a>
+<a class="sourceLine" id="cb18-2" title="2">  <span class="bu">Object</span> aao[][]  = <span class="kw">new</span> <span class="bu">Exception</span>[<span class="dv">2</span>][<span class="dv">3</span>];</a>
+<a class="sourceLine" id="cb18-3" title="3">  <span class="dt">int</span>[] factorial = { <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">24</span>, <span class="dv">120</span>, <span class="dv">720</span>, <span class="dv">5040</span> };</a>
+<a class="sourceLine" id="cb18-4" title="4">  <span class="dt">char</span> ac[]       = { <span class="ch">&#39;n&#39;</span>, <span class="ch">&#39;o&#39;</span>, <span class="ch">&#39;t&#39;</span>, <span class="ch">&#39; &#39;</span>, <span class="ch">&#39;a&#39;</span>, <span class="ch">&#39; &#39;</span>,</a>
+<a class="sourceLine" id="cb18-5" title="5">                      <span class="ch">&#39;S&#39;</span>, <span class="ch">&#39;t&#39;</span>, <span class="ch">&#39;r&#39;</span>, <span class="ch">&#39;i&#39;</span>, <span class="ch">&#39;n&#39;</span>, <span class="ch">&#39;g&#39;</span> };</a>
+<a class="sourceLine" id="cb18-6" title="6">  <span class="bu">String</span>[] aas    = { <span class="st">&quot;array&quot;</span>, <span class="st">&quot;of&quot;</span>, <span class="st">&quot;String&quot;</span>, };</a></code></pre></div>
+<h3 id="access-modifiers">ACCESS MODIFIERS</h3>
+<ol type="1">
+<li>defualt(No keyword required)</li>
+<li>private</li>
+<li>public</li>
+<li>protected</li>
+</ol>
+<h3 id="non-access-modifiers">NON ACCESS MODIFIERS</h3>
+<ol type="1">
+<li>static</li>
+<li>final</li>
+<li>transient</li>
+<li>abstract</li>
+<li>synchronized</li>
+<li>volatile</li>
+</ol>
+<h2 id="object-oriented-programming-oops-concept-clipboard">Object Oriented Programming (OOPs) Concept :clipboard:</h2>
+<h3 id="object">OBJECT</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb19-1" title="1">  <span class="co">//Declare a variable, object name</span></a>
+<a class="sourceLine" id="cb19-2" title="2">  <span class="bu">String</span> s;</a>
+<a class="sourceLine" id="cb19-3" title="3"></a>
+<a class="sourceLine" id="cb19-4" title="4">  <span class="co">//Invoke a contructor to create an object</span></a>
+<a class="sourceLine" id="cb19-5" title="5">  s = <span class="kw">new</span> <span class="bu">String</span> (<span class="st">&quot;Hello World&quot;</span>);</a>
+<a class="sourceLine" id="cb19-6" title="6"></a>
+<a class="sourceLine" id="cb19-7" title="7">  <span class="co">//Invoke an instance method that operates on the object&#39;s value</span></a>
+<a class="sourceLine" id="cb19-8" title="8">  <span class="dt">char</span> c = s.<span class="fu">chartAt</span>(<span class="dv">4</span>);</a></code></pre></div>
+<blockquote>
+<p>INSTANCE VARIABLES</p>
+</blockquote>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb20-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> Charge {</a>
+<a class="sourceLine" id="cb20-2" title="2">    <span class="co">//Instance variable declarations</span></a>
+<a class="sourceLine" id="cb20-3" title="3">    <span class="kw">private</span> <span class="dt">final</span> <span class="dt">double</span> rx, ry;</a>
+<a class="sourceLine" id="cb20-4" title="4">    <span class="kw">private</span> <span class="dt">final</span> <span class="dt">double</span> q;</a>
+<a class="sourceLine" id="cb20-5" title="5">  }</a></code></pre></div>
+<h3 id="methods">METHODS</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb21-1" title="1">  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">sum</span> (<span class="dt">int</span> a, <span class="dt">int</span> b) { <span class="co">//double is the return type, sum is the method&#39;s name, a and b are two arguments of type int;</span></a>
+<a class="sourceLine" id="cb21-2" title="2">    <span class="dt">int</span> result; <span class="co">//local variable</span></a>
+<a class="sourceLine" id="cb21-3" title="3">    result = a + b;</a>
+<a class="sourceLine" id="cb21-4" title="4">    <span class="kw">return</span> result;<span class="co">//return statement;</span></a>
+<a class="sourceLine" id="cb21-5" title="5">  }</a></code></pre></div>
+<h3 id="class-declaration">CLASS DECLARATION</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">class</span> MyClass {</a>
+<a class="sourceLine" id="cb22-2" title="2">    <span class="co">// field, constructor, and </span></a>
+<a class="sourceLine" id="cb22-3" title="3">    <span class="co">// method declarations</span></a>
+<a class="sourceLine" id="cb22-4" title="4">}</a></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb23-1" title="1">    <span class="kw">public</span> <span class="kw">class</span> Bicycle {</a>
+<a class="sourceLine" id="cb23-2" title="2">        <span class="co">// the Bicycle class has</span></a>
+<a class="sourceLine" id="cb23-3" title="3">        <span class="co">// three fields</span></a>
+<a class="sourceLine" id="cb23-4" title="4">        <span class="kw">public</span> <span class="dt">int</span> cadence;</a>
+<a class="sourceLine" id="cb23-5" title="5">        <span class="kw">public</span> <span class="dt">int</span> gear;</a>
+<a class="sourceLine" id="cb23-6" title="6">        <span class="kw">public</span> <span class="dt">int</span> speed;</a>
+<a class="sourceLine" id="cb23-7" title="7">        <span class="co">// the Bicycle class has</span></a>
+<a class="sourceLine" id="cb23-8" title="8">        <span class="co">// one constructor</span></a>
+<a class="sourceLine" id="cb23-9" title="9">        <span class="kw">public</span> <span class="fu">Bicycle</span>(<span class="dt">int</span> startCadence, <span class="dt">int</span> startSpeed, <span class="dt">int</span> startGear) {</a>
+<a class="sourceLine" id="cb23-10" title="10">            gear = startGear;</a>
+<a class="sourceLine" id="cb23-11" title="11">            cadence = startCadence;</a>
+<a class="sourceLine" id="cb23-12" title="12">            speed = startSpeed;</a>
+<a class="sourceLine" id="cb23-13" title="13">        }</a>
+<a class="sourceLine" id="cb23-14" title="14">        <span class="co">// the Bicycle class has</span></a>
+<a class="sourceLine" id="cb23-15" title="15">        <span class="co">// four methods</span></a>
+<a class="sourceLine" id="cb23-16" title="16">        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCadence</span>(<span class="dt">int</span> newValue) {</a>
+<a class="sourceLine" id="cb23-17" title="17">            cadence = newValue;</a>
+<a class="sourceLine" id="cb23-18" title="18">        }   </a>
+<a class="sourceLine" id="cb23-19" title="19">        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setGear</span>(<span class="dt">int</span> newValue) {</a>
+<a class="sourceLine" id="cb23-20" title="20">            gear = newValue;</a>
+<a class="sourceLine" id="cb23-21" title="21">        }   </a>
+<a class="sourceLine" id="cb23-22" title="22">        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">applyBrake</span>(<span class="dt">int</span> decrement) {</a>
+<a class="sourceLine" id="cb23-23" title="23">            speed -= decrement;</a>
+<a class="sourceLine" id="cb23-24" title="24">        }  </a>
+<a class="sourceLine" id="cb23-25" title="25">        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">speedUp</span>(<span class="dt">int</span> increment) {</a>
+<a class="sourceLine" id="cb23-26" title="26">            speed += increment;</a>
+<a class="sourceLine" id="cb23-27" title="27">        }</a>
+<a class="sourceLine" id="cb23-28" title="28">}</a></code></pre></div>
+<blockquote>
+<p>DECLARING CLASSESS IMPLEMENTATING AN INTERFACE AND EXTENDING PARENT CLASS</p>
+</blockquote>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">class</span> MyClass <span class="kw">extends</span> MySuperClass <span class="kw">implements</span> YourInterface {</a>
+<a class="sourceLine" id="cb24-2" title="2">    <span class="co">// field, constructor, and</span></a>
+<a class="sourceLine" id="cb24-3" title="3">    <span class="co">// method declarations</span></a>
+<a class="sourceLine" id="cb24-4" title="4">}</a></code></pre></div>
+<ul>
+<li>MyClass is a subclass of MySuperClass and that it implements the YourInterface interface.</li>
+</ul>
+<blockquote>
+<p>CONSTRUCTORS * A class contains constructors that are invoked to create objects from the class blueprint. * Constructor declarations look like method declarations—except that they use the name of the class and have no return type * Each and every class has defualt No-args constructor.</p>
+</blockquote>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb25-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> Bicycle{</a>
+<a class="sourceLine" id="cb25-2" title="2">      </a>
+<a class="sourceLine" id="cb25-3" title="3">      <span class="kw">private</span> <span class="dt">int</span> gear;</a>
+<a class="sourceLine" id="cb25-4" title="4">      <span class="kw">private</span> <span class="dt">int</span> cadence;</a>
+<a class="sourceLine" id="cb25-5" title="5">      <span class="kw">private</span> <span class="dt">int</span> speed;</a>
+<a class="sourceLine" id="cb25-6" title="6">     </a>
+<a class="sourceLine" id="cb25-7" title="7">      <span class="kw">public</span> <span class="fu">Bicycle</span>(<span class="dt">int</span> startCadence, <span class="dt">int</span> startSpeed, <span class="dt">int</span> startGear) { <span class="co">//args-constructor</span></a>
+<a class="sourceLine" id="cb25-8" title="8">        gear = startGear;</a>
+<a class="sourceLine" id="cb25-9" title="9">        cadence = startCadence;</a>
+<a class="sourceLine" id="cb25-10" title="10">        speed = startSpeed;</a>
+<a class="sourceLine" id="cb25-11" title="11">      }</a>
+<a class="sourceLine" id="cb25-12" title="12"></a>
+<a class="sourceLine" id="cb25-13" title="13">      <span class="kw">public</span> <span class="fu">Bicycle</span>(){<span class="co">//No-args constructor</span></a>
+<a class="sourceLine" id="cb25-14" title="14">        <span class="kw">super</span>();</a>
+<a class="sourceLine" id="cb25-15" title="15">      }</a>
+<a class="sourceLine" id="cb25-16" title="16">  }</a></code></pre></div>
+<h3 id="polymorphism">POLYMORPHISM</h3>
+<ul>
+<li>Polymorphism is the concept where an object behaves differently in different situations.</li>
+<li>There are two types of polymorphism
+<ol type="1">
+<li>compile time polymorphism</li>
+<li>runtime polymorphism.</li>
+</ol></li>
+</ul>
+<h4 id="compile-time-polymorphism">1. Compile Time Polymorphism</h4>
+<ul>
+<li>Compile-time polymorphism is achieved by method overloading.</li>
+<li>method overloading is creating multiple method with methods name is same and arguments are different.</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb26-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> Circle {</a>
+<a class="sourceLine" id="cb26-2" title="2"></a>
+<a class="sourceLine" id="cb26-3" title="3">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">draw</span>(){</a>
+<a class="sourceLine" id="cb26-4" title="4">      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Drwaing circle with default color Black and diameter 1 cm.&quot;</span>);</a>
+<a class="sourceLine" id="cb26-5" title="5">    }</a>
+<a class="sourceLine" id="cb26-6" title="6"></a>
+<a class="sourceLine" id="cb26-7" title="7">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">draw</span>(<span class="dt">int</span> diameter){ <span class="co">//method draw() overloaded.</span></a>
+<a class="sourceLine" id="cb26-8" title="8">      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Drwaing circle with default color Black and diameter&quot;</span>+diameter+<span class="st">&quot; cm.&quot;</span>);</a>
+<a class="sourceLine" id="cb26-9" title="9">    }</a>
+<a class="sourceLine" id="cb26-10" title="10"></a>
+<a class="sourceLine" id="cb26-11" title="11">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">draw</span>(<span class="dt">int</span> diameter, <span class="bu">String</span> color){ <span class="co">//method draw() overloaded.</span></a>
+<a class="sourceLine" id="cb26-12" title="12">      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Drwaing circle with color&quot;</span>+color+<span class="st">&quot; and diameter&quot;</span>+diameter+<span class="st">&quot; cm.&quot;</span>);</a>
+<a class="sourceLine" id="cb26-13" title="13">    }</a>
+<a class="sourceLine" id="cb26-14" title="14">  }</a></code></pre></div>
+<h4 id="run-time-polymorphism">2. Run Time Polymorphism</h4>
+<ul>
+<li>Run-time polymorphism is achieved by method overriding.</li>
+<li>Runtime polymorphism is implemented when we have an <strong>“IS-A”</strong> relationship between objects.</li>
+<li>method overriding is the subclass has to override the superclass method.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb27-1" title="1">    <span class="kw">public</span> <span class="kw">interface</span> <span class="bu">Shape</span> {</a>
+<a class="sourceLine" id="cb27-2" title="2"></a>
+<a class="sourceLine" id="cb27-3" title="3">        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">draw</span>();</a>
+<a class="sourceLine" id="cb27-4" title="4">    }</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb28-1" title="1">    <span class="kw">public</span> <span class="kw">class</span> Circle <span class="kw">implements</span> <span class="bu">Shape</span>{</a>
+<a class="sourceLine" id="cb28-2" title="2"></a>
+<a class="sourceLine" id="cb28-3" title="3">      <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb28-4" title="4">      <span class="kw">public</span> <span class="dt">void</span> <span class="fu">draw</span>(){</a>
+<a class="sourceLine" id="cb28-5" title="5">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Drwaing circle&quot;</span>);</a>
+<a class="sourceLine" id="cb28-6" title="6">      }</a>
+<a class="sourceLine" id="cb28-7" title="7"></a>
+<a class="sourceLine" id="cb28-8" title="8">    }</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb29-1" title="1">    <span class="kw">public</span> <span class="kw">class</span> Square <span class="kw">implements</span> <span class="bu">Shape</span> {</a>
+<a class="sourceLine" id="cb29-2" title="2"></a>
+<a class="sourceLine" id="cb29-3" title="3">      <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-4" title="4">      <span class="kw">public</span> <span class="dt">void</span> <span class="fu">draw</span>() {</a>
+<a class="sourceLine" id="cb29-5" title="5">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Drawing Square&quot;</span>);</a>
+<a class="sourceLine" id="cb29-6" title="6">      }</a>
+<a class="sourceLine" id="cb29-7" title="7"></a>
+<a class="sourceLine" id="cb29-8" title="8">    }</a></code></pre></div>
+<ul>
+<li><code>Shape</code> is the superclass and there are two subclasses <code>Circle</code> and <code>Square</code></li>
+<li>Below is an example of runtime polymorphism.</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb30-1" title="1">    <span class="bu">Shape</span> sh = <span class="kw">new</span> <span class="fu">Circle</span>();</a>
+<a class="sourceLine" id="cb30-2" title="2">    sh.<span class="fu">draw</span>();</a>
+<a class="sourceLine" id="cb30-3" title="3"></a>
+<a class="sourceLine" id="cb30-4" title="4">    <span class="bu">Shape</span> sh1 = <span class="fu">getShape</span>(); <span class="co">//some third party logic to determine shape</span></a>
+<a class="sourceLine" id="cb30-5" title="5">    sh1.<span class="fu">draw</span>();</a></code></pre></div>
+<h3 id="inheritance">INHERITANCE</h3>
+<ul>
+<li>Inheritance is the mechanism of code reuse.</li>
+<li>The object that is getting inherited is called the superclass and the object that inherits the superclass is called a subclass.</li>
+<li>We use <code>extends</code> keyword in java to implement inheritance from class.</li>
+<li>We use <code>implements</code> keyword in java to implement inheritance from interface.</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb31-1" title="1">    <span class="kw">public</span> <span class="kw">class</span> Superclass{</a>
+<a class="sourceLine" id="cb31-2" title="2">      <span class="co">// methods and fields</span></a>
+<a class="sourceLine" id="cb31-3" title="3">    }</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb32-1" title="1">    <span class="kw">public</span> <span class="kw">interface</span> Superinterface{</a>
+<a class="sourceLine" id="cb32-2" title="2">      <span class="co">// methods and fields</span></a>
+<a class="sourceLine" id="cb32-3" title="3">    }</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb33-1" title="1">    <span class="kw">public</span> <span class="kw">class</span> Subclass <span class="kw">extends</span> Superclass <span class="kw">implements</span> Superinterface{</a>
+<a class="sourceLine" id="cb33-2" title="2">      <span class="co">// methods and fields</span></a>
+<a class="sourceLine" id="cb33-3" title="3">    }</a></code></pre></div>
+<h3 id="abstraction">Abstraction</h3>
+<ul>
+<li>Abstraction is the concept of hiding the internal details and describing things in simple terms.</li>
+<li>Abstraction can be achieved by two ways.
+<ol type="1">
+<li>Abstract Class</li>
+<li>Interface</li>
+</ol></li>
+</ul>
+<h4 id="abstract-class">1. Abstract Class</h4>
+<ul>
+<li>An abstract class must be declared with an <code>abstract</code> keyword.</li>
+<li>It can have abstract and non-abstract methods.</li>
+<li>It cannot be instantiated.</li>
+<li>It can have constructors and static methods also.</li>
+<li>It can have final methods which will force the subclass not to change the body of the method.</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb34-1" title="1">    <span class="kw">abstract</span> <span class="kw">class</span> Flower{</a>
+<a class="sourceLine" id="cb34-2" title="2">        <span class="kw">abstract</span> <span class="bu">String</span> <span class="fu">Smell</span>(); <span class="co">//abstract method.</span></a>
+<a class="sourceLine" id="cb34-3" title="3">        <span class="bu">String</span> <span class="fu">Oil</span>(){  <span class="co">// non-abstract method. </span></a>
+<a class="sourceLine" id="cb34-4" title="4">           <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Flower Oil is good.&quot;</span>);</a>
+<a class="sourceLine" id="cb34-5" title="5">         }</a>
+<a class="sourceLine" id="cb34-6" title="6">    }</a>
+<a class="sourceLine" id="cb34-7" title="7"></a>
+<a class="sourceLine" id="cb34-8" title="8">    <span class="kw">public</span> <span class="kw">class</span> Lily <span class="kw">extends</span> Flower{</a>
+<a class="sourceLine" id="cb34-9" title="9">        <span class="kw">private</span> <span class="bu">String</span> <span class="fu">Smell</span>(){ <span class="co">// implementation of abstarct method.</span></a>
+<a class="sourceLine" id="cb34-10" title="10">          <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Lily smell&#39;s lovender.&quot;</span>);</a>
+<a class="sourceLine" id="cb34-11" title="11">        }</a>
+<a class="sourceLine" id="cb34-12" title="12">    }</a></code></pre></div>
+<h4 id="interface">2. Interface</h4>
+<ul>
+<li>Interface is a blueprint of a <strong>class</strong>.</li>
+<li>It can have only abstract methods. [Except Java 8 and next versions.]</li>
+<li>Since Java 8, we can have <strong>default and static</strong> methods in an interface.</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb35-1" title="1">    <span class="kw">interface</span> print{  </a>
+<a class="sourceLine" id="cb35-2" title="2">        <span class="dt">void</span> <span class="fu">printPaper</span>();  </a>
+<a class="sourceLine" id="cb35-3" title="3">    }  </a>
+<a class="sourceLine" id="cb35-4" title="4">    <span class="kw">public</span> <span class="kw">class</span> A4 <span class="kw">implements</span> print{  </a>
+<a class="sourceLine" id="cb35-5" title="5">        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">printPaper</span>(){</a>
+<a class="sourceLine" id="cb35-6" title="6">          <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;A4 Page Printed. &quot;</span>);</a>
+<a class="sourceLine" id="cb35-7" title="7">        }  </a>
+<a class="sourceLine" id="cb35-8" title="8">    }</a></code></pre></div>
+<h3 id="encapsulation">Encapsulation</h3>
+<ul>
+<li>Encapsulation is used for access restriction to class members and methods.</li>
+<li>Encapsulation is the technique used to implement abstraction in OOP.</li>
+<li>As in encapsulation, the data in a class is hidden from other classes, so it is also known as <strong>data-hiding</strong>.</li>
+<li>Encapsulation can be achieved by Declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables.</li>
+<li>Best example of Encapsulation is POJO (Plain-Java-Object-Class).</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb36-1" title="1">   <span class="kw">public</span> <span class="kw">class</span> User {</a>
+<a class="sourceLine" id="cb36-2" title="2">       <span class="kw">private</span> <span class="bu">String</span> username;</a>
+<a class="sourceLine" id="cb36-3" title="3">       <span class="kw">private</span> <span class="bu">String</span> password;</a>
+<a class="sourceLine" id="cb36-4" title="4"></a>
+<a class="sourceLine" id="cb36-5" title="5">       <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getUsername</span>() {</a>
+<a class="sourceLine" id="cb36-6" title="6">         <span class="kw">return</span> username;</a>
+<a class="sourceLine" id="cb36-7" title="7">       }</a>
+<a class="sourceLine" id="cb36-8" title="8"></a>
+<a class="sourceLine" id="cb36-9" title="9">       <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setUsername</span>(<span class="bu">String</span> username) {</a>
+<a class="sourceLine" id="cb36-10" title="10">         <span class="kw">this</span>.<span class="fu">username</span> = username;</a>
+<a class="sourceLine" id="cb36-11" title="11">       }</a>
+<a class="sourceLine" id="cb36-12" title="12"></a>
+<a class="sourceLine" id="cb36-13" title="13">       <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getPassword</span>() {</a>
+<a class="sourceLine" id="cb36-14" title="14">         <span class="kw">return</span> password;</a>
+<a class="sourceLine" id="cb36-15" title="15">       }</a>
+<a class="sourceLine" id="cb36-16" title="16"></a>
+<a class="sourceLine" id="cb36-17" title="17">       <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setPassword</span>(<span class="bu">String</span> password) {</a>
+<a class="sourceLine" id="cb36-18" title="18">         <span class="kw">this</span>.<span class="fu">password</span> = password;</a>
+<a class="sourceLine" id="cb36-19" title="19">       }</a>
+<a class="sourceLine" id="cb36-20" title="20">   }</a></code></pre></div>
+<h2 id="advance-data-type">ADVANCE DATA TYPE</h2>
+<ul>
+<li><strong>STACK DATA TYPE</strong></li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb37-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> <span class="bu">Stack</span>&lt;Item&gt; <span class="kw">implements</span> <span class="bu">Iterable</span> &lt;Item&gt;</a>
+<a class="sourceLine" id="cb37-2" title="2"></a>
+<a class="sourceLine" id="cb37-3" title="3">  <span class="bu">Stack</span>()   <span class="co">//create an empty stack</span></a>
+<a class="sourceLine" id="cb37-4" title="4">  <span class="dt">boolean</span> <span class="fu">isEmpty</span>() <span class="co">//return if the stack empty</span></a>
+<a class="sourceLine" id="cb37-5" title="5">  <span class="dt">void</span> <span class="fu">push</span>(Item item) <span class="co">// push an item onto the stack</span></a>
+<a class="sourceLine" id="cb37-6" title="6">  Item <span class="fu">pop</span>() <span class="co">//return and remove the item that was inserted most recently</span></a>
+<a class="sourceLine" id="cb37-7" title="7">  <span class="dt">int</span> <span class="fu">size</span>() <span class="co">//number of item on stack</span></a></code></pre></div>
+<ul>
+<li><strong>QUEUE DATA TYPE</strong></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb38-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> <span class="bu">Queue</span>&lt;Item&gt; <span class="kw">implements</span> <span class="bu">Iterable</span>&lt;Item&gt;</a>
+<a class="sourceLine" id="cb38-2" title="2"></a>
+<a class="sourceLine" id="cb38-3" title="3">  <span class="bu">Queue</span>()  <span class="co">//create an emptyh queue</span></a>
+<a class="sourceLine" id="cb38-4" title="4">  <span class="dt">boolean</span> <span class="fu">isEmpthy</span>()  <span class="co">//return if the queue empthy</span></a>
+<a class="sourceLine" id="cb38-5" title="5">  <span class="dt">void</span> <span class="fu">enqueue</span>(Item item) <span class="co">// insert an item onto queue</span></a>
+<a class="sourceLine" id="cb38-6" title="6">  Item <span class="fu">dequeue</span>()  <span class="co">//return and remove the item that was inserted least recently</span></a>
+<a class="sourceLine" id="cb38-7" title="7">  <span class="dt">int</span> <span class="fu">size</span>() <span class="co">//number of item on queue</span></a></code></pre></div>
+<ul>
+<li><strong>ITERABLE</strong></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb39-1" title="1"><span class="co">//import Iterator</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="kw">import</span><span class="im"> java.util.Iterator;</span></a>
+<a class="sourceLine" id="cb39-3" title="3"></a>
+<a class="sourceLine" id="cb39-4" title="4"><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Queue</span>&lt;Item&gt; <span class="kw">implements</span> <span class="bu">Iterable</span> &lt;Item&gt; { </a>
+<a class="sourceLine" id="cb39-5" title="5"></a>
+<a class="sourceLine" id="cb39-6" title="6"><span class="co">//FIFO queue</span></a>
+<a class="sourceLine" id="cb39-7" title="7">  <span class="kw">private</span> <span class="bu">Node</span> first;</a>
+<a class="sourceLine" id="cb39-8" title="8">  <span class="kw">private</span> <span class="bu">Node</span> last;</a>
+<a class="sourceLine" id="cb39-9" title="9">  <span class="kw">private</span> <span class="kw">class</span> <span class="bu">Node</span> {</a>
+<a class="sourceLine" id="cb39-10" title="10">    Item item;</a>
+<a class="sourceLine" id="cb39-11" title="11">    <span class="bu">Node</span> next;</a>
+<a class="sourceLine" id="cb39-12" title="12">  }</a>
+<a class="sourceLine" id="cb39-13" title="13"></a>
+<a class="sourceLine" id="cb39-14" title="14">  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">enqueue</span> (Item item)</a>
+<a class="sourceLine" id="cb39-15" title="15">  ...</a>
+<a class="sourceLine" id="cb39-16" title="16"></a>
+<a class="sourceLine" id="cb39-17" title="17">  <span class="kw">public</span> Item <span class="fu">dequeue</span>()</a>
+<a class="sourceLine" id="cb39-18" title="18">  ...</a>
+<a class="sourceLine" id="cb39-19" title="19"></a>
+<a class="sourceLine" id="cb39-20" title="20">}</a></code></pre></div>
+<ul>
+<li><strong>SYMBOL TABLE DATA TYPE</strong></li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb40-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> ST&lt;<span class="bu">Key</span> <span class="kw">extends</span> <span class="bu">Comparable</span>&lt;<span class="bu">Key</span>&gt;, Value&gt;</a>
+<a class="sourceLine" id="cb40-2" title="2"></a>
+<a class="sourceLine" id="cb40-3" title="3">  <span class="fu">ST</span>()  <span class="co">//create and empty symbol table</span></a>
+<a class="sourceLine" id="cb40-4" title="4">  <span class="dt">void</span> <span class="fu">put</span>(<span class="bu">Key</span> key, Value val)  <span class="co">//associate val with key</span></a>
+<a class="sourceLine" id="cb40-5" title="5">  Value <span class="fu">get</span>(<span class="bu">Key</span> key)  <span class="co">//value associated with key</span></a>
+<a class="sourceLine" id="cb40-6" title="6">  <span class="dt">void</span> <span class="fu">remove</span>(<span class="bu">Key</span> key) <span class="co">//remove key (and its associated value)</span></a>
+<a class="sourceLine" id="cb40-7" title="7">  <span class="dt">boolean</span> <span class="fu">contains</span> (<span class="bu">Key</span> key)  <span class="co">//return if there is a value associated with key</span></a>
+<a class="sourceLine" id="cb40-8" title="8">  <span class="dt">int</span> <span class="fu">size</span>()  <span class="co">//number of key-value pairs</span></a>
+<a class="sourceLine" id="cb40-9" title="9">  <span class="bu">Iterable</span>&lt;<span class="bu">Key</span>&gt; <span class="fu">keys</span>()  <span class="co">// all keys in the symbol table</span></a></code></pre></div>
+<ul>
+<li><strong>SET DATA TYPE</strong></li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb41-1" title="1">  <span class="kw">public</span> <span class="kw">class</span> SET&lt;<span class="bu">Key</span> <span class="kw">extends</span> <span class="bu">Comparable</span>&lt;<span class="bu">Key</span>&gt;&gt; <span class="kw">implements</span> <span class="bu">Iterable</span>&lt;<span class="bu">Key</span>&gt;</a>
+<a class="sourceLine" id="cb41-2" title="2">  <span class="fu">SET</span>() <span class="co">//create an empthy set</span></a>
+<a class="sourceLine" id="cb41-3" title="3">  <span class="dt">boolean</span> <span class="fu">isEmpthy</span>()  <span class="co">//return if the set is empthy</span></a>
+<a class="sourceLine" id="cb41-4" title="4">  <span class="dt">void</span> <span class="fu">add</span> (<span class="bu">Key</span> key)  <span class="co">//add key to the set</span></a>
+<a class="sourceLine" id="cb41-5" title="5">  <span class="dt">void</span> <span class="fu">remove</span>(<span class="bu">Key</span> key)  <span class="co">//remove key from set</span></a>
+<a class="sourceLine" id="cb41-6" title="6">  <span class="dt">boolean</span> <span class="fu">contains</span>(<span class="bu">Key</span> key) <span class="co">//return if the key is in the set</span></a>
+<a class="sourceLine" id="cb41-7" title="7">  <span class="dt">int</span> <span class="fu">size</span>() <span class="co">//number of elements in set</span></a></code></pre></div>
+</body></html>

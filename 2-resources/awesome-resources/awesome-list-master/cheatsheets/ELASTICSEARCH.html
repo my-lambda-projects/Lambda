@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css"></head>
+<body>
+<h1 id="elasticsearch-cheatsheet">Elasticsearch Cheatsheet</h1>
+<ul>
+<li><a href="#using-curl">Using cURL</a>
+<ul>
+<li><a href="#health-with-curl">Cluster Health</a></li>
+<li><a href="#reindex-using-curl">Reindex</a></li>
+<li><a href="#update-replicas-curl">Update Replica Shards</a></li>
+<li><a href="#snapshots-with-curl">Snapshots</a></li>
+<li><a href="#restore-snapshots-with-curl">Restore Snapshots</a></li>
+</ul></li>
+<li><a href="#python-library">using Python</a>
+<ul>
+<li><a href="#ingest-using-python">Ingest</a></li>
+</ul></li>
+</ul>
+<h2 id="using-curl">Using Curl</h2>
+<h4 id="health-with-curl">Health with Curl</h4>
+<p>View the cluster status:</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200_cluster/health?pretty&#39;</code></pre>
+<p>Check all indices in yellow status:</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200/_cat/indices?v&amp;health=yellow&#39;</code></pre>
+<p>View recovery process:</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200/_cat/recovery?detailed&amp;h=index,stage,time,bytes_percent&#39;</code></pre>
+<h4 id="reindex-using-curl">Reindex using Curl</h4>
+<p>Reindex source index to target index:</p>
+<pre><code>$ curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_reindex&#39; -d &#39;
+  {
+    &quot;source&quot;: {
+      &quot;index&quot;: [&quot;my-metrics-2019.01.03&quot;]
+    }, 
+    &quot;dest&quot;: {
+      &quot;index&quot;: &quot;archived-metrics-2019.01.03&quot;, 
+    }
+}&#39;</code></pre>
+<p>Reindex multiple source indices to one target index:</p>
+<pre><code>$ curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_reindex&#39; -d &#39;
+  {
+    &quot;source&quot;: {
+      &quot;index&quot;: [&quot;my-metrics-2019.01.03&quot;, &quot;my-metrics-2019.01.04&quot;]
+    }, 
+    &quot;dest&quot;: {
+      &quot;index&quot;: &quot;archived-metrics-2019.01&quot;, 
+    }
+}&#39;</code></pre>
+<p>Reindex only missing documents from source to target index. You will receive conflicts for existing documents, but the proceed value will ignore the conflicts.</p>
+<pre><code>$ curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_reindex&#39; -d &#39;
+  {
+    &quot;conflicts&quot;: &quot;proceed&quot;, 
+    &quot;source&quot;: {
+      &quot;index&quot;: [&quot;my-metrics-2019.01.03&quot;]
+    }, 
+    &quot;dest&quot;: {
+      &quot;index&quot;: &quot;archived-metrics-2019.01.03&quot;, 
+      &quot;op_type&quot;: &quot;create&quot;
+    }
+}&#39;</code></pre>
+<p>Reindex filtered data to a target index, by using a query:</p>
+<pre><code>$ curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_reindex&#39; -d &#39;
+  {
+    &quot;source&quot;: {
+      &quot;index&quot;: &quot;my-metrics-2019.01.03&quot;,
+      &quot;type&quot;: &quot;log&quot;,
+      &quot;query&quot;: {
+        &quot;term&quot;: {
+          &quot;status&quot;: &quot;ERROR&quot;
+        }
+      }
+    },
+    &quot;dest&quot;: {
+      &quot;index&quot;: &quot;archived-error-metrics-2019.01.03&quot;
+    }
+}&#39;</code></pre>
+<p>Reindex the last 500 documents based on timestamp to a target index:</p>
+<pre><code>$ curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_reindex&#39; -d &#39;
+  {
+    &quot;size&quot;: 500, 
+    &quot;source&quot;: {
+      &quot;index&quot;: &quot;my-metrics-2019.01.03&quot;,
+      &quot;sort&quot;: {
+        &quot;timestamp&quot;: &quot;desc&quot;
+      }
+    }, 
+    &quot;dest&quot;: {
+      &quot;index&quot;: &quot;archived-last500-metrics-2019.01.03&quot;, 
+      &quot;op_type&quot;: &quot;create&quot;
+    }
+}&#39;</code></pre>
+<p>Reindex only specific fields to a target index:</p>
+<pre><code>$ curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_reindex&#39; -d &#39;
+  {
+    &quot;source&quot;: {
+      &quot;index&quot;: &quot;my-metrics-2019.01.03&quot;,
+      &quot;_source&quot;: [
+        &quot;response_code&quot;,
+        &quot;request_method&quot;,
+        &quot;referral&quot;
+      ]
+    }, 
+    &quot;dest&quot;: {
+      &quot;index&quot;: &quot;archived-subset-metrics-2019.01.03&quot;
+    }
+}&#39;</code></pre>
+<h4 id="update-replicas-curl">Update Replicas Curl</h4>
+<p>Increase/Decrease the number of Replica Shards using the Settings API:</p>
+<pre><code>curl -XPUT -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/my-index-2018.12.31/_settings&#39; \
+  -d &#39;{&quot;index&quot;: {&quot;number_of_replicas&quot;: 1, &quot;refresh_interval&quot;: &quot;30s&quot;}}&#39;</code></pre>
+<h4 id="snapshots-with-curl">Snapshots with Curl</h4>
+<p>View snapshot repositories:</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200/_snapshot?format=json&#39;
+{&quot;cs-automated&quot;:{&quot;type&quot;:&quot;s3&quot;},&quot;es-index-backups&quot;:{&quot;type&quot;:&quot;s3&quot;...</code></pre>
+<p>View snapshots under repository (table view):</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200/_cat/snapshots/index-backups?v&#39;
+# id, status, start_epoch, start_time, end_epoch, end_time, duration, indices, successful_shards, failed_shards, total_shards
+snapshot_2019.05.23 SUCCESS
+..</code></pre>
+<p>View snapshots under repository (json view):</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200/_cat/snapshots/es-index-backups?format=json&#39;
+[{&quot;id&quot;:&quot;snapshot_2019.05.23&quot;,&quot;status&quot;:&quot;SUCCESS&quot;....</code></pre>
+<p>Create a snapshot with all indices and wait for completion:</p>
+<pre><code>curl -XPUT -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_snapshot/index-backups/my-es-snapshot-latest?wait_for_completion=true&#39;</code></pre>
+<p>View snapshot status:</p>
+<pre><code>curl -s -XGET &#39;http://127.0.0.1:9200/_cat/tasks?detailed&#39;
+# cluster:admin/snapshot/create ..</code></pre>
+<p>View snapshot info:</p>
+<pre><code>curl -s &#39;http://127.0.0.1:9200/_snapshot/es-index-backups/my-es-snapshot-latest&#39; | jq .</code></pre>
+<h4 id="restore-snapshots-with-curl">Restore Snapshots with Curl</h4>
+<p>Restore with original names:</p>
+<pre><code>curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_snapshot/es-index-backups/test-snapshot-latest/_restore&#39; -d &#39;
+{
+  &quot;indices&quot;: [
+    &quot;kibana_sample_data_ecommerce&quot;, &quot;kibana_sample_data_logs&quot;
+  ], 
+  &quot;ignore_unavailable&quot;: false, 
+  &quot;include_global_state&quot;: false 
+}&#39;</code></pre>
+<pre><code>curl &#39;http://127.0.0.1:9200/_cat/indices/kibana_sample*?v&#39;
+health status index
+green  open   kibana_sample_data_logs
+green  open   kibana_sample_data_ecommerce</code></pre>
+<p>Restore and rename:</p>
+<pre><code>curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_snapshot/es-index-backups/test-snapshot-latest/_restore&#39; -d &#39;
+{
+  &quot;indices&quot;: [
+    &quot;kibana_sample_data_ecommerce&quot;, &quot;kibana_sample_data_logs&quot;
+  ], 
+  &quot;ignore_unavailable&quot;: false, 
+  &quot;include_global_state&quot;: false, 
+  &quot;rename_pattern&quot;: &quot;(.+)&quot;, 
+  &quot;rename_replacement&quot;: &quot;restored_index_$1&quot; 
+}&#39;</code></pre>
+<pre><code>curl &#39;http://127.0.0.1:9200/_cat/indices/*restored*?v&#39;
+health status index
+green  open   restored_index_kibana_sample_data_ecommerce 
+green  open   restored_index_kibana_sample_data_logs</code></pre>
+<p>Restore and rename with a different name pattern:</p>
+<pre><code>curl -XPOST -H &#39;Content-Type: application/json&#39; &#39;http://127.0.0.1:9200/_snapshot/es-index-backups/test-snapshot-latest/_restore&#39; -d &#39;
+{ 
+  &quot;indices&quot;: [
+    &quot;kibana_sample_data_ecommerce&quot;, &quot;kibana_sample_data_logs&quot;
+  ], 
+  &quot;ignore_unavailable&quot;: false, 
+  &quot;include_global_state&quot;: false, 
+  &quot;rename_pattern&quot;: 
+  &quot;kibana_sample_data_(.+)&quot;, 
+  &quot;rename_replacement&quot;: &quot;restored_index_$1&quot; 
+}&#39;</code></pre>
+<pre><code>curl &#39;http://127.0.0.1:9200/_cat/indices/*restored*?v&#39;
+health status index                                       
+green  open   restored_index_ecommerce                    
+green  open   restored_index_logs                         </code></pre>
+<h2 id="python-library">Python Library</h2>
+<h4 id="create-a-client-with-python">Create a Client with Python</h4>
+<p>Using IAM Auth for AWS Elasticsearch</p>
+<pre><code>from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
+from requests_aws4auth import AWS4Auth
+
+aws_auth = AWS4Auth(access_key, secret_key, AWS_REGION, &#39;es&#39;, session_token=token)
+es = Elasticsearch(
+    hosts = [{&#39;host&#39;: ES_ENDPOINT, &#39;port&#39;: 443}], 
+    http_auth=aws_credentials, use_ssl=True, verify_certs=True, 
+    connection_class=RequestsHttpConnection
+)</code></pre>
+<h4 id="ingest-using-python">Ingest using Python</h4>
+<p>Create a document and specify a <code>id</code>:</p>
+<pre><code>res = es.index(index=&quot;test-index&quot;, doc_type=&#39;tweet&#39;, id=1, body=doc)</code></pre>
+<h4 id="bulk-ingest-using-python">Bulk Ingest using Python</h4>
+<pre><code>from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
+
+bulk_docs = []
+list_of_dicts = [{&quot;name&quot;: &quot;ruan&quot;, &quot;age&quot;: 32}, {&quot;name&quot;: &quot;stefan&quot;, &quot;age&quot;: 31}]
+
+for doc in list_of_dicts:
+    doc[&#39;_index&#39;] = &#39;my-index-2019.06.12&#39;
+    doc[&#39;_type&#39;] = &#39;_doc&#39;
+    bulk_docs.append(doc)
+    del doc
+    
+helpers.bulk(es, bulk_docs)</code></pre>
+</body></html>

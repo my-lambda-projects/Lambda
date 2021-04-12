@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":3,"applicationTime":140,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Wordpress Gulp Starter Kit</title>
+<meta name="description" content="[NOT MAINTAINED] A starter kit for developing WordPress themes with Gulp.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/xsynaptic/wordpress-gulp-starter-kit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "xsynaptic/wordpress-gulp-starter-kit",
+  "description": "[NOT MAINTAINED] A starter kit for developing WordPress themes with Gulp.",
+  "url": "https://awesomeopensource.com/project/xsynaptic/wordpress-gulp-starter-kit",
+  "sku": "project/xsynaptic/wordpress-gulp-starter-kit",
+  "mpn": "project/xsynaptic/wordpress-gulp-starter-kit",
+  "image": "https://github.com/xsynaptic.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "xsynaptic/wordpress-gulp-starter-kit",
+    "logo": "https://github.com/xsynaptic.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.67",
+    "ratingCount": "674"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="j4LsCOTDPAoMvDZMXhLqa2TOzi8NRvvvDJWyO/6fK7aZrt4PxYEMmK4qQ/UbFevd7SMuzrS6LY71kboVhFTU5g==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/xsynaptic/wordpress-gulp-starter-kit","location":"/project/xsynaptic/wordpress-gulp-starter-kit","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/xsynaptic/wordpress-gulp-starter-kit","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-b438818f-91d0-48ea-bf88-84216861e665"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Wordpress <!-- -->Gulp <!-- -->Starter <!-- -->Kit</div><div class="aos_project_metadata_description">[NOT MAINTAINED] A starter kit for developing WordPress themes with Gulp.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">674</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content"></span><div class="aos_project_metadata_header"><a href="https://github.com/xsynaptic/wordpress-gulp-starter-kit" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/xsynaptic/wordpress-gulp-starter-kit" target="_blank">https://github.com/xsynaptic/wordpress-gulp-starter-kit</a></span><div class="aos_project_metadata_header"><a href="https://github.com/xsynaptic/wordpress-gulp-starter-kit/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/xsynaptic/wordpress-gulp-starter-kit/issues" target="_blank">11</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">3 years ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/javascript"><div style="display:block;text-decoration:none;padding-bottom:10px">javascript<span> (<!-- -->67,310<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/theme"><div style="display:block;text-decoration:none;padding-bottom:10px">theme<span> (<!-- -->774<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/wordpress"><div style="display:block;text-decoration:none;padding-bottom:10px">wordpress<span> (<!-- -->638<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/sass"><div style="display:block;text-decoration:none;padding-bottom:10px">sass<span> (<!-- -->438<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/workflow"><div style="display:block;text-decoration:none;padding-bottom:10px">workflow<span> (<!-- -->315<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/gulp"><div style="display:block;text-decoration:none;padding-bottom:10px">gulp<span> (<!-- -->196<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/wordpress-theme"><div style="display:block;text-decoration:none;padding-bottom:10px">wordpress-theme<span> (<!-- -->80<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="a-wordpressgulp-starter-kit" class="anchor" href="#a-wordpressgulp-starter-kit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A WORDPRESS/GULP STARTER KIT</h1>
+<p>Designing WordPress themes the old-fashioned way is time-consuming and error-prone. Automating the build process allows us to integrate best practices into our workflow while saving time. This project is a <em>starter kit</em> for developing highly optimized WordPress themes with <a href="http://gulpjs.com/" rel="nofollow">Gulp</a>, <a href="https://www.npmjs.com/" rel="nofollow">npm</a>, and <a href="http://sass-lang.com/" rel="nofollow">Sass</a>, among other tools. This is <em>not</em> meant to be a starter theme or framework (although I have included a <em>minimum viable theme</em> to demonstrate some of the possibilities). It is, instead, a kind of <em>project scaffolding</em> and <em>example workflow</em> for modern and efficient WordPress theme development.</p>
+<p>The latest version of this starter kit features a modular Gulp file design inspired by Dan Tello's excellent <a href="https://github.com/greypants/gulp-starter" rel="nofollow">gulp-starter</a>. Configuration is isolated from the tasks themselves to make it easier to change paths and modify settings. This approach is slightly more complicated than what I originally <a href="http://synapticism.com/dev/wordpress-theme-development-with-gulp-bower-and-sass/" rel="nofollow">outlined on my blog</a> but also far more powerful. Live local development is now facilitated by your choice of <a href="http://www.browsersync.io/" rel="nofollow">BrowserSync</a> or <a href="http://livereload.com/" rel="nofollow">LiveReload</a> (the default choice).</p>
+<p>Why use this project instead of any of the alternatives? A few advantages:</p>
+<ul>
+<li>It doesn't try and do too much.</li>
+<li>You should be able to easily drop your own theme into the <code>src</code> folder and start hacking without much additional setup.</li>
+<li>Documentation and comments in the code assume a novice level of understanding.</li>
+<li>Builds on existing WordPress and Gulp best practices without doing anything too crazy.</li>
+<li>Includes several JS and Sass integrations to show you some of the possibilities. All of these are easily removed.</li>
+<li>This kind of workflow will save you a ton of time and help you make better, more readily-optimized themes once you learn how it all works.</li>
+</ul>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>INSTALLATION</h2>
+<p>If you're already up and running with most of the usual Node ecosystem tools this starter kit won't require much additional effort.</p>
+<h3>
+<a id="required" class="anchor" href="#required" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>REQUIRED</h3>
+<ul>
+<li>Install <a href="http://blog.npmjs.org/post/85484771375/how-to-install-npm" rel="nofollow">npm</a>.</li>
+<li>Install <a href="http://gulpjs.com/" rel="nofollow">Gulp</a>: <code>npm install -g gulp</code>.</li>
+<li>Install <a href="http://jshint.com/" rel="nofollow">JSHint</a>: <code>npm install -g jshint</code>. (You can skip this and cut JSHint out of the workflow but it will take some additional work.)</li>
+<li>Download or clone this repo: <code>git clone https://github.com/synapticism/wordpress-gulp-starter-kit.git</code>.</li>
+</ul>
+<h3>
+<a id="optional" class="anchor" href="#optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OPTIONAL</h3>
+<ul>
+<li>Install <a href="http://bower.io/" rel="nofollow">Bower</a>: <code>npm install bower -g</code> (helps manage front-end dependencies, particularly CSS libraries and such; see below for more info).</li>
+<li>Install <a href="https://getcomposer.org/doc/00-intro.md" rel="nofollow">Composer</a> (a PHP package manager, not really necessary).</li>
+<li>Install <a href="http://sass-lang.com/" rel="nofollow">Sass</a> (only if the built-in, default <code>libsass</code> compiler isn't good enough for your needs): <code>gem install sass</code> (requires Ruby).</li>
+</ul>
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SETUP</h2>
+<ul>
+<li>Edit <code>gulpconfig.js</code> and, <em>at the very least</em>, change the <code>project</code> variable to match the name of your theme. If you like the way this workflow is setup you shouldn't need to edit any of the files under <code>gulpfile.js/tasks</code> just yet.</li>
+<li>Install all dependencies by running <code>npm install</code>. This will fetch all dependencies listed in <code>package.json</code> (which includes front-end JavaScript packages and back-end tools like Gulp plugins and <a href="http://www.browsersync.io/" rel="nofollow">BrowserSync</a>). You may see warnings about deprecated packages and what-not; that's probably fine, just keep going!</li>
+<li>
+<a href="http://www.browsersync.io/" rel="nofollow">BrowserSync</a> setup: assuming you have a local development environment setup all you should need to do is enter the URL into the <code>proxy</code> setting in <code>gulpconfig.js</code>. Why use BrowserSync? It's fast, awesome, and allows for simultaneous responsive development across multiple devices.</li>
+<li>
+<a href="http://livereload.com/" rel="nofollow">LiveReload</a> setup: install a browser extension for <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" rel="nofollow">Chrome</a> or Firefox. Why use LiveReload? It does the job without complications or additional setup after the extension is installed.</li>
+<li>This build process assumes you're up and running with <a href="http://blog.teamtreehouse.com/introduction-source-maps" rel="nofollow">source maps for both JavaScript and Sass</a>. You may need to configure your browser or debugging environment to make sense of the minified files generated by Gulp!</li>
+<li>Run <code>gulp</code> and start hacking!</li>
+</ul>
+<h2>
+<a id="voidx-a-minimum-viable-theme" class="anchor" href="#voidx-a-minimum-viable-theme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VOIDX: A MINIMUM VIABLE THEME</h2>
+<p>Previously this project shipped without a working theme included. I figured that with all the great starter themes out there (for instance, <a href="https://github.com/Automattic/_s" rel="nofollow">_s</a>, <a href="https://github.com/roots/roots" rel="nofollow">Roots</a>, and <a href="https://github.com/eddiemachado/bones" rel="nofollow">Bones</a>) it wouldn't be hard to drop one in and start theming. I don't personally use any of these so I was a little surprised to discover how tricky this can be. Starter themes, despite their "bare bones" reputation, are often bulky and opinionated. Some even ship with their own build processes already in place!</p>
+<p>It seems there is a need for what I'd call a <em>minimum viable theme</em>: a truly bare bones WordPress starter theme featuring only the essentials to get up and running, something that you can assess at a glance. For the purposes of this project I have created such a theme, tentatively named <code>voidx</code>. It isn't pretty and isn't up to <a href="https://wordpress.org/plugins/theme-check/" rel="nofollow">WordPress standards</a> but it works well enough to show off some of the power of this workflow. Feel free to play with or discard it as you wish. All files under <code>src</code> can be replaced by your own files, you just have to be sure to wire things up properly in the <code>gulpconfig.js</code> file if you swap in your own stuff. Several scripts have already been integrated to show you how it's done, but these are easily if you don't like 'em (which is sort of the point of having such scaffolding, so you can easily swap stuff in and out).</p>
+<p>There are two components worth a closer look:</p>
+<ul>
+<li>The script variable and enqueuing functions in <code>src/inc/assets.php</code>; these are tightly coupled with the output of the build process.</li>
+<li>The theme configuration pattern described in <code>functions.php</code> and <code>functions-config-defaults.php</code>.</li>
+</ul>
+<p>Whether you use anything from this built-in theme is entirely up to you. If you prefer to start working with your own theme just drop it in. You will probably need to modify paths and glob matching patterns in <code>gulpconfig.js</code> but it is designed to be fairly easy and straight-forward with lots of comments to point you in the right direction.</p>
+<h2>
+<a id="organization" class="anchor" href="#organization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ORGANIZATION</h2>
+<p>This starter kit uses <code>src</code>, <code>build</code>, and <code>dist</code> folders to organize theme development:</p>
+<ul>
+<li>
+<code>src</code>: this directory contains the raw material for your theme: templates (<code>src/</code>), PHP includes (<code>src/inc</code>), language files (<code>src/languages</code>), styles (<code>src/scss</code>), scripts (<code>src/js</code>), and images (anywhere under <code>src/</code>). <strong>Only edit files in this directory!</strong>
+</li>
+<li>
+<code>build</code>: generated by Gulp, this is a <em>working copy</em> of your theme for use in development and testing. Symlink <code>build</code> to your <code>wp-content/themes</code> directory for local development and testing (e.g. if your theme is in <code>~/dev/themes/my-theme</code> and your local copy of WordPress is installed in <code>~/dev/localhost/wp</code> you'll want to run <code>ln -s ~/dev/themes/my-theme/build ~/dev/localhost/wp/wp-content/themes/my-theme</code>).</li>
+<li>
+<code>dist</code>: short for distribution, this will be the final, polished copy of your theme for production. You will need to manually run <code>gulp dist</code> to create a new distribution. You can also symlink this directory for a final round of testing; just keep in mind that your theme will now be in <code>dist/[project]</code>, where <code>[project]</code> is the setting at the top of the Gulp configuration. This project folder is what you will want to deploy to production. (No more weird junk in your themes. Hooray!)</li>
+</ul>
+<p>Note: both the <code>build</code> and <code>dist</code> directories are disposable and can be regenerated from the contents of <code>src</code>. You aren't likely to want to edit files in this folders but you may want to open them up to diagnose issues with the build process itself.</p>
+<h2>
+<a id="working-with-gulp" class="anchor" href="#working-with-gulp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WORKING WITH GULP</h2>
+<p><a href="http://gulpjs.com/" rel="nofollow">Gulp</a> is an extremely powerful tool for automating tasks from the command line. If you're new to Gulp but coming from a WordPress background I recommend reading tutorials by <a href="http://mattbanks.me/gulp-wordpress-development/" rel="nofollow">Matt Banks</a> and <a href="http://markgoodyear.com/2014/01/getting-started-with-gulp/" rel="nofollow">Mark Goodyear</a>. I also learned a lot from a post by <a href="http://viget.com/extend/gulp-browserify-starter-faq" rel="nofollow">Dan Trello</a> (and have integrated much of his approach into this project) but it might be a bit more opaque for newcomers.</p>
+<p>To get started try running <code>gulp</code> from the command line. This fires <code>gulpfile.js/index.js</code> and should build a working copy of the included theme. The other command you will use from time to time is <code>gulp dist</code>, which builds a distribution copy.</p>
+<p>Configuration is handled by a single file: <code>gulpconfig.js</code>. If you leave the directory structure intact there won't be too much that needs changing here but I can think of two non-obvious components you might want to modify or at least look at:</p>
+<ul>
+<li>
+<a href="http://www.browsersync.io/" rel="nofollow">BrowserSync</a> settings: if you are developing on a local web server you will want to enter the URL into <code>browsersync.proxy</code> and then change <code>watch.watcher</code> to <code>browsersync</code> to take it for a test drive. You'll know it's working when you run <code>gulp</code> and a new browser opens with a live copy of your web site. Make changes to any of the Sass files and they should be shown on the page almost immediately. Of course, BrowserSync really shines when you connect a mobile device to your development server, but for that you're on your own ;)</li>
+<li>Script settings: draw your attention to <code>scripts.bundles</code> and <code>scripts.chunks</code>. This feature is essentially a poor man's <a href="http://browserify.org/" rel="nofollow">Browserify</a> or <a href="https://webpack.github.io/" rel="nofollow">Webpack</a>. By defining different "chunks" (script files that combine to provide a particular feature) and "bundles" (chunks that combine to provide feature sets) you can generate an assortment of files that can be efficiently and intelligently loaded through your WordPress theme. This approach has its limitations, of course, particularly when dependencies are shared between scripts, but it should be of use to many WordPress theme developers.</li>
+</ul>
+<p>Interested in adding new Gulp plugins to your build system? A full tutorial is out of scope for this project but it really shouldn't be all that hard to figure out. In brief, install a plugin with <code>npm install [package] --save-dev</code>, require it in a suitable task file, add something to the configuration file if needed, and drop it into the pipeline somewhere. Some types of plugin are particularly easy to add, for instance anything listed on the <a href="http://postcss.parts/" rel="nofollow">postcss.parts</a> web site once you have <a href="https://github.com/postcss/gulp-postcss" rel="nofollow">gulp-postcss</a> installed and configured in <code>/gulpfile.js/tasks/styles.js</code>.</p>
+<h2>
+<a id="working-with-npm" class="anchor" href="#working-with-npm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WORKING WITH NPM</h2>
+<p><a href="https://www.npmjs.com/" rel="nofollow">npm</a> is great for working with packages of all kinds (front-end or back-end) and is increasingly becoming the package manager of choice. Previously this starter kit emphasized the use of Bower to retrieve and manage front-end dependencies but nowadays my personal preference is to use npm, mostly because it's way easier to update dependencies than Bower using tools like <a href="https://www.npmjs.com/package/npm-check-updates" rel="nofollow">npm-check-updates</a>.</p>
+<ul>
+<li>Find new packages with <code>npm search [package]</code>.</li>
+<li>Install new packages with: <code>npm install [package] --save-dev</code>.</li>
+<li>A general rule-of-thumb: if you can find it there just use npm.</li>
+</ul>
+<h2>
+<a id="working-with-bower" class="anchor" href="#working-with-bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WORKING WITH BOWER</h2>
+<p>A few handy tips from the <a href="https://bower.io" rel="nofollow">Bower documentation</a>:</p>
+<ul>
+<li>Search for packages with <code>bower search [package]</code> or browse the <a href="http://bower.io/search/" rel="nofollow">Bower</a> web interface.</li>
+<li>Install new packages with: <code>bower install [package] --save-dev</code>.</li>
+<li>Remove packages by deleting a line from <code>bower.json</code> and then run <code>bower prune</code>.</li>
+<li>Clean the cache with <code>bower cache clean</code> (occasionally needed when things start getting weird).</li>
+</ul>
+<h2>
+<a id="working-with-sass" class="anchor" href="#working-with-sass" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WORKING WITH SASS</h2>
+<ul>
+<li>This project now supports either <a href="https://www.npmjs.org/package/gulp-sass" rel="nofollow">gulp-sass</a> (based on the newer and faster <a href="https://github.com/sass/libsass" rel="nofollow">libsass</a>, now active by default) or <a href="https://github.com/sindresorhus/gulp-ruby-sass/" rel="nofollow">gulp-ruby-sass</a> (which requires <a href="https://github.com/sass/sass" rel="nofollow">the original Ruby implementation of Sass</a>). Switch <code>styles.compiler</code> in the configuration file as needed! For reference: <a href="https://sass-compatibility.github.io/" rel="nofollow">Sass compatibility table</a>.</li>
+<li>
+<a href="http://sass-lang.com/" rel="nofollow">Sass</a> files can be found in <code>/src/scss</code>. Gulp will not process Sass partials beginning with <code>_</code>; these need to be explicitly imported (see <code>style.scss</code> for an example). On the other hand, if you want to output any other CSS files just drop the underscore <em>e.g.</em> <code>editor-style.scss</code>.</li>
+<li>Stylesheets are post-processed with <a href="http://cssnano.co/" rel="nofollow">cssnano</a>, a <a href="https://github.com/postcss/postcss" rel="nofollow">PostCSS</a> plugin with <a href="https://github.com/ai/autoprefixer" rel="nofollow">Autoprefixer</a> baked in, eliminating the need for vendor prefixes.</li>
+<li>
+<a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/" rel="nofollow">Sourcemaps</a> are generated by <a href="https://github.com/floridoo/gulp-sourcemaps" rel="nofollow">gulp-sourcemaps</a> to make debugging stylesheets a snap. Note: all generated CSS is production-ready (<em>e.g.</em> minified and prefixed); sourcemaps only appear in the <code>build</code> directory.</li>
+<li>Packages installed with Bower or npm are in the path by default so you can <code>@import</code> Sass files directly, as seen in <code>style.scss</code>.</li>
+<li>This starter kit ships with <a href="https://necolas.github.io/normalize.css/" rel="nofollow">Normalize.css</a> and <a href="https://davidtheclark.github.io/scut/" rel="nofollow">Scut</a>, a minimalist library of useful Sass mixins and functions for the post-vendor prefixing era. Both of these are easy to remove if you're not interested in them.</li>
+</ul>
+<h2>
+<a id="a-few-other-notes" class="anchor" href="#a-few-other-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A FEW OTHER NOTES</h2>
+<h3>
+<a id="images" class="anchor" href="#images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Images</h3>
+<p>Images are copied from wherever they are in <code>src</code> to the same location under <code>build</code>. They are only optimized when running <code>gulp dist</code> as this operation is resource-intensive.</p>
+<h3>
+<a id="php" class="anchor" href="#php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP</h3>
+<p>Like images, PHP (and language) files can go anywhere under <code>src</code> and will be copied to <code>build</code> and <code>dist</code> while preserving directory structure.</p>
+<h2>
+<a id="example-integrations" class="anchor" href="#example-integrations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EXAMPLE INTEGRATIONS</h2>
+<p>The bare bones theme included in this starter kit integrates three external JavaScript projects: <a href="http://timeago.yarp.com/" rel="nofollow">timeago</a> (which facilitates human-readable timestamps), <a href="https://github.com/jonathantneal/svg4everybody" rel="nofollow">SVG for Everybody</a>, and <a href="https://github.com/synapticism/wp-ajax-page-loader" rel="nofollow">WP AJAX Page Loader</a> (a lightweight and intelligent infinite scroll script). Have a look at <code>/src/inc/assets.php</code> file and <code>gulpconfig.js</code> to see how this works. Timeago requires only <code>npm install -d timeago</code>, an extra line in <code>gulpconfig.js</code>, and initialization in <code>/src/js/footer.js</code>. SVG for Everybody is provided as an example of a script that must be loaded in the header; hence you can see it in action at <code>/src/js/header.js</code>. The page loading script is a more involved integraton; browse the source and see for yourself.</p>
+<p>Now for one that you can try yourself! Let's say you run across a cool project like <a href="http://wicky.nillia.ms/headroom.js/" rel="nofollow">Headroom.js</a> and decide you'd like to try it out. Here's how you would do that with the tools and workflow outlined in this repo:</p>
+<ul>
+<li>
+<code>npm install headroom.js --save-dev</code>. This will save the package to the <code>devDependencies</code> field of your <code>package.json</code> file.</li>
+<li>Look up the path to the script and add the appropriate entries to <code>scripts.bundles</code> and <code>scripts.chunks</code> in <code>gulpconfig.js</code>. The key name of <code>scripts.bundles</code> should match <code>$script_name</code> (below). Since this script is meant to be loaded on every page it is safe to bundle it with the <code>footer</code> script.</li>
+<li>To make this script <em>optional</em> requires a bit more work:
+<ul>
+<li>Add an option to <code>functions-config-defaults.php</code>: <code>defined( 'VOIDX_SCRIPTS_HEADROOM' ) || define( 'VOIDX_SCRIPTS_HEADROOM', true );</code>.</li>
+<li>Add the switch to the <code>voidx_assets_footer</code> functon in <code>inc/assets.php</code>: <code>if ( VOIDX_SCRIPTS_HEADROOM ) : $file .= '-hr';</code>.</li>
+<li>Add an option to <code>scss/_config.scss</code> to allow for the styling to be turned on or off: <code>$plugin-headroom: true;</code>.</li>
+<li>Add the necessary styling to <code>scss/_plugins.scss</code> wrapped in a conditional check: <code>@if ($plugin-headroom) { // Style }</code>.</li>
+<li>Create an additional script at <code>src/js/headroom.js</code> to invoke the main script:</li>
+</ul>
+</li>
+</ul>
+<pre lang="language-javascript"><code>// Invoke Headroom.js; the outer function is is an IIFE, the inner one is a shortcut to document.ready
+;(function($){
+  $(function(){
+    $("#wrap-header").headroom({ offset: 60 });
+  });
+}(jQuery));
+</code></pre>
+<p>That's all there is to it. Now this script can be switched on or off in two configuration files. WordPress will automatically load the correct script bundle for all JavaScript-based functionality (rather than loading lots of little scripts for each feature).</p>
+<h2>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TROUBLESHOOTING</h2>
+<p>Things can and will go wrong when working with new tools but there are a few simple things you can do to avoid the worst of it:</p>
+<ul>
+<li>Make sure everything is up to date, particularly this package, npm, node, Bower, etc.</li>
+<li>If you're getting weird errors you can't figure out try deleting <code>node_modules</code> and running <code>npm install</code>.</li>
+<li>You might also have some luck cleaning the cache for both npm and Bower, both of which respond to the <code>clean cache</code> command, or try <code>npm prune &amp;&amp; npm install</code>.</li>
+</ul>
+<h2>
+<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TO DO</h2>
+<ul>
+<li>Yeoman generator (<a href="https://github.com/synapticism/wordpress-gulp-starter-kit/issues/1" rel="nofollow">open issue</a>; <a href="http://yeoman.io/authoring/" rel="nofollow">some help here</a> would be awesome since I don't personally use Yeoman).</li>
+<li>Better error handling (waiting for Gulp 4).</li>
+<li>
+<a href="https://github.com/sogko/gulp-recipes/tree/master/unnecessary-wrapper-gulp-plugins" rel="nofollow">Reduce unnecessary wrapper plugins</a>.</li>
+<li>RTL support with <a href="https://github.com/jjlharrison/gulp-rtlcss" rel="nofollow">gulp-rtlcss</a>?</li>
+<li>Explore using Gulp for translation; see <a href="https://github.com/felixzapata/gulp-potomo" rel="nofollow">gulp-potomo</a>, <a href="https://github.com/rasmusbe/gulp-wp-pot" rel="nofollow">gulp-wp-pot</a>, and <a href="https://github.com/felixzapata/gulp-checktextdomain" rel="nofollow">gulp-checktextdomain</a> for examples.</li>
+<li>Browserify integration? The existing bundles/chunks system is very DIY and non-standard. Feedback welcome.</li>
+<li>More good ideas from <a href="https://github.com/gulpjs/gulp/tree/master/docs/recipes" rel="nofollow">Gulp recipes</a>.</li>
+</ul>
+<p>Feature requests and bug reports welcome; <a href="https://github.com/synapticism/wordpress-gulp-starter-kit/issues" rel="nofollow">open an issue</a>! Please note that I intend to reign in scope creep on this project :)</p>
+<h2>
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SEE ALSO</h2>
+<p>Like the approach but prefer something more mature, sophisticated, and opinionated? Check out <a href="https://roots.io/sage/" rel="nofollow">Sage</a> and <a href="https://github.com/roots/bedrock" rel="nofollow">Bedrock</a> from <a href="http://roots.io/" rel="nofollow">Roots</a>. Interested in another more stripped-down approach? Have a look at <a href="https://github.com/whatwedo/gulp-wp-theme" rel="nofollow">gulp-wp-theme</a>.</p>
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CREDITS</h2>
+<p>The initial version of this repo featured a <code>gulpfile.js</code> adapted from <a href="http://mattbanks.me/gulp-wordpress-development/" rel="nofollow">Matt Banks</a>. Additional credit is due to <a href="http://markgoodyear.com/2014/01/getting-started-with-gulp/" rel="nofollow">Mark Goodyear</a>. The current version is largely based on Dan Tello's excellent <a href="https://github.com/greypants/gulp-starter" rel="nofollow">gulp-starter</a>. The theme templates included in this project ultimately descend from Twenty Twelve.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LICENSE</h2>
+<p>Licensed under the <a href="http://www.gnu.org/licenses/gpl.txt" rel="nofollow">GPL 3.0</a>. You are encouraged to link back to <a href="http://synapticism.com" rel="nofollow">my web site</a>, <a href="http://synapticism.com/dev" rel="nofollow">development blog</a>, and/or <a href="https://github.com/synapticism/wordpress-gulp-starter-kit" rel="nofollow">this GitHub repository</a> if you find this at all useful.</p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bd2eea1fe738',m:'8a487a44d7e1321e2f76cd4f04698e82c21015ee-1610725685-1800-ATG371rsgklc5inmPZOG5ytIVqpINnZtdjrKJlZM6vO4lOIkSpj36Ga4dxRt5YVEZhjDkkp2W2vrgAREDYjZUUVPk28KAKroD9vaoRcEX1VBwErYx/tP+3exmNtrPQ1b/yPwO+kp2+Wt5GI1P1ar71JBqe351H2BPw9Xk75zFbDh',s:[0x6567e15e93,0xc1dded2b09],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="javascript"/> <!-- -->javascript<!-- --> (<!-- -->67,310<!-- -->) </div><div><input type="checkbox" name="topics" value="theme"/> <!-- -->theme<!-- --> (<!-- -->774<!-- -->) </div><div><input type="checkbox" name="topics" value="wordpress"/> <!-- -->wordpress<!-- --> (<!-- -->638<!-- -->) </div><div><input type="checkbox" name="topics" value="sass"/> <!-- -->sass<!-- --> (<!-- -->438<!-- -->) </div><div><input type="checkbox" name="topics" value="workflow"/> <!-- -->workflow<!-- --> (<!-- -->315<!-- -->) </div><div><input type="checkbox" name="topics" value="gulp"/> <!-- -->gulp<!-- --> (<!-- -->196<!-- -->) </div><div><input type="checkbox" name="topics" value="wordpress-theme"/> <!-- -->wordpress-theme<!-- --> (<!-- -->80<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Wordpress <!-- -->Gulp <!-- -->Starter <!-- -->Kit<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/xsynaptic" target="_blank">Xsynaptic</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/xsynaptic" target="_blank">Xsynaptic</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-b438818f-91d0-48ea-bf88-84216861e665">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"gulp","count":196},{"id":null,"name":"javascript","count":67310},{"id":null,"name":"sass","count":438},{"id":null,"name":"theme","count":774},{"id":null,"name":"wordpress","count":638},{"id":null,"name":"wordpress-theme","count":80},{"id":null,"name":"workflow","count":315}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/xsynaptic/wordpress-gulp-starter-kit","projects":[],"project":{"id":98785,"created_at":"2018-08-21T01:44:01.669Z","updated_at":"2020-12-31T04:55:03.632Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"a-wordpressgulp-starter-kit\" class=\"anchor\" href=\"#a-wordpressgulp-starter-kit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eA WORDPRESS/GULP STARTER KIT\u003c/h1\u003e\n\u003cp\u003eDesigning WordPress themes the old-fashioned way is time-consuming and error-prone. Automating the build process allows us to integrate best practices into our workflow while saving time. This project is a \u003cem\u003estarter kit\u003c/em\u003e for developing highly optimized WordPress themes with \u003ca href=\"http://gulpjs.com/\" rel=\"nofollow\"\u003eGulp\u003c/a\u003e, \u003ca href=\"https://www.npmjs.com/\" rel=\"nofollow\"\u003enpm\u003c/a\u003e, and \u003ca href=\"http://sass-lang.com/\" rel=\"nofollow\"\u003eSass\u003c/a\u003e, among other tools. This is \u003cem\u003enot\u003c/em\u003e meant to be a starter theme or framework (although I have included a \u003cem\u003eminimum viable theme\u003c/em\u003e to demonstrate some of the possibilities). It is, instead, a kind of \u003cem\u003eproject scaffolding\u003c/em\u003e and \u003cem\u003eexample workflow\u003c/em\u003e for modern and efficient WordPress theme development.\u003c/p\u003e\n\u003cp\u003eThe latest version of this starter kit features a modular Gulp file design inspired by Dan Tello's excellent \u003ca href=\"https://github.com/greypants/gulp-starter\" rel=\"nofollow\"\u003egulp-starter\u003c/a\u003e. Configuration is isolated from the tasks themselves to make it easier to change paths and modify settings. This approach is slightly more complicated than what I originally \u003ca href=\"http://synapticism.com/dev/wordpress-theme-development-with-gulp-bower-and-sass/\" rel=\"nofollow\"\u003eoutlined on my blog\u003c/a\u003e but also far more powerful. Live local development is now facilitated by your choice of \u003ca href=\"http://www.browsersync.io/\" rel=\"nofollow\"\u003eBrowserSync\u003c/a\u003e or \u003ca href=\"http://livereload.com/\" rel=\"nofollow\"\u003eLiveReload\u003c/a\u003e (the default choice).\u003c/p\u003e\n\u003cp\u003eWhy use this project instead of any of the alternatives? A few advantages:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIt doesn't try and do too much.\u003c/li\u003e\n\u003cli\u003eYou should be able to easily drop your own theme into the \u003ccode\u003esrc\u003c/code\u003e folder and start hacking without much additional setup.\u003c/li\u003e\n\u003cli\u003eDocumentation and comments in the code assume a novice level of understanding.\u003c/li\u003e\n\u003cli\u003eBuilds on existing WordPress and Gulp best practices without doing anything too crazy.\u003c/li\u003e\n\u003cli\u003eIncludes several JS and Sass integrations to show you some of the possibilities. All of these are easily removed.\u003c/li\u003e\n\u003cli\u003eThis kind of workflow will save you a ton of time and help you make better, more readily-optimized themes once you learn how it all works.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eINSTALLATION\u003c/h2\u003e\n\u003cp\u003eIf you're already up and running with most of the usual Node ecosystem tools this starter kit won't require much additional effort.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"required\" class=\"anchor\" href=\"#required\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eREQUIRED\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eInstall \u003ca href=\"http://blog.npmjs.org/post/85484771375/how-to-install-npm\" rel=\"nofollow\"\u003enpm\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"http://gulpjs.com/\" rel=\"nofollow\"\u003eGulp\u003c/a\u003e: \u003ccode\u003enpm install -g gulp\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"http://jshint.com/\" rel=\"nofollow\"\u003eJSHint\u003c/a\u003e: \u003ccode\u003enpm install -g jshint\u003c/code\u003e. (You can skip this and cut JSHint out of the workflow but it will take some additional work.)\u003c/li\u003e\n\u003cli\u003eDownload or clone this repo: \u003ccode\u003egit clone https://github.com/synapticism/wordpress-gulp-starter-kit.git\u003c/code\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"optional\" class=\"anchor\" href=\"#optional\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOPTIONAL\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eInstall \u003ca href=\"http://bower.io/\" rel=\"nofollow\"\u003eBower\u003c/a\u003e: \u003ccode\u003enpm install bower -g\u003c/code\u003e (helps manage front-end dependencies, particularly CSS libraries and such; see below for more info).\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"https://getcomposer.org/doc/00-intro.md\" rel=\"nofollow\"\u003eComposer\u003c/a\u003e (a PHP package manager, not really necessary).\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"http://sass-lang.com/\" rel=\"nofollow\"\u003eSass\u003c/a\u003e (only if the built-in, default \u003ccode\u003elibsass\u003c/code\u003e compiler isn't good enough for your needs): \u003ccode\u003egem install sass\u003c/code\u003e (requires Ruby).\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"setup\" class=\"anchor\" href=\"#setup\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSETUP\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eEdit \u003ccode\u003egulpconfig.js\u003c/code\u003e and, \u003cem\u003eat the very least\u003c/em\u003e, change the \u003ccode\u003eproject\u003c/code\u003e variable to match the name of your theme. If you like the way this workflow is setup you shouldn't need to edit any of the files under \u003ccode\u003egulpfile.js/tasks\u003c/code\u003e just yet.\u003c/li\u003e\n\u003cli\u003eInstall all dependencies by running \u003ccode\u003enpm install\u003c/code\u003e. This will fetch all dependencies listed in \u003ccode\u003epackage.json\u003c/code\u003e (which includes front-end JavaScript packages and back-end tools like Gulp plugins and \u003ca href=\"http://www.browsersync.io/\" rel=\"nofollow\"\u003eBrowserSync\u003c/a\u003e). You may see warnings about deprecated packages and what-not; that's probably fine, just keep going!\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.browsersync.io/\" rel=\"nofollow\"\u003eBrowserSync\u003c/a\u003e setup: assuming you have a local development environment setup all you should need to do is enter the URL into the \u003ccode\u003eproxy\u003c/code\u003e setting in \u003ccode\u003egulpconfig.js\u003c/code\u003e. Why use BrowserSync? It's fast, awesome, and allows for simultaneous responsive development across multiple devices.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://livereload.com/\" rel=\"nofollow\"\u003eLiveReload\u003c/a\u003e setup: install a browser extension for \u003ca href=\"https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei\" rel=\"nofollow\"\u003eChrome\u003c/a\u003e or Firefox. Why use LiveReload? It does the job without complications or additional setup after the extension is installed.\u003c/li\u003e\n\u003cli\u003eThis build process assumes you're up and running with \u003ca href=\"http://blog.teamtreehouse.com/introduction-source-maps\" rel=\"nofollow\"\u003esource maps for both JavaScript and Sass\u003c/a\u003e. You may need to configure your browser or debugging environment to make sense of the minified files generated by Gulp!\u003c/li\u003e\n\u003cli\u003eRun \u003ccode\u003egulp\u003c/code\u003e and start hacking!\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"voidx-a-minimum-viable-theme\" class=\"anchor\" href=\"#voidx-a-minimum-viable-theme\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVOIDX: A MINIMUM VIABLE THEME\u003c/h2\u003e\n\u003cp\u003ePreviously this project shipped without a working theme included. I figured that with all the great starter themes out there (for instance, \u003ca href=\"https://github.com/Automattic/_s\" rel=\"nofollow\"\u003e_s\u003c/a\u003e, \u003ca href=\"https://github.com/roots/roots\" rel=\"nofollow\"\u003eRoots\u003c/a\u003e, and \u003ca href=\"https://github.com/eddiemachado/bones\" rel=\"nofollow\"\u003eBones\u003c/a\u003e) it wouldn't be hard to drop one in and start theming. I don't personally use any of these so I was a little surprised to discover how tricky this can be. Starter themes, despite their \"bare bones\" reputation, are often bulky and opinionated. Some even ship with their own build processes already in place!\u003c/p\u003e\n\u003cp\u003eIt seems there is a need for what I'd call a \u003cem\u003eminimum viable theme\u003c/em\u003e: a truly bare bones WordPress starter theme featuring only the essentials to get up and running, something that you can assess at a glance. For the purposes of this project I have created such a theme, tentatively named \u003ccode\u003evoidx\u003c/code\u003e. It isn't pretty and isn't up to \u003ca href=\"https://wordpress.org/plugins/theme-check/\" rel=\"nofollow\"\u003eWordPress standards\u003c/a\u003e but it works well enough to show off some of the power of this workflow. Feel free to play with or discard it as you wish. All files under \u003ccode\u003esrc\u003c/code\u003e can be replaced by your own files, you just have to be sure to wire things up properly in the \u003ccode\u003egulpconfig.js\u003c/code\u003e file if you swap in your own stuff. Several scripts have already been integrated to show you how it's done, but these are easily if you don't like 'em (which is sort of the point of having such scaffolding, so you can easily swap stuff in and out).\u003c/p\u003e\n\u003cp\u003eThere are two components worth a closer look:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe script variable and enqueuing functions in \u003ccode\u003esrc/inc/assets.php\u003c/code\u003e; these are tightly coupled with the output of the build process.\u003c/li\u003e\n\u003cli\u003eThe theme configuration pattern described in \u003ccode\u003efunctions.php\u003c/code\u003e and \u003ccode\u003efunctions-config-defaults.php\u003c/code\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWhether you use anything from this built-in theme is entirely up to you. If you prefer to start working with your own theme just drop it in. You will probably need to modify paths and glob matching patterns in \u003ccode\u003egulpconfig.js\u003c/code\u003e but it is designed to be fairly easy and straight-forward with lots of comments to point you in the right direction.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"organization\" class=\"anchor\" href=\"#organization\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eORGANIZATION\u003c/h2\u003e\n\u003cp\u003eThis starter kit uses \u003ccode\u003esrc\u003c/code\u003e, \u003ccode\u003ebuild\u003c/code\u003e, and \u003ccode\u003edist\u003c/code\u003e folders to organize theme development:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003esrc\u003c/code\u003e: this directory contains the raw material for your theme: templates (\u003ccode\u003esrc/\u003c/code\u003e), PHP includes (\u003ccode\u003esrc/inc\u003c/code\u003e), language files (\u003ccode\u003esrc/languages\u003c/code\u003e), styles (\u003ccode\u003esrc/scss\u003c/code\u003e), scripts (\u003ccode\u003esrc/js\u003c/code\u003e), and images (anywhere under \u003ccode\u003esrc/\u003c/code\u003e). \u003cstrong\u003eOnly edit files in this directory!\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ebuild\u003c/code\u003e: generated by Gulp, this is a \u003cem\u003eworking copy\u003c/em\u003e of your theme for use in development and testing. Symlink \u003ccode\u003ebuild\u003c/code\u003e to your \u003ccode\u003ewp-content/themes\u003c/code\u003e directory for local development and testing (e.g. if your theme is in \u003ccode\u003e~/dev/themes/my-theme\u003c/code\u003e and your local copy of WordPress is installed in \u003ccode\u003e~/dev/localhost/wp\u003c/code\u003e you'll want to run \u003ccode\u003eln -s ~/dev/themes/my-theme/build ~/dev/localhost/wp/wp-content/themes/my-theme\u003c/code\u003e).\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003edist\u003c/code\u003e: short for distribution, this will be the final, polished copy of your theme for production. You will need to manually run \u003ccode\u003egulp dist\u003c/code\u003e to create a new distribution. You can also symlink this directory for a final round of testing; just keep in mind that your theme will now be in \u003ccode\u003edist/[project]\u003c/code\u003e, where \u003ccode\u003e[project]\u003c/code\u003e is the setting at the top of the Gulp configuration. This project folder is what you will want to deploy to production. (No more weird junk in your themes. Hooray!)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNote: both the \u003ccode\u003ebuild\u003c/code\u003e and \u003ccode\u003edist\u003c/code\u003e directories are disposable and can be regenerated from the contents of \u003ccode\u003esrc\u003c/code\u003e. You aren't likely to want to edit files in this folders but you may want to open them up to diagnose issues with the build process itself.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"working-with-gulp\" class=\"anchor\" href=\"#working-with-gulp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWORKING WITH GULP\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"http://gulpjs.com/\" rel=\"nofollow\"\u003eGulp\u003c/a\u003e is an extremely powerful tool for automating tasks from the command line. If you're new to Gulp but coming from a WordPress background I recommend reading tutorials by \u003ca href=\"http://mattbanks.me/gulp-wordpress-development/\" rel=\"nofollow\"\u003eMatt Banks\u003c/a\u003e and \u003ca href=\"http://markgoodyear.com/2014/01/getting-started-with-gulp/\" rel=\"nofollow\"\u003eMark Goodyear\u003c/a\u003e. I also learned a lot from a post by \u003ca href=\"http://viget.com/extend/gulp-browserify-starter-faq\" rel=\"nofollow\"\u003eDan Trello\u003c/a\u003e (and have integrated much of his approach into this project) but it might be a bit more opaque for newcomers.\u003c/p\u003e\n\u003cp\u003eTo get started try running \u003ccode\u003egulp\u003c/code\u003e from the command line. This fires \u003ccode\u003egulpfile.js/index.js\u003c/code\u003e and should build a working copy of the included theme. The other command you will use from time to time is \u003ccode\u003egulp dist\u003c/code\u003e, which builds a distribution copy.\u003c/p\u003e\n\u003cp\u003eConfiguration is handled by a single file: \u003ccode\u003egulpconfig.js\u003c/code\u003e. If you leave the directory structure intact there won't be too much that needs changing here but I can think of two non-obvious components you might want to modify or at least look at:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.browsersync.io/\" rel=\"nofollow\"\u003eBrowserSync\u003c/a\u003e settings: if you are developing on a local web server you will want to enter the URL into \u003ccode\u003ebrowsersync.proxy\u003c/code\u003e and then change \u003ccode\u003ewatch.watcher\u003c/code\u003e to \u003ccode\u003ebrowsersync\u003c/code\u003e to take it for a test drive. You'll know it's working when you run \u003ccode\u003egulp\u003c/code\u003e and a new browser opens with a live copy of your web site. Make changes to any of the Sass files and they should be shown on the page almost immediately. Of course, BrowserSync really shines when you connect a mobile device to your development server, but for that you're on your own ;)\u003c/li\u003e\n\u003cli\u003eScript settings: draw your attention to \u003ccode\u003escripts.bundles\u003c/code\u003e and \u003ccode\u003escripts.chunks\u003c/code\u003e. This feature is essentially a poor man's \u003ca href=\"http://browserify.org/\" rel=\"nofollow\"\u003eBrowserify\u003c/a\u003e or \u003ca href=\"https://webpack.github.io/\" rel=\"nofollow\"\u003eWebpack\u003c/a\u003e. By defining different \"chunks\" (script files that combine to provide a particular feature) and \"bundles\" (chunks that combine to provide feature sets) you can generate an assortment of files that can be efficiently and intelligently loaded through your WordPress theme. This approach has its limitations, of course, particularly when dependencies are shared between scripts, but it should be of use to many WordPress theme developers.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eInterested in adding new Gulp plugins to your build system? A full tutorial is out of scope for this project but it really shouldn't be all that hard to figure out. In brief, install a plugin with \u003ccode\u003enpm install [package] --save-dev\u003c/code\u003e, require it in a suitable task file, add something to the configuration file if needed, and drop it into the pipeline somewhere. Some types of plugin are particularly easy to add, for instance anything listed on the \u003ca href=\"http://postcss.parts/\" rel=\"nofollow\"\u003epostcss.parts\u003c/a\u003e web site once you have \u003ca href=\"https://github.com/postcss/gulp-postcss\" rel=\"nofollow\"\u003egulp-postcss\u003c/a\u003e installed and configured in \u003ccode\u003e/gulpfile.js/tasks/styles.js\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"working-with-npm\" class=\"anchor\" href=\"#working-with-npm\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWORKING WITH NPM\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://www.npmjs.com/\" rel=\"nofollow\"\u003enpm\u003c/a\u003e is great for working with packages of all kinds (front-end or back-end) and is increasingly becoming the package manager of choice. Previously this starter kit emphasized the use of Bower to retrieve and manage front-end dependencies but nowadays my personal preference is to use npm, mostly because it's way easier to update dependencies than Bower using tools like \u003ca href=\"https://www.npmjs.com/package/npm-check-updates\" rel=\"nofollow\"\u003enpm-check-updates\u003c/a\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFind new packages with \u003ccode\u003enpm search [package]\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eInstall new packages with: \u003ccode\u003enpm install [package] --save-dev\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eA general rule-of-thumb: if you can find it there just use npm.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"working-with-bower\" class=\"anchor\" href=\"#working-with-bower\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWORKING WITH BOWER\u003c/h2\u003e\n\u003cp\u003eA few handy tips from the \u003ca href=\"https://bower.io\" rel=\"nofollow\"\u003eBower documentation\u003c/a\u003e:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSearch for packages with \u003ccode\u003ebower search [package]\u003c/code\u003e or browse the \u003ca href=\"http://bower.io/search/\" rel=\"nofollow\"\u003eBower\u003c/a\u003e web interface.\u003c/li\u003e\n\u003cli\u003eInstall new packages with: \u003ccode\u003ebower install [package] --save-dev\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eRemove packages by deleting a line from \u003ccode\u003ebower.json\u003c/code\u003e and then run \u003ccode\u003ebower prune\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eClean the cache with \u003ccode\u003ebower cache clean\u003c/code\u003e (occasionally needed when things start getting weird).\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"working-with-sass\" class=\"anchor\" href=\"#working-with-sass\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWORKING WITH SASS\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThis project now supports either \u003ca href=\"https://www.npmjs.org/package/gulp-sass\" rel=\"nofollow\"\u003egulp-sass\u003c/a\u003e (based on the newer and faster \u003ca href=\"https://github.com/sass/libsass\" rel=\"nofollow\"\u003elibsass\u003c/a\u003e, now active by default) or \u003ca href=\"https://github.com/sindresorhus/gulp-ruby-sass/\" rel=\"nofollow\"\u003egulp-ruby-sass\u003c/a\u003e (which requires \u003ca href=\"https://github.com/sass/sass\" rel=\"nofollow\"\u003ethe original Ruby implementation of Sass\u003c/a\u003e). Switch \u003ccode\u003estyles.compiler\u003c/code\u003e in the configuration file as needed! For reference: \u003ca href=\"https://sass-compatibility.github.io/\" rel=\"nofollow\"\u003eSass compatibility table\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://sass-lang.com/\" rel=\"nofollow\"\u003eSass\u003c/a\u003e files can be found in \u003ccode\u003e/src/scss\u003c/code\u003e. Gulp will not process Sass partials beginning with \u003ccode\u003e_\u003c/code\u003e; these need to be explicitly imported (see \u003ccode\u003estyle.scss\u003c/code\u003e for an example). On the other hand, if you want to output any other CSS files just drop the underscore \u003cem\u003ee.g.\u003c/em\u003e \u003ccode\u003eeditor-style.scss\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eStylesheets are post-processed with \u003ca href=\"http://cssnano.co/\" rel=\"nofollow\"\u003ecssnano\u003c/a\u003e, a \u003ca href=\"https://github.com/postcss/postcss\" rel=\"nofollow\"\u003ePostCSS\u003c/a\u003e plugin with \u003ca href=\"https://github.com/ai/autoprefixer\" rel=\"nofollow\"\u003eAutoprefixer\u003c/a\u003e baked in, eliminating the need for vendor prefixes.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/\" rel=\"nofollow\"\u003eSourcemaps\u003c/a\u003e are generated by \u003ca href=\"https://github.com/floridoo/gulp-sourcemaps\" rel=\"nofollow\"\u003egulp-sourcemaps\u003c/a\u003e to make debugging stylesheets a snap. Note: all generated CSS is production-ready (\u003cem\u003ee.g.\u003c/em\u003e minified and prefixed); sourcemaps only appear in the \u003ccode\u003ebuild\u003c/code\u003e directory.\u003c/li\u003e\n\u003cli\u003ePackages installed with Bower or npm are in the path by default so you can \u003ccode\u003e@import\u003c/code\u003e Sass files directly, as seen in \u003ccode\u003estyle.scss\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eThis starter kit ships with \u003ca href=\"https://necolas.github.io/normalize.css/\" rel=\"nofollow\"\u003eNormalize.css\u003c/a\u003e and \u003ca href=\"https://davidtheclark.github.io/scut/\" rel=\"nofollow\"\u003eScut\u003c/a\u003e, a minimalist library of useful Sass mixins and functions for the post-vendor prefixing era. Both of these are easy to remove if you're not interested in them.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"a-few-other-notes\" class=\"anchor\" href=\"#a-few-other-notes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eA FEW OTHER NOTES\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"images\" class=\"anchor\" href=\"#images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eImages\u003c/h3\u003e\n\u003cp\u003eImages are copied from wherever they are in \u003ccode\u003esrc\u003c/code\u003e to the same location under \u003ccode\u003ebuild\u003c/code\u003e. They are only optimized when running \u003ccode\u003egulp dist\u003c/code\u003e as this operation is resource-intensive.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"php\" class=\"anchor\" href=\"#php\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePHP\u003c/h3\u003e\n\u003cp\u003eLike images, PHP (and language) files can go anywhere under \u003ccode\u003esrc\u003c/code\u003e and will be copied to \u003ccode\u003ebuild\u003c/code\u003e and \u003ccode\u003edist\u003c/code\u003e while preserving directory structure.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"example-integrations\" class=\"anchor\" href=\"#example-integrations\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEXAMPLE INTEGRATIONS\u003c/h2\u003e\n\u003cp\u003eThe bare bones theme included in this starter kit integrates three external JavaScript projects: \u003ca href=\"http://timeago.yarp.com/\" rel=\"nofollow\"\u003etimeago\u003c/a\u003e (which facilitates human-readable timestamps), \u003ca href=\"https://github.com/jonathantneal/svg4everybody\" rel=\"nofollow\"\u003eSVG for Everybody\u003c/a\u003e, and \u003ca href=\"https://github.com/synapticism/wp-ajax-page-loader\" rel=\"nofollow\"\u003eWP AJAX Page Loader\u003c/a\u003e (a lightweight and intelligent infinite scroll script). Have a look at \u003ccode\u003e/src/inc/assets.php\u003c/code\u003e file and \u003ccode\u003egulpconfig.js\u003c/code\u003e to see how this works. Timeago requires only \u003ccode\u003enpm install -d timeago\u003c/code\u003e, an extra line in \u003ccode\u003egulpconfig.js\u003c/code\u003e, and initialization in \u003ccode\u003e/src/js/footer.js\u003c/code\u003e. SVG for Everybody is provided as an example of a script that must be loaded in the header; hence you can see it in action at \u003ccode\u003e/src/js/header.js\u003c/code\u003e. The page loading script is a more involved integraton; browse the source and see for yourself.\u003c/p\u003e\n\u003cp\u003eNow for one that you can try yourself! Let's say you run across a cool project like \u003ca href=\"http://wicky.nillia.ms/headroom.js/\" rel=\"nofollow\"\u003eHeadroom.js\u003c/a\u003e and decide you'd like to try it out. Here's how you would do that with the tools and workflow outlined in this repo:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003enpm install headroom.js --save-dev\u003c/code\u003e. This will save the package to the \u003ccode\u003edevDependencies\u003c/code\u003e field of your \u003ccode\u003epackage.json\u003c/code\u003e file.\u003c/li\u003e\n\u003cli\u003eLook up the path to the script and add the appropriate entries to \u003ccode\u003escripts.bundles\u003c/code\u003e and \u003ccode\u003escripts.chunks\u003c/code\u003e in \u003ccode\u003egulpconfig.js\u003c/code\u003e. The key name of \u003ccode\u003escripts.bundles\u003c/code\u003e should match \u003ccode\u003e$script_name\u003c/code\u003e (below). Since this script is meant to be loaded on every page it is safe to bundle it with the \u003ccode\u003efooter\u003c/code\u003e script.\u003c/li\u003e\n\u003cli\u003eTo make this script \u003cem\u003eoptional\u003c/em\u003e requires a bit more work:\n\u003cul\u003e\n\u003cli\u003eAdd an option to \u003ccode\u003efunctions-config-defaults.php\u003c/code\u003e: \u003ccode\u003edefined( 'VOIDX_SCRIPTS_HEADROOM' ) || define( 'VOIDX_SCRIPTS_HEADROOM', true );\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eAdd the switch to the \u003ccode\u003evoidx_assets_footer\u003c/code\u003e functon in \u003ccode\u003einc/assets.php\u003c/code\u003e: \u003ccode\u003eif ( VOIDX_SCRIPTS_HEADROOM ) : $file .= '-hr';\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eAdd an option to \u003ccode\u003escss/_config.scss\u003c/code\u003e to allow for the styling to be turned on or off: \u003ccode\u003e$plugin-headroom: true;\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eAdd the necessary styling to \u003ccode\u003escss/_plugins.scss\u003c/code\u003e wrapped in a conditional check: \u003ccode\u003e@if ($plugin-headroom) { // Style }\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eCreate an additional script at \u003ccode\u003esrc/js/headroom.js\u003c/code\u003e to invoke the main script:\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre lang=\"language-javascript\"\u003e\u003ccode\u003e// Invoke Headroom.js; the outer function is is an IIFE, the inner one is a shortcut to document.ready\n;(function($){\n  $(function(){\n    $(\"#wrap-header\").headroom({ offset: 60 });\n  });\n}(jQuery));\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThat's all there is to it. Now this script can be switched on or off in two configuration files. WordPress will automatically load the correct script bundle for all JavaScript-based functionality (rather than loading lots of little scripts for each feature).\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"troubleshooting\" class=\"anchor\" href=\"#troubleshooting\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTROUBLESHOOTING\u003c/h2\u003e\n\u003cp\u003eThings can and will go wrong when working with new tools but there are a few simple things you can do to avoid the worst of it:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMake sure everything is up to date, particularly this package, npm, node, Bower, etc.\u003c/li\u003e\n\u003cli\u003eIf you're getting weird errors you can't figure out try deleting \u003ccode\u003enode_modules\u003c/code\u003e and running \u003ccode\u003enpm install\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eYou might also have some luck cleaning the cache for both npm and Bower, both of which respond to the \u003ccode\u003eclean cache\u003c/code\u003e command, or try \u003ccode\u003enpm prune \u0026amp;\u0026amp; npm install\u003c/code\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"to-do\" class=\"anchor\" href=\"#to-do\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTO DO\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eYeoman generator (\u003ca href=\"https://github.com/synapticism/wordpress-gulp-starter-kit/issues/1\" rel=\"nofollow\"\u003eopen issue\u003c/a\u003e; \u003ca href=\"http://yeoman.io/authoring/\" rel=\"nofollow\"\u003esome help here\u003c/a\u003e would be awesome since I don't personally use Yeoman).\u003c/li\u003e\n\u003cli\u003eBetter error handling (waiting for Gulp 4).\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/sogko/gulp-recipes/tree/master/unnecessary-wrapper-gulp-plugins\" rel=\"nofollow\"\u003eReduce unnecessary wrapper plugins\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eRTL support with \u003ca href=\"https://github.com/jjlharrison/gulp-rtlcss\" rel=\"nofollow\"\u003egulp-rtlcss\u003c/a\u003e?\u003c/li\u003e\n\u003cli\u003eExplore using Gulp for translation; see \u003ca href=\"https://github.com/felixzapata/gulp-potomo\" rel=\"nofollow\"\u003egulp-potomo\u003c/a\u003e, \u003ca href=\"https://github.com/rasmusbe/gulp-wp-pot\" rel=\"nofollow\"\u003egulp-wp-pot\u003c/a\u003e, and \u003ca href=\"https://github.com/felixzapata/gulp-checktextdomain\" rel=\"nofollow\"\u003egulp-checktextdomain\u003c/a\u003e for examples.\u003c/li\u003e\n\u003cli\u003eBrowserify integration? The existing bundles/chunks system is very DIY and non-standard. Feedback welcome.\u003c/li\u003e\n\u003cli\u003eMore good ideas from \u003ca href=\"https://github.com/gulpjs/gulp/tree/master/docs/recipes\" rel=\"nofollow\"\u003eGulp recipes\u003c/a\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFeature requests and bug reports welcome; \u003ca href=\"https://github.com/synapticism/wordpress-gulp-starter-kit/issues\" rel=\"nofollow\"\u003eopen an issue\u003c/a\u003e! Please note that I intend to reign in scope creep on this project :)\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"see-also\" class=\"anchor\" href=\"#see-also\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSEE ALSO\u003c/h2\u003e\n\u003cp\u003eLike the approach but prefer something more mature, sophisticated, and opinionated? Check out \u003ca href=\"https://roots.io/sage/\" rel=\"nofollow\"\u003eSage\u003c/a\u003e and \u003ca href=\"https://github.com/roots/bedrock\" rel=\"nofollow\"\u003eBedrock\u003c/a\u003e from \u003ca href=\"http://roots.io/\" rel=\"nofollow\"\u003eRoots\u003c/a\u003e. Interested in another more stripped-down approach? Have a look at \u003ca href=\"https://github.com/whatwedo/gulp-wp-theme\" rel=\"nofollow\"\u003egulp-wp-theme\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"credits\" class=\"anchor\" href=\"#credits\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCREDITS\u003c/h2\u003e\n\u003cp\u003eThe initial version of this repo featured a \u003ccode\u003egulpfile.js\u003c/code\u003e adapted from \u003ca href=\"http://mattbanks.me/gulp-wordpress-development/\" rel=\"nofollow\"\u003eMatt Banks\u003c/a\u003e. Additional credit is due to \u003ca href=\"http://markgoodyear.com/2014/01/getting-started-with-gulp/\" rel=\"nofollow\"\u003eMark Goodyear\u003c/a\u003e. The current version is largely based on Dan Tello's excellent \u003ca href=\"https://github.com/greypants/gulp-starter\" rel=\"nofollow\"\u003egulp-starter\u003c/a\u003e. The theme templates included in this project ultimately descend from Twenty Twelve.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLICENSE\u003c/h2\u003e\n\u003cp\u003eLicensed under the \u003ca href=\"http://www.gnu.org/licenses/gpl.txt\" rel=\"nofollow\"\u003eGPL 3.0\u003c/a\u003e. You are encouraged to link back to \u003ca href=\"http://synapticism.com\" rel=\"nofollow\"\u003emy web site\u003c/a\u003e, \u003ca href=\"http://synapticism.com/dev\" rel=\"nofollow\"\u003edevelopment blog\u003c/a\u003e, and/or \u003ca href=\"https://github.com/synapticism/wordpress-gulp-starter-kit\" rel=\"nofollow\"\u003ethis GitHub repository\u003c/a\u003e if you find this at all useful.\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":20762631,"name":"wordpress-gulp-starter-kit","owner_login":"xsynaptic","description":"[NOT MAINTAINED] A starter kit for developing WordPress themes with Gulp.","pushed_at":"2017-08-20T04:50:44.000Z","stargazers_count":674,"open_issues_count":11,"has_downloads":true,"archived":false,"license_key":null,"homepage":"","private":false,"project_created_at":"2014-06-12T09:57:21.000Z","project_updated_at":"2020-12-29T08:32:13.000Z","language":"JavaScript","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

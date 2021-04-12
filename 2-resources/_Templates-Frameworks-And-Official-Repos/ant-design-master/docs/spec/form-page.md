@@ -162,7 +162,7 @@ A. 动态增减：建议条目表单数 <=3 项，并且每个输入框不需要
 
 在一个区域内从上到下单列布局，引导用户纵向阅读，据[研究](https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php)这是能够最高效完成任务的布局方式。
 
-> 以下“区域”特指页面、抽屉、弹窗、卡片内或分组标题下。
+> 以下“区域"特指页面、抽屉、弹窗、卡片内或分组标题下。
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/LVM7Wacqsw/jichubuju.png)
 

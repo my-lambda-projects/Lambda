@@ -14,7 +14,7 @@ Every element on a web page is a rectangular box. The display property in CSS de
       display: none;          /* Hide */
     }
 
-The default value for all elements is inline. Most “User Agent Stylesheets” (the default styles the browser applies to all sites) reset many elements to “block”. Let’s go through each of these, and then cover some of the other less common values.
+The default value for all elements is inline. Most “User Agent Stylesheets" (the default styles the browser applies to all sites) reset many elements to “block". Let’s go through each of these, and then cover some of the other less common values.
 
 #### Inline
 
@@ -31,13 +31,13 @@ An inline element will not accept [`height`](https://css-tricks.com/almanac/prop
 
 #### Inline Block
 
-An element set to `inline-block` is very similar to inline in that it will set inline with the natural flow of text (on the “baseline”). The difference is that you are able to set a `width` and `height` which will be respected.
+An element set to `inline-block` is very similar to inline in that it will set inline with the natural flow of text (on the “baseline"). The difference is that you are able to set a `width` and `height` which will be respected.
 
 ![](chrome-extension://css-tricks.com/wp-content/uploads/2011/09/inline-block.png "inline-block")
 
 #### Block
 
-A number of elements are set to `block` by the browser UA stylesheet. They are usually container elements, like `<div>`, `<section>`, and `<ul>`. Also text “blocks” like `<p>` and `<h1>`. Block level elements do not sit inline but break past them. By default (without setting a width) they take up as much horizontal space as they can.
+A number of elements are set to `block` by the browser UA stylesheet. They are usually container elements, like `<div>`, `<section>`, and `<ul>`. Also text “blocks" like `<p>` and `<h1>`. Block level elements do not sit inline but break past them. By default (without setting a width) they take up as much horizontal space as they can.
 
 ![](chrome-extension://css-tricks.com/wp-content/uploads/2011/09/block.png "block")
 
@@ -45,7 +45,7 @@ The two elements with the red borders are `<p>`s which are block level elements.
 
 #### Run-in
 
-First, this property doesn’t work in Firefox. Word is that the spec for it isn’t well defined enough. To begin to understand it though, it’s like if you want a header element to sit inline with the text below it. Floating it won’t work and [neither will anything else](https://css-tricks.com/run-in/), as you don’t want the header to be a child of the text element below it, you want it to be its own independent element. In “supporting” browsers, it’s like this:
+First, this property doesn’t work in Firefox. Word is that the spec for it isn’t well defined enough. To begin to understand it though, it’s like if you want a header element to sit inline with the text below it. Floating it won’t work and [neither will anything else](https://css-tricks.com/run-in/), as you don’t want the header to be a child of the text element below it, you want it to be its own independent element. In “supporting" browsers, it’s like this:
 
 ![](chrome-extension://css-tricks.com/wp-content/uploads/2011/09/Run-in.png "Run-in")
 
@@ -63,7 +63,7 @@ There are some older versions of flexbox syntax, so please [consult this article
 
 #### Flow-Root
 
-The `flow-root` display value creates a new “block formatting context”, but is otherwise like `block`. A new BFC helps with things like clearing floats, removing the need for [hacks](https://css-tricks.com/snippets/css/clear-fix/) to do that.
+The `flow-root` display value creates a new “block formatting context", but is otherwise like `block`. A new BFC helps with things like clearing floats, removing the need for [hacks](https://css-tricks.com/snippets/css/clear-fix/) to do that.
 
     .group {
       display: flow-root;
@@ -97,7 +97,7 @@ Entirely removes the element from the page. Note that while the element is still
 
 ### Table Values
 
-There is a whole set of display values that force non-table elements to behave like table elements, if you need that to happen. It’s rare-ish, but it sometimes allows you to be “more semantic” with your code while utilizing the unique positioning powers of tables.
+There is a whole set of display values that force non-table elements to behave like table elements, if you need that to happen. It’s rare-ish, but it sometimes allows you to be “more semantic" with your code while utilizing the unique positioning powers of tables.
 
     div {
       display: table;

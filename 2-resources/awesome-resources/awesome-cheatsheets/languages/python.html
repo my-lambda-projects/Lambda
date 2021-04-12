@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+</head>
+<body>;
+<h1 id="python">Python</h1>
+<ul>
+<li><p>Python is an interpreted, high-level and general-purpose, dynamically typed programming language</p></li>
+<li><p>It is also Object oriented, modular oriented and a scripting language.</p></li>
+<li><p>In Python, everything is considered as an Object.</p></li>
+<li><p>A python file has an extension of .py</p></li>
+<li><p>Python follows Indentation to separate code blocks instead of flower brackets({}).</p></li>
+<li><p>We can run a python file by the following command in cmd(Windows) or shell(mac/linux).</p>
+<p><code>python &lt;filename.py&gt;</code></p></li>
+</ul>
+<h4 id="by-default-the-python-doesnt-require-any-imports-to-run-a-python-file.">By default, the python doesn’t require any imports to run a python file.</h4>
+<h2 id="create-and-execute-a-program">Create and execute a program</h2>
+<ol type="1">
+<li>Open up a terminal/cmd</li>
+<li>Create the program: nano/cat &gt; nameProgram.py</li>
+<li>Write the program and save it</li>
+<li>python nameProgram.py</li>
+</ol>
+<p><br></p>
+<h3 id="basic-datatypes">Basic Datatypes</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>int</td>
+<td>Integer values [0, 1, -2, 3]</td>
+</tr>
+<tr class="even">
+<td>float</td>
+<td>Floating point values [0.1, 4.532, -5.092]</td>
+</tr>
+<tr class="odd">
+<td>char</td>
+<td>Characters [a, b, @, !, <code>] | | str | Strings [abc, AbC, A@B, sd!,</code>asa]</td>
+</tr>
+<tr class="even">
+<td>bool</td>
+<td>Boolean Values [True, False]</td>
+</tr>
+<tr class="odd">
+<td>char</td>
+<td>Characters [a, b, @, !, `]</td>
+</tr>
+<tr class="even">
+<td>complex</td>
+<td>Complex numbers [2+3j, 4-1j]</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="keywords">Keywords</h2>
+<p><br></p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Keyword</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>break</td>
+<td>used to exit loop and used to exit</td>
+</tr>
+<tr class="even">
+<td>char</td>
+<td>basic declaration of a type character</td>
+</tr>
+<tr class="odd">
+<td>const</td>
+<td>prefix declaration meaning variable can not be changed</td>
+</tr>
+<tr class="even">
+<td>continue</td>
+<td>go to bottom of loop in for, while loops</td>
+</tr>
+<tr class="odd">
+<td>class</td>
+<td>to define a class</td>
+</tr>
+<tr class="even">
+<td>def</td>
+<td>to define a function</td>
+</tr>
+<tr class="odd">
+<td>elif</td>
+<td>shortcut for (else if) used in else if ladder</td>
+</tr>
+<tr class="even">
+<td>else</td>
+<td>executable statement, part of “if” structure</td>
+</tr>
+<tr class="odd">
+<td>float</td>
+<td>basic declaration of floating point</td>
+</tr>
+<tr class="even">
+<td>for</td>
+<td>executable statement, for loop</td>
+</tr>
+<tr class="odd">
+<td>from</td>
+<td>executable statement, used to import only specific objects from a package</td>
+</tr>
+<tr class="even">
+<td>if</td>
+<td>executable statement</td>
+</tr>
+<tr class="odd">
+<td>import</td>
+<td>to import modules</td>
+</tr>
+<tr class="even">
+<td>pass</td>
+<td>keyword to specify noting is happening in the codeblock, generally used in classes</td>
+</tr>
+<tr class="odd">
+<td>return</td>
+<td>executable statement with or without a value</td>
+</tr>
+<tr class="even">
+<td>while</td>
+<td>executable statement, while loop</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="operators">Operators</h2>
+<p><br></p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>( )</td>
+<td>grouping parenthesis, function call, tuple declaration</td>
+</tr>
+<tr class="even">
+<td>[ ]</td>
+<td>array indexing, also declaring lists etc.</td>
+</tr>
+<tr class="odd">
+<td>!</td>
+<td>relational not, complement, ! a yields true or false</td>
+</tr>
+<tr class="even">
+<td>~</td>
+<td>bitwise not, ones complement, ~a</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>unary minus, - a</td>
+</tr>
+<tr class="even">
+<td>+</td>
+<td>unary plus, + a</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>multiply, a * b</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>divide, a / b</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>modulo, a % b</td>
+</tr>
+<tr class="even">
+<td>+</td>
+<td>add, a + b</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>subtract, a - b</td>
+</tr>
+<tr class="even">
+<td>&lt;&lt;</td>
+<td>shift left, left operand is shifted left by right operand bits</td>
+</tr>
+<tr class="odd">
+<td>&gt;&gt;</td>
+<td>shift right, left operand is shifted right by right operand bits</td>
+</tr>
+<tr class="even">
+<td>&lt;</td>
+<td>less than, result is true or false, a %lt; b</td>
+</tr>
+<tr class="odd">
+<td>&lt;=</td>
+<td>less than or equal, result is true or false, a &lt;= b</td>
+</tr>
+<tr class="even">
+<td>&gt;</td>
+<td>greater than, result is true or false, a &gt; b</td>
+</tr>
+<tr class="odd">
+<td>&gt;=</td>
+<td>greater than or equal, result is true or false, a &gt;= b</td>
+</tr>
+<tr class="even">
+<td>==</td>
+<td>equal, result is true or false, a == b</td>
+</tr>
+<tr class="odd">
+<td>!=</td>
+<td>not equal, result is true or false, a != b</td>
+</tr>
+<tr class="even">
+<td>&amp;</td>
+<td>bitwise and, a &amp; b</td>
+</tr>
+<tr class="odd">
+<td>^</td>
+<td>bitwise exclusive or XOR, a ^ b</td>
+</tr>
+<tr class="even">
+<td>|</td>
+<td>bitwise or, a</td>
+</tr>
+<tr class="odd">
+<td>&amp;&amp;, and</td>
+<td>relational and, result is true or false, a &lt; b &amp;&amp; c &gt;= d</td>
+</tr>
+<tr class="even">
+<td>||, or</td>
+<td>relational or, result is true or false, a &lt; b || c &gt;= d</td>
+</tr>
+<tr class="odd">
+<td>=</td>
+<td>store or assignment</td>
+</tr>
+<tr class="even">
+<td>+=</td>
+<td>add and store</td>
+</tr>
+<tr class="odd">
+<td>-=</td>
+<td>subtract and store</td>
+</tr>
+<tr class="even">
+<td>*=</td>
+<td>multiply and store</td>
+</tr>
+<tr class="odd">
+<td>/=</td>
+<td>divide and store</td>
+</tr>
+<tr class="even">
+<td>%=</td>
+<td>modulo and store</td>
+</tr>
+<tr class="odd">
+<td>&lt;&lt;=</td>
+<td>shift left and store</td>
+</tr>
+<tr class="even">
+<td>&gt;&gt;=</td>
+<td>shift right and store</td>
+</tr>
+<tr class="odd">
+<td>&amp;=</td>
+<td>bitwise and and store</td>
+</tr>
+<tr class="even">
+<td>^=</td>
+<td>bitwise exclusive or and store</td>
+</tr>
+<tr class="odd">
+<td>|=</td>
+<td>bitwise or and store</td>
+</tr>
+<tr class="even">
+<td>,</td>
+<td>separator as in ( y=x,z=++x )</td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-data-structures">Basic Data Structures</h3>
+<h3 id="list">List</h3>
+<ul>
+<li><p>List is a collection which is ordered and changeable. Allows duplicate members.</p></li>
+<li><p>Lists are created using square brackets:</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">thislist <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>] </a></code></pre></div>
+<ul>
+<li><p>List items are ordered, changeable, and allow duplicate values.</p></li>
+<li><p>List items are indexed, the first item has index <code>[0]</code>, the second item has index <code>[1]</code> etc.</p></li>
+<li><p>The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.</p></li>
+<li><p>To determine how many items a list has, use the <code>len()</code> function.</p></li>
+<li>A list can contain different data types:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">list1 <span class="op">=</span> [<span class="st">&quot;abc&quot;</span>, <span class="dv">34</span>, <span class="va">True</span>, <span class="dv">40</span>, <span class="st">&quot;male&quot;</span>]</a></code></pre></div>
+<ul>
+<li>It is also possible to use the list() constructor when creating a new list</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">thislist <span class="op">=</span> <span class="bu">list</span>((<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>))  <span class="co"># note the double round-brackets</span></a></code></pre></div>
+<h3 id="tuple">Tuple</h3>
+<ul>
+<li>Tuple is a collection which is ordered and unchangeable. Allows duplicate members.</li>
+<li>A tuple is a collection which is ordered and unchangeable.</li>
+<li>Tuples are written with round brackets.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">thistuple <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>)</a></code></pre></div>
+<ul>
+<li>Tuple items are ordered, unchangeable, and allow duplicate values.</li>
+<li>Tuple items are indexed, the first item has index <code>[0]</code>, the second item has index <code>[1]</code> etc.</li>
+<li><p>When we say that tuples are ordered, it means that the items have a defined order, and that order will not change.</p></li>
+<li>Tuples are unchangeable, meaning that we cannot change, add or remove items after the tuple has been created.</li>
+<li>Since tuple are indexed, tuples can have items with the same value:</li>
+<li>Tuples allow duplicate values:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1">thistuple <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;cherry&quot;</span>)</a></code></pre></div>
+<ul>
+<li>To determine how many items a tuple has, use the <code>len()</code>function:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">thistuple <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="bu">print</span>(<span class="bu">len</span>(thistuple))</a></code></pre></div>
+<ul>
+<li>To create a tuple with only one item, you have to add a comma after the item, otherwise Python will not recognize it as a tuple.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">thistuple <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>,)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="bu">print</span>(<span class="bu">type</span>(thistuple))</a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#NOT a tuple</span></a>
+<a class="sourceLine" id="cb7-5" title="5">thistuple <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>)</a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="bu">print</span>(<span class="bu">type</span>(thistuple))</a></code></pre></div>
+<ul>
+<li>It is also possible to use the tuple() constructor to make a tuple.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"></a>
+<a class="sourceLine" id="cb8-2" title="2">thistuple <span class="op">=</span> <span class="bu">tuple</span>((<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>)) <span class="co"># note the double round-brackets</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="bu">print</span>(thistuple)</a></code></pre></div>
+<h3 id="set">Set</h3>
+<ul>
+<li>Set is a collection which is unordered and unindexed. No duplicate members.</li>
+<li>A set is a collection which is both unordered and unindexed.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1">thisset <span class="op">=</span> {<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>}</a></code></pre></div>
+<ul>
+<li>Set items are unordered, unchangeable, and do not allow duplicate values.</li>
+<li><p>Unordered means that the items in a set do not have a defined order.</p></li>
+<li><p>Set items can appear in a different order every time you use them, and cannot be referred to by index or key.</p></li>
+<li>Sets are unchangeable, meaning that we cannot change the items after the set has been created.</li>
+<li>Duplicate values will be ignored.</li>
+<li>To determine how many items a set has, use the <code>len()</code> method.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">thisset <span class="op">=</span> {<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>}</a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="bu">print</span>(<span class="bu">len</span>(thisset))</a></code></pre></div>
+<ul>
+<li>Set items can be of any data type:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1">set1 <span class="op">=</span> {<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>}</a>
+<a class="sourceLine" id="cb11-2" title="2">set2 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">3</span>}</a>
+<a class="sourceLine" id="cb11-3" title="3">set3 <span class="op">=</span> {<span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>}</a>
+<a class="sourceLine" id="cb11-4" title="4">set4 <span class="op">=</span> {<span class="st">&quot;abc&quot;</span>, <span class="dv">34</span>, <span class="va">True</span>, <span class="dv">40</span>, <span class="st">&quot;male&quot;</span>}</a></code></pre></div>
+<ul>
+<li>It is also possible to use the <code>set()</code> constructor to make a set.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1">thisset <span class="op">=</span> <span class="bu">set</span>((<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>)) <span class="co"># note the double round-brackets</span></a></code></pre></div>
+<h3 id="dictionary">Dictionary</h3>
+<ul>
+<li>Dictionary is a collection which is unordered and changeable. No duplicate members.</li>
+<li>Dictionaries are used to store data values in key:value pairs.</li>
+<li>Dictionaries are written with curly brackets, and have keys and values:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1">thisdict <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="st">&quot;brand&quot;</span>: <span class="st">&quot;Ford&quot;</span>,</a>
+<a class="sourceLine" id="cb13-3" title="3">  <span class="st">&quot;model&quot;</span>: <span class="st">&quot;Mustang&quot;</span>,</a>
+<a class="sourceLine" id="cb13-4" title="4">  <span class="st">&quot;year&quot;</span>: <span class="dv">1964</span></a>
+<a class="sourceLine" id="cb13-5" title="5">}</a></code></pre></div>
+<ul>
+<li>Dictionary items are presented in key:value pairs, and can be referred to by using the key name.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">thisdict <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="st">&quot;brand&quot;</span>: <span class="st">&quot;Ford&quot;</span>,</a>
+<a class="sourceLine" id="cb14-3" title="3">  <span class="st">&quot;model&quot;</span>: <span class="st">&quot;Mustang&quot;</span>,</a>
+<a class="sourceLine" id="cb14-4" title="4">  <span class="st">&quot;year&quot;</span>: <span class="dv">1964</span></a>
+<a class="sourceLine" id="cb14-5" title="5">}</a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="bu">print</span>(thisdict[<span class="st">&quot;brand&quot;</span>])</a></code></pre></div>
+<ul>
+<li>Dictionaries are changeable, meaning that we can change, add or remove items after the dictionary has been created.</li>
+<li>Dictionaries cannot have two items with the same key.</li>
+<li>Duplicate values will overwrite existing values.</li>
+<li>To determine how many items a dictionary has, use the <code>len()</code> function.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1"><span class="bu">print</span>(<span class="bu">len</span>(thisdict))</a></code></pre></div>
+<ul>
+<li>The values in dictionary items can be of any data type</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1">thisdict <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="st">&quot;brand&quot;</span>: <span class="st">&quot;Ford&quot;</span>,</a>
+<a class="sourceLine" id="cb16-3" title="3">  <span class="st">&quot;electric&quot;</span>: <span class="va">False</span>,</a>
+<a class="sourceLine" id="cb16-4" title="4">  <span class="st">&quot;year&quot;</span>: <span class="dv">1964</span>,</a>
+<a class="sourceLine" id="cb16-5" title="5">  <span class="st">&quot;colors&quot;</span>: [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;blue&quot;</span>]</a>
+<a class="sourceLine" id="cb16-6" title="6">}</a></code></pre></div>
+<h3 id="conditional-branching">Conditional branching</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1">    <span class="cf">if</span> condition:</a>
+<a class="sourceLine" id="cb17-2" title="2">        <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="cf">elif</span> condition2:</a>
+<a class="sourceLine" id="cb17-4" title="4">        <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb17-5" title="5">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb17-6" title="6">        <span class="cf">pass</span></a></code></pre></div>
+<h3 id="loops">Loops</h3>
+<p>Python has two primitive loop commands: 1. while loops 2. for loops</p>
+<h4 id="while-loop">While loop</h4>
+<ul>
+<li>With the <code>while</code> loop we can execute a set of statements as long as a condition is true.</li>
+<li>Example: Print i as long as i is less than 6</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" title="1">i <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</a>
+<a class="sourceLine" id="cb18-3" title="3">  <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb18-4" title="4">  i <span class="op">+=</span> <span class="dv">1</span></a></code></pre></div>
+<ul>
+<li>The while loop requires relevant variables to be ready, in this example we need to define an indexing variable, i, which we set to 1.</li>
+<li>With the <code>break</code> statement we can stop the loop even if the while condition is true</li>
+<li><p>With the continue statement we can stop the current iteration, and continue with the next.</p></li>
+<li><p>With the else statement we can run a block of code once when the condition no longer is true.</p></li>
+</ul>
+<h4 id="for-loop">For loop</h4>
+<ul>
+<li><p>A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).</p></li>
+<li><p>This is less like the for keyword in other programming languages, and works more like an iterator method as found in other object-orientated programming languages.</p></li>
+<li>With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" title="1">fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="cf">for</span> x <span class="kw">in</span> fruits:</a>
+<a class="sourceLine" id="cb19-3" title="3">  <span class="bu">print</span>(x)</a></code></pre></div>
+<ul>
+<li>The for loop does not require an indexing variable to set beforehand.</li>
+<li>To loop through a set of code a specified number of times, we can use the range() function.</li>
+<li>The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.</li>
+<li>The range() function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: range(2, 30, 3).</li>
+<li><p>The else keyword in a for loop specifies a block of code to be executed when the loop is finished. A nested loop is a loop inside a loop.</p></li>
+<li><p>The “inner loop” will be executed one time for each iteration of the “outer loop”:</p></li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" title="1">adj <span class="op">=</span> [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;big&quot;</span>, <span class="st">&quot;tasty&quot;</span>]</a>
+<a class="sourceLine" id="cb20-2" title="2">fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</a>
+<a class="sourceLine" id="cb20-3" title="3"></a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="cf">for</span> x <span class="kw">in</span> adj:</a>
+<a class="sourceLine" id="cb20-5" title="5">  <span class="cf">for</span> y <span class="kw">in</span> fruits:</a>
+<a class="sourceLine" id="cb20-6" title="6">    <span class="bu">print</span>(x, y)</a></code></pre></div>
+<ul>
+<li>for loops cannot be empty, but if you for some reason have a for loop with no content, put in the pass statement to avoid getting an error.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" title="1"><span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]:</a>
+<a class="sourceLine" id="cb21-2" title="2">  <span class="cf">pass</span></a></code></pre></div>
+<h3 id="function-definition">Function definition</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">def</span> function_name():</a>
+<a class="sourceLine" id="cb22-2" title="2">    <span class="cf">return</span></a></code></pre></div>
+<h3 id="function-call">Function call</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" title="1">function_name()</a></code></pre></div>
+<ul>
+<li>We need not to specify the return type of the function.</li>
+<li>Functions by default return <code>None</code></li>
+<li>We can return any datatype.</li>
+</ul>
+</body></html>
