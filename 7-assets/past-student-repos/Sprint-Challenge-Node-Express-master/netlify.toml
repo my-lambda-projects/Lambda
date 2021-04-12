@@ -1,5 +1,0 @@
-[build]
-
-base = "./express"
-publish = "./express/build"
-command = "yarn build"

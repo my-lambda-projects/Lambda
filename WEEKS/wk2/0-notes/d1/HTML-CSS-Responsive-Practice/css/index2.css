@@ -1,0 +1,410 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+body {
+  background: white;
+  line-height: 1;
+  color: black;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+
+/* remove possible quote marks (") from <q> & <blockquote> */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+blockquote,
+q {
+  quotes: """";
+}
+
+* {
+  box-sizing: border-box;
+  /*respect the width I've given you, if I add padding or margin applyit within the given width not in addition to it*/
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  /*you can never be bigger than your parent*/
+  /* border:1px solid grey; */
+}
+
+/*General Styles*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #4F4F4F;
+  background-color: #FBFFFB;
+}
+
+a {
+  text-decoration: none;
+  color: #266035;
+}
+
+section {
+  padding: 4% 0;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #266035;
+  margin-bottom: 2%;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+/*Header Section Styles*/
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  width: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 70%;
+}
+
+.links {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/*Home Section Styles*/
+
+#home {
+  background-image: url('../images/header.jpg');
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+  color: #FBFFFB;
+}
+
+#home button {
+  padding: 3% 2%;
+  font-size: 1.8rem;
+  margin-top: 4%;
+  border-radius: 10px;
+  color: #266035;
+  border: 2px solid #266035;
+}
+
+/*about section*/
+#about {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20% 0;
+  background-image: url('../images/about-img.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#about div {
+  width: 20%;
+  margin-right: 5%;
+}
+
+/*Plant Section Styles*/
+.container {
+  display: flex;
+}
+
+.container div {
+  width: 50%;
+}
+
+.container .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4% 0;
+  text-align: center;
+}
+
+.container .text div {
+  width: 40%;
+}
+
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  height: 50vh;
+}
+
+.succlants {
+  background-image: url('../images/succulants.jpg');
+}
+
+.cacti {
+  background-image: url('../images/cacti.jpg');
+}
+
+.tropicals {
+  background-image: url('../images/tropicals.jpg');
+}
+
+/*footer section styles*/
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  color: #FBFFFB;
+  background-color: #266035;
+}
+
+footer a {
+  color: #FBFFFB;
+}
+
+footer h2 {
+  width: 100%;
+  color: #FBFFFB;
+}
+
+footer h3 {
+  color: #FBFFFB;
+}
+
+.left,
+.right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left div {
+  width: 30%;
+  line-height: 2;
+}
+
+.right img {
+  width: 50%;
+}
+
+p.copyright {
+  width: 100%;
+  text-align: right;
+  margin-right: 5%;
+}
+
+/*Media Queries*/
+/*
+min-width - is mobile first it's for scaling up
+max-width - desktop first - its for scaling down
+*/
+/*Tablet*/
+@media(max-width: 800px) {
+  #about div {
+    width: 30%;
+  }
+
+  .container .text div {
+    width: 60%;
+  }
+
+  .bgimg {
+    height: 82vh;
+  }
+
+  .left div {
+    width: 45%;
+  }
+
+  .right img {
+    width: 60%;
+  }
+}
+
+/*Phone*/
+@media(max-width: 500px) {
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    width: 15%;
+  }
+
+  .links {
+    width: 100%;
+  }
+
+  /*about section styles*/
+  #about {
+    background-image: none;
+    background-color: #e1e2e4;
+    justify-content: center;
+  }
+
+  #about div {
+    margin-right: 0;
+    width: 80%;
+  }
+
+  /*plant section styles*/
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container div {
+    width: 80%;
+  }
+
+  .bgimg {
+    height: 60vh;
+  }
+
+  .mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .right {
+    order: -1;
+  }
+
+  footer h2 {
+    order: -2;
+  }
+
+  p.copyright {
+    text-align: center;
+  }
+
+  .left div {
+    width: 60%;
+  }
+}
