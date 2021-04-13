@@ -86,10 +86,10 @@
     talks about packaging computer instructions up into small reusable units, albeit with the expectation these
     instructions would be stored on punched tape. The paper even argues that ‘all the complexities should, if possible,
     be buried out of sight,’ very much in line with the existing vision for serverless computing.</p>
-  <p>“In a way, nothing has changed since 1952, it’s just that we’ve got all this compute power,” says Graham-Cumming,
-    who referred to serverless computing as “functions-as-a-service” or FaaS.</p>
+  <p>“In a way, nothing has changed since 1952, it’s just that we’ve got all this compute power," says Graham-Cumming,
+    who referred to serverless computing as “functions-as-a-service" or FaaS.</p>
   <p>“What’s interesting about functions-as-a-service is it’s about getting back to this sense of ‘I can just write a
-    program and it’ll run anywhere.’”</p>
+    program and it’ll run anywhere.’"</p>
   <p><strong>Additional resources:</strong></p>
   <ul>
     <li>
@@ -116,21 +116,21 @@
     anthem by David Guetta. The agency that built the web app, Parallax, used AWS Lambda for various functions,
     including generating a custom album artwork based on information shared by the user.</p>
   <p>James Hall, director of Parallax, said the service needed an infrastructure that could cope from going from no
-    users to “millions” after Guetta read out the web address on TV.</p>
+    users to “millions" after Guetta read out the web address on TV.</p>
   <p>Rather than paying to repeatedly spin virtual machines up on AWS EC2 in an attempt to meet demand, the team instead
     paid only for the time their code was running on Lambda.</p>
-  <p>Using “a more traditional architecture” with an AWS EC2 Auto Scaling pool would have cost between £500 to £1,500
-    per month, he said, compared to “less than £300 a month” it ended up costing to use Lambda and other AWS services to
+  <p>Using “a more traditional architecture" with an AWS EC2 Auto Scaling pool would have cost between £500 to £1,500
+    per month, he said, compared to “less than £300 a month" it ended up costing to use Lambda and other AWS services to
     power the site.</p>
   <p>The first one million requests on Lambda per month are free, followed by $0.2 per million requests thereafter, so
-    for “for small applications, you could ostensibly run for absolutely nothing”, said Hall. That same free tier is
+    for “for small applications, you could ostensibly run for absolutely nothing", said Hall. That same free tier is
     available in Microsoft’s competing service, Azure Functions, with AWS’ and Microsoft’s free options also restricting
     usage to 400,000 gigabyte seconds (GB/s) or under, where GB/s is the memory used by the function multiplied by the
     time the function is running.</p>
   <p>Using Lambda can also be simpler than meshing together several other AWS services yourself, said Hall.</p>
   <p>“The reason doing that in Lambda is so good is because you don’t have a load of servers sat around waiting to
     process these images, you don’t need to write a queuing system, you don’t need any of that plumbing and leg work,
-    you can just have one function that returns an image,” he said.</p>
+    you can just have one function that returns an image," he said.</p>
   <p><strong>SEE: <a
         href="https://www.techrepublic.com/resource-library/whitepapers/aws-lambda-a-guide-to-the-serverless-computing-framework-free-pdf/">AWS
         Lambda: A guide to the serverless computing framework (free PDF)</a> (TechRepublic)</strong></p>
@@ -155,10 +155,10 @@
     function could be used to select the type of content a web application should return to a user, based on their
     location and the type of device they’re using. Lambda functions can also be used to glue AWS services together,
     being triggered by Auto Scaling events or CloudWatch alarms and in turn calling other AWS services.</p>
-  <p>“We think there’s a revolution going on called network-based serverless or network-based functions-as-a-service,”
+  <p>“We think there’s a revolution going on called network-based serverless or network-based functions-as-a-service,"
     says Cloudflare’s Graham-Cumming.</p>
   <p>“The idea is you start to forget about where the code runs, you have it all over the world, near where end users
-    are and it just gets distributed and executed at scale.”</p>
+    are and it just gets distributed and executed at scale."</p>
   <p>Like every computing paradigm, serverless has its drawbacks, particularly in its current form. One <a
       href="https://arxiv.org/pdf/1812.03651.pdf">recent paper by UC Berkeley researchers</a> highlighted the issues
     with the limited lifetimes of serverless instances, the network bottlenecks from constantly shunting data back and

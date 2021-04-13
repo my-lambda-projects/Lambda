@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":3,"applicationTime":115,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Barf Project</title>
+<meta name="description" content="BARF : A multiplatform open source Binary Analysis and Reverse engineering Framework">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/programa-stic/barf-project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "programa-stic/barf-project",
+  "description": "BARF : A multiplatform open source Binary Analysis and Reverse engineering Framework",
+  "url": "https://awesomeopensource.com/project/programa-stic/barf-project",
+  "sku": "project/programa-stic/barf-project",
+  "mpn": "project/programa-stic/barf-project",
+  "image": "https://github.com/programa-stic.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "programa-stic/barf-project",
+    "logo": "https://github.com/programa-stic.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.88",
+    "ratingCount": "1262"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="m83TlLGVX67rMjK+1nppw4FyMQJIvkp3Z9HqXlLLJMLaldLIahupnzQBmtZaPqsAANj7RAoved2Xwwuekq0T8g==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/programa-stic/barf-project","location":"/project/programa-stic/barf-project","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/programa-stic/barf-project","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-04fbfa99-2b89-477a-999a-ed266c420a0e"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Barf <!-- -->Project</div><div class="aos_project_metadata_description">BARF : A multiplatform open source Binary Analysis and Reverse engineering Framework</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,262</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">bsd-2-clause</span><div class="aos_project_metadata_header"><a href="https://github.com/programa-stic/barf-project" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/programa-stic/barf-project" target="_blank">https://github.com/programa-stic/barf-project</a></span><div class="aos_project_metadata_header"><a href="https://github.com/programa-stic/barf-project/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/programa-stic/barf-project/issues" target="_blank">16</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">a year ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/python"><div style="display:block;text-decoration:none;padding-bottom:10px">python<span> (<!-- -->49,729<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/reverse-engineering"><div style="display:block;text-decoration:none;padding-bottom:10px">reverse-engineering<span> (<!-- -->446<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/arm"><div style="display:block;text-decoration:none;padding-bottom:10px">arm<span> (<!-- -->205<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/x86"><div style="display:block;text-decoration:none;padding-bottom:10px">x86<span> (<!-- -->120<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/binary-analysis"><div style="display:block;text-decoration:none;padding-bottom:10px">binary-analysis<span> (<!-- -->49<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="barf--binary-analysis-and-reverse-engineering-framework" class="anchor" href="#barf--binary-analysis-and-reverse-engineering-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BARF : Binary Analysis and Reverse engineering Framework</h1>
+<p><a href="https://travis-ci.org/programa-stic/barf-project" rel="nofollow"><img src="https://travis-ci.org/programa-stic/barf-project.svg?branch=master" alt="Build Status" style="max-width:100%;"></a></p>
+<p>The analysis of binary code is a crucial activity in many areas of the computer sciences and software engineering disciplines ranging from software security and program analysis to reverse engineering. Manual binary analysis is a difficult and time-consuming task and there are software tools that seek to automate or assist human analysts. However, most of these tools have several technical and commercial restrictions that limit access and use by a large portion of the academic and practitioner communities. <em>BARF</em> is an open source binary analysis framework that aims to support a wide range of binary code analysis tasks that are common in the information security discipline. It is a scriptable platform that supports instruction lifting from multiple architectures, binary translation to an intermediate representation, an extensible framework for code analysis plugins and interoperation with external tools such as debuggers, SMT solvers and instrumentation tools. The framework is designed primarily for human-assisted analysis but it can be fully automated.</p>
+<p>The <em>BARF project</em> includes <em>BARF</em> and related tools and packages. So far the
+project is composed of the following items:</p>
+<ul>
+<li>
+<strong>BARF</strong> : A multiplatform open source Binary Analysis and Reverse engineering Framework</li>
+<li>
+<strong>PyAsmJIT</strong> : A JIT for the Intel x86_64 and ARM architecture.</li>
+<li>Tools built upon <em>BARF</em>:
+<ul>
+<li>
+<strong>BARFgadgets</strong> : Lets you <em>search</em>, <em>classifiy</em> and <em>verify</em> ROP gadgets inside a binary program.</li>
+<li>
+<strong>BARFcfg</strong> : Lets you recover the control-flow graph of the functions of a binary program.</li>
+<li>
+<strong>BARFcg</strong> : Lets you recover the call graph of the functions of a binary program.</li>
+</ul>
+</li>
+</ul>
+<p>For more information, see:</p>
+<ul>
+<li>
+<em>BARF: A multiplatform open source Binary Analysis and Reverse engineering Framework</em> (Whitepaper) [<a href="https://github.com/programa-stic/barf-project/blob/master/./doc/papers/barf.pdf" rel="nofollow">en</a>]</li>
+<li>
+<em>BARFing Gadgets</em> (ekoparty2014 presentation) [<a href="https://github.com/programa-stic/barf-project/blob/master/./doc/presentations/barfing-gadgets.ekoparty2014.es.pdf" rel="nofollow">es</a>]</li>
+</ul>
+<p>Current status:</p>
+<table>
+<thead>
+<tr>
+<th align="right"><strong>Latest Release</strong></th>
+<th align="left">v0.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>URL</strong></td>
+<td align="left"><a href="https://github.com/programa-stic/barf-project/releases/tag/v0.6.0" rel="nofollow">https://github.com/programa-stic/barf-project/releases/tag/v0.6.0</a></td>
+</tr>
+<tr>
+<td align="right"><strong>Change Log</strong></td>
+<td align="left"><a href="https://github.com/programa-stic/barf-project/blob/v0.6.0/CHANGELOG.md" rel="nofollow">https://github.com/programa-stic/barf-project/blob/v0.6.0/CHANGELOG.md</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>All packages were tested on Ubuntu 16.04 (x86_64).</p>
+</blockquote>
+<h2>
+<a id="barf" class="anchor" href="#barf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BARF</h2>
+<p><em>BARF</em> is a Python package for binary analysis and reverse engineering. It can:</p>
+<ul>
+<li>Load binary programs in different formats (<code>ELF</code>, <code>PE</code>, etc),</li>
+<li>It supports the Intel x86 architecture for 32 and 64 bits,</li>
+<li>It supports the ARM architecture for 32 bits,</li>
+<li>It operates on an intermediate language (<a href="http://www.usenix.org/legacy/event/woot10/tech/full_papers/Dullien.pdf" rel="nofollow">REIL</a>) thus all analysis algorithm are architecture-agnostic,</li>
+<li>It has integration with <a href="https://github.com/Z3Prover/z3" rel="nofollow">Z3</a> and <a href="http://cvc4.cs.nyu.edu/web/" rel="nofollow">CVC4</a> SMT solvers which means that you can express fragments of code as formulae and check restrictions on them.</li>
+</ul>
+<p>It is currently <em>under development</em>.</p>
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+<p><em>BARF</em> depends on the following SMT solvers:</p>
+<ul>
+<li>
+<a href="https://github.com/Z3Prover/z3" rel="nofollow">Z3</a> : A high-performance theorem prover being developed at Microsoft Research.</li>
+<li>
+<a href="http://cvc4.cs.nyu.edu/web/" rel="nofollow">CVC4</a> : An efficient open-source automatic theorem prover for satisfiability modulo theories (SMT) problems.</li>
+</ul>
+<p>The following command installs <em>BARF</em> on your system:</p>
+<pre lang="bash" class="highlight-bash"><span class="nv">$ </span><span class="nb">sudo </span>python setup.py <span class="nb">install</span>
+</pre>
+<p>You can also install it locally:</p>
+<pre lang="bash" class="highlight-bash"><span class="nv">$ </span><span class="nb">sudo </span>python setup.py <span class="nb">install</span> <span class="nt">--user</span>
+</pre>
+<h4>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h4>
+<ul>
+<li>Only one SMT solver is needed in order to work. You may choose between Z3 and CVC4 or install both.</li>
+<li>To run some tests you need to install <a href="https://github.com/programa-stic/pyasmjit" rel="nofollow">PyAsmJIT</a> first: <code>sudo pip install pyasmjit</code>
+</li>
+<li>You may need to install <a href="http://graphviz.org/" rel="nofollow">Graphviz</a>: <code>sudo apt-get install graphviz</code>
+</li>
+</ul>
+<h3>
+<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quickstart</h3>
+<p>This is a very simple example which shows how to open a binary file and print each instruction with its translation to the intermediate language (<em>REIL</em>).</p>
+<pre lang="python" class="highlight-python"><span class="kn">from</span> <span class="nn">barf</span> <span class="kn">import</span> <span class="n">BARF</span>
+
+<span class="c"># Open binary file.</span>
+<span class="n">barf</span> <span class="o">=</span> <span class="n">BARF</span><span class="p">(</span><span class="s">"examples/misc/samples/bin/branch4.x86"</span><span class="p">)</span>
+
+<span class="c"># Print assembly instruction.</span>
+<span class="k">for</span> <span class="n">addr</span><span class="p">,</span> <span class="n">asm_instr</span><span class="p">,</span> <span class="n">reil_instrs</span> <span class="ow">in</span> <span class="n">barf</span><span class="o">.</span><span class="n">translate</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"{:#x} {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">asm_instr</span><span class="p">))</span>
+
+    <span class="c"># Print REIL translation.</span>
+    <span class="k">for</span> <span class="n">reil_instr</span> <span class="ow">in</span> <span class="n">reil_instrs</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reil_instr</span><span class="p">))</span>
+</pre>
+<p>We can also recover the CFG and save it to a <code>.dot</code> file.</p>
+<pre lang="python" class="highlight-python"><span class="c"># Recover CFG.</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">recover_cfg</span><span class="p">()</span>
+
+<span class="c"># Save CFG to a .dot file.</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">"branch4.x86_cfg"</span><span class="p">)</span>
+</pre>
+<p>We can check restrictions on code using a SMT solver. For instance, suppose you have the following code:</p>
+<pre><code> 80483ed:       55                      push   ebp
+ 80483ee:       89 e5                   mov    ebp,esp
+ 80483f0:       83 ec 10                sub    esp,0x10
+ 80483f3:       8b 45 f8                mov    eax,DWORD PTR [ebp-0x8]
+ 80483f6:       8b 55 f4                mov    edx,DWORD PTR [ebp-0xc]
+ 80483f9:       01 d0                   add    eax,edx
+ 80483fb:       83 c0 05                add    eax,0x5
+ 80483fe:       89 45 fc                mov    DWORD PTR [ebp-0x4],eax
+ 8048401:       8b 45 fc                mov    eax,DWORD PTR [ebp-0x4]
+ 8048404:       c9                      leave
+ 8048405:       c3                      ret
+</code></pre>
+<p>And you want to know what values you have to assign to memory locations <code>ebp-0x4</code>, <code>ebp-0x8</code> and <code>ebp-0xc</code> in order to obtain a specific value in <code>eax</code> register after executing the code.</p>
+<p>First, we add the instructions to the analyzer component.</p>
+<pre lang="python" class="highlight-python"><span class="kn">from</span> <span class="nn">barf</span> <span class="kn">import</span> <span class="n">BARF</span>
+
+<span class="c"># Open ELF file</span>
+<span class="n">barf</span> <span class="o">=</span> <span class="n">BARF</span><span class="p">(</span><span class="s">"examples/misc/samples/bin/constraint1.x86"</span><span class="p">)</span>
+
+<span class="c"># Add instructions to analyze.</span>
+<span class="k">for</span> <span class="n">addr</span><span class="p">,</span> <span class="n">asm_instr</span><span class="p">,</span> <span class="n">reil_instrs</span> <span class="ow">in</span> <span class="n">barf</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mh">0x80483ed</span><span class="p">,</span> <span class="mh">0x8048401</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">reil_instr</span> <span class="ow">in</span> <span class="n">reil_instrs</span><span class="p">:</span>
+        <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">add_instruction</span><span class="p">(</span><span class="n">reil_instr</span><span class="p">)</span>
+</pre>
+<p>Then, we generate expressions for each variable of interest and add the desired restrictions on them.</p>
+<pre lang="python" class="highlight-python"><span class="n">ebp</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_register_expr</span><span class="p">(</span><span class="s">"ebp"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"post"</span><span class="p">)</span>
+
+<span class="c"># Preconditions: set range for variable a and b</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_memory_expr</span><span class="p">(</span><span class="n">ebp</span><span class="o">-</span><span class="mh">0x8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"pre"</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_memory_expr</span><span class="p">(</span><span class="n">ebp</span><span class="o">-</span><span class="mh">0xc</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"pre"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">constr</span> <span class="ow">in</span> <span class="p">[</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">]:</span>
+    <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">constr</span><span class="p">)</span>
+
+<span class="c"># Postconditions: set desired value for the result</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_memory_expr</span><span class="p">(</span><span class="n">ebp</span><span class="o">-</span><span class="mh">0x4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"post"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">constr</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">26</span><span class="p">,</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">28</span><span class="p">]:</span>
+    <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">constr</span><span class="p">)</span>
+</pre>
+<p>Finally, we check is the restrictions we establish can be resolved.</p>
+<pre lang="python" class="highlight-python"><span class="k">if</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">check</span><span class="p">()</span> <span class="o">==</span> <span class="s">'sat'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"[+] Satisfiable! Possible assignments:"</span><span class="p">)</span>
+
+    <span class="c"># Get concrete value for expressions</span>
+    <span class="n">a_val</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_expr_value</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b_val</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_expr_value</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">c_val</span> <span class="o">=</span> <span class="n">barf</span><span class="o">.</span><span class="n">code_analyzer</span><span class="o">.</span><span class="n">get_expr_value</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+    <span class="c"># Print values</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"- a: {0:#010x} ({0})"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a_val</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"- b: {0:#010x} ({0})"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b_val</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"- c: {0:#010x} ({0})"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_val</span><span class="p">))</span>
+
+    <span class="k">assert</span> <span class="n">a_val</span> <span class="o">+</span> <span class="n">b_val</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">==</span> <span class="n">c_val</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"[-] Unsatisfiable!"</span><span class="p">)</span>
+</pre>
+<p>You can see these and more examples in the <a href="https://github.com/programa-stic/barf-project/blob/master/./examples" rel="nofollow">examples</a> directory.</p>
+<h3>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h3>
+<p>The framework is divided in three main components: <strong>core</strong>, <strong>arch</strong> and <strong>analysis</strong>.</p>
+<h4>
+<a id="core" class="anchor" href="#core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Core</h4>
+<p>This component contains essential modules:</p>
+<ul>
+<li>
+<code>REIL</code>: Provides definitions for the REIL language. It, also, implements an <em>emulator</em> and a <em>parser</em>.</li>
+<li>
+<code>SMT</code>: Provides means to interface with <a href="https://github.com/Z3Prover/z3" rel="nofollow">Z3</a> and <a href="http://cvc4.cs.nyu.edu/web/" rel="nofollow">CVC4</a> SMT solver. Also, it provides functionality to translate REIL instructions to SMT expressions.</li>
+<li>
+<code>BI</code>: The <em>Binary Interface</em> module is responsible for loading binary files for processing (it uses <a href="https://github.com/erocarrera/pefile" rel="nofollow">PEFile</a> and <a href="https://github.com/eliben/pyelftools" rel="nofollow">PyELFTools</a>.)</li>
+</ul>
+<h4>
+<a id="arch" class="anchor" href="#arch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arch</h4>
+<p>Each supported architecture is provided as a subcomponent which contains the following modules.</p>
+<ul>
+<li>
+<code>Architecture</code>: Describes the architecture, i.e., registers, memory address size.</li>
+<li>
+<code>Translator</code>: Provides translators to REIL for each supported instruction.</li>
+<li>
+<code>Disassembler</code>: Provides disassembling functionalities (it uses <a href="http://www.capstone-engine.org" rel="nofollow">Capstone</a>.)</li>
+<li>
+<code>Parser</code>: Transforms instruction from string to object form.</li>
+</ul>
+<h4>
+<a id="analysis" class="anchor" href="#analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analysis</h4>
+<p>So far this component consists of modules: <em>Control-Flow Graph</em>, <em>Call Graph</em> and <em>Code Analyzer</em>. The first two, provides functionality for CFG and CG recovery, respectively. The latter, its a high-level interface to the SMT solver related functionality.</p>
+<h2>
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h2>
+<h3>
+<a id="barfgadgets" class="anchor" href="#barfgadgets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BARFgadgets</h3>
+<p><code>BARFgadgets</code> is a Python script built upon BARF that lets you <em>search</em>, <em>classifiy</em> and <em>verify</em> ROP gadgets inside a binary program. The <em>search</em> stage finds all <code>ret</code>-, <code>jmp</code>- and <code>call</code>-ended gadgets inside the binary. The <em>classification</em> stage classifies previously found gadgets according to the following types:</p>
+<ul>
+<li>No-Operation,</li>
+<li>Move Register,</li>
+<li>Load Constant,</li>
+<li>Arithmetic/Logical Operation,</li>
+<li>Load Memory,</li>
+<li>Store Memory,</li>
+<li>Arithmetic/Logical Load,</li>
+<li>Arithmetic/Logical Store and</li>
+<li>Undefined.</li>
+</ul>
+<p>This is done through instruction emulation. Finally, the <em>verification</em> stage consists of using a SMT solver to verify the semantic assigned to each gadget in the second stage.</p>
+<pre><code>usage: BARFgadgets [-h] [--version] [--bdepth BDEPTH] [--idepth IDEPTH] [-u]
+                   [-c] [-v] [-o OUTPUT] [-t] [--sort {addr,depth}] [--color]
+                   [--show-binary] [--show-classification] [--show-invalid]
+                   [--summary SUMMARY] [-r {8,16,32,64}]
+                   filename
+
+Tool for finding, classifying and verifying ROP gadgets.
+
+positional arguments:
+  filename              Binary file name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             Display version.
+  --bdepth BDEPTH       Gadget depth in number of bytes.
+  --idepth IDEPTH       Gadget depth in number of instructions.
+  -u, --unique          Remove duplicate gadgets (in all steps).
+  -c, --classify        Run gadgets classification.
+  -v, --verify          Run gadgets verification (includes classification).
+  -o OUTPUT, --output OUTPUT
+                        Save output to file.
+  -t, --time            Print time of each processing step.
+  --sort {addr,depth}   Sort gadgets by address or depth (number of
+                        instructions) in ascending order.
+  --color               Format gadgets with ANSI color sequences, for output
+                        in a 256-color terminal or console.
+  --show-binary         Show binary code for each gadget.
+  --show-classification
+                        Show classification for each gadget.
+  --show-invalid        Show invalid gadget, i.e., gadgets that were
+                        classified but did not pass the verification process.
+  --summary SUMMARY     Save summary to file.
+  -r {8,16,32,64}       Filter verified gadgets by operands register size.
+</code></pre>
+<p>For more information, see <a href="https://github.com/programa-stic/barf-project/blob/master/./barf/tools/gadgets/README.md" rel="nofollow">README</a>.</p>
+<h3>
+<a id="barfcfg" class="anchor" href="#barfcfg" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BARFcfg</h3>
+<p><code>BARFcfg</code> is a Python script built upon BARF that lets you recover the
+control-flow graph of a binary program.</p>
+<pre><code>usage: BARFcfg [-h] [-s SYMBOL_FILE] [-f {txt,pdf,png,dot}] [-t]
+               [-d OUTPUT_DIR] [-b] [--show-reil]
+               [--immediate-format {hex,dec}] [-a | -r RECOVER]
+               filename
+
+Tool for recovering CFG of a binary.
+
+positional arguments:
+  filename              Binary file name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s SYMBOL_FILE, --symbol-file SYMBOL_FILE
+                        Load symbols from file.
+  -f {txt,pdf,png,dot}, --format {txt,pdf,png,dot}
+                        Output format.
+  -t, --time            Print process time.
+  -d OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        Output directory.
+  -b, --brief           Brief output.
+  --show-reil           Show REIL translation.
+  --immediate-format {hex,dec}
+                        Output format.
+  -a, --recover-all     Recover all functions.
+  -r RECOVER, --recover RECOVER
+                        Recover specified functions by address (comma
+                        separated).
+</code></pre>
+<h3>
+<a id="barfcg" class="anchor" href="#barfcg" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BARFcg</h3>
+<p><code>BARFcg</code> is a Python script built upon BARF that lets you recover the
+call graph of a binary program.</p>
+<pre><code>usage: BARFcg [-h] [-s SYMBOL_FILE] [-f {pdf,png,dot}] [-t] [-a | -r RECOVER]
+              filename
+
+Tool for recovering CG of a binary.
+
+positional arguments:
+  filename              Binary file name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s SYMBOL_FILE, --symbol-file SYMBOL_FILE
+                        Load symbols from file.
+  -f {pdf,png,dot}, --format {pdf,png,dot}
+                        Output format.
+  -t, --time            Print process time.
+  -a, --recover-all     Recover all functions.
+  -r RECOVER, --recover RECOVER
+                        Recover specified functions by address (comma
+                        separated).
+</code></pre>
+<h2>
+<a id="pyasmjit" class="anchor" href="#pyasmjit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PyAsmJIT</h2>
+<p><em>PyAsmJIT</em> is a Python package for x86_64/ARM assembly code generation and execution.</p>
+<p>This package was developed in order to test BARF instruction translation from x86_64/ARM to REIL. The main idea is to be able to run fragments of code natively. Then, the same fragment is translated to REIL and executed in a REIL VM. Finally, both final contexts (the one obtained through native execution and the one from emulation) are compare for differences.</p>
+<p>For more information, see <a href="https://github.com/programa-stic/pyasmjit" rel="nofollow">PyAsmJIT</a>.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>The BSD 2-Clause License. For more information, see <a href="https://github.com/programa-stic/barf-project/blob/master/./LICENSE" rel="nofollow">LICENSE</a>.</p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b9b23eb2e738',m:'6d4cf1c75373ff98bf66e6ed73174b9b0d6f9361-1610725542-1800-AU+pjYzSkdqpMoABL5YEl+RY/HEG11lfcVejxWCkKSybgzZpCPtdqXRWQpGdPWuxNGu9UxrstyEL/9JZj792O83WclgRuQDq3Bj1i7CWczU6MopqBiBKJoZDKhVSbh0y6/xeySak37bh8qqhjbALBM6WOV//FlVwFFXiJoaWnTXK',s:[0x6b524fc28f,0x09806d27ed],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="python"/> <!-- -->python<!-- --> (<!-- -->49,729<!-- -->) </div><div><input type="checkbox" name="topics" value="reverse-engineering"/> <!-- -->reverse-engineering<!-- --> (<!-- -->446<!-- -->) </div><div><input type="checkbox" name="topics" value="arm"/> <!-- -->arm<!-- --> (<!-- -->205<!-- -->) </div><div><input type="checkbox" name="topics" value="x86"/> <!-- -->x86<!-- --> (<!-- -->120<!-- -->) </div><div><input type="checkbox" name="topics" value="binary-analysis"/> <!-- -->binary-analysis<!-- --> (<!-- -->49<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Barf <!-- -->Project<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/programa-stic" target="_blank">Programa <!-- -->Stic</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/programa-stic" target="_blank">Programa <!-- -->Stic</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-04fbfa99-2b89-477a-999a-ed266c420a0e">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"arm","count":205},{"id":null,"name":"binary-analysis","count":49},{"id":null,"name":"python","count":49729},{"id":null,"name":"reverse-engineering","count":446},{"id":null,"name":"x86","count":120}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/programa-stic/barf-project","projects":[],"project":{"id":106510,"created_at":"2018-08-21T01:58:10.353Z","updated_at":"2021-01-14T03:21:48.550Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"barf--binary-analysis-and-reverse-engineering-framework\" class=\"anchor\" href=\"#barf--binary-analysis-and-reverse-engineering-framework\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBARF : Binary Analysis and Reverse engineering Framework\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.org/programa-stic/barf-project\" rel=\"nofollow\"\u003e\u003cimg src=\"https://travis-ci.org/programa-stic/barf-project.svg?branch=master\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe analysis of binary code is a crucial activity in many areas of the computer sciences and software engineering disciplines ranging from software security and program analysis to reverse engineering. Manual binary analysis is a difficult and time-consuming task and there are software tools that seek to automate or assist human analysts. However, most of these tools have several technical and commercial restrictions that limit access and use by a large portion of the academic and practitioner communities. \u003cem\u003eBARF\u003c/em\u003e is an open source binary analysis framework that aims to support a wide range of binary code analysis tasks that are common in the information security discipline. It is a scriptable platform that supports instruction lifting from multiple architectures, binary translation to an intermediate representation, an extensible framework for code analysis plugins and interoperation with external tools such as debuggers, SMT solvers and instrumentation tools. The framework is designed primarily for human-assisted analysis but it can be fully automated.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003eBARF project\u003c/em\u003e includes \u003cem\u003eBARF\u003c/em\u003e and related tools and packages. So far the\nproject is composed of the following items:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eBARF\u003c/strong\u003e : A multiplatform open source Binary Analysis and Reverse engineering Framework\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003ePyAsmJIT\u003c/strong\u003e : A JIT for the Intel x86_64 and ARM architecture.\u003c/li\u003e\n\u003cli\u003eTools built upon \u003cem\u003eBARF\u003c/em\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eBARFgadgets\u003c/strong\u003e : Lets you \u003cem\u003esearch\u003c/em\u003e, \u003cem\u003eclassifiy\u003c/em\u003e and \u003cem\u003everify\u003c/em\u003e ROP gadgets inside a binary program.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBARFcfg\u003c/strong\u003e : Lets you recover the control-flow graph of the functions of a binary program.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBARFcg\u003c/strong\u003e : Lets you recover the call graph of the functions of a binary program.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor more information, see:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003eBARF: A multiplatform open source Binary Analysis and Reverse engineering Framework\u003c/em\u003e (Whitepaper) [\u003ca href=\"https://github.com/programa-stic/barf-project/blob/master/./doc/papers/barf.pdf\" rel=\"nofollow\"\u003een\u003c/a\u003e]\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003eBARFing Gadgets\u003c/em\u003e (ekoparty2014 presentation) [\u003ca href=\"https://github.com/programa-stic/barf-project/blob/master/./doc/presentations/barfing-gadgets.ekoparty2014.es.pdf\" rel=\"nofollow\"\u003ees\u003c/a\u003e]\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCurrent status:\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"right\"\u003e\u003cstrong\u003eLatest Release\u003c/strong\u003e\u003c/th\u003e\n\u003cth align=\"left\"\u003ev0.6.0\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"right\"\u003e\u003cstrong\u003eURL\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/programa-stic/barf-project/releases/tag/v0.6.0\" rel=\"nofollow\"\u003ehttps://github.com/programa-stic/barf-project/releases/tag/v0.6.0\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"right\"\u003e\u003cstrong\u003eChange Log\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/programa-stic/barf-project/blob/v0.6.0/CHANGELOG.md\" rel=\"nofollow\"\u003ehttps://github.com/programa-stic/barf-project/blob/v0.6.0/CHANGELOG.md\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cblockquote\u003e\n\u003cp\u003eAll packages were tested on Ubuntu 16.04 (x86_64).\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"barf\" class=\"anchor\" href=\"#barf\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBARF\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eBARF\u003c/em\u003e is a Python package for binary analysis and reverse engineering. It can:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eLoad binary programs in different formats (\u003ccode\u003eELF\u003c/code\u003e, \u003ccode\u003ePE\u003c/code\u003e, etc),\u003c/li\u003e\n\u003cli\u003eIt supports the Intel x86 architecture for 32 and 64 bits,\u003c/li\u003e\n\u003cli\u003eIt supports the ARM architecture for 32 bits,\u003c/li\u003e\n\u003cli\u003eIt operates on an intermediate language (\u003ca href=\"http://www.usenix.org/legacy/event/woot10/tech/full_papers/Dullien.pdf\" rel=\"nofollow\"\u003eREIL\u003c/a\u003e) thus all analysis algorithm are architecture-agnostic,\u003c/li\u003e\n\u003cli\u003eIt has integration with \u003ca href=\"https://github.com/Z3Prover/z3\" rel=\"nofollow\"\u003eZ3\u003c/a\u003e and \u003ca href=\"http://cvc4.cs.nyu.edu/web/\" rel=\"nofollow\"\u003eCVC4\u003c/a\u003e SMT solvers which means that you can express fragments of code as formulae and check restrictions on them.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIt is currently \u003cem\u003eunder development\u003c/em\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h3\u003e\n\u003cp\u003e\u003cem\u003eBARF\u003c/em\u003e depends on the following SMT solvers:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/Z3Prover/z3\" rel=\"nofollow\"\u003eZ3\u003c/a\u003e : A high-performance theorem prover being developed at Microsoft Research.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://cvc4.cs.nyu.edu/web/\" rel=\"nofollow\"\u003eCVC4\u003c/a\u003e : An efficient open-source automatic theorem prover for satisfiability modulo theories (SMT) problems.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe following command installs \u003cem\u003eBARF\u003c/em\u003e on your system:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003e\u003cspan class=\"nb\"\u003esudo \u003c/span\u003epython setup.py \u003cspan class=\"nb\"\u003einstall\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eYou can also install it locally:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003e\u003cspan class=\"nb\"\u003esudo \u003c/span\u003epython setup.py \u003cspan class=\"nb\"\u003einstall\u003c/span\u003e \u003cspan class=\"nt\"\u003e--user\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"notes\" class=\"anchor\" href=\"#notes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eNotes\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eOnly one SMT solver is needed in order to work. You may choose between Z3 and CVC4 or install both.\u003c/li\u003e\n\u003cli\u003eTo run some tests you need to install \u003ca href=\"https://github.com/programa-stic/pyasmjit\" rel=\"nofollow\"\u003ePyAsmJIT\u003c/a\u003e first: \u003ccode\u003esudo pip install pyasmjit\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eYou may need to install \u003ca href=\"http://graphviz.org/\" rel=\"nofollow\"\u003eGraphviz\u003c/a\u003e: \u003ccode\u003esudo apt-get install graphviz\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"quickstart\" class=\"anchor\" href=\"#quickstart\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuickstart\u003c/h3\u003e\n\u003cp\u003eThis is a very simple example which shows how to open a binary file and print each instruction with its translation to the intermediate language (\u003cem\u003eREIL\u003c/em\u003e).\u003c/p\u003e\n\u003cpre lang=\"python\" class=\"highlight-python\"\u003e\u003cspan class=\"kn\"\u003efrom\u003c/span\u003e \u003cspan class=\"nn\"\u003ebarf\u003c/span\u003e \u003cspan class=\"kn\"\u003eimport\u003c/span\u003e \u003cspan class=\"n\"\u003eBARF\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Open binary file.\u003c/span\u003e\n\u003cspan class=\"n\"\u003ebarf\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003eBARF\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"examples/misc/samples/bin/branch4.x86\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Print assembly instruction.\u003c/span\u003e\n\u003cspan class=\"k\"\u003efor\u003c/span\u003e \u003cspan class=\"n\"\u003eaddr\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003easm_instr\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003ereil_instrs\u003c/span\u003e \u003cspan class=\"ow\"\u003ein\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003etranslate\u003c/span\u003e\u003cspan class=\"p\"\u003e():\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"{:#x} {}\"\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eaddr\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003easm_instr\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e# Print REIL translation.\u003c/span\u003e\n    \u003cspan class=\"k\"\u003efor\u003c/span\u003e \u003cspan class=\"n\"\u003ereil_instr\u003c/span\u003e \u003cspan class=\"ow\"\u003ein\u003c/span\u003e \u003cspan class=\"n\"\u003ereil_instrs\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\n        \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"\u003c/span\u003e\u003cspan class=\"se\"\u003e\\t\u003c/span\u003e\u003cspan class=\"s\"\u003e{}\"\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ereil_instr\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eWe can also recover the CFG and save it to a \u003ccode\u003e.dot\u003c/code\u003e file.\u003c/p\u003e\n\u003cpre lang=\"python\" class=\"highlight-python\"\u003e\u003cspan class=\"c\"\u003e# Recover CFG.\u003c/span\u003e\n\u003cspan class=\"n\"\u003ecfg\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003erecover_cfg\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Save CFG to a .dot file.\u003c/span\u003e\n\u003cspan class=\"n\"\u003ecfg\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003esave\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"branch4.x86_cfg\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eWe can check restrictions on code using a SMT solver. For instance, suppose you have the following code:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e 80483ed:       55                      push   ebp\n 80483ee:       89 e5                   mov    ebp,esp\n 80483f0:       83 ec 10                sub    esp,0x10\n 80483f3:       8b 45 f8                mov    eax,DWORD PTR [ebp-0x8]\n 80483f6:       8b 55 f4                mov    edx,DWORD PTR [ebp-0xc]\n 80483f9:       01 d0                   add    eax,edx\n 80483fb:       83 c0 05                add    eax,0x5\n 80483fe:       89 45 fc                mov    DWORD PTR [ebp-0x4],eax\n 8048401:       8b 45 fc                mov    eax,DWORD PTR [ebp-0x4]\n 8048404:       c9                      leave\n 8048405:       c3                      ret\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd you want to know what values you have to assign to memory locations \u003ccode\u003eebp-0x4\u003c/code\u003e, \u003ccode\u003eebp-0x8\u003c/code\u003e and \u003ccode\u003eebp-0xc\u003c/code\u003e in order to obtain a specific value in \u003ccode\u003eeax\u003c/code\u003e register after executing the code.\u003c/p\u003e\n\u003cp\u003eFirst, we add the instructions to the analyzer component.\u003c/p\u003e\n\u003cpre lang=\"python\" class=\"highlight-python\"\u003e\u003cspan class=\"kn\"\u003efrom\u003c/span\u003e \u003cspan class=\"nn\"\u003ebarf\u003c/span\u003e \u003cspan class=\"kn\"\u003eimport\u003c/span\u003e \u003cspan class=\"n\"\u003eBARF\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Open ELF file\u003c/span\u003e\n\u003cspan class=\"n\"\u003ebarf\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003eBARF\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"examples/misc/samples/bin/constraint1.x86\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Add instructions to analyze.\u003c/span\u003e\n\u003cspan class=\"k\"\u003efor\u003c/span\u003e \u003cspan class=\"n\"\u003eaddr\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003easm_instr\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003ereil_instrs\u003c/span\u003e \u003cspan class=\"ow\"\u003ein\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003etranslate\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"mh\"\u003e0x80483ed\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"mh\"\u003e0x8048401\u003c/span\u003e\u003cspan class=\"p\"\u003e):\u003c/span\u003e\n    \u003cspan class=\"k\"\u003efor\u003c/span\u003e \u003cspan class=\"n\"\u003ereil_instr\u003c/span\u003e \u003cspan class=\"ow\"\u003ein\u003c/span\u003e \u003cspan class=\"n\"\u003ereil_instrs\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\n        \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eadd_instruction\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ereil_instr\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eThen, we generate expressions for each variable of interest and add the desired restrictions on them.\u003c/p\u003e\n\u003cpre lang=\"python\" class=\"highlight-python\"\u003e\u003cspan class=\"n\"\u003eebp\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_register_expr\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"ebp\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003emode\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s\"\u003e\"post\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Preconditions: set range for variable a and b\u003c/span\u003e\n\u003cspan class=\"n\"\u003ea\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_memory_expr\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eebp\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u003c/span\u003e\u003cspan class=\"mh\"\u003e0x8\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"mi\"\u003e4\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003emode\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s\"\u003e\"pre\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"n\"\u003eb\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_memory_expr\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eebp\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u003c/span\u003e\u003cspan class=\"mh\"\u003e0xc\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"mi\"\u003e4\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003emode\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s\"\u003e\"pre\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"k\"\u003efor\u003c/span\u003e \u003cspan class=\"n\"\u003econstr\u003c/span\u003e \u003cspan class=\"ow\"\u003ein\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"n\"\u003ea\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026gt;=\u003c/span\u003e \u003cspan class=\"mi\"\u003e2\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003ea\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"mi\"\u003e100\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eb\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026gt;=\u003c/span\u003e \u003cspan class=\"mi\"\u003e2\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eb\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"mi\"\u003e100\u003c/span\u003e\u003cspan class=\"p\"\u003e]:\u003c/span\u003e\n    \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eadd_constraint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003econstr\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# Postconditions: set desired value for the result\u003c/span\u003e\n\u003cspan class=\"n\"\u003ec\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_memory_expr\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eebp\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u003c/span\u003e\u003cspan class=\"mh\"\u003e0x4\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"mi\"\u003e4\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003emode\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s\"\u003e\"post\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"k\"\u003efor\u003c/span\u003e \u003cspan class=\"n\"\u003econstr\u003c/span\u003e \u003cspan class=\"ow\"\u003ein\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"n\"\u003ec\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026gt;=\u003c/span\u003e \u003cspan class=\"mi\"\u003e26\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003ec\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"mi\"\u003e28\u003c/span\u003e\u003cspan class=\"p\"\u003e]:\u003c/span\u003e\n    \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eadd_constraint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003econstr\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eFinally, we check is the restrictions we establish can be resolved.\u003c/p\u003e\n\u003cpre lang=\"python\" class=\"highlight-python\"\u003e\u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003echeck\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e==\u003c/span\u003e \u003cspan class=\"s\"\u003e'sat'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"[+] Satisfiable! Possible assignments:\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e# Get concrete value for expressions\u003c/span\u003e\n    \u003cspan class=\"n\"\u003ea_val\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_expr_value\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ea\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eb_val\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_expr_value\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eb\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003ec_val\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"n\"\u003ebarf\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ecode_analyzer\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eget_expr_value\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ec\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e# Print values\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"- a: {0:#010x} ({0})\"\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ea_val\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"- b: {0:#010x} ({0})\"\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eb_val\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"- c: {0:#010x} ({0})\"\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ec_val\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\n    \u003cspan class=\"k\"\u003eassert\u003c/span\u003e \u003cspan class=\"n\"\u003ea_val\u003c/span\u003e \u003cspan class=\"o\"\u003e+\u003c/span\u003e \u003cspan class=\"n\"\u003eb_val\u003c/span\u003e \u003cspan class=\"o\"\u003e+\u003c/span\u003e \u003cspan class=\"mi\"\u003e5\u003c/span\u003e \u003cspan class=\"o\"\u003e==\u003c/span\u003e \u003cspan class=\"n\"\u003ec_val\u003c/span\u003e\n\u003cspan class=\"k\"\u003eelse\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eprint\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"[-] Unsatisfiable!\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eYou can see these and more examples in the \u003ca href=\"https://github.com/programa-stic/barf-project/blob/master/./examples\" rel=\"nofollow\"\u003eexamples\u003c/a\u003e directory.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"overview\" class=\"anchor\" href=\"#overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOverview\u003c/h3\u003e\n\u003cp\u003eThe framework is divided in three main components: \u003cstrong\u003ecore\u003c/strong\u003e, \u003cstrong\u003earch\u003c/strong\u003e and \u003cstrong\u003eanalysis\u003c/strong\u003e.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"core\" class=\"anchor\" href=\"#core\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCore\u003c/h4\u003e\n\u003cp\u003eThis component contains essential modules:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eREIL\u003c/code\u003e: Provides definitions for the REIL language. It, also, implements an \u003cem\u003eemulator\u003c/em\u003e and a \u003cem\u003eparser\u003c/em\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eSMT\u003c/code\u003e: Provides means to interface with \u003ca href=\"https://github.com/Z3Prover/z3\" rel=\"nofollow\"\u003eZ3\u003c/a\u003e and \u003ca href=\"http://cvc4.cs.nyu.edu/web/\" rel=\"nofollow\"\u003eCVC4\u003c/a\u003e SMT solver. Also, it provides functionality to translate REIL instructions to SMT expressions.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eBI\u003c/code\u003e: The \u003cem\u003eBinary Interface\u003c/em\u003e module is responsible for loading binary files for processing (it uses \u003ca href=\"https://github.com/erocarrera/pefile\" rel=\"nofollow\"\u003ePEFile\u003c/a\u003e and \u003ca href=\"https://github.com/eliben/pyelftools\" rel=\"nofollow\"\u003ePyELFTools\u003c/a\u003e.)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"arch\" class=\"anchor\" href=\"#arch\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArch\u003c/h4\u003e\n\u003cp\u003eEach supported architecture is provided as a subcomponent which contains the following modules.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eArchitecture\u003c/code\u003e: Describes the architecture, i.e., registers, memory address size.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eTranslator\u003c/code\u003e: Provides translators to REIL for each supported instruction.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eDisassembler\u003c/code\u003e: Provides disassembling functionalities (it uses \u003ca href=\"http://www.capstone-engine.org\" rel=\"nofollow\"\u003eCapstone\u003c/a\u003e.)\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eParser\u003c/code\u003e: Transforms instruction from string to object form.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"analysis\" class=\"anchor\" href=\"#analysis\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAnalysis\u003c/h4\u003e\n\u003cp\u003eSo far this component consists of modules: \u003cem\u003eControl-Flow Graph\u003c/em\u003e, \u003cem\u003eCall Graph\u003c/em\u003e and \u003cem\u003eCode Analyzer\u003c/em\u003e. The first two, provides functionality for CFG and CG recovery, respectively. The latter, its a high-level interface to the SMT solver related functionality.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"tools\" class=\"anchor\" href=\"#tools\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"barfgadgets\" class=\"anchor\" href=\"#barfgadgets\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBARFgadgets\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eBARFgadgets\u003c/code\u003e is a Python script built upon BARF that lets you \u003cem\u003esearch\u003c/em\u003e, \u003cem\u003eclassifiy\u003c/em\u003e and \u003cem\u003everify\u003c/em\u003e ROP gadgets inside a binary program. The \u003cem\u003esearch\u003c/em\u003e stage finds all \u003ccode\u003eret\u003c/code\u003e-, \u003ccode\u003ejmp\u003c/code\u003e- and \u003ccode\u003ecall\u003c/code\u003e-ended gadgets inside the binary. The \u003cem\u003eclassification\u003c/em\u003e stage classifies previously found gadgets according to the following types:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eNo-Operation,\u003c/li\u003e\n\u003cli\u003eMove Register,\u003c/li\u003e\n\u003cli\u003eLoad Constant,\u003c/li\u003e\n\u003cli\u003eArithmetic/Logical Operation,\u003c/li\u003e\n\u003cli\u003eLoad Memory,\u003c/li\u003e\n\u003cli\u003eStore Memory,\u003c/li\u003e\n\u003cli\u003eArithmetic/Logical Load,\u003c/li\u003e\n\u003cli\u003eArithmetic/Logical Store and\u003c/li\u003e\n\u003cli\u003eUndefined.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThis is done through instruction emulation. Finally, the \u003cem\u003everification\u003c/em\u003e stage consists of using a SMT solver to verify the semantic assigned to each gadget in the second stage.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eusage: BARFgadgets [-h] [--version] [--bdepth BDEPTH] [--idepth IDEPTH] [-u]\n                   [-c] [-v] [-o OUTPUT] [-t] [--sort {addr,depth}] [--color]\n                   [--show-binary] [--show-classification] [--show-invalid]\n                   [--summary SUMMARY] [-r {8,16,32,64}]\n                   filename\n\nTool for finding, classifying and verifying ROP gadgets.\n\npositional arguments:\n  filename              Binary file name.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --version             Display version.\n  --bdepth BDEPTH       Gadget depth in number of bytes.\n  --idepth IDEPTH       Gadget depth in number of instructions.\n  -u, --unique          Remove duplicate gadgets (in all steps).\n  -c, --classify        Run gadgets classification.\n  -v, --verify          Run gadgets verification (includes classification).\n  -o OUTPUT, --output OUTPUT\n                        Save output to file.\n  -t, --time            Print time of each processing step.\n  --sort {addr,depth}   Sort gadgets by address or depth (number of\n                        instructions) in ascending order.\n  --color               Format gadgets with ANSI color sequences, for output\n                        in a 256-color terminal or console.\n  --show-binary         Show binary code for each gadget.\n  --show-classification\n                        Show classification for each gadget.\n  --show-invalid        Show invalid gadget, i.e., gadgets that were\n                        classified but did not pass the verification process.\n  --summary SUMMARY     Save summary to file.\n  -r {8,16,32,64}       Filter verified gadgets by operands register size.\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more information, see \u003ca href=\"https://github.com/programa-stic/barf-project/blob/master/./barf/tools/gadgets/README.md\" rel=\"nofollow\"\u003eREADME\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"barfcfg\" class=\"anchor\" href=\"#barfcfg\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBARFcfg\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eBARFcfg\u003c/code\u003e is a Python script built upon BARF that lets you recover the\ncontrol-flow graph of a binary program.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eusage: BARFcfg [-h] [-s SYMBOL_FILE] [-f {txt,pdf,png,dot}] [-t]\n               [-d OUTPUT_DIR] [-b] [--show-reil]\n               [--immediate-format {hex,dec}] [-a | -r RECOVER]\n               filename\n\nTool for recovering CFG of a binary.\n\npositional arguments:\n  filename              Binary file name.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  -s SYMBOL_FILE, --symbol-file SYMBOL_FILE\n                        Load symbols from file.\n  -f {txt,pdf,png,dot}, --format {txt,pdf,png,dot}\n                        Output format.\n  -t, --time            Print process time.\n  -d OUTPUT_DIR, --output-dir OUTPUT_DIR\n                        Output directory.\n  -b, --brief           Brief output.\n  --show-reil           Show REIL translation.\n  --immediate-format {hex,dec}\n                        Output format.\n  -a, --recover-all     Recover all functions.\n  -r RECOVER, --recover RECOVER\n                        Recover specified functions by address (comma\n                        separated).\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"barfcg\" class=\"anchor\" href=\"#barfcg\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBARFcg\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eBARFcg\u003c/code\u003e is a Python script built upon BARF that lets you recover the\ncall graph of a binary program.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eusage: BARFcg [-h] [-s SYMBOL_FILE] [-f {pdf,png,dot}] [-t] [-a | -r RECOVER]\n              filename\n\nTool for recovering CG of a binary.\n\npositional arguments:\n  filename              Binary file name.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  -s SYMBOL_FILE, --symbol-file SYMBOL_FILE\n                        Load symbols from file.\n  -f {pdf,png,dot}, --format {pdf,png,dot}\n                        Output format.\n  -t, --time            Print process time.\n  -a, --recover-all     Recover all functions.\n  -r RECOVER, --recover RECOVER\n                        Recover specified functions by address (comma\n                        separated).\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"pyasmjit\" class=\"anchor\" href=\"#pyasmjit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePyAsmJIT\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003ePyAsmJIT\u003c/em\u003e is a Python package for x86_64/ARM assembly code generation and execution.\u003c/p\u003e\n\u003cp\u003eThis package was developed in order to test BARF instruction translation from x86_64/ARM to REIL. The main idea is to be able to run fragments of code natively. Then, the same fragment is translated to REIL and executed in a REIL VM. Finally, both final contexts (the one obtained through native execution and the one from emulation) are compare for differences.\u003c/p\u003e\n\u003cp\u003eFor more information, see \u003ca href=\"https://github.com/programa-stic/pyasmjit\" rel=\"nofollow\"\u003ePyAsmJIT\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eThe BSD 2-Clause License. For more information, see \u003ca href=\"https://github.com/programa-stic/barf-project/blob/master/./LICENSE\" rel=\"nofollow\"\u003eLICENSE\u003c/a\u003e.\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":25641440,"name":"barf-project","owner_login":"programa-stic","description":"BARF : A multiplatform open source Binary Analysis and Reverse engineering Framework","pushed_at":"2019-11-24T16:06:27.000Z","stargazers_count":1262,"open_issues_count":16,"has_downloads":true,"archived":false,"license_key":"bsd-2-clause","homepage":"","private":false,"project_created_at":"2014-10-23T14:33:24.000Z","project_updated_at":"2021-01-12T08:51:37.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

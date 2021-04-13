@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":1,"applicationTime":159,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Wordpressify</title>
+<meta name="description" content="🎈 A build system designed to automate your WordPress development workflow.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/luangjokaj/wordpressify">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "luangjokaj/wordpressify",
+  "description": "🎈 A build system designed to automate your WordPress development workflow.",
+  "url": "https://awesomeopensource.com/project/luangjokaj/wordpressify",
+  "sku": "project/luangjokaj/wordpressify",
+  "mpn": "project/luangjokaj/wordpressify",
+  "image": "https://github.com/luangjokaj.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "luangjokaj/wordpressify",
+    "logo": "https://github.com/luangjokaj.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.91",
+    "ratingCount": "1335"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="8eMMQe+SVuG9bYpsXEmVYHi7HZEhZJfvAmX0DHBX1q1LKh7g8KIqeizmS543mw6JYscmAfgBcXOBjxdE9GtXnw==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/luangjokaj/wordpressify","location":"/project/luangjokaj/wordpressify","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/luangjokaj/wordpressify","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-4ea6bab3-a5b9-42f9-b6a9-b4922f101532"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Wordpressify</div><div class="aos_project_metadata_description">🎈 A build system designed to automate your WordPress development workflow.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,335</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="http://www.wordpressify.co/" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="http://www.wordpressify.co/" target="_blank">http://www.wordpressify.co/</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/luangjokaj/wordpressify" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/luangjokaj/wordpressify" target="_blank">https://github.com/luangjokaj/wordpressify</a></span><div class="aos_project_metadata_header"><a href="https://github.com/luangjokaj/wordpressify/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/luangjokaj/wordpressify/issues" target="_blank">2</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">5 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/javascript"><div style="display:block;text-decoration:none;padding-bottom:10px">javascript<span> (<!-- -->67,310<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nodejs"><div style="display:block;text-decoration:none;padding-bottom:10px">nodejs<span> (<!-- -->3,563<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/docker"><div style="display:block;text-decoration:none;padding-bottom:10px">docker<span> (<!-- -->2,668<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/database"><div style="display:block;text-decoration:none;padding-bottom:10px">database<span> (<!-- -->1,156<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/node"><div style="display:block;text-decoration:none;padding-bottom:10px">node<span> (<!-- -->935<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/wordpress"><div style="display:block;text-decoration:none;padding-bottom:10px">wordpress<span> (<!-- -->638<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/boilerplate"><div style="display:block;text-decoration:none;padding-bottom:10px">boilerplate<span> (<!-- -->590<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/es6"><div style="display:block;text-decoration:none;padding-bottom:10px">es6<span> (<!-- -->512<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nginx"><div style="display:block;text-decoration:none;padding-bottom:10px">nginx<span> (<!-- -->460<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/docker-compose"><div style="display:block;text-decoration:none;padding-bottom:10px">docker-compose<span> (<!-- -->358<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/workflow"><div style="display:block;text-decoration:none;padding-bottom:10px">workflow<span> (<!-- -->315<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/gulp"><div style="display:block;text-decoration:none;padding-bottom:10px">gulp<span> (<!-- -->196<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/postcss"><div style="display:block;text-decoration:none;padding-bottom:10px">postcss<span> (<!-- -->163<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/build-tool"><div style="display:block;text-decoration:none;padding-bottom:10px">build-tool<span> (<!-- -->146<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/wordpress-theme"><div style="display:block;text-decoration:none;padding-bottom:10px">wordpress-theme<span> (<!-- -->80<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/xdebug"><div style="display:block;text-decoration:none;padding-bottom:10px">xdebug<span> (<!-- -->20<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p><a href="https://www.wordpressify.co/" rel="nofollow"><img src="https://i.imgur.com/5dVJS70.png" alt="WordPressify Logo" style="max-width:100%;"></a></p>
+<p><a href="https://www.wordpressify.co/" rel="nofollow"><img src="https://img.shields.io/github/package-json/v/luangjokaj/wordpressify" alt="Version" style="max-width:100%;"></a> <a href="https://www.wordpressify.co/" rel="nofollow"><img src="https://img.shields.io/david/luangjokaj/wordpressify" alt="Dependencies" style="max-width:100%;"></a></p>
+<p>A build system designed to automate your WordPress development workflow.</p>
+<p><a href="https://www.wordpressify.co/" rel="nofollow">https://www.wordpressify.co/</a></p>
+<ul>
+<li>
+<a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#what-is-wordpressify">What is WordPressify?</a></li>
+</ul>
+</li>
+<li><a href="#1-installing-nodejs-and-docker">1. Installing Node.js and Docker</a></li>
+<li>
+<a href="#2-set-up-project">2. Set Up Project</a>
+<ul>
+<li><a href="#install-wordpressify-from-npm">Install WordPressify from NPM</a></li>
+<li><a href="#install-wordpressify-from-repository">Install WordPressify from Repository</a></li>
+<li><a href="#start-workflow">Start Workflow</a></li>
+<li><a href="#production-template">Production Template</a></li>
+</ul>
+</li>
+<li>
+<a href="#3-css-postcss-and-sass">3. CSS, PostCSS and Sass</a>
+<ul>
+<li><a href="#postcss">PostCSS</a></li>
+<li><a href="#sass">Sass</a></li>
+</ul>
+</li>
+<li>
+<a href="#4-images-and-fonts">4. Images and Fonts</a>
+<ul>
+<li><a href="#images">Images</a></li>
+<li><a href="#fonts">Fonts</a></li>
+</ul>
+</li>
+<li>
+<a href="#5-javascript-es6">5. JavaScript ES6</a>
+<ul>
+<li><a href="#write-es6-javascript">Write ES6 JavaScript</a></li>
+</ul>
+</li>
+<li><a href="#6-external-libraries">6. External Libraries</a></li>
+<li><a href="#7-build-backups">7. Build Backups</a></li>
+<li>
+<a href="#8-code-style-rules">8. Code Style Rules</a>
+<ul>
+<li><a href="#lint-css">Lint CSS</a></li>
+</ul>
+</li>
+<li>
+<a href="#9-using-xdebug">9. Using Xdebug</a>
+<ul>
+<li><a href="#xdebug-on-linux">Xdebug on Linux</a></li>
+</ul>
+</li>
+<li><a href="#10-changing-php-and-docker-settings">10. Changing PHP and Docker settings</a></li>
+<li>
+<a href="#11-deployment">11. Deployment</a>
+<ul>
+<li><a href="#automated-deployments">Automated Deployments</a></li>
+</ul>
+</li>
+<li><a href="#12-troubleshooting">12. Troubleshooting</a></li>
+<li><a href="https://github.com/luangjokaj/wordpressify/blob/master/CHANGELOG.md" rel="nofollow">Changelog</a></li>
+<li><a href="https://github.com/luangjokaj/wordpressify/blob/master/LICENSE" rel="nofollow">License</a></li>
+</ul>
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Information</th>
+<th align="left">Discord</th>
+<th align="left">Donate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<a href="https://www.wordpressify.co" rel="nofollow">WordPressify</a> is a modern workflow for your WordPress development, with an integrated database, web server and auto-reload. CSS preprocessors and ES6 ready.</td>
+<td align="left"><a href="https://discord.gg/uQFdMddMZw" rel="nofollow"><img src="https://svgshare.com/i/Lqc.svg" alt="Discord server" style="max-width:100%;"></a></td>
+<td align="left"><a href="https://www.buymeacoffee.com/luangjokaj" rel="nofollow"><img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-1.svg" alt="BuyMeACoffee" style="max-width:100%;"></a></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+<table>
+<thead>
+<tr>
+<th align="center">👇</th>
+<th align="left">Includes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">📦</td>
+<td align="left">Dev Server with Xdebug</td>
+</tr>
+<tr>
+<td align="center">💽</td>
+<td align="left">MariaDB Database</td>
+</tr>
+<tr>
+<td align="center">🔥</td>
+<td align="left">Hot Reload &amp; CSS Injection</td>
+</tr>
+<tr>
+<td align="center">🎨</td>
+<td align="left">PostCSS &amp; Next Generation CSS</td>
+</tr>
+<tr>
+<td align="center">🍒</td>
+<td align="left"><a href="https://cherry.design" rel="nofollow">Cherry Design System</a></td>
+</tr>
+<tr>
+<td align="center">⚙</td>
+<td align="left">Babel 7 - ES6 JavaScript</td>
+</tr>
+<tr>
+<td align="center">✂️</td>
+<td align="left">Source Maps</td>
+</tr>
+<tr>
+<td align="center">🎒</td>
+<td align="left">Code Minification</td>
+</tr>
+<tr>
+<td align="center">🌈</td>
+<td align="left">Image Compression</td>
+</tr>
+<tr>
+<td align="center">🤖</td>
+<td align="left">External Libraries</td>
+</tr>
+<tr>
+<td align="center">🛎</td>
+<td align="left">Production ready ZIP theme</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="what-is-wordpressify" class="anchor" href="#what-is-wordpressify" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is WordPressify?</h2>
+<p>WordPressify is a simple tool that helps you build WordPress themes and plugins. It takes care of the development experience by providing a web server with a database out of the box, zero-configuration required.</p>
+<p>WordPressify comes with a development server for running PHP under a proxy with BrowserSync. The data is stored in a pre-configured MariaDB database that works out of the box. Watches for all your changes and reloads the webpage in real-time. Style are preprocessors with PostCSS or Sass. Babel compiler for writing next-generation JavaScript. Source maps are supported for both CSS and JavaScript. WordPressify allows easy import of external JavaScript libraries and npm scripts, it has a flexible build and can be easily customized with gulp tasks.</p>
+<p><a href="https://www.youtube.com/watch?v=o4MQYidejN4" rel="nofollow"><img src="https://i.imgur.com/g06S92G.png" alt="video" style="max-width:100%;"></a></p>
+<h1>
+<a id="1-installing-nodejs-and-docker" class="anchor" href="#1-installing-nodejs-and-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Installing Node.js and Docker</h1>
+<p>WordPressify requires <strong>Node.js v12+</strong> and <strong>Docker Compose</strong>.</p>
+<h3>
+<a id="nodejs" class="anchor" href="#nodejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node.js</h3>
+<p>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</p>
+<p>You can download Node.js <strong><a href="https://nodejs.org/" rel="nofollow">here</a></strong>.</p>
+<h3>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker</h3>
+<p>A Docker container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p>
+<p>Instructions to download Docker Compose can be found <strong><a href="https://docs.docker.com/compose/install" rel="nofollow">here</a></strong>.</p>
+<p>If you're on Linux <strong>make sure that you can <a href="https://docs.docker.com/engine/install/linux-postinstall/" rel="nofollow">manage Docker as a non-root user</a></strong>.</p>
+<h1>
+<a id="2-set-up-project" class="anchor" href="#2-set-up-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Set Up Project</h1>
+<h2>
+<a id="file-structure" class="anchor" href="#file-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File Structure</h2>
+<pre><code>    ├── build/                   # Build files
+    ├── config/                  # Nginx &amp; PHP configs
+    ├── dist/                    # Distribution files
+    ├── src/                     # Source files
+    │   ├── assets/              # Assets directory
+    │       ├── css/             # CSS files
+    │       ├── fonts/           # Fonts directory
+    │       ├── img/             # Image directory
+    │       ├── js/              # JavaScript files
+    │   ├── plugins/             # WordPress plugins
+    │   ├── theme/               # PHP Template files
+    └── .babelrc                 # Babel configuration
+    └── .env.in                  # Environment variables
+    └── .gitignore               # Git ignored files
+    └── .editorconfig            # Editor code styles
+    └── .stylelintrc             # Stylelint configuration
+    └── docker-compose.yml       # Docker configuration
+    └── Dockerfile.in            # Docker file
+    └── gulpfile.js              # Gulp configuration
+    └── LICENSE                  # License agreements
+    └── package-lock.json        # Packages lock file
+    └── package.json             # Node.js packages
+    └── README.md                # You are reading this
+</code></pre>
+<h2>
+<a id="install-wordpressify-from-npm" class="anchor" href="#install-wordpressify-from-npm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install WordPressify from NPM</h2>
+<p>To install WordPressify create a directory for the new WordPress website and from there run the command to generate the file structure:</p>
+<pre><code>npx wordpressify
+</code></pre>
+<p>That's it 🍾 easy as that. Now start the development workflow: <a href="#start-workflow">Start Workflow</a></p>
+<p>Make sure <strong>Docker is running</strong>, otherwise this ☝ command will fail.</p>
+<hr>
+<h2>
+<a id="install-wordpressify-from-repository" class="anchor" href="#install-wordpressify-from-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install WordPressify from Repository</h2>
+<p>To install WordPressify you need to clone the repository from GitHub:</p>
+<pre><code>git clone https://github.com/luangjokaj/wordpressify
+</code></pre>
+<ul>
+<li>
+<p>This will clone the repository on your local machine. Navigate to the newly created directory.</p>
+</li>
+<li>
+<p>Replace the file: <code>./package.json</code> with <code>./installer/package.json</code> and continue with the dependency installation.</p>
+</li>
+</ul>
+<p><strong>INSTALL DEPENDENCIES</strong></p>
+<pre><code>npm install
+</code></pre>
+<p><strong>BUILD ENVIRONMENT</strong></p>
+<ul>
+<li>On the first run, WordPressify needs to set up a local server and a database for the new WordPress installation, we do this once by running the command:</li>
+</ul>
+<pre><code>npm run env:build
+</code></pre>
+<p>Make sure <strong>Docker is running</strong>, otherwise this ☝ command will fail.</p>
+<hr>
+<p><strong>CHANGE TEMPLATE NAME</strong></p>
+<ul>
+<li>At this point WordPressify is installed and ready to be used for the first time. Before starting, open <strong>gulpfile.js</strong> and edit your template name:</li>
+</ul>
+<pre lang="javascript" class="highlight-javascript"><span class="cm">/* -------------------------------------------------------------------------------------------------
+Theme Name
+ ------------------------------------------------------------------------------------------------- */</span>
+<span class="kd">const</span> <span class="nx">themeName</span> <span class="o">=</span> <span class="s1">'wordpressify'</span><span class="p">;</span>
+<span class="c1">//--------------------------------------------------------------------------------------------------</span>
+</pre>
+<h2>
+<a id="start-workflow" class="anchor" href="#start-workflow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start Workflow</h2>
+<ul>
+<li>To start the development server run the command:</li>
+</ul>
+<pre><code>npm run dev
+</code></pre>
+<ul>
+<li>You are ready to go! Happy coding! 🤓</li>
+</ul>
+<p>Make sure <strong>Docker is running</strong>, otherwise this ☝ command will fail.</p>
+<hr>
+<p><strong>BRING DOWN ENVIRONMENT</strong></p>
+<ul>
+<li>To stop the WordPressify server and database for the project run:</li>
+</ul>
+<pre><code>npm run env:stop
+</code></pre>
+<p><strong>REBUILD ENVIRONMENT</strong></p>
+<ul>
+<li>To rebuild the WordPressify project environment run:</li>
+</ul>
+<pre><code>npm run env:rebuild
+</code></pre>
+<h3>
+<a id="wordpress-plugins" class="anchor" href="#wordpress-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WordPress Plugins</h3>
+<ul>
+<li>If you want to add or build WordPress plugins, you can do that from the directory:</li>
+</ul>
+<pre><code>src/plugins/
+</code></pre>
+<hr>
+<h2>
+<a id="production-template" class="anchor" href="#production-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Production Template</h2>
+<ul>
+<li>To generate your distribution files run the command:</li>
+</ul>
+<pre><code>npm run prod
+</code></pre>
+<ul>
+<li>The template will be saved as a zip file in:</li>
+</ul>
+<pre><code>dist/wordpressify.zip
+</code></pre>
+<h1>
+<a id="3-css-postcss-and-sass" class="anchor" href="#3-css-postcss-and-sass" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. CSS, PostCSS and Sass</h1>
+<h2>
+<a id="postcss" class="anchor" href="#postcss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PostCSS</h2>
+<p>By default WordPressify supports <a href="https://postcss.org/" rel="nofollow">PostCSS</a>, a similar preprocessor to Sass, Less and others but with more functionality. On top of that PostCSS is 3x faster than Sass and 4x faster than Less. Features come in the shape of PostCSS plugins. Think of these like using Lego, where each piece is a different feature that can transform your CSS in some way. PostCSS lets you stick these pieces together so that you can build up your own feature set, adding and removing plugins as and when you need them. <a href="https://preset-env.cssdb.org//" rel="nofollow">postcss-preset-env</a> is installed by default. Read more about PostCSS <a href="https://ashleynolan.co.uk/blog/postcss-a-review" rel="nofollow">here</a>.</p>
+<p><strong>POSTCSS PLUGINS</strong></p>
+<p>WordPressify has two different sets of PostCSS plugins - one for the development environment (pluginsListDev) and one for the production task (pluginsListProd).</p>
+<pre lang="javascript" class="highlight-javascript"><span class="c1">//--------------------------------------------------------------------------------------------------</span>
+<span class="cm">/* -------------------------------------------------------------------------------------------------
+PostCSS Plugins
+ ------------------------------------------------------------------------------------------------- */</span>
+<span class="kd">const</span> <span class="nx">pluginsListDev</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="nx">partialimport</span><span class="p">,</span>
+	<span class="nx">postCSSMixins</span><span class="p">,</span>
+	<span class="nx">postcssPresetEnv</span><span class="p">({</span>
+		<span class="na">stage</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+		<span class="na">features</span><span class="p">:</span> <span class="p">{</span>
+			<span class="s1">'nesting-rules'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+			<span class="s1">'color-mod-function'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+			<span class="s1">'custom-media'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+		<span class="p">},</span>
+	<span class="p">}),</span>
+<span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">pluginsListProd</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="nx">partialimport</span><span class="p">,</span>
+	<span class="nx">postCSSMixins</span><span class="p">,</span>
+	<span class="nx">postcssPresetEnv</span><span class="p">({</span>
+		<span class="na">stage</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+		<span class="na">features</span><span class="p">:</span> <span class="p">{</span>
+			<span class="s1">'nesting-rules'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+			<span class="s1">'color-mod-function'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+			<span class="s1">'custom-media'</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+		<span class="p">},</span>
+	<span class="p">}),</span>
+	<span class="nx">require</span><span class="p">(</span><span class="s1">'cssnano'</span><span class="p">)({</span>
+		<span class="na">preset</span><span class="p">:</span> <span class="p">[</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">{</span>
+			<span class="na">discardComments</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="p">}]</span>
+	<span class="p">}),</span>
+<span class="p">];</span>
+<span class="c1">//--------------------------------------------------------------------------------------------------</span>
+</pre>
+<p><strong>WRITING CSS</strong></p>
+<p>The starting point for CSS is the file:</p>
+<pre><code>src/assets/css/style.css
+</code></pre>
+<p>The template definitions are located here too. It is also where all other imports are included in the stylesheets.</p>
+<pre><code>/*
+Theme Name: WordPressify
+Theme URI: https://www.wordpressify.co
+Author: Luan Gjokaj
+Author URI: https://www.riangle.com
+Description: WordPressify official theme.
+Version: 1.0
+Tags: responsive, clean, minimal, modern, documentation
+*/
+</code></pre>
+<p><strong>CHERRY DESIGN SYSTEM</strong></p>
+<p><a href="https://cherry.design/" rel="nofollow">Cherry</a> is a minimal CSS framework that helps you organize your work from design to implementation.</p>
+<h2>
+<a id="sass" class="anchor" href="#sass" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sass</h2>
+<p>WordPressify is super flexible. You can install Sass and use it as the main CSS preprocessor:</p>
+<pre><code>npm install gulp-sass --save-dev
+</code></pre>
+<p>Include Sass in gulpfile.js:</p>
+<pre lang="javascript" class="highlight-javascript"><span class="kd">const</span> <span class="nx">sass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-sass'</span><span class="p">);</span>
+</pre>
+<p>Change the gulp tasks stylesDev to:</p>
+<pre lang="javascript" class="highlight-javascript"><span class="kd">function</span> <span class="nx">stylesDev</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">src</span><span class="p">(</span><span class="s1">'./src/assets/css/style.scss'</span><span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">sourcemaps</span><span class="p">.</span><span class="nx">init</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">sass</span><span class="p">({</span><span class="na">includePaths</span><span class="p">:</span> <span class="s1">'node_modules'</span><span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="nx">sass</span><span class="p">.</span><span class="nx">logError</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">sourcemaps</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'.'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">dest</span><span class="p">(</span><span class="s1">'./build/wordpress/wp-content/themes/'</span> <span class="o">+</span> <span class="nx">themeName</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">browserSync</span><span class="p">.</span><span class="nx">stream</span><span class="p">({</span> <span class="na">match</span><span class="p">:</span> <span class="s1">'**/*.css'</span> <span class="p">}));</span>
+<span class="p">}</span>
+</pre>
+<p>Also the watch task has to be changed in order to watch for .scss filetypes:</p>
+<pre lang="javascript" class="highlight-javascript"><span class="nx">watch</span><span class="p">(</span><span class="s1">'./src/assets/css/**/*.scss'</span><span class="p">,</span> <span class="nx">stylesDev</span><span class="p">);</span>
+</pre>
+<p>Change the gulp tasks styleProd to:</p>
+<pre lang="javascript" class="highlight-javascript"><span class="kd">function</span> <span class="nx">stylesProd</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">src</span><span class="p">(</span><span class="s1">'./src/assets/css/style.scss'</span><span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">sass</span><span class="p">({</span><span class="na">includePaths</span><span class="p">:</span> <span class="s1">'node_modules'</span><span class="p">})).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="nx">sass</span><span class="p">.</span><span class="nx">logError</span><span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">dest</span><span class="p">(</span><span class="s1">'./dist/themes/'</span> <span class="o">+</span> <span class="nx">themeName</span><span class="p">));</span>
+<span class="p">}</span>
+</pre>
+<h1>
+<a id="4-images-and-fonts" class="anchor" href="#4-images-and-fonts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Images and Fonts</h1>
+<h2>
+<a id="images" class="anchor" href="#images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Images</h2>
+<p>It is recommended to store template image assets in your theme directory:</p>
+<pre><code>src/assets/img/
+</code></pre>
+<p>Ideally other images should be managed through the <a href="https://codex.wordpress.org/Media_Library_Screen" rel="nofollow">Media Library</a> of WordPress. Try to only store SVG or minimal assets in your theme directory to keep the template as light as possible.</p>
+<p>In the production build SVGs and other image assets will go through a <strong>minification</strong> process.</p>
+<h2>
+<a id="fonts" class="anchor" href="#fonts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fonts</h2>
+<p>Fonts are always special. Your fonts should be stored in:</p>
+<pre><code>src/assets/fonts/
+</code></pre>
+<p>Then you can include them in your <strong>CSS</strong>:</p>
+<pre lang="css" class="highlight-css"><span class="k">@font-face</span> <span class="p">{</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Helvetica Neue Thin'</span><span class="p">;</span>
+	<span class="nl">src</span><span class="p">:</span> <span class="sx">url('./fonts/Helvetica-Neue-Thin.eot')</span><span class="p">;</span>
+	<span class="nl">src</span><span class="p">:</span> <span class="sx">url('./fonts/Helvetica-Neue-Thin.eot')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'eot'</span><span class="p">),</span>
+	<span class="sx">url('./fonts/Helvetica-Neue-Thin.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+	<span class="sx">url('./fonts/Helvetica-Neue-Thin.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+	<span class="sx">url('./fonts/Helvetica-Neue-Thin.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+	<span class="sx">url('./fonts/Helvetica-Neue-Thin.svg')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
+<span class="p">}</span>
+</pre>
+<h1>
+<a id="5-javascript-es6" class="anchor" href="#5-javascript-es6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. JavaScript ES6</h1>
+<p>WordPressify supports ES6 JavaScript with <a href="https://babeljs.io/" rel="nofollow">Babel</a>. Babel has support for the latest version of JavaScript through syntax transformers. These plugins allow you to use new syntax, right now without waiting for browser support.</p>
+<h2>
+<a id="write-es6-javascript" class="anchor" href="#write-es6-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Write ES6 JavaScript</h2>
+<p>Your JavaScript code should be located in:</p>
+<pre><code>src/assets/js/
+</code></pre>
+<p>WordPressify will watch for changes under the js directory and bundle the code in a single file, which will be included in the footer of the page as:</p>
+<pre><code>footer-bundle.js
+</code></pre>
+<p>Check the gulp configuration to learn more about how JavaScript is generated.</p>
+<h1>
+<a id="6-external-libraries" class="anchor" href="#6-external-libraries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. External Libraries</h1>
+<p>Including external JavaScript libraries is as simple as installing the npm script and including it in the <strong>gulpfile.js</strong></p>
+<pre lang="javascript" class="highlight-javascript"><span class="cm">/* -------------------------------------------------------------------------------------------------
+Header &amp; Footer JavaScript Boundles
+-------------------------------------------------------------------------------------------------- */</span>
+<span class="kd">const</span> <span class="nx">headerJS</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="s1">'./node_modules/jquery/dist/jquery.js'</span><span class="p">,</span>
+	<span class="s1">'./node_modules/nprogress/nprogress.js'</span><span class="p">,</span>
+	<span class="s1">'./node_modules/aos/dist/aos.js'</span><span class="p">,</span>
+	<span class="s1">'./node_modules/isotope-layout/dist/isotope.pkgd.js'</span>
+<span class="p">];</span>
+<span class="kd">const</span> <span class="nx">footerJS</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="s1">'./src/assets/js/**'</span>
+<span class="p">];</span>
+<span class="c1">//--------------------------------------------------------------------------------------------------</span>
+</pre>
+<p>You can include the scripts in the head of the page before the DOM is loaded by placing them in the <strong>headerJS</strong> array or in the footer of the page after the DOM is loaded in the <strong>footerJS</strong> array. Only footer scripts are processed with Babel thus supporting ES6, however you can change this in the configuration if you want to run both header and footer scripts with Babel.</p>
+<p>A build restart is required for changes to take effect.</p>
+<h1>
+<a id="7-build-backups" class="anchor" href="#7-build-backups" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Build Backups</h1>
+<p>While coding you will find yourself uploading dummy content to the WordPress build server, e.g. images or other media stored in <strong>wp-content</strong>. WordPressify allows you to back up the current state of the build which will include all server files. To back up your build run the command:</p>
+<pre><code>npm run backup
+</code></pre>
+<p>Files will be compressed in a zip file and stored in the directory:</p>
+<pre><code>backups/
+</code></pre>
+<h1>
+<a id="8-code-style-rules" class="anchor" href="#8-code-style-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8. Code Style Rules</h1>
+<p>WordPressify comes with its own set of code style rules:</p>
+<pre><code>.stylelintrc
+</code></pre>
+<h2>
+<a id="lint-css" class="anchor" href="#lint-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lint CSS</h2>
+<p>Before pushing changes make sure you have clean and consistent CSS. Run <a href="https://stylelint.io/" rel="nofollow">stylelint</a> with the command:</p>
+<pre><code>npm run lint:css
+</code></pre>
+<h1>
+<a id="9-using-xdebug" class="anchor" href="#9-using-xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9. Using Xdebug</h1>
+<p>WordPressify comes with <a href="https://xdebug.org/**" rel="nofollow">Xdebug</a> preconfigured so that you can easily debug, profile, and trace your application. The following is a description of how to setup Xdebug with WordPressify. If you're on Linux, be sure to check the Xdebug on the Linux section below.</p>
+<p><strong>INSTALL THE XDEBUG EXTENSION</strong></p>
+<p>Install the Xdebug extension for <a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" rel="nofollow">Chrome</a>, <a href="https://addons.mozilla.org/en-GB/firefox/addon/xdebug-helper-for-firefox/" rel="nofollow">FireFox</a> or <a href="https://apps.apple.com/app/safari-xdebug-toggle/id1437227804?mt=12" rel="nofollow">Safari</a>.</p>
+<p><strong>PROFILING AND TRACING</strong></p>
+<p>After installing the extension and running WordPressify, you can start profiling and tracing WordPress by simply selecting the proper option in the extension. Profiling information can be displayed using one of the cachegrind tools as described in <a href="https://xdebug.org/docs/profiler" rel="nofollow">Xdebug documentation</a>. The profile and trace data will be logged in the <code>xdebug</code> directory.</p>
+<p><strong>STEP DEBUGGING</strong></p>
+<p>If you want to do step debugging, you need to setup your IDE accordingly. Make sure to setup your IDE to listen on port 9003 for Xdebug connections. There are plugins for VS Code, PHPStorm, and other IDEs listed <a href="https://xdebug.org/docs/step_debug#clients" rel="nofollow">here</a>.</p>
+<p>After setting up your IDE, select <code>Debug</code> in the Xdebug extension and reload the page.</p>
+<h2>
+<a id="xdebug-on-linux" class="anchor" href="#xdebug-on-linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug on Linux</h2>
+<p>Xdebug needs additional configuration for Linux because of some Docker restrictions. Xdebug has to connect to the host machine from within Docker, which means it needs the host's ip. For MacOS and Windows that is resolved using a special DNS name, but that doesn't exist for Linux. You can read more <a href="https://github.com/docker/for-linux/issues/264" rel="nofollow">here</a>.</p>
+<p>Make sure that the containers are running:</p>
+<pre><code>npm run env:start
+</code></pre>
+<p>Find the host ip that docker sees by connecting to the WordPressify website from your web browser, and then inspecting nginx logs:</p>
+<pre><code>docker-compose logs server
+</code></pre>
+<p>The first field will be your host IP address. Copy that host address and paste it inside <code>config/php.ini</code> as the value for <code>xdebug.remote_host</code>.</p>
+<p><strong>RESTART PHP</strong></p>
+<pre><code>npm run env:restart
+</code></pre>
+<p>Xdebug should be working now.</p>
+<h1>
+<a id="10-changing-php-and-docker-settings" class="anchor" href="#10-changing-php-and-docker-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10. Changing PHP and Docker settings</h1>
+<p>You can make changes to PHP and Docker files (the ones that don't have <code>.in</code> extension).</p>
+<p>Change PHP settings in <code>config/php.ini</code> after starting WordPressify. To make your changes active, restart PHP:</p>
+<pre><code>npm run env:restart
+</code></pre>
+<p>If you make changes to <code>Dockerfile</code> or <code>docker-compose.yml</code>, then you must rebuild containers:</p>
+<pre><code>npm run env:rebuild
+</code></pre>
+<h1>
+<a id="11-deployment" class="anchor" href="#11-deployment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11. Deployment</h1>
+<p>The recommended solution is to go with <a href="https://wppusher.com/" rel="nofollow">WP Pusher</a>. It is easy and quick to deploy automatically from GitHub or other services. The first step is to download the WordPress plugin from: <a href="https://wppusher.com/" rel="nofollow">https://wppusher.com/</a></p>
+<p>Then navigate to your WordPress administration on your live site and install the downloaded plugin: Plugins -&gt; Add New -&gt; Upload Plugin -&gt; Install Now.</p>
+<p>Activate the plugin and navigate to the plugin page <strong>WP Pusher</strong>. Click on the GitHub or any other tab and obtain a token by pressing the button on the page, then copy and save the token.</p>
+<p>At this point go to your terminal, navigate to your WordPressify project and generate your distribution files with the command:</p>
+<pre><code>npm run prod
+</code></pre>
+<p>Navigate to your theme distribution files on:</p>
+<pre><code>dist/theme/&lt;themeName&gt;
+</code></pre>
+<p>Create a git repository and push all the files on GitHub. This repository will have only the theme distribution files.</p>
+<p>Once the files are on GitHub you can get back to the WordPress administration on the WP Pusher plugin page and follow the <strong>Next Steps</strong>, click on <strong>Install a theme</strong>.</p>
+<p>On Repository host we choose GitHub, then click on <strong>Pick from GitHub</strong> and choose the newly created repository with the distribution files. Then install &amp; activate the theme.</p>
+<h2>
+<a id="automated-deployments" class="anchor" href="#automated-deployments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Automated Deployments</h2>
+<p><strong>Push-to-Deploy</strong> if you want automatic deployments to happen when you do a push to the distribution repository.
+In this case you have to create a Webhook from your GitHub's repository page.</p>
+<p>First navigate to the WP Pusher plugin page and click on <strong>Themes</strong>, it will show you the list of the templates you have installed through the plugin itself. Click on <strong>Show Push-to-Deploy URL</strong> to get the Payload URL.</p>
+<p>Now get back to GitHub and navigate to your distribution repository and click on: Settings -&gt; Webhooks -&gt; Add webhook. Now past the URL and click <strong>Add webhook</strong>.</p>
+<p>This should enable automatic deployment on any push to the chosen GitHub repository.</p>
+<p><strong>Note:</strong> WP Pusher if <strong>free</strong> only with <strong>public</strong> repositories.</p>
+<p>This will <strong>immediately</strong> remove the default styles and leave a minimal viable theme with basic PHP WordPress loops and other useful features.</p>
+<h1>
+<a id="12-troubleshooting" class="anchor" href="#12-troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>12. Troubleshooting</h1>
+<p><strong>ERROR: docker-compose: command not found</strong></p>
+<ul>
+<li>Docker is not installed. Please <a href="#1-installing-nodejs-and-docker">install Docker</a>, then try again.</li>
+</ul>
+<p><strong>ERROR: Failed to execute script docker-compose</strong></p>
+<ul>
+<li>Make sure Docker is open and running, then try again.</li>
+</ul>
+<p><strong>ERROR: Bind for 0.0.0.0:3020 failed: port is already allocated</strong></p>
+<ul>
+<li>Make sure there are no other Docker containers running the same port <code>3020</code>. You can stop all Docker containers with the command: <code>docker stop $(docker ps -a -q)</code> and try again.</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://github.com/luangjokaj/wordpressify/blob/master/CHANGELOG.md" rel="nofollow">Changelog</a></li>
+<li>License: <a href="https://github.com/luangjokaj/wordpressify/blob/master/LICENSE" rel="nofollow">MIT</a>
+</li>
+<li>WordPressify <a href="https://www.wordpressify.co/" rel="nofollow">Documentation Website</a>
+</li>
+</ul>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b7c3aea5e738',m:'d8b82b8f0c840a498eb5f7c2c4d4094d50f973b8-1610725463-1800-AXr6e+gBMjJC8obbRCxHNAOIMOLBnme/cMLniAXwb8zctYfcQOHHRkmmDnpTvuJIQgkIDEJV85RNi7Gm0oHxIfbPDUh8qm8n9y6/69LBmvoHmi8NFuVttUEV89QakE+xCs4LdXOPGKq6oAfhO7MsANGdFV0zYuOQSrihPUe/HWBh',s:[0x78096beaff,0x68f6dc0feb],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="javascript"/> <!-- -->javascript<!-- --> (<!-- -->67,310<!-- -->) </div><div><input type="checkbox" name="topics" value="nodejs"/> <!-- -->nodejs<!-- --> (<!-- -->3,563<!-- -->) </div><div><input type="checkbox" name="topics" value="docker"/> <!-- -->docker<!-- --> (<!-- -->2,668<!-- -->) </div><div><input type="checkbox" name="topics" value="database"/> <!-- -->database<!-- --> (<!-- -->1,156<!-- -->) </div><div><input type="checkbox" name="topics" value="node"/> <!-- -->node<!-- --> (<!-- -->935<!-- -->) </div><div><input type="checkbox" name="topics" value="wordpress"/> <!-- -->wordpress<!-- --> (<!-- -->638<!-- -->) </div><div><input type="checkbox" name="topics" value="boilerplate"/> <!-- -->boilerplate<!-- --> (<!-- -->590<!-- -->) </div><div><input type="checkbox" name="topics" value="es6"/> <!-- -->es6<!-- --> (<!-- -->512<!-- -->) </div><div><input type="checkbox" name="topics" value="nginx"/> <!-- -->nginx<!-- --> (<!-- -->460<!-- -->) </div><div><input type="checkbox" name="topics" value="docker-compose"/> <!-- -->docker-compose<!-- --> (<!-- -->358<!-- -->) </div><div><input type="checkbox" name="topics" value="workflow"/> <!-- -->workflow<!-- --> (<!-- -->315<!-- -->) </div><div><input type="checkbox" name="topics" value="gulp"/> <!-- -->gulp<!-- --> (<!-- -->196<!-- -->) </div><div><input type="checkbox" name="topics" value="postcss"/> <!-- -->postcss<!-- --> (<!-- -->163<!-- -->) </div><div><input type="checkbox" name="topics" value="build-tool"/> <!-- -->build-tool<!-- --> (<!-- -->146<!-- -->) </div><div><input type="checkbox" name="topics" value="wordpress-theme"/> <!-- -->wordpress-theme<!-- --> (<!-- -->80<!-- -->) </div><div><input type="checkbox" name="topics" value="xdebug"/> <!-- -->xdebug<!-- --> (<!-- -->20<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Wordpressify<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/luangjokaj" target="_blank">Luangjokaj</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/luangjokaj" target="_blank">Luangjokaj</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-4ea6bab3-a5b9-42f9-b6a9-b4922f101532">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"boilerplate","count":590},{"id":null,"name":"build-tool","count":146},{"id":null,"name":"database","count":1156},{"id":null,"name":"docker","count":2668},{"id":null,"name":"docker-compose","count":358},{"id":null,"name":"es6","count":512},{"id":null,"name":"gulp","count":196},{"id":null,"name":"javascript","count":67310},{"id":null,"name":"nginx","count":460},{"id":null,"name":"node","count":935},{"id":null,"name":"nodejs","count":3563},{"id":null,"name":"postcss","count":163},{"id":null,"name":"wordpress","count":638},{"id":null,"name":"wordpress-theme","count":80},{"id":null,"name":"workflow","count":315},{"id":null,"name":"xdebug","count":20}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/luangjokaj/wordpressify","projects":[],"project":{"id":96751,"created_at":"2018-08-21T01:40:44.169Z","updated_at":"2021-01-14T03:26:04.711Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cp\u003e\u003ca href=\"https://www.wordpressify.co/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://i.imgur.com/5dVJS70.png\" alt=\"WordPressify Logo\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.wordpressify.co/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/package-json/v/luangjokaj/wordpressify\" alt=\"Version\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://www.wordpressify.co/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/david/luangjokaj/wordpressify\" alt=\"Dependencies\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eA build system designed to automate your WordPress development workflow.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.wordpressify.co/\" rel=\"nofollow\"\u003ehttps://www.wordpressify.co/\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"#introduction\"\u003eIntroduction\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#features\"\u003eFeatures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#what-is-wordpressify\"\u003eWhat is WordPressify?\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#1-installing-nodejs-and-docker\"\u003e1. Installing Node.js and Docker\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#2-set-up-project\"\u003e2. Set Up Project\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#install-wordpressify-from-npm\"\u003eInstall WordPressify from NPM\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#install-wordpressify-from-repository\"\u003eInstall WordPressify from Repository\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#start-workflow\"\u003eStart Workflow\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#production-template\"\u003eProduction Template\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#3-css-postcss-and-sass\"\u003e3. CSS, PostCSS and Sass\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#postcss\"\u003ePostCSS\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#sass\"\u003eSass\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#4-images-and-fonts\"\u003e4. Images and Fonts\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#images\"\u003eImages\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#fonts\"\u003eFonts\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#5-javascript-es6\"\u003e5. JavaScript ES6\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#write-es6-javascript\"\u003eWrite ES6 JavaScript\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#6-external-libraries\"\u003e6. External Libraries\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#7-build-backups\"\u003e7. Build Backups\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#8-code-style-rules\"\u003e8. Code Style Rules\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#lint-css\"\u003eLint CSS\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#9-using-xdebug\"\u003e9. Using Xdebug\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#xdebug-on-linux\"\u003eXdebug on Linux\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#10-changing-php-and-docker-settings\"\u003e10. Changing PHP and Docker settings\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#11-deployment\"\u003e11. Deployment\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#automated-deployments\"\u003eAutomated Deployments\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#12-troubleshooting\"\u003e12. Troubleshooting\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/luangjokaj/wordpressify/blob/master/CHANGELOG.md\" rel=\"nofollow\"\u003eChangelog\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/luangjokaj/wordpressify/blob/master/LICENSE\" rel=\"nofollow\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"introduction\" class=\"anchor\" href=\"#introduction\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIntroduction\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"left\"\u003eInformation\u003c/th\u003e\n\u003cth align=\"left\"\u003eDiscord\u003c/th\u003e\n\u003cth align=\"left\"\u003eDonate\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\n\u003ca href=\"https://www.wordpressify.co\" rel=\"nofollow\"\u003eWordPressify\u003c/a\u003e is a modern workflow for your WordPress development, with an integrated database, web server and auto-reload. CSS preprocessors and ES6 ready.\u003c/td\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://discord.gg/uQFdMddMZw\" rel=\"nofollow\"\u003e\u003cimg src=\"https://svgshare.com/i/Lqc.svg\" alt=\"Discord server\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://www.buymeacoffee.com/luangjokaj\" rel=\"nofollow\"\u003e\u003cimg src=\"https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-1.svg\" alt=\"BuyMeACoffee\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"center\"\u003e👇\u003c/th\u003e\n\u003cth align=\"left\"\u003eIncludes\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e📦\u003c/td\u003e\n\u003ctd align=\"left\"\u003eDev Server with Xdebug\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e💽\u003c/td\u003e\n\u003ctd align=\"left\"\u003eMariaDB Database\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🔥\u003c/td\u003e\n\u003ctd align=\"left\"\u003eHot Reload \u0026amp; CSS Injection\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🎨\u003c/td\u003e\n\u003ctd align=\"left\"\u003ePostCSS \u0026amp; Next Generation CSS\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🍒\u003c/td\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://cherry.design\" rel=\"nofollow\"\u003eCherry Design System\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e⚙\u003c/td\u003e\n\u003ctd align=\"left\"\u003eBabel 7 - ES6 JavaScript\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e✂️\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSource Maps\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🎒\u003c/td\u003e\n\u003ctd align=\"left\"\u003eCode Minification\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🌈\u003c/td\u003e\n\u003ctd align=\"left\"\u003eImage Compression\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🤖\u003c/td\u003e\n\u003ctd align=\"left\"\u003eExternal Libraries\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003e🛎\u003c/td\u003e\n\u003ctd align=\"left\"\u003eProduction ready ZIP theme\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2\u003e\n\u003ca id=\"what-is-wordpressify\" class=\"anchor\" href=\"#what-is-wordpressify\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat is WordPressify?\u003c/h2\u003e\n\u003cp\u003eWordPressify is a simple tool that helps you build WordPress themes and plugins. It takes care of the development experience by providing a web server with a database out of the box, zero-configuration required.\u003c/p\u003e\n\u003cp\u003eWordPressify comes with a development server for running PHP under a proxy with BrowserSync. The data is stored in a pre-configured MariaDB database that works out of the box. Watches for all your changes and reloads the webpage in real-time. Style are preprocessors with PostCSS or Sass. Babel compiler for writing next-generation JavaScript. Source maps are supported for both CSS and JavaScript. WordPressify allows easy import of external JavaScript libraries and npm scripts, it has a flexible build and can be easily customized with gulp tasks.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=o4MQYidejN4\" rel=\"nofollow\"\u003e\u003cimg src=\"https://i.imgur.com/g06S92G.png\" alt=\"video\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"1-installing-nodejs-and-docker\" class=\"anchor\" href=\"#1-installing-nodejs-and-docker\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e1. Installing Node.js and Docker\u003c/h1\u003e\n\u003cp\u003eWordPressify requires \u003cstrong\u003eNode.js v12+\u003c/strong\u003e and \u003cstrong\u003eDocker Compose\u003c/strong\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"nodejs\" class=\"anchor\" href=\"#nodejs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eNode.js\u003c/h3\u003e\n\u003cp\u003eNode.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\u003c/p\u003e\n\u003cp\u003eYou can download Node.js \u003cstrong\u003e\u003ca href=\"https://nodejs.org/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"docker\" class=\"anchor\" href=\"#docker\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocker\u003c/h3\u003e\n\u003cp\u003eA Docker container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.\u003c/p\u003e\n\u003cp\u003eInstructions to download Docker Compose can be found \u003cstrong\u003e\u003ca href=\"https://docs.docker.com/compose/install\" rel=\"nofollow\"\u003ehere\u003c/a\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eIf you're on Linux \u003cstrong\u003emake sure that you can \u003ca href=\"https://docs.docker.com/engine/install/linux-postinstall/\" rel=\"nofollow\"\u003emanage Docker as a non-root user\u003c/a\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"2-set-up-project\" class=\"anchor\" href=\"#2-set-up-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e2. Set Up Project\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"file-structure\" class=\"anchor\" href=\"#file-structure\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFile Structure\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003e    ├── build/                   # Build files\n    ├── config/                  # Nginx \u0026amp; PHP configs\n    ├── dist/                    # Distribution files\n    ├── src/                     # Source files\n    │   ├── assets/              # Assets directory\n    │       ├── css/             # CSS files\n    │       ├── fonts/           # Fonts directory\n    │       ├── img/             # Image directory\n    │       ├── js/              # JavaScript files\n    │   ├── plugins/             # WordPress plugins\n    │   ├── theme/               # PHP Template files\n    └── .babelrc                 # Babel configuration\n    └── .env.in                  # Environment variables\n    └── .gitignore               # Git ignored files\n    └── .editorconfig            # Editor code styles\n    └── .stylelintrc             # Stylelint configuration\n    └── docker-compose.yml       # Docker configuration\n    └── Dockerfile.in            # Docker file\n    └── gulpfile.js              # Gulp configuration\n    └── LICENSE                  # License agreements\n    └── package-lock.json        # Packages lock file\n    └── package.json             # Node.js packages\n    └── README.md                # You are reading this\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"install-wordpressify-from-npm\" class=\"anchor\" href=\"#install-wordpressify-from-npm\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall WordPressify from NPM\u003c/h2\u003e\n\u003cp\u003eTo install WordPressify create a directory for the new WordPress website and from there run the command to generate the file structure:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpx wordpressify\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThat's it 🍾 easy as that. Now start the development workflow: \u003ca href=\"#start-workflow\"\u003eStart Workflow\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMake sure \u003cstrong\u003eDocker is running\u003c/strong\u003e, otherwise this ☝ command will fail.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\n\u003ca id=\"install-wordpressify-from-repository\" class=\"anchor\" href=\"#install-wordpressify-from-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall WordPressify from Repository\u003c/h2\u003e\n\u003cp\u003eTo install WordPressify you need to clone the repository from GitHub:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://github.com/luangjokaj/wordpressify\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eThis will clone the repository on your local machine. Navigate to the newly created directory.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReplace the file: \u003ccode\u003e./package.json\u003c/code\u003e with \u003ccode\u003e./installer/package.json\u003c/code\u003e and continue with the dependency installation.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eINSTALL DEPENDENCIES\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eBUILD ENVIRONMENT\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eOn the first run, WordPressify needs to set up a local server and a database for the new WordPress installation, we do this once by running the command:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:build\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eMake sure \u003cstrong\u003eDocker is running\u003c/strong\u003e, otherwise this ☝ command will fail.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003eCHANGE TEMPLATE NAME\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eAt this point WordPressify is installed and ready to be used for the first time. Before starting, open \u003cstrong\u003egulpfile.js\u003c/strong\u003e and edit your template name:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"cm\"\u003e/* -------------------------------------------------------------------------------------------------\nTheme Name\n ------------------------------------------------------------------------------------------------- */\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003ethemeName\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s1\"\u003e'wordpressify'\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n\u003cspan class=\"c1\"\u003e//--------------------------------------------------------------------------------------------------\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"start-workflow\" class=\"anchor\" href=\"#start-workflow\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStart Workflow\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eTo start the development server run the command:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003enpm run dev\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eYou are ready to go! Happy coding! 🤓\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eMake sure \u003cstrong\u003eDocker is running\u003c/strong\u003e, otherwise this ☝ command will fail.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003eBRING DOWN ENVIRONMENT\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTo stop the WordPressify server and database for the project run:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:stop\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eREBUILD ENVIRONMENT\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTo rebuild the WordPressify project environment run:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:rebuild\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"wordpress-plugins\" class=\"anchor\" href=\"#wordpress-plugins\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWordPress Plugins\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eIf you want to add or build WordPress plugins, you can do that from the directory:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003esrc/plugins/\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e\n\u003ca id=\"production-template\" class=\"anchor\" href=\"#production-template\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProduction Template\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eTo generate your distribution files run the command:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003enpm run prod\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eThe template will be saved as a zip file in:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003edist/wordpressify.zip\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"3-css-postcss-and-sass\" class=\"anchor\" href=\"#3-css-postcss-and-sass\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3. CSS, PostCSS and Sass\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"postcss\" class=\"anchor\" href=\"#postcss\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePostCSS\u003c/h2\u003e\n\u003cp\u003eBy default WordPressify supports \u003ca href=\"https://postcss.org/\" rel=\"nofollow\"\u003ePostCSS\u003c/a\u003e, a similar preprocessor to Sass, Less and others but with more functionality. On top of that PostCSS is 3x faster than Sass and 4x faster than Less. Features come in the shape of PostCSS plugins. Think of these like using Lego, where each piece is a different feature that can transform your CSS in some way. PostCSS lets you stick these pieces together so that you can build up your own feature set, adding and removing plugins as and when you need them. \u003ca href=\"https://preset-env.cssdb.org//\" rel=\"nofollow\"\u003epostcss-preset-env\u003c/a\u003e is installed by default. Read more about PostCSS \u003ca href=\"https://ashleynolan.co.uk/blog/postcss-a-review\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ePOSTCSS PLUGINS\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWordPressify has two different sets of PostCSS plugins - one for the development environment (pluginsListDev) and one for the production task (pluginsListProd).\u003c/p\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"c1\"\u003e//--------------------------------------------------------------------------------------------------\u003c/span\u003e\n\u003cspan class=\"cm\"\u003e/* -------------------------------------------------------------------------------------------------\nPostCSS Plugins\n ------------------------------------------------------------------------------------------------- */\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003epluginsListDev\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epartialimport\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epostCSSMixins\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epostcssPresetEnv\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n\t\t\u003cspan class=\"na\"\u003estage\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"mi\"\u003e0\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\u003cspan class=\"na\"\u003efeatures\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\t\t\u003cspan class=\"s1\"\u003e'nesting-rules'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\t\u003cspan class=\"s1\"\u003e'color-mod-function'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\t\u003cspan class=\"s1\"\u003e'custom-media'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e},\u003c/span\u003e\n\t\u003cspan class=\"p\"\u003e}),\u003c/span\u003e\n\u003cspan class=\"p\"\u003e];\u003c/span\u003e\n\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003epluginsListProd\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epartialimport\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epostCSSMixins\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003epostcssPresetEnv\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n\t\t\u003cspan class=\"na\"\u003estage\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"mi\"\u003e0\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\u003cspan class=\"na\"\u003efeatures\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\t\t\u003cspan class=\"s1\"\u003e'nesting-rules'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\t\u003cspan class=\"s1\"\u003e'color-mod-function'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\t\u003cspan class=\"s1\"\u003e'custom-media'\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003etrue\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e},\u003c/span\u003e\n\t\u003cspan class=\"p\"\u003e}),\u003c/span\u003e\n\t\u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'cssnano'\u003c/span\u003e\u003cspan class=\"p\"\u003e)({\u003c/span\u003e\n\t\t\u003cspan class=\"na\"\u003epreset\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'default'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\t\t\u003cspan class=\"na\"\u003ediscardComments\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"kc\"\u003efalse\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e}]\u003c/span\u003e\n\t\u003cspan class=\"p\"\u003e}),\u003c/span\u003e\n\u003cspan class=\"p\"\u003e];\u003c/span\u003e\n\u003cspan class=\"c1\"\u003e//--------------------------------------------------------------------------------------------------\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eWRITING CSS\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThe starting point for CSS is the file:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esrc/assets/css/style.css\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe template definitions are located here too. It is also where all other imports are included in the stylesheets.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e/*\nTheme Name: WordPressify\nTheme URI: https://www.wordpressify.co\nAuthor: Luan Gjokaj\nAuthor URI: https://www.riangle.com\nDescription: WordPressify official theme.\nVersion: 1.0\nTags: responsive, clean, minimal, modern, documentation\n*/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eCHERRY DESIGN SYSTEM\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://cherry.design/\" rel=\"nofollow\"\u003eCherry\u003c/a\u003e is a minimal CSS framework that helps you organize your work from design to implementation.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"sass\" class=\"anchor\" href=\"#sass\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSass\u003c/h2\u003e\n\u003cp\u003eWordPressify is super flexible. You can install Sass and use it as the main CSS preprocessor:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm install gulp-sass --save-dev\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eInclude Sass in gulpfile.js:\u003c/p\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003esass\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'gulp-sass'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eChange the gulp tasks stylesDev to:\u003c/p\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"kd\"\u003efunction\u003c/span\u003e \u003cspan class=\"nx\"\u003estylesDev\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nx\"\u003esrc\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'./src/assets/css/style.scss'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003esourcemaps\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003einit\u003c/span\u003e\u003cspan class=\"p\"\u003e())\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003esass\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\u003cspan class=\"na\"\u003eincludePaths\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'node_modules'\u003c/span\u003e\u003cspan class=\"p\"\u003e}).\u003c/span\u003e\u003cspan class=\"nx\"\u003eon\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'error'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003esass\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elogError\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003esourcemaps\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003ewrite\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'.'\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003edest\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'./build/wordpress/wp-content/themes/'\u003c/span\u003e \u003cspan class=\"o\"\u003e+\u003c/span\u003e \u003cspan class=\"nx\"\u003ethemeName\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003ebrowserSync\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003estream\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e \u003cspan class=\"na\"\u003ematch\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'**/*.css'\u003c/span\u003e \u003cspan class=\"p\"\u003e}));\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eAlso the watch task has to be changed in order to watch for .scss filetypes:\u003c/p\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"nx\"\u003ewatch\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'./src/assets/css/**/*.scss'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003estylesDev\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eChange the gulp tasks styleProd to:\u003c/p\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"kd\"\u003efunction\u003c/span\u003e \u003cspan class=\"nx\"\u003estylesProd\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nx\"\u003esrc\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'./src/assets/css/style.scss'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003esass\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\u003cspan class=\"na\"\u003eincludePaths\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'node_modules'\u003c/span\u003e\u003cspan class=\"p\"\u003e})).\u003c/span\u003e\u003cspan class=\"nx\"\u003eon\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'error'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003esass\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elogError\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\t\t\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003epipe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003edest\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'./dist/themes/'\u003c/span\u003e \u003cspan class=\"o\"\u003e+\u003c/span\u003e \u003cspan class=\"nx\"\u003ethemeName\u003c/span\u003e\u003cspan class=\"p\"\u003e));\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"4-images-and-fonts\" class=\"anchor\" href=\"#4-images-and-fonts\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e4. Images and Fonts\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"images\" class=\"anchor\" href=\"#images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eImages\u003c/h2\u003e\n\u003cp\u003eIt is recommended to store template image assets in your theme directory:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esrc/assets/img/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIdeally other images should be managed through the \u003ca href=\"https://codex.wordpress.org/Media_Library_Screen\" rel=\"nofollow\"\u003eMedia Library\u003c/a\u003e of WordPress. Try to only store SVG or minimal assets in your theme directory to keep the template as light as possible.\u003c/p\u003e\n\u003cp\u003eIn the production build SVGs and other image assets will go through a \u003cstrong\u003eminification\u003c/strong\u003e process.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"fonts\" class=\"anchor\" href=\"#fonts\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFonts\u003c/h2\u003e\n\u003cp\u003eFonts are always special. Your fonts should be stored in:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esrc/assets/fonts/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen you can include them in your \u003cstrong\u003eCSS\u003c/strong\u003e:\u003c/p\u003e\n\u003cpre lang=\"css\" class=\"highlight-css\"\u003e\u003cspan class=\"k\"\u003e@font-face\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n\t\u003cspan class=\"nl\"\u003efont-family\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s2\"\u003e'Helvetica Neue Thin'\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n\t\u003cspan class=\"nl\"\u003esrc\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"sx\"\u003eurl('./fonts/Helvetica-Neue-Thin.eot')\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n\t\u003cspan class=\"nl\"\u003esrc\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"sx\"\u003eurl('./fonts/Helvetica-Neue-Thin.eot')\u003c/span\u003e \u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s2\"\u003e'eot'\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n\t\u003cspan class=\"sx\"\u003eurl('./fonts/Helvetica-Neue-Thin.woff2')\u003c/span\u003e \u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s2\"\u003e'woff2'\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n\t\u003cspan class=\"sx\"\u003eurl('./fonts/Helvetica-Neue-Thin.woff')\u003c/span\u003e \u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s2\"\u003e'woff'\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n\t\u003cspan class=\"sx\"\u003eurl('./fonts/Helvetica-Neue-Thin.ttf')\u003c/span\u003e \u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s2\"\u003e'truetype'\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n\t\u003cspan class=\"sx\"\u003eurl('./fonts/Helvetica-Neue-Thin.svg')\u003c/span\u003e \u003cspan class=\"n\"\u003eformat\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s2\"\u003e'svg'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"5-javascript-es6\" class=\"anchor\" href=\"#5-javascript-es6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e5. JavaScript ES6\u003c/h1\u003e\n\u003cp\u003eWordPressify supports ES6 JavaScript with \u003ca href=\"https://babeljs.io/\" rel=\"nofollow\"\u003eBabel\u003c/a\u003e. Babel has support for the latest version of JavaScript through syntax transformers. These plugins allow you to use new syntax, right now without waiting for browser support.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"write-es6-javascript\" class=\"anchor\" href=\"#write-es6-javascript\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWrite ES6 JavaScript\u003c/h2\u003e\n\u003cp\u003eYour JavaScript code should be located in:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esrc/assets/js/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWordPressify will watch for changes under the js directory and bundle the code in a single file, which will be included in the footer of the page as:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efooter-bundle.js\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCheck the gulp configuration to learn more about how JavaScript is generated.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"6-external-libraries\" class=\"anchor\" href=\"#6-external-libraries\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e6. External Libraries\u003c/h1\u003e\n\u003cp\u003eIncluding external JavaScript libraries is as simple as installing the npm script and including it in the \u003cstrong\u003egulpfile.js\u003c/strong\u003e\u003c/p\u003e\n\u003cpre lang=\"javascript\" class=\"highlight-javascript\"\u003e\u003cspan class=\"cm\"\u003e/* -------------------------------------------------------------------------------------------------\nHeader \u0026amp; Footer JavaScript Boundles\n-------------------------------------------------------------------------------------------------- */\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eheaderJS\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\n\t\u003cspan class=\"s1\"\u003e'./node_modules/jquery/dist/jquery.js'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"s1\"\u003e'./node_modules/nprogress/nprogress.js'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"s1\"\u003e'./node_modules/aos/dist/aos.js'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n\t\u003cspan class=\"s1\"\u003e'./node_modules/isotope-layout/dist/isotope.pkgd.js'\u003c/span\u003e\n\u003cspan class=\"p\"\u003e];\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003efooterJS\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\n\t\u003cspan class=\"s1\"\u003e'./src/assets/js/**'\u003c/span\u003e\n\u003cspan class=\"p\"\u003e];\u003c/span\u003e\n\u003cspan class=\"c1\"\u003e//--------------------------------------------------------------------------------------------------\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eYou can include the scripts in the head of the page before the DOM is loaded by placing them in the \u003cstrong\u003eheaderJS\u003c/strong\u003e array or in the footer of the page after the DOM is loaded in the \u003cstrong\u003efooterJS\u003c/strong\u003e array. Only footer scripts are processed with Babel thus supporting ES6, however you can change this in the configuration if you want to run both header and footer scripts with Babel.\u003c/p\u003e\n\u003cp\u003eA build restart is required for changes to take effect.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"7-build-backups\" class=\"anchor\" href=\"#7-build-backups\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e7. Build Backups\u003c/h1\u003e\n\u003cp\u003eWhile coding you will find yourself uploading dummy content to the WordPress build server, e.g. images or other media stored in \u003cstrong\u003ewp-content\u003c/strong\u003e. WordPressify allows you to back up the current state of the build which will include all server files. To back up your build run the command:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run backup\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFiles will be compressed in a zip file and stored in the directory:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ebackups/\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"8-code-style-rules\" class=\"anchor\" href=\"#8-code-style-rules\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e8. Code Style Rules\u003c/h1\u003e\n\u003cp\u003eWordPressify comes with its own set of code style rules:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e.stylelintrc\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"lint-css\" class=\"anchor\" href=\"#lint-css\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLint CSS\u003c/h2\u003e\n\u003cp\u003eBefore pushing changes make sure you have clean and consistent CSS. Run \u003ca href=\"https://stylelint.io/\" rel=\"nofollow\"\u003estylelint\u003c/a\u003e with the command:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run lint:css\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"9-using-xdebug\" class=\"anchor\" href=\"#9-using-xdebug\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e9. Using Xdebug\u003c/h1\u003e\n\u003cp\u003eWordPressify comes with \u003ca href=\"https://xdebug.org/**\" rel=\"nofollow\"\u003eXdebug\u003c/a\u003e preconfigured so that you can easily debug, profile, and trace your application. The following is a description of how to setup Xdebug with WordPressify. If you're on Linux, be sure to check the Xdebug on the Linux section below.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eINSTALL THE XDEBUG EXTENSION\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eInstall the Xdebug extension for \u003ca href=\"https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc\" rel=\"nofollow\"\u003eChrome\u003c/a\u003e, \u003ca href=\"https://addons.mozilla.org/en-GB/firefox/addon/xdebug-helper-for-firefox/\" rel=\"nofollow\"\u003eFireFox\u003c/a\u003e or \u003ca href=\"https://apps.apple.com/app/safari-xdebug-toggle/id1437227804?mt=12\" rel=\"nofollow\"\u003eSafari\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ePROFILING AND TRACING\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eAfter installing the extension and running WordPressify, you can start profiling and tracing WordPress by simply selecting the proper option in the extension. Profiling information can be displayed using one of the cachegrind tools as described in \u003ca href=\"https://xdebug.org/docs/profiler\" rel=\"nofollow\"\u003eXdebug documentation\u003c/a\u003e. The profile and trace data will be logged in the \u003ccode\u003exdebug\u003c/code\u003e directory.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSTEP DEBUGGING\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eIf you want to do step debugging, you need to setup your IDE accordingly. Make sure to setup your IDE to listen on port 9003 for Xdebug connections. There are plugins for VS Code, PHPStorm, and other IDEs listed \u003ca href=\"https://xdebug.org/docs/step_debug#clients\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAfter setting up your IDE, select \u003ccode\u003eDebug\u003c/code\u003e in the Xdebug extension and reload the page.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"xdebug-on-linux\" class=\"anchor\" href=\"#xdebug-on-linux\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eXdebug on Linux\u003c/h2\u003e\n\u003cp\u003eXdebug needs additional configuration for Linux because of some Docker restrictions. Xdebug has to connect to the host machine from within Docker, which means it needs the host's ip. For MacOS and Windows that is resolved using a special DNS name, but that doesn't exist for Linux. You can read more \u003ca href=\"https://github.com/docker/for-linux/issues/264\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eMake sure that the containers are running:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:start\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFind the host ip that docker sees by connecting to the WordPressify website from your web browser, and then inspecting nginx logs:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edocker-compose logs server\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe first field will be your host IP address. Copy that host address and paste it inside \u003ccode\u003econfig/php.ini\u003c/code\u003e as the value for \u003ccode\u003exdebug.remote_host\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eRESTART PHP\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:restart\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eXdebug should be working now.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"10-changing-php-and-docker-settings\" class=\"anchor\" href=\"#10-changing-php-and-docker-settings\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e10. Changing PHP and Docker settings\u003c/h1\u003e\n\u003cp\u003eYou can make changes to PHP and Docker files (the ones that don't have \u003ccode\u003e.in\u003c/code\u003e extension).\u003c/p\u003e\n\u003cp\u003eChange PHP settings in \u003ccode\u003econfig/php.ini\u003c/code\u003e after starting WordPressify. To make your changes active, restart PHP:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:restart\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you make changes to \u003ccode\u003eDockerfile\u003c/code\u003e or \u003ccode\u003edocker-compose.yml\u003c/code\u003e, then you must rebuild containers:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run env:rebuild\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"11-deployment\" class=\"anchor\" href=\"#11-deployment\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e11. Deployment\u003c/h1\u003e\n\u003cp\u003eThe recommended solution is to go with \u003ca href=\"https://wppusher.com/\" rel=\"nofollow\"\u003eWP Pusher\u003c/a\u003e. It is easy and quick to deploy automatically from GitHub or other services. The first step is to download the WordPress plugin from: \u003ca href=\"https://wppusher.com/\" rel=\"nofollow\"\u003ehttps://wppusher.com/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThen navigate to your WordPress administration on your live site and install the downloaded plugin: Plugins -\u0026gt; Add New -\u0026gt; Upload Plugin -\u0026gt; Install Now.\u003c/p\u003e\n\u003cp\u003eActivate the plugin and navigate to the plugin page \u003cstrong\u003eWP Pusher\u003c/strong\u003e. Click on the GitHub or any other tab and obtain a token by pressing the button on the page, then copy and save the token.\u003c/p\u003e\n\u003cp\u003eAt this point go to your terminal, navigate to your WordPressify project and generate your distribution files with the command:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003enpm run prod\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNavigate to your theme distribution files on:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edist/theme/\u0026lt;themeName\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCreate a git repository and push all the files on GitHub. This repository will have only the theme distribution files.\u003c/p\u003e\n\u003cp\u003eOnce the files are on GitHub you can get back to the WordPress administration on the WP Pusher plugin page and follow the \u003cstrong\u003eNext Steps\u003c/strong\u003e, click on \u003cstrong\u003eInstall a theme\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eOn Repository host we choose GitHub, then click on \u003cstrong\u003ePick from GitHub\u003c/strong\u003e and choose the newly created repository with the distribution files. Then install \u0026amp; activate the theme.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"automated-deployments\" class=\"anchor\" href=\"#automated-deployments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAutomated Deployments\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003ePush-to-Deploy\u003c/strong\u003e if you want automatic deployments to happen when you do a push to the distribution repository.\nIn this case you have to create a Webhook from your GitHub's repository page.\u003c/p\u003e\n\u003cp\u003eFirst navigate to the WP Pusher plugin page and click on \u003cstrong\u003eThemes\u003c/strong\u003e, it will show you the list of the templates you have installed through the plugin itself. Click on \u003cstrong\u003eShow Push-to-Deploy URL\u003c/strong\u003e to get the Payload URL.\u003c/p\u003e\n\u003cp\u003eNow get back to GitHub and navigate to your distribution repository and click on: Settings -\u0026gt; Webhooks -\u0026gt; Add webhook. Now past the URL and click \u003cstrong\u003eAdd webhook\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eThis should enable automatic deployment on any push to the chosen GitHub repository.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e WP Pusher if \u003cstrong\u003efree\u003c/strong\u003e only with \u003cstrong\u003epublic\u003c/strong\u003e repositories.\u003c/p\u003e\n\u003cp\u003eThis will \u003cstrong\u003eimmediately\u003c/strong\u003e remove the default styles and leave a minimal viable theme with basic PHP WordPress loops and other useful features.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"12-troubleshooting\" class=\"anchor\" href=\"#12-troubleshooting\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e12. Troubleshooting\u003c/h1\u003e\n\u003cp\u003e\u003cstrong\u003eERROR: docker-compose: command not found\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDocker is not installed. Please \u003ca href=\"#1-installing-nodejs-and-docker\"\u003einstall Docker\u003c/a\u003e, then try again.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eERROR: Failed to execute script docker-compose\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMake sure Docker is open and running, then try again.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eERROR: Bind for 0.0.0.0:3020 failed: port is already allocated\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMake sure there are no other Docker containers running the same port \u003ccode\u003e3020\u003c/code\u003e. You can stop all Docker containers with the command: \u003ccode\u003edocker stop $(docker ps -a -q)\u003c/code\u003e and try again.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/luangjokaj/wordpressify/blob/master/CHANGELOG.md\" rel=\"nofollow\"\u003eChangelog\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eLicense: \u003ca href=\"https://github.com/luangjokaj/wordpressify/blob/master/LICENSE\" rel=\"nofollow\"\u003eMIT\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eWordPressify \u003ca href=\"https://www.wordpressify.co/\" rel=\"nofollow\"\u003eDocumentation Website\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":93404582,"name":"wordpressify","owner_login":"luangjokaj","description":"🎈 A build system designed to automate your WordPress development workflow.","pushed_at":"2021-01-11T08:22:44.000Z","stargazers_count":1335,"open_issues_count":2,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"http://www.wordpressify.co/","private":false,"project_created_at":"2017-06-05T13:04:46.000Z","project_updated_at":"2021-01-12T19:05:14.000Z","language":"JavaScript","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":4,"applicationTime":138,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Riko</title>
+<meta name="description" content="A Python stream processing engine modeled after Yahoo! Pipes">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/nerevu/riko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "nerevu/riko",
+  "description": "A Python stream processing engine modeled after Yahoo! Pipes",
+  "url": "https://awesomeopensource.com/project/nerevu/riko",
+  "sku": "project/nerevu/riko",
+  "mpn": "project/nerevu/riko",
+  "image": "https://github.com/nerevu.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "nerevu/riko",
+    "logo": "https://github.com/nerevu.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "1550"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="n7lfmXIOAV/2+SpO+NisG49mU+DXaVhsSH1K4fQOkcEROhB9+UCdl/ZZFY+C7bOQdBBAWEakk2OD1sRDfaJBIg==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/nerevu/riko","location":"/project/nerevu/riko","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/nerevu/riko","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-55a83985-6002-4efd-b299-04886c60415f"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Riko</div><div class="aos_project_metadata_description">A Python stream processing engine modeled after Yahoo! Pipes</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,550</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><div class="aos_project_metadata_header"><a href="https://github.com/nerevu/riko" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/nerevu/riko" target="_blank">https://github.com/nerevu/riko</a></span><div class="aos_project_metadata_header"><a href="https://github.com/nerevu/riko/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/nerevu/riko/issues" target="_blank">22</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">5 months ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/python"><div style="display:block;text-decoration:none;padding-bottom:10px">python<span> (<!-- -->49,729<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cli"><div style="display:block;text-decoration:none;padding-bottom:10px">cli<span> (<!-- -->1,650<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/library"><div style="display:block;text-decoration:none;padding-bottom:10px">library<span> (<!-- -->1,250<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/functional-programming"><div style="display:block;text-decoration:none;padding-bottom:10px">functional-programming<span> (<!-- -->457<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/data"><div style="display:block;text-decoration:none;padding-bottom:10px">data<span> (<!-- -->368<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/asynchronous"><div style="display:block;text-decoration:none;padding-bottom:10px">asynchronous<span> (<!-- -->227<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/rss"><div style="display:block;text-decoration:none;padding-bottom:10px">rss<span> (<!-- -->166<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/etl"><div style="display:block;text-decoration:none;padding-bottom:10px">etl<span> (<!-- -->88<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/stream-processing"><div style="display:block;text-decoration:none;padding-bottom:10px">stream-processing<span> (<!-- -->73<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/parallelism"><div style="display:block;text-decoration:none;padding-bottom:10px">parallelism<span> (<!-- -->40<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="riko-a-stream-processing-engine-modeled-after-yahoo-pipes" class="anchor" href="#riko-a-stream-processing-engine-modeled-after-yahoo-pipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>riko: A stream processing engine modeled after Yahoo! Pipes</h1>
+<p>|travis| |versions| |pypi|</p>
+<h2>
+<a id="index" class="anchor" href="#index" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Index</h2>
+<p><code>Introduction</code>_ | <code>Requirements</code>_ | <code>Word Count</code>_ | <code>Motivation</code>_ | <code>Usage</code>_ |
+<code>Installation</code>_ | <code>Design Principles</code>_ | <code>Scripts</code>_ | <code>Command-line Interface</code>_ |
+<code>Contributing</code>_ | <code>Credits</code>_ | <code>More Info</code>_ | <code>Project Structure</code>_ | <code>License</code>_</p>
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<p><strong>riko</strong> is a pure Python <code>library</code>_ for analyzing and processing <code>streams</code> of
+structured data. <code>riko</code> has <code>synchronous</code>_ and <code>asynchronous</code>_ APIs, supports <code>parallel execution</code><em>, and is well suited for processing RSS feeds [#]</em>. <code>riko</code> also supplies
+a <code>command-line interface</code>_ for executing <code>flows</code>, i.e., stream processors aka <code>workflows</code>.</p>
+<p>With <code>riko</code>, you can</p>
+<ul>
+<li>Read csv/xml/json/html files</li>
+<li>Create text and data based <code>flows</code> via modular <code>pipes</code>_</li>
+<li>Parse, extract, and process RSS/Atom feeds</li>
+<li>Create awesome mashups [#]_, APIs, and maps</li>
+<li>Perform <code>parallel processing</code>_ via cpus/processors or threads</li>
+<li>and much more...</li>
+</ul>
+<p>Notes
+^^^^^</p>
+<p>.. [#] <code>Really Simple Syndication</code>_
+.. [#] <code>Mashup (web application hybrid)</code>_</p>
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+<p><code>riko</code> has been tested and is known to work on Python 3.6, 3.7, and 3.8;
+and PyPy3.6 7.3.0.</p>
+<p>Optional Dependencies
+^^^^^^^^^^^^^^^^^^^^^</p>
+<p>========================  ===================  ===========================
+Feature                   Dependency           Installation
+========================  ===================  ===========================
+Async API                 <code>Twisted</code>_           <code>pip install riko[async]</code>
+Accelerated xml parsing   <code>lxml</code>_ [#]_         <code>pip install riko[xml]</code>
+Accelerated feed parsing  <code>speedparser</code>_ [#]_  <code>pip install riko[xml]</code>
+========================  ===================  ===========================</p>
+<p>Notes
+^^^^^</p>
+<p>.. [#] If <code>lxml</code> isn't present, <code>riko</code> will default to the builtin Python xml parser
+.. [#] If <code>speedparser</code> isn't present, <code>riko</code> will default to <code>feedparser</code></p>
+<h2>
+<a id="word-count" class="anchor" href="#word-count" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Word Count</h2>
+<p>In this example, we use several <code>pipes</code>_ to count the words on a webpage.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; ### Create a SyncPipe flow ###
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # `SyncPipe` is a convenience class that creates chainable flows
+&gt;&gt;&gt; # and allows for parallel processing.
+&gt;&gt;&gt; from riko.collections import SyncPipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Set the pipe configurations ###
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # Notes:
+&gt;&gt;&gt; #   1. the `detag` option will strip all html tags from the result
+&gt;&gt;&gt; #   2. fetch the text contained inside the 'body' tag of the hackernews
+&gt;&gt;&gt; #      homepage
+&gt;&gt;&gt; #   3. replace newlines with spaces and assign the result to 'content'
+&gt;&gt;&gt; #   4. tokenize the resulting text using whitespace as the delimeter
+&gt;&gt;&gt; #   5. count the number of times each token appears
+&gt;&gt;&gt; #   6. obtain the raw stream
+&gt;&gt;&gt; #   7. extract the first word and its count
+&gt;&gt;&gt; #   8. extract the second word and its count
+&gt;&gt;&gt; #   9. extract the third word and its count
+&gt;&gt;&gt; url = 'https://news.ycombinator.com/'
+&gt;&gt;&gt; fetch_conf = {
+...     'url': url, 'start': '&lt;body&gt;', 'end': '&lt;/body&gt;', 'detag': True}  # 1
+&gt;&gt;&gt;
+&gt;&gt;&gt; replace_conf = {
+...     'rule': [
+...         {'find': '\r\n', 'replace': ' '},
+...         {'find': '\n', 'replace': ' '}]}
+&gt;&gt;&gt;
+&gt;&gt;&gt; flow = (
+...     SyncPipe('fetchpage', conf=fetch_conf)                           # 2
+...         .strreplace(conf=replace_conf, assign='content')             # 3
+...         .tokenizer(conf={'delimiter': ' '}, emit=True)               # 4
+...         .count(conf={'count_key': 'content'}))                       # 5
+&gt;&gt;&gt;
+&gt;&gt;&gt; stream = flow.output                                                 # 6
+&gt;&gt;&gt; next(stream)                                                         # 7
+{"'sad": 1}
+&gt;&gt;&gt; next(stream)                                                         # 8
+{'(': 28}
+&gt;&gt;&gt; next(stream)                                                         # 9
+{'(1999)': 1}
+</code></pre>
+<h2>
+<a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation</h2>
+<p>Why I built riko
+^^^^^^^^^^^^^^^^</p>
+<p>Yahoo! Pipes [#]_ was a user friendly web application used to</p>
+<p>aggregate, manipulate, and mashup content from around the web</p>
+<p>Wanting to create custom pipes, I came across <code>pipe2py</code>_ which translated a
+Yahoo! Pipe into python code. <code>pipe2py</code> suited my needs at the time
+but was unmaintained and lacked asynchronous or parallel processing.</p>
+<p><code>riko</code> addresses the shortcomings of <code>pipe2py</code> but removed support for
+importing Yahoo! Pipes json workflows. <code>riko</code> contains ~ <code>40 built-in</code>_
+modules, aka <code>pipes</code>, that allow you to programatically perform most of the
+tasks Yahoo! Pipes allowed.</p>
+<p>Why you should use riko
+^^^^^^^^^^^^^^^^^^^^^^^</p>
+<p><code>riko</code> provides a number of benefits / differences from other stream processing
+applications such as Huginn, Flink, Spark, and Storm [#]_. Namely:</p>
+<ul>
+<li>a small footprint (CPU and memory usage)</li>
+<li>native RSS/Atom support</li>
+<li>simple installation and usage</li>
+<li>a pure python library with <code>pypy</code>_ support</li>
+<li>builtin modular <code>pipes</code> to filter, sort, and modify <code>streams</code>
+</li>
+</ul>
+<p>The subsequent tradeoffs <code>riko</code> makes are:</p>
+<ul>
+<li>not distributed (able to run on a cluster of servers)</li>
+<li>no GUI for creating <code>flows</code>
+</li>
+<li>doesn't continually monitor <code>streams</code> for new data</li>
+<li>can't react to specific events</li>
+<li>iterator (pull) based so streams only support a single consumer [#]_</li>
+</ul>
+<p>The following table summarizes these observations:</p>
+<p>=======  ===========  =========  =====  ===========  =====  ========  ========  ===========
+library  Stream Type  Footprint  RSS    simple [#]_  async  parallel  CEP [#]_  distributed
+=======  ===========  =========  =====  ===========  =====  ========  ========  ===========
+riko     pull         small      √      √            √      √
+pipe2py  pull         small      √      √
+Huginn   push         med        √                   [#]_   √         √
+Others   push         large      [#]_   [#]_         [#]_   √         √         √
+=======  ===========  =========  =====  ===========  =====  ========  ========  ===========</p>
+<p>For more detailed information, please check-out the <code>FAQ</code>_.</p>
+<p>Notes
+^^^^^</p>
+<p>.. [#] Yahoo discontinued Yahoo! Pipes in 2015, but you can view what <code>remains</code>_
+.. [#] <code>Huginn</code><em>, <code>Flink</code></em>, <code>Spark</code><em>, and <code>Storm</code></em>
+.. [#] You can mitigate this via the <code>split</code>_ module
+.. [#] Doesn't depend on outside services like MySQL, Kafka, YARN, ZooKeeper, or Mesos
+.. [#] <code>Complex Event Processing</code>_
+.. [#] Huginn doesn't appear to make <code>async web requests</code>_
+.. [#] Many libraries can't parse RSS streams without the use of 3rd party libraries
+.. [#] While most libraries offer a local mode, many require integrating with a data ingestor (e.g., Flume/Kafka) to do anything useful
+.. [#] I can't find evidence that these libraries offer an async APIs (and apparently <code>Spark doesn't</code>_)</p>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<p><code>riko</code> is intended to be used directly as a Python library.</p>
+<p>Usage Index
+^^^^^^^^^^^</p>
+<ul>
+<li>
+<code>Fetching feeds</code>_</li>
+<li>
+<code>Synchronous processing</code>_</li>
+<li>
+<code>Parallel processing</code>_</li>
+<li>
+<code>Asynchronous processing</code>_</li>
+<li>
+<code>Cookbook</code>_</li>
+</ul>
+<p>Fetching feeds
+^^^^^^^^^^^^^^</p>
+<p><code>riko</code> can fetch rss feeds from both local and remote filepaths via "source"
+<code>pipes</code>. Each "source" <code>pipe</code> returns a <code>stream</code>, i.e., an iterator of
+dictionaries, aka <code>items</code>.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules import fetch, fetchsitefeed
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Fetch an RSS feed ###
+&gt;&gt;&gt; stream = fetch.pipe(conf={'url': 'https://news.ycombinator.com/rss'})
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Fetch the first RSS feed found ###
+&gt;&gt;&gt; stream = fetchsitefeed.pipe(conf={'url': 'http://arstechnica.com/rss-feeds/'})
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### View the fetched RSS feed(s) ###
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # Note: regardless of how you fetch an RSS feed, it will have the same
+&gt;&gt;&gt; # structure
+&gt;&gt;&gt; item = next(stream)
+&gt;&gt;&gt; item.keys()
+dict_keys(['title_detail', 'author.uri', 'tags', 'summary_detail', 'author_detail',
+           'author.name', 'y:published', 'y:title', 'content', 'title', 'pubDate',
+           'guidislink', 'id', 'summary', 'dc:creator', 'authors', 'published_parsed',
+           'links', 'y:id', 'author', 'link', 'published'])
+
+&gt;&gt;&gt; item['title'], item['author'], item['id']
+('Gravity doesn’t care about quantum spin',
+ 'Chris Lee',
+ 'http://arstechnica.com/?p=924009')
+</code></pre>
+<p>Please see the <code>FAQ</code>_ for a complete list of supported <code>file types</code>_ and
+<code>protocols</code><em>. Please see <code>Fetching data and feeds</code></em> for more examples.</p>
+<p>Synchronous processing
+^^^^^^^^^^^^^^^^^^^^^^</p>
+<p><code>riko</code> can modify <code>streams</code> via the <code>40 built-in</code>_ <code>pipes</code></p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.collections import SyncPipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Set the pipe configurations ###
+&gt;&gt;&gt; fetch_conf = {'url': 'https://news.ycombinator.com/rss'}
+&gt;&gt;&gt; filter_rule = {'field': 'link', 'op': 'contains', 'value': '.com'}
+&gt;&gt;&gt; xpath = '/html/body/center/table/tr[3]/td/table[2]/tr[1]/td/table/tr/td[3]/span/span'
+&gt;&gt;&gt; xpath_conf = {'url': {'subkey': 'comments'}, 'xpath': xpath}
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Create a SyncPipe flow ###
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # `SyncPipe` is a convenience class that creates chainable flows
+&gt;&gt;&gt; # and allows for parallel processing.
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # The following flow will:
+&gt;&gt;&gt; #   1. fetch the hackernews RSS feed
+&gt;&gt;&gt; #   2. filter for items with '.com' in the link
+&gt;&gt;&gt; #   3. sort the items ascending by title
+&gt;&gt;&gt; #   4. fetch the first comment from each item
+&gt;&gt;&gt; #   5. flatten the result into one raw stream
+&gt;&gt;&gt; #   6. extract the first item's content
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # Note: sorting is not lazy so take caution when using this pipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; flow = (
+...     SyncPipe('fetch', conf=fetch_conf)               # 1
+...         .filter(conf={'rule': filter_rule})          # 2
+...         .sort(conf={'rule': {'sort_key': 'title'}})  # 3
+...         .xpathfetchpage(conf=xpath_conf))            # 4
+&gt;&gt;&gt;
+&gt;&gt;&gt; stream = flow.output                                 # 5
+&gt;&gt;&gt; next(stream)['content']                              # 6
+'Open Artificial Pancreas home:'
+</code></pre>
+<p>Please see <code>alternate workflow creation</code>_ for an alternative (function based) method for
+creating a <code>stream</code>. Please see <code>pipes</code>_ for a complete list of available <code>pipes</code>.</p>
+<p>Parallel processing
+^^^^^^^^^^^^^^^^^^^</p>
+<p>An example using <code>riko</code>'s parallel API to spawn a <code>ThreadPool</code> [#]_</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.collections import SyncPipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Set the pipe configurations ###
+&gt;&gt;&gt; fetch_conf = {'url': 'https://news.ycombinator.com/rss'}
+&gt;&gt;&gt; filter_rule = {'field': 'link', 'op': 'contains', 'value': '.com'}
+&gt;&gt;&gt; xpath = '/html/body/center/table/tr[3]/td/table[2]/tr[1]/td/table/tr/td[3]/span/span'
+&gt;&gt;&gt; xpath_conf = {'url': {'subkey': 'comments'}, 'xpath': xpath}
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Create a parallel SyncPipe flow ###
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # The following flow will:
+&gt;&gt;&gt; #   1. fetch the hackernews RSS feed
+&gt;&gt;&gt; #   2. filter for items with '.com' in the article link
+&gt;&gt;&gt; #   3. fetch the first comment from all items in parallel (using 4 workers)
+&gt;&gt;&gt; #   4. flatten the result into one raw stream
+&gt;&gt;&gt; #   5. extract the first item's content
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # Note: no point in sorting after the filter since parallel fetching doesn't guarantee
+&gt;&gt;&gt; # order
+&gt;&gt;&gt; flow = (
+...     SyncPipe('fetch', conf=fetch_conf, parallel=True, workers=4)  # 1
+...         .filter(conf={'rule': filter_rule})                       # 2
+...         .xpathfetchpage(conf=xpath_conf))                         # 3
+&gt;&gt;&gt;
+&gt;&gt;&gt; stream = flow.output                                              # 4
+&gt;&gt;&gt; next(stream)['content']                                           # 5
+'He uses the following example for when to throw your own errors:'
+</code></pre>
+<p>Asynchronous processing
+^^^^^^^^^^^^^^^^^^^^^^^</p>
+<p>To enable asynchronous processing, you must install the <code>async</code> module.</p>
+<p>.. code-block:: bash</p>
+<pre><code>pip install riko[async]
+</code></pre>
+<p>An example using <code>riko</code>'s asynchronous API.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.bado import coroutine, react
+&gt;&gt;&gt; from riko.collections import AsyncPipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Set the pipe configurations ###
+&gt;&gt;&gt; fetch_conf = {'url': 'https://news.ycombinator.com/rss'}
+&gt;&gt;&gt; filter_rule = {'field': 'link', 'op': 'contains', 'value': '.com'}
+&gt;&gt;&gt; xpath = '/html/body/center/table/tr[3]/td/table[2]/tr[1]/td/table/tr/td[3]/span/span'
+&gt;&gt;&gt; xpath_conf = {'url': {'subkey': 'comments'}, 'xpath': xpath}
+&gt;&gt;&gt;
+&gt;&gt;&gt; ### Create an AsyncPipe flow ###
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # The following flow will:
+&gt;&gt;&gt; #   1. fetch the hackernews RSS feed
+&gt;&gt;&gt; #   2. filter for items with '.com' in the article link
+&gt;&gt;&gt; #   3. asynchronously fetch the first comment from each item (using 4 connections)
+&gt;&gt;&gt; #   4. flatten the result into one raw stream
+&gt;&gt;&gt; #   5. extract the first item's content
+&gt;&gt;&gt; #
+&gt;&gt;&gt; # Note: no point in sorting after the filter since async fetching doesn't guarantee
+&gt;&gt;&gt; # order
+&gt;&gt;&gt; @coroutine
+... def run(reactor):
+...     stream = yield (
+...         AsyncPipe('fetch', conf=fetch_conf, connections=4)  # 1
+...             .filter(conf={'rule': filter_rule})             # 2
+...             .xpathfetchpage(conf=xpath_conf)                # 3
+...             .output)                                        # 4
+...
+...     print(next(stream)['content'])                          # 5
+&gt;&gt;&gt;
+&gt;&gt;&gt; try:
+...     react(run)
+... except SystemExit:
+...     pass
+Here's how iteration works ():
+</code></pre>
+<p>Cookbook
+^^^^^^^^</p>
+<p>Please see the <code>cookbook</code>_ or <code>ipython notebook</code>_ for more examples.</p>
+<p>Notes
+^^^^^</p>
+<p>.. [#] You can instead enable a <code>ProcessPool</code> by additionally passing <code>threads=False</code> to <code>SyncPipe</code>, i.e., <code>SyncPipe('fetch', conf={'url': url}, parallel=True, threads=False)</code>.</p>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<p>(You are using a <code>virtualenv</code>_, right?)</p>
+<p>At the command line, install <code>riko</code> using either <code>pip</code> (<em>recommended</em>)</p>
+<p>.. code-block:: bash</p>
+<pre><code>pip install riko
+</code></pre>
+<p>or <code>easy_install</code></p>
+<p>.. code-block:: bash</p>
+<pre><code>easy_install riko
+</code></pre>
+<p>Please see the <code>installation doc</code>_ for more details.</p>
+<h2>
+<a id="design-principles" class="anchor" href="#design-principles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design Principles</h2>
+<p>The primary data structures in <code>riko</code> are the <code>item</code> and <code>stream</code>. An <code>item</code>
+is just a python dictionary, and a <code>stream</code> is an iterator of <code>items</code>. You can
+create a <code>stream</code> manually with something as simple as
+<code>[{'content': 'hello world'}]</code>. You manipulate <code>streams</code> in
+<code>riko</code> via <code>pipes</code>. A <code>pipe</code> is simply a function that accepts either a
+<code>stream</code> or <code>item</code>, and returns a <code>stream</code>. <code>pipes</code> are composable: you
+can use the output of one <code>pipe</code> as the input to another <code>pipe</code>.</p>
+<p><code>riko</code> <code>pipes</code> come in two flavors; <code>operators</code> and <code>processors</code>.
+<code>operators</code> operate on an entire <code>stream</code> at once and are unable to handle
+individual items. Example <code>operators</code> include <code>count</code>, <code>pipefilter</code>,
+and <code>reverse</code>.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules.reverse import pipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; stream = [{'title': 'riko pt. 1'}, {'title': 'riko pt. 2'}]
+&gt;&gt;&gt; next(pipe(stream))
+{'title': 'riko pt. 2'}
+</code></pre>
+<p><code>processors</code> process individual <code>items</code> and can be parallelized across
+threads or processes. Example <code>processors</code> include <code>fetchsitefeed</code>,
+<code>hash</code>, <code>pipeitembuilder</code>, and <code>piperegex</code>.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules.hash import pipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; item = {'title': 'riko pt. 1'}
+&gt;&gt;&gt; stream = pipe(item, field='title')
+&gt;&gt;&gt; next(stream)
+{'title': 'riko pt. 1', 'hash': 2853617420}
+</code></pre>
+<p>Some <code>processors</code>, e.g., <code>pipetokenizer</code>, return multiple results.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules.tokenizer import pipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; item = {'title': 'riko pt. 1'}
+&gt;&gt;&gt; tokenizer_conf = {'delimiter': ' '}
+&gt;&gt;&gt; stream = pipe(item, conf=tokenizer_conf, field='title')
+&gt;&gt;&gt; next(stream)
+{'tokenizer': [{'content': 'riko'},
+   {'content': 'pt.'},
+   {'content': '1'}],
+ 'title': 'riko pt. 1'}
+
+&gt;&gt;&gt; # In this case, if we just want the result, we can `emit` it instead
+&gt;&gt;&gt; stream = pipe(item, conf=tokenizer_conf, field='title', emit=True)
+&gt;&gt;&gt; next(stream)
+{'content': 'riko'}
+</code></pre>
+<p><code>operators</code> are split into sub-types of <code>aggregators</code>
+and <code>composers</code>. <code>aggregators</code>, e.g., <code>count</code>, combine
+all <code>items</code> of an input <code>stream</code> into a new <code>stream</code> with a single <code>item</code>;
+while <code>composers</code>, e.g., <code>filter</code>, create a new <code>stream</code> containing
+some or all <code>items</code> of an input <code>stream</code>.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules.count import pipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; stream = [{'title': 'riko pt. 1'}, {'title': 'riko pt. 2'}]
+&gt;&gt;&gt; next(pipe(stream))
+{'count': 2}
+</code></pre>
+<p>In case you are confused from the "Word Count" example up top, <code>count</code> can return
+multiple items if you pass in the <code>count_key</code> config option.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; counted = pipe(stream, conf={'count_key': 'title'})
+&gt;&gt;&gt; next(counted)
+{'riko pt. 1': 1}
+&gt;&gt;&gt; next(counted)
+{'riko pt. 2': 1}
+</code></pre>
+<p><code>processors</code> are split into sub-types of <code>source</code> and <code>transformer</code>.
+<code>sources</code>, e.g., <code>itembuilder</code>, can create a <code>stream</code> while
+<code>transformers</code>, e.g. <code>hash</code> can only transform items in a <code>stream</code>.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules.itembuilder import pipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; attrs = {'key': 'title', 'value': 'riko pt. 1'}
+&gt;&gt;&gt; next(pipe(conf={'attrs': attrs}))
+{'title': 'riko pt. 1'}
+</code></pre>
+<p>The following table summaries these observations:</p>
+<p>+-----------+-------------+--------+-------------+-----------------+------------------+
+| type      | sub-type    | input  | output      | parallelizable? | creates streams? |
++-----------+-------------+--------+-------------+-----------------+------------------+
+| operator  | aggregator  | stream | stream [#]_ |                 |                  |
+|           +-------------+--------+-------------+-----------------+------------------+
+|           | composer    | stream | stream      |                 |                  |
++-----------+-------------+--------+-------------+-----------------+------------------+
+| processor | source      | item   | stream      | √               | √                |
+|           +-------------+--------+-------------+-----------------+------------------+
+|           | transformer | item   | stream      | √               |                  |
++-----------+-------------+--------+-------------+-----------------+------------------+</p>
+<p>If you are unsure of the type of <code>pipe</code> you have, check its metadata.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.modules import fetchpage, count
+&gt;&gt;&gt;
+&gt;&gt;&gt; fetchpage.async_pipe.__dict__
+{'type': 'processor', 'name': 'fetchpage', 'sub_type': 'source'}
+&gt;&gt;&gt; count.pipe.__dict__
+{'type': 'operator', 'name': 'count', 'sub_type': 'aggregator'}
+</code></pre>
+<p>The <code>SyncPipe</code> and <code>AsyncPipe</code> classes (among other things) perform this
+check for you to allow for convenient method chaining and transparent
+parallelization.</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; from riko.collections import SyncPipe
+&gt;&gt;&gt;
+&gt;&gt;&gt; attrs = [
+...     {'key': 'title', 'value': 'riko pt. 1'},
+...     {'key': 'content', 'value': "Let's talk about riko!"}]
+&gt;&gt;&gt; flow = SyncPipe('itembuilder', conf={'attrs': attrs}).hash()
+&gt;&gt;&gt; flow.list[0]
+{'title': 'riko pt. 1',
+ 'content': "Let's talk about riko!",
+ 'hash': 1346301218}
+</code></pre>
+<p>Please see the <code>cookbook</code>_ for advanced examples including how to wire in
+vales from other pipes or accept user input.</p>
+<p>Notes
+^^^^^</p>
+<p>.. [#] the output <code>stream</code> of an <code>aggregator</code> is an iterator of only 1 <code>item</code>.</p>
+<h2>
+<a id="command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command-line Interface</h2>
+<p><code>riko</code> provides a command, <code>runpipe</code>, to execute <code>workflows</code>. A
+<code>workflow</code> is simply a file containing a function named <code>pipe</code> that creates
+a <code>flow</code> and processes the resulting <code>stream</code>.</p>
+<p>CLI Usage
+^^^^^^^^^</p>
+<p>usage: runpipe [pipeid]</p>
+<p>description: Runs a riko pipe</p>
+<p>positional arguments:
+pipeid       The pipe to run (default: reads from stdin).</p>
+<p>optional arguments:
+-h, --help   show this help message and exit
+-a, --async  Load async pipe.</p>
+<pre><code>-t, --test   Run in test mode (uses default inputs).
+</code></pre>
+<p>CLI Setup
+^^^^^^^^^</p>
+<p><code>flow.py</code></p>
+<p>.. code-block:: python</p>
+<pre><code>from __future__ import print_function
+from riko.collections import SyncPipe
+
+conf1 = {'attrs': [{'value': 'https://google.com', 'key': 'content'}]}
+conf2 = {'rule': [{'find': 'com', 'replace': 'co.uk'}]}
+
+def pipe(test=False):
+    kwargs = {'conf': conf1, 'test': test}
+    flow = SyncPipe('itembuilder', **kwargs).strreplace(conf=conf2)
+    stream = flow.output
+
+    for i in stream:
+        print(i)
+</code></pre>
+<p>CLI Examples
+^^^^^^^^^^^^</p>
+<p>Now to execute <code>flow.py</code>, type the command <code>runpipe flow</code>. You should
+then see the following output in your terminal:</p>
+<p>.. code-block:: bash</p>
+<pre><code>https://google.co.uk
+</code></pre>
+<p><code>runpipe</code> will also search the <code>examples</code> directory for <code>workflows</code>. Type
+<code>runpipe demo</code> and you should see the following output:</p>
+<p>.. code-block:: bash</p>
+<pre><code>Deadline to clear up health law eligibility near 682
+</code></pre>
+<h2>
+<a id="scripts" class="anchor" href="#scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scripts</h2>
+<p><code>riko</code> comes with a built in task manager <code>manage</code>.</p>
+<p>Setup
+^^^^^</p>
+<p>.. code-block:: bash</p>
+<pre><code>pip install riko[develop]
+</code></pre>
+<p>Examples
+^^^^^^^^</p>
+<p><em>Run python linter and nose tests</em></p>
+<p>.. code-block:: bash</p>
+<pre><code>manage lint
+manage test
+</code></pre>
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+<p>Please mimic the coding style/conventions used in this repo.
+If you add new classes or functions, please add the appropriate doc blocks with
+examples. Also, make sure the python linter and nose tests pass.</p>
+<p>Please see the <code>contributing doc</code>_ for more details.</p>
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+<p>Shoutout to <code>pipe2py</code>_ for heavily inspiring <code>riko</code>. <code>riko</code> started out as a fork
+of <code>pipe2py</code>, but has since diverged so much that little (if any) of the original
+code-base remains.</p>
+<h2>
+<a id="more-info" class="anchor" href="#more-info" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More Info</h2>
+<ul>
+<li>
+<code>FAQ</code>_</li>
+<li>
+<code>Cookbook</code>_</li>
+<li>
+<code>iPython Notebook</code>_</li>
+<li>
+<code>Step-by-Step Intro. Tutorial</code>_</li>
+</ul>
+<h2>
+<a id="project-structure" class="anchor" href="#project-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Structure</h2>
+<p>.. code-block:: bash</p>
+<pre><code>┌── benchmarks
+│   ├── __init__.py
+│   └── parallel.py
+├── bin
+│   └── run
+├── data/*
+├── docs
+│   ├── AUTHORS.rst
+│   ├── CHANGES.rst
+│   ├── COOKBOOK.rst
+│   ├── FAQ.rst
+│   ├── INSTALLATION.rst
+│   └── TODO.rst
+├── examples/*
+├── helpers/*
+├── riko
+│   ├── __init__.py
+│   ├── lib
+│   │   ├── __init__.py
+│   │   ├── autorss.py
+│   │   ├── collections.py
+│   │   ├── dotdict.py
+│   │   ├── log.py
+│   │   ├── tags.py
+│   │   └── py
+│   ├── modules/*
+│   └── twisted
+│       ├── __init__.py
+│       ├── collections.py
+│       └── py
+├── tests
+│   ├── __init__.py
+│   ├── standard.rc
+│   └── test_examples.py
+├── CONTRIBUTING.rst
+├── dev-requirements.txt
+├── LICENSE
+├── Makefile
+├── manage.py
+├── MANIFEST.in
+├── optional-requirements.txt
+├── py2-requirements.txt
+├── README.rst
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+└── tox.ini
+</code></pre>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><code>riko</code> is distributed under the <code>MIT License</code>_.</p>
+<p>.. |travis| image:: <a href="https://img.shields.io/travis/nerevu/riko/master.svg" rel="nofollow">https://img.shields.io/travis/nerevu/riko/master.svg</a>
+:target: <a href="https://travis-ci.org/nerevu/riko" rel="nofollow">https://travis-ci.org/nerevu/riko</a></p>
+<p>.. |versions| image:: <a href="https://img.shields.io/pypi/pyversions/riko.svg" rel="nofollow">https://img.shields.io/pypi/pyversions/riko.svg</a>
+:target: <a href="https://pypi.python.org/pypi/riko" rel="nofollow">https://pypi.python.org/pypi/riko</a></p>
+<p>.. |pypi| image:: <a href="https://img.shields.io/pypi/v/riko.svg" rel="nofollow">https://img.shields.io/pypi/v/riko.svg</a>
+:target: <a href="https://pypi.python.org/pypi/riko" rel="nofollow">https://pypi.python.org/pypi/riko</a></p>
+<p>.. _synchronous: #synchronous-processing
+.. _asynchronous: #asynchronous-processing
+.. _parallel execution: #parallel-processing
+.. _parallel processing: #parallel-processing
+.. _library: #usage</p>
+<p>.. _contributing doc: <a href="https://github.com/nerevu/riko/blob/master/CONTRIBUTING.rst" rel="nofollow">https://github.com/nerevu/riko/blob/master/CONTRIBUTING.rst</a>
+.. _FAQ: <a href="https://github.com/nerevu/riko/blob/master/docs/FAQ.rst" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/FAQ.rst</a>
+.. _pipes: <a href="https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available</a>
+.. _40 built-in: <a href="https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available</a>
+.. _file types: <a href="https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-file-types-are-supported" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-file-types-are-supported</a>
+.. _protocols: <a href="https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-protocols-are-supported" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-protocols-are-supported</a>
+.. _installation doc: <a href="https://github.com/nerevu/riko/blob/master/docs/INSTALLATION.rst" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/INSTALLATION.rst</a>
+.. _Cookbook: <a href="https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst</a>
+.. _split: <a href="https://github.com/nerevu/riko/blob/master/riko/modules/split.py#L15-L18" rel="nofollow">https://github.com/nerevu/riko/blob/master/riko/modules/split.py#L15-L18</a>
+.. _alternate workflow creation: <a href="https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#alternate-workflow-creation" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#alternate-workflow-creation</a>
+.. _Fetching data and feeds: <a href="https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#fetching-data-and-feeds" rel="nofollow">https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#fetching-data-and-feeds</a></p>
+<p>.. _pypy: <a href="http://pypy.org" rel="nofollow">http://pypy.org</a>
+.. _Really Simple Syndication: <a href="https://en.wikipedia.org/wiki/RSS" rel="nofollow">https://en.wikipedia.org/wiki/RSS</a>
+.. _Mashup (web application hybrid): <a href="https://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29" rel="nofollow">https://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29</a>
+.. _pipe2py: <a href="https://github.com/ggaughan/pipe2py/" rel="nofollow">https://github.com/ggaughan/pipe2py/</a>
+.. _Huginn: <a href="https://github.com/cantino/huginn/" rel="nofollow">https://github.com/cantino/huginn/</a>
+.. _Flink: <a href="http://flink.apache.org/" rel="nofollow">http://flink.apache.org/</a>
+.. _Spark: <a href="http://spark.apache.org/streaming/" rel="nofollow">http://spark.apache.org/streaming/</a>
+.. _Storm: <a href="http://storm.apache.org/" rel="nofollow">http://storm.apache.org/</a>
+.. _Complex Event Processing: <a href="https://en.wikipedia.org/wiki/Complex_event_processing" rel="nofollow">https://en.wikipedia.org/wiki/Complex_event_processing</a>
+.. _async web requests: <a href="https://github.com/cantino/huginn/blob/bf7c2feba4a7f27f39de96877c121d40282c0af9/app/models/agents/rss_agent.rb#L101" rel="nofollow">https://github.com/cantino/huginn/blob/bf7c2feba4a7f27f39de96877c121d40282c0af9/app/models/agents/rss_agent.rb#L101</a>
+.. _Spark doesn't: <a href="https://github.com/perwendel/spark/issues/208" rel="nofollow">https://github.com/perwendel/spark/issues/208</a>
+.. _remains: <a href="https://web.archive.org/web/20150930021241/http://pipes.yahoo.com/pipes/" rel="nofollow">https://web.archive.org/web/20150930021241/http://pipes.yahoo.com/pipes/</a>
+.. _lxml: <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser" rel="nofollow">http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser</a>
+.. _Twisted: <a href="http://twistedmatrix.com/" rel="nofollow">http://twistedmatrix.com/</a>
+.. _speedparser: <a href="https://github.com/jmoiron/speedparser" rel="nofollow">https://github.com/jmoiron/speedparser</a>
+.. _MIT License: <a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>
+.. _virtualenv: <a href="http://www.virtualenv.org/en/latest/index.html" rel="nofollow">http://www.virtualenv.org/en/latest/index.html</a>
+.. _iPython Notebook: <a href="http://nbviewer.jupyter.org/github/nerevu/riko/blob/master/examples/usage.ipynb" rel="nofollow">http://nbviewer.jupyter.org/github/nerevu/riko/blob/master/examples/usage.ipynb</a>
+.. _Step-by-Step Intro. Tutorial: <a href="http://nbviewer.jupyter.org/github/aemreunal/riko-tutorial/blob/master/Tutorial.ipynb" rel="nofollow">http://nbviewer.jupyter.org/github/aemreunal/riko-tutorial/blob/master/Tutorial.ipynb</a></p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b8908d94e738',m:'b5bdd6c9203bf64d44e0b039686956c6112f75bd-1610725496-1800-AdkfkxKmEY9MZ21vbdjmbkYjQU9va34QdqLDSdfpiLOLg0lT51Yzt78RbKE6B1Gqdr4RPD7/ob86aTVDPTbPwGHg2KhCNHMXZ/+Hcx21HdP4qZVNEVW9pnf7L8GGHsYWq335cJ3bp5Uuc/jpSPQhKH4=',s:[0x857b16ce65,0x076a9a063a],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="python"/> <!-- -->python<!-- --> (<!-- -->49,729<!-- -->) </div><div><input type="checkbox" name="topics" value="cli"/> <!-- -->cli<!-- --> (<!-- -->1,650<!-- -->) </div><div><input type="checkbox" name="topics" value="library"/> <!-- -->library<!-- --> (<!-- -->1,250<!-- -->) </div><div><input type="checkbox" name="topics" value="functional-programming"/> <!-- -->functional-programming<!-- --> (<!-- -->457<!-- -->) </div><div><input type="checkbox" name="topics" value="data"/> <!-- -->data<!-- --> (<!-- -->368<!-- -->) </div><div><input type="checkbox" name="topics" value="asynchronous"/> <!-- -->asynchronous<!-- --> (<!-- -->227<!-- -->) </div><div><input type="checkbox" name="topics" value="rss"/> <!-- -->rss<!-- --> (<!-- -->166<!-- -->) </div><div><input type="checkbox" name="topics" value="etl"/> <!-- -->etl<!-- --> (<!-- -->88<!-- -->) </div><div><input type="checkbox" name="topics" value="stream-processing"/> <!-- -->stream-processing<!-- --> (<!-- -->73<!-- -->) </div><div><input type="checkbox" name="topics" value="parallelism"/> <!-- -->parallelism<!-- --> (<!-- -->40<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Riko<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/nerevu" target="_blank">Nerevu</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/nerevu" target="_blank">Nerevu</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-55a83985-6002-4efd-b299-04886c60415f">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"asynchronous","count":227},{"id":null,"name":"cli","count":1650},{"id":null,"name":"data","count":368},{"id":null,"name":"etl","count":88},{"id":null,"name":"functional-programming","count":457},{"id":null,"name":"library","count":1250},{"id":null,"name":"parallelism","count":40},{"id":null,"name":"python","count":49729},{"id":null,"name":"rss","count":166},{"id":null,"name":"stream-processing","count":73}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/nerevu/riko","projects":[],"project":{"id":110759,"created_at":"2018-08-21T02:05:52.769Z","updated_at":"2021-01-14T04:19:21.576Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"riko-a-stream-processing-engine-modeled-after-yahoo-pipes\" class=\"anchor\" href=\"#riko-a-stream-processing-engine-modeled-after-yahoo-pipes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eriko: A stream processing engine modeled after Yahoo! Pipes\u003c/h1\u003e\n\u003cp\u003e|travis| |versions| |pypi|\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"index\" class=\"anchor\" href=\"#index\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIndex\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eIntroduction\u003c/code\u003e_ | \u003ccode\u003eRequirements\u003c/code\u003e_ | \u003ccode\u003eWord Count\u003c/code\u003e_ | \u003ccode\u003eMotivation\u003c/code\u003e_ | \u003ccode\u003eUsage\u003c/code\u003e_ |\n\u003ccode\u003eInstallation\u003c/code\u003e_ | \u003ccode\u003eDesign Principles\u003c/code\u003e_ | \u003ccode\u003eScripts\u003c/code\u003e_ | \u003ccode\u003eCommand-line Interface\u003c/code\u003e_ |\n\u003ccode\u003eContributing\u003c/code\u003e_ | \u003ccode\u003eCredits\u003c/code\u003e_ | \u003ccode\u003eMore Info\u003c/code\u003e_ | \u003ccode\u003eProject Structure\u003c/code\u003e_ | \u003ccode\u003eLicense\u003c/code\u003e_\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"introduction\" class=\"anchor\" href=\"#introduction\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eriko\u003c/strong\u003e is a pure Python \u003ccode\u003elibrary\u003c/code\u003e_ for analyzing and processing \u003ccode\u003estreams\u003c/code\u003e of\nstructured data. \u003ccode\u003eriko\u003c/code\u003e has \u003ccode\u003esynchronous\u003c/code\u003e_ and \u003ccode\u003easynchronous\u003c/code\u003e_ APIs, supports \u003ccode\u003eparallel execution\u003c/code\u003e\u003cem\u003e, and is well suited for processing RSS feeds [#]\u003c/em\u003e. \u003ccode\u003eriko\u003c/code\u003e also supplies\na \u003ccode\u003ecommand-line interface\u003c/code\u003e_ for executing \u003ccode\u003eflows\u003c/code\u003e, i.e., stream processors aka \u003ccode\u003eworkflows\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eWith \u003ccode\u003eriko\u003c/code\u003e, you can\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eRead csv/xml/json/html files\u003c/li\u003e\n\u003cli\u003eCreate text and data based \u003ccode\u003eflows\u003c/code\u003e via modular \u003ccode\u003epipes\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003eParse, extract, and process RSS/Atom feeds\u003c/li\u003e\n\u003cli\u003eCreate awesome mashups [#]_, APIs, and maps\u003c/li\u003e\n\u003cli\u003ePerform \u003ccode\u003eparallel processing\u003c/code\u003e_ via cpus/processors or threads\u003c/li\u003e\n\u003cli\u003eand much more...\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNotes\n^^^^^\u003c/p\u003e\n\u003cp\u003e.. [#] \u003ccode\u003eReally Simple Syndication\u003c/code\u003e_\n.. [#] \u003ccode\u003eMashup (web application hybrid)\u003c/code\u003e_\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"requirements\" class=\"anchor\" href=\"#requirements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRequirements\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e has been tested and is known to work on Python 3.6, 3.7, and 3.8;\nand PyPy3.6 7.3.0.\u003c/p\u003e\n\u003cp\u003eOptional Dependencies\n^^^^^^^^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003e========================  ===================  ===========================\nFeature                   Dependency           Installation\n========================  ===================  ===========================\nAsync API                 \u003ccode\u003eTwisted\u003c/code\u003e_           \u003ccode\u003epip install riko[async]\u003c/code\u003e\nAccelerated xml parsing   \u003ccode\u003elxml\u003c/code\u003e_ [#]_         \u003ccode\u003epip install riko[xml]\u003c/code\u003e\nAccelerated feed parsing  \u003ccode\u003espeedparser\u003c/code\u003e_ [#]_  \u003ccode\u003epip install riko[xml]\u003c/code\u003e\n========================  ===================  ===========================\u003c/p\u003e\n\u003cp\u003eNotes\n^^^^^\u003c/p\u003e\n\u003cp\u003e.. [#] If \u003ccode\u003elxml\u003c/code\u003e isn't present, \u003ccode\u003eriko\u003c/code\u003e will default to the builtin Python xml parser\n.. [#] If \u003ccode\u003espeedparser\u003c/code\u003e isn't present, \u003ccode\u003eriko\u003c/code\u003e will default to \u003ccode\u003efeedparser\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"word-count\" class=\"anchor\" href=\"#word-count\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWord Count\u003c/h2\u003e\n\u003cp\u003eIn this example, we use several \u003ccode\u003epipes\u003c/code\u003e_ to count the words on a webpage.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; ### Create a SyncPipe flow ###\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # `SyncPipe` is a convenience class that creates chainable flows\n\u0026gt;\u0026gt;\u0026gt; # and allows for parallel processing.\n\u0026gt;\u0026gt;\u0026gt; from riko.collections import SyncPipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Set the pipe configurations ###\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # Notes:\n\u0026gt;\u0026gt;\u0026gt; #   1. the `detag` option will strip all html tags from the result\n\u0026gt;\u0026gt;\u0026gt; #   2. fetch the text contained inside the 'body' tag of the hackernews\n\u0026gt;\u0026gt;\u0026gt; #      homepage\n\u0026gt;\u0026gt;\u0026gt; #   3. replace newlines with spaces and assign the result to 'content'\n\u0026gt;\u0026gt;\u0026gt; #   4. tokenize the resulting text using whitespace as the delimeter\n\u0026gt;\u0026gt;\u0026gt; #   5. count the number of times each token appears\n\u0026gt;\u0026gt;\u0026gt; #   6. obtain the raw stream\n\u0026gt;\u0026gt;\u0026gt; #   7. extract the first word and its count\n\u0026gt;\u0026gt;\u0026gt; #   8. extract the second word and its count\n\u0026gt;\u0026gt;\u0026gt; #   9. extract the third word and its count\n\u0026gt;\u0026gt;\u0026gt; url = 'https://news.ycombinator.com/'\n\u0026gt;\u0026gt;\u0026gt; fetch_conf = {\n...     'url': url, 'start': '\u0026lt;body\u0026gt;', 'end': '\u0026lt;/body\u0026gt;', 'detag': True}  # 1\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; replace_conf = {\n...     'rule': [\n...         {'find': '\\r\\n', 'replace': ' '},\n...         {'find': '\\n', 'replace': ' '}]}\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; flow = (\n...     SyncPipe('fetchpage', conf=fetch_conf)                           # 2\n...         .strreplace(conf=replace_conf, assign='content')             # 3\n...         .tokenizer(conf={'delimiter': ' '}, emit=True)               # 4\n...         .count(conf={'count_key': 'content'}))                       # 5\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; stream = flow.output                                                 # 6\n\u0026gt;\u0026gt;\u0026gt; next(stream)                                                         # 7\n{\"'sad\": 1}\n\u0026gt;\u0026gt;\u0026gt; next(stream)                                                         # 8\n{'(': 28}\n\u0026gt;\u0026gt;\u0026gt; next(stream)                                                         # 9\n{'(1999)': 1}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"motivation\" class=\"anchor\" href=\"#motivation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMotivation\u003c/h2\u003e\n\u003cp\u003eWhy I built riko\n^^^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003eYahoo! Pipes [#]_ was a user friendly web application used to\u003c/p\u003e\n\u003cp\u003eaggregate, manipulate, and mashup content from around the web\u003c/p\u003e\n\u003cp\u003eWanting to create custom pipes, I came across \u003ccode\u003epipe2py\u003c/code\u003e_ which translated a\nYahoo! Pipe into python code. \u003ccode\u003epipe2py\u003c/code\u003e suited my needs at the time\nbut was unmaintained and lacked asynchronous or parallel processing.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e addresses the shortcomings of \u003ccode\u003epipe2py\u003c/code\u003e but removed support for\nimporting Yahoo! Pipes json workflows. \u003ccode\u003eriko\u003c/code\u003e contains ~ \u003ccode\u003e40 built-in\u003c/code\u003e_\nmodules, aka \u003ccode\u003epipes\u003c/code\u003e, that allow you to programatically perform most of the\ntasks Yahoo! Pipes allowed.\u003c/p\u003e\n\u003cp\u003eWhy you should use riko\n^^^^^^^^^^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e provides a number of benefits / differences from other stream processing\napplications such as Huginn, Flink, Spark, and Storm [#]_. Namely:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ea small footprint (CPU and memory usage)\u003c/li\u003e\n\u003cli\u003enative RSS/Atom support\u003c/li\u003e\n\u003cli\u003esimple installation and usage\u003c/li\u003e\n\u003cli\u003ea pure python library with \u003ccode\u003epypy\u003c/code\u003e_ support\u003c/li\u003e\n\u003cli\u003ebuiltin modular \u003ccode\u003epipes\u003c/code\u003e to filter, sort, and modify \u003ccode\u003estreams\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe subsequent tradeoffs \u003ccode\u003eriko\u003c/code\u003e makes are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003enot distributed (able to run on a cluster of servers)\u003c/li\u003e\n\u003cli\u003eno GUI for creating \u003ccode\u003eflows\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003edoesn't continually monitor \u003ccode\u003estreams\u003c/code\u003e for new data\u003c/li\u003e\n\u003cli\u003ecan't react to specific events\u003c/li\u003e\n\u003cli\u003eiterator (pull) based so streams only support a single consumer [#]_\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe following table summarizes these observations:\u003c/p\u003e\n\u003cp\u003e=======  ===========  =========  =====  ===========  =====  ========  ========  ===========\nlibrary  Stream Type  Footprint  RSS    simple [#]_  async  parallel  CEP [#]_  distributed\n=======  ===========  =========  =====  ===========  =====  ========  ========  ===========\nriko     pull         small      √      √            √      √\npipe2py  pull         small      √      √\nHuginn   push         med        √                   [#]_   √         √\nOthers   push         large      [#]_   [#]_         [#]_   √         √         √\n=======  ===========  =========  =====  ===========  =====  ========  ========  ===========\u003c/p\u003e\n\u003cp\u003eFor more detailed information, please check-out the \u003ccode\u003eFAQ\u003c/code\u003e_.\u003c/p\u003e\n\u003cp\u003eNotes\n^^^^^\u003c/p\u003e\n\u003cp\u003e.. [#] Yahoo discontinued Yahoo! Pipes in 2015, but you can view what \u003ccode\u003eremains\u003c/code\u003e_\n.. [#] \u003ccode\u003eHuginn\u003c/code\u003e\u003cem\u003e, \u003ccode\u003eFlink\u003c/code\u003e\u003c/em\u003e, \u003ccode\u003eSpark\u003c/code\u003e\u003cem\u003e, and \u003ccode\u003eStorm\u003c/code\u003e\u003c/em\u003e\n.. [#] You can mitigate this via the \u003ccode\u003esplit\u003c/code\u003e_ module\n.. [#] Doesn't depend on outside services like MySQL, Kafka, YARN, ZooKeeper, or Mesos\n.. [#] \u003ccode\u003eComplex Event Processing\u003c/code\u003e_\n.. [#] Huginn doesn't appear to make \u003ccode\u003easync web requests\u003c/code\u003e_\n.. [#] Many libraries can't parse RSS streams without the use of 3rd party libraries\n.. [#] While most libraries offer a local mode, many require integrating with a data ingestor (e.g., Flume/Kafka) to do anything useful\n.. [#] I can't find evidence that these libraries offer an async APIs (and apparently \u003ccode\u003eSpark doesn't\u003c/code\u003e_)\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e is intended to be used directly as a Python library.\u003c/p\u003e\n\u003cp\u003eUsage Index\n^^^^^^^^^^^\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eFetching feeds\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eSynchronous processing\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eParallel processing\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eAsynchronous processing\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eCookbook\u003c/code\u003e_\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFetching feeds\n^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e can fetch rss feeds from both local and remote filepaths via \"source\"\n\u003ccode\u003epipes\u003c/code\u003e. Each \"source\" \u003ccode\u003epipe\u003c/code\u003e returns a \u003ccode\u003estream\u003c/code\u003e, i.e., an iterator of\ndictionaries, aka \u003ccode\u003eitems\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules import fetch, fetchsitefeed\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Fetch an RSS feed ###\n\u0026gt;\u0026gt;\u0026gt; stream = fetch.pipe(conf={'url': 'https://news.ycombinator.com/rss'})\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Fetch the first RSS feed found ###\n\u0026gt;\u0026gt;\u0026gt; stream = fetchsitefeed.pipe(conf={'url': 'http://arstechnica.com/rss-feeds/'})\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### View the fetched RSS feed(s) ###\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # Note: regardless of how you fetch an RSS feed, it will have the same\n\u0026gt;\u0026gt;\u0026gt; # structure\n\u0026gt;\u0026gt;\u0026gt; item = next(stream)\n\u0026gt;\u0026gt;\u0026gt; item.keys()\ndict_keys(['title_detail', 'author.uri', 'tags', 'summary_detail', 'author_detail',\n           'author.name', 'y:published', 'y:title', 'content', 'title', 'pubDate',\n           'guidislink', 'id', 'summary', 'dc:creator', 'authors', 'published_parsed',\n           'links', 'y:id', 'author', 'link', 'published'])\n\n\u0026gt;\u0026gt;\u0026gt; item['title'], item['author'], item['id']\n('Gravity doesn’t care about quantum spin',\n 'Chris Lee',\n 'http://arstechnica.com/?p=924009')\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ePlease see the \u003ccode\u003eFAQ\u003c/code\u003e_ for a complete list of supported \u003ccode\u003efile types\u003c/code\u003e_ and\n\u003ccode\u003eprotocols\u003c/code\u003e\u003cem\u003e. Please see \u003ccode\u003eFetching data and feeds\u003c/code\u003e\u003c/em\u003e for more examples.\u003c/p\u003e\n\u003cp\u003eSynchronous processing\n^^^^^^^^^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e can modify \u003ccode\u003estreams\u003c/code\u003e via the \u003ccode\u003e40 built-in\u003c/code\u003e_ \u003ccode\u003epipes\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.collections import SyncPipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Set the pipe configurations ###\n\u0026gt;\u0026gt;\u0026gt; fetch_conf = {'url': 'https://news.ycombinator.com/rss'}\n\u0026gt;\u0026gt;\u0026gt; filter_rule = {'field': 'link', 'op': 'contains', 'value': '.com'}\n\u0026gt;\u0026gt;\u0026gt; xpath = '/html/body/center/table/tr[3]/td/table[2]/tr[1]/td/table/tr/td[3]/span/span'\n\u0026gt;\u0026gt;\u0026gt; xpath_conf = {'url': {'subkey': 'comments'}, 'xpath': xpath}\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Create a SyncPipe flow ###\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # `SyncPipe` is a convenience class that creates chainable flows\n\u0026gt;\u0026gt;\u0026gt; # and allows for parallel processing.\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # The following flow will:\n\u0026gt;\u0026gt;\u0026gt; #   1. fetch the hackernews RSS feed\n\u0026gt;\u0026gt;\u0026gt; #   2. filter for items with '.com' in the link\n\u0026gt;\u0026gt;\u0026gt; #   3. sort the items ascending by title\n\u0026gt;\u0026gt;\u0026gt; #   4. fetch the first comment from each item\n\u0026gt;\u0026gt;\u0026gt; #   5. flatten the result into one raw stream\n\u0026gt;\u0026gt;\u0026gt; #   6. extract the first item's content\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # Note: sorting is not lazy so take caution when using this pipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; flow = (\n...     SyncPipe('fetch', conf=fetch_conf)               # 1\n...         .filter(conf={'rule': filter_rule})          # 2\n...         .sort(conf={'rule': {'sort_key': 'title'}})  # 3\n...         .xpathfetchpage(conf=xpath_conf))            # 4\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; stream = flow.output                                 # 5\n\u0026gt;\u0026gt;\u0026gt; next(stream)['content']                              # 6\n'Open Artificial Pancreas home:'\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ePlease see \u003ccode\u003ealternate workflow creation\u003c/code\u003e_ for an alternative (function based) method for\ncreating a \u003ccode\u003estream\u003c/code\u003e. Please see \u003ccode\u003epipes\u003c/code\u003e_ for a complete list of available \u003ccode\u003epipes\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eParallel processing\n^^^^^^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003eAn example using \u003ccode\u003eriko\u003c/code\u003e's parallel API to spawn a \u003ccode\u003eThreadPool\u003c/code\u003e [#]_\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.collections import SyncPipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Set the pipe configurations ###\n\u0026gt;\u0026gt;\u0026gt; fetch_conf = {'url': 'https://news.ycombinator.com/rss'}\n\u0026gt;\u0026gt;\u0026gt; filter_rule = {'field': 'link', 'op': 'contains', 'value': '.com'}\n\u0026gt;\u0026gt;\u0026gt; xpath = '/html/body/center/table/tr[3]/td/table[2]/tr[1]/td/table/tr/td[3]/span/span'\n\u0026gt;\u0026gt;\u0026gt; xpath_conf = {'url': {'subkey': 'comments'}, 'xpath': xpath}\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Create a parallel SyncPipe flow ###\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # The following flow will:\n\u0026gt;\u0026gt;\u0026gt; #   1. fetch the hackernews RSS feed\n\u0026gt;\u0026gt;\u0026gt; #   2. filter for items with '.com' in the article link\n\u0026gt;\u0026gt;\u0026gt; #   3. fetch the first comment from all items in parallel (using 4 workers)\n\u0026gt;\u0026gt;\u0026gt; #   4. flatten the result into one raw stream\n\u0026gt;\u0026gt;\u0026gt; #   5. extract the first item's content\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # Note: no point in sorting after the filter since parallel fetching doesn't guarantee\n\u0026gt;\u0026gt;\u0026gt; # order\n\u0026gt;\u0026gt;\u0026gt; flow = (\n...     SyncPipe('fetch', conf=fetch_conf, parallel=True, workers=4)  # 1\n...         .filter(conf={'rule': filter_rule})                       # 2\n...         .xpathfetchpage(conf=xpath_conf))                         # 3\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; stream = flow.output                                              # 4\n\u0026gt;\u0026gt;\u0026gt; next(stream)['content']                                           # 5\n'He uses the following example for when to throw your own errors:'\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAsynchronous processing\n^^^^^^^^^^^^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003eTo enable asynchronous processing, you must install the \u003ccode\u003easync\u003c/code\u003e module.\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epip install riko[async]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAn example using \u003ccode\u003eriko\u003c/code\u003e's asynchronous API.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.bado import coroutine, react\n\u0026gt;\u0026gt;\u0026gt; from riko.collections import AsyncPipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Set the pipe configurations ###\n\u0026gt;\u0026gt;\u0026gt; fetch_conf = {'url': 'https://news.ycombinator.com/rss'}\n\u0026gt;\u0026gt;\u0026gt; filter_rule = {'field': 'link', 'op': 'contains', 'value': '.com'}\n\u0026gt;\u0026gt;\u0026gt; xpath = '/html/body/center/table/tr[3]/td/table[2]/tr[1]/td/table/tr/td[3]/span/span'\n\u0026gt;\u0026gt;\u0026gt; xpath_conf = {'url': {'subkey': 'comments'}, 'xpath': xpath}\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; ### Create an AsyncPipe flow ###\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # The following flow will:\n\u0026gt;\u0026gt;\u0026gt; #   1. fetch the hackernews RSS feed\n\u0026gt;\u0026gt;\u0026gt; #   2. filter for items with '.com' in the article link\n\u0026gt;\u0026gt;\u0026gt; #   3. asynchronously fetch the first comment from each item (using 4 connections)\n\u0026gt;\u0026gt;\u0026gt; #   4. flatten the result into one raw stream\n\u0026gt;\u0026gt;\u0026gt; #   5. extract the first item's content\n\u0026gt;\u0026gt;\u0026gt; #\n\u0026gt;\u0026gt;\u0026gt; # Note: no point in sorting after the filter since async fetching doesn't guarantee\n\u0026gt;\u0026gt;\u0026gt; # order\n\u0026gt;\u0026gt;\u0026gt; @coroutine\n... def run(reactor):\n...     stream = yield (\n...         AsyncPipe('fetch', conf=fetch_conf, connections=4)  # 1\n...             .filter(conf={'rule': filter_rule})             # 2\n...             .xpathfetchpage(conf=xpath_conf)                # 3\n...             .output)                                        # 4\n...\n...     print(next(stream)['content'])                          # 5\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; try:\n...     react(run)\n... except SystemExit:\n...     pass\nHere's how iteration works ():\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCookbook\n^^^^^^^^\u003c/p\u003e\n\u003cp\u003ePlease see the \u003ccode\u003ecookbook\u003c/code\u003e_ or \u003ccode\u003eipython notebook\u003c/code\u003e_ for more examples.\u003c/p\u003e\n\u003cp\u003eNotes\n^^^^^\u003c/p\u003e\n\u003cp\u003e.. [#] You can instead enable a \u003ccode\u003eProcessPool\u003c/code\u003e by additionally passing \u003ccode\u003ethreads=False\u003c/code\u003e to \u003ccode\u003eSyncPipe\u003c/code\u003e, i.e., \u003ccode\u003eSyncPipe('fetch', conf={'url': url}, parallel=True, threads=False)\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003e(You are using a \u003ccode\u003evirtualenv\u003c/code\u003e_, right?)\u003c/p\u003e\n\u003cp\u003eAt the command line, install \u003ccode\u003eriko\u003c/code\u003e using either \u003ccode\u003epip\u003c/code\u003e (\u003cem\u003erecommended\u003c/em\u003e)\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epip install riko\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor \u003ccode\u003eeasy_install\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eeasy_install riko\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ePlease see the \u003ccode\u003einstallation doc\u003c/code\u003e_ for more details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"design-principles\" class=\"anchor\" href=\"#design-principles\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDesign Principles\u003c/h2\u003e\n\u003cp\u003eThe primary data structures in \u003ccode\u003eriko\u003c/code\u003e are the \u003ccode\u003eitem\u003c/code\u003e and \u003ccode\u003estream\u003c/code\u003e. An \u003ccode\u003eitem\u003c/code\u003e\nis just a python dictionary, and a \u003ccode\u003estream\u003c/code\u003e is an iterator of \u003ccode\u003eitems\u003c/code\u003e. You can\ncreate a \u003ccode\u003estream\u003c/code\u003e manually with something as simple as\n\u003ccode\u003e[{'content': 'hello world'}]\u003c/code\u003e. You manipulate \u003ccode\u003estreams\u003c/code\u003e in\n\u003ccode\u003eriko\u003c/code\u003e via \u003ccode\u003epipes\u003c/code\u003e. A \u003ccode\u003epipe\u003c/code\u003e is simply a function that accepts either a\n\u003ccode\u003estream\u003c/code\u003e or \u003ccode\u003eitem\u003c/code\u003e, and returns a \u003ccode\u003estream\u003c/code\u003e. \u003ccode\u003epipes\u003c/code\u003e are composable: you\ncan use the output of one \u003ccode\u003epipe\u003c/code\u003e as the input to another \u003ccode\u003epipe\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e \u003ccode\u003epipes\u003c/code\u003e come in two flavors; \u003ccode\u003eoperators\u003c/code\u003e and \u003ccode\u003eprocessors\u003c/code\u003e.\n\u003ccode\u003eoperators\u003c/code\u003e operate on an entire \u003ccode\u003estream\u003c/code\u003e at once and are unable to handle\nindividual items. Example \u003ccode\u003eoperators\u003c/code\u003e include \u003ccode\u003ecount\u003c/code\u003e, \u003ccode\u003epipefilter\u003c/code\u003e,\nand \u003ccode\u003ereverse\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules.reverse import pipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; stream = [{'title': 'riko pt. 1'}, {'title': 'riko pt. 2'}]\n\u0026gt;\u0026gt;\u0026gt; next(pipe(stream))\n{'title': 'riko pt. 2'}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eprocessors\u003c/code\u003e process individual \u003ccode\u003eitems\u003c/code\u003e and can be parallelized across\nthreads or processes. Example \u003ccode\u003eprocessors\u003c/code\u003e include \u003ccode\u003efetchsitefeed\u003c/code\u003e,\n\u003ccode\u003ehash\u003c/code\u003e, \u003ccode\u003epipeitembuilder\u003c/code\u003e, and \u003ccode\u003epiperegex\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules.hash import pipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; item = {'title': 'riko pt. 1'}\n\u0026gt;\u0026gt;\u0026gt; stream = pipe(item, field='title')\n\u0026gt;\u0026gt;\u0026gt; next(stream)\n{'title': 'riko pt. 1', 'hash': 2853617420}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSome \u003ccode\u003eprocessors\u003c/code\u003e, e.g., \u003ccode\u003epipetokenizer\u003c/code\u003e, return multiple results.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules.tokenizer import pipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; item = {'title': 'riko pt. 1'}\n\u0026gt;\u0026gt;\u0026gt; tokenizer_conf = {'delimiter': ' '}\n\u0026gt;\u0026gt;\u0026gt; stream = pipe(item, conf=tokenizer_conf, field='title')\n\u0026gt;\u0026gt;\u0026gt; next(stream)\n{'tokenizer': [{'content': 'riko'},\n   {'content': 'pt.'},\n   {'content': '1'}],\n 'title': 'riko pt. 1'}\n\n\u0026gt;\u0026gt;\u0026gt; # In this case, if we just want the result, we can `emit` it instead\n\u0026gt;\u0026gt;\u0026gt; stream = pipe(item, conf=tokenizer_conf, field='title', emit=True)\n\u0026gt;\u0026gt;\u0026gt; next(stream)\n{'content': 'riko'}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eoperators\u003c/code\u003e are split into sub-types of \u003ccode\u003eaggregators\u003c/code\u003e\nand \u003ccode\u003ecomposers\u003c/code\u003e. \u003ccode\u003eaggregators\u003c/code\u003e, e.g., \u003ccode\u003ecount\u003c/code\u003e, combine\nall \u003ccode\u003eitems\u003c/code\u003e of an input \u003ccode\u003estream\u003c/code\u003e into a new \u003ccode\u003estream\u003c/code\u003e with a single \u003ccode\u003eitem\u003c/code\u003e;\nwhile \u003ccode\u003ecomposers\u003c/code\u003e, e.g., \u003ccode\u003efilter\u003c/code\u003e, create a new \u003ccode\u003estream\u003c/code\u003e containing\nsome or all \u003ccode\u003eitems\u003c/code\u003e of an input \u003ccode\u003estream\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules.count import pipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; stream = [{'title': 'riko pt. 1'}, {'title': 'riko pt. 2'}]\n\u0026gt;\u0026gt;\u0026gt; next(pipe(stream))\n{'count': 2}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn case you are confused from the \"Word Count\" example up top, \u003ccode\u003ecount\u003c/code\u003e can return\nmultiple items if you pass in the \u003ccode\u003ecount_key\u003c/code\u003e config option.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; counted = pipe(stream, conf={'count_key': 'title'})\n\u0026gt;\u0026gt;\u0026gt; next(counted)\n{'riko pt. 1': 1}\n\u0026gt;\u0026gt;\u0026gt; next(counted)\n{'riko pt. 2': 1}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eprocessors\u003c/code\u003e are split into sub-types of \u003ccode\u003esource\u003c/code\u003e and \u003ccode\u003etransformer\u003c/code\u003e.\n\u003ccode\u003esources\u003c/code\u003e, e.g., \u003ccode\u003eitembuilder\u003c/code\u003e, can create a \u003ccode\u003estream\u003c/code\u003e while\n\u003ccode\u003etransformers\u003c/code\u003e, e.g. \u003ccode\u003ehash\u003c/code\u003e can only transform items in a \u003ccode\u003estream\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules.itembuilder import pipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; attrs = {'key': 'title', 'value': 'riko pt. 1'}\n\u0026gt;\u0026gt;\u0026gt; next(pipe(conf={'attrs': attrs}))\n{'title': 'riko pt. 1'}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe following table summaries these observations:\u003c/p\u003e\n\u003cp\u003e+-----------+-------------+--------+-------------+-----------------+------------------+\n| type      | sub-type    | input  | output      | parallelizable? | creates streams? |\n+-----------+-------------+--------+-------------+-----------------+------------------+\n| operator  | aggregator  | stream | stream [#]_ |                 |                  |\n|           +-------------+--------+-------------+-----------------+------------------+\n|           | composer    | stream | stream      |                 |                  |\n+-----------+-------------+--------+-------------+-----------------+------------------+\n| processor | source      | item   | stream      | √               | √                |\n|           +-------------+--------+-------------+-----------------+------------------+\n|           | transformer | item   | stream      | √               |                  |\n+-----------+-------------+--------+-------------+-----------------+------------------+\u003c/p\u003e\n\u003cp\u003eIf you are unsure of the type of \u003ccode\u003epipe\u003c/code\u003e you have, check its metadata.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.modules import fetchpage, count\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; fetchpage.async_pipe.__dict__\n{'type': 'processor', 'name': 'fetchpage', 'sub_type': 'source'}\n\u0026gt;\u0026gt;\u0026gt; count.pipe.__dict__\n{'type': 'operator', 'name': 'count', 'sub_type': 'aggregator'}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe \u003ccode\u003eSyncPipe\u003c/code\u003e and \u003ccode\u003eAsyncPipe\u003c/code\u003e classes (among other things) perform this\ncheck for you to allow for convenient method chaining and transparent\nparallelization.\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u0026gt; from riko.collections import SyncPipe\n\u0026gt;\u0026gt;\u0026gt;\n\u0026gt;\u0026gt;\u0026gt; attrs = [\n...     {'key': 'title', 'value': 'riko pt. 1'},\n...     {'key': 'content', 'value': \"Let's talk about riko!\"}]\n\u0026gt;\u0026gt;\u0026gt; flow = SyncPipe('itembuilder', conf={'attrs': attrs}).hash()\n\u0026gt;\u0026gt;\u0026gt; flow.list[0]\n{'title': 'riko pt. 1',\n 'content': \"Let's talk about riko!\",\n 'hash': 1346301218}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ePlease see the \u003ccode\u003ecookbook\u003c/code\u003e_ for advanced examples including how to wire in\nvales from other pipes or accept user input.\u003c/p\u003e\n\u003cp\u003eNotes\n^^^^^\u003c/p\u003e\n\u003cp\u003e.. [#] the output \u003ccode\u003estream\u003c/code\u003e of an \u003ccode\u003eaggregator\u003c/code\u003e is an iterator of only 1 \u003ccode\u003eitem\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"command-line-interface\" class=\"anchor\" href=\"#command-line-interface\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommand-line Interface\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e provides a command, \u003ccode\u003erunpipe\u003c/code\u003e, to execute \u003ccode\u003eworkflows\u003c/code\u003e. A\n\u003ccode\u003eworkflow\u003c/code\u003e is simply a file containing a function named \u003ccode\u003epipe\u003c/code\u003e that creates\na \u003ccode\u003eflow\u003c/code\u003e and processes the resulting \u003ccode\u003estream\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eCLI Usage\n^^^^^^^^^\u003c/p\u003e\n\u003cp\u003eusage: runpipe [pipeid]\u003c/p\u003e\n\u003cp\u003edescription: Runs a riko pipe\u003c/p\u003e\n\u003cp\u003epositional arguments:\npipeid       The pipe to run (default: reads from stdin).\u003c/p\u003e\n\u003cp\u003eoptional arguments:\n-h, --help   show this help message and exit\n-a, --async  Load async pipe.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e-t, --test   Run in test mode (uses default inputs).\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCLI Setup\n^^^^^^^^^\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eflow.py\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e.. code-block:: python\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efrom __future__ import print_function\nfrom riko.collections import SyncPipe\n\nconf1 = {'attrs': [{'value': 'https://google.com', 'key': 'content'}]}\nconf2 = {'rule': [{'find': 'com', 'replace': 'co.uk'}]}\n\ndef pipe(test=False):\n    kwargs = {'conf': conf1, 'test': test}\n    flow = SyncPipe('itembuilder', **kwargs).strreplace(conf=conf2)\n    stream = flow.output\n\n    for i in stream:\n        print(i)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCLI Examples\n^^^^^^^^^^^^\u003c/p\u003e\n\u003cp\u003eNow to execute \u003ccode\u003eflow.py\u003c/code\u003e, type the command \u003ccode\u003erunpipe flow\u003c/code\u003e. You should\nthen see the following output in your terminal:\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ehttps://google.co.uk\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003erunpipe\u003c/code\u003e will also search the \u003ccode\u003eexamples\u003c/code\u003e directory for \u003ccode\u003eworkflows\u003c/code\u003e. Type\n\u003ccode\u003erunpipe demo\u003c/code\u003e and you should see the following output:\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eDeadline to clear up health law eligibility near 682\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"scripts\" class=\"anchor\" href=\"#scripts\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eScripts\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e comes with a built in task manager \u003ccode\u003emanage\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eSetup\n^^^^^\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epip install riko[develop]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eExamples\n^^^^^^^^\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eRun python linter and nose tests\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emanage lint\nmanage test\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease mimic the coding style/conventions used in this repo.\nIf you add new classes or functions, please add the appropriate doc blocks with\nexamples. Also, make sure the python linter and nose tests pass.\u003c/p\u003e\n\u003cp\u003ePlease see the \u003ccode\u003econtributing doc\u003c/code\u003e_ for more details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"credits\" class=\"anchor\" href=\"#credits\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCredits\u003c/h2\u003e\n\u003cp\u003eShoutout to \u003ccode\u003epipe2py\u003c/code\u003e_ for heavily inspiring \u003ccode\u003eriko\u003c/code\u003e. \u003ccode\u003eriko\u003c/code\u003e started out as a fork\nof \u003ccode\u003epipe2py\u003c/code\u003e, but has since diverged so much that little (if any) of the original\ncode-base remains.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"more-info\" class=\"anchor\" href=\"#more-info\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMore Info\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eFAQ\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eCookbook\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eiPython Notebook\u003c/code\u003e_\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eStep-by-Step Intro. Tutorial\u003c/code\u003e_\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"project-structure\" class=\"anchor\" href=\"#project-structure\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProject Structure\u003c/h2\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e┌── benchmarks\n│   ├── __init__.py\n│   └── parallel.py\n├── bin\n│   └── run\n├── data/*\n├── docs\n│   ├── AUTHORS.rst\n│   ├── CHANGES.rst\n│   ├── COOKBOOK.rst\n│   ├── FAQ.rst\n│   ├── INSTALLATION.rst\n│   └── TODO.rst\n├── examples/*\n├── helpers/*\n├── riko\n│   ├── __init__.py\n│   ├── lib\n│   │   ├── __init__.py\n│   │   ├── autorss.py\n│   │   ├── collections.py\n│   │   ├── dotdict.py\n│   │   ├── log.py\n│   │   ├── tags.py\n│   │   └── py\n│   ├── modules/*\n│   └── twisted\n│       ├── __init__.py\n│       ├── collections.py\n│       └── py\n├── tests\n│   ├── __init__.py\n│   ├── standard.rc\n│   └── test_examples.py\n├── CONTRIBUTING.rst\n├── dev-requirements.txt\n├── LICENSE\n├── Makefile\n├── manage.py\n├── MANIFEST.in\n├── optional-requirements.txt\n├── py2-requirements.txt\n├── README.rst\n├── requirements.txt\n├── setup.cfg\n├── setup.py\n└── tox.ini\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eriko\u003c/code\u003e is distributed under the \u003ccode\u003eMIT License\u003c/code\u003e_.\u003c/p\u003e\n\u003cp\u003e.. |travis| image:: \u003ca href=\"https://img.shields.io/travis/nerevu/riko/master.svg\" rel=\"nofollow\"\u003ehttps://img.shields.io/travis/nerevu/riko/master.svg\u003c/a\u003e\n:target: \u003ca href=\"https://travis-ci.org/nerevu/riko\" rel=\"nofollow\"\u003ehttps://travis-ci.org/nerevu/riko\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e.. |versions| image:: \u003ca href=\"https://img.shields.io/pypi/pyversions/riko.svg\" rel=\"nofollow\"\u003ehttps://img.shields.io/pypi/pyversions/riko.svg\u003c/a\u003e\n:target: \u003ca href=\"https://pypi.python.org/pypi/riko\" rel=\"nofollow\"\u003ehttps://pypi.python.org/pypi/riko\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e.. |pypi| image:: \u003ca href=\"https://img.shields.io/pypi/v/riko.svg\" rel=\"nofollow\"\u003ehttps://img.shields.io/pypi/v/riko.svg\u003c/a\u003e\n:target: \u003ca href=\"https://pypi.python.org/pypi/riko\" rel=\"nofollow\"\u003ehttps://pypi.python.org/pypi/riko\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e.. _synchronous: #synchronous-processing\n.. _asynchronous: #asynchronous-processing\n.. _parallel execution: #parallel-processing\n.. _parallel processing: #parallel-processing\n.. _library: #usage\u003c/p\u003e\n\u003cp\u003e.. _contributing doc: \u003ca href=\"https://github.com/nerevu/riko/blob/master/CONTRIBUTING.rst\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/CONTRIBUTING.rst\u003c/a\u003e\n.. _FAQ: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/FAQ.rst\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/FAQ.rst\u003c/a\u003e\n.. _pipes: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available\u003c/a\u003e\n.. _40 built-in: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-pipes-are-available\u003c/a\u003e\n.. _file types: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-file-types-are-supported\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-file-types-are-supported\u003c/a\u003e\n.. _protocols: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-protocols-are-supported\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/FAQ.rst#what-protocols-are-supported\u003c/a\u003e\n.. _installation doc: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/INSTALLATION.rst\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/INSTALLATION.rst\u003c/a\u003e\n.. _Cookbook: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst\u003c/a\u003e\n.. _split: \u003ca href=\"https://github.com/nerevu/riko/blob/master/riko/modules/split.py#L15-L18\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/riko/modules/split.py#L15-L18\u003c/a\u003e\n.. _alternate workflow creation: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#alternate-workflow-creation\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#alternate-workflow-creation\u003c/a\u003e\n.. _Fetching data and feeds: \u003ca href=\"https://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#fetching-data-and-feeds\" rel=\"nofollow\"\u003ehttps://github.com/nerevu/riko/blob/master/docs/COOKBOOK.rst#fetching-data-and-feeds\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e.. _pypy: \u003ca href=\"http://pypy.org\" rel=\"nofollow\"\u003ehttp://pypy.org\u003c/a\u003e\n.. _Really Simple Syndication: \u003ca href=\"https://en.wikipedia.org/wiki/RSS\" rel=\"nofollow\"\u003ehttps://en.wikipedia.org/wiki/RSS\u003c/a\u003e\n.. _Mashup (web application hybrid): \u003ca href=\"https://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29\" rel=\"nofollow\"\u003ehttps://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29\u003c/a\u003e\n.. _pipe2py: \u003ca href=\"https://github.com/ggaughan/pipe2py/\" rel=\"nofollow\"\u003ehttps://github.com/ggaughan/pipe2py/\u003c/a\u003e\n.. _Huginn: \u003ca href=\"https://github.com/cantino/huginn/\" rel=\"nofollow\"\u003ehttps://github.com/cantino/huginn/\u003c/a\u003e\n.. _Flink: \u003ca href=\"http://flink.apache.org/\" rel=\"nofollow\"\u003ehttp://flink.apache.org/\u003c/a\u003e\n.. _Spark: \u003ca href=\"http://spark.apache.org/streaming/\" rel=\"nofollow\"\u003ehttp://spark.apache.org/streaming/\u003c/a\u003e\n.. _Storm: \u003ca href=\"http://storm.apache.org/\" rel=\"nofollow\"\u003ehttp://storm.apache.org/\u003c/a\u003e\n.. _Complex Event Processing: \u003ca href=\"https://en.wikipedia.org/wiki/Complex_event_processing\" rel=\"nofollow\"\u003ehttps://en.wikipedia.org/wiki/Complex_event_processing\u003c/a\u003e\n.. _async web requests: \u003ca href=\"https://github.com/cantino/huginn/blob/bf7c2feba4a7f27f39de96877c121d40282c0af9/app/models/agents/rss_agent.rb#L101\" rel=\"nofollow\"\u003ehttps://github.com/cantino/huginn/blob/bf7c2feba4a7f27f39de96877c121d40282c0af9/app/models/agents/rss_agent.rb#L101\u003c/a\u003e\n.. _Spark doesn't: \u003ca href=\"https://github.com/perwendel/spark/issues/208\" rel=\"nofollow\"\u003ehttps://github.com/perwendel/spark/issues/208\u003c/a\u003e\n.. _remains: \u003ca href=\"https://web.archive.org/web/20150930021241/http://pipes.yahoo.com/pipes/\" rel=\"nofollow\"\u003ehttps://web.archive.org/web/20150930021241/http://pipes.yahoo.com/pipes/\u003c/a\u003e\n.. _lxml: \u003ca href=\"http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser\" rel=\"nofollow\"\u003ehttp://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser\u003c/a\u003e\n.. _Twisted: \u003ca href=\"http://twistedmatrix.com/\" rel=\"nofollow\"\u003ehttp://twistedmatrix.com/\u003c/a\u003e\n.. _speedparser: \u003ca href=\"https://github.com/jmoiron/speedparser\" rel=\"nofollow\"\u003ehttps://github.com/jmoiron/speedparser\u003c/a\u003e\n.. _MIT License: \u003ca href=\"http://opensource.org/licenses/MIT\" rel=\"nofollow\"\u003ehttp://opensource.org/licenses/MIT\u003c/a\u003e\n.. _virtualenv: \u003ca href=\"http://www.virtualenv.org/en/latest/index.html\" rel=\"nofollow\"\u003ehttp://www.virtualenv.org/en/latest/index.html\u003c/a\u003e\n.. _iPython Notebook: \u003ca href=\"http://nbviewer.jupyter.org/github/nerevu/riko/blob/master/examples/usage.ipynb\" rel=\"nofollow\"\u003ehttp://nbviewer.jupyter.org/github/nerevu/riko/blob/master/examples/usage.ipynb\u003c/a\u003e\n.. _Step-by-Step Intro. Tutorial: \u003ca href=\"http://nbviewer.jupyter.org/github/aemreunal/riko-tutorial/blob/master/Tutorial.ipynb\" rel=\"nofollow\"\u003ehttp://nbviewer.jupyter.org/github/aemreunal/riko-tutorial/blob/master/Tutorial.ipynb\u003c/a\u003e\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":60261863,"name":"riko","owner_login":"nerevu","description":"A Python stream processing engine modeled after Yahoo! Pipes","pushed_at":"2020-08-14T16:48:23.000Z","stargazers_count":1550,"open_issues_count":22,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"","private":false,"project_created_at":"2016-06-02T12:22:51.000Z","project_updated_at":"2021-01-13T19:50:04.000Z","language":"Python","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

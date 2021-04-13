@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Returns the singular or plural form of the word based on the input number, using an optional dictionary if supplied.</p>
+<ul>
+<li>Use a closure to define a function that pluralizes the given <code>word</code> based on the value of <code>num</code>.</li>
+<li>If <code>num</code> is either <code>-1</code> or <code>1</code>, return the singular form of the word.</li>
+<li>If <code>num</code> is any other number, return the <code>plural</code> form.</li>
+<li>Omit the third argument, <code>plural</code>, to use the default of the singular word + <code>s</code>, or supply a custom pluralized <code>word</code> when necessary.</li>
+<li>If the first argument is an <code>object</code>, return a function which can use the supplied dictionary to resolve the correct plural form of the word.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> pluralize <span class="op">=</span> (val<span class="op">,</span> word<span class="op">,</span> plural <span class="op">=</span> word <span class="op">+</span> <span class="st">&#39;s&#39;</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> _pluralize <span class="op">=</span> (num<span class="op">,</span> word<span class="op">,</span> plural <span class="op">=</span> word <span class="op">+</span> <span class="st">&#39;s&#39;</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    [<span class="dv">1</span><span class="op">,</span> <span class="dv">-1</span>].<span class="at">includes</span>(<span class="at">Number</span>(num)) <span class="op">?</span> word : plural<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">if</span> (<span class="kw">typeof</span> val <span class="op">===</span> <span class="st">&#39;object&#39;</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="cf">return</span> (num<span class="op">,</span> word) <span class="kw">=&gt;</span> <span class="at">_pluralize</span>(num<span class="op">,</span> word<span class="op">,</span> val[word])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="cf">return</span> <span class="at">_pluralize</span>(val<span class="op">,</span> word<span class="op">,</span> plural)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">pluralize</span>(<span class="dv">0</span><span class="op">,</span> <span class="st">&#39;apple&#39;</span>)<span class="op">;</span> <span class="co">// &#39;apples&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">pluralize</span>(<span class="dv">1</span><span class="op">,</span> <span class="st">&#39;apple&#39;</span>)<span class="op">;</span> <span class="co">// &#39;apple&#39;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">pluralize</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">&#39;apple&#39;</span>)<span class="op">;</span> <span class="co">// &#39;apples&#39;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="at">pluralize</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">&#39;person&#39;</span><span class="op">,</span> <span class="st">&#39;people&#39;</span>)<span class="op">;</span> <span class="co">// &#39;people&#39;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">const</span> PLURALS <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="dt">person</span><span class="op">:</span> <span class="st">&#39;people&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="dt">radius</span><span class="op">:</span> <span class="st">&#39;radii&#39;</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="kw">const</span> autoPluralize <span class="op">=</span> <span class="at">pluralize</span>(PLURALS)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="at">autoPluralize</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">&#39;person&#39;</span>)<span class="op">;</span> <span class="co">// &#39;people&#39;</span></a></code></pre></div>
+</body></html>

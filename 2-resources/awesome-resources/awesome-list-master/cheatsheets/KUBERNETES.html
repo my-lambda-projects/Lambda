@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css"></head>
+<body>
+<h2 id="provisioning">Provisioning</h2>
+<h3 id="setup-kubernetes">Setup Kubernetes</h3>
+<ul>
+<li><a href="https://gist.github.com/ruanbekker/38a38aea5f325f7fa4a19e795ef4f0d0">Kubernetes on Ubuntu</a></li>
+<li>[<a href="https://github.com/rancher/k3s#quick-start">K3s</a></li>
+</ul>
+<h2 id="get-resource-information">Get Resource Information</h2>
+<h3 id="nodes">Nodes</h3>
+<p>Getting information about nodes:</p>
+<pre><code>$ kubectl get nodes
+$ kubectl get nodes -o wide
+$ kubectl describe nodes
+$ kubectl get nodes -o yaml
+$ kubectl get node --selector=[label_name]
+$ kubectl get nodes -o jsonpath=&#39;{.items[*].status.addresses[?(@.type==&quot;External IP&quot;)].address}&#39;
+$ kubectl top node [node_name]</code></pre>
+<h3 id="pods">Pods</h3>
+<ul>
+<li>Pods: The single smallest interactable unit in Kubernetes.</li>
+<li>Pod can be comprimised of multiple containers that will form a unit deployed on a single node together</li>
+<li>Pod receives one IP which is shared between containers</li>
+</ul>
+<pre><code>$ kubectl get pods
+$ kubectl get pods --all-namespaces
+$ kubectl get pods --namespace kube-system
+$ kubectl get pods --namespace --output yaml
+$ kubectl get pods -o wide
+$ kubectl describe pods --all-namespaces
+$ kubectl get pods --show-labels --all-namespaces
+$ kubectl get pods --selector app=svclb-traefik --namespace kube-system
+$ kubectl get pod svclb-traefik-79556fd88b-p6qp9 --namespace kube-system
+$ kubectl get pod svclb-traefik-79556fd88b-p6qp9 --namespace kube-system -o yaml --export
+$ kubectl get pod svclb-traefik-79556fd88b-p6qp9 --namespace kube-system -o yaml --export &gt; exported.yml
+</code></pre>
+</body></html>

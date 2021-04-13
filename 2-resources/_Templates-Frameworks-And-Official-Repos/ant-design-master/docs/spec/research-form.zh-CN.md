@@ -58,7 +58,7 @@ title: 表单页
 
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范" />
 
-预填提示避免正确的废话，例如一个叫姓名的表单项输入提示是“请输入姓名”。
+预填提示避免正确的废话，例如一个叫姓名的表单项输入提示是“请输入姓名"。
 
 <br>
 

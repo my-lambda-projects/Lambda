@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Web of Devices - W3C</title>
+	<link rel="self" href=""/>
+	<link href="http://www.w3.org/standards/webofdevices/"/>
+	<id></id>
+	<generator uri="http://www.planetplanet.org/">Planet/2.0 +http://www.planetplanet.org</generator>
+
+	<entry>
+		<title type="html" xml:lang="en">W3C Starts Web Payments Standards Work</title>
+		<link href="http://html5apps-project.eu/2015/10/21/w3c-starts-web-payments-standards-work/"/>
+		<id>http://html5apps-project.eu/?p=634</id>
+                <updated>2015-10-21T07:21:50+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;&lt;a href=&quot;https://html5appsproject.files.wordpress.com/2014/04/icon-webandpayment.png&quot;&gt;&lt;img class=&quot;alignright size-full wp-image-223&quot; src=&quot;https://html5appsproject.files.wordpress.com/2014/04/icon-webandpayment.png?w=176&quot; alt=&quot;web payment workshop logo&quot; /&gt;&lt;/a&gt;Work on payments at W3C was supported in part by the HTML5Apps project, and today, the project&amp;#8217;s team is pleased to announce that W3C just launched the &lt;a href=&quot;http://www.w3.org/Payments/WG/&quot;&gt;Web Payments Working Group&lt;/a&gt; to make payments easier and more secure on the Web.&lt;/p&gt;
+&lt;p&gt;The Web payments Working Group is &lt;a href=&quot;http://www.w3.org/Payments/WG/charter-201510.html&quot;&gt;chartered&lt;/a&gt; to develop standards to support a wide array of existing and future payment methods. Standard APIs will allow users to register payment instruments (such as credit cards or payment services) and select the right payment type through the browser, making payments faster, more secure, and easier, particularly on mobile devices. The standards should also make it easier for Web developers to integrate existing and new payment flows into their applications.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://www.w3.org/Payments/IG/&quot;&gt;Web Payments Interest Group&lt;/a&gt;, under the leadership of co-chairs Erik Anderson (Bloomberg) and David Ezell (NACS), will continue to identify additional areas for future standardization.&lt;/p&gt;
+&lt;p&gt;W3C &lt;a href=&quot;https://www.w3.org/blog/wpwg/2015/10/21/join-the-web-payments-working-group/&quot;&gt;invites organizations to participate&lt;/a&gt; in the new Working Group. W3C Members, including Bloomberg, Deutsche Telekom, Digital Bazaar, ETA, Federal Reserve Bank, Ingenico Labs, MAG, NACS, Qihoo360, Rabobank, Ripple and WorldPay have already announced their &lt;a href=&quot;http://www.w3.org/2015/09/webpaymentswg.html.en#testimonials&quot;&gt;support&lt;/a&gt;.&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/payment/&quot;&gt;Payment&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/standardization/&quot;&gt;Standardization&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=634&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>mcforgue</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en-US">Work Begins on Extensions to WCAG 2.0</title>
+		<link href="https://www.w3.org/blog/2015/10/work-begins-on-extensions-to-wcag-2-0/?pk_campaign=feed&amp;pk_kwd=work-begins-on-extensions-to-wcag-2-0"/>
+		<id>https://www.w3.org/blog/?p=15019</id>
+                <updated>2015-10-01T23:00:31+00:00</updated>
+		<content type="html" xml:lang="en-US">&lt;p&gt;Last week a &lt;a href=&quot;http://www.w3.org/2015/09/wcag-charter&quot;&gt;new charter&lt;/a&gt; for the &lt;a href=&quot;http://www.w3.org/WAI/GL/&quot;&gt;Web Content Accessibility Guidelines (WCAG) Working Group (WG)&lt;/a&gt; was formally approved by W3C after having been reviewed by the W3C Member organizations. For the first time since the finalization of WCAG 2.0 in 2008, this charter allows the Working Group to explore ways to provide guidelines beyond WCAG 2.0.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://www.w3.org/TR/WCAG20/&quot;&gt;WCAG 2.0&lt;/a&gt; standard continues to be the preeminent reference for web accessibility.  A growing number of national and organizational policies around the world reference WCAG 2.0, including Canada, Australia, Japan, India, and the United States. WCAG 2.0 holds up well today despite significant changes in technology.&lt;/p&gt;
+&lt;p&gt;There have been some changes to the technology landscape, however, that were not fully anticipated in the development of WCAG 2.0. Changes in how people access the Web on mobile devices require success criteria that address those situations more specifically. Users with cognitive and learning disabilities and users with low vision have suggested ways in which success criteria could better address their requirements. In recent years the WCAG Working Group formed task forces on &lt;a href=&quot;http://www.w3.org/WAI/GL/mobile-a11y-tf/&quot;&gt;mobile&lt;/a&gt;, &lt;a href=&quot;http://www.w3.org/WAI/PF/cognitive-a11y-tf/&quot;&gt;cognitive&lt;/a&gt;, and &lt;a href=&quot;http://www.w3.org/WAI/GL/low-vision-a11y-tf/&quot;&gt;low vision&lt;/a&gt; accessibility to define requirements and candidate success criteria for these three areas. New technologies on the horizon and the rapid evolution of the underlying technologies for user interaction on the Web are likely to continue to drive the need for new guidance.&lt;/p&gt;
+&lt;p&gt;To address these needs, the WCAG Working Group has begun to develop a framework for WCAG 2.0 extensions. These would be separate guideline documents, to increase the amount of coverage on particular accessibility needs. Authors and policy-makers would be able to choose to meet the guidelines with one or more extensions, which inherently meet the base WCAG 2.0 guidelines, while organizations that have policies built around WCAG 2.0 alone would not be impacted by the extensions.&lt;/p&gt;
+&lt;p&gt;The WCAG charter just approved will serve as bridge to begin work on extensions now while we continue to define what the next generation of &lt;abbr title=&quot;Web Accessibility Initiative&quot;&gt;WAI&lt;/abbr&gt; guidelines will look like. The Working Group is gathering requirements that may lead to the creation of an updated version of WCAG, or a new set of accessibility guidelines altogether, or both. In order to better integrate the &lt;a href=&quot;http://www.w3.org/WAI/intro/components.php&quot;&gt;components of web accessibility&lt;/a&gt; into a single set of guidelines, the Working Group is exploring the possibility of merging with the Authoring Tool Accessibility Guidelines and User Agent Accessibility Guidelines Working Groups. The Authoring Tool Accessibility Guidelines Working Group (ATAG WG) has just published the completed &lt;a href=&quot;http://www.w3.org/blog/2015/09/more-accessible-web-authoring-with-atag-2-0/&quot;&gt;Authoring Tool Accessibility Guidelines (ATAG) 2.0&lt;/a&gt;; and the User Agent Accessibility Guidelines Working Group (UAWG) has just published an updated working draft, rolling in comments from browser vendors and others, and will be publishing the &lt;a href=&quot;http://www.w3.org/TR/UAAG20/&quot;&gt;User Agent Accessibility Guidelines (UAAG) 2.0&lt;/a&gt; as a Working Group Note soon.&lt;/p&gt;
+&lt;p&gt;WCAG 2.0 extensions and setting the stage for next-generation accessibility guidelines means this is an excellent time to &lt;a href=&quot;http://www.w3.org/WAI/GL/participation&quot;&gt;join the WCAG Working Group&lt;/a&gt;!&lt;img src=&quot;https://www.w3.org/analytics/piwik/piwik.php?idsite=1&amp;rec=1&amp;url=https%3A%2F%2Fwww.w3.org%2Fblog%2F2015%2F10%2Fwork-begins-on-extensions-to-wcag-2-0%2F%3Fpk_campaign%3Dfeed%26pk_kwd%3Dwork-begins-on-extensions-to-wcag-2-0&amp;action_name=Work+Begins+on+Extensions+to+WCAG+2.0&amp;urlref=https%3A%2F%2Fwww.w3.org%2Fblog%2Ffeed%2F&quot; width=&quot;0&quot; height=&quot;0&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content>
+		<author>
+			<name>W3C Blog: Mobile category</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">Interview with Cocomore, agency for marketing and IT services</title>
+		<link href="http://html5apps-project.eu/2015/09/30/interview-with-cocomore-agency-for-marketing-and-it-services/"/>
+		<id>http://html5apps-project.eu/?p=604</id>
+                <updated>2015-09-30T18:11:55+00:00</updated>
+		<content type="html" xml:lang="en">&lt;dl&gt;
+&lt;dt&gt;The HTML5Apps continues its series of interviews of European SMEs. Today, we go to Germany, where the &lt;a href=&quot;http://www.cocomore.com/&quot;&gt;Cocomore&lt;/a&gt; headquarters are located. The discussion was held with Alejandro Leiva, based in the Cocomore Spanish office in Seville, is the technical lead of mobile and emerging technologies, and with Christian Winter, Head of Frontend Development in Frankfurt, specialized in responsive Web design and the optimization of interactive Web applications for mobile devices.&lt;/dt&gt;
+&lt;/dl&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;em&gt;Hello! Would you please describe your company, its mission/vision and its customer audience?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;Cocomore is an international agency for Marketing and IT services with 140 employees at our head office in Frankfurt, and in Geneva and Seville. We are developing integrated communication and IT solutions with best practices in crossmedia, branding, CRM, marketing automation and e-commerce.&lt;/dd&gt;&lt;/dl&gt;
+&lt;p&gt;Our mission and our promise are measurable results in these particular areas, achieved using creativity and technology. Our main focus is on projects where it comes not only to appeal to customers, but also to create a long-term customer relationship. Therefore, data and IT is important but above all, you need content which is appealing, entertaining and useful for communication with customers.&lt;/p&gt;
+&lt;p&gt;That is why Cocomore has not only designers and creative directors, but also editors. On the basis of our four values, which are innovation, tradition, progress and responsibility, our agency is trusted by leading clients including: the European Union, Lilly, Nestlé, Procter &amp;amp; Gamble, Merz, RTL and Sanofi. Our customer relationships usually grow from year to year and are long-term based.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;Can you tell us more about cross-platform mobile applications you have worked on?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;Cocomore has extensive experience in the implementation of native and cross-platform apps.&lt;/dd&gt;
+&lt;p&gt;Recently, we have accomplished a project regarding a cross-platform mobile application for Germany&amp;#8217;s largest drugstore chain: dm. We developed a game app, named “Mission Morgen” to support communication around sustainability topics. After the functional concept phase was completed, we looked at which technological approach would be best to implement the app; in particular, we evaluated which of a pure native or hybrid app would fit the project. For reasons of cost, time, supported devices and the required features, we decided to go with an hybrid app.&lt;/p&gt;
+&lt;p&gt;Our technology selection has proven to be the right one: the combination of ngCordova, AngularJS and Ionic allowed us to focus on the important tasks as we did not need to spend much time on the development of basic functions. Especially ionic provides an optimal basis. With the use of AngularJS, we were able to divide the tasks clearly and to scale optimally the frontend team. In addition, thanks to this technological choice, we have retained over the entire duration of the project a good code base and we were able to integrate new modules quickly and with high quality in the existing app. The backend development was realized on top of Drupal. The resulting free application is available for smart phones with the operating system iOS or Android.&lt;/p&gt;
+&lt;p&gt;As another example, Cocomore developed a pure native mobile application for Pampers. We are currently evaluating relaunching it as a hybrid app. Our goal is to provide updates with new features or extensions several times a year. Regularly, we provide information with the dynamic newsfeed on the homepage of the app about current actions on the Web site and on Facebook (competitions, new craft instructions, new stories to download). The Web site and the mobile app are optimally matched: there is no duplication of content, the app features complement the Web site features.&lt;/p&gt;
+&lt;p&gt;Initially, when we first developed the app, we wanted to target as many mobile devices as possible, so we designed two native apps, one for Android an one for iOS. We have now decided to re-launch as a hybrid app since this means a smaller development cost and the opportunity to operate on more mobile devices.&lt;/p&gt;
+&lt;p&gt;Cocomore has realized many other mobile projects, e.g. an iPad app for our client Fresenius. This app teaches health care professionals in an entertaining way about the benefits of the product OsvaRen. It is a very visual app with embedded videos and an in-app game.&lt;/p&gt;
+&lt;p&gt;We also developed a guided product tour for the medical device company Spine Art. It shows to surgeons the product range of implants, how-to-videos and animated 3D visualizations of their products.&lt;/p&gt;
+&lt;p&gt;Other projects included a career app for the HR department of a large pharmaceutical client, a recipe database targeted at diabetes patients to easily monitor calory intake, an ecommerce app allowing consumers to shop diapers when waiting for the bus or tram. And many more.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;What are your views on native vs Web apps?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;A native app needs to be developed in specific programming language which is determined by the operating system such as Objective C, Swift, Java, C ++, C #, XAML. For that you need a programmer who has knowledge of all development methods (IDE&amp;#8217;s development tools, emulators, debuggers, SDK&amp;#8217;s, etc.) in addition to the programming language or more software developers for each varying operating system.&lt;/dd&gt;
+&lt;p&gt;Web apps are very different in this regard: they can be programmed by an experienced Web developer for several different smartphone operating systems without having unique knowledge about the device-specific development methods. For us, with our strong existing engineering skills in Web development, this is a huge benefit.&lt;/p&gt;
+&lt;p&gt;Moreover, native applications are designed for an operating system such as iOS, Windows Phone or Android, which means they run only on these devices. Here, the different operating system versions have to be considered, so that the correct functionality is ensured. When a new version of the operating system is introduced, the native app must be updated.&lt;/p&gt;
+&lt;p&gt;This does not affect Web apps. Web applications are specially programmed HTML5 sites that recognize the mobile device and optimize the content for representing, they run on all Web-enabled devices.&lt;/p&gt;
+&lt;p&gt;The big drawback of Web apps is their lack of access to phone specific functionalities like camera, microphone. Since Web apps run in the browser of the device access to phone hardware is very limited.&lt;/p&gt;
+&lt;p&gt;Cocomore deliberately focuses on cross-platform mobile applications (also called hybrid apps), which help bridge the gap between native and Web apps. This kind of application consists of a Web app, i.e. a backend and frontend running on a server. Thereby, the app can also be accessed by desktop browser. It is then displayed as a normal Web site.&lt;/p&gt;
+&lt;p&gt;The second component is an app container which can be uploaded to the various app stores. This container allows the access to the smartphone hardware and it draws its content from the Web app. Thereby it combines the advantages of both types of apps. In fact those hybrid apps are build using Web technologies and with some native code, so they can be converted via framework in a native app container very easily. But due to their architecture leveraging the many advantages of the Web applications, such as the cross browser compatibility and the cost benefit, the future could be these hybrid apps. The most important factor being here the availability of all the native features.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;Ultimately, which considerations drive your choices between native or Web?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;Depending on the individual requirements, each of these applications can be a better choice. If you want to create an app that makes very advanced use of the hardware and has high performance demands (execution speed, processing speed, output speed / graphics), a native app will be the better choice. The same applies if a high level of integration in the operating system such as look and feel of the UI elements or interaction with other applications is required. Also if the app should be executable without an internet connection, the native app is a better fit.&lt;/dd&gt;
+&lt;p&gt;A Web app is particularly advantageous regarding total cost of ownership and implementation time. It bears comparably low development costs and short development periods. This technology is directly accessible via a link, so it has the ability to run on many mobile devices and operating systems and runs on each smartphone without installation.&lt;/p&gt;
+&lt;p&gt;In practice, the approach we currently recommend to our customers is to have a mobile Web portal for general information sharing, and a cross-platform hybrid app for more interactive / engaging content.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;What is missing to do the interactive content from within the browser, rather than going through an hybrid app?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;There are various considerations that makes a browser-based approach less attractive:&lt;/dd&gt;
+&lt;ul&gt;
+&lt;li&gt;Our customers don’t necessarily accept that a browser-based approach can give good enough results in terms of performance and UI,&lt;/li&gt;
+&lt;li&gt;They tend to see also a “real” app as a better marketing/communication channel,&lt;/li&gt;
+&lt;li&gt;The app tend to be for shorter-term campaign, with often a gamification aspect, and it’s not obvious to end-users that you would obtain a game or game-like experience from within the browser,&lt;/li&gt;
+&lt;li&gt;On the Web, our quality expectations require good results on a much wider set of platforms that we would target with our hybrid apps (i.e. mostly iOS and Android), and thus the more interactive you make the Web app, the more likely you’ll encounter bugs in older or less advanced mobile platforms.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;dt&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;em&gt;How do you deal with adapting the user interfaces of the apps across devices and platforms?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;For adapting the app across devices of various sizes and shapes, we’ve found that using responsive design via the Ionic framework lets us deal quite well with the huge diversity of devices on the market, from smartphones to tablets. There are some issues when dealing with older Web views (esp. on Android), but it remains overall quite manageable.&lt;/dd&gt;
+&lt;p&gt;With regard to the specific native look and feel of each platform, we usually recommend to use a single UI paradigm across platforms, without trying to customize it. Once you start customizing the UI, and taking into account e.g. the inconsistent availability of a hardware back-button between iOS and Android, it makes maintaining the whole app workflow much more difficult.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;As an SME, what are your needs in terms of Web standards? Which Web standard(s) are you waiting for specifically?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;The arrival of the Push API is very exciting for us! Clearly this will make the offering of browser-based content a lot more attractive to many of our customers, even for the simple mobile portal. We can’t wait to see it adopted in more browsers, and we already know we’ll use it in our projects in the upcoming few months.&lt;/dd&gt;
+&lt;p&gt;An area where we’ve found we had to rely on specific Cordova plugins in our hybrid developments is for media playback; for instance, we’ve found that playing an audio file in loop using the basic audio capabilities of a Web view wouldn’t work well on mobile, and that’s a pretty fundamental issue e.g. in a game.&lt;/p&gt;
+&lt;p&gt;We’ve also had issues with using Web sockets in some older Web views, but this had more to do with implementation bugs than issues in the standard from what we’ve determined.&lt;/p&gt;
+&lt;p&gt;We’ve struggled for a while with storing data — &lt;code&gt;localStorage&lt;/code&gt; proved unreliable as the stored data could be wiped out by the OS; but we’ve now switched to Indexed Database which seems to solve that issue well enough for us.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;Any other business related to mobile, Web and standards?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;We are an agency for marketing and IT. We help our clients with state-of-the-art technology serving a marketing purpose. This can be CRM system implementation, Web and app development, e-commerce platform development, data management, social media and the like. In most of those projects, and in today&amp;#8217;s world, systems are no longer independent. A very big issue is the creation of interfaces in order to connect systems creating a technological ecosystem. Standards around communication interfaces between systems are a very important topic. Being in a position to shape and apply standards is one of our motivations of being a W3C member.&lt;/dd&gt;
+
+
+&lt;p&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/html5apps/&quot;&gt;html5apps&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=604&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>Dominique Hazael-Massieux</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">[News Release] HTML5Apps paves the way to future W3C payment standards and advances mobile Web standardization roadmap</title>
+		<link href="http://html5apps-project.eu/2015/09/29/news-release-html5apps-paves-the-way-to-future-w3c-payment-standards-and-advances-mobile-web-standardization-roadmap/"/>
+		<id>http://html5apps-project.eu/?p=592</id>
+                <updated>2015-09-29T14:32:16+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;The two-year EU-funded &lt;a href=&quot;http://html5apps-project.eu/&quot;&gt;HTML5Apps&lt;/a&gt; project proudly looks back to its achievements. The project, ending in September 2015 successfully accelerated the development of standard Web technologies required to make HTML5 apps competitive with native apps, specifically in the areas of Web payments and rich mobile Web APIs.&lt;br /&gt;
+&lt;em&gt;[The &lt;a href=&quot;https://html5appsproject.files.wordpress.com/2015/09/html5apps-pr-29sept151.pdf&quot;&gt;full press release&lt;/a&gt; is available in the &lt;a href=&quot;http://html5apps-project.eu/press/&quot;&gt;Press section&lt;/a&gt; of this Web site].&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;HTML5Apps initiated W3C Payments standardization work&lt;/h3&gt;
+&lt;p&gt;Payments have been identified early on as a major gap, and on March 2014, the HTML5Apps project organized a &lt;a href=&quot;http://www.w3.org/2013/10/payments/&quot;&gt;W3C Workshop on Web payments&lt;/a&gt;. It immediately gathered a lot of interest from a wide variety of stakeholders, ranging from banks, merchants, payment service providers, mobile operators, and many others. As a result, a &lt;a href=&quot;http://www.w3.org/Payments/IG/&quot;&gt;W3C Web Payments Interest Group&lt;/a&gt; was formed. Chaired by Bloomberg and NACS representatives, the group is &lt;a href=&quot;https://www.w3.org/2000/09/dbwg/details?group=73816&amp;public=1&quot;&gt;composed of 104 participants&lt;/a&gt; who have been busy at identifying specific standardization opportunities and building consensus on which of these need to be addressed within W3C.&lt;/p&gt;
+&lt;p&gt;After gathering industry use cases and requirements to help ensure that the standards developed have the ability to include business-to-business (B2B) payments as well as financial institution-related payments, the group proposed to standardize APIs &amp;#8211; supporting functionality such as payment instrument registration, payment initiation, and payment completion &amp;#8211; to enable an automated secure foundation for future Web payments capabilities. As a result, W3C is now in the final stages of starting new standards work to make Web payments both easier and more secure.&lt;/p&gt;
+&lt;h3&gt;HTML5Apps publishes mobile Web standardization roadmap&lt;/h3&gt;
+&lt;p&gt;HTML5Apps conducted a &lt;a href=&quot;http://html5apps-project.eu/tag/sme-interview/&quot;&gt;series of interviews with European SMEs&lt;/a&gt; to investigate their need for fast and easy development of innovative Web-based services. As a result, there is a need and strong support for in-progress standards around offline access, push notifications and access to device APIs. Where specification efforts had not started yet, the project brought them to the &lt;a href=&quot;http://www.w3.org/Mobile/IG/&quot;&gt;W3C Web &amp;amp; Mobile Interest Group&lt;/a&gt; to report new standardization opportunities.&lt;/p&gt;
+&lt;p&gt;“Seeking input directly from European developers and SMEs enabled us to better understand their challenges of using Web apps over proprietary formats,” explains Dominique Hazaël-Massieux, HTML5Apps lead. “As a result, and to facilitate information, coordination and participation from these developers, we maintained a standardization roadmap tracking efforts inside and outside of W3C.”&lt;/p&gt;
+&lt;p&gt;For the past two years, the HTML5Apps team published, on a quarterly basis, a roadmap entitled “&lt;a href=&quot;http://www.w3.org/Mobile/mobile-web-app-state/&quot;&gt;Standards for Web Applications on Mobile&lt;/a&gt;”. Acclaimed by Web developers, this document summarizes the various technologies developed in W3C that increase the capabilities of Web applications, and how they apply more specifically to the mobile context. The latest edition of this roadmap was published in August 2015. It notably includes additions related to emerging work such as the &lt;a href=&quot;http://www.w3.org/2015/06/payments-wg-charter.html&quot;&gt;proposed charter for a Web Payments Working Group&lt;/a&gt;.&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/html5/&quot;&gt;HTML5&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5apps/&quot;&gt;html5apps&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/mobile/&quot;&gt;Mobile&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/payment/&quot;&gt;Payment&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/standardization/&quot;&gt;Standardization&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=592&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>mcforgue</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">Interview with UbiqWare, cross-platform multi-device provider</title>
+		<link href="http://html5apps-project.eu/2015/09/22/interview-with-ubiqware/"/>
+		<id>http://html5apps-project.eu/?p=571</id>
+                <updated>2015-09-22T13:26:28+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;The HTML5Apps team continues its &lt;a href=&quot;http://html5apps-project.eu/tag/sme-interview/&quot;&gt;series of SMEs interviews&lt;/a&gt; across Europe. Today, we go to Spain, and more precisely to &lt;span class=&quot;st&quot;&gt;Gijón (in Asturias, north of Spain)&lt;/span&gt;, where is located the startup &lt;a href=&quot;http://ubiqware.net/&quot;&gt;UbiqWare&lt;/a&gt;. UbiqWare is specialized in the development of cross-platform multi-device software solutions, offering products, services, knowledge and experience to other software companies.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;em&gt;Hello, can you tell us more about your company and its business at a high level?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;UbiqWare is a startup focused on improving the ability of other software companies, mainly but not solely start-ups, to develop software. More specifically, we help companies to:&lt;/dd&gt;&lt;/dl&gt;
+&lt;ul&gt;
+&lt;li&gt;Create cross-platform solutions, including back-end, thus providing final users with access via the Web browser (desktop, mobile and, in general, any form factor) and mobile apps (mainly based on &lt;a href=&quot;http://cordova.apache.org/&quot;&gt;Apache Cordova&lt;/a&gt;, but also applying native development when required);&lt;/li&gt;
+&lt;li&gt;Adopt agile methodologies that facilitate success in software projects, regardless of their complexity. We propose tools such as the Atlassian suite (JIRA, JIRA Agile, Confluence, etc.) or other free alternatives, such as Redmine. We put a strong focus on continuous integration and continuous delivery/deployment. For this, we use DevHaven, our solution for continuous integration and delivery with a special focus on cross-platform development, with initial support for Apache Cordova projects, and plans for Grails, native iOS, native Android and Web projects soon.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;dt&gt;&lt;em&gt;What is your experience in developing cross-platform mobile applications?&lt;/em&gt;&lt;/dt&gt;
+
+&lt;p&gt;Part of the team is coming from the R&amp;amp;D department of &lt;span class=&quot;st&quot;&gt;Fundación CTIC&lt;/span&gt;. We worked in projects involving development under native and (desktop-only, responsive and mobile-first) Web development. In the early stages of our work in CTIC, Web and native were separated worlds. JavaME, Symbian and Windows Mobile were the most popular technologies used, whereas XHTML-MP and other HTML subsets and flavors were used for mobile Web development. In particular, we worked on MyMobileWeb, an open-source platform for browser detection which delivered the most suitable markup (and rest of resources) formats.&lt;/p&gt;
+&lt;p&gt;Since we created UbiqWare with two other colleagues (Jorge Román and Mario San Román, with large experience in back-end development) in November 2015 , we worked in the following projects (while developing DevHaven):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We first collaborated with a Spanish startup on a cloud service to provide companies with a unified vision of their digital properties and general business performance by means of the integration of all their business metrics, Web analytics, campaigns and social media data in a single panel. They work with quite a few well-known international companies from a variety of industries.We analysed the code of their Web app and created a much smoother version that was packaged as an Apache Cordova app for iPad, adding offline capabilities. Thanks to their Web development skills, they are creating a universal iOS version and an Android version, both for mobile and tablet devices.We are now starting another project improving the way in which they organize their code and software development methodology, trying to take them to a single codebase that finally generates Web apps and mobile apps. This company is the first user of DevHaven, in its current internal stage.&lt;/li&gt;
+&lt;li&gt;Support for a Web development company in mobile apps creation. They have designed Web sites and applications for public institutions or consulting companies. Following increased requests from customers to create a mobile app in addition to a Web application or site, they chose UbiqWare as their technology provider and advisor to create cross-platform solutions based on responsive Web + Apache Cordova (and the corresponding plugins and extensions).&lt;/li&gt;
+&lt;li&gt;Development of a mobile video surveillance application for a company that provides video surveillance services for large companies. One such company has started to complement their fixed video surveillance system with the use of a mobile application by their security guards. The first version of the application was developed for iPad, under a native development approach. An Android version for tablets is expected to be requested in the next months. This is a case in which performance suggested a native approach, due to the requirement to display several video sources as smoothly as possible while providing a UI with minimum response time.&lt;/li&gt;
+&lt;li&gt;Mobile application to manage the balance associated to NFC bracelets used for digital payments, developed for one of the leaders in Spain in the field of digital payments. It has been developed in Apache Cordova.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;em&gt;What do you think about the gap between native and Web apps?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;When the guys in Nitobi, the original company who created PhoneGap later acquired by Adobe, were asked about the future of PhoneGap, they said the ideal situation would be that PhoneGap would no longer be required. They expected that the path leading to browsers having access to native features would continue, thus making the existence of tools such as PhoneGap (contributed to the Apache Foundation as an open source later named Apache Cordova, which is the foundation to PhoneGap) unnecessary.Unfortunately, the expectations on Device APIs in Web browsers have not been fulfilled and there are many cases in which native development is required. Sometimes, completely using a native approach or by enhancing hybrid technologies with native plugins.&lt;/dd&gt;&lt;/dl&gt;
+&lt;p&gt;It is also true that the operating systems and browsers makers are reducing the gap. Apple used a different JavaScript engine in their UIWebView native component, much slower than the one used by Mobile Safari. Their new WKWebKit is much faster. Google has recently provided Chrome&amp;#8217;s WebView component in Android as an independent software piece than can be updated separately of Chrome itself and is focusing on improving its performance. Google also encourages other Android browsers makers to release their own WebView components, so technologies such as Apache Cordova allow developers to choose which WebView to use.&lt;/p&gt;
+&lt;p&gt;In addition, more powerful processors, larger memory chips and faster secondary storage technologies are included in newer devices. This reduces the difference in the perception of performance for human beings, between Web applications and native applications.&lt;/p&gt;
+&lt;p&gt;This is something that has been evolving day after day since the creation of hybrid development approaches. Therefore, the amount of business cases in which hybrid development can compete with native development is increasing. This is the reason why development teams with skills in responsive or mobile-first Web development dare to start with the release of mobile applications via app stores.&lt;/p&gt;
+&lt;p&gt;And this is the reason why the first platform to be supported in DevHaven is Apache Cordova. Web developers focus on HTML, CSS and JavaScript + knowing the Cordova plugins required to enhance functionality. DevHaven stops them from dealing with requiring an OS X to build for iOS, Windows to build for Windows Phone, installing and updating Xcode, Android SDK and Visual Studio, etc.&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;Which platform you prefer to rely on: native or Web? and why?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;We rely on Web development, including hybrid development with Apache Cordova. We only go for native if absolutely required, as you have seen in our experience in cross-platform development.&lt;/dd&gt;
+&lt;dt&gt;&lt;em&gt;How do the requests and needs from your customers affect your choices in this space?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;From the development point of view, customers with the sufficient technical knowledge to have an opinion about it, they would like that Web technologies allowed potentially any kind of project, as a means to code once and execute in as many platforms as possible and therefore reduce development and maintenance costs.From those requesting our service DevHaven, they find that a service that let them focus on Web development by reducing the attention that they would need to pay to things as compilers, SDKs, etc. is really useful.&lt;/dd&gt;
+&lt;p&gt;But in general, our customers want both a responsive Web app and a presence on the app store, for which an hybrid app (sometimes, but not always built upon the responsive Web app) is required. While we believe in the Web as a universal platform, our customers are not quite convinced yet!&lt;/p&gt;
+
+&lt;dt&gt;&lt;em&gt;What are your needs in terms of Web standards? Which Web standard(s) are you waiting for specifically?&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;A complete Device API stack. I know it is not easy, but it&amp;#8217;s free to ask &lt;span class=&quot;wp-smiley wp-emoji wp-emoji-smile&quot; title=&quot;:)&quot;&gt;:)&lt;/span&gt;&lt;/dd&gt;
+&lt;p&gt;This would stop us developers from requiring Cordova plugins, although Cordova (or similar solutions) would still be necessary in order to generate the mobile app.&lt;/p&gt;
+&lt;p&gt;The APIs for which we call upon Cordova plugins the most frequently are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;file and file-transfer plugins, to implement local caches and, thus, offline access to information;&lt;/li&gt;
+&lt;li&gt;device plugin, to harvest device information for conditional functionality or for analytics purposes;&lt;/li&gt;
+&lt;li&gt;and push-messaging plugin to send remote notifications.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;em&gt;Thank you for your time! I will note that your town is also the home of the &lt;a href=&quot;http://www.w3c.es/&quot;&gt;W3C Spanish Office&lt;/a&gt;!&lt;br /&gt;
+&lt;/em&gt;&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/developer/&quot;&gt;Developer&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5/&quot;&gt;HTML5&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5apps/&quot;&gt;html5apps&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/mobile/&quot;&gt;Mobile&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/standardization/&quot;&gt;Standardization&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=571&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>Dominique Hazael-Massieux</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">[Latest Edition!] Standards for Web apps on mobile – August 2015</title>
+		<link href="http://html5apps-project.eu/2015/09/04/latest-edition-standards-for-web-apps-on-mobile-august-2015/"/>
+		<id>http://html5apps-project.eu/?p=564</id>
+                <updated>2015-09-04T14:22:39+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;&lt;img class=&quot;alignright&quot; src=&quot;http://www.w3.org/2014/11/webapp-sm.png&quot; alt=&quot;Graphic representation of the Mobile Web Apps roadmap&quot; /&gt;A deliverable of the &lt;a href=&quot;http://html5apps-project.eu/&quot;&gt;HTML5Apps&lt;/a&gt; project, the &lt;strong&gt;August 2015 edition&lt;/strong&gt; of the W3C &lt;a href=&quot;http://www.w3.org/2015/08/mobile-web-app-state/&quot;&gt;Standards for Web Applications on Mobile&lt;/a&gt; is out!&lt;/p&gt;
+&lt;p&gt;It includes a few changes and additions since May 2015, particularly emerging work such as the proposed &lt;a href=&quot;http://www.w3.org/2015/06/payments-wg-charter.html&quot;&gt;charter for a Web Payments Working Group&lt;/a&gt; and the development of a &lt;a href=&quot;http://www.w3.org/2015/hasec/2015-hasec-charter.html&quot;&gt;draft charter for a Hardware Security Working Group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Other changes are detailed below:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Emerging Work&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The early work on a &lt;a href=&quot;https://w3c.github.io/sensors/&quot;&gt;generic sensor API&lt;/a&gt; is now emboddied in an editors draft&lt;/li&gt;
+&lt;li&gt;A proposal to enable &lt;a href=&quot;http://cwiiis.github.io/gaia-navigator/&quot;&gt;CSS transitions between Web pages&lt;/a&gt; was brought to the CSS Working Group&lt;/li&gt;
+&lt;li&gt;A proposal to detect the &lt;a href=&quot;http://rbyers.github.io/InputDevice/&quot;&gt;input-capabilities of devices&lt;/a&gt; (in particular their ability to react to touch) was brought to the Web Applications Working Group&lt;/li&gt;
+&lt;li&gt;The Web Performance Working Group is considering the definition of a &lt;a href=&quot;https://w3c.github.io/requestidlecallback/&quot;&gt;callback mechanism for scheduling function calls&lt;/a&gt; and has a proposed editors draft for it;&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&quot;http://www.w3.org/2015/06/payments-wg-charter.html&quot;&gt;charter for a Web Payments Working Group&lt;/a&gt; has been proposed; the group would work on a browser API that would vastly simpiflify payments on the Web&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&quot;http://www.w3.org/2015/hasec/2015-hasec-charter.html&quot;&gt;draft charter for a Hardware Security Working Group&lt;/a&gt; is being developed; it would bring interaction with secure hardware modules to the Web platform&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Published as First Public Working Draft&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.w3.org/TR/geofencing/&quot;&gt;Geofencing API&lt;/a&gt;, enabling developers to be notified when the user enters specific geographical areas, was published as a First Public Working Draft&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.w3.org/TR/epr/&quot;&gt;Entry Point Regulation specification&lt;/a&gt;, which provides another layer of protection against common attack vectors such as cross-site-script or cross-site request forgery, was published as First Public Working Draft&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&quot;http://w3c.github.io/preload/&quot;&gt;Preload&lt;/a&gt; specification, which offers a way to load stylesheets and scripts immediately, but defer their application, was published as a First Public Working Draft&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Returned to Working Draft&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.w3.org/TR/proximity/&quot;&gt;Proximity Events&lt;/a&gt; and &lt;a href=&quot;http://www.w3.org/TR/ambient-light/&quot;&gt;Ambient Light Events&lt;/a&gt; APIs went back to Working Draft status (respectively from Candidate Recommendation and Last Call status) based on the expectation of their significant rework to match the emerging &lt;a href=&quot;https://w3c.github.io/sensors/&quot;&gt;generic sensor API&lt;/a&gt; work&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Reached Candidate Recommendation&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.w3.org/TR/2dcontext/&quot;&gt;Canvas API&lt;/a&gt;, a programmatic graphics API, re-entered Candidate Recommendation phase after it had gone back to Last Call following a substantive change&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.w3.org/TR/tracking-dnt/&quot;&gt;Tracking Preference Expression (DNT) specification&lt;/a&gt;, which defines a mechanism for expressing the user’s preference regarding tracking, reached Candidate Recommendation status&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Specification merged, split or abandoned&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.w3.org/2012/sysapps/&quot;&gt;System Applications Working Group&lt;/a&gt; closed, and work on the &lt;a href=&quot;http://www.w3.org/2012/sysapps/contacts-manager-api/&quot;&gt;Contacts Manager API&lt;/a&gt; and the &lt;a href=&quot;http://www.w3.org/2012/sysapps/web-alarms/&quot;&gt;Task Scheduler API&lt;/a&gt; has stopped as for the other specifications from this group;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This document is the 18th edition of this overview of mobile Web applications technologies. The previous edition was released in &lt;a href=&quot;http://www.w3.org/2015/05/mobile-web-app-state/&quot;&gt;May 2015&lt;/a&gt;. A live version of this document accepts contributions on &lt;a href=&quot;https://github.com/w3c-webmob/mobile-web-app-standards/&quot;&gt;the W3C Web and Mobile Interest Group Github repository&lt;/a&gt;.&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/developer/&quot;&gt;Developer&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/mobile/&quot;&gt;Mobile&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/standardization/&quot;&gt;Standardization&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/sysapps/&quot;&gt;SysApps&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=564&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>mcforgue</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">[Survey Report] State of the Developer Nation Q3 2015</title>
+		<link href="http://html5apps-project.eu/2015/08/10/survey-report-state-of-the-developer-nation-q3-2015/"/>
+		<id>http://html5apps-project.eu/?p=552</id>
+                <updated>2015-08-10T10:13:14+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;The 9th edition of the &lt;a href=&quot;http://vmob.me/DE3Q15HTML5Apps&quot;&gt;State of the Developer Nation Q3 2015 report&lt;/a&gt; is now available for download. It presents the key findings from a survey that the HTML5Apps project helped to promote.&lt;/p&gt;
+&lt;p&gt;This report covers all the latest trends in mobile, desktop, IoT and cloud services development. It looks at most popular platforms, languages, vertical markets and hosting providers.&lt;/p&gt;
+&lt;p&gt;The report provides interesting key insights and consolidated graphs such as the one shown below. The global community of people involved in developing software for mobile devices, desktop computers, the Internet of Things and cloud services is fairly homogenous. In Europe, as in all other continents, developers are predominantly young and male dominated. The survey results also show that most developers manage to be involved in several areas of development, via a hobby or side project in addition to their professional work.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.developereconomics.com/wp-content/uploads/edd/2015/07/DE9-SoN-infographic-1.png&quot;&gt;&lt;img class=&quot;alignnone&quot; src=&quot;https://www.developereconomics.com/wp-content/uploads/edd/2015/07/DE9-SoN-infographic-1.png&quot; alt=&quot;Global dev. landscape on a world map&quot; width=&quot;527&quot; height=&quot;364&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/developer/&quot;&gt;Developer&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5/&quot;&gt;HTML5&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5apps/&quot;&gt;html5apps&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=552&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>mcforgue</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">Contributions to ISOC report on mobile Internet</title>
+		<link href="http://html5apps-project.eu/2015/07/10/contributions-to-isoc-report-on-mobile-internet/"/>
+		<id>http://html5apps-project.eu/?p=543</id>
+                <updated>2015-07-10T09:16:08+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;The Internet Society (ISOC) just released its &lt;a href=&quot;http://www.internetsociety.org/gir&quot;&gt;second annual Global Internet Report&lt;/a&gt;, with a focus this year on the mobile Internet. The report explores mobile Internet availability, affordability, and relevance to potential users, and highlights opportunities as well as challenges to ensure all users can enjoy the full benefits of mobile access to the open Internet.&lt;/p&gt;
+&lt;p&gt;The HTML5Apps team contributed significantly to the report in two key sections of this report which are related to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the challenges presented by the current app ecosystem&lt;/li&gt;
+&lt;li&gt;the recommendations to address these challenges based on the work W3C is undertaking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These contributions were depending on the work conducted earlier by the project on the &lt;a href=&quot;http://w3c-webmob.github.io/gap-analysis/&quot;&gt;native/Web gap analysis&lt;/a&gt; and on the &lt;a href=&quot;https://github.com/w3c-webmob/web-api-gap&quot;&gt;API gap review&lt;/a&gt;.&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/html5apps/&quot;&gt;html5apps&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/mobile/&quot;&gt;Mobile&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/standardization/&quot;&gt;Standardization&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=543&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>mcforgue</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">HTML5Apps at Edge Conference</title>
+		<link href="http://html5apps-project.eu/2015/07/08/html5apps-at-edge-conference/"/>
+		<id>http://html5apps-project.eu/?p=526</id>
+                <updated>2015-07-08T13:34:01+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;I was present at the &lt;a href=&quot;https://edgeconf.com/2015-london&quot;&gt;Edge conference&lt;/a&gt; on 27 June in London, UK, representing the HTML5Apps project. That conference, organized by FT Labs for the past 5 years, targets discussion and debate of leading-edge use of client-side Web technologies. It aims at being very participative in its nature, and was organized this year around a set of panels in the morning and breakouts in the afternoon.&lt;/p&gt;
+&lt;p&gt;About 180 developers attended the conference, including renowned developers, technical evangelists and standards advocates.&lt;/p&gt;
+&lt;p&gt;The context of the conference (&amp;#8220;leading edge&amp;#8221;) and its attendees made it indeed a great place for conversations and interactions. Specifically, I had good discussions related to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interest and adoption around some of the arrival in mobile browsers, esp. push notifications, installable Web app (via manifest) and offline via ServiceWorker. In particular, these technologies seem to open up to great &amp;#8220;conversion rates&amp;#8221; of installing Web apps via a manifest compared to the native installation workflow enabled by traditional banners — the notion that installing a Web app is a much smoother and less intrusive action seems to have teeth.&lt;/li&gt;
+&lt;li&gt;Publishers think that the Web remains a critical part of the traffic they get on mobile, and that the notion of &lt;a href=&quot;https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/&quot;&gt;progressive apps&lt;/a&gt; coined by Alex Russell matches well with the experience these publishers are facing with native.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the organized sessions of the conference themselves, I attended/participated to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The panel on security, with good conversations on the needs and issues of adopting a higher base-level security (with HTTPs and CSP);&lt;/li&gt;
+&lt;li&gt;The panel on front-end data, which illustrated some of the tensions between providing the right low-level primitives (in this case indexedDB) and providing an easy-to-use API;&lt;/li&gt;
+&lt;li&gt;The &amp;#8220;installable web apps&amp;#8221; breakout, which was a really good discussion on the model enabled by &lt;a href=&quot;http://www.w3.org/TR/appmanifest/&quot;&gt;App Manifest&lt;/a&gt;, as well as some of the questions that remain open about it: Chrome chose to make &amp;#8220;installing&amp;#8221; something offered to the user under some conditions (serviceworker, repeated usage, responsiveness), where Opera is investigating surfacing that option more visibly in the UI; can these appmanifests help surface mobile Web apps in native stores (where users have been trained to look for content and services)? &amp;#8220;Installing&amp;#8221; a Web app is really &amp;#8220;adding it to homescreen&amp;#8221;, but that means they remain a 2nd class citizen in a number of ways (integration in app lists, integration in app settings, etc). This was my preferred session of the day;&lt;/li&gt;
+&lt;li&gt;A breakout on network operators where the Natasha Rooney from GSMA was looking for input and feedback on how developers see operators could be useful to their goals, with a lot of discussion similar to the topics in the &lt;a href=&quot;https://github.com/w3c-webmob/networking-tf-charter&quot;&gt;Web &amp;amp; Mobile Interest Group networking task force&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall, this developer conference was a success and the project&amp;#8217;s team is looking forward to the next edition!&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/developer/&quot;&gt;Developer&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/event/&quot;&gt;Event&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5/&quot;&gt;HTML5&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=526&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>Dominique Hazael-Massieux</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+	<entry>
+		<title type="html" xml:lang="en">[Web Payments] Standards prep. meeting in NYC</title>
+		<link href="http://html5apps-project.eu/2015/06/16/web-payments-standards-prep-meeting-in-nyc/"/>
+		<id>http://html5apps-project.eu/?p=494</id>
+                <updated>2015-06-16T21:15:07+00:00</updated>
+		<content type="html" xml:lang="en">&lt;p&gt;W3C is aiming to streamline Web Payments with new standards that will provide a uniform way for merchants to integrate payments into the Web with a level playing field for payment service providers and value added services. The HTML5Apps project initiated this work in 2014 by organizing the &lt;a href=&quot;http://www.w3.org/2013/10/payments/&quot;&gt;Web Payments Workshop&lt;/a&gt; at the &amp;#8220;Bourse de Paris&amp;#8221; to discuss requirements related to usability, security, mobile payments, digital wallets, ubiquitous payments, the Internet of Things, and more.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://www.w3.org/Payments/IG/&quot;&gt;Web Payment Interest Group&lt;/a&gt;, formed as a outcome of that workshop, is meeting this week in New York, in the heart of the financial community, for a &lt;a href=&quot;https://www.w3.org/Payments/IG/wiki/Main_Page/FTF_June2015&quot;&gt;three day meeting&lt;/a&gt; (June 16-18) which aims to prepare the ground for launching a W3C Working Group on Web Payments standards later this year. The HTML5Apps project is helping stakeholders to clarify the scope and technical direction for chartering the new group.&lt;/p&gt;
+&lt;p&gt;On June 18, W3C will hold a &lt;em&gt;Future of Web Payments Industry Roundtable&lt;/em&gt;, hosted by Bloomberg. Participants at the Roundtable includes &lt;a href=&quot;https://www.w3.org/2000/09/dbwg/details?group=73816&amp;public=1&quot;&gt;representatives from W3C&amp;#8217;s Web Payments IG&lt;/a&gt;, including Apple, Bloomberg, Deutsche Telekom, Gemalto, Google, Mozilla, NACS, Rabobank, Ripple Labs, Target, US Federal Reserve Bank, Walmart, Yandex, and others.&lt;/p&gt;&lt;br /&gt;Filed under: &lt;a href=&quot;http://html5apps-project.eu/category/html5/&quot;&gt;HTML5&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/html5apps/&quot;&gt;html5apps&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/payment/&quot;&gt;Payment&lt;/a&gt;, &lt;a href=&quot;http://html5apps-project.eu/category/standardization/&quot;&gt;Standardization&lt;/a&gt;  &lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;http://pixel.wp.com/b.gif?host=html5apps-project.eu&amp;blog=59373562&amp;post=494&amp;subd=html5appsproject&amp;ref=&amp;feed=1&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;</content>
+		<author>
+			<name>mcforgue</name>
+			<uri>http://www.w3.org/Mobile/</uri>
+		</author>
+		<source>
+			<title type="html">Mobile Web @ W3C - W3C</title>
+			<link rel="self" href="http://www.w3.org/Mobile/mobile-aggregation/atom.xml"/>
+			<id>http://www.w3.org/Mobile/atom.xml</id>
+		</source>
+	</entry>
+
+</feed>

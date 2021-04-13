@@ -1,0 +1,18 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 12 Apr 2021 09:00:07 at https://www.w3.org/standards/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.w3.org/standards/ -O1 "C:\NEW_BOOTCAMP\Lambda\CIRRICULUMN\WEEKS\2-resources\_GENERAL-RESOURCES\w3c-standard-forHTML" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:00:44	Error: 	"Not Found" (404) at link https://www.developereconomics.com/wp-content/uploads/edd/2015/07/DE9-SoN-infographic-1.png (from https://www.w3.org/standards/webdesign/)
+09:00:52	Error: 	"Not Found" (404) at link https://www.w3.org/standards/xml/news.xml (from https://www.w3.org/standards/xml/)
+09:01:11	Error: 	Exit requested by shell or user
+09:01:14	Warning: 	File not added due to mirror cancel: https://www.w3.org/standards/history/NOTE-voice
+09:01:14	Error: 	"Not Found" (404) at link www.w3.org/2006/05/u/d19cd1fbfcef-sm.jpg (from https://www.w3.org/standards/webofdevices/independence)
+09:01:15	Warning: 	File not added due to mirror cancel: https://www.w3.org/standards/history/NOTE-voice
+09:01:15	Error: 	"mirror stopped by user" (-1) at link https://www.w3.org/standards/history/NOTE-voice (from https://www.w3.org/standards/techs/voicexml)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 8 seconds : 126 links scanned, 121 files written (1875578 bytes overall) [897768 bytes received at 13202 bytes/sec], 1548247 bytes transferred using HTTP compression in 90 files, ratio 28%, 1.0 requests per connection
+(5 errors, 2 warnings, 0 messages)

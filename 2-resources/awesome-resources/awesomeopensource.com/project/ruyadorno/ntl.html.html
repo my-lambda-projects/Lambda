@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":1,"applicationTime":119,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Ntl</title>
+<meta name="description" content="Node Task List: Interactive cli to list and run package.json scripts">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/ruyadorno/ntl">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "ruyadorno/ntl",
+  "description": "Node Task List: Interactive cli to list and run package.json scripts",
+  "url": "https://awesomeopensource.com/project/ruyadorno/ntl",
+  "sku": "project/ruyadorno/ntl",
+  "mpn": "project/ruyadorno/ntl",
+  "image": "https://github.com/ruyadorno.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "ruyadorno/ntl",
+    "logo": "https://github.com/ruyadorno.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.71",
+    "ratingCount": "784"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="/YEXg+Ctocc5BUlOT4XDuTM7GK3m6o0elpfg+B70tTkbJQhsT+cn32RPWFOLGY9aP31eC8sl0wSyyZ8YqFQLQg==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/ruyadorno/ntl","location":"/project/ruyadorno/ntl","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/ruyadorno/ntl","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-b4fd0115-1736-4e24-a8db-b7babbf5d1b2"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Ntl</div><div class="aos_project_metadata_description">Node Task List: Interactive cli to list and run package.json scripts</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">784</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="https://www.npmjs.com/package/ntl" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://www.npmjs.com/package/ntl" target="_blank">https://www.npmjs.com/package/ntl</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/ruyadorno/ntl" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/ruyadorno/ntl" target="_blank">https://github.com/ruyadorno/ntl</a></span><div class="aos_project_metadata_header"><a href="https://github.com/ruyadorno/ntl/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/ruyadorno/ntl/issues" target="_blank">11</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">11 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/javascript"><div style="display:block;text-decoration:none;padding-bottom:10px">javascript<span> (<!-- -->67,310<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nodejs"><div style="display:block;text-decoration:none;padding-bottom:10px">nodejs<span> (<!-- -->3,563<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cli"><div style="display:block;text-decoration:none;padding-bottom:10px">cli<span> (<!-- -->1,650<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/command-line"><div style="display:block;text-decoration:none;padding-bottom:10px">command-line<span> (<!-- -->501<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/js"><div style="display:block;text-decoration:none;padding-bottom:10px">js<span> (<!-- -->490<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/npm"><div style="display:block;text-decoration:none;padding-bottom:10px">npm<span> (<!-- -->411<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/workflow"><div style="display:block;text-decoration:none;padding-bottom:10px">workflow<span> (<!-- -->315<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<div align="center">
+	<br>
+	<br>
+	<br>
+	<a href="https://ruyadorno.github.io/svg-demos/ntl/logo.min.svg" target="_blank" rel="nofollow"><img alt="ntl" width="300" src="https://ruyadorno.github.io/svg-demos/ntl/logo.min.svg" style="max-width:100%;"></a>
+	<br>
+	<br>
+	<br>
+</div>
+<h1>
+<a id="node-task-list" class="anchor" href="#node-task-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node Task List</h1>
+<p><a href="https://npmjs.org/package/ntl" rel="nofollow"><img src="https://badge.fury.io/js/ntl.svg" alt="NPM version" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/ruyadorno/ntl" rel="nofollow"><img src="https://travis-ci.org/ruyadorno/ntl.svg?branch=master" alt="Build Status" style="max-width:100%;"></a>
+<a href="https://coveralls.io/github/ruyadorno/ntl?branch=master" rel="nofollow"><img src="https://coveralls.io/repos/github/ruyadorno/ntl/badge.svg?branch=master" alt="Coverage Status" style="max-width:100%;"></a>
+<a href="https://raw.githubusercontent.com/ruyadorno/ipt/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License" style="max-width:100%;"></a>
+<a href="https://gitter.im/ipipeto/Lobby" rel="nofollow"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/ipipeto/Lobby" style="max-width:100%;"></a></p>
+<p>Interactive cli tool that lists and run <code>package.json</code> scripts.</p>
+<blockquote>
+<p>An <a href="https://github.com/ruyadorno/ipt" rel="nofollow">iPipeTo</a> workflow</p>
+</blockquote>
+<br>
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
+<ul>
+<li><a href="#arrow_down-install">Install</a></li>
+<li><a href="#mag_right-usage">Usage</a></li>
+<li><a href="#heart_eyes-features">Features</a></li>
+<li>
+<a href="#books-customize">Customize</a>
+<ul>
+<li><a href="#custom-runner">Custom runner</a></li>
+<li><a href="#using-task-descriptions">Using task descriptions</a></li>
+<li><a href="#displaying-task-contents">Displaying task contents</a></li>
+<li><a href="#exclude-tasks-from-ui">Exclude tasks from UI</a></li>
+<li><a href="#exclude-tasks-with-missing-descriptions">Exclude tasks with missing descriptions</a></li>
+<li><a href="#customize-cache">Customize cache</a></li>
+<li><a href="#ui-size">UI Size</a></li>
+</ul>
+</li>
+<li><a href="#arrows_counterclockwise-repeat-the-last-ran-task">Repeat the last ran task</a></li>
+<li>
+<a href="#m-run-multiple-tasks">Run multiple tasks</a>
+<ul>
+<li><a href="#run-multiple-tasks-in-order-of-selection">Preserve selection order</a></li>
+</ul>
+</li>
+<li><a href="#fast_forward-run-in-autocomplete-or-fuzzy-search-mode">Run in autocomplete or fuzzy search mode</a></li>
+<li>
+<a href="#white_check_mark-tips">Tips</a>
+<ul>
+<li><a href="#ntl-as-default-task">ntl as default task</a></li>
+<li><a href="#exclude-scripts">Exclude scripts</a></li>
+<li><a href="#included-command-aliases">Included command aliases</a></li>
+</ul>
+</li>
+<li><a href="#information_source-help">Help</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<br>
+<h2>
+<a id="arrow_down-install" class="anchor" href="#arrow_down-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>⬇️ Install</h2>
+<pre><code>$ npm install -g ntl
+</code></pre>
+<br>
+<h2>
+<a id="mag_right-usage" class="anchor" href="#mag_right-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>🔎 Usage</h2>
+<p>Navigate to any folder containing a <code>package.json</code> file (usually a Node.js project) that has configured <strong>scripts</strong>, then just use the ntl command:</p>
+<pre lang="sh" class="highlight-sh">ntl
+</pre>
+<p>You can also specify a path to a project folder containing a <code>package.json</code> file:</p>
+<pre lang="sh" class="highlight-sh">ntl ./my-node-project
+</pre>
+<br>
+<br>
+<p align="center">
+<a href="https://ruyadorno.github.io/svg-demos/ntl/examples/intro.svg" target="_blank" rel="nofollow"><img alt="demo animation" width="540" src="https://ruyadorno.github.io/svg-demos/ntl/examples/intro.svg" style="max-width:100%;"></a>
+</p>
+<br>
+<h2>
+<a id="heart_eyes-features" class="anchor" href="#heart_eyes-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>😍 Features</h2>
+<ul>
+<li>Interactive interface that lists all <code>package.json</code> scripts</li>
+<li>Select any item in the interactive interface to execute that task</li>
+<li>Add descriptions to each task that can be shown in the UI</li>
+<li>Multiple interactive interfaces (menu list, autocomplete fuzzy search)</li>
+<li>Many options to customize the UI (exclude scripts, amount of items, etc)</li>
+<li>Easy to repeat last ran script (<code>nt</code> and <code>rerun</code> options)</li>
+<li>Run multiple tasks
+<ul>
+<li>Repeat previously set of ran tasks</li>
+<li>Preserve order of selection</li>
+</ul>
+</li>
+<li>Customize rerun cache options</li>
+</ul>
+<br>
+<h2>
+<a id="books-customize" class="anchor" href="#books-customize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>📚 Customize</h2>
+<h3>
+<a id="custom-runner" class="anchor" href="#custom-runner" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom runner</h3>
+<p>By default <strong>Node Task List</strong> tries to use <a href="https://github.com/npm/cli/" rel="nofollow">npm</a> to run the configured <code>script</code> tasks. In case you want to use a custom runner (e.g: <code>yarn</code> or <code>pnpm</code>) you can configure <strong>ntl</strong> to use whatever runner you prefer.</p>
+<p>That can be configured system-wide by setting the environment variable in your profile file (<code>.bashrc</code> or <code>.bash_profile</code> for macos). In case you only want to ever use <strong>yarn</strong> as your node task runner, you should set:</p>
+<pre lang="sh" class="highlight-sh"><span class="c"># .bashrc (linux) OR .bash_profile (macos)</span>
+<span class="nb">export </span><span class="nv">NTL_RUNNER</span><span class="o">=</span>yarn
+</pre>
+<p>Keep in mind environment variables are flexible enough that they can also be set temporarily prior to running a command, so the following would also work:</p>
+<pre lang="sh" class="highlight-sh"><span class="nv">NTL_RUNNER</span><span class="o">=</span>yarn ntl
+</pre>
+<p>❗️ You can also define a <code>runner</code> in a per-project basis using the <code>ntl</code> configuration of your <code>package.json</code>, e.g:</p>
+<pre lang="json" class="highlight-json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;project&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ntl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"runner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yarn"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<br>
+<h3>
+<a id="using-task-descriptions" class="anchor" href="#using-task-descriptions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using task descriptions</h3>
+<p>📝 You can define descriptions for your tasks in your <code>package.json</code> file by defining a <code>ntl</code> section, e.g:</p>
+<pre lang="json" class="highlight-json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;project&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"make build"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest --coverage"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ntl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Builds the project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run test outputing code coverage"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run project's tests"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>These descriptions will be shown anytime you run <code>ntl</code>.</p>
+<br>
+<h3>
+<a id="displaying-task-contents" class="anchor" href="#displaying-task-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Displaying task contents</h3>
+<p>Use the <code>--info</code> or simply <code>-i</code> option in order to display the contents of each script task, like:</p>
+<pre lang="sh" class="highlight-sh"><span class="nv">$ </span>ntl <span class="nt">-i</span>
+⬢  Node Task List
+? Select a task to run: <span class="o">(</span>Use arrow keys<span class="o">)</span>
+❯ generate-manual › maked-man README.md <span class="o">&gt;</span> man/man1/ntl.1
+          pretest › eslint cli.js rerun.js <span class="nb">test
+             test</span> › cross-env <span class="nv">NTL_NO_RERUN_CACHE</span><span class="o">=</span>1 tap
+</pre>
+<p>Task contents will also be shown when using the <code>--descriptions</code> option and no description is available for a given item.</p>
+<br>
+<h3>
+<a id="exclude-tasks-from-ui" class="anchor" href="#exclude-tasks-from-ui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exclude tasks from UI</h3>
+<p>You can define a list of scripts to be excluded from the interactive menu using the <code>--exclude</code> option:</p>
+<pre><code>$ ntl -e coverall tasks
+⬢  Node Task List
+? Select a task to run: (Use arrow keys)
+❯ test
+  test:watch
+</code></pre>
+<p>You can also use a wildcard character to exclude multiple scripts:</p>
+<pre><code>$ ntl -e "test*"
+⬢  Node Task List
+? Select a task to run: (Use arrow keys)
+❯ coveralls
+  tasks
+</code></pre>
+<br>
+<h3>
+<a id="exclude-tasks-with-missing-descriptions" class="anchor" href="#exclude-tasks-with-missing-descriptions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exclude tasks with missing descriptions</h3>
+<p>You can also filter out items that doesn't have a description using the <code>--descriptions-only</code> or <code>-o</code> option.</p>
+<br>
+<h3>
+<a id="customize-cache" class="anchor" href="#customize-cache" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customize cache</h3>
+<p><strong>ntl</strong> uses a cache system that stores the last ran command for each project in order to make it easier for users to repeat it. Given its importance, the following environment variables are available in order to customize its location and size:</p>
+<ul>
+<li>
+<code>NTL_RERUN_CACHE_DIR</code>: Defines a directory to store the cache file</li>
+<li>
+<code>NTL_RERUN_CACHE_NAME</code>: Filename to use for the cache</li>
+<li>
+<code>NTL_RERUN_CACHE_MAX</code>: Number of items to store in the cache (defaults to <code>10</code>)</li>
+<li>
+<code>NTL_NO_RERUN_CACHE</code>: When defined, avoid the cache system completely</li>
+</ul>
+<p>For example, if a given user wanted to store its cache in <code>~/.ntl/cache</code> location and save up to 100 items in it, they could add the following to their <code>.bashrc</code> (linux) or <code>.bash_profile</code> (macos):</p>
+<pre lang="sh" class="highlight-sh"><span class="nb">export </span><span class="nv">NTL_RERUN_CACHE_DIR</span><span class="o">=</span><span class="nv">$HOME</span>
+<span class="nb">export </span><span class="nv">NTL_RERUN_CACHE_NAME</span><span class="o">=</span>cache
+<span class="nb">export </span><span class="nv">NTL_RERUN_CACHE_MAX</span><span class="o">=</span>100
+</pre>
+<p>The cache can also be customized through command line options:</p>
+<ul>
+<li>
+<code>--rerun-cache-dir</code> Defines a directory to store the cache file</li>
+<li>
+<code>--rerun-cache-name</code>: Filename to use for the cache</li>
+<li>
+<code>--no-rerun-cache</code>: Avoids the cache system completely</li>
+</ul>
+<br>
+<h3>
+<a id="ui-size" class="anchor" href="#ui-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UI Size</h3>
+<p>You can increase/reduce the size of the presented UI list using the <code>--size</code> or <code>-s</code> option. In this example we just increased the size of the list to show up to 12 items at once:</p>
+<pre><code>$ ntl -s 12
+⬢  Node Task List
+? Select a task to run:
+❯ build
+  generate-manual
+  hello
+  bomdia
+  bonjour
+  test
+  test:dev
+  test:ci
+  test:integration
+  test:unit
+  test:e2e
+  start
+</code></pre>
+<p>The default size value is 7 items.</p>
+<br>
+<h2>
+<a id="arrows_counterclockwise-repeat-the-last-ran-task" class="anchor" href="#arrows_counterclockwise-repeat-the-last-ran-task" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>🔄 Repeat the last ran task</h2>
+<p><strong>ntl</strong> provides many options to make it easier to rerun the last task, either through having it selected as default option the next time you run the <code>ntl</code> command, or by using one of the following:</p>
+<ul>
+<li>
+<strong>The ultra convenient way</strong>: <code>nt</code> command shorthand 😎 (You should think of <code>nt</code> as: "ok, just run the last node task", in contrast to <code>ntl</code> which should be interpreted as: "ok, give me the node task list again") in case no previous task is available, running <code>nt</code> will behave exactly as <code>ntl</code>
+</li>
+<li>Using a <code>--rerun</code> or <code>-r</code> flag, e.g: <code>ntl -r</code>
+</li>
+<li>Prepending the <code>NTL_RERUN</code> env variable, e.g: <code>NTL_RERUN=true ntl</code>
+</li>
+</ul>
+<p align="center">
+<a href="https://ruyadorno.github.io/svg-demos/ntl/examples/option-rerun.svg" target="_blank" rel="nofollow"><img alt="demo animation showing how to rerun a script using the nt command shorthand" width="540" src="https://ruyadorno.github.io/svg-demos/ntl/examples/option-rerun.svg" style="max-width:100%;"></a>
+</p>
+<br>
+<h2>
+<a id="m-run-multiple-tasks" class="anchor" href="#m-run-multiple-tasks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ⓜ️ Run multiple tasks</h2>
+<p>Using the <code>--multiple</code> or <code>-m</code> option, the interface becomes a checkbox-based list that allows you to select multiple tasks and run them in serial.</p>
+<pre lang="sh" class="highlight-sh"><span class="nv">$ </span>ntl <span class="nt">-m</span>
+⬢  Node Task List
+? Select a task to run:
+ ◯ start
+ ◉ <span class="nb">test</span>
+❯◉ <span class="nb">test</span>:ci
+</pre>
+<p align="center">
+<a href="https://ruyadorno.github.io/svg-demos/ntl/examples/option-multiple.svg" target="_blank" rel="nofollow"><img alt="demo animation showing how to use -m to have a checkbox interface allowing for selection of multiple tasks to be ran in serial" width="540" src="https://ruyadorno.github.io/svg-demos/ntl/examples/option-multiple.svg" style="max-width:100%;"></a>
+</p>
+<p>Better yet, combine that with the <strong>rerun</strong> feature and you can repeat multiple tasks using the <code>nt</code> command.</p>
+<h3>
+<a id="run-multiple-tasks-in-order-of-selection" class="anchor" href="#run-multiple-tasks-in-order-of-selection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run multiple tasks in order of selection</h3>
+<p>You can run multiple tasks in the order you pick them 😎 Use the <code>--ordered</code> or <code>-O</code> option:</p>
+<pre lang="sh" class="highlight-sh"><span class="nv">$ </span>ntl <span class="nt">-O</span>
+⬢  Node Task List
+? Select a task to run: <span class="o">(</span>Press &lt;space&gt; to <span class="k">select</span>, &lt;r&gt; to res
+et<span class="o">)</span>
+ ◯   bar › Test task
+ ◯   foo › Test task
+❯2 hello › Hello world
+ ◯ start › Start the development server
+ 1  <span class="nb">test</span> › Run all tests <span class="k">for </span>the project
+</pre>
+<br>
+<h2>
+<a id="fast_forward-run-in-autocomplete-or-fuzzy-search-mode" class="anchor" href="#fast_forward-run-in-autocomplete-or-fuzzy-search-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>⏩ Run in autocomplete or fuzzy search mode</h2>
+<p>Use <code>--autocomplete</code> or <code>-A</code> option in order to use an interface variation that allows you to type the name of the task instead of browsing through an arrow-based menu. This mode can be very helpful when managing a long list of tasks.</p>
+<pre lang="sh" class="highlight-sh"><span class="nv">$ </span>ntl <span class="nt">-A</span>
+⬢  Node Task List
+? Select a task to run: t
+❯ pretest
+  <span class="nb">test
+  </span>start
+</pre>
+<p align="center">
+<a href="https://ruyadorno.github.io/svg-demos/ntl/examples/option-autocomplete.svg" target="_blank" rel="nofollow"><img alt="demo animation showing how to use -m to have a checkbox interface allowing for selection of multiple tasks to be ran in serial" width="540" src="https://ruyadorno.github.io/svg-demos/ntl/examples/option-autocomplete.svg" style="max-width:100%;"></a>
+</p>
+<br>
+<h2>
+<a id="white_check_mark-tips" class="anchor" href="#white_check_mark-tips" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>✅ Tips</h2>
+<h3>
+<a id="ntl-as-default-task" class="anchor" href="#ntl-as-default-task" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ntl as default task</h3>
+<p>You can define <code>ntl</code> as a dev dependency and one of the tasks of your project, specially <code>start</code> - so whenever someone runs <code>npm start</code> or <code>yarn start</code> they get the convenient <strong>ntl</strong> interface. Like in the following <code>package.json</code> example:</p>
+<pre lang="json" class="highlight-json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;project&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ntl"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ntl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.0.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3>
+<a id="exclude-scripts" class="anchor" href="#exclude-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exclude scripts</h3>
+<p>You can also define a task that invokes <code>ntl</code> while excluding other tasks, e.g:</p>
+<pre lang="json" class="highlight-json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest --coverage"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"test:watch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest --coverage --watchAll"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coveralls"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest --coverage --coverageReporters=text-lcov | coveralls"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ntl --exclude coverall tasks"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<h3>
+<a id="included-command-aliases" class="anchor" href="#included-command-aliases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Included command aliases</h3>
+<ul>
+<li>
+<code>ntl</code> The default command</li>
+<li>
+<code>nodetasklist</code> Longhand version in case users have conflicting <code>ntl</code> commands</li>
+<li>
+<code>npm-tasklist</code> Legacy longhand version</li>
+<li>
+<code>nt</code> Rerun last script shortcut</li>
+<li>
+<code>nodetask</code> Rerun last script longhand</li>
+</ul>
+<br>
+<h2>
+<a id="information_source-help" class="anchor" href="#information_source-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ℹ️ Help</h2>
+<p>Still feel like you could use some <code>--help</code> ?</p>
+<pre lang="sh" class="highlight-sh">Usage:
+  ntl <span class="o">[</span>&lt;path&gt;]             Build an interactive interface and run any script
+  nt <span class="o">[</span>&lt;path&gt;]              Rerun last executed script
+
+Options:
+  <span class="nt">-a</span>, <span class="nt">--all</span>                Includes pre and post scripts on the list   <span class="o">[</span>boolean]
+  <span class="nt">-A</span>, <span class="nt">--autocomplete</span>       Starts <span class="k">in </span>autocomplete mode                 <span class="o">[</span>boolean]
+  <span class="nt">-D</span>, <span class="nt">--debug</span>              Prints to stderr any internal error         <span class="o">[</span>boolean]
+  <span class="nt">-d</span>, <span class="nt">--descriptions</span>       Displays the descriptions of each script    <span class="o">[</span>boolean]
+  <span class="nt">-o</span>, <span class="nt">--descriptions-only</span>  Limits output to scripts with a description <span class="o">[</span>boolean]
+  <span class="nt">-h</span>, <span class="nt">--help</span>               Shows this <span class="nb">help </span>message                     <span class="o">[</span>boolean]
+  <span class="nt">-i</span>, <span class="nt">--info</span>               Displays the contents of each script        <span class="o">[</span>boolean]
+  <span class="nt">-e</span>, <span class="nt">--exclude</span>            Excludes specific scripts                     <span class="o">[</span>array]
+  <span class="nt">-m</span>, <span class="nt">--multiple</span>           Allows the selection of multiple items      <span class="o">[</span>boolean]
+  <span class="nt">-O</span>, <span class="nt">--ordered</span>            Selects multiple items <span class="k">in </span>order             <span class="o">[</span>boolean]
+  <span class="nt">-s</span>, <span class="nt">--size</span>               Amount of lines to display at once           <span class="o">[</span>number]
+  <span class="nt">--rerun-cache-dir</span>        Defines the rerun task cache location        <span class="o">[</span>string]
+  <span class="nt">--rerun-cache-name</span>       Defines the rerun task cache filename        <span class="o">[</span>string]
+  <span class="nt">--no-rerun-cache</span>         Never write to or <span class="nb">read </span>from cache           <span class="o">[</span>boolean]
+  <span class="nt">-v</span>, <span class="nt">--version</span>            Show version number                         <span class="o">[</span>boolean]
+  <span class="nt">-r</span>, <span class="nt">--rerun</span>              Rerun last executed script                  <span class="o">[</span>boolean]
+
+Visit https://github.com/ruyadorno/ntl <span class="k">for </span>more info
+</pre>
+<br>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><a href="https://github.com/ruyadorno/ntl/blob/master/LICENSE" rel="nofollow">MIT</a> © 2020 <a href="http://ruyadorno.com" rel="nofollow">Ruy Adorno</a></p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bd1f7928e738',m:'78d590b32e91c8ceebec9f5a95210614d7e8107a-1610725683-1800-AcLnc4wLMf94UytxLqjz1YsNFQQt13PjfujOmgC3aNnmf3w/+pO0fN/LgrocFS9SOKAMXslzvHqQ2YN0OXSPhdky71jVYZm/hG1njze8KJo60lhAgJniKvdynhlWMzPllreGcwCA/r9r7ZrwceIUqpY=',s:[0x1a5b105c01,0x11fd144064],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="javascript"/> <!-- -->javascript<!-- --> (<!-- -->67,310<!-- -->) </div><div><input type="checkbox" name="topics" value="nodejs"/> <!-- -->nodejs<!-- --> (<!-- -->3,563<!-- -->) </div><div><input type="checkbox" name="topics" value="cli"/> <!-- -->cli<!-- --> (<!-- -->1,650<!-- -->) </div><div><input type="checkbox" name="topics" value="command-line"/> <!-- -->command-line<!-- --> (<!-- -->501<!-- -->) </div><div><input type="checkbox" name="topics" value="js"/> <!-- -->js<!-- --> (<!-- -->490<!-- -->) </div><div><input type="checkbox" name="topics" value="npm"/> <!-- -->npm<!-- --> (<!-- -->411<!-- -->) </div><div><input type="checkbox" name="topics" value="workflow"/> <!-- -->workflow<!-- --> (<!-- -->315<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Ntl<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/ruyadorno" target="_blank">Ruyadorno</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/ruyadorno" target="_blank">Ruyadorno</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-b4fd0115-1736-4e24-a8db-b7babbf5d1b2">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"cli","count":1650},{"id":null,"name":"command-line","count":501},{"id":null,"name":"javascript","count":67310},{"id":null,"name":"js","count":490},{"id":null,"name":"nodejs","count":3563},{"id":null,"name":"npm","count":411},{"id":null,"name":"workflow","count":315}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/ruyadorno/ntl","projects":[],"project":{"id":92197,"created_at":"2018-08-21T01:33:45.030Z","updated_at":"2021-01-14T00:24:14.197Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cdiv align=\"center\"\u003e\n\t\u003cbr\u003e\n\t\u003cbr\u003e\n\t\u003cbr\u003e\n\t\u003ca href=\"https://ruyadorno.github.io/svg-demos/ntl/logo.min.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg alt=\"ntl\" width=\"300\" src=\"https://ruyadorno.github.io/svg-demos/ntl/logo.min.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\t\u003cbr\u003e\n\t\u003cbr\u003e\n\t\u003cbr\u003e\n\u003c/div\u003e\n\u003ch1\u003e\n\u003ca id=\"node-task-list\" class=\"anchor\" href=\"#node-task-list\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eNode Task List\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://npmjs.org/package/ntl\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badge.fury.io/js/ntl.svg\" alt=\"NPM version\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://travis-ci.org/ruyadorno/ntl\" rel=\"nofollow\"\u003e\u003cimg src=\"https://travis-ci.org/ruyadorno/ntl.svg?branch=master\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://coveralls.io/github/ruyadorno/ntl?branch=master\" rel=\"nofollow\"\u003e\u003cimg src=\"https://coveralls.io/repos/github/ruyadorno/ntl/badge.svg?branch=master\" alt=\"Coverage Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ruyadorno/ipt/master/LICENSE\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/license-MIT-blue.svg?style=flat\" alt=\"License\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://gitter.im/ipipeto/Lobby\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badges.gitter.im/Join%20Chat.svg\" alt=\"Join the chat at https://gitter.im/ipipeto/Lobby\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eInteractive cli tool that lists and run \u003ccode\u003epackage.json\u003c/code\u003e scripts.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eAn \u003ca href=\"https://github.com/ruyadorno/ipt\" rel=\"nofollow\"\u003eiPipeTo\u003c/a\u003e workflow\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"table-of-contents\" class=\"anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTable of Contents\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#arrow_down-install\"\u003eInstall\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#mag_right-usage\"\u003eUsage\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#heart_eyes-features\"\u003eFeatures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#books-customize\"\u003eCustomize\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#custom-runner\"\u003eCustom runner\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#using-task-descriptions\"\u003eUsing task descriptions\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#displaying-task-contents\"\u003eDisplaying task contents\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#exclude-tasks-from-ui\"\u003eExclude tasks from UI\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#exclude-tasks-with-missing-descriptions\"\u003eExclude tasks with missing descriptions\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#customize-cache\"\u003eCustomize cache\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#ui-size\"\u003eUI Size\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#arrows_counterclockwise-repeat-the-last-ran-task\"\u003eRepeat the last ran task\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#m-run-multiple-tasks\"\u003eRun multiple tasks\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#run-multiple-tasks-in-order-of-selection\"\u003ePreserve selection order\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#fast_forward-run-in-autocomplete-or-fuzzy-search-mode\"\u003eRun in autocomplete or fuzzy search mode\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#white_check_mark-tips\"\u003eTips\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#ntl-as-default-task\"\u003entl as default task\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#exclude-scripts\"\u003eExclude scripts\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#included-command-aliases\"\u003eIncluded command aliases\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#information_source-help\"\u003eHelp\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#license\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"arrow_down-install\" class=\"anchor\" href=\"#arrow_down-install\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e⬇️ Install\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003e$ npm install -g ntl\n\u003c/code\u003e\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"mag_right-usage\" class=\"anchor\" href=\"#mag_right-usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e🔎 Usage\u003c/h2\u003e\n\u003cp\u003eNavigate to any folder containing a \u003ccode\u003epackage.json\u003c/code\u003e file (usually a Node.js project) that has configured \u003cstrong\u003escripts\u003c/strong\u003e, then just use the ntl command:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003entl\n\u003c/pre\u003e\n\u003cp\u003eYou can also specify a path to a project folder containing a \u003ccode\u003epackage.json\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003entl ./my-node-project\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003cbr\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://ruyadorno.github.io/svg-demos/ntl/examples/intro.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg alt=\"demo animation\" width=\"540\" src=\"https://ruyadorno.github.io/svg-demos/ntl/examples/intro.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"heart_eyes-features\" class=\"anchor\" href=\"#heart_eyes-features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e😍 Features\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eInteractive interface that lists all \u003ccode\u003epackage.json\u003c/code\u003e scripts\u003c/li\u003e\n\u003cli\u003eSelect any item in the interactive interface to execute that task\u003c/li\u003e\n\u003cli\u003eAdd descriptions to each task that can be shown in the UI\u003c/li\u003e\n\u003cli\u003eMultiple interactive interfaces (menu list, autocomplete fuzzy search)\u003c/li\u003e\n\u003cli\u003eMany options to customize the UI (exclude scripts, amount of items, etc)\u003c/li\u003e\n\u003cli\u003eEasy to repeat last ran script (\u003ccode\u003ent\u003c/code\u003e and \u003ccode\u003ererun\u003c/code\u003e options)\u003c/li\u003e\n\u003cli\u003eRun multiple tasks\n\u003cul\u003e\n\u003cli\u003eRepeat previously set of ran tasks\u003c/li\u003e\n\u003cli\u003ePreserve order of selection\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eCustomize rerun cache options\u003c/li\u003e\n\u003c/ul\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"books-customize\" class=\"anchor\" href=\"#books-customize\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e📚 Customize\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"custom-runner\" class=\"anchor\" href=\"#custom-runner\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCustom runner\u003c/h3\u003e\n\u003cp\u003eBy default \u003cstrong\u003eNode Task List\u003c/strong\u003e tries to use \u003ca href=\"https://github.com/npm/cli/\" rel=\"nofollow\"\u003enpm\u003c/a\u003e to run the configured \u003ccode\u003escript\u003c/code\u003e tasks. In case you want to use a custom runner (e.g: \u003ccode\u003eyarn\u003c/code\u003e or \u003ccode\u003epnpm\u003c/code\u003e) you can configure \u003cstrong\u003entl\u003c/strong\u003e to use whatever runner you prefer.\u003c/p\u003e\n\u003cp\u003eThat can be configured system-wide by setting the environment variable in your profile file (\u003ccode\u003e.bashrc\u003c/code\u003e or \u003ccode\u003e.bash_profile\u003c/code\u003e for macos). In case you only want to ever use \u003cstrong\u003eyarn\u003c/strong\u003e as your node task runner, you should set:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"c\"\u003e# .bashrc (linux) OR .bash_profile (macos)\u003c/span\u003e\n\u003cspan class=\"nb\"\u003eexport \u003c/span\u003e\u003cspan class=\"nv\"\u003eNTL_RUNNER\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003eyarn\n\u003c/pre\u003e\n\u003cp\u003eKeep in mind environment variables are flexible enough that they can also be set temporarily prior to running a command, so the following would also work:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nv\"\u003eNTL_RUNNER\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003eyarn ntl\n\u003c/pre\u003e\n\u003cp\u003e❗️ You can also define a \u003ccode\u003erunner\u003c/code\u003e in a per-project basis using the \u003ccode\u003entl\u003c/code\u003e configuration of your \u003ccode\u003epackage.json\u003c/code\u003e, e.g:\u003c/p\u003e\n\u003cpre lang=\"json\" class=\"highlight-json\"\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"name\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u0026lt;project\u0026gt;\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"version\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"1.0.0\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"ntl\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"runner\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"yarn\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"using-task-descriptions\" class=\"anchor\" href=\"#using-task-descriptions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing task descriptions\u003c/h3\u003e\n\u003cp\u003e📝 You can define descriptions for your tasks in your \u003ccode\u003epackage.json\u003c/code\u003e file by defining a \u003ccode\u003entl\u003c/code\u003e section, e.g:\u003c/p\u003e\n\u003cpre lang=\"json\" class=\"highlight-json\"\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"name\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u0026lt;project\u0026gt;\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"version\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"1.0.0\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"scripts\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"build\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"make build\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"coverage\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"jest --coverage\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"test\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"jest\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"p\"\u003e},\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"ntl\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"descriptions\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n      \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"build\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"Builds the project\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n      \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"coverage\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"Run test outputing code coverage\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n      \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"test\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"Run project's tests\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/pre\u003e\n\u003cp\u003eThese descriptions will be shown anytime you run \u003ccode\u003entl\u003c/code\u003e.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"displaying-task-contents\" class=\"anchor\" href=\"#displaying-task-contents\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDisplaying task contents\u003c/h3\u003e\n\u003cp\u003eUse the \u003ccode\u003e--info\u003c/code\u003e or simply \u003ccode\u003e-i\u003c/code\u003e option in order to display the contents of each script task, like:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003entl \u003cspan class=\"nt\"\u003e-i\u003c/span\u003e\n⬢  Node Task List\n? Select a task to run: \u003cspan class=\"o\"\u003e(\u003c/span\u003eUse arrow keys\u003cspan class=\"o\"\u003e)\u003c/span\u003e\n❯ generate-manual › maked-man README.md \u003cspan class=\"o\"\u003e\u0026gt;\u003c/span\u003e man/man1/ntl.1\n          pretest › eslint cli.js rerun.js \u003cspan class=\"nb\"\u003etest\n             test\u003c/span\u003e › cross-env \u003cspan class=\"nv\"\u003eNTL_NO_RERUN_CACHE\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e1 tap\n\u003c/pre\u003e\n\u003cp\u003eTask contents will also be shown when using the \u003ccode\u003e--descriptions\u003c/code\u003e option and no description is available for a given item.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"exclude-tasks-from-ui\" class=\"anchor\" href=\"#exclude-tasks-from-ui\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExclude tasks from UI\u003c/h3\u003e\n\u003cp\u003eYou can define a list of scripts to be excluded from the interactive menu using the \u003ccode\u003e--exclude\u003c/code\u003e option:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ntl -e coverall tasks\n⬢  Node Task List\n? Select a task to run: (Use arrow keys)\n❯ test\n  test:watch\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can also use a wildcard character to exclude multiple scripts:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ntl -e \"test*\"\n⬢  Node Task List\n? Select a task to run: (Use arrow keys)\n❯ coveralls\n  tasks\n\u003c/code\u003e\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"exclude-tasks-with-missing-descriptions\" class=\"anchor\" href=\"#exclude-tasks-with-missing-descriptions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExclude tasks with missing descriptions\u003c/h3\u003e\n\u003cp\u003eYou can also filter out items that doesn't have a description using the \u003ccode\u003e--descriptions-only\u003c/code\u003e or \u003ccode\u003e-o\u003c/code\u003e option.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"customize-cache\" class=\"anchor\" href=\"#customize-cache\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCustomize cache\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003entl\u003c/strong\u003e uses a cache system that stores the last ran command for each project in order to make it easier for users to repeat it. Given its importance, the following environment variables are available in order to customize its location and size:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eNTL_RERUN_CACHE_DIR\u003c/code\u003e: Defines a directory to store the cache file\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eNTL_RERUN_CACHE_NAME\u003c/code\u003e: Filename to use for the cache\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eNTL_RERUN_CACHE_MAX\u003c/code\u003e: Number of items to store in the cache (defaults to \u003ccode\u003e10\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eNTL_NO_RERUN_CACHE\u003c/code\u003e: When defined, avoid the cache system completely\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor example, if a given user wanted to store its cache in \u003ccode\u003e~/.ntl/cache\u003c/code\u003e location and save up to 100 items in it, they could add the following to their \u003ccode\u003e.bashrc\u003c/code\u003e (linux) or \u003ccode\u003e.bash_profile\u003c/code\u003e (macos):\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nb\"\u003eexport \u003c/span\u003e\u003cspan class=\"nv\"\u003eNTL_RERUN_CACHE_DIR\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"nv\"\u003e$HOME\u003c/span\u003e\n\u003cspan class=\"nb\"\u003eexport \u003c/span\u003e\u003cspan class=\"nv\"\u003eNTL_RERUN_CACHE_NAME\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003ecache\n\u003cspan class=\"nb\"\u003eexport \u003c/span\u003e\u003cspan class=\"nv\"\u003eNTL_RERUN_CACHE_MAX\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e100\n\u003c/pre\u003e\n\u003cp\u003eThe cache can also be customized through command line options:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e--rerun-cache-dir\u003c/code\u003e Defines a directory to store the cache file\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e--rerun-cache-name\u003c/code\u003e: Filename to use for the cache\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e--no-rerun-cache\u003c/code\u003e: Avoids the cache system completely\u003c/li\u003e\n\u003c/ul\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"ui-size\" class=\"anchor\" href=\"#ui-size\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUI Size\u003c/h3\u003e\n\u003cp\u003eYou can increase/reduce the size of the presented UI list using the \u003ccode\u003e--size\u003c/code\u003e or \u003ccode\u003e-s\u003c/code\u003e option. In this example we just increased the size of the list to show up to 12 items at once:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ntl -s 12\n⬢  Node Task List\n? Select a task to run:\n❯ build\n  generate-manual\n  hello\n  bomdia\n  bonjour\n  test\n  test:dev\n  test:ci\n  test:integration\n  test:unit\n  test:e2e\n  start\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe default size value is 7 items.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"arrows_counterclockwise-repeat-the-last-ran-task\" class=\"anchor\" href=\"#arrows_counterclockwise-repeat-the-last-ran-task\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e🔄 Repeat the last ran task\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003entl\u003c/strong\u003e provides many options to make it easier to rerun the last task, either through having it selected as default option the next time you run the \u003ccode\u003entl\u003c/code\u003e command, or by using one of the following:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eThe ultra convenient way\u003c/strong\u003e: \u003ccode\u003ent\u003c/code\u003e command shorthand 😎 (You should think of \u003ccode\u003ent\u003c/code\u003e as: \"ok, just run the last node task\", in contrast to \u003ccode\u003entl\u003c/code\u003e which should be interpreted as: \"ok, give me the node task list again\") in case no previous task is available, running \u003ccode\u003ent\u003c/code\u003e will behave exactly as \u003ccode\u003entl\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUsing a \u003ccode\u003e--rerun\u003c/code\u003e or \u003ccode\u003e-r\u003c/code\u003e flag, e.g: \u003ccode\u003entl -r\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003ePrepending the \u003ccode\u003eNTL_RERUN\u003c/code\u003e env variable, e.g: \u003ccode\u003eNTL_RERUN=true ntl\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://ruyadorno.github.io/svg-demos/ntl/examples/option-rerun.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg alt=\"demo animation showing how to rerun a script using the nt command shorthand\" width=\"540\" src=\"https://ruyadorno.github.io/svg-demos/ntl/examples/option-rerun.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"m-run-multiple-tasks\" class=\"anchor\" href=\"#m-run-multiple-tasks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eⓂ️ Run multiple tasks\u003c/h2\u003e\n\u003cp\u003eUsing the \u003ccode\u003e--multiple\u003c/code\u003e or \u003ccode\u003e-m\u003c/code\u003e option, the interface becomes a checkbox-based list that allows you to select multiple tasks and run them in serial.\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003entl \u003cspan class=\"nt\"\u003e-m\u003c/span\u003e\n⬢  Node Task List\n? Select a task to run:\n ◯ start\n ◉ \u003cspan class=\"nb\"\u003etest\u003c/span\u003e\n❯◉ \u003cspan class=\"nb\"\u003etest\u003c/span\u003e:ci\n\u003c/pre\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://ruyadorno.github.io/svg-demos/ntl/examples/option-multiple.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg alt=\"demo animation showing how to use -m to have a checkbox interface allowing for selection of multiple tasks to be ran in serial\" width=\"540\" src=\"https://ruyadorno.github.io/svg-demos/ntl/examples/option-multiple.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cp\u003eBetter yet, combine that with the \u003cstrong\u003ererun\u003c/strong\u003e feature and you can repeat multiple tasks using the \u003ccode\u003ent\u003c/code\u003e command.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"run-multiple-tasks-in-order-of-selection\" class=\"anchor\" href=\"#run-multiple-tasks-in-order-of-selection\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRun multiple tasks in order of selection\u003c/h3\u003e\n\u003cp\u003eYou can run multiple tasks in the order you pick them 😎 Use the \u003ccode\u003e--ordered\u003c/code\u003e or \u003ccode\u003e-O\u003c/code\u003e option:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003entl \u003cspan class=\"nt\"\u003e-O\u003c/span\u003e\n⬢  Node Task List\n? Select a task to run: \u003cspan class=\"o\"\u003e(\u003c/span\u003ePress \u0026lt;space\u0026gt; to \u003cspan class=\"k\"\u003eselect\u003c/span\u003e, \u0026lt;r\u0026gt; to res\net\u003cspan class=\"o\"\u003e)\u003c/span\u003e\n ◯   bar › Test task\n ◯   foo › Test task\n❯2 hello › Hello world\n ◯ start › Start the development server\n 1  \u003cspan class=\"nb\"\u003etest\u003c/span\u003e › Run all tests \u003cspan class=\"k\"\u003efor \u003c/span\u003ethe project\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"fast_forward-run-in-autocomplete-or-fuzzy-search-mode\" class=\"anchor\" href=\"#fast_forward-run-in-autocomplete-or-fuzzy-search-mode\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e⏩ Run in autocomplete or fuzzy search mode\u003c/h2\u003e\n\u003cp\u003eUse \u003ccode\u003e--autocomplete\u003c/code\u003e or \u003ccode\u003e-A\u003c/code\u003e option in order to use an interface variation that allows you to type the name of the task instead of browsing through an arrow-based menu. This mode can be very helpful when managing a long list of tasks.\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003entl \u003cspan class=\"nt\"\u003e-A\u003c/span\u003e\n⬢  Node Task List\n? Select a task to run: t\n❯ pretest\n  \u003cspan class=\"nb\"\u003etest\n  \u003c/span\u003estart\n\u003c/pre\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://ruyadorno.github.io/svg-demos/ntl/examples/option-autocomplete.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg alt=\"demo animation showing how to use -m to have a checkbox interface allowing for selection of multiple tasks to be ran in serial\" width=\"540\" src=\"https://ruyadorno.github.io/svg-demos/ntl/examples/option-autocomplete.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"white_check_mark-tips\" class=\"anchor\" href=\"#white_check_mark-tips\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e✅ Tips\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"ntl-as-default-task\" class=\"anchor\" href=\"#ntl-as-default-task\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003entl as default task\u003c/h3\u003e\n\u003cp\u003eYou can define \u003ccode\u003entl\u003c/code\u003e as a dev dependency and one of the tasks of your project, specially \u003ccode\u003estart\u003c/code\u003e - so whenever someone runs \u003ccode\u003enpm start\u003c/code\u003e or \u003ccode\u003eyarn start\u003c/code\u003e they get the convenient \u003cstrong\u003entl\u003c/strong\u003e interface. Like in the following \u003ccode\u003epackage.json\u003c/code\u003e example:\u003c/p\u003e\n\u003cpre lang=\"json\" class=\"highlight-json\"\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"name\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u0026lt;project\u0026gt;\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"version\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"1.0.0\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"scripts\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"start\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"ntl\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"p\"\u003e},\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"devDependencies\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"ntl\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"^5.0.0\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"exclude-scripts\" class=\"anchor\" href=\"#exclude-scripts\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExclude scripts\u003c/h3\u003e\n\u003cp\u003eYou can also define a task that invokes \u003ccode\u003entl\u003c/code\u003e while excluding other tasks, e.g:\u003c/p\u003e\n\u003cpre lang=\"json\" class=\"highlight-json\"\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"scripts\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"test\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"jest --coverage\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"test:watch\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"jest --coverage --watchAll\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"coveralls\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"jest --coverage --coverageReporters=text-lcov | coveralls\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"tasks\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"ntl --exclude coverall tasks\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"included-command-aliases\" class=\"anchor\" href=\"#included-command-aliases\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIncluded command aliases\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003entl\u003c/code\u003e The default command\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003enodetasklist\u003c/code\u003e Longhand version in case users have conflicting \u003ccode\u003entl\u003c/code\u003e commands\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003enpm-tasklist\u003c/code\u003e Legacy longhand version\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ent\u003c/code\u003e Rerun last script shortcut\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003enodetask\u003c/code\u003e Rerun last script longhand\u003c/li\u003e\n\u003c/ul\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"information_source-help\" class=\"anchor\" href=\"#information_source-help\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eℹ️ Help\u003c/h2\u003e\n\u003cp\u003eStill feel like you could use some \u003ccode\u003e--help\u003c/code\u003e ?\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003eUsage:\n  ntl \u003cspan class=\"o\"\u003e[\u003c/span\u003e\u0026lt;path\u0026gt;]             Build an interactive interface and run any script\n  nt \u003cspan class=\"o\"\u003e[\u003c/span\u003e\u0026lt;path\u0026gt;]              Rerun last executed script\n\nOptions:\n  \u003cspan class=\"nt\"\u003e-a\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--all\u003c/span\u003e                Includes pre and post scripts on the list   \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-A\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--autocomplete\u003c/span\u003e       Starts \u003cspan class=\"k\"\u003ein \u003c/span\u003eautocomplete mode                 \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-D\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--debug\u003c/span\u003e              Prints to stderr any internal error         \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-d\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--descriptions\u003c/span\u003e       Displays the descriptions of each script    \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-o\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--descriptions-only\u003c/span\u003e  Limits output to scripts with a description \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-h\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--help\u003c/span\u003e               Shows this \u003cspan class=\"nb\"\u003ehelp \u003c/span\u003emessage                     \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-i\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--info\u003c/span\u003e               Displays the contents of each script        \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-e\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--exclude\u003c/span\u003e            Excludes specific scripts                     \u003cspan class=\"o\"\u003e[\u003c/span\u003earray]\n  \u003cspan class=\"nt\"\u003e-m\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--multiple\u003c/span\u003e           Allows the selection of multiple items      \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-O\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--ordered\u003c/span\u003e            Selects multiple items \u003cspan class=\"k\"\u003ein \u003c/span\u003eorder             \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-s\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--size\u003c/span\u003e               Amount of lines to display at once           \u003cspan class=\"o\"\u003e[\u003c/span\u003enumber]\n  \u003cspan class=\"nt\"\u003e--rerun-cache-dir\u003c/span\u003e        Defines the rerun task cache location        \u003cspan class=\"o\"\u003e[\u003c/span\u003estring]\n  \u003cspan class=\"nt\"\u003e--rerun-cache-name\u003c/span\u003e       Defines the rerun task cache filename        \u003cspan class=\"o\"\u003e[\u003c/span\u003estring]\n  \u003cspan class=\"nt\"\u003e--no-rerun-cache\u003c/span\u003e         Never write to or \u003cspan class=\"nb\"\u003eread \u003c/span\u003efrom cache           \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-v\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--version\u003c/span\u003e            Show version number                         \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n  \u003cspan class=\"nt\"\u003e-r\u003c/span\u003e, \u003cspan class=\"nt\"\u003e--rerun\u003c/span\u003e              Rerun last executed script                  \u003cspan class=\"o\"\u003e[\u003c/span\u003eboolean]\n\nVisit https://github.com/ruyadorno/ntl \u003cspan class=\"k\"\u003efor \u003c/span\u003emore info\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ruyadorno/ntl/blob/master/LICENSE\" rel=\"nofollow\"\u003eMIT\u003c/a\u003e © 2020 \u003ca href=\"http://ruyadorno.com\" rel=\"nofollow\"\u003eRuy Adorno\u003c/a\u003e\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":51282204,"name":"ntl","owner_login":"ruyadorno","description":"Node Task List: Interactive cli to list and run package.json scripts","pushed_at":"2021-01-05T05:12:28.000Z","stargazers_count":784,"open_issues_count":11,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"https://www.npmjs.com/package/ntl","private":false,"project_created_at":"2016-02-08T06:15:25.000Z","project_updated_at":"2021-01-06T09:09:15.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

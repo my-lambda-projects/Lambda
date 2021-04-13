@@ -1,0 +1,58 @@
+// Write a loop that logs "Marco!" when i is even,
+// "Polo!" when i is odd, 
+// and 'Game Over!' when i is 0. 
+
+for (let i = 10; i >= 0; i--) {               
+  if (i === 2 || i === 4 || i === 6 || i === 8){
+    console.log("Marco!");
+  }
+  if (i === 1 || i === 3 || i === 5 || i === 7){
+    console.log("Polo!");
+  }
+  if (i === 0){
+    console.log("Game Over!");
+  }
+}
+
+
+// Write a loop that logs the numbers 5 through 10. 
+for (let i = 0; i < 11; i++) {           
+  if (i >= 5 && i <= 10) {                 //condition of for-loop
+    console.log(i);
+  }
+}
+
+// Write a for loop that logs 2, 4, 6, 8, 10
+for (let i = 2; i < 11; i+=2) {           //variable increments
+  console.log(i);
+}
+
+// Alternative
+// Write a for loop that logs 2, 4, 6, 8, 10
+for (let i = 1; i < 6; i++) {   //increment by one
+   console.log(i*2);            //but console log double the figure
+}
+
+// Write a loop that logs the numbers 0 through 10, in 0.2 increments
+
+for (let i = 0; i < 51; i+=1) {             //max at 51
+  if (i < 0) {
+    continue;
+  } else if ( i > 50) {    
+    break;
+  } else {
+    console.log(i/5);                  
+  }
+}
+
+// Imagine you throw two six sided dice and sum up the total.
+// Write a loop that logs every possible score you could roll.
+// Used a nested for loop ( a loop inside of a loop)
+// Bonus Challenge: Don't log repeats.
+
+for (i=1; i < 7; i++){
+  for (x=1; x < 7; x++){                  //nested loop
+    console.log("first dice: " + i);
+    console.log("second dice:" + x);
+  }
+}

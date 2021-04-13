@@ -1,0 +1,556 @@
+//============================================================ STACK =============================================================//
+//Now that you have been introduced to JavaScript classes, let's make a class called "Stack" and give it this LIFO functionality. 
+//Our Stack class's storage will be an Array. You'll want to make two methods in you Stack class: add and remove. 
+//The add method will push an item into storage. The remove method will remove the last item in storage.
+
+class Stack {
+  constructor(stackAttribute) {
+    this.storage = [];
+  }
+  
+  add(item){
+    this.storage.push(item);
+    // console.log(this.storage);
+  }
+  
+  remove(item){
+    this.storage.pop(item);
+    // console.log(this.storage);
+  }
+  
+  numOfItems(){
+    if (this.storage.length === 0){
+      return 'There are no items in your Stack.'
+    } else {
+      return this.storage.length;
+    }
+  }
+}
+
+
+const myStack = new Stack();
+console.log(myStack.numOfItems()); // <--- "There are no items in your Stack."
+myStack.add('first');
+myStack.add('second');
+myStack.add('third');
+console.log(myStack.numOfItems()); // <--- 3
+console.log(myStack.storage);      // <--- [ 'first', 'second', 'third' ]
+myStack.remove();
+console.log(myStack.storage);      // <--- [ 'first', 'second' ]
+myStack.remove();
+console.log(myStack.storage);      // <--- [ 'first' ]
+myStack.remove();
+console.log(myStack.storage);      // <--- []
+console.log(myStack.numOfItems()); // <--- "There are no items in your Stack."
+
+
+
+//============================================================ VOWEL COUNT =============================================================//
+
+## my solution ##
+// Write a function which counts the number of vowels in a given string. Return the count number.
+
+function vowelCount(str) {
+  let vowelArray = str.match(/[aeiou]/ig);          // set regex to match vowels
+  return vowelArray ? vowelArray.length : 0;        // if there's a match, return vowelArray.length, else 0;
+}
+
+## PM Solution ##
+
+function vowelCount(str) {
+  const vowels = 'aeiouAEIOU'.split('');              //  split individual characters into own array, set to vowels
+  let count = 0;                                      //  set count = 0
+  str.split('').forEach(letter => {                   //  split str, forEach letter..
+    vowels.includes(letter) ? count++ : null;         //  if vowels .includes() letter, increment count, else null;
+  });   
+  return count;
+}
+
+console.log(vowelCount('-bcd-fgh-jklmn-pqrst-vwxyz')); // <--- 0
+console.log(vowelCount('Hello world!')); // <--- 3
+console.log(vowelCount('Pinto beans')); // <--- 4
+console.log(vowelCount('The quick brown fox jumped over the lazy dog.')); // <--- 12
+console.log(vowelCount('Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.')); // <--- 58
+console.log(vowelCount('All I have ever wanted is to be an Uber driver!')); // <--- 16
+
+//============================================================ TO BINARY STRING =============================================================//
+// Given a positive (or 0) number, return a string of 1's and 0's representing it's binary value: toBinaryString(6) should return "110" (no leading 0).
+// WITHOUT Use of the native method number.toString(2).
+
+#### Short-Cut ####
+function toBinaryString(number {
+  return number.toString(2);
+}
+
+// My solution
+function toBinaryString(number) {
+  let newNum = number;
+  let emptyArray = [];
+  if (number === 0) {
+    return '0';
+  } else {
+    while (newNum > 0) {
+
+      let remainder = newNum % 2;
+      emptyArray.push(remainder)
+      newNum = (newNum - remainder) / 2;
+      // console.log(newNum)
+      // break;
+    }
+  }
+  return emptyArray.reverse().join("");
+}
+
+/////////// PM Solution /////////////
+
+function toBinaryString(number) {
+    let remainders = [];
+    do {
+      remainders.unshift(number % 2);       // main step
+      number = Math.floor(number / 2);      // main step
+    } while (number > 0);
+    return remainders.join('');
+}
+
+
+console.log(toBinaryString(0));  // <--- 0
+console.log(toBinaryString(1));  // <--- 1
+console.log(toBinaryString(2));  // <--- 10
+console.log(toBinaryString(3));  // <--- 11
+console.log(toBinaryString(4));  // <--- 100
+console.log(toBinaryString(5));  // <--- 101
+console.log(toBinaryString(6));  // <--- 110
+console.log(toBinaryString(7));  // <--- 111
+console.log(toBinaryString(8));  // <--- 1000
+console.log(toBinaryString(9));  // <--- 1001
+console.log(toBinaryString(10)); // <--- 1010
+console.log(toBinaryString(11)); // <--- 1011
+console.log(toBinaryString(12)); // <--- 1100
+console.log(toBinaryString(13)); // <--- 1101
+console.log(toBinaryString(14)); // <--- 1110
+console.log(toBinaryString(15)); // <--- 1111
+console.log(toBinaryString(16)); // <--- 10000
+
+######### to Binary (Additional Solutions) ###########
+/////// Alternative One /////////
+
+function toBinaryString(number) {
+  let tempArr = [];
+  if (number < 0) {
+    console.log("Please enter a positive number.");
+  }
+  
+  else if(number === 0) {
+    return "0";
+  }
+  
+  else {
+    while(number > 0) {
+      tempArr.unshift(number % 2);
+      number >>= 1;
+    }
+    return tempArr.join('');
+  }
+}
+
+/////// Alternative Two /////////
+
+function toBinaryString(number) {
+  let num = number;
+  let result = []; 
+    if(num === 0){
+      result.push(num); 
+  } else {
+      while(num >= 1 ){
+        result.unshift(Math.floor(num%2));
+        num = num/2;
+      }
+    }
+    return result.join("");
+}
+
+################## Deep Equality ####################
+// MY Solution:
+
+function deepEquals(obj1, obj2) {
+  // takes objects
+  let arr1 = Object.values(obj1['address']);
+  let arr2 = Object.values(obj2['address']);
+  
+  if ((obj1.name === obj2.name) && (arr1[0] === arr2[0]) && (arr1[1] === arr2[1])) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// PM Solution (Recursion for objects within objects):
+
+function deepEquals(obj1, obj2) {
+  if (Object.keys(obj1).length === Object.keys(obj2).length) {
+    for (let key in obj1) {
+      if (typeof obj1[key] === 'object') {
+        if (!deepEquals(obj1[key], obj2[key])) return false;
+      } else if (obj1[key] !== obj2[key]) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Stringify Solution (objects have to be in order):
+
+function deepEquals(obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
+
+
+/// Compare These Objects
+
+const johnA = {
+  name: 'John',
+  address: {
+    line1: '321 Anytown',
+    line2: 'Stoke-on-Trent'
+  }
+};
+
+const johnB = {
+  name: 'John',
+  address: {
+    line1: '321 Anytown',
+    line2: 'Stoke-on-Trent'
+  }
+};
+
+const johnC = {
+  name: 'John Charles',
+  address: {
+    line1: '321 Anytown',
+    line2: 'Stoke-on-Trent'
+  }
+};
+
+deepEquals(johnA, johnB); // true
+deepEquals(johnA, johnC); // false
+
+
+################## ROMANUMERALIZE ####################
+// Define a function that takes in a positive integer and returns the Roman Numeral representation of that number.  
+
+function romanNumeralize(n) {
+    let number = n;
+    //create a key to loop through
+    const rome = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1
+    };
+    let returnString = '';
+    //loop through object
+    for (let key in rome) {
+      while(number >= rome[key]) {
+        returnString += key;
+        number -= rome[key];
+      }
+    }
+    return returnString;
+}
+
+romanNumeralize(1981);
+
+
+//============================================================ TWO STACK QUEUE =============================================================//
+//Write a "First In, Last Out" Stack class. 
+//Once you're done with the F.I.L.O. Stack class, implement a "First In, First Out" Queue class using two of your stacks.
+
+**** PM Solution ****
+
+class Stack {
+  constructor() {
+    this.storage = [];
+  }
+
+  add(item) {
+    this.storage.push(item);
+  }
+
+  remove() {
+    return this.storage.pop();
+  }
+
+  get length() {
+    return this.storage.length;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
+
+  enqueue(item) {
+    this.stack1.add(item);
+  }
+
+  dequeue() {
+    if (this.stack2.length === 0) {
+      const length = this.stack1.length;
+      for (let i = 0; i < length; i++) {
+        this.stack2.add(this.stack1.remove());
+      }
+    }
+    return this.stack2.remove();
+  }
+}
+
+***** Check if code is running *****
+
+const stack = new Stack();
+console.log(stack.length);  // <--- 0
+stack.add('first'); stack.add('second'); stack.add('third');
+console.log(stack.length);  // <--- 3
+console.log(stack.storage); // <--- [ 'first', 'second', 'third' ]
+console.log('FILO Stack:', stack.remove(), stack.remove(), stack.remove()); // <--- FILO: third second first
+
+const queue = new Queue();
+queue.enqueue(1); queue.enqueue(2); queue.enqueue(3);
+const val1 = queue.dequeue();
+const val2 = queue.dequeue();
+const val3 = queue.dequeue();
+console.log('FIFO Queue:', val1, val2, val3); // <--- FIFO: 1 2 3
+
+**** My Own Solution ****
+/// NOTE: missing the "use two (new) Stacks" part
+
+class Stack {
+  constructor() {
+    this.storage = [];
+  }
+
+  add(item) {
+    this.storage.push(item);
+  }
+
+  remove() {
+    return this.storage.splice(-1,1).toString();
+  }
+
+  get length() {
+    return this.storage.length;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.storage = [];
+  }
+
+  enqueue(item) {
+    this.storage.unshift(item);
+  }
+
+  dequeue() {
+    return this.storage.pop();
+  }
+}
+
+//============================================================ MONEY FORMAT =================================================
+// write a function called moneyFormat that formats the float into a string representing the numbers dollar and cent value.
+
+// MY SOLUTION
+
+function moneyFormat(float) {
+  let newArr = float.toFixed(2).split('')
+
+  let popTemp = newArr.pop()
+  let popTemp2 = newArr.pop()
+  let popTemp3 = newArr.pop()
+  
+  let revArr = newArr.reverse()
+  
+  //split('') turns a string into an array. 
+  //Now we want to turn the array back to one single string. 
+  //Reduce is perfect in this scenario. 
+  //Reduce method paramaters are 1st accumulator, 2nd iterated element, 3rd index. 
+  //Since the array index is 0 based, to insert after 3rd, we are looking at index i%3 === 2.
+
+  // if every index third index, (i.e.,  i%3 === 2) add ',' else add nothing {while doing nothing for accumulator and iterated element}
+  let revArr2 = revArr.reduce((a,e,i) => a + e + (i%3 === 2 ? ',' : ''),'');
+  
+  let revArr3 = revArr2.split('').reverse()
+
+  revArr3.push(popTemp3)
+  revArr3.push(popTemp2)
+  revArr3.push(popTemp)
+  
+  let revArr4 = '$' + revArr3.join('');
+  
+  console.log(revArr4.replace('$,', '$'))
+  
+  return revArr4.replace('$,', '$')
+}
+
+moneyFormat(123456789098.77)
+
+///////// PM (TEACHER) SOLUTION
+
+function moneyFormat(float) {
+  if (float < 1000) return '$' + Math.round(float).toFixed(2);
+  let end = Math.round((float % 1).toFixed(2) / 0.01) || '00';
+  if (0 < end && end < 10) end = '0' + end;
+  let left = Math.floor(float).toString();
+  let str = `${left.slice(-3)}.${end}`;
+  left = left.slice(0, -3);
+  while(left.length > 3) {
+    const nextThree = left.slice(-3);
+    str = `${nextThree},${str}`;
+    left = left.slice(0, -3);
+  }
+  str = `$${left},${str}`;
+  return str;
+}
+
+moneyFormat(2310000.159897)
+
+//////// MODEL SOLUTION (REGEX) - MOST SUCCINCT
+
+// v2.0 .toFixed(), .toString(), .replace() & the power of Regular Expressions
+function moneyFormat(float) {
+  return '$' + float
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+moneyFormat(2310000.159897)
+
+//============================================================ CONSECUTIVE STRINGS =============================================================//
+You are given an array of strings called arr and an integer k. Your task is to return the longest string consisting of k consecutive strings from the array.
+
+i.e. Which "k" consecutive strings in the array are the longest?
+
+For example, if "k" is 2, and the array of strings is:
+["zone", "abigail", "theta", "form", "libe", "zas"]
+...then the longest two strings are "abigailtheta"
+
+####################  MY SOLUTION  (not passing replit)      ###################
+
+function longestConsecutive(arr, k) {
+  let emptyArr = [];
+  
+  let n = arr.length;
+  
+  if (n === 0 || k > n || k <=0) {
+    return "";
+  } else {
+    
+        // sort array of string by length, descending order
+        let longestString = arr.sort(function(a,b) {
+        return b.length - a.length;
+        });
+        
+        // to remove longest strings from the start of the array, use splice()
+        // splice(0,k) -> cut k-elements, from index 0; set to empty array
+        emptyArr = longestString.splice(0, k)
+        
+        // return empty array, join strings
+        return emptyArr.join('')
+  }
+}
+
+longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 2) // <--- "abigailtheta" 
+
+
+longestConsecutive(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
+
+
+###############     PM Solution (makes more sense)   ###################
+
+function longestConsecutive(arr, k) {
+  // base case
+  let n = arr.length;
+  if (n === 0 || k > n || k <= 0) return '';
+  
+  // set longestString so far...
+  let longestString = '';
+  for (let i = 0; i < arr.length; i++) {
+    // temporary, slice does not mutate
+    const temp = arr.slice(i, i + k).join('');
+    // if temp is greater than longest so far...set it to temp
+    if (temp.length > longestString.length) {
+      longestString = temp;
+    }
+  }
+  return longestString;
+}
+
+longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas"], 2) // <--- "abigailtheta" 
+
+
+longestConsecutive(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
+
+
+//============================================================ CHAAINED FUNCTIONS =============================================================//
+//Your function takes a single parameter: an array ("chain") of functions.  Return the results iterating through the array and invoking them one at a time.
+//chainedFunctions(Array)(value);
+
+// GIVEN PROBLEM
+
+function chainedFunctions(arr) {
+  function chain(x) {
+    for (let i = 0; i < arr.length; i++) {
+      let f = arr[i];
+      x = f(x);
+    }
+  }
+}
+
+// SOLUTION ONE
+
+const chainedFunctions = (arr) => {
+  return (x) => {
+    
+    for (let i = 0; i < arr.length; i++) {
+      x = arr[i](x);
+    }
+    return x
+  }
+}
+
+// SOLUTION TWO
+
+const chainedFunctions = (arr) => {
+  return (x) => {
+    arr.forEach((func) => {
+      x = func(x)
+    })
+    return x;  //re-assign, return to the next function after re-assign to func(x)
+  }
+}
+
+// NOTE: Chained Functions are similar to Higher-Order Functions in React ; or { connect } method in Redux
+
+// return chain of functions
+// order of functions are set in an array
+// let result;
+// result = b(result)
+// result = c(result)
+// result ...
+
+// onClick={() => whatever()}  but if already have return (x) => then no need
+// [this.handleAddTodo, this.markComplete](todo)

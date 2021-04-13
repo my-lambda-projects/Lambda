@@ -7,3 +7,6 @@
 [submodule "screenshot-preview"]
 	path = screenshot-preview
 	url = https://github.com/Jaex/screenshot-preview.git
+[submodule "Cumulative-Resource-List-master"]
+	path = 2-resources/awesome-resources/Cumulative-Resource-List-master
+	url = https://github.com/bgoonz/Cumulative-Resource-List.git

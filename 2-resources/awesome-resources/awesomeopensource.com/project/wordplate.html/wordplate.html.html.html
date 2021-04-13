@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":4,"applicationTime":130,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Wordplate</title>
+<meta name="description" content="WordPlate is a wrapper around WordPress. It makes developers life easier. It is just like building any other WordPress website with themes and plugins. Just with sprinkles on top.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/wordplate/wordplate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "wordplate/wordplate",
+  "description": "WordPlate is a wrapper around WordPress. It makes developers life easier. It is just like building any other WordPress website with themes and plugins. Just with sprinkles on top.",
+  "url": "https://awesomeopensource.com/project/wordplate/wordplate",
+  "sku": "project/wordplate/wordplate",
+  "mpn": "project/wordplate/wordplate",
+  "image": "https://github.com/wordplate.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "wordplate/wordplate",
+    "logo": "https://github.com/wordplate.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.92",
+    "ratingCount": "1372"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="/srUfZgI4crR+ZUkqMOV4ef0fTspvqWxe7PDLmgUcpsEJ2fnRoPvPDXrrrkTBc/EM7h5/5U7nO3eou4FUJhw2Q==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/wordplate/wordplate","location":"/project/wordplate/wordplate","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/wordplate/wordplate","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-35e15fa3-6997-4de5-bb7a-3c0a4495ceab"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Wordplate</div><div class="aos_project_metadata_description">WordPlate is a wrapper around WordPress. It makes developers life easier. It is just like building any other WordPress website with themes and plugins. Just with sprinkles on top.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,372</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="https://wordplate.github.io/" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://wordplate.github.io/" target="_blank">https://wordplate.github.io/</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/wordplate/wordplate" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/wordplate/wordplate" target="_blank">https://github.com/wordplate/wordplate</a></span><div class="aos_project_metadata_header"><a href="https://github.com/wordplate/wordplate/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/wordplate/wordplate/issues" target="_blank">0</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">7 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/php"><div style="display:block;text-decoration:none;padding-bottom:10px">php<span> (<!-- -->15,812<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacktoberfest"><div style="display:block;text-decoration:none;padding-bottom:10px">hacktoberfest<span> (<!-- -->4,238<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/wordpress"><div style="display:block;text-decoration:none;padding-bottom:10px">wordpress<span> (<!-- -->638<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/boilerplate"><div style="display:block;text-decoration:none;padding-bottom:10px">boilerplate<span> (<!-- -->590<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p><a href="https://cloud.githubusercontent.com/assets/499192/24309675/09eec350-10cd-11e7-98f3-094003bc8e15.png" target="_blank" rel="nofollow"><img src="https://cloud.githubusercontent.com/assets/499192/24309675/09eec350-10cd-11e7-98f3-094003bc8e15.png" alt="WordPlate" style="max-width:100%;"></a></p>
+<h1>
+<a id="wordplate" class="anchor" href="#wordplate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WordPlate</h1>
+<p>WordPlate is simply a wrapper around WordPress. It makes developers life easier. It is just like building any other WordPress website with <a href="https://developer.wordpress.org/themes" rel="nofollow">themes</a> and <a href="https://developer.wordpress.org/plugins" rel="nofollow">plugins</a>. Just with sprinkles on top.</p>
+<p><a href="https://github.com/wordplate/framework/actions" rel="nofollow"><img src="https://badgen.net/github/checks/wordplate/framework?label=build&amp;icon=github" alt="Build Status" style="max-width:100%;"></a>
+<a href="https://packagist.org/packages/wordplate/framework/stats" rel="nofollow"><img src="https://badgen.net/packagist/dm/wordplate/framework" alt="Monthly Downloads" style="max-width:100%;"></a>
+<a href="https://packagist.org/packages/wordplate/framework" rel="nofollow"><img src="https://badgen.net/packagist/v/wordplate/framework" alt="Latest Version" style="max-width:100%;"></a></p>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#plugins">Plugins</a></li>
+<li><a href="#laravel-mix">Laravel Mix</a></li>
+<li><a href="#integrations">Integrations</a></li>
+<li><a href="#upgrade-guide">Upgrade Guide</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#contributing">Contributing</a></li>
+</ul>
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+<ul>
+<li>
+<p><strong>WordPress + Composer = ♥️</strong></p>
+<p>WordPress is installed using Composer which allows WordPress to be updated by running <code>composer update</code>.</p>
+</li>
+<li>
+<p><strong>Environment Files</strong></p>
+<p>Similar to Laravel, WordPlate puts environment variables within an <code>.env</code> file such as database credentials.</p>
+</li>
+<li>
+<p><strong>WordPress Packagist</strong></p>
+<p>With WordPress Packagist you may manage your WordPress plugins and themes with Composer.</p>
+</li>
+<li>
+<p><strong>Must-use plugins</strong></p>
+<p>Don't worry about client deactivating plugins, <a href="https://wordpress.org/support/article/must-use-plugins/" rel="nofollow">must-use plugins</a> is enabled by default.</p>
+</li>
+<li>
+<p><strong>Mail</strong></p>
+<p>If you want to use custom SMTP credentials to send emails, we've a package for that!</p>
+</li>
+<li>
+<p><strong>Laravel Mix</strong></p>
+<p>With Laravel Mix you can quickly get up and running with Webpack to build and minify your CSS and JavaScript.</p>
+</li>
+<li>
+<p><strong>Debugging</strong></p>
+<p>Familiar debugging helper functions are integrated such as <code>dump()</code> and <code>dd()</code>.</p>
+</li>
+<li>
+<p><strong>Security</strong></p>
+<p>With the <a href="https://github.com/roots/wp-password-bcrypt#readme" rel="nofollow"><code>roots/wp-password-bcrypt</code></a> package we've replaced WordPress outdated and insecure MD5-based password hashing with the modern and secure bcrypt.</p>
+</li>
+</ul>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<p>To use WordPlate, you need to have PHP 7.3+ and MySQL 5.7+ installed on your machine.</p>
+<p>WordPlate utilizes <a href="https://getcomposer.org/" rel="nofollow">Composer</a> to manage its dependencies. So, before using WordPlate, make sure you have Composer installed on your machine.</p>
+<p>Install WordPlate by issuing the Composer <code>create-project</code> command in your terminal:</p>
+<pre lang="sh" class="highlight-sh">composer create-project <span class="nt">--prefer-dist</span> wordplate/wordplate blog
+</pre>
+<p>Update the database credentials in the <code>.env</code> file:</p>
+<pre><code>DB_NAME=database
+DB_USER=username
+DB_PASSWORD=password
+</code></pre>
+<p>Serve your application using the <a href="https://www.php.net/manual/en/features.commandline.webserver.php" rel="nofollow">built-in web server in PHP</a> (or your server of choice) from the <code>public</code> directory:</p>
+<pre lang="sh" class="highlight-sh">php <span class="nt">-S</span> localhost:8000 <span class="nt">-t</span> public/
+</pre>
+<p>Visit your application in the browser:</p>
+<ul>
+<li>
+<a href="http://localhost:8000/" rel="nofollow"><code>http://localhost:8000/</code></a> - Your website.</li>
+<li>
+<a href="http://localhost:8000/wordpress/wp-admin" rel="nofollow"><code>http://localhost:8000/wordpress/wp-admin</code></a> - The administration dashboard.</li>
+</ul>
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+<h3>
+<a id="public-directory" class="anchor" href="#public-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Public Directory</h3>
+<p>After installing WordPlate, you should configure your web server's document / web root to be the <code>public</code> directory. The <code>index.php</code> in this directory serves as the front controller for all HTTP requests entering your application.</p>
+<h3>
+<a id="salt-keys" class="anchor" href="#salt-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Salt Keys</h3>
+<p>The next thing you should do after installing WordPlate is adding salt keys to your environment file.</p>
+<p>Typically, these strings should be 64 characters long. The keys can be set in the <code>.env</code> environment file. If you have not copied the <code>.env.example</code> file to a new file named <code>.env</code>, you should do that now. <strong>If the salt keys isn't set, your user sessions and other encrypted data will not be secure.</strong></p>
+<p>If you're lazy like us, <a href="https://wordplate.github.io/salt" rel="nofollow">visit our salt key generator</a> and copy the randomly generated keys to your <code>.env</code> file.</p>
+<h3>
+<a id="environment-configuration" class="anchor" href="#environment-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Environment Configuration</h3>
+<p>It is often helpful to have different configuration values based on the environment where the application is running. For example, you may wish to use a different database locally than you do on your production server.</p>
+<p>To make this a cinch, WordPlate utilizes the <a href="https://symfony.com/doc/current/components/dotenv" rel="nofollow">Dotenv</a> PHP package by Symfony. In a fresh WordPlate installation, the root directory of your application will contain a <code>.env.example</code> file. If you install WordPlate via Composer, this file will automatically be renamed to <code>.env</code>. Otherwise, you should rename the file manually.</p>
+<p>Your <code>.env</code> file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.</p>
+<p>Read more about environment variables in Laravel's documentation:</p>
+<ul>
+<li><a href="https://laravel.com/docs/7.x/configuration#environment-variable-types" rel="nofollow">Environment Variable Types</a></li>
+<li><a href="https://laravel.com/docs/7.x/configuration#retrieving-environment-configuration" rel="nofollow">Retrieving Environment Configuration</a></li>
+</ul>
+<h2>
+<a id="plugins" class="anchor" href="#plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugins</h2>
+<h3>
+<a id="wordpress-packagist" class="anchor" href="#wordpress-packagist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WordPress Packagist</h3>
+<p>We've integrated <a href="https://wpackagist.org" rel="nofollow">WordPress Packagist</a> which makes it possible to install plugins with Composer. WordPress Packagist mirrors the WordPress plugin and theme directories as a Composer repository.</p>
+<p>Install the desired plugins using <code>wpackagist-plugin</code> as the vendor name. Packages are installed in the <code>public/plugins</code> directory.</p>
+<pre lang="bash" class="highlight-bash">composer require wpackagist-plugin/hide-updates
+</pre>
+<p>This is an example of how your <code>composer.json</code> file might look like:</p>
+<pre lang="json" class="highlight-json"><span class="s2">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"wordplate/framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^9.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wpackagist-plugin/hide-updates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span></pre>
+<p><a href="https://wpackagist.org" rel="nofollow">Please visit WordPress Packagist for more information and examples.</a></p>
+<h3>
+<a id="must-use-plugins" class="anchor" href="#must-use-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Must Use Plugins</h3>
+<p><a href="https://wordpress.org/support/article/must-use-plugins/" rel="nofollow">Must-use plugins</a> (a.k.a. mu-plugins) are plugins installed in a special directory inside the content folder and which are automatically enabled on all sites in the installation.</p>
+<p>To install plugins into into the <code>mu-plugins</code> directory, add the plugin name to the <code>installer-paths</code> in your <code>composer.json</code> file:</p>
+<pre lang="json" class="highlight-json"><span class="s2">"installer-paths"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"public/mu-plugins/{$name}"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"type:wordpress-muplugin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wpackagist-plugin/hide-updates"</span><span class="p">,</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<p>Install the plugin using <code>wpackagist-plugin</code> as the vendor name.</p>
+<pre lang="sh" class="highlight-sh">composer require wpackagist-plugin/hide-updates
+</pre>
+<p>The plugin should now be installed in the <code>public/mu-plugins</code> directory.</p>
+<p><a href="https://roots.io/docs/bedrock/master/mu-plugin-autoloader/" rel="nofollow">Read more about the must-use plugin autoloader in the documentation.</a></p>
+<h2>
+<a id="laravel-mix" class="anchor" href="#laravel-mix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Laravel Mix</h2>
+<p><a href="https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme" rel="nofollow">Laravel Mix</a> is a clean layer on top of Webpack to make the 80% use case laughably simple to execute. Most would agree that, though incredibly powerful, Webpack ships with a steep learning curve. But what if you didn't have to worry about that?</p>
+<p><a href="https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme" rel="nofollow">To get started with Laravel Mix, please visit the documentation.</a></p>
+<pre lang="sh" class="highlight-sh">// Run all mix tasks...
+npm run dev
+
+// Run all mix tasks and minify output...
+npm run build
+</pre>
+<h2>
+<a id="integrations" class="anchor" href="#integrations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integrations</h2>
+<p>Below you'll find a list of plugins and packages we use with WordPlate. Some of these projects are maintained by WordPlate and some are created by other amazing developers.</p>
+<ul>
+<li>
+<p><a href="https://github.com/fiskhandlarn/blade" rel="nofollow"><strong>Blade</strong></a></p>
+<p>The plugin integrates <a href="https://laravel.com/docs/7.x/blade" rel="nofollow">Blade</a> templating system in WordPress.</p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/clean-image-filenames/" rel="nofollow"><strong>Clean Image Filenames</strong></a></p>
+<p>The plugin removes special characters from filenames.</p>
+</li>
+<li>
+<p><a href="https://github.com/wordplate/extended-acf" rel="nofollow"><strong>Extended ACF</strong></a></p>
+<p>The package provides an object oriented API to register fields, groups and layouts with Advanced Custom Fields.</p>
+</li>
+<li>
+<p><a href="https://github.com/johnbillion/extended-cpts" rel="nofollow"><strong>Extended CPTs</strong></a></p>
+<p>The package provides extended functionality to WordPress custom post types and taxonomies.</p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/disable-embeds/" rel="nofollow"><strong>Disable Embeds</strong></a></p>
+<p>The plugin prevents others from embedding your site.</p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/disable-emojis/" rel="nofollow"><strong>Disable Emojis</strong></a></p>
+<p>The plugin disables the new WordPress emoji functionality.</p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/email-log/" rel="nofollow"><strong>Email Log</strong></a></p>
+<p>The plugin that allows you to log and view all emails sent from WordPress.</p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/hide-updates/" rel="nofollow"><strong>Hide Updates</strong></a></p>
+<p>The plugin hides update notices for updates in WordPress.</p>
+</li>
+<li>
+<p><a href="https://github.com/wordplate/mail" rel="nofollow"><strong>Mail</strong></a></p>
+<p>The plugin provides a simple way to add custom SMTP credentials and an easier way to working with attachments.</p>
+</li>
+<li>
+<p><a href="https://upstatement.com/timber/" rel="nofollow"><strong>Timber</strong></a></p>
+<p>A faster, easier and more powerful way to build themes. Because WordPress is awesome, but the loop isn’t.</p>
+</li>
+<li>
+<p><a href="https://github.com/wp-languages/wp-languages.github.io" rel="nofollow"><strong>WP Languages</strong></a></p>
+<p>The Composer repository for WordPress translation files.</p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/wp-migrate-db/" rel="nofollow"><strong>WP Migrate DB</strong></a></p>
+<p>The plugin help you export your database as a MySQL data dump.</p>
+</li>
+</ul>
+<h2>
+<a id="upgrade-guide" class="anchor" href="#upgrade-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Upgrade Guide</h2>
+<details>
+<summary><strong>Upgrading from 8 to 9</strong></summary>
+<ol>
+<li>
+<p>Bump the version number in the <code>composer.json</code> file to <code>^9.0</code>.</p>
+</li>
+<li>
+<p>Copy the <code>public/mu-plugins/mu-plugins.php</code> file into your project.</p>
+</li>
+<li>
+<p>Update the <code>public/.gitignore</code> file to allow the new <code>mu-plugins.php</code> file:</p>
+<pre lang="diff" class="highlight-diff"><span class="gd">-mu-plugins/
+</span><span class="gi">+mu-plugins/*
++!mu-plugins/mu-plugins.php
+</span></pre>
+</li>
+<li>
+<p>Run <code>composer update</code> in the root of your project and your app should be up and running!</p>
+</li>
+</ol>
+</details>
+<details>
+<summary><strong>Upgrading from 7 to 8</strong></summary>
+<ol>
+<li>
+<p>WordPlate now requires PHP 7.2 or later.</p>
+</li>
+<li>
+<p>Bump the version number in the <code>composer.json</code> file to <code>^8.0</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> WordPlate 8.0 requires WordPress 5.3 or later.</p>
+</blockquote>
+</li>
+<li>
+<p>Laravel's helper functions is now optional in WordPlate. If you want to use the functions, install the <a href="https://github.com/laravel/helpers#readme" rel="nofollow"><code>laravel/helpers</code></a> package, with Composer, in the root of your project:</p>
+<pre lang="sh" class="highlight-sh">composer require laravel/helpers
+</pre>
+</li>
+<li>
+<p>Laravel's collections are now optional in WordPlate. If you want to use collections, install the <a href="https://github.com/tightenco/collect#readme" rel="nofollow"><code>tightenco/collect</code></a> package, with Composer, in the root of your project:</p>
+<pre lang="sh" class="highlight-sh">composer require tightenco/collect
+</pre>
+</li>
+<li>
+<p>The <code>mix</code> helper function is now optional in WordPlate. If you want to use the function, install the <a href="https://github.com/juanem1/mix-function#readme" rel="nofollow"><code>ibox/mix-function</code></a> package, with Composer, in the root of your project:</p>
+<pre lang="sh" class="highlight-sh">composer require ibox/mix-function
+</pre>
+</li>
+<li>
+<p>Replace any usage of <code>asset</code>, <code>stylesheet_url</code> and <code>template_url</code> functions with WordPress's <a href="https://developer.wordpress.org/reference/functions/get_theme_file_uri/" rel="nofollow"><code>get_theme_file_uri</code></a> function.</p>
+</li>
+<li>
+<p>Replace any usage of <code>stylesheet_path</code> and <code>template_path</code> functions with WordPress's <a href="https://developer.wordpress.org/reference/functions/get_theme_file_path/" rel="nofollow"><code>get_theme_file_path</code></a> function .</p>
+</li>
+<li>
+<p>The <code>base_path</code> and <code>template_slug</code> functions have been removed.</p>
+</li>
+<li>
+<p>Run <code>composer update</code> in the root of your project and your app should be up and running!</p>
+</li>
+</ol>
+</details>
+<details>
+<summary><strong>Upgrading from 6 to 7</strong></summary>
+<ol>
+<li>
+<p>Bump the version number in the <code>composer.json</code> file to <code>^7.0</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> WordPlate 7.0 requires WordPress 5.0 or later.</p>
+</blockquote>
+</li>
+<li>
+<p>Update the <code>realpath(__DIR__)</code> to <code>realpath(__DIR__.'/../')</code> in the <code>wp-config.php</code> file.</p>
+</li>
+<li>
+<p>If your public directory isn't named <code>public</code>, add the following line to the <code>wp-config.php</code> file:</p>
+<pre lang="php" class="highlight-php"><span class="nv">$application</span><span class="o">-&gt;</span><span class="na">setPublicPath</span><span class="p">(</span><span class="nb">realpath</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">));</span>
+</pre>
+</li>
+<li>
+<p>Run <code>composer update</code> in the root of your project and your app should be up and running!</p>
+</li>
+</ol>
+</details>
+<details>
+<summary><strong>Upgrading from 5 to 6</strong></summary>
+<ol>
+<li>
+<p>Bump the version number in the <code>composer.json</code> file to <code>^6.0</code>.</p>
+</li>
+<li>
+<p>Update the <code>realpath(__DIR__.'/../')</code> to <code>realpath(__DIR__)</code> in the <code>wp-config.php</code> file.</p>
+</li>
+<li>
+<p>Run <code>composer update</code> in the root of your project and your app should be up and running!</p>
+</li>
+</ol>
+</details>
+<details>
+<summary><strong>Upgrading from 4 to 5</strong></summary>
+<ol>
+<li>
+<p>Bump the version number in the <code>composer.json</code> file to <code>^5.0</code>.</p>
+</li>
+<li>
+<p>Copy and paste the contents of the <a href="https://github.com/wordplate/wordplate/blob/master/public/wp-config.php" rel="nofollow"><code>wp-config.php</code></a> file into your application.</p>
+<blockquote>
+<p><strong>Note:</strong> Make sure you don't overwrite any of your custom constants.</p>
+</blockquote>
+</li>
+<li>
+<p>Run <code>composer update</code> in the root of your project and your app should be up and running!</p>
+</li>
+</ol>
+</details>
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h2>
+<details>
+<summary><strong>Can I rename the public directory?</strong></summary>
+<p>If you want to rename the <code>public</code> directory you'll need to add the following line to the <code>wp-config.php</code> file:</p>
+<pre lang="php" class="highlight-php"><span class="nv">$application</span><span class="o">-&gt;</span><span class="na">setPublicPath</span><span class="p">(</span><span class="nb">realpath</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">));</span>
+</pre>
+<p>Please note that you also have to update your <code>composer.json</code> file with your new <code>public</code> directory path before you can run <code>composer update</code> again.</p>
+</details>
+<details>
+<summary><strong>Can I rename the WordPress directory?</strong></summary>
+<p>By default WordPlate will put the WordPress in <code>public/wordpress</code>. If you want to change this there are a couple of steps you need to go through. Let's say you want to change the default WordPress location to <code>public/wp</code>:</p>
+<ol>
+<li>
+<p>Update the <code>wordpress-install-dir</code> path in your <code>composer.json</code> file.</p>
+</li>
+<li>
+<p>Update <code>wordpress</code> to <code>wp</code> in <code>wordplate/public/.gitignore</code>.</p>
+</li>
+<li>
+<p>Update the last line in the <code>public/index.php</code> file to:</p>
+<pre lang="php" class="highlight-php"><span class="k">require</span> <span class="nx">__DIR__</span><span class="o">.</span><span class="s1">'/wp/wp-blog-header.php'</span><span class="p">;</span>
+</pre>
+</li>
+<li>
+<p>If you're using WP-CLI, update the path in the <code>wp-cli.yml</code> file to <code>public/wp</code>.</p>
+</li>
+<li>
+<p>Remove the <code>public/wordpress</code> directory if it exist and then run <code>composer update</code>.</p>
+</li>
+</ol>
+</details>
+<details>
+<summary><strong>Can I rename the theme directory?</strong></summary>
+<p>For most applications you may leave the theme directory as it is. If you want to rename the <code>wordplate</code> theme to something else you'll also need to update the <code>WP_THEME</code> environment variable in the <code>.env</code> file.</p>
+</details>
+<details>
+<summary><strong>Can I use WordPlate with Laravel Valet?</strong></summary>
+<p>If you're using <a href="https://laravel.com/docs/7.x/valet" rel="nofollow">Laravel Valet</a> together with WordPlate, you may use our local valet driver. Create a file named <code>LocalValetDriver.php</code> in the root of your project and copy and paste the class below:</p>
+<pre lang="php" class="highlight-php"><span class="cp">&lt;?php</span>
+
+<span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">final</span> <span class="k">class</span> <span class="nc">LocalValetDriver</span> <span class="k">extends</span> <span class="nx">BasicValetDriver</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">serves</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$sitePath</span><span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">is_dir</span><span class="p">(</span><span class="nv">$sitePath</span> <span class="o">.</span> <span class="s1">'/vendor/wordplate/framework'</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+     * @return false|string
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isStaticFile</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$sitePath</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$siteName</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$uri</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$staticFilePath</span> <span class="o">=</span> <span class="nv">$sitePath</span> <span class="o">.</span> <span class="s1">'/public'</span> <span class="o">.</span> <span class="nv">$uri</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isActualFile</span><span class="p">(</span><span class="nv">$staticFilePath</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$staticFilePath</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">frontControllerPath</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$sitePath</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$siteName</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$uri</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_SELF'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$uri</span><span class="p">;</span>
+        <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'SERVER_NAME'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_HOST'</span><span class="p">];</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$uri</span><span class="p">,</span> <span class="s1">'/wordpress/'</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$sitePath</span> <span class="o">.</span> <span class="s1">'/public'</span> <span class="o">.</span> <span class="nv">$uri</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forceTrailingSlash</span><span class="p">(</span><span class="nv">$uri</span><span class="p">);</span>
+
+                <span class="k">return</span> <span class="nv">$sitePath</span> <span class="o">.</span> <span class="s1">'/public'</span> <span class="o">.</span> <span class="nv">$uri</span> <span class="o">.</span> <span class="s1">'/index.php'</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="nv">$sitePath</span> <span class="o">.</span> <span class="s1">'/public'</span> <span class="o">.</span> <span class="nv">$uri</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$sitePath</span> <span class="o">.</span> <span class="s1">'/public/index.php'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">forceTrailingSlash</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$uri</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">substr</span><span class="p">(</span><span class="nv">$uri</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="nb">strlen</span><span class="p">(</span><span class="s1">'/wordpress/wp-admin'</span><span class="p">))</span> <span class="o">==</span> <span class="s1">'/wordpress/wp-admin'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: '</span> <span class="o">.</span> <span class="nv">$uri</span> <span class="o">.</span> <span class="s1">'/'</span><span class="p">);</span>
+            <span class="k">die</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$uri</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</details>
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+<p>WordPlate wouldn't be possible without these amazing open-source projects.</p>
+<ul>
+<li><a href="https://github.com/composer/installers" rel="nofollow"><code>composer/installers</code)</li>
+<li><a href="https://github.com/JeffreyWay/laravel-mix" rel="nofollow"><code>jeffreyway/laravel-mix</code)</li>
+<li><a href="https://github.com/johnpbloch/wordpress-core-installer" rel="nofollow"><code>johnpbloch/wordpress-core-installer</code)</li>
+<li><a href="https://github.com/johnpbloch/wordpress-core" rel="nofollow"><code>johnpbloch/wordpress-core</code)</li>
+<li><a href="https://github.com/motdotla/dotenv" rel="nofollow"><code>motdotla/dotenv</code)</li>
+<li><a href="https://github.com/outlandishideas/wpackagist" rel="nofollow"><code>outlandish/wpackagist</code)</li>
+<li><a href="https://github.com/roots/bedrock-autoloader" rel="nofollow"><code>roots/bedrock-autoloader</code)</li>
+<li><a href="https://github.com/roots/wp-password-bcrypt" rel="nofollow"><code>roots/wp-password-bcrypt</code)</li>
+<li><a href="https://github.com/symfony/http-foundation" rel="nofollow"><code>symfony/http-foundation</code)</li>
+<li><a href="https://github.com/symfony/var-dumper" rel="nofollow"><code>symfony/routing</code)</li>
+<li><a href="https://github.com/symfony/routing" rel="nofollow"><code>symfony/var-dumper</code)</li>
+<li><a href="https://github.com/vlucas/phpdotenv" rel="nofollow"><code>vlucas/phpdotenv</code)</li>
+</ul>
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+<p>Please review our <a href="https://github.com/wordplate/.github/blob/master/CONTRIBUTING.md" rel="nofollow">contribution guidelines</a> before submitting a pull request.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><a href="https://github.com/wordplate/framework/blob/master/LICENSE" rel="nofollow">MIT</a> © <a href="https://vinkla.dev/" rel="nofollow">Vincent Klaiber</a></p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b7bfc800e738',m:'a060fc0e47ba185ff3e3a5fd62170bead7ae942f-1610725463-1800-Abfon7oHWw/ZBqwExEi1/K2WP9BNfMJkMH/Zpu7FJ4Q3M7C4HIW7vrSl54oeTvXxpg/Lfyhm05cDSbJpPaJXxaYJZs3fq1JP6NYs8Eg8IAexAbbbFZjZLYzRG2r0h4mfPcVxzPxbSuvYyQfcxEWR2jo=',s:[0x6f3f8fd586,0xd69c8da07f],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="php"/> <!-- -->php<!-- --> (<!-- -->15,812<!-- -->) </div><div><input type="checkbox" name="topics" value="hacktoberfest"/> <!-- -->hacktoberfest<!-- --> (<!-- -->4,238<!-- -->) </div><div><input type="checkbox" name="topics" value="wordpress"/> <!-- -->wordpress<!-- --> (<!-- -->638<!-- -->) </div><div><input type="checkbox" name="topics" value="boilerplate"/> <!-- -->boilerplate<!-- --> (<!-- -->590<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Wordplate<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/wordplate" target="_blank">Wordplate</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/wordplate" target="_blank">Wordplate</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-35e15fa3-6997-4de5-bb7a-3c0a4495ceab">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"boilerplate","count":590},{"id":null,"name":"hacktoberfest","count":4238},{"id":null,"name":"php","count":15812},{"id":null,"name":"wordpress","count":638}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/wordplate/wordplate","projects":[],"project":{"id":103577,"created_at":"2018-08-21T01:52:17.284Z","updated_at":"2021-01-14T03:27:53.774Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cp\u003e\u003ca href=\"https://cloud.githubusercontent.com/assets/499192/24309675/09eec350-10cd-11e7-98f3-094003bc8e15.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://cloud.githubusercontent.com/assets/499192/24309675/09eec350-10cd-11e7-98f3-094003bc8e15.png\" alt=\"WordPlate\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"wordplate\" class=\"anchor\" href=\"#wordplate\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWordPlate\u003c/h1\u003e\n\u003cp\u003eWordPlate is simply a wrapper around WordPress. It makes developers life easier. It is just like building any other WordPress website with \u003ca href=\"https://developer.wordpress.org/themes\" rel=\"nofollow\"\u003ethemes\u003c/a\u003e and \u003ca href=\"https://developer.wordpress.org/plugins\" rel=\"nofollow\"\u003eplugins\u003c/a\u003e. Just with sprinkles on top.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/wordplate/framework/actions\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badgen.net/github/checks/wordplate/framework?label=build\u0026amp;icon=github\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://packagist.org/packages/wordplate/framework/stats\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badgen.net/packagist/dm/wordplate/framework\" alt=\"Monthly Downloads\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://packagist.org/packages/wordplate/framework\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badgen.net/packagist/v/wordplate/framework\" alt=\"Latest Version\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#features\"\u003eFeatures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#installation\"\u003eInstallation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#configuration\"\u003eConfiguration\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#plugins\"\u003ePlugins\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#laravel-mix\"\u003eLaravel Mix\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#integrations\"\u003eIntegrations\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#upgrade-guide\"\u003eUpgrade Guide\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#faq\"\u003eFAQ\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#acknowledgements\"\u003eAcknowledgements\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contributing\"\u003eContributing\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWordPress + Composer = ♥️\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWordPress is installed using Composer which allows WordPress to be updated by running \u003ccode\u003ecomposer update\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eEnvironment Files\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSimilar to Laravel, WordPlate puts environment variables within an \u003ccode\u003e.env\u003c/code\u003e file such as database credentials.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWordPress Packagist\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWith WordPress Packagist you may manage your WordPress plugins and themes with Composer.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMust-use plugins\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eDon't worry about client deactivating plugins, \u003ca href=\"https://wordpress.org/support/article/must-use-plugins/\" rel=\"nofollow\"\u003emust-use plugins\u003c/a\u003e is enabled by default.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMail\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eIf you want to use custom SMTP credentials to send emails, we've a package for that!\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eLaravel Mix\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWith Laravel Mix you can quickly get up and running with Webpack to build and minify your CSS and JavaScript.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eDebugging\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eFamiliar debugging helper functions are integrated such as \u003ccode\u003edump()\u003c/code\u003e and \u003ccode\u003edd()\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSecurity\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWith the \u003ca href=\"https://github.com/roots/wp-password-bcrypt#readme\" rel=\"nofollow\"\u003e\u003ccode\u003eroots/wp-password-bcrypt\u003c/code\u003e\u003c/a\u003e package we've replaced WordPress outdated and insecure MD5-based password hashing with the modern and secure bcrypt.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003eTo use WordPlate, you need to have PHP 7.3+ and MySQL 5.7+ installed on your machine.\u003c/p\u003e\n\u003cp\u003eWordPlate utilizes \u003ca href=\"https://getcomposer.org/\" rel=\"nofollow\"\u003eComposer\u003c/a\u003e to manage its dependencies. So, before using WordPlate, make sure you have Composer installed on your machine.\u003c/p\u003e\n\u003cp\u003eInstall WordPlate by issuing the Composer \u003ccode\u003ecreate-project\u003c/code\u003e command in your terminal:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003ecomposer create-project \u003cspan class=\"nt\"\u003e--prefer-dist\u003c/span\u003e wordplate/wordplate blog\n\u003c/pre\u003e\n\u003cp\u003eUpdate the database credentials in the \u003ccode\u003e.env\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eDB_NAME=database\nDB_USER=username\nDB_PASSWORD=password\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eServe your application using the \u003ca href=\"https://www.php.net/manual/en/features.commandline.webserver.php\" rel=\"nofollow\"\u003ebuilt-in web server in PHP\u003c/a\u003e (or your server of choice) from the \u003ccode\u003epublic\u003c/code\u003e directory:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003ephp \u003cspan class=\"nt\"\u003e-S\u003c/span\u003e localhost:8000 \u003cspan class=\"nt\"\u003e-t\u003c/span\u003e public/\n\u003c/pre\u003e\n\u003cp\u003eVisit your application in the browser:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://localhost:8000/\" rel=\"nofollow\"\u003e\u003ccode\u003ehttp://localhost:8000/\u003c/code\u003e\u003c/a\u003e - Your website.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://localhost:8000/wordpress/wp-admin\" rel=\"nofollow\"\u003e\u003ccode\u003ehttp://localhost:8000/wordpress/wp-admin\u003c/code\u003e\u003c/a\u003e - The administration dashboard.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"configuration\" class=\"anchor\" href=\"#configuration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConfiguration\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"public-directory\" class=\"anchor\" href=\"#public-directory\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePublic Directory\u003c/h3\u003e\n\u003cp\u003eAfter installing WordPlate, you should configure your web server's document / web root to be the \u003ccode\u003epublic\u003c/code\u003e directory. The \u003ccode\u003eindex.php\u003c/code\u003e in this directory serves as the front controller for all HTTP requests entering your application.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"salt-keys\" class=\"anchor\" href=\"#salt-keys\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSalt Keys\u003c/h3\u003e\n\u003cp\u003eThe next thing you should do after installing WordPlate is adding salt keys to your environment file.\u003c/p\u003e\n\u003cp\u003eTypically, these strings should be 64 characters long. The keys can be set in the \u003ccode\u003e.env\u003c/code\u003e environment file. If you have not copied the \u003ccode\u003e.env.example\u003c/code\u003e file to a new file named \u003ccode\u003e.env\u003c/code\u003e, you should do that now. \u003cstrong\u003eIf the salt keys isn't set, your user sessions and other encrypted data will not be secure.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eIf you're lazy like us, \u003ca href=\"https://wordplate.github.io/salt\" rel=\"nofollow\"\u003evisit our salt key generator\u003c/a\u003e and copy the randomly generated keys to your \u003ccode\u003e.env\u003c/code\u003e file.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"environment-configuration\" class=\"anchor\" href=\"#environment-configuration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEnvironment Configuration\u003c/h3\u003e\n\u003cp\u003eIt is often helpful to have different configuration values based on the environment where the application is running. For example, you may wish to use a different database locally than you do on your production server.\u003c/p\u003e\n\u003cp\u003eTo make this a cinch, WordPlate utilizes the \u003ca href=\"https://symfony.com/doc/current/components/dotenv\" rel=\"nofollow\"\u003eDotenv\u003c/a\u003e PHP package by Symfony. In a fresh WordPlate installation, the root directory of your application will contain a \u003ccode\u003e.env.example\u003c/code\u003e file. If you install WordPlate via Composer, this file will automatically be renamed to \u003ccode\u003e.env\u003c/code\u003e. Otherwise, you should rename the file manually.\u003c/p\u003e\n\u003cp\u003eYour \u003ccode\u003e.env\u003c/code\u003e file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.\u003c/p\u003e\n\u003cp\u003eRead more about environment variables in Laravel's documentation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://laravel.com/docs/7.x/configuration#environment-variable-types\" rel=\"nofollow\"\u003eEnvironment Variable Types\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://laravel.com/docs/7.x/configuration#retrieving-environment-configuration\" rel=\"nofollow\"\u003eRetrieving Environment Configuration\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"plugins\" class=\"anchor\" href=\"#plugins\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePlugins\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"wordpress-packagist\" class=\"anchor\" href=\"#wordpress-packagist\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWordPress Packagist\u003c/h3\u003e\n\u003cp\u003eWe've integrated \u003ca href=\"https://wpackagist.org\" rel=\"nofollow\"\u003eWordPress Packagist\u003c/a\u003e which makes it possible to install plugins with Composer. WordPress Packagist mirrors the WordPress plugin and theme directories as a Composer repository.\u003c/p\u003e\n\u003cp\u003eInstall the desired plugins using \u003ccode\u003ewpackagist-plugin\u003c/code\u003e as the vendor name. Packages are installed in the \u003ccode\u003epublic/plugins\u003c/code\u003e directory.\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003ecomposer require wpackagist-plugin/hide-updates\n\u003c/pre\u003e\n\u003cp\u003eThis is an example of how your \u003ccode\u003ecomposer.json\u003c/code\u003e file might look like:\u003c/p\u003e\n\u003cpre lang=\"json\" class=\"highlight-json\"\u003e\u003cspan class=\"s2\"\u003e\"require\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"wordplate/framework\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"^9.0\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"wpackagist-plugin/hide-updates\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"^1.0\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e},\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://wpackagist.org\" rel=\"nofollow\"\u003ePlease visit WordPress Packagist for more information and examples.\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"must-use-plugins\" class=\"anchor\" href=\"#must-use-plugins\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMust Use Plugins\u003c/h3\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/support/article/must-use-plugins/\" rel=\"nofollow\"\u003eMust-use plugins\u003c/a\u003e (a.k.a. mu-plugins) are plugins installed in a special directory inside the content folder and which are automatically enabled on all sites in the installation.\u003c/p\u003e\n\u003cp\u003eTo install plugins into into the \u003ccode\u003emu-plugins\u003c/code\u003e directory, add the plugin name to the \u003ccode\u003einstaller-paths\u003c/code\u003e in your \u003ccode\u003ecomposer.json\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre lang=\"json\" class=\"highlight-json\"\u003e\u003cspan class=\"s2\"\u003e\"installer-paths\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"public/mu-plugins/{$name}\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"w\"\u003e\n        \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"type:wordpress-muplugin\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n        \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"wpackagist-plugin/hide-updates\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n    \u003c/span\u003e\u003cspan class=\"p\"\u003e]\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/pre\u003e\n\u003cp\u003eInstall the plugin using \u003ccode\u003ewpackagist-plugin\u003c/code\u003e as the vendor name.\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003ecomposer require wpackagist-plugin/hide-updates\n\u003c/pre\u003e\n\u003cp\u003eThe plugin should now be installed in the \u003ccode\u003epublic/mu-plugins\u003c/code\u003e directory.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://roots.io/docs/bedrock/master/mu-plugin-autoloader/\" rel=\"nofollow\"\u003eRead more about the must-use plugin autoloader in the documentation.\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"laravel-mix\" class=\"anchor\" href=\"#laravel-mix\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLaravel Mix\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme\" rel=\"nofollow\"\u003eLaravel Mix\u003c/a\u003e is a clean layer on top of Webpack to make the 80% use case laughably simple to execute. Most would agree that, though incredibly powerful, Webpack ships with a steep learning curve. But what if you didn't have to worry about that?\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme\" rel=\"nofollow\"\u003eTo get started with Laravel Mix, please visit the documentation.\u003c/a\u003e\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e// Run all mix tasks...\nnpm run dev\n\n// Run all mix tasks and minify output...\nnpm run build\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"integrations\" class=\"anchor\" href=\"#integrations\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIntegrations\u003c/h2\u003e\n\u003cp\u003eBelow you'll find a list of plugins and packages we use with WordPlate. Some of these projects are maintained by WordPlate and some are created by other amazing developers.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/fiskhandlarn/blade\" rel=\"nofollow\"\u003e\u003cstrong\u003eBlade\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin integrates \u003ca href=\"https://laravel.com/docs/7.x/blade\" rel=\"nofollow\"\u003eBlade\u003c/a\u003e templating system in WordPress.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/plugins/clean-image-filenames/\" rel=\"nofollow\"\u003e\u003cstrong\u003eClean Image Filenames\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin removes special characters from filenames.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/wordplate/extended-acf\" rel=\"nofollow\"\u003e\u003cstrong\u003eExtended ACF\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe package provides an object oriented API to register fields, groups and layouts with Advanced Custom Fields.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/johnbillion/extended-cpts\" rel=\"nofollow\"\u003e\u003cstrong\u003eExtended CPTs\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe package provides extended functionality to WordPress custom post types and taxonomies.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/plugins/disable-embeds/\" rel=\"nofollow\"\u003e\u003cstrong\u003eDisable Embeds\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin prevents others from embedding your site.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/plugins/disable-emojis/\" rel=\"nofollow\"\u003e\u003cstrong\u003eDisable Emojis\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin disables the new WordPress emoji functionality.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/plugins/email-log/\" rel=\"nofollow\"\u003e\u003cstrong\u003eEmail Log\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin that allows you to log and view all emails sent from WordPress.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/plugins/hide-updates/\" rel=\"nofollow\"\u003e\u003cstrong\u003eHide Updates\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin hides update notices for updates in WordPress.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/wordplate/mail\" rel=\"nofollow\"\u003e\u003cstrong\u003eMail\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin provides a simple way to add custom SMTP credentials and an easier way to working with attachments.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://upstatement.com/timber/\" rel=\"nofollow\"\u003e\u003cstrong\u003eTimber\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eA faster, easier and more powerful way to build themes. Because WordPress is awesome, but the loop isn’t.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/wp-languages/wp-languages.github.io\" rel=\"nofollow\"\u003e\u003cstrong\u003eWP Languages\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe Composer repository for WordPress translation files.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://wordpress.org/plugins/wp-migrate-db/\" rel=\"nofollow\"\u003e\u003cstrong\u003eWP Migrate DB\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe plugin help you export your database as a MySQL data dump.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"upgrade-guide\" class=\"anchor\" href=\"#upgrade-guide\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUpgrade Guide\u003c/h2\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eUpgrading from 8 to 9\u003c/strong\u003e\u003c/summary\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBump the version number in the \u003ccode\u003ecomposer.json\u003c/code\u003e file to \u003ccode\u003e^9.0\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopy the \u003ccode\u003epublic/mu-plugins/mu-plugins.php\u003c/code\u003e file into your project.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate the \u003ccode\u003epublic/.gitignore\u003c/code\u003e file to allow the new \u003ccode\u003emu-plugins.php\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre lang=\"diff\" class=\"highlight-diff\"\u003e\u003cspan class=\"gd\"\u003e-mu-plugins/\n\u003c/span\u003e\u003cspan class=\"gi\"\u003e+mu-plugins/*\n+!mu-plugins/mu-plugins.php\n\u003c/span\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun \u003ccode\u003ecomposer update\u003c/code\u003e in the root of your project and your app should be up and running!\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eUpgrading from 7 to 8\u003c/strong\u003e\u003c/summary\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eWordPlate now requires PHP 7.2 or later.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eBump the version number in the \u003ccode\u003ecomposer.json\u003c/code\u003e file to \u003ccode\u003e^8.0\u003c/code\u003e.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e WordPlate 8.0 requires WordPress 5.3 or later.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLaravel's helper functions is now optional in WordPlate. If you want to use the functions, install the \u003ca href=\"https://github.com/laravel/helpers#readme\" rel=\"nofollow\"\u003e\u003ccode\u003elaravel/helpers\u003c/code\u003e\u003c/a\u003e package, with Composer, in the root of your project:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003ecomposer require laravel/helpers\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLaravel's collections are now optional in WordPlate. If you want to use collections, install the \u003ca href=\"https://github.com/tightenco/collect#readme\" rel=\"nofollow\"\u003e\u003ccode\u003etightenco/collect\u003c/code\u003e\u003c/a\u003e package, with Composer, in the root of your project:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003ecomposer require tightenco/collect\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe \u003ccode\u003emix\u003c/code\u003e helper function is now optional in WordPlate. If you want to use the function, install the \u003ca href=\"https://github.com/juanem1/mix-function#readme\" rel=\"nofollow\"\u003e\u003ccode\u003eibox/mix-function\u003c/code\u003e\u003c/a\u003e package, with Composer, in the root of your project:\u003c/p\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003ecomposer require ibox/mix-function\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReplace any usage of \u003ccode\u003easset\u003c/code\u003e, \u003ccode\u003estylesheet_url\u003c/code\u003e and \u003ccode\u003etemplate_url\u003c/code\u003e functions with WordPress's \u003ca href=\"https://developer.wordpress.org/reference/functions/get_theme_file_uri/\" rel=\"nofollow\"\u003e\u003ccode\u003eget_theme_file_uri\u003c/code\u003e\u003c/a\u003e function.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReplace any usage of \u003ccode\u003estylesheet_path\u003c/code\u003e and \u003ccode\u003etemplate_path\u003c/code\u003e functions with WordPress's \u003ca href=\"https://developer.wordpress.org/reference/functions/get_theme_file_path/\" rel=\"nofollow\"\u003e\u003ccode\u003eget_theme_file_path\u003c/code\u003e\u003c/a\u003e function .\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe \u003ccode\u003ebase_path\u003c/code\u003e and \u003ccode\u003etemplate_slug\u003c/code\u003e functions have been removed.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun \u003ccode\u003ecomposer update\u003c/code\u003e in the root of your project and your app should be up and running!\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eUpgrading from 6 to 7\u003c/strong\u003e\u003c/summary\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBump the version number in the \u003ccode\u003ecomposer.json\u003c/code\u003e file to \u003ccode\u003e^7.0\u003c/code\u003e.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e WordPlate 7.0 requires WordPress 5.0 or later.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate the \u003ccode\u003erealpath(__DIR__)\u003c/code\u003e to \u003ccode\u003erealpath(__DIR__.'/../')\u003c/code\u003e in the \u003ccode\u003ewp-config.php\u003c/code\u003e file.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf your public directory isn't named \u003ccode\u003epublic\u003c/code\u003e, add the following line to the \u003ccode\u003ewp-config.php\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre lang=\"php\" class=\"highlight-php\"\u003e\u003cspan class=\"nv\"\u003e$application\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"na\"\u003esetPublicPath\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nb\"\u003erealpath\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003e__DIR__\u003c/span\u003e\u003cspan class=\"p\"\u003e));\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun \u003ccode\u003ecomposer update\u003c/code\u003e in the root of your project and your app should be up and running!\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eUpgrading from 5 to 6\u003c/strong\u003e\u003c/summary\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBump the version number in the \u003ccode\u003ecomposer.json\u003c/code\u003e file to \u003ccode\u003e^6.0\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate the \u003ccode\u003erealpath(__DIR__.'/../')\u003c/code\u003e to \u003ccode\u003erealpath(__DIR__)\u003c/code\u003e in the \u003ccode\u003ewp-config.php\u003c/code\u003e file.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun \u003ccode\u003ecomposer update\u003c/code\u003e in the root of your project and your app should be up and running!\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eUpgrading from 4 to 5\u003c/strong\u003e\u003c/summary\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBump the version number in the \u003ccode\u003ecomposer.json\u003c/code\u003e file to \u003ccode\u003e^5.0\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopy and paste the contents of the \u003ca href=\"https://github.com/wordplate/wordplate/blob/master/public/wp-config.php\" rel=\"nofollow\"\u003e\u003ccode\u003ewp-config.php\u003c/code\u003e\u003c/a\u003e file into your application.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e Make sure you don't overwrite any of your custom constants.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun \u003ccode\u003ecomposer update\u003c/code\u003e in the root of your project and your app should be up and running!\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/details\u003e\n\u003ch2\u003e\n\u003ca id=\"faq\" class=\"anchor\" href=\"#faq\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFAQ\u003c/h2\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eCan I rename the public directory?\u003c/strong\u003e\u003c/summary\u003e\n\u003cp\u003eIf you want to rename the \u003ccode\u003epublic\u003c/code\u003e directory you'll need to add the following line to the \u003ccode\u003ewp-config.php\u003c/code\u003e file:\u003c/p\u003e\n\u003cpre lang=\"php\" class=\"highlight-php\"\u003e\u003cspan class=\"nv\"\u003e$application\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"na\"\u003esetPublicPath\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nb\"\u003erealpath\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003e__DIR__\u003c/span\u003e\u003cspan class=\"p\"\u003e));\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003ePlease note that you also have to update your \u003ccode\u003ecomposer.json\u003c/code\u003e file with your new \u003ccode\u003epublic\u003c/code\u003e directory path before you can run \u003ccode\u003ecomposer update\u003c/code\u003e again.\u003c/p\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eCan I rename the WordPress directory?\u003c/strong\u003e\u003c/summary\u003e\n\u003cp\u003eBy default WordPlate will put the WordPress in \u003ccode\u003epublic/wordpress\u003c/code\u003e. If you want to change this there are a couple of steps you need to go through. Let's say you want to change the default WordPress location to \u003ccode\u003epublic/wp\u003c/code\u003e:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate the \u003ccode\u003ewordpress-install-dir\u003c/code\u003e path in your \u003ccode\u003ecomposer.json\u003c/code\u003e file.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate \u003ccode\u003ewordpress\u003c/code\u003e to \u003ccode\u003ewp\u003c/code\u003e in \u003ccode\u003ewordplate/public/.gitignore\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate the last line in the \u003ccode\u003epublic/index.php\u003c/code\u003e file to:\u003c/p\u003e\n\u003cpre lang=\"php\" class=\"highlight-php\"\u003e\u003cspan class=\"k\"\u003erequire\u003c/span\u003e \u003cspan class=\"nx\"\u003e__DIR__\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"s1\"\u003e'/wp/wp-blog-header.php'\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf you're using WP-CLI, update the path in the \u003ccode\u003ewp-cli.yml\u003c/code\u003e file to \u003ccode\u003epublic/wp\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRemove the \u003ccode\u003epublic/wordpress\u003c/code\u003e directory if it exist and then run \u003ccode\u003ecomposer update\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eCan I rename the theme directory?\u003c/strong\u003e\u003c/summary\u003e\n\u003cp\u003eFor most applications you may leave the theme directory as it is. If you want to rename the \u003ccode\u003ewordplate\u003c/code\u003e theme to something else you'll also need to update the \u003ccode\u003eWP_THEME\u003c/code\u003e environment variable in the \u003ccode\u003e.env\u003c/code\u003e file.\u003c/p\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cstrong\u003eCan I use WordPlate with Laravel Valet?\u003c/strong\u003e\u003c/summary\u003e\n\u003cp\u003eIf you're using \u003ca href=\"https://laravel.com/docs/7.x/valet\" rel=\"nofollow\"\u003eLaravel Valet\u003c/a\u003e together with WordPlate, you may use our local valet driver. Create a file named \u003ccode\u003eLocalValetDriver.php\u003c/code\u003e in the root of your project and copy and paste the class below:\u003c/p\u003e\n\u003cpre lang=\"php\" class=\"highlight-php\"\u003e\u003cspan class=\"cp\"\u003e\u0026lt;?php\u003c/span\u003e\n\n\u003cspan class=\"k\"\u003edeclare\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003estrict_types\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"mi\"\u003e1\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\n\u003cspan class=\"k\"\u003efinal\u003c/span\u003e \u003cspan class=\"k\"\u003eclass\u003c/span\u003e \u003cspan class=\"nc\"\u003eLocalValetDriver\u003c/span\u003e \u003cspan class=\"k\"\u003eextends\u003c/span\u003e \u003cspan class=\"nx\"\u003eBasicValetDriver\u003c/span\u003e\n\u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"k\"\u003epublic\u003c/span\u003e \u003cspan class=\"k\"\u003efunction\u003c/span\u003e \u003cspan class=\"nf\"\u003eserves\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\u003cspan class=\"o\"\u003e:\u003c/span\u003e \u003cspan class=\"nx\"\u003ebool\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nb\"\u003eis_dir\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/vendor/wordplate/framework'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n    \u003cspan class=\"sd\"\u003e/**\n     * @return false|string\n     */\u003c/span\u003e\n    \u003cspan class=\"k\"\u003epublic\u003c/span\u003e \u003cspan class=\"k\"\u003efunction\u003c/span\u003e \u003cspan class=\"nf\"\u003eisStaticFile\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$siteName\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"nv\"\u003e$staticFilePath\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/public'\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n\n        \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$this\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"na\"\u003eisActualFile\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$staticFilePath\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n            \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nv\"\u003e$staticFilePath\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n        \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"kc\"\u003efalse\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n    \u003cspan class=\"k\"\u003epublic\u003c/span\u003e \u003cspan class=\"k\"\u003efunction\u003c/span\u003e \u003cspan class=\"nf\"\u003efrontControllerPath\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$siteName\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\u003cspan class=\"o\"\u003e:\u003c/span\u003e \u003cspan class=\"nx\"\u003estring\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"nv\"\u003e$_SERVER\u003c/span\u003e\u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'PHP_SELF'\u003c/span\u003e\u003cspan class=\"p\"\u003e]\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"nv\"\u003e$_SERVER\u003c/span\u003e\u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'SERVER_NAME'\u003c/span\u003e\u003cspan class=\"p\"\u003e]\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nv\"\u003e$_SERVER\u003c/span\u003e\u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'HTTP_HOST'\u003c/span\u003e\u003cspan class=\"p\"\u003e];\u003c/span\u003e\n\n        \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nb\"\u003estrpos\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/wordpress/'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"o\"\u003e===\u003c/span\u003e \u003cspan class=\"mi\"\u003e0\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n            \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nb\"\u003eis_dir\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/public'\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n                \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nv\"\u003e$this\u003c/span\u003e\u003cspan class=\"o\"\u003e-\u0026gt;\u003c/span\u003e\u003cspan class=\"na\"\u003eforceTrailingSlash\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n\n                \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/public'\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/index.php'\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n            \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n            \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/public'\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n        \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nv\"\u003e$sitePath\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/public/index.php'\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n    \u003cspan class=\"k\"\u003eprivate\u003c/span\u003e \u003cspan class=\"k\"\u003efunction\u003c/span\u003e \u003cspan class=\"nf\"\u003eforceTrailingSlash\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003estring\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\u003cspan class=\"o\"\u003e:\u003c/span\u003e \u003cspan class=\"nx\"\u003estring\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nb\"\u003esubstr\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"o\"\u003e-\u003c/span\u003e\u003cspan class=\"mi\"\u003e1\u003c/span\u003e \u003cspan class=\"o\"\u003e*\u003c/span\u003e \u003cspan class=\"nb\"\u003estrlen\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'/wordpress/wp-admin'\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e \u003cspan class=\"o\"\u003e==\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/wordpress/wp-admin'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n            \u003cspan class=\"nb\"\u003eheader\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'Location: '\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e \u003cspan class=\"o\"\u003e.\u003c/span\u003e \u003cspan class=\"s1\"\u003e'/'\u003c/span\u003e\u003cspan class=\"p\"\u003e);\u003c/span\u003e\n            \u003cspan class=\"k\"\u003edie\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n        \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n        \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"nv\"\u003e$uri\u003c/span\u003e\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/details\u003e\n\u003ch2\u003e\n\u003ca id=\"acknowledgements\" class=\"anchor\" href=\"#acknowledgements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgements\u003c/h2\u003e\n\u003cp\u003eWordPlate wouldn't be possible without these amazing open-source projects.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/composer/installers\" rel=\"nofollow\"\u003e\u003ccode\u003ecomposer/installers\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/JeffreyWay/laravel-mix\" rel=\"nofollow\"\u003e\u003ccode\u003ejeffreyway/laravel-mix\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/johnpbloch/wordpress-core-installer\" rel=\"nofollow\"\u003e\u003ccode\u003ejohnpbloch/wordpress-core-installer\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/johnpbloch/wordpress-core\" rel=\"nofollow\"\u003e\u003ccode\u003ejohnpbloch/wordpress-core\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/motdotla/dotenv\" rel=\"nofollow\"\u003e\u003ccode\u003emotdotla/dotenv\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/outlandishideas/wpackagist\" rel=\"nofollow\"\u003e\u003ccode\u003eoutlandish/wpackagist\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/roots/bedrock-autoloader\" rel=\"nofollow\"\u003e\u003ccode\u003eroots/bedrock-autoloader\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/roots/wp-password-bcrypt\" rel=\"nofollow\"\u003e\u003ccode\u003eroots/wp-password-bcrypt\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/symfony/http-foundation\" rel=\"nofollow\"\u003e\u003ccode\u003esymfony/http-foundation\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/symfony/var-dumper\" rel=\"nofollow\"\u003e\u003ccode\u003esymfony/routing\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/symfony/routing\" rel=\"nofollow\"\u003e\u003ccode\u003esymfony/var-dumper\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/vlucas/phpdotenv\" rel=\"nofollow\"\u003e\u003ccode\u003evlucas/phpdotenv\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease review our \u003ca href=\"https://github.com/wordplate/.github/blob/master/CONTRIBUTING.md\" rel=\"nofollow\"\u003econtribution guidelines\u003c/a\u003e before submitting a pull request.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/wordplate/framework/blob/master/LICENSE\" rel=\"nofollow\"\u003eMIT\u003c/a\u003e © \u003ca href=\"https://vinkla.dev/\" rel=\"nofollow\"\u003eVincent Klaiber\u003c/a\u003e\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":13329845,"name":"wordplate","owner_login":"wordplate","description":"WordPlate is a wrapper around WordPress. It makes developers life easier. It is just like building any other WordPress website with themes and plugins. Just with sprinkles on top.","pushed_at":"2021-01-09T11:10:56.000Z","stargazers_count":1372,"open_issues_count":0,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"https://wordplate.github.io/","private":false,"project_created_at":"2013-10-04T17:11:21.000Z","project_updated_at":"2021-01-13T03:26:26.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

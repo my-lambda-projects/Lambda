@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":3,"applicationTime":169,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Dotfiles</title>
+<meta name="description" content="🖥️ Automated Configuration, Preferences and Software Installation for macOS">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/atomantic/dotfiles">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "atomantic/dotfiles",
+  "description": "🖥️ Automated Configuration, Preferences and Software Installation for macOS",
+  "url": "https://awesomeopensource.com/project/atomantic/dotfiles",
+  "sku": "project/atomantic/dotfiles",
+  "mpn": "project/atomantic/dotfiles",
+  "image": "https://github.com/atomantic.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "atomantic/dotfiles",
+    "logo": "https://github.com/atomantic.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.82",
+    "ratingCount": "1090"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="bhXs/rUTSrwXHpQx1iAyVmk6/7aTDNWtVYmQ7MMwXPjaFIEaTQ1fK0Vn0xNkEKX3ar1uaaBGfw5Zu/mmjdDeZg==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/atomantic/dotfiles","location":"/project/atomantic/dotfiles","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/atomantic/dotfiles","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-e2522f0a-949f-49c5-9075-b453498e0f16"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Dotfiles</div><div class="aos_project_metadata_description">🖥️ Automated Configuration, Preferences and Software Installation for macOS</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,090</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">other</span><div class="aos_project_metadata_header"><a href="https://github.com/atomantic/dotfiles" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/atomantic/dotfiles" target="_blank">https://github.com/atomantic/dotfiles</a></span><div class="aos_project_metadata_header"><a href="https://github.com/atomantic/dotfiles/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/atomantic/dotfiles/issues" target="_blank">9</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">12 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/shell"><div style="display:block;text-decoration:none;padding-bottom:10px">shell<span> (<!-- -->9,677<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/macos"><div style="display:block;text-decoration:none;padding-bottom:10px">macos<span> (<!-- -->1,599<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/developer-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">developer-tools<span> (<!-- -->323<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/dotfiles"><div style="display:block;text-decoration:none;padding-bottom:10px">dotfiles<span> (<!-- -->277<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/configuration"><div style="display:block;text-decoration:none;padding-bottom:10px">configuration<span> (<!-- -->220<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/iterm2"><div style="display:block;text-decoration:none;padding-bottom:10px">iterm2<span> (<!-- -->60<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/machine"><div style="display:block;text-decoration:none;padding-bottom:10px">machine<span> (<!-- -->45<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="_---hi-im-the-macos-bot" class="anchor" href="#_---hi-im-the-macos-bot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>\[._.]/ - Hi, I'm the MacOS bot</h1>
+<p>I will update your MacOS machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.</p>
+<p>You don't need to install or configure anything upfront! This works with a brand-new machine from the factory as well as an existing machine that you've been working with for years.</p>
+
+
+<ul>
+<li><a href="#forget-about-manual-configuration">Forget About Manual Configuration!</a></li>
+<li><a href="#watch-me-run">Watch me run!</a></li>
+<li>
+<a href="#installation">Installation</a>
+<ul>
+<li><a href="#restoring-dotfiles">Restoring Dotfiles</a></li>
+</ul>
+</li>
+<li><a href="#3xx-upgrade-instructions">3.x.x+ Upgrade Instructions!</a></li>
+<li>
+<a href="#additional">Additional</a>
+<ul>
+<li><a href="#vim-as-ide">VIM as IDE</a></li>
+<li><a href="#crontab">Crontab</a></li>
+<li><a href="#remap-caps-lock">Remap Caps-Lock</a></li>
+</ul>
+</li>
+<li>
+<a href="#settings">Settings</a>
+<ul>
+<li><a href="#ssd-specific-tweaks">SSD-specific tweaks</a></li>
+<li><a href="#general-system-changes">General System Changes</a></li>
+<li><a href="#security">Security</a></li>
+<li><a href="#trackpad-mouse-keyboard-bluetooth-accessories-and-input">Trackpad, mouse, keyboard, Bluetooth accessories, and input</a></li>
+<li><a href="#configuring-the-screen">Configuring the Screen</a></li>
+<li><a href="#finder-configs">Finder Configs</a></li>
+<li><a href="#dock--dashboard">Dock &amp; Dashboard</a></li>
+<li><a href="#configuring-hot-corners">Configuring Hot Corners</a></li>
+<li><a href="#configuring-safari--webkit">Configuring Safari &amp; WebKit</a></li>
+<li><a href="#configuring-mail">Configuring Mail</a></li>
+<li><a href="#spotlight">Spotlight</a></li>
+<li><a href="#iterm2">iTerm2</a></li>
+<li><a href="#time-machine">Time Machine</a></li>
+<li><a href="#activity-monitor">Activity Monitor</a></li>
+<li><a href="#address-book-dashboard-ical-textedit-and-disk-utility">Address Book, Dashboard, iCal, TextEdit, and Disk Utility</a></li>
+<li><a href="#mac-app-store">Mac App Store</a></li>
+<li><a href="#messages">Messages</a></li>
+<li><a href="#sizeupapp">SizeUp.app</a></li>
+</ul>
+</li>
+<li>
+<a href="#software-installation">Software Installation</a>
+<ul>
+<li><a href="#utilities">Utilities</a></li>
+<li><a href="#apps">Apps</a></li>
+<li><a href="#npm-global-modules">NPM Global Modules</a></li>
+<li><a href="#ruby-gems">Ruby Gems</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+<li><a href="#contributions">Contributions</a></li>
+<li><a href="#loathing-mehs-and-praise">Loathing, Mehs and Praise</a></li>
+<li><a href="#%C2%AF%5C%5C_%E3%83%84_%C2%AF-warning--liability">¯\<em>(ツ)</em>/¯ Warning / Liability</a></li>
+</ul>
+
+<h1>
+<a id="forget-about-manual-configuration" class="anchor" href="#forget-about-manual-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Forget About Manual Configuration!</h1>
+<p>Don't you hate getting a new laptop or joining a new team and then spending a whole day setting up your system preferences and tools? Me too. That's why we automate; we did it once and we don't want to have to do it again.</p>
+<p>\[^_^]/ - This started as <a href="http://adameivy.com" rel="nofollow">Adam Eivy</a>'s MacOS shell configuration dotfiles but has grown to a multi-developer platform for machine configuration.</p>
+<p>When I finish with your machine, you will be able to look at your command-line in full-screen mode like this (running iTerm):</p>
+<p><a href="https://raw.githubusercontent.com/atomantic/dotfiles/master/img/term.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/atomantic/dotfiles/master/img/term.png" alt="iTerm Screenshot" style="max-width:100%;"></a></p>
+<p>Check out how your shell prompt includes the full path, node.js version &amp; the working git branch along with a lot of other info!
+We use powerlevel9k for command prompt, so customization of what you want is easily changable in <code>./.zshrc</code>
+The top terminal is using vim as a full replacement IDE.
+The bottom left two are git terminals.
+The bottom right is running <code>vtop</code></p>
+<p>To launch fullscreen, hit <code>Command + Enter</code> in iTerm, then use <code>Command + d</code> and <code>Command + D</code> to create split panes.</p>
+<p>\[._.]/ - I'm so excited I just binaried in my pants!</p>
+<h1>
+<a id="watch-me-run" class="anchor" href="#watch-me-run" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Watch me run!</h1>
+<p><a href="http://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif" target="_blank" rel="nofollow"><img src="https://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif" alt="Running" style="max-width:100%;"></a></p>
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+<blockquote>
+<p>Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)</p>
+</blockquote>
+<blockquote>
+<p>☢️ REVIEW WHAT THIS SCRIPT DOES PRIOR TO RUNNING: <a href="https://github.com/atomantic/dotfiles/blob/master/install.sh#L275-L1038" rel="nofollow">https://github.com/atomantic/dotfiles/blob/master/install.sh#L275-L1038</a>
+It's always a good idea to review arbitrary code from the internet before running it on your machine with sudo power!
+You are responsible for everything this script does to your machine (see LICENSE)
+The creator of this repo has a high tolerance for nuking his machine and starting over. If you have a low tolerance for this, proceed with caution.</p>
+</blockquote>
+<pre lang="bash" class="highlight-bash">git clone <span class="nt">--recurse-submodules</span> https://github.com/atomantic/dotfiles ~/.dotfiles
+<span class="nb">cd</span> ~/.dotfiles<span class="p">;</span>
+<span class="c"># run this using terminal (not iTerm, lest iTerm settings get discarded on exit)</span>
+./install.sh
+</pre>
+<ul>
+<li>When it finishes, open iTerm and press <code>Command + ,</code> to open preferences. Under Profiles &gt; Colors, select "Load Presets" and choose the <code>Solarized Dark Patch</code> scheme. If it isn't there for some reason, import it from <code>~/.dotfiles/configs</code> -- you may also need to select the <code>Hack</code> font and check the box for non-ascii font and set to <code>Roboto Mono For Powerline</code> (I've had mixed results for automating these settings--love a pull request that improves this)</li>
+<li>I've also found that you need to reboot before fast key repeat will be enabled</li>
+</ul>
+<blockquote>
+<p>Note: if you have problems cloning the submodules behind proxy, you can use this command to convert <code>git://</code> to <code>https://</code>: <code>git config --global url.https://github.com/.insteadOf git://github.com/</code></p>
+</blockquote>
+<blockquote>
+<p>Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.</p>
+</blockquote>
+<h2>
+<a id="restoring-dotfiles" class="anchor" href="#restoring-dotfiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Restoring Dotfiles</h2>
+<p>If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into <code>~/.dotfiles_backup/$(date +"%Y.%m.%d.%H.%M.%S")</code> and replaced with the files from this project. You can restore your original dotfiles by using <code>./restore.sh $RESTOREDATE</code> where <code>$RESTOREDATE</code> is the date folder name you want to restore.</p>
+<blockquote>
+<p>The restore script does not currently restore system settings--only your original dotfiles. To restore system settings, you'll need to manually undo what you don't like (so don't forget to fork, review, tweak)</p>
+</blockquote>
+<h1>
+<a id="3xx-upgrade-instructions" class="anchor" href="#3xx-upgrade-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.x.x+ Upgrade Instructions!</h1>
+<p><code>3.0.0</code> brings huge changes. If you have made any modifications (and didn't make your own fork), you will want to backup your dotfiles prior to running <code>git-up</code> or <code>git pull</code> on <code>~/.dotfiles</code>.</p>
+<p>Do the following to upgrade your ~/.dotfiles safely:</p>
+<ol>
+<li>backup your dotfiles: <code>cp -R ~/.dotfiles ~/.dotfiles_old</code>
+</li>
+<li><code>cd ~/.dotfiles</code></li>
+<li>update dotfiles: <code>git-up</code> or <code>git pull</code>
+</li>
+<li>remove old submodule location: <code>rm -rf .vim</code> (now lives in <code>homedir/.vim</code>)</li>
+<li>inspect <code>install.sh</code> and <code>config.js</code> to make sure all the software you want is installed</li>
+<li>inspect <code>homedir/*</code> for any changes you want to port from <code>./dotfiles_old</code>
+</li>
+<li>run <code>install.sh</code> again</li>
+</ol>
+<h1>
+<a id="additional" class="anchor" href="#additional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional</h1>
+<h2>
+<a id="vim-as-ide" class="anchor" href="#vim-as-ide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIM as IDE</h2>
+<p>I am moving away from using <code>Atom</code> and instead using <code>vim</code> as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install its own plugins so we don't have to use git submodules for all of them.</p>
+<h2>
+<a id="crontab" class="anchor" href="#crontab" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crontab</h2>
+<p>You can <code>cron ~/.crontab</code> if you want to add my nightly cron software updates.</p>
+<blockquote>
+<p>\[0_0]/ - Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge</p>
+</blockquote>
+<h2>
+<a id="remap-caps-lock" class="anchor" href="#remap-caps-lock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remap Caps-Lock</h2>
+<ul>
+<li>I highly recommend remapping your Caps Lock key to Control per <a href="http://www.drbunsen.org/remapping-caps-lock/" rel="nofollow">Dr. Bunsen</a>:
+<a href="https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png" alt="Remap Caps Lock" style="max-width:100%;"></a>
+</li>
+</ul>
+<h1>
+<a id="settings" class="anchor" href="#settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Settings</h1>
+<p>This project changes a number of settings and configures software on MacOS.
+Here is the current list:</p>
+<h2>
+<a id="prompt-driven-configuration" class="anchor" href="#prompt-driven-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prompt Driven Configuration</h2>
+<p>The following will only happen if you agree on the prompt</p>
+<ul>
+<li>install a gitshots script to take a photo using your camera on every git commit (these go in as a post-commit hook to your .git_template)</li>
+<li>overwrite your /etc/hosts file with a copy from someonewhocares.org (see ./configs/hosts for the file that will be used)</li>
+<li>replace the system wallpaper with <code>img/wallpaper.jpg</code>
+</li>
+</ul>
+<h2>
+<a id="ssd-specific-tweaks" class="anchor" href="#ssd-specific-tweaks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SSD-specific tweaks</h2>
+<ul>
+<li>Disable local Time Machine snapshots</li>
+<li>Disable hibernation (speeds up entering sleep mode)</li>
+<li>Remove the sleep image file to save disk space</li>
+</ul>
+<h2>
+<a id="general-system-changes" class="anchor" href="#general-system-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General System Changes</h2>
+<ul>
+<li>always boot in verbose mode (not MacOS GUI mode)</li>
+<li>Disable the sound effects on boot</li>
+<li>Menu bar: disable transparency</li>
+<li>Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons</li>
+<li>Set highlight color to green</li>
+<li>Set sidebar icon size to medium</li>
+<li>Always show scrollbars</li>
+<li>Increase window resize speed for Cocoa applications</li>
+<li>Expand save panel by default</li>
+<li>Expand print panel by default</li>
+<li>allow 'locate' command</li>
+<li>Set standby delay to 24 hours (default is 1 hour)</li>
+<li>Save to disk (not to iCloud) by default</li>
+<li>Automatically quit printer app once the print jobs complete</li>
+<li>Disable the “Are you sure you want to open this application?” dialog</li>
+<li>Remove duplicates in the “Open With” menu (also see 'lscleanup' alias)</li>
+<li>Display ASCII control characters using caret notation in standard text views</li>
+<li>Disable automatic termination of inactive apps</li>
+<li>Disable the crash reporter</li>
+<li>Set Help Viewer windows to non-floating mode</li>
+<li>Reveal IP, hostname, OS, etc. when clicking clock in login window</li>
+<li>Restart automatically if the computer freezes</li>
+<li>Never go into computer sleep mode</li>
+<li>Check for software updates daily, not just once per week</li>
+<li>Disable smart quotes as they’re annoying when typing code</li>
+<li>Disable smart dashes as they’re annoying when typing code</li>
+</ul>
+<h2>
+<a id="security" class="anchor" href="#security" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Security</h2>
+<ul>
+<li>Enable firewall</li>
+<li>Enable firewall stealth mode (no response to ICMP / ping requests)</li>
+<li>Disable remote apple events</li>
+<li>Disable wake-on modem</li>
+<li>Disable wake-on LAN</li>
+<li>Disable guest account login</li>
+</ul>
+<h2>
+<a id="trackpad-mouse-keyboard-bluetooth-accessories-and-input" class="anchor" href="#trackpad-mouse-keyboard-bluetooth-accessories-and-input" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trackpad, mouse, keyboard, Bluetooth accessories, and input</h2>
+<ul>
+<li>Trackpad: enable tap to click for this user and for the login screen</li>
+<li>Trackpad: map bottom right corner to right-click</li>
+<li>Disable “natural” (Lion-style) scrolling</li>
+<li>Increase sound quality for Bluetooth headphones/headsets</li>
+<li>Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)</li>
+<li>Use scroll gesture with the Ctrl (^) modifier key to zoom</li>
+<li>Follow the keyboard focus while zoomed in</li>
+<li>Disable press-and-hold for keys in favor of key repeat</li>
+<li>Set a blazingly fast keyboard repeat rate:</li>
+<li>Set language and text formats (english/US)</li>
+<li>Disable auto-correct</li>
+</ul>
+<h2>
+<a id="configuring-the-screen" class="anchor" href="#configuring-the-screen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuring the Screen</h2>
+<ul>
+<li>Require password immediately after sleep or screen saver begins</li>
+<li>Save screenshots to the desktop</li>
+<li>Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)</li>
+<li>Disable shadow in screenshots</li>
+<li>Enable subpixel font rendering on non-Apple LCDs</li>
+<li>Enable HiDPI display modes (requires restart)</li>
+</ul>
+<h2>
+<a id="finder-configs" class="anchor" href="#finder-configs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Finder Configs</h2>
+<ul>
+<li>Keep folders on top when sorting by name (Sierra only)</li>
+<li>Allow quitting via ⌘ + Q; doing so will also hide desktop icons</li>
+<li>Disable window animations and Get Info animations</li>
+<li>Set Desktop as the default location for new Finder windows</li>
+<li>Show hidden files by default</li>
+<li>Show all filename extensions</li>
+<li>Show status bar</li>
+<li>Show path bar</li>
+<li>Allow text selection in Quick Look</li>
+<li>Display full POSIX path as Finder window title</li>
+<li>When performing a search, search the current folder by default</li>
+<li>Disable the warning when changing a file extension</li>
+<li>Enable spring loading for directories</li>
+<li>Remove the spring loading delay for directories</li>
+<li>Avoid creating .DS_Store files on network volumes</li>
+<li>Disable disk image verification</li>
+<li>Automatically open a new Finder window when a volume is mounted</li>
+<li>Use list view in all Finder windows by default</li>
+<li>Disable the warning before emptying the Trash</li>
+<li>Empty Trash securely by default</li>
+<li>Enable AirDrop over Ethernet and on unsupported Macs running Lion</li>
+<li>Show the ~/Library folder</li>
+<li>Expand the following File Info panes: “General”, “Open with”, and “Sharing &amp; Permissions”</li>
+</ul>
+<h2>
+<a id="dock--dashboard" class="anchor" href="#dock--dashboard" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dock &amp; Dashboard</h2>
+<ul>
+<li>Enable highlight hover effect for the grid view of a stack (Dock)</li>
+<li>Set the icon size of Dock items to 36 pixels</li>
+<li>Change minimize/maximize window effect to scale</li>
+<li>Minimize windows into their application’s icon</li>
+<li>Enable spring loading for all Dock items</li>
+<li>Show indicator lights for open applications in the Dock</li>
+<li>Don’t animate opening applications from the Dock</li>
+<li>Speed up Mission Control animations</li>
+<li>Don’t group windows by application in Mission Control</li>
+<li>Disable Dashboard</li>
+<li>Don’t show Dashboard as a Space</li>
+<li>Don’t automatically rearrange Spaces based on most recent use</li>
+<li>Remove the auto-hiding Dock delay</li>
+<li>Remove the animation when hiding/showing the Dock</li>
+<li>Automatically hide and show the Dock</li>
+<li>Make Dock icons of hidden applications translucent</li>
+<li>Make Dock more transparent</li>
+<li>Reset Launchpad, but keep the desktop wallpaper intact</li>
+</ul>
+<h2>
+<a id="configuring-hot-corners" class="anchor" href="#configuring-hot-corners" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuring Hot Corners</h2>
+<ul>
+<li>Top left screen corner → Mission Control</li>
+<li>Top right screen corner → Desktop</li>
+<li>Bottom right screen corner → Start screen saver</li>
+</ul>
+<h2>
+<a id="configuring-safari--webkit" class="anchor" href="#configuring-safari--webkit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuring Safari &amp; WebKit</h2>
+<ul>
+<li>Set Safari’s home page to ‘about:blank’ for faster loading</li>
+<li>Prevent Safari from opening ‘safe’ files automatically after downloading</li>
+<li>Allow hitting the Backspace key to go to the previous page in history</li>
+<li>Hide Safari’s bookmarks bar by default</li>
+<li>Hide Safari’s sidebar in Top Sites</li>
+<li>Disable Safari’s thumbnail cache for History and Top Sites</li>
+<li>Enable Safari’s debug menu</li>
+<li>Make Safari’s search banners default to Contains instead of Starts With</li>
+<li>Remove useless icons from Safari’s bookmarks bar</li>
+<li>Enable the Develop menu and the Web Inspector in Safari</li>
+<li>Add a context menu item for showing the Web Inspector in web views</li>
+</ul>
+<h2>
+<a id="configuring-mail" class="anchor" href="#configuring-mail" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuring Mail</h2>
+<ul>
+<li>Disable send and reply animations in Mail.app</li>
+<li>Copy email addresses as '<a href="/cdn-cgi/l/email-protection#6a0c05052a0f120b071a060f44090507" rel="nofollow"><span class="__cf_email__" data-cfemail="cbada4a48baeb3aaa6bba7aee5a8a4a6">[email&#160;protected]</span></a>' instead of 'Foo Bar <a href="/cdn-cgi/l/email-protection#bcdad3d3fcd9c4ddd1ccd0d992dfd3d1" rel="nofollow"><span class="__cf_email__" data-cfemail="8ceae3e3cce9f4ede1fce0e9a2efe3e1">[email&#160;protected]</span></a>' in Mail.app</li>
+<li>Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app</li>
+<li>Display emails in threaded mode, sorted by date (oldest at the top)</li>
+<li>Disable inline attachments (just show the icons)</li>
+<li>Disable automatic spell checking</li>
+</ul>
+<h2>
+<a id="spotlight" class="anchor" href="#spotlight" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spotlight</h2>
+<ul>
+<li>Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed</li>
+<li>Change indexing order and disable some file types from being indexed</li>
+<li>Load new settings before rebuilding the index</li>
+<li>Make sure indexing is enabled for the main volume</li>
+</ul>
+<h2>
+<a id="iterm2" class="anchor" href="#iterm2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>iTerm2</h2>
+<ul>
+<li>Installing the Solarized Dark theme for iTerm</li>
+<li>Don’t display the annoying prompt when quitting iTerm</li>
+<li>Hide tab title bars</li>
+<li>Set system-wide hotkey to show/hide iterm with ctrl+tick ( <code>^</code> + `)</li>
+<li>Set normal font to Hack 12pt</li>
+<li>Set non-ascii font to Roboto Mono for Powerline 12pt</li>
+</ul>
+<h2>
+<a id="time-machine" class="anchor" href="#time-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Time Machine</h2>
+<ul>
+<li>Prevent Time Machine from prompting to use new hard drives as backup volume</li>
+<li>Disable local Time Machine backups</li>
+</ul>
+<h2>
+<a id="activity-monitor" class="anchor" href="#activity-monitor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Activity Monitor</h2>
+<ul>
+<li>Show the main window when launching Activity Monitor</li>
+<li>Visualize CPU usage in the Activity Monitor Dock icon</li>
+<li>Show all processes in Activity Monitor</li>
+<li>Sort Activity Monitor results by CPU usage</li>
+</ul>
+<h2>
+<a id="address-book-dashboard-ical-textedit-and-disk-utility" class="anchor" href="#address-book-dashboard-ical-textedit-and-disk-utility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Address Book, Dashboard, iCal, TextEdit, and Disk Utility</h2>
+<ul>
+<li>Enable the debug menu in Address Book</li>
+<li>Enable Dashboard dev mode (allows keeping widgets on the desktop)</li>
+<li>Use plain text mode for new TextEdit documents</li>
+<li>Open and save files as UTF-8 in TextEdit</li>
+<li>Enable the debug menu in Disk Utility</li>
+</ul>
+<h2>
+<a id="mac-app-store" class="anchor" href="#mac-app-store" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac App Store</h2>
+<ul>
+<li>Enable the WebKit Developer Tools in the Mac App Store</li>
+<li>Enable Debug Menu in the Mac App Store</li>
+</ul>
+<h2>
+<a id="messages" class="anchor" href="#messages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Messages</h2>
+<ul>
+<li>Disable automatic emoji substitution (i.e. use plain text smileys)</li>
+<li>Disable smart quotes as it’s annoying for messages that contain code</li>
+<li>Disable continuous spell checking</li>
+</ul>
+<h2>
+<a id="sizeupapp" class="anchor" href="#sizeupapp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SizeUp.app</h2>
+<ul>
+<li>Start SizeUp at login</li>
+<li>Don’t show the preferences window on next start</li>
+</ul>
+<h1>
+<a id="software-installation" class="anchor" href="#software-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Software Installation</h1>
+<p>homebrew, fontconfig, git, ruby (latest), nvm (node + npm), and zsh (latest) are all installed inside the <code>install.sh</code> as foundational software for running this project.
+Additional software is configured in <code>config.js</code> and can be customized in your own fork/branch (you can change everything in your own fork/brance).
+The following is the software that I have set as default:</p>
+<h2>
+<a id="utilities" class="anchor" href="#utilities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilities</h2>
+<ul>
+<li>ack</li>
+<li>ag</li>
+<li>coreutils</li>
+<li>dos2unix</li>
+<li>findutils</li>
+<li>fortune</li>
+<li>gawk</li>
+<li>gifsicle</li>
+<li>gnupg</li>
+<li>gnu-sed</li>
+<li>homebrew/dupes/grep</li>
+<li>httpie</li>
+<li>imagemagick (only if gitshots enabled)</li>
+<li>imagesnap (only if gitshots enabled)</li>
+<li>jq</li>
+<li>mas</li>
+<li>moreutils</li>
+<li>nmap</li>
+<li>openconnect</li>
+<li>reattach-to-user-namespace</li>
+<li>homebrew/dupes/screen</li>
+<li>tmux</li>
+<li>tree</li>
+<li>ttyrec</li>
+<li>vim --override-system-vi</li>
+<li>watch</li>
+<li>wget --enable-iri</li>
+</ul>
+<h2>
+<a id="apps" class="anchor" href="#apps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Apps</h2>
+<ul>
+<li>box-sync</li>
+<li>gpgtools</li>
+<li>iterm2</li>
+<li>sizeup</li>
+<li>slack</li>
+<li>the-unarchiver</li>
+<li>xquartz</li>
+</ul>
+<h2>
+<a id="npm-global-modules" class="anchor" href="#npm-global-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NPM Global Modules</h2>
+<ul>
+<li>antic</li>
+<li>buzzphrase</li>
+<li>eslint</li>
+<li>gulp</li>
+<li>instant-markdown-d</li>
+<li>npm-check</li>
+<li>prettyjson</li>
+<li>trash</li>
+<li>vtop</li>
+</ul>
+<h2>
+<a id="ruby-gems" class="anchor" href="#ruby-gems" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ruby Gems</h2>
+<ul>
+<li>git-up</li>
+</ul>
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+<p>This project is licensed under ISC. Please fork, contribute and share.</p>
+<h1>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributions</h1>
+<p>Contributions are always welcome in the form of pull requests with explanatory comments.</p>
+<p>Please refer to the <a href="https://github.com/atomantic/dotfiles/blob/master/CODE_OF_CONDUCT.md" rel="nofollow">Contributor Covenant</a></p>
+<h1>
+<a id="loathing-mehs-and-praise" class="anchor" href="#loathing-mehs-and-praise" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loathing, Mehs and Praise</h1>
+<ol>
+<li>Loathing should be directed into pull requests that make it better. woot.</li>
+<li>Bugs with the setup should be put as GitHub issues.</li>
+<li>Mehs should be &gt; /dev/null</li>
+<li>Praise should be directed to <a href="https://twitter.com/antic" rel="nofollow"><img src="https://img.shields.io/twitter/follow/antic.svg?style=social&amp;label=@antic" alt="@antic" style="max-width:100%;"></a>
+</li>
+</ol>
+<h1>
+<a id="tips-accepted" class="anchor" href="#tips-accepted" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tips Accepted</h1>
+<p>⚡ Lightning Network Satoshi Tips Accepted <a href="https://tippin.me/@antic" rel="nofollow">https://tippin.me/@antic</a></p>
+<blockquote>
+<p>With the advent of Bitcoin Lightning Network, you can tip me as little as 1 satoshi (.00000001 $BTC). 1000 satoshi is about $.04 as of this writing. Any amount is appreciated and playing with Lightning will help you learn about the future of the internet! :)</p>
+</blockquote>
+<p>Don't have Lightning?</p>
+<ul>
+<li><a href="https://bluewallet.io/" rel="nofollow">Blue Wallet (for iOS and Android)</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=fr.acinq.eclair.wallet.mainnet2" rel="nofollow">Eclair Wallet (for Android)</a></li>
+</ul>
+<h1>
+<a id="ツ-warning--liability" class="anchor" href="#%E3%83%84-warning--liability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>¯\<em>(ツ)</em>/¯ Warning / Liability</h1>
+<blockquote>
+<p>Warning:
+The creator of this repo is not responsible if your machine ends up in a state you are not happy with. If you are concerned, look at the code to review everything this will do to your machine :)</p>
+</blockquote>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bb359c84e738',m:'296788ed989b12128ead6f45221aebe5964f1e80-1610725604-1800-AZ+DpCZsA348T4VudI1VOssk41+cRF7R6d8sqzDEI0UlKY85CKyOuqTresVxLuD27GRbR4FzIhRwVoBFeuXKs597IqG0SUzYEnsF68kV5dvEgqjQLCfkmNgYwu3tO6mwxNSZl6ye2hFyY5IkUDb8qDw=',s:[0x56823ba17b,0x28b4ffd44e],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="shell"/> <!-- -->shell<!-- --> (<!-- -->9,677<!-- -->) </div><div><input type="checkbox" name="topics" value="macos"/> <!-- -->macos<!-- --> (<!-- -->1,599<!-- -->) </div><div><input type="checkbox" name="topics" value="developer-tools"/> <!-- -->developer-tools<!-- --> (<!-- -->323<!-- -->) </div><div><input type="checkbox" name="topics" value="dotfiles"/> <!-- -->dotfiles<!-- --> (<!-- -->277<!-- -->) </div><div><input type="checkbox" name="topics" value="configuration"/> <!-- -->configuration<!-- --> (<!-- -->220<!-- -->) </div><div><input type="checkbox" name="topics" value="iterm2"/> <!-- -->iterm2<!-- --> (<!-- -->60<!-- -->) </div><div><input type="checkbox" name="topics" value="machine"/> <!-- -->machine<!-- --> (<!-- -->45<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Dotfiles<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/atomantic" target="_blank">Atomantic</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/atomantic" target="_blank">Atomantic</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-e2522f0a-949f-49c5-9075-b453498e0f16">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"configuration","count":220},{"id":null,"name":"developer-tools","count":323},{"id":null,"name":"dotfiles","count":277},{"id":null,"name":"iterm2","count":60},{"id":null,"name":"machine","count":45},{"id":null,"name":"macos","count":1599},{"id":null,"name":"shell","count":9677}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/atomantic/dotfiles","projects":[],"project":{"id":93446,"created_at":"2018-08-21T01:35:42.368Z","updated_at":"2021-01-14T02:26:14.655Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"_---hi-im-the-macos-bot\" class=\"anchor\" href=\"#_---hi-im-the-macos-bot\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\\[._.]/ - Hi, I'm the MacOS bot\u003c/h1\u003e\n\u003cp\u003eI will update your MacOS machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.\u003c/p\u003e\n\u003cp\u003eYou don't need to install or configure anything upfront! This works with a brand-new machine from the factory as well as an existing machine that you've been working with for years.\u003c/p\u003e\n\n\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#forget-about-manual-configuration\"\u003eForget About Manual Configuration!\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#watch-me-run\"\u003eWatch me run!\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#installation\"\u003eInstallation\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#restoring-dotfiles\"\u003eRestoring Dotfiles\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#3xx-upgrade-instructions\"\u003e3.x.x+ Upgrade Instructions!\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#additional\"\u003eAdditional\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#vim-as-ide\"\u003eVIM as IDE\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#crontab\"\u003eCrontab\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#remap-caps-lock\"\u003eRemap Caps-Lock\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#settings\"\u003eSettings\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#ssd-specific-tweaks\"\u003eSSD-specific tweaks\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#general-system-changes\"\u003eGeneral System Changes\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#security\"\u003eSecurity\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#trackpad-mouse-keyboard-bluetooth-accessories-and-input\"\u003eTrackpad, mouse, keyboard, Bluetooth accessories, and input\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#configuring-the-screen\"\u003eConfiguring the Screen\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#finder-configs\"\u003eFinder Configs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#dock--dashboard\"\u003eDock \u0026amp; Dashboard\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#configuring-hot-corners\"\u003eConfiguring Hot Corners\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#configuring-safari--webkit\"\u003eConfiguring Safari \u0026amp; WebKit\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#configuring-mail\"\u003eConfiguring Mail\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#spotlight\"\u003eSpotlight\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#iterm2\"\u003eiTerm2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#time-machine\"\u003eTime Machine\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#activity-monitor\"\u003eActivity Monitor\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#address-book-dashboard-ical-textedit-and-disk-utility\"\u003eAddress Book, Dashboard, iCal, TextEdit, and Disk Utility\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#mac-app-store\"\u003eMac App Store\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#messages\"\u003eMessages\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#sizeupapp\"\u003eSizeUp.app\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#software-installation\"\u003eSoftware Installation\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#utilities\"\u003eUtilities\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#apps\"\u003eApps\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#npm-global-modules\"\u003eNPM Global Modules\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#ruby-gems\"\u003eRuby Gems\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#license\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contributions\"\u003eContributions\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#loathing-mehs-and-praise\"\u003eLoathing, Mehs and Praise\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#%C2%AF%5C%5C_%E3%83%84_%C2%AF-warning--liability\"\u003e¯\\\u003cem\u003e(ツ)\u003c/em\u003e/¯ Warning / Liability\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch1\u003e\n\u003ca id=\"forget-about-manual-configuration\" class=\"anchor\" href=\"#forget-about-manual-configuration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eForget About Manual Configuration!\u003c/h1\u003e\n\u003cp\u003eDon't you hate getting a new laptop or joining a new team and then spending a whole day setting up your system preferences and tools? Me too. That's why we automate; we did it once and we don't want to have to do it again.\u003c/p\u003e\n\u003cp\u003e\\[^_^]/ - This started as \u003ca href=\"http://adameivy.com\" rel=\"nofollow\"\u003eAdam Eivy\u003c/a\u003e's MacOS shell configuration dotfiles but has grown to a multi-developer platform for machine configuration.\u003c/p\u003e\n\u003cp\u003eWhen I finish with your machine, you will be able to look at your command-line in full-screen mode like this (running iTerm):\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/atomantic/dotfiles/master/img/term.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/atomantic/dotfiles/master/img/term.png\" alt=\"iTerm Screenshot\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eCheck out how your shell prompt includes the full path, node.js version \u0026amp; the working git branch along with a lot of other info!\nWe use powerlevel9k for command prompt, so customization of what you want is easily changable in \u003ccode\u003e./.zshrc\u003c/code\u003e\nThe top terminal is using vim as a full replacement IDE.\nThe bottom left two are git terminals.\nThe bottom right is running \u003ccode\u003evtop\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eTo launch fullscreen, hit \u003ccode\u003eCommand + Enter\u003c/code\u003e in iTerm, then use \u003ccode\u003eCommand + d\u003c/code\u003e and \u003ccode\u003eCommand + D\u003c/code\u003e to create split panes.\u003c/p\u003e\n\u003cp\u003e\\[._.]/ - I'm so excited I just binaried in my pants!\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"watch-me-run\" class=\"anchor\" href=\"#watch-me-run\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWatch me run!\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"http://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif\" alt=\"Running\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNote: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e☢️ REVIEW WHAT THIS SCRIPT DOES PRIOR TO RUNNING: \u003ca href=\"https://github.com/atomantic/dotfiles/blob/master/install.sh#L275-L1038\" rel=\"nofollow\"\u003ehttps://github.com/atomantic/dotfiles/blob/master/install.sh#L275-L1038\u003c/a\u003e\nIt's always a good idea to review arbitrary code from the internet before running it on your machine with sudo power!\nYou are responsible for everything this script does to your machine (see LICENSE)\nThe creator of this repo has a high tolerance for nuking his machine and starting over. If you have a low tolerance for this, proceed with caution.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003egit clone \u003cspan class=\"nt\"\u003e--recurse-submodules\u003c/span\u003e https://github.com/atomantic/dotfiles ~/.dotfiles\n\u003cspan class=\"nb\"\u003ecd\u003c/span\u003e ~/.dotfiles\u003cspan class=\"p\"\u003e;\u003c/span\u003e\n\u003cspan class=\"c\"\u003e# run this using terminal (not iTerm, lest iTerm settings get discarded on exit)\u003c/span\u003e\n./install.sh\n\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eWhen it finishes, open iTerm and press \u003ccode\u003eCommand + ,\u003c/code\u003e to open preferences. Under Profiles \u0026gt; Colors, select \"Load Presets\" and choose the \u003ccode\u003eSolarized Dark Patch\u003c/code\u003e scheme. If it isn't there for some reason, import it from \u003ccode\u003e~/.dotfiles/configs\u003c/code\u003e -- you may also need to select the \u003ccode\u003eHack\u003c/code\u003e font and check the box for non-ascii font and set to \u003ccode\u003eRoboto Mono For Powerline\u003c/code\u003e (I've had mixed results for automating these settings--love a pull request that improves this)\u003c/li\u003e\n\u003cli\u003eI've also found that you need to reboot before fast key repeat will be enabled\u003c/li\u003e\n\u003c/ul\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNote: if you have problems cloning the submodules behind proxy, you can use this command to convert \u003ccode\u003egit://\u003c/code\u003e to \u003ccode\u003ehttps://\u003c/code\u003e: \u003ccode\u003egit config --global url.https://github.com/.insteadOf git://github.com/\u003c/code\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNote: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"restoring-dotfiles\" class=\"anchor\" href=\"#restoring-dotfiles\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRestoring Dotfiles\u003c/h2\u003e\n\u003cp\u003eIf you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into \u003ccode\u003e~/.dotfiles_backup/$(date +\"%Y.%m.%d.%H.%M.%S\")\u003c/code\u003e and replaced with the files from this project. You can restore your original dotfiles by using \u003ccode\u003e./restore.sh $RESTOREDATE\u003c/code\u003e where \u003ccode\u003e$RESTOREDATE\u003c/code\u003e is the date folder name you want to restore.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eThe restore script does not currently restore system settings--only your original dotfiles. To restore system settings, you'll need to manually undo what you don't like (so don't forget to fork, review, tweak)\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch1\u003e\n\u003ca id=\"3xx-upgrade-instructions\" class=\"anchor\" href=\"#3xx-upgrade-instructions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3.x.x+ Upgrade Instructions!\u003c/h1\u003e\n\u003cp\u003e\u003ccode\u003e3.0.0\u003c/code\u003e brings huge changes. If you have made any modifications (and didn't make your own fork), you will want to backup your dotfiles prior to running \u003ccode\u003egit-up\u003c/code\u003e or \u003ccode\u003egit pull\u003c/code\u003e on \u003ccode\u003e~/.dotfiles\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eDo the following to upgrade your ~/.dotfiles safely:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003ebackup your dotfiles: \u003ccode\u003ecp -R ~/.dotfiles ~/.dotfiles_old\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecd ~/.dotfiles\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eupdate dotfiles: \u003ccode\u003egit-up\u003c/code\u003e or \u003ccode\u003egit pull\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eremove old submodule location: \u003ccode\u003erm -rf .vim\u003c/code\u003e (now lives in \u003ccode\u003ehomedir/.vim\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003einspect \u003ccode\u003einstall.sh\u003c/code\u003e and \u003ccode\u003econfig.js\u003c/code\u003e to make sure all the software you want is installed\u003c/li\u003e\n\u003cli\u003einspect \u003ccode\u003ehomedir/*\u003c/code\u003e for any changes you want to port from \u003ccode\u003e./dotfiles_old\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003erun \u003ccode\u003einstall.sh\u003c/code\u003e again\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch1\u003e\n\u003ca id=\"additional\" class=\"anchor\" href=\"#additional\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdditional\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"vim-as-ide\" class=\"anchor\" href=\"#vim-as-ide\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVIM as IDE\u003c/h2\u003e\n\u003cp\u003eI am moving away from using \u003ccode\u003eAtom\u003c/code\u003e and instead using \u003ccode\u003evim\u003c/code\u003e as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install its own plugins so we don't have to use git submodules for all of them.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"crontab\" class=\"anchor\" href=\"#crontab\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCrontab\u003c/h2\u003e\n\u003cp\u003eYou can \u003ccode\u003ecron ~/.crontab\u003c/code\u003e if you want to add my nightly cron software updates.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\\[0_0]/ - Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"remap-caps-lock\" class=\"anchor\" href=\"#remap-caps-lock\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRemap Caps-Lock\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eI highly recommend remapping your Caps Lock key to Control per \u003ca href=\"http://www.drbunsen.org/remapping-caps-lock/\" rel=\"nofollow\"\u003eDr. Bunsen\u003c/a\u003e:\n\u003ca href=\"https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png\" alt=\"Remap Caps Lock\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"settings\" class=\"anchor\" href=\"#settings\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSettings\u003c/h1\u003e\n\u003cp\u003eThis project changes a number of settings and configures software on MacOS.\nHere is the current list:\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"prompt-driven-configuration\" class=\"anchor\" href=\"#prompt-driven-configuration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrompt Driven Configuration\u003c/h2\u003e\n\u003cp\u003eThe following will only happen if you agree on the prompt\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003einstall a gitshots script to take a photo using your camera on every git commit (these go in as a post-commit hook to your .git_template)\u003c/li\u003e\n\u003cli\u003eoverwrite your /etc/hosts file with a copy from someonewhocares.org (see ./configs/hosts for the file that will be used)\u003c/li\u003e\n\u003cli\u003ereplace the system wallpaper with \u003ccode\u003eimg/wallpaper.jpg\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"ssd-specific-tweaks\" class=\"anchor\" href=\"#ssd-specific-tweaks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSSD-specific tweaks\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eDisable local Time Machine snapshots\u003c/li\u003e\n\u003cli\u003eDisable hibernation (speeds up entering sleep mode)\u003c/li\u003e\n\u003cli\u003eRemove the sleep image file to save disk space\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"general-system-changes\" class=\"anchor\" href=\"#general-system-changes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGeneral System Changes\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ealways boot in verbose mode (not MacOS GUI mode)\u003c/li\u003e\n\u003cli\u003eDisable the sound effects on boot\u003c/li\u003e\n\u003cli\u003eMenu bar: disable transparency\u003c/li\u003e\n\u003cli\u003eMenu bar: hide the Time Machine, Volume, User, and Bluetooth icons\u003c/li\u003e\n\u003cli\u003eSet highlight color to green\u003c/li\u003e\n\u003cli\u003eSet sidebar icon size to medium\u003c/li\u003e\n\u003cli\u003eAlways show scrollbars\u003c/li\u003e\n\u003cli\u003eIncrease window resize speed for Cocoa applications\u003c/li\u003e\n\u003cli\u003eExpand save panel by default\u003c/li\u003e\n\u003cli\u003eExpand print panel by default\u003c/li\u003e\n\u003cli\u003eallow 'locate' command\u003c/li\u003e\n\u003cli\u003eSet standby delay to 24 hours (default is 1 hour)\u003c/li\u003e\n\u003cli\u003eSave to disk (not to iCloud) by default\u003c/li\u003e\n\u003cli\u003eAutomatically quit printer app once the print jobs complete\u003c/li\u003e\n\u003cli\u003eDisable the “Are you sure you want to open this application?” dialog\u003c/li\u003e\n\u003cli\u003eRemove duplicates in the “Open With” menu (also see 'lscleanup' alias)\u003c/li\u003e\n\u003cli\u003eDisplay ASCII control characters using caret notation in standard text views\u003c/li\u003e\n\u003cli\u003eDisable automatic termination of inactive apps\u003c/li\u003e\n\u003cli\u003eDisable the crash reporter\u003c/li\u003e\n\u003cli\u003eSet Help Viewer windows to non-floating mode\u003c/li\u003e\n\u003cli\u003eReveal IP, hostname, OS, etc. when clicking clock in login window\u003c/li\u003e\n\u003cli\u003eRestart automatically if the computer freezes\u003c/li\u003e\n\u003cli\u003eNever go into computer sleep mode\u003c/li\u003e\n\u003cli\u003eCheck for software updates daily, not just once per week\u003c/li\u003e\n\u003cli\u003eDisable smart quotes as they’re annoying when typing code\u003c/li\u003e\n\u003cli\u003eDisable smart dashes as they’re annoying when typing code\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"security\" class=\"anchor\" href=\"#security\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSecurity\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eEnable firewall\u003c/li\u003e\n\u003cli\u003eEnable firewall stealth mode (no response to ICMP / ping requests)\u003c/li\u003e\n\u003cli\u003eDisable remote apple events\u003c/li\u003e\n\u003cli\u003eDisable wake-on modem\u003c/li\u003e\n\u003cli\u003eDisable wake-on LAN\u003c/li\u003e\n\u003cli\u003eDisable guest account login\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"trackpad-mouse-keyboard-bluetooth-accessories-and-input\" class=\"anchor\" href=\"#trackpad-mouse-keyboard-bluetooth-accessories-and-input\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTrackpad, mouse, keyboard, Bluetooth accessories, and input\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eTrackpad: enable tap to click for this user and for the login screen\u003c/li\u003e\n\u003cli\u003eTrackpad: map bottom right corner to right-click\u003c/li\u003e\n\u003cli\u003eDisable “natural” (Lion-style) scrolling\u003c/li\u003e\n\u003cli\u003eIncrease sound quality for Bluetooth headphones/headsets\u003c/li\u003e\n\u003cli\u003eEnable full keyboard access for all controls (e.g. enable Tab in modal dialogs)\u003c/li\u003e\n\u003cli\u003eUse scroll gesture with the Ctrl (^) modifier key to zoom\u003c/li\u003e\n\u003cli\u003eFollow the keyboard focus while zoomed in\u003c/li\u003e\n\u003cli\u003eDisable press-and-hold for keys in favor of key repeat\u003c/li\u003e\n\u003cli\u003eSet a blazingly fast keyboard repeat rate:\u003c/li\u003e\n\u003cli\u003eSet language and text formats (english/US)\u003c/li\u003e\n\u003cli\u003eDisable auto-correct\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"configuring-the-screen\" class=\"anchor\" href=\"#configuring-the-screen\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConfiguring the Screen\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eRequire password immediately after sleep or screen saver begins\u003c/li\u003e\n\u003cli\u003eSave screenshots to the desktop\u003c/li\u003e\n\u003cli\u003eSave screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)\u003c/li\u003e\n\u003cli\u003eDisable shadow in screenshots\u003c/li\u003e\n\u003cli\u003eEnable subpixel font rendering on non-Apple LCDs\u003c/li\u003e\n\u003cli\u003eEnable HiDPI display modes (requires restart)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"finder-configs\" class=\"anchor\" href=\"#finder-configs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFinder Configs\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eKeep folders on top when sorting by name (Sierra only)\u003c/li\u003e\n\u003cli\u003eAllow quitting via ⌘ + Q; doing so will also hide desktop icons\u003c/li\u003e\n\u003cli\u003eDisable window animations and Get Info animations\u003c/li\u003e\n\u003cli\u003eSet Desktop as the default location for new Finder windows\u003c/li\u003e\n\u003cli\u003eShow hidden files by default\u003c/li\u003e\n\u003cli\u003eShow all filename extensions\u003c/li\u003e\n\u003cli\u003eShow status bar\u003c/li\u003e\n\u003cli\u003eShow path bar\u003c/li\u003e\n\u003cli\u003eAllow text selection in Quick Look\u003c/li\u003e\n\u003cli\u003eDisplay full POSIX path as Finder window title\u003c/li\u003e\n\u003cli\u003eWhen performing a search, search the current folder by default\u003c/li\u003e\n\u003cli\u003eDisable the warning when changing a file extension\u003c/li\u003e\n\u003cli\u003eEnable spring loading for directories\u003c/li\u003e\n\u003cli\u003eRemove the spring loading delay for directories\u003c/li\u003e\n\u003cli\u003eAvoid creating .DS_Store files on network volumes\u003c/li\u003e\n\u003cli\u003eDisable disk image verification\u003c/li\u003e\n\u003cli\u003eAutomatically open a new Finder window when a volume is mounted\u003c/li\u003e\n\u003cli\u003eUse list view in all Finder windows by default\u003c/li\u003e\n\u003cli\u003eDisable the warning before emptying the Trash\u003c/li\u003e\n\u003cli\u003eEmpty Trash securely by default\u003c/li\u003e\n\u003cli\u003eEnable AirDrop over Ethernet and on unsupported Macs running Lion\u003c/li\u003e\n\u003cli\u003eShow the ~/Library folder\u003c/li\u003e\n\u003cli\u003eExpand the following File Info panes: “General”, “Open with”, and “Sharing \u0026amp; Permissions”\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"dock--dashboard\" class=\"anchor\" href=\"#dock--dashboard\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDock \u0026amp; Dashboard\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eEnable highlight hover effect for the grid view of a stack (Dock)\u003c/li\u003e\n\u003cli\u003eSet the icon size of Dock items to 36 pixels\u003c/li\u003e\n\u003cli\u003eChange minimize/maximize window effect to scale\u003c/li\u003e\n\u003cli\u003eMinimize windows into their application’s icon\u003c/li\u003e\n\u003cli\u003eEnable spring loading for all Dock items\u003c/li\u003e\n\u003cli\u003eShow indicator lights for open applications in the Dock\u003c/li\u003e\n\u003cli\u003eDon’t animate opening applications from the Dock\u003c/li\u003e\n\u003cli\u003eSpeed up Mission Control animations\u003c/li\u003e\n\u003cli\u003eDon’t group windows by application in Mission Control\u003c/li\u003e\n\u003cli\u003eDisable Dashboard\u003c/li\u003e\n\u003cli\u003eDon’t show Dashboard as a Space\u003c/li\u003e\n\u003cli\u003eDon’t automatically rearrange Spaces based on most recent use\u003c/li\u003e\n\u003cli\u003eRemove the auto-hiding Dock delay\u003c/li\u003e\n\u003cli\u003eRemove the animation when hiding/showing the Dock\u003c/li\u003e\n\u003cli\u003eAutomatically hide and show the Dock\u003c/li\u003e\n\u003cli\u003eMake Dock icons of hidden applications translucent\u003c/li\u003e\n\u003cli\u003eMake Dock more transparent\u003c/li\u003e\n\u003cli\u003eReset Launchpad, but keep the desktop wallpaper intact\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"configuring-hot-corners\" class=\"anchor\" href=\"#configuring-hot-corners\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConfiguring Hot Corners\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eTop left screen corner → Mission Control\u003c/li\u003e\n\u003cli\u003eTop right screen corner → Desktop\u003c/li\u003e\n\u003cli\u003eBottom right screen corner → Start screen saver\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"configuring-safari--webkit\" class=\"anchor\" href=\"#configuring-safari--webkit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConfiguring Safari \u0026amp; WebKit\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eSet Safari’s home page to ‘about:blank’ for faster loading\u003c/li\u003e\n\u003cli\u003ePrevent Safari from opening ‘safe’ files automatically after downloading\u003c/li\u003e\n\u003cli\u003eAllow hitting the Backspace key to go to the previous page in history\u003c/li\u003e\n\u003cli\u003eHide Safari’s bookmarks bar by default\u003c/li\u003e\n\u003cli\u003eHide Safari’s sidebar in Top Sites\u003c/li\u003e\n\u003cli\u003eDisable Safari’s thumbnail cache for History and Top Sites\u003c/li\u003e\n\u003cli\u003eEnable Safari’s debug menu\u003c/li\u003e\n\u003cli\u003eMake Safari’s search banners default to Contains instead of Starts With\u003c/li\u003e\n\u003cli\u003eRemove useless icons from Safari’s bookmarks bar\u003c/li\u003e\n\u003cli\u003eEnable the Develop menu and the Web Inspector in Safari\u003c/li\u003e\n\u003cli\u003eAdd a context menu item for showing the Web Inspector in web views\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"configuring-mail\" class=\"anchor\" href=\"#configuring-mail\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConfiguring Mail\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eDisable send and reply animations in Mail.app\u003c/li\u003e\n\u003cli\u003eCopy email addresses as '\u003ca href=\"mailto:foo@example.com\" rel=\"nofollow\"\u003efoo@example.com\u003c/a\u003e' instead of 'Foo Bar \u003ca href=\"mailto:foo@example.com\" rel=\"nofollow\"\u003efoo@example.com\u003c/a\u003e' in Mail.app\u003c/li\u003e\n\u003cli\u003eAdd the keyboard shortcut ⌘ + Enter to send an email in Mail.app\u003c/li\u003e\n\u003cli\u003eDisplay emails in threaded mode, sorted by date (oldest at the top)\u003c/li\u003e\n\u003cli\u003eDisable inline attachments (just show the icons)\u003c/li\u003e\n\u003cli\u003eDisable automatic spell checking\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"spotlight\" class=\"anchor\" href=\"#spotlight\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpotlight\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eDisable Spotlight indexing for any volume that gets mounted and has not yet been indexed\u003c/li\u003e\n\u003cli\u003eChange indexing order and disable some file types from being indexed\u003c/li\u003e\n\u003cli\u003eLoad new settings before rebuilding the index\u003c/li\u003e\n\u003cli\u003eMake sure indexing is enabled for the main volume\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"iterm2\" class=\"anchor\" href=\"#iterm2\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eiTerm2\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eInstalling the Solarized Dark theme for iTerm\u003c/li\u003e\n\u003cli\u003eDon’t display the annoying prompt when quitting iTerm\u003c/li\u003e\n\u003cli\u003eHide tab title bars\u003c/li\u003e\n\u003cli\u003eSet system-wide hotkey to show/hide iterm with ctrl+tick ( \u003ccode\u003e^\u003c/code\u003e + `)\u003c/li\u003e\n\u003cli\u003eSet normal font to Hack 12pt\u003c/li\u003e\n\u003cli\u003eSet non-ascii font to Roboto Mono for Powerline 12pt\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"time-machine\" class=\"anchor\" href=\"#time-machine\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTime Machine\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ePrevent Time Machine from prompting to use new hard drives as backup volume\u003c/li\u003e\n\u003cli\u003eDisable local Time Machine backups\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"activity-monitor\" class=\"anchor\" href=\"#activity-monitor\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eActivity Monitor\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eShow the main window when launching Activity Monitor\u003c/li\u003e\n\u003cli\u003eVisualize CPU usage in the Activity Monitor Dock icon\u003c/li\u003e\n\u003cli\u003eShow all processes in Activity Monitor\u003c/li\u003e\n\u003cli\u003eSort Activity Monitor results by CPU usage\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"address-book-dashboard-ical-textedit-and-disk-utility\" class=\"anchor\" href=\"#address-book-dashboard-ical-textedit-and-disk-utility\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAddress Book, Dashboard, iCal, TextEdit, and Disk Utility\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eEnable the debug menu in Address Book\u003c/li\u003e\n\u003cli\u003eEnable Dashboard dev mode (allows keeping widgets on the desktop)\u003c/li\u003e\n\u003cli\u003eUse plain text mode for new TextEdit documents\u003c/li\u003e\n\u003cli\u003eOpen and save files as UTF-8 in TextEdit\u003c/li\u003e\n\u003cli\u003eEnable the debug menu in Disk Utility\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"mac-app-store\" class=\"anchor\" href=\"#mac-app-store\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMac App Store\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eEnable the WebKit Developer Tools in the Mac App Store\u003c/li\u003e\n\u003cli\u003eEnable Debug Menu in the Mac App Store\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"messages\" class=\"anchor\" href=\"#messages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMessages\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eDisable automatic emoji substitution (i.e. use plain text smileys)\u003c/li\u003e\n\u003cli\u003eDisable smart quotes as it’s annoying for messages that contain code\u003c/li\u003e\n\u003cli\u003eDisable continuous spell checking\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"sizeupapp\" class=\"anchor\" href=\"#sizeupapp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSizeUp.app\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eStart SizeUp at login\u003c/li\u003e\n\u003cli\u003eDon’t show the preferences window on next start\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"software-installation\" class=\"anchor\" href=\"#software-installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSoftware Installation\u003c/h1\u003e\n\u003cp\u003ehomebrew, fontconfig, git, ruby (latest), nvm (node + npm), and zsh (latest) are all installed inside the \u003ccode\u003einstall.sh\u003c/code\u003e as foundational software for running this project.\nAdditional software is configured in \u003ccode\u003econfig.js\u003c/code\u003e and can be customized in your own fork/branch (you can change everything in your own fork/brance).\nThe following is the software that I have set as default:\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"utilities\" class=\"anchor\" href=\"#utilities\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUtilities\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eack\u003c/li\u003e\n\u003cli\u003eag\u003c/li\u003e\n\u003cli\u003ecoreutils\u003c/li\u003e\n\u003cli\u003edos2unix\u003c/li\u003e\n\u003cli\u003efindutils\u003c/li\u003e\n\u003cli\u003efortune\u003c/li\u003e\n\u003cli\u003egawk\u003c/li\u003e\n\u003cli\u003egifsicle\u003c/li\u003e\n\u003cli\u003egnupg\u003c/li\u003e\n\u003cli\u003egnu-sed\u003c/li\u003e\n\u003cli\u003ehomebrew/dupes/grep\u003c/li\u003e\n\u003cli\u003ehttpie\u003c/li\u003e\n\u003cli\u003eimagemagick (only if gitshots enabled)\u003c/li\u003e\n\u003cli\u003eimagesnap (only if gitshots enabled)\u003c/li\u003e\n\u003cli\u003ejq\u003c/li\u003e\n\u003cli\u003emas\u003c/li\u003e\n\u003cli\u003emoreutils\u003c/li\u003e\n\u003cli\u003enmap\u003c/li\u003e\n\u003cli\u003eopenconnect\u003c/li\u003e\n\u003cli\u003ereattach-to-user-namespace\u003c/li\u003e\n\u003cli\u003ehomebrew/dupes/screen\u003c/li\u003e\n\u003cli\u003etmux\u003c/li\u003e\n\u003cli\u003etree\u003c/li\u003e\n\u003cli\u003ettyrec\u003c/li\u003e\n\u003cli\u003evim --override-system-vi\u003c/li\u003e\n\u003cli\u003ewatch\u003c/li\u003e\n\u003cli\u003ewget --enable-iri\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"apps\" class=\"anchor\" href=\"#apps\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eApps\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ebox-sync\u003c/li\u003e\n\u003cli\u003egpgtools\u003c/li\u003e\n\u003cli\u003eiterm2\u003c/li\u003e\n\u003cli\u003esizeup\u003c/li\u003e\n\u003cli\u003eslack\u003c/li\u003e\n\u003cli\u003ethe-unarchiver\u003c/li\u003e\n\u003cli\u003exquartz\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"npm-global-modules\" class=\"anchor\" href=\"#npm-global-modules\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eNPM Global Modules\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eantic\u003c/li\u003e\n\u003cli\u003ebuzzphrase\u003c/li\u003e\n\u003cli\u003eeslint\u003c/li\u003e\n\u003cli\u003egulp\u003c/li\u003e\n\u003cli\u003einstant-markdown-d\u003c/li\u003e\n\u003cli\u003enpm-check\u003c/li\u003e\n\u003cli\u003eprettyjson\u003c/li\u003e\n\u003cli\u003etrash\u003c/li\u003e\n\u003cli\u003evtop\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"ruby-gems\" class=\"anchor\" href=\"#ruby-gems\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRuby Gems\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003egit-up\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h1\u003e\n\u003cp\u003eThis project is licensed under ISC. Please fork, contribute and share.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"contributions\" class=\"anchor\" href=\"#contributions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributions\u003c/h1\u003e\n\u003cp\u003eContributions are always welcome in the form of pull requests with explanatory comments.\u003c/p\u003e\n\u003cp\u003ePlease refer to the \u003ca href=\"https://github.com/atomantic/dotfiles/blob/master/CODE_OF_CONDUCT.md\" rel=\"nofollow\"\u003eContributor Covenant\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"loathing-mehs-and-praise\" class=\"anchor\" href=\"#loathing-mehs-and-praise\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLoathing, Mehs and Praise\u003c/h1\u003e\n\u003col\u003e\n\u003cli\u003eLoathing should be directed into pull requests that make it better. woot.\u003c/li\u003e\n\u003cli\u003eBugs with the setup should be put as GitHub issues.\u003c/li\u003e\n\u003cli\u003eMehs should be \u0026gt; /dev/null\u003c/li\u003e\n\u003cli\u003ePraise should be directed to \u003ca href=\"https://twitter.com/antic\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/twitter/follow/antic.svg?style=social\u0026amp;label=@antic\" alt=\"@antic\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch1\u003e\n\u003ca id=\"tips-accepted\" class=\"anchor\" href=\"#tips-accepted\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTips Accepted\u003c/h1\u003e\n\u003cp\u003e⚡ Lightning Network Satoshi Tips Accepted \u003ca href=\"https://tippin.me/@antic\" rel=\"nofollow\"\u003ehttps://tippin.me/@antic\u003c/a\u003e\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eWith the advent of Bitcoin Lightning Network, you can tip me as little as 1 satoshi (.00000001 $BTC). 1000 satoshi is about $.04 as of this writing. Any amount is appreciated and playing with Lightning will help you learn about the future of the internet! :)\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eDon't have Lightning?\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://bluewallet.io/\" rel=\"nofollow\"\u003eBlue Wallet (for iOS and Android)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://play.google.com/store/apps/details?id=fr.acinq.eclair.wallet.mainnet2\" rel=\"nofollow\"\u003eEclair Wallet (for Android)\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"ツ-warning--liability\" class=\"anchor\" href=\"#%E3%83%84-warning--liability\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e¯\\\u003cem\u003e(ツ)\u003c/em\u003e/¯ Warning / Liability\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eWarning:\nThe creator of this repo is not responsible if your machine ends up in a state you are not happy with. If you are concerned, look at the code to review everything this will do to your machine :)\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":4426498,"name":"dotfiles","owner_login":"atomantic","description":"🖥️ Automated Configuration, Preferences and Software Installation for macOS","pushed_at":"2021-01-04T22:10:16.000Z","stargazers_count":1090,"open_issues_count":9,"has_downloads":true,"archived":false,"license_key":"other","homepage":"","private":false,"project_created_at":"2012-05-23T23:17:26.000Z","project_updated_at":"2021-01-10T14:16:15.000Z","language":"Shell","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

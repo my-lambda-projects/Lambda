@@ -94,7 +94,7 @@ title: 数据可视化页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FSvoSbvL89YAAAAAAAAAAABkARQnAQ">
 
-将数据分析类型页面拆解为多个部分，通常为“总 - 分”的结构，多维度地展示数据的全貌，帮助使用者发现当前问题。
+将数据分析类型页面拆解为多个部分，通常为“总 - 分"的结构，多维度地展示数据的全貌，帮助使用者发现当前问题。
 
 #### 模板 - 多维分析
 

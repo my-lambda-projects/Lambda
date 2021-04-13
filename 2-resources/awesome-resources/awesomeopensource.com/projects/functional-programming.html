@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVRh1eWQddSw==","queueTime":2,"applicationTime":79,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>The Top 458 Functional Programming Open Source Projects</title>
+<meta name="description" content="Browse The Most Popular 458 Functional Programming Open Source Projects">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/projects/functional-programming">
+<link rel="next" href="https://awesomeopensource.com/projects/functional-programming?projectPage=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="R75PMahJnnrWAjRtf0l3l1DL3uMRHdzfao+bMmDbeMJC1fR7miR+V4ZrYimEp8wEO747HJUgluvN0KFDKWKLdA==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/projects/functional-programming","location":"/projects/functional-programming","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/projects/functional-programming","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-d3502ba6-7bca-4ac5-903d-ba01c2dd7277"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"><div class="aos_selected_topics_text_container">Combined Topics</div><a href="https://awesomeopensource.com" style="color:black" class="AOS_Pill"><div title="Remove functional-programming" class="aos_pill_box" id="functional-programming_pill">functional-programming<!-- --> <span id="functional-programming_pillclosebutton" style="background-color:#0366d6;color:#f4e062;width:15px;height:15px;margin-left:5px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:12px">x</span></div></a></div></div><div><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:none;box-shadow:1px 1px 5px lightgray"></div></div></div></div><div class="aos_app_container"><div class="aos_projects_container display_flex margin_bottom_15"><div class="projects_category_explorer_left_column"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div><div class="projects_list_right_column"><h2 style="margin-top:0px;margin-bottom:10px">The Top 458 Functional Programming Open Source Projects</h2><div style="margin-bottom:10px;display:flex;flex-wrap:wrap"><a href="https://awesomeopensource.com">Categories</a> &gt; <a href="https://awesomeopensource.com/categories/software-development">Software Development</a> &gt; <b>Functional <!-- -->Programming</b></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/MostlyAdequate/mostly-adequate-guide" rel="canonical" class="aos_no_underline">Mostly <!-- -->Adequate <!-- -->Guide<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">19,212</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/MostlyAdequate/mostly-adequate-guide" rel="canonical">Mostly adequate guide to FP (in javascript)</a></div></div><div class="projects_list_ad_slot_1" data-nosnippet="true"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gf-2q-4-u+jk" data-ad-client="ca-pub-1878397330895234" data-ad-slot="4549039979"></ins></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/hemanth/functional-programming-jargon" rel="canonical" class="aos_no_underline">Functional <!-- -->Programming <!-- -->Jargon<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">13,921</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/hemanth/functional-programming-jargon" rel="canonical">Jargon from the functional programming world in simple terms!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/getify/Functional-Light-JS" rel="canonical" class="aos_no_underline">Functional <!-- -->Light <!-- -->Js<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">13,757</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/getify/Functional-Light-JS" rel="canonical">Pragmatic, balanced FP in JavaScript. @FLJSBook on twitter.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/scala/scala" rel="canonical" class="aos_no_underline">Scala<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">13,089</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/scala/scala" rel="canonical">Scala 2 compiler and standard library. For bugs, see scala/bug</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cyclejs/cyclejs" rel="canonical" class="aos_no_underline">Cyclejs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">9,798</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cyclejs/cyclejs" rel="canonical">A functional and reactive JavaScript framework for predictable code</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ornicar/lila" rel="canonical" class="aos_no_underline">Lila<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">8,067</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ornicar/lila" rel="canonical">♞ lichess.org: the forever free, adless and open source chess server ♞</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/hmemcpy/milewski-ctfp-pdf" rel="canonical" class="aos_no_underline">Milewski <!-- -->Ctfp <!-- -->Pdf<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">8,046</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/hmemcpy/milewski-ctfp-pdf" rel="canonical">Bartosz Milewski&#x27;s &#x27;Category Theory for Programmers&#x27; unofficial PDF and LaTeX source</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/DeathKing/Learning-SICP" rel="canonical" class="aos_no_underline">Learning <!-- -->Sicp<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">7,890</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/DeathKing/Learning-SICP" rel="canonical">MIT视频公开课《计算机程序的构造和解释》中文化项目及课程学习资料搜集。</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kickstarter/ios-oss" rel="canonical" class="aos_no_underline">Ios <!-- -->Oss<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">7,548</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kickstarter/ios-oss" rel="canonical">Kickstarter for iOS. Bring new ideas to life, anywhere.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/alibaba/fish-redux" rel="canonical" class="aos_no_underline">Fish <!-- -->Redux<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">6,918</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/alibaba/fish-redux" rel="canonical">An assembled flutter application framework.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kbrsh/moon" rel="canonical" class="aos_no_underline">Moon<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">6,033</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kbrsh/moon" rel="canonical">🌙 The minimal &amp; fast library for functional user interfaces</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kickstarter/android-oss" rel="canonical" class="aos_no_underline">Android <!-- -->Oss<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">5,510</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kickstarter/android-oss" rel="canonical">Kickstarter for Android. Bring new ideas to life, anywhere.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gcanti/fp-ts" rel="canonical" class="aos_no_underline">Fp <!-- -->Ts<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">5,355</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gcanti/fp-ts" rel="canonical">Functional programming in TypeScript</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/niieani/bash-oo-framework" rel="canonical" class="aos_no_underline">Bash <!-- -->Oo <!-- -->Framework<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">5,090</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/niieani/bash-oo-framework" rel="canonical">Bash Infinity is a modern boilerplate / framework / standard library for bash</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/scalaz/scalaz" rel="canonical" class="aos_no_underline">Scalaz<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,420</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/scalaz/scalaz" rel="canonical">Principled Functional Programming in Scala</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/steshaw/plt" rel="canonical" class="aos_no_underline">Plt<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,363</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/steshaw/plt" rel="canonical">λΠ Programming Language Theory</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/vavr-io/vavr" rel="canonical" class="aos_no_underline">Vavr<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,196</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/vavr-io/vavr" rel="canonical">VAVR (formerly called Javaslang) is a non-commercial, non-profit object-functional library that runs with Java 8+. It aims to reduce the lines of code and increase code quality.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/arrow-kt/arrow" rel="canonical" class="aos_no_underline">Arrow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,053</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/arrow-kt/arrow" rel="canonical">Λrrow - Functional companion to Kotlin&#x27;s Standard Library</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/apache/groovy" rel="canonical" class="aos_no_underline">Groovy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,984</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/apache/groovy" rel="canonical">Apache Groovy: A powerful multi-faceted programming language for the JVM platform</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/NixOS/nix" rel="canonical" class="aos_no_underline">Nix<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,896</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/NixOS/nix" rel="canonical">Nix, the purely functional package manager</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/carp-lang/Carp" rel="canonical" class="aos_no_underline">Carp<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,739</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/carp-lang/Carp" rel="canonical">A statically typed lisp, without a GC, for real-time applications.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/louthy/language-ext" rel="canonical" class="aos_no_underline">Language <!-- -->Ext<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,382</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/louthy/language-ext" rel="canonical">C# functional language extensions - a base class library for functional programming</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/typelift/Swiftz" rel="canonical" class="aos_no_underline">Swiftz<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,319</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/typelift/Swiftz" rel="canonical">Functional programming in Swift</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/milessabin/shapeless" rel="canonical" class="aos_no_underline">Shapeless<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,111</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/milessabin/shapeless" rel="canonical">Generic programming for Scala</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/evhub/coconut" rel="canonical" class="aos_no_underline">Coconut<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,084</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/evhub/coconut" rel="canonical">Simple, elegant, Pythonic functional programming.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/android10/Android-CleanArchitecture-Kotlin" rel="canonical" class="aos_no_underline">Android <!-- -->Cleanarchitecture <!-- -->Kotlin<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,958</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/android10/Android-CleanArchitecture-Kotlin" rel="canonical">This is a movies sample app in Kotlin, which is part of a serie of blog posts I have written about architecting android application using different approaches.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sdiehl/write-you-a-haskell" rel="canonical" class="aos_no_underline">Write <!-- -->You <!-- -->A <!-- -->Haskell<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,896</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sdiehl/write-you-a-haskell" rel="canonical">Building a modern functional compiler from first principles. (http://dev.stephendiehl.com/fun/)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/zio/zio" rel="canonical" class="aos_no_underline">Zio<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,627</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/zio/zio" rel="canonical">ZIO — A type-safe, composable library for async and concurrent programming in Scala</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tallesl/Rich-Hickey-fanclub" rel="canonical" class="aos_no_underline">Rich <!-- -->Hickey <!-- -->Fanclub<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,611</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tallesl/Rich-Hickey-fanclub" rel="canonical">&quot;every time I watch one of his talks I feel like someone has gone in and organized my brain&quot;</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/dotnet/fsharp" rel="canonical" class="aos_no_underline">Fsharp<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,565</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/dotnet/fsharp" rel="canonical">The F# compiler, F# core library, F# language service, and F# tooling integration for Visual Studio</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/typelead/eta" rel="canonical" class="aos_no_underline">Eta<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,453</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/typelead/eta" rel="canonical">The Eta Programming Language, a dialect of Haskell on the JVM</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Suor/funcy" rel="canonical" class="aos_no_underline">Funcy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,429</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Suor/funcy" rel="canonical">A fancy and practical functional tools</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/scala-exercises/scala-exercises" rel="canonical" class="aos_no_underline">Scala <!-- -->Exercises<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,283</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/scala-exercises/scala-exercises" rel="canonical">The easy way to learn Scala.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/explosion/thinc" rel="canonical" class="aos_no_underline">Thinc<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,148</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/explosion/thinc" rel="canonical">🔮 A refreshing functional take on deep learning, compatible with your favorite libraries</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/hybridsjs/hybrids" rel="canonical" class="aos_no_underline">Hybrids<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,087</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/hybridsjs/hybrids" rel="canonical">The simplest way to create web components from plain objects and pure functions! 💯</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/fluture-js/Fluture" rel="canonical" class="aos_no_underline">Fluture<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,063</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/fluture-js/Fluture" rel="canonical">🦋 Fantasy Land compliant (monadic) alternative to Promises</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sdiehl/wiwinwlh" rel="canonical" class="aos_no_underline">Wiwinwlh<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,005</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sdiehl/wiwinwlh" rel="canonical">What I Wish I Knew When Learning Haskell</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/KuroLabs/stegcloak" rel="canonical" class="aos_no_underline">Stegcloak<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,998</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/KuroLabs/stegcloak" rel="canonical">Hide secrets with invisible characters in plain text securely using passwords 🧙🏻‍♂️⭐</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/llh911001/mostly-adequate-guide-chinese" rel="canonical" class="aos_no_underline">Mostly <!-- -->Adequate <!-- -->Guide <!-- -->Chinese<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,921</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/llh911001/mostly-adequate-guide-chinese" rel="canonical">函数式编程指北中文版</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/typelevel/fs2" rel="canonical" class="aos_no_underline">Fs2<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,784</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/typelevel/fs2" rel="canonical">Compositional, streaming I/O library for Scala</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/EntilZha/PyFunctional" rel="canonical" class="aos_no_underline">Pyfunctional<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,761</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/EntilZha/PyFunctional" rel="canonical">Python library for creating data pipelines with chain functional programming</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tpolecat/doobie" rel="canonical" class="aos_no_underline">Doobie<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,760</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tpolecat/doobie" rel="canonical">Functional JDBC layer for Scala.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/monix/monix" rel="canonical" class="aos_no_underline">Monix<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,743</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/monix/monix" rel="canonical">Asynchronous, Reactive Programming for Scala and Scala.js.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kefirjs/kefir" rel="canonical" class="aos_no_underline">Kefir<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,713</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kefirjs/kefir" rel="canonical">A Reactive Programming library for JavaScript</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/marblejs/marble" rel="canonical" class="aos_no_underline">Marble<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,685</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/marblejs/marble" rel="canonical">Marble.js - functional reactive Node.js framework for building server-side applications, based on TypeScript and RxJS.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/z-pattern-matching/z" rel="canonical" class="aos_no_underline">Z<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,639</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/z-pattern-matching/z" rel="canonical">Pattern Matching for Javascript</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/funkia/list" rel="canonical" class="aos_no_underline">List<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,569</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/funkia/list" rel="canonical">🐆 An immutable list with unmatched performance and a comprehensive functional API.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/aNNiMON/Lightweight-Stream-API" rel="canonical" class="aos_no_underline">Lightweight <!-- -->Stream <!-- -->Api<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,557</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/aNNiMON/Lightweight-Stream-API" rel="canonical">Stream API from Java 8 rewritten on iterators for Java 7 and below</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/nerevu/riko" rel="canonical" class="aos_no_underline">Riko<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,550</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/nerevu/riko" rel="canonical">A Python stream processing engine modeled after Yahoo! Pipes</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/grain-lang/grain" rel="canonical" class="aos_no_underline">Grain<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,546</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/grain-lang/grain" rel="canonical">The Grain compiler toolchain and CLI. Home of the modern web staple. 🌾</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/dry-python/returns" rel="canonical" class="aos_no_underline">Returns<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,534</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/dry-python/returns" rel="canonical">Make your functions return something meaningful, typed, and safe!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/luafun/luafun" rel="canonical" class="aos_no_underline">Luafun<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,531</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/luafun/luafun" rel="canonical">Lua Fun is a high-performance functional programming library for Lua designed with LuaJIT&#x27;s trace compiler in mind.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Dobiasd/articles" rel="canonical" class="aos_no_underline">Articles<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,480</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Dobiasd/articles" rel="canonical">thoughts on programming</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sfermigier/awesome-functional-python" rel="canonical" class="aos_no_underline">Awesome <!-- -->Functional <!-- -->Python<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,478</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sfermigier/awesome-functional-python" rel="canonical">A curated list of awesome things related to functional programming in Python.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sharkdp/cube-composer" rel="canonical" class="aos_no_underline">Cube <!-- -->Composer<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,471</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sharkdp/cube-composer" rel="canonical">A puzzle game inspired by functional programming</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/moonad/Formality" rel="canonical" class="aos_no_underline">Formality<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,431</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/moonad/Formality" rel="canonical">A modern proof language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/japgolly/scalajs-react" rel="canonical" class="aos_no_underline">Scalajs <!-- -->React<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,422</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/japgolly/scalajs-react" rel="canonical">Facebook&#x27;s React on Scala.JS</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/functionaljava/functionaljava" rel="canonical" class="aos_no_underline">Functionaljava<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,412</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/functionaljava/functionaljava" rel="canonical">Functional programming in Java</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/vkostyukov/scalacaster" rel="canonical" class="aos_no_underline">Scalacaster<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,341</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/vkostyukov/scalacaster" rel="canonical">Purely Functional Algorithms and Data Structures in Scala</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/optics-dev/Monocle" rel="canonical" class="aos_no_underline">Monocle<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,319</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/optics-dev/Monocle" rel="canonical">Optics library for Scala</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/grame-cncm/faust" rel="canonical" class="aos_no_underline">Faust<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,318</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/grame-cncm/faust" rel="canonical">Functional programming language for signal processing and sound synthesis</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Hitomis/FunGameRefresh" rel="canonical" class="aos_no_underline">Fungamerefresh<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,309</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Hitomis/FunGameRefresh" rel="canonical">好玩的下拉刷新控件，让我们一起来回味童年</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Dobiasd/FunctionalPlus" rel="canonical" class="aos_no_underline">Functionalplus<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,215</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Dobiasd/FunctionalPlus" rel="canonical">Functional Programming Library for C++. Write concise and readable C++ code.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/LuxLang/lux" rel="canonical" class="aos_no_underline">Lux<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,201</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/LuxLang/lux" rel="canonical">The Lux Programming Language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/joshburgess/not-awesome-es6-classes" rel="canonical" class="aos_no_underline">Not <!-- -->Awesome <!-- -->Es6 <!-- -->Classes<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,185</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/joshburgess/not-awesome-es6-classes" rel="canonical">A curated list of resources on why ES6 (aka ES2015) classes are NOT awesome</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/aol/cyclops" rel="canonical" class="aos_no_underline">Cyclops<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,169</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/aol/cyclops" rel="canonical">An advanced, but easy to use, platform for writing functional applications in Java 8.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/albrow/fo" rel="canonical" class="aos_no_underline">Fo<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,154</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/albrow/fo" rel="canonical">An experimental language which adds functional programming features to Go.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/google/codeworld" rel="canonical" class="aos_no_underline">Codeworld<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,134</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/google/codeworld" rel="canonical">Educational computer programming environment using Haskell</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tpolecat/skunk" rel="canonical" class="aos_no_underline">Skunk<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,056</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tpolecat/skunk" rel="canonical">A data access library for Scala + Postgres.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/selfrefactor/rambda" rel="canonical" class="aos_no_underline">Rambda<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,024</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/selfrefactor/rambda" rel="canonical">Faster and smaller alternative to Ramda</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/MostlyAdequate/mostly-adequate-guide-ru" rel="canonical" class="aos_no_underline">Mostly <!-- -->Adequate <!-- -->Guide <!-- -->Ru<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,000</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/MostlyAdequate/mostly-adequate-guide-ru" rel="canonical">Mostly adequate guide to FP (in javascript, translated to russian)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/APIs-guru/graphql-lodash" rel="canonical" class="aos_no_underline">Graphql <!-- -->Lodash<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">978</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/APIs-guru/graphql-lodash" rel="canonical">🛠 Data manipulation for GraphQL queries with lodash syntax</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pointfreeco/swift-overture" rel="canonical" class="aos_no_underline">Swift <!-- -->Overture<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">951</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pointfreeco/swift-overture" rel="canonical">🎼 A library for function composition.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sharkdp/shell-functools" rel="canonical" class="aos_no_underline">Shell <!-- -->Functools<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">946</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sharkdp/shell-functools" rel="canonical">Functional programming tools for the shell</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tidyverse/purrr" rel="canonical" class="aos_no_underline">Purrr<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">940</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tidyverse/purrr" rel="canonical">A functional programming toolkit for R</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/izdi/elm-cheat-sheet" rel="canonical" class="aos_no_underline">Elm <!-- -->Cheat <!-- -->Sheet<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">924</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/izdi/elm-cheat-sheet" rel="canonical">An overview of Elm syntax and features</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/fahad19/proppy" rel="canonical" class="aos_no_underline">Proppy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">919</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/fahad19/proppy" rel="canonical">Functional props composition for UI components (React.js &amp; Vue.js)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/MarioAriasC/funKTionale" rel="canonical" class="aos_no_underline">Funktionale<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">875</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/MarioAriasC/funKTionale" rel="canonical">Functional constructs for Kotlin</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/awalterschulze/goderive" rel="canonical" class="aos_no_underline">Goderive<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">840</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/awalterschulze/goderive" rel="canonical">Code Generation for Functional Programming, Concurrency and Generics in Golang</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ergonomica/ergonomica" rel="canonical" class="aos_no_underline">Ergonomica<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">818</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ergonomica/ergonomica" rel="canonical">🖥️ a cross-platform modern shell.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/grin-compiler/grin" rel="canonical" class="aos_no_underline">Grin<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">810</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/grin-compiler/grin" rel="canonical">GRIN is a compiler back-end for lazy and strict functional languages with whole program optimization support.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gfngfn/SATySFi" rel="canonical" class="aos_no_underline">Satysfi<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">795</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gfngfn/SATySFi" rel="canonical">A statically-typed, functional typesetting system</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gigobyte/purify" rel="canonical" class="aos_no_underline">Purify<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">793</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gigobyte/purify" rel="canonical">Functional programming library for TypeScript - https://gigobyte.github.io/purify/</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/egison/egison" rel="canonical" class="aos_no_underline">Egison<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">786</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/egison/egison" rel="canonical">The Egison Programming Language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lettier/gifcurry" rel="canonical" class="aos_no_underline">Gifcurry<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">786</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lettier/gifcurry" rel="canonical">😎 The open-source, Haskell-built video editor for GIF makers.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pointfreeco/pointfreeco" rel="canonical" class="aos_no_underline">Pointfreeco<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">753</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pointfreeco/pointfreeco" rel="canonical">🎬 The source for www.pointfree.co, a video series on functional programming and the Swift programming language.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ThoughtWorksInc/DeepLearning.scala" rel="canonical" class="aos_no_underline">Deeplearning.scala<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">747</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ThoughtWorksInc/DeepLearning.scala" rel="canonical">A simple library for creating complex neural networks</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/JasonShin/fp-core.rs" rel="canonical" class="aos_no_underline">Fp <!-- -->Core.rs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">747</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/JasonShin/fp-core.rs" rel="canonical">A library for functional programming in Rust</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/palatable/lambda" rel="canonical" class="aos_no_underline">Lambda<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">724</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/palatable/lambda" rel="canonical">Functional patterns for Java</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/typelevel/frameless" rel="canonical" class="aos_no_underline">Frameless<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">700</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/typelevel/frameless" rel="canonical">Expressive types for Spark.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ring-lang/ring" rel="canonical" class="aos_no_underline">Ring<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">696</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ring-lang/ring" rel="canonical">Innovative and practical general-purpose multi-paradigm language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/fantasyland/static-land" rel="canonical" class="aos_no_underline">Static <!-- -->Land<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">691</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/fantasyland/static-land" rel="canonical">Specification for common algebraic structures in JavaScript based on Fantasy Land</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/nlkl/Optional" rel="canonical" class="aos_no_underline">Optional<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">679</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/nlkl/Optional" rel="canonical">A robust option type for C#</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/MLton/mlton" rel="canonical" class="aos_no_underline">Mlton<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">660</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/MLton/mlton" rel="canonical">The MLton repository</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/softwaremill/quicklens" rel="canonical" class="aos_no_underline">Quicklens<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">635</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/softwaremill/quicklens" rel="canonical">Modify deeply nested case class fields</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gcanti/monocle-ts" rel="canonical" class="aos_no_underline">Monocle <!-- -->Ts<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">629</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gcanti/monocle-ts" rel="canonical">Functional optics: a (partial) porting of Scala monocle</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/frees-io/freestyle" rel="canonical" class="aos_no_underline">Freestyle<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">625</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/frees-io/freestyle" rel="canonical">A cohesive &amp; pragmatic framework of FP centric Scala libraries</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/rgleichman/glance" rel="canonical" class="aos_no_underline">Glance<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">613</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/rgleichman/glance" rel="canonical">A visual Haskell</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/oleg-py/better-monadic-for" rel="canonical" class="aos_no_underline">Better <!-- -->Monadic <!-- -->For<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">609</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/oleg-py/better-monadic-for" rel="canonical">Desugaring scala `for` without implicit `withFilter`s</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/felix-lang/felix" rel="canonical" class="aos_no_underline">Felix<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">608</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/felix-lang/felix" rel="canonical">The Felix Programming Language</a></div></div><div><div><div class="aos_pagenavigator_container">1<!-- -->-<!-- -->100<!-- --> of <!-- -->458<!-- --> <!-- -->projects</div><div class="aos_pagenavigator_links_container"><div><a href="https://awesomeopensource.com/projects/functional-programming?projectPage=2" title="Next 100 open source projects">Next &gt;</a></div></div></div><div class="show_on_phones twenty_px_padding_top"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div></div></div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-d3502ba6-7bca-4ac5-903d-ba01c2dd7277">{"selectedTopics":["functional-programming"],"currentUrl":"https://awesomeopensource.com/projects/functional-programming","projects":[{"id":null,"project_id":35133520,"name":"mostly-adequate-guide","owner_login":"MostlyAdequate","description":"Mostly adequate guide to FP (in javascript)","stargazers_count":19212},{"id":null,"project_id":31168578,"name":"functional-programming-jargon","owner_login":"hemanth","description":"Jargon from the functional programming world in simple terms!","stargazers_count":13921},{"id":null,"project_id":65866559,"name":"Functional-Light-JS","owner_login":"getify","description":"Pragmatic, balanced FP in JavaScript. @FLJSBook on twitter.","stargazers_count":13757},{"id":null,"project_id":2888818,"name":"scala","owner_login":"scala","description":"Scala 2 compiler and standard library. For bugs, see scala/bug","stargazers_count":13089},{"id":null,"project_id":26316966,"name":"cyclejs","owner_login":"cyclejs","description":"A functional and reactive JavaScript framework for predictable code","stargazers_count":9798},{"id":null,"project_id":3507455,"name":"lila","owner_login":"ornicar","description":"♞ lichess.org: the forever free, adless and open source chess server ♞","stargazers_count":8067},{"id":null,"project_id":102222927,"name":"milewski-ctfp-pdf","owner_login":"hmemcpy","description":"Bartosz Milewski's 'Category Theory for Programmers' unofficial PDF and LaTeX source","stargazers_count":8046},{"id":null,"project_id":6688319,"name":"Learning-SICP","owner_login":"DeathKing","description":"MIT视频公开课《计算机程序的构造和解释》中文化项目及课程学习资料搜集。","stargazers_count":7890},{"id":null,"project_id":75432091,"name":"ios-oss","owner_login":"kickstarter","description":"Kickstarter for iOS. Bring new ideas to life, anywhere.","stargazers_count":7548},{"id":null,"project_id":173885446,"name":"fish-redux","owner_login":"alibaba","description":"An assembled flutter application framework.","stargazers_count":6918},{"id":null,"project_id":63303358,"name":"moon","owner_login":"kbrsh","description":"🌙 The minimal \u0026 fast library for functional user interfaces","stargazers_count":6033},{"id":null,"project_id":76278501,"name":"android-oss","owner_login":"kickstarter","description":"Kickstarter for Android. Bring new ideas to life, anywhere.","stargazers_count":5510},{"id":null,"project_id":80039696,"name":"fp-ts","owner_login":"gcanti","description":"Functional programming in TypeScript","stargazers_count":5355},{"id":null,"project_id":28564207,"name":"bash-oo-framework","owner_login":"niieani","description":"Bash Infinity is a modern boilerplate / framework / standard library for bash","stargazers_count":5090},{"id":null,"project_id":474633,"name":"scalaz","owner_login":"scalaz","description":"Principled Functional Programming in Scala","stargazers_count":4420},{"id":null,"project_id":11778215,"name":"plt","owner_login":"steshaw","description":"λΠ Programming Language Theory","stargazers_count":4363},{"id":null,"project_id":16378879,"name":"vavr","owner_login":"vavr-io","description":"VAVR (formerly called Javaslang) is a non-commercial, non-profit object-functional library that runs with Java 8+. It aims to reduce the lines of code and increase code quality.","stargazers_count":4196},{"id":null,"project_id":86057409,"name":"arrow","owner_login":"arrow-kt","description":"Λrrow - Functional companion to Kotlin's Standard Library","stargazers_count":4053},{"id":null,"project_id":34039690,"name":"groovy","owner_login":"apache","description":"Apache Groovy: A powerful multi-faceted programming language for the JVM platform","stargazers_count":3984},{"id":null,"project_id":3386088,"name":"nix","owner_login":"NixOS","description":"Nix, the purely functional package manager","stargazers_count":3896},{"id":null,"project_id":49426320,"name":"Carp","owner_login":"carp-lang","description":"A statically typed lisp, without a GC, for real-time applications.","stargazers_count":3739},{"id":null,"project_id":26732453,"name":"language-ext","owner_login":"louthy","description":"C# functional language extensions - a base class library for functional programming","stargazers_count":3382},{"id":null,"project_id":20423545,"name":"Swiftz","owner_login":"typelift","description":"Functional programming in Swift","stargazers_count":3319},{"id":null,"project_id":3006066,"name":"shapeless","owner_login":"milessabin","description":"Generic programming for Scala","stargazers_count":3111},{"id":null,"project_id":24804430,"name":"coconut","owner_login":"evhub","description":"Simple, elegant, Pythonic functional programming.","stargazers_count":3084},{"id":null,"project_id":92510608,"name":"Android-CleanArchitecture-Kotlin","owner_login":"android10","description":"This is a movies sample app in Kotlin, which is part of a serie of blog posts I have written about architecting android application using different approaches.","stargazers_count":2958},{"id":null,"project_id":28814210,"name":"write-you-a-haskell","owner_login":"sdiehl","description":"Building a modern functional compiler from first principles. (http://dev.stephendiehl.com/fun/)","stargazers_count":2896},{"id":null,"project_id":134079884,"name":"zio","owner_login":"zio","description":"ZIO — A type-safe, composable library for async and concurrent programming in Scala","stargazers_count":2627},{"id":null,"project_id":44394992,"name":"Rich-Hickey-fanclub","owner_login":"tallesl","description":"\"every time I watch one of his talks I feel like someone has gone in and organized my brain\"","stargazers_count":2611},{"id":null,"project_id":29048891,"name":"fsharp","owner_login":"dotnet","description":"The F# compiler, F# core library, F# language service, and F# tooling integration for Visual Studio","stargazers_count":2565},{"id":null,"project_id":55689010,"name":"eta","owner_login":"typelead","description":"The Eta Programming Language, a dialect of Haskell on the JVM","stargazers_count":2453},{"id":null,"project_id":6198326,"name":"funcy","owner_login":"Suor","description":"A fancy and practical functional tools","stargazers_count":2429},{"id":null,"project_id":23613922,"name":"scala-exercises","owner_login":"scala-exercises","description":"The easy way to learn Scala.","stargazers_count":2283},{"id":null,"project_id":25311354,"name":"thinc","owner_login":"explosion","description":"🔮 A refreshing functional take on deep learning, compatible with your favorite libraries","stargazers_count":2148},{"id":null,"project_id":75767776,"name":"hybrids","owner_login":"hybridsjs","description":"The simplest way to create web components from plain objects and pure functions! 💯","stargazers_count":2087},{"id":null,"project_id":53253439,"name":"Fluture","owner_login":"fluture-js","description":"🦋 Fantasy Land compliant (monadic) alternative to Promises","stargazers_count":2063},{"id":null,"project_id":18277389,"name":"wiwinwlh","owner_login":"sdiehl","description":"What I Wish I Knew When Learning Haskell","stargazers_count":2005},{"id":null,"project_id":259692009,"name":"stegcloak","owner_login":"KuroLabs","description":"Hide secrets with invisible characters in plain text securely using passwords 🧙🏻‍♂️⭐","stargazers_count":1998},{"id":null,"project_id":39205545,"name":"mostly-adequate-guide-chinese","owner_login":"llh911001","description":"函数式编程指北中文版","stargazers_count":1921},{"id":null,"project_id":8609125,"name":"fs2","owner_login":"typelevel","description":"Compositional, streaming I/O library for Scala","stargazers_count":1784},{"id":null,"project_id":30367893,"name":"PyFunctional","owner_login":"EntilZha","description":"Python library for creating data pipelines with chain functional programming","stargazers_count":1761},{"id":null,"project_id":14679065,"name":"doobie","owner_login":"tpolecat","description":"Functional JDBC layer for Scala.","stargazers_count":1760},{"id":null,"project_id":15673987,"name":"monix","owner_login":"monix","description":"Asynchronous, Reactive Programming for Scala and Scala.js.","stargazers_count":1743},{"id":null,"project_id":19428677,"name":"kefir","owner_login":"kefirjs","description":"A Reactive Programming library for JavaScript","stargazers_count":1713},{"id":null,"project_id":132704094,"name":"marble","owner_login":"marblejs","description":"Marble.js - functional reactive Node.js framework for building server-side applications, based on TypeScript and RxJS.","stargazers_count":1685},{"id":null,"project_id":41743960,"name":"z","owner_login":"z-pattern-matching","description":"Pattern Matching for Javascript","stargazers_count":1639},{"id":null,"project_id":68184811,"name":"list","owner_login":"funkia","description":"🐆 An immutable list with unmatched performance and a comprehensive functional API.","stargazers_count":1569},{"id":null,"project_id":28691699,"name":"Lightweight-Stream-API","owner_login":"aNNiMON","description":"Stream API from Java 8 rewritten on iterators for Java 7 and below","stargazers_count":1557},{"id":null,"project_id":60261863,"name":"riko","owner_login":"nerevu","description":"A Python stream processing engine modeled after Yahoo! Pipes","stargazers_count":1550},{"id":null,"project_id":87973266,"name":"grain","owner_login":"grain-lang","description":"The Grain compiler toolchain and CLI. Home of the modern web staple. 🌾","stargazers_count":1546},{"id":null,"project_id":167689891,"name":"returns","owner_login":"dry-python","description":"Make your functions return something meaningful, typed, and safe!","stargazers_count":1534},{"id":null,"project_id":14534744,"name":"luafun","owner_login":"luafun","description":"Lua Fun is a high-performance functional programming library for Lua designed with LuaJIT's trace compiler in mind.","stargazers_count":1531},{"id":null,"project_id":14185011,"name":"articles","owner_login":"Dobiasd","description":"thoughts on programming","stargazers_count":1480},{"id":null,"project_id":76450431,"name":"awesome-functional-python","owner_login":"sfermigier","description":"A curated list of awesome things related to functional programming in Python.","stargazers_count":1478},{"id":null,"project_id":31920956,"name":"cube-composer","owner_login":"sharkdp","description":"A puzzle game inspired by functional programming","stargazers_count":1471},{"id":null,"project_id":140790634,"name":"Formality","owner_login":"moonad","description":"A modern proof language","stargazers_count":1431},{"id":null,"project_id":21457951,"name":"scalajs-react","owner_login":"japgolly","description":"Facebook's React on Scala.JS","stargazers_count":1422},{"id":null,"project_id":1033614,"name":"functionaljava","owner_login":"functionaljava","description":"Functional programming in Java","stargazers_count":1412},{"id":null,"project_id":7326767,"name":"scalacaster","owner_login":"vkostyukov","description":"Purely Functional Algorithms and Data Structures in Scala","stargazers_count":1341},{"id":null,"project_id":16009986,"name":"Monocle","owner_login":"optics-dev","description":"Optics library for Scala","stargazers_count":1319},{"id":null,"project_id":72926839,"name":"faust","owner_login":"grame-cncm","description":"Functional programming language for signal processing and sound synthesis","stargazers_count":1318},{"id":null,"project_id":52857175,"name":"FunGameRefresh","owner_login":"Hitomis","description":"好玩的下拉刷新控件，让我们一起来回味童年","stargazers_count":1309},{"id":null,"project_id":46746797,"name":"FunctionalPlus","owner_login":"Dobiasd","description":"Functional Programming Library for C++. Write concise and readable C++ code.","stargazers_count":1215},{"id":null,"project_id":35055585,"name":"lux","owner_login":"LuxLang","description":"The Lux Programming Language","stargazers_count":1201},{"id":null,"project_id":43664720,"name":"not-awesome-es6-classes","owner_login":"joshburgess","description":"A curated list of resources on why ES6 (aka ES2015) classes are NOT awesome","stargazers_count":1185},{"id":null,"project_id":29557376,"name":"cyclops","owner_login":"aol","description":"An advanced, but easy to use, platform for writing functional applications in Java 8.","stargazers_count":1169},{"id":null,"project_id":120696128,"name":"fo","owner_login":"albrow","description":"An experimental language which adds functional programming features to Go.","stargazers_count":1154},{"id":null,"project_id":21016984,"name":"codeworld","owner_login":"google","description":"Educational computer programming environment using Haskell","stargazers_count":1134},{"id":null,"project_id":149721810,"name":"skunk","owner_login":"tpolecat","description":"A data access library for Scala + Postgres.","stargazers_count":1056},{"id":null,"project_id":79035508,"name":"rambda","owner_login":"selfrefactor","description":"Faster and smaller alternative to Ramda","stargazers_count":1024},{"id":null,"project_id":41765171,"name":"mostly-adequate-guide-ru","owner_login":"MostlyAdequate","description":"Mostly adequate guide to FP (in javascript, translated to russian)","stargazers_count":1000},{"id":null,"project_id":86464743,"name":"graphql-lodash","owner_login":"APIs-guru","description":"🛠 Data manipulation for GraphQL queries with lodash syntax","stargazers_count":978},{"id":null,"project_id":128791170,"name":"swift-overture","owner_login":"pointfreeco","description":"🎼 A library for function composition.","stargazers_count":951},{"id":null,"project_id":111244031,"name":"shell-functools","owner_login":"sharkdp","description":"Functional programming tools for the shell","stargazers_count":946},{"id":null,"project_id":27309729,"name":"purrr","owner_login":"tidyverse","description":"A functional programming toolkit for R","stargazers_count":940},{"id":null,"project_id":51261172,"name":"elm-cheat-sheet","owner_login":"izdi","description":"An overview of Elm syntax and features","stargazers_count":924},{"id":null,"project_id":134983981,"name":"proppy","owner_login":"fahad19","description":"Functional props composition for UI components (React.js \u0026 Vue.js)","stargazers_count":919},{"id":null,"project_id":9098277,"name":"funKTionale","owner_login":"MarioAriasC","description":"Functional constructs for Kotlin","stargazers_count":875},{"id":null,"project_id":81609715,"name":"goderive","owner_login":"awalterschulze","description":"Code Generation for Functional Programming, Concurrency and Generics in Golang","stargazers_count":840},{"id":null,"project_id":73187168,"name":"ergonomica","owner_login":"ergonomica","description":"🖥️ a cross-platform modern shell.","stargazers_count":818},{"id":null,"project_id":95253474,"name":"grin","owner_login":"grin-compiler","description":"GRIN is a compiler back-end for lazy and strict functional languages with whole program optimization support.","stargazers_count":810},{"id":null,"project_id":32509015,"name":"SATySFi","owner_login":"gfngfn","description":"A statically-typed, functional typesetting system","stargazers_count":795},{"id":null,"project_id":120522605,"name":"purify","owner_login":"gigobyte","description":"Functional programming library for TypeScript - https://gigobyte.github.io/purify/","stargazers_count":793},{"id":null,"project_id":8212790,"name":"egison","owner_login":"egison","description":"The Egison Programming Language","stargazers_count":786},{"id":null,"project_id":49551977,"name":"gifcurry","owner_login":"lettier","description":"😎 The open-source, Haskell-built video editor for GIF makers.","stargazers_count":786},{"id":null,"project_id":102958914,"name":"pointfreeco","owner_login":"pointfreeco","description":"🎬 The source for www.pointfree.co, a video series on functional programming and the Swift programming language.","stargazers_count":753},{"id":null,"project_id":74315945,"name":"DeepLearning.scala","owner_login":"ThoughtWorksInc","description":"A simple library for creating complex neural networks","stargazers_count":747},{"id":null,"project_id":189298148,"name":"fp-core.rs","owner_login":"JasonShin","description":"A library for functional programming in Rust","stargazers_count":747},{"id":null,"project_id":16262958,"name":"lambda","owner_login":"palatable","description":"Functional patterns for Java","stargazers_count":724},{"id":null,"project_id":33022955,"name":"frameless","owner_login":"typelevel","description":"Expressive types for Spark.","stargazers_count":700},{"id":null,"project_id":54633811,"name":"ring","owner_login":"ring-lang","description":"Innovative and practical general-purpose multi-paradigm language","stargazers_count":696},{"id":null,"project_id":53745720,"name":"static-land","owner_login":"fantasyland","description":"Specification for common algebraic structures in JavaScript based on Fantasy Land","stargazers_count":691},{"id":null,"project_id":27722798,"name":"Optional","owner_login":"nlkl","description":"A robust option type for C#","stargazers_count":679},{"id":null,"project_id":8658931,"name":"mlton","owner_login":"MLton","description":"The MLton repository","stargazers_count":660},{"id":null,"project_id":31462079,"name":"quicklens","owner_login":"softwaremill","description":"Modify deeply nested case class fields","stargazers_count":635},{"id":null,"project_id":81648352,"name":"monocle-ts","owner_login":"gcanti","description":"Functional optics: a (partial) porting of Scala monocle","stargazers_count":629},{"id":null,"project_id":71404763,"name":"freestyle","owner_login":"frees-io","description":"A cohesive \u0026 pragmatic framework of FP centric Scala libraries","stargazers_count":625},{"id":null,"project_id":49032954,"name":"glance","owner_login":"rgleichman","description":"A visual Haskell","stargazers_count":613},{"id":null,"project_id":127340088,"name":"better-monadic-for","owner_login":"oleg-py","description":"Desugaring scala `for` without implicit `withFilter`s","stargazers_count":609},{"id":null,"project_id":542504,"name":"felix","owner_login":"felix-lang","description":"The Felix Programming Language","stargazers_count":608}],"projectPage":1,"totalProjectsCount":458,"categoryTopics":[{"categoryName":"Software Development","topicName":"functional-programming"}],"pageTitle":"The Top 458 Functional Programming Open Source Projects","categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}]}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b675de10f041',m:'6d64685552fe4e21b145005c6770457ae455f06f-1610725410-1800-AettGbQ7VVP0JU8x4jgTW/5FBpui7ybmFD2klE7uJ7AMTSpnk5L+y8Br2JJwP5ffB9RKPLmghclI0rwAnP8Z6LzzTP8xQ6sanXtPiZZcK0l81zyN1xrv+gI7S3esutJaeKWlwL1MB3gXivi5kpyURado90c8iDiXoe/Hx/KeVtiT',s:[0xbd341c888e,0x7be7ab9c4e],}})();</script></body>
+</html>

@@ -53,7 +53,7 @@ Icons that follow Ant Design should have rounded corners and edges using a 72px 
 
 ### Visual Correction
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/VghPLyDUdFmjhGJlNxjV.png" alt="Correct example" description="For the intricate “JPG” lettering, an outline is added for readability">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/VghPLyDUdFmjhGJlNxjV.png" alt="Correct example" description="For the intricate “JPG" lettering, an outline is added for readability">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qnzloxRQmvHzHAhWWwCS.png" alt="Incorrect example" description="The text in the icon is crowded and hard to read">
 
 In certain special cases (for example, when the icon is too compact), adjustments to line width, outlines, or other subtle changes may be made to increase readability.

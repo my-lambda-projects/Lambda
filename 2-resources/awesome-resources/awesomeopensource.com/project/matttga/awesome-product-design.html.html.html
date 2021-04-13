@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":1,"applicationTime":154,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Awesome Product Design</title>
+<meta name="description" content="A collection of bookmarks, resources, articles for product designers.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/matttga/awesome-product-design">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "matttga/awesome-product-design",
+  "description": "A collection of bookmarks, resources, articles for product designers.",
+  "url": "https://awesomeopensource.com/project/matttga/awesome-product-design",
+  "sku": "project/matttga/awesome-product-design",
+  "mpn": "project/matttga/awesome-product-design",
+  "image": "https://github.com/matttga.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "matttga/awesome-product-design",
+    "logo": "https://github.com/matttga.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "1542"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="1QVzCr4avRsYv9oGoKW/K6tjQCC0msmAYEmwh5vyN/rdbhEB1jY0hqEM9dywJBovRBa3BPjKdvmawu0BFejagw==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/matttga/awesome-product-design","location":"/project/matttga/awesome-product-design","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/matttga/awesome-product-design","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-be13e063-05dd-48cf-a7a6-5e9151ddd29d"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Awesome <!-- -->Product <!-- -->Design</div><div class="aos_project_metadata_description">A collection of bookmarks, resources, articles for product designers.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,542</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content"></span><div class="aos_project_metadata_header"><a href="https://github.com/matttga/awesome-product-design" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/matttga/awesome-product-design" target="_blank">https://github.com/matttga/awesome-product-design</a></span><div class="aos_project_metadata_header"><a href="https://github.com/matttga/awesome-product-design/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/matttga/awesome-product-design/issues" target="_blank">6</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">3 months ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/awesome"><div style="display:block;text-decoration:none;padding-bottom:10px">awesome<span> (<!-- -->1,280<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/awesome-list"><div style="display:block;text-decoration:none;padding-bottom:10px">awesome-list<span> (<!-- -->1,198<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ui"><div style="display:block;text-decoration:none;padding-bottom:10px">ui<span> (<!-- -->960<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/iot"><div style="display:block;text-decoration:none;padding-bottom:10px">iot<span> (<!-- -->534<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/list"><div style="display:block;text-decoration:none;padding-bottom:10px">list<span> (<!-- -->362<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/design"><div style="display:block;text-decoration:none;padding-bottom:10px">design<span> (<!-- -->349<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tools"><div style="display:block;text-decoration:none;padding-bottom:10px">tools<span> (<!-- -->318<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/font"><div style="display:block;text-decoration:none;padding-bottom:10px">font<span> (<!-- -->241<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ux"><div style="display:block;text-decoration:none;padding-bottom:10px">ux<span> (<!-- -->130<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/stock"><div style="display:block;text-decoration:none;padding-bottom:10px">stock<span> (<!-- -->86<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/article"><div style="display:block;text-decoration:none;padding-bottom:10px">article<span> (<!-- -->76<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/bookmark"><div style="display:block;text-decoration:none;padding-bottom:10px">bookmark<span> (<!-- -->50<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="awesome-product-design-" class="anchor" href="#awesome-product-design-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Awesome Product Design <a href="https://awesome.re" rel="nofollow"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome" style="max-width:100%;"></a>
+</h1>
+<a href="https://en.wikipedia.org/wiki/Digital_product_design" rel="nofollow">
+  <img src="https://rawgit.com/teoga/product-design-bookmarks/master/images/pdb_img.svg" align="right" width="100" style="max-width:100%;">
+</a>
+<blockquote>
+<p>A collection of bookmarks, resources, articles for product designers.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Digital_product_design" rel="nofollow">Digital product design</a> is an iterative design process to solve a functional problem with a formal solution. A digital product designer identifies a real problem, offers the best possible solution, and launch it to a market that is showing demand for that particular solution.</p>
+<p>Feel free to <a href="https://github.com/matttga/awesome-product-design/blob/master/contributing.md" rel="nofollow">add something interesting</a> by pull request.</p>
+<h2>
+<a id="contents" class="anchor" href="#contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contents</h2>
+<ul>
+<li><a href="#research">Research</a></li>
+<li><a href="#ux">UX</a></li>
+<li><a href="#ui">UI</a></li>
+<li><a href="#visual">Visual</a></li>
+<li><a href="#prototype">Prototype</a></li>
+<li><a href="#accessibility">Accessibility</a></li>
+<li><a href="#writing">Writing</a></li>
+<li><a href="#data">Data</a></li>
+<li><a href="#iot">IoT</a></li>
+</ul>
+<h2>
+<a id="research" class="anchor" href="#research" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Research</h2>
+<h4>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h4>
+<h6>
+<a id="research-plan" class="anchor" href="#research-plan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Research Plan</h6>
+<ul>
+<li>
+<a href="https://www.smashingmagazine.com/2012/01/ux-research-plan-stakeholders-love/" rel="nofollow">Smashing Magazine</a> - The UX Research Plan That Stakeholders Love.</li>
+<li>
+<a href="https://www.nngroup.com/articles/pm-research-plan/" rel="nofollow">NN Group</a> - Project Management for User Research: The Plan.</li>
+<li>
+<a href="https://www.interaction-design.org/literature/article/a-one-page-user-research-plan" rel="nofollow">Interaction Design</a> - One Page User Research Plan.</li>
+</ul>
+<h6>
+<a id="user-interview" class="anchor" href="#user-interview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User Interview</h6>
+<ul>
+<li>
+<a href="https://www.nngroup.com/articles/interviewing-users/" rel="nofollow">NN Group</a> - Despite many weaknesses, interviews are a valuable method for exploratory user research.</li>
+<li>
+<a href="https://uxdesign.cc/how-to-get-the-most-out-of-user-interviews-c5d0cd4499b5" rel="nofollow">UXDesign.cc</a> - How to Get the Most Out of User Interviews.</li>
+</ul>
+<h6>
+<a id="stakeholder-interviews" class="anchor" href="#stakeholder-interviews" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stakeholder Interviews</h6>
+<ul>
+<li>
+<a href="http://boxesandarrows.com/a-stakeholder-interview-checklist/" rel="nofollow">Boxes and Arrows</a> - Cheat Sheet For Interviewing Stakeholders.</li>
+<li>
+<a href="https://www.uxapprentice.com/resources/stakeholder-interview-template/" rel="nofollow">UX Apprentice</a> - Stakeholder Interview Template.</li>
+<li>
+<a href="https://www.interaction-design.org/literature/article/preparing-for-ux-stakeholder-interviews" rel="nofollow">Interaction Design</a> - Preparing for UX Stakeholder Interviews.</li>
+</ul>
+<h6>
+<a id="research-synthesis" class="anchor" href="#research-synthesis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Research Synthesis</h6>
+<ul>
+<li>
+<a href="http://uxmovement.com/thinking/how-to-turn-user-research-into-usable-data/" rel="nofollow">UX Movement</a> - How to Turn User Research into Usable Data.</li>
+<li>
+<a href="https://www.slideshare.net/HJKwon3/design-research-synthesis" rel="nofollow">SlideShare</a> - Design Research Synthesis.</li>
+<li>
+<a href="https://medium.com/product-labs/using-trello-for-user-research-synthesis-fb1abdfc7c4b" rel="nofollow">Medium</a> - Using Trello for User Research Synthesis.</li>
+<li>
+<a href="https://webdesign.tutsplus.com/tutorials/how-to-prepare-and-use-an-affinity-diagram--cms-28388" rel="nofollow">Tuts+</a> - How to Prepare and Use an Affinity Diagram.</li>
+<li>
+<a href="https://medium.com/learning-ux/affinity-diagrams-tips-and-tricks-6225e8c1f0df" rel="nofollow">Medium</a> - Affinity Diagrams: Tips and Tricks.</li>
+</ul>
+<h6>
+<a id="competitive-analysis" class="anchor" href="#competitive-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Competitive Analysis</h6>
+<ul>
+<li>
+<a href="https://xtensio.com/how-to-create-a-competitive-analysis/" rel="nofollow">Xtensio</a> - How To: Create A Competitive Analysis.</li>
+<li>
+<a href="https://blog.hootsuite.com/the-ultimate-competitive-analysis-template/" rel="nofollow">Hootsuite</a> - Competitive Analysis Template To Help You Outsmart The Competition.</li>
+</ul>
+<h6>
+<a id="job-to-be-done" class="anchor" href="#job-to-be-done" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Job to be Done</h6>
+<ul>
+<li>
+<a href="https://blog.intercom.com/using-job-stories-design-features-ui-ux/" rel="nofollow">Intercom</a> - Designing features using Job Stories.</li>
+<li>
+<a href="https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27" rel="nofollow">JTBD</a> - Replacing The User Story With The Job Story.</li>
+</ul>
+<h6>
+<a id="personas" class="anchor" href="#personas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Personas</h6>
+<ul>
+<li>
+<a href="https://www.usability.gov/how-to-and-tools/methods/personas.html" rel="nofollow">Usability.Gov</a> - The purpose of personas is to create reliable and realistic representations of your key audience.</li>
+<li>
+<a href="https://uxmag.com/articles/personas-the-foundation-of-a-great-user-experience" rel="nofollow">UX Mag</a> - Personas: The Foundation of a Great User Experience.</li>
+<li>
+<a href="https://webdesign.tutsplus.com/articles/defining-and-applying-personas-to-ux-design--webdesign-7561" rel="nofollow">Tuts+</a> - Defining And Applying Personas to UX Design.</li>
+</ul>
+<h6>
+<a id="empathy-map" class="anchor" href="#empathy-map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Empathy Map</h6>
+<ul>
+<li>
+<a href="https://www.uxpin.com/studio/blog/the-practical-guide-to-empathy-maps-creating-a-10-minute-persona/" rel="nofollow">UX Pin</a> - The Practical Guide to Empathy Maps: 10-Minute User Personas.</li>
+<li>
+<a href="https://boagworld.com/usability/adapting-empathy-maps-for-ux-design/" rel="nofollow">Boagworld</a> - Adapting empathy maps for UX design.</li>
+</ul>
+<h6>
+<a id="storyboard" class="anchor" href="#storyboard" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Storyboard</h6>
+<ul>
+<li>
+<a href="http://uxmag.com/articles/storyboarding-in-the-software-design-process" rel="nofollow">UX Magazine</a> - Storyboarding in the Software Design Process.</li>
+<li>
+<a href="https://uxplanet.org/storyboarding-in-ux-design-b9d2e18e5fab" rel="nofollow">Medium</a> - Storyboarding in UX Design.</li>
+<li>
+<a href="http://johnnyholland.org/2011/10/storyboarding-ux-part-1-an-introduction/" rel="nofollow">Johnny Holland</a> - Storyboarding &amp; UX.</li>
+<li>
+<a href="https://www.nngroup.com/articles/customer-journey-mapping/" rel="nofollow">NN Group</a> - When and How to Create Customer Journey Maps.</li>
+<li>
+<a href="http://www.ux-lady.com/experience-maps-user-journey-and-more-exp-map-layout/" rel="nofollow">UX Lady</a> - Experience maps, user journeys and more.</li>
+<li>
+<a href="https://www.smashingmagazine.com/2015/01/all-about-customer-journey-mapping/" rel="nofollow">Smashing Magazine</a> - All You Need To Know About Customer Journey Mapping.</li>
+<li>
+<a href="https://medium.com/@wnialloconnor/how-to-build-an-experience-map-5e55b7ee4f32" rel="nofollow">Medium</a> - How to build an experience map.</li>
+</ul>
+<h4>
+<a id="articles" class="anchor" href="#articles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles</h4>
+<ul>
+<li>
+<a href="https://www.smashingmagazine.com/2013/04/rainbow-spreadsheet-collaborative-ux-research-tool/" rel="nofollow">Smashing Magazine</a> - The Rainbow Spreadsheet: A Collaborative Lean UX Research Tool.</li>
+<li>
+<a href="http://coglode.com/" rel="nofollow">Coglode</a> - Bite-size behavioral research analysis.</li>
+</ul>
+<h4>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h4>
+<ul>
+<li>
+<a href="https://www.usertesting.com/" rel="nofollow">User Testing</a> - Unlock customer insights and increase your revenue.</li>
+<li>
+<a href="https://www.optimalworkshop.com/" rel="nofollow">Optimal Workshop</a> - User Research Platform that helps you and your team make design decisions with confidence.</li>
+<li>
+<a href="https://www.sitepoint.com/how-do-you-measure-the-success-or-failure-of-your-ux-design/" rel="nofollow">Measure Success</a> - How Do You Measure the Success (or Failure) - of Your UX Design?.</li>
+<li>
+<a href="http://www.dtelepathy.com/ux-metrics/#intro" rel="nofollow">UX Metrix</a> - How to Choose the Right UX Metrics for Your Product.</li>
+<li>
+<a href="https://lookback.io/" rel="nofollow">Lookback</a> - Simple, powerful user research.</li>
+<li>
+<a href="https://www.appsee.com/" rel="nofollow">Appsee</a> - Appsee's app analytics platform provides an in-depth analysis of your users' behavior.</li>
+<li>
+<a href="https://www.fullstory.com/" rel="nofollow">Full Story</a> - What do you want to know about your customer experience?.</li>
+<li>
+<a href="http://www.desinion.com/" rel="nofollow">Desinion</a> - Make smart and informed design decisions for your company, or your client's company.</li>
+<li>
+<a href="https://www.surveymonkey.com/" rel="nofollow">Survey Monkey</a> - Turn instincts into insights.</li>
+<li>
+<a href="https://www.google.com/analytics/surveys/#?modal_active=none" rel="nofollow">Google Surveys</a> - Make better decisions with market research.</li>
+<li>
+<a href="https://www.typeform.com/" rel="nofollow">Typefrom</a> - Goodbye forms. Hello typeforms.</li>
+<li>
+<a href="https://ethn.io/" rel="nofollow">Etnio</a> - Intercept Real People for User Research.</li>
+<li>
+<a href="https://calendly.com/" rel="nofollow">Calendly</a> - Calendly helps you schedule meetings without the back-and-forth emails.</li>
+</ul>
+<h2>
+<a id="ux" class="anchor" href="#ux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UX</h2>
+<h4>
+<a id="guidelines" class="anchor" href="#guidelines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Guidelines</h4>
+<ul>
+<li>
+<a href="http://www.theuxbookmark.com/" rel="nofollow">The UX Bookmark</a> - Collection of the best UX websites from across the globe.</li>
+<li>
+<a href="https://www.gov.uk/service-manual/" rel="nofollow">Gov.Uk</a> - Helping government teams create and run great digital services.</li>
+<li>
+<a href="https://methods.18f.gov/" rel="nofollow">Methods 18F</a> - Collection of tools to bring human-centered design into your project.</li>
+<li>
+<a href="https://guides.18f.gov/" rel="nofollow">Guides 18F</a> - 18F Guides is the repository for best practices across our teams.</li>
+<li>
+<a href="https://www.usability.gov/" rel="nofollow">Usability.Gov</a> - Improving the User Experience.</li>
+<li>
+<a href="http://medialabamsterdam.com/toolkit/" rel="nofollow">Medial Lab Amsterdam</a> - Design method toolkit.</li>
+<li>
+<a href="http://www.designkit.org/methods" rel="nofollow">Design Kit IDEO</a> - Step-by-step guide to unleashing your creativity.</li>
+<li>
+<a href="http://gamestorming.com/" rel="nofollow">Gamestorming</a> - Gamestorming is a set of co-creation tools used by innovators around the world.</li>
+</ul>
+<h4>
+<a id="articles-1" class="anchor" href="#articles-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles</h4>
+<ul>
+<li>
+<a href="http://uxmag.com/" rel="nofollow">UX Magazine</a> - UX Magazine is a free community resource exploring all facets of experience design.</li>
+<li>
+<a href="http://www.uxbooth.com/" rel="nofollow">UX Both</a> - The UX Booth is a publication by and for the user experience community.</li>
+<li>
+<a href="http://uxmastery.com/" rel="nofollow">UX Mastery</a> - We help user experience professionals get started and get better.</li>
+<li>
+<a href="http://uxmyths.com/" rel="nofollow">UX Myths</a> - Build your product based on evidence, not false beliefs.</li>
+<li>
+<a href="https://alistapart.com/" rel="nofollow">A List Apart</a> - List Apart explores the design, development, and meaning of web content.</li>
+<li>
+<a href="http://52weeksofux.com/" rel="nofollow">52 Weeks of UX</a> - Discourse on the process of designing for real people.</li>
+<li>
+<a href="https://www.uxpin.com/studio/" rel="nofollow">UX Pin</a> - Guides, articles and ebooks that explore all facets of UX Design.</li>
+<li>
+<a href="http://theixdlibrary.com/" rel="nofollow">The IxD Library</a> - Collection of materials related to Interaction Design.</li>
+<li>
+<a href="https://www.lukew.com/ff" rel="nofollow">LukeW</a> - Publications on the critical details and big picture behind digital product design.</li>
+<li>
+<a href="https://www.nngroup.com/articles/" rel="nofollow">NN Group</a> - Evidence-Based User Experience Research, Training, and Consulting.</li>
+<li>
+<a href="https://www.cooper.com/journal/" rel="nofollow">Cooper</a> - Blog about design, business, and the world we live in.</li>
+<li>
+<a href="http://www.informationdesign.org/" rel="nofollow">Information Design</a> - InfoDesign Hand-picked since 1997.</li>
+<li>
+<a href="https://blog.intercom.com/" rel="nofollow">Intercom</a> - Design, Customer Success, &amp; Startup Blog.</li>
+<li>
+<a href="https://uxdesign.cc/" rel="nofollow">UXDesign.cc</a> - User Experience, Usability, Product Design. Follow the UXDesign.cc.</li>
+<li>
+<a href="http://uxreactions.com/" rel="nofollow">UX Reactions</a> - Fun stuff.</li>
+</ul>
+<h4>
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h4>
+<ul>
+<li>
+<a href="http://uxrecipe.github.io/" rel="nofollow">UX Recipe</a> - This project is a personal manifesto against the objectification of the term "UX".</li>
+<li>
+<a href="http://uxchecklist.github.io/" rel="nofollow">UX Checklist</a> - UX Project Checklist.</li>
+<li>
+<a href="https://ux.stackexchange.com/" rel="nofollow">UX Stackexchange</a> - UX Stack Exchange is a question and answer site.</li>
+</ul>
+<h2>
+<a id="ui" class="anchor" href="#ui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UI</h2>
+<h4>
+<a id="guidelines-1" class="anchor" href="#guidelines-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Guidelines</h4>
+<ul>
+<li>
+<a href="http://ant.design" rel="nofollow">Ant Design</a> - An UI design language for enterprise applications.</li>
+<li>
+<a href="https://developer.apple.com/design/" rel="nofollow">iOS Guidelines</a> - Get in-depth information and UI resources for designing great apps that integrate seamlessly with Apple platforms.</li>
+<li>
+<a href="https://material.io/" rel="nofollow">Google Material</a> - Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences.</li>
+<li>
+<a href="https://design.google.com/" rel="nofollow">Google Design</a> - Google Design is a cooperative effort led by a group of designers, writers, and developers at Google.</li>
+<li>
+<a href="http://facebook.design/" rel="nofollow">Facebook Design</a> - Collection of articles, videos, and resources made by designers at Facebook.</li>
+<li>
+<a href="https://ustwo.com/blog/the-ustwo-pixel-perfect-precision-handbook-3/" rel="nofollow">UsTwo</a> - Pixel Perfect Precision Handbook 3.</li>
+<li>
+<a href="http://vinsol.com/blog/2014/11/20/tips-for-designers-from-a-developer/" rel="nofollow">Vinsol</a> - Tips for Designers: from a Developer.</li>
+</ul>
+<h4>
+<a id="inspiration" class="anchor" href="#inspiration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inspiration</h4>
+<ul>
+<li>
+<a href="https://pttrns.com/" rel="nofollow">Pttrns</a> - The mother of all design resources.</li>
+<li>
+<a href="http://www.calltoidea.com/" rel="nofollow">Call To Idea</a> - Light up your imagination!.</li>
+<li>
+<a href="http://androidniceties.tumblr.com/" rel="nofollow">Android Niceties</a> - Aiming to provide inspiration and insight into Android UI conventions.</li>
+<li>
+<a href="http://www.lovelyui.com/" rel="nofollow">Lovely UI</a> - Collection of mobile UI elements.</li>
+<li>
+<a href="http://www.brianlovin.com/" rel="nofollow">Brian Lovin</a> - Visual exploration of the best products.</li>
+<li>
+<a href="http://inspired-ui.com/" rel="nofollow">Inspired UI</a> - iOS Mobile Apps Design Patterns.</li>
+<li>
+<a href="http://sloppyui.tumblr.com/" rel="nofollow">Sloppy UI</a> - It's all about intellectual honesty, not trolling.</li>
+</ul>
+<h4>
+<a id="tools-1" class="anchor" href="#tools-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h4>
+<ul>
+<li>
+<a href="http://patternlab.io/" rel="nofollow">Pattern Lab</a> - Create atomic design systems with Pattern Lab.</li>
+<li>
+<a href="https://hugeinc.github.io/styleguide/index.html" rel="nofollow">Huge</a> - Tool to make creating and maintaining styleguides easy.</li>
+<li>
+<a href="http://stylifyme.com/" rel="nofollow">Stylify Me</a> - This tool allows the designer to research sites efficiently without the need to inspect each element.</li>
+<li>
+<a href="http://density.brdrck.me/" rel="nofollow">Density Bucket</a> - Density Converter.</li>
+<li>
+<a href="http://labs.rampinteractive.co.uk/android_dp_px_calculator/" rel="nofollow">iDetailAid</a> - Android DP / PX converter.</li>
+</ul>
+<h2>
+<a id="visual" class="anchor" href="#visual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Visual</h2>
+<h4>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h4>
+<ul>
+<li>
+<a href="http://www.designprinciplesftw.com/" rel="nofollow">Design Principles FTW</a> - The biggest collection of Design Principles on the Internet.</li>
+<li>
+<a href="http://findguidelin.es/" rel="nofollow">Find Guidelines</a> - The fastest way to brand assets.</li>
+<li>
+<a href="http://styleguides.io/" rel="nofollow">Style Guides</a> - Website Style Guide Resources.</li>
+<li>
+<a href="https://github.com/alexpate/awesome-design-systems" rel="nofollow">Awesome Design Systems</a> - Curated list of design systems, patterns libraries, and everything in between.</li>
+<li>
+<a href="http://instantlogosearch.com/" rel="nofollow">Instant Logo Search</a> - Search &amp; download thousands of logos instantly.</li>
+<li>
+<a href="http://www.logobook.com/" rel="nofollow">Logo Book</a> - Discover the worlds finest logos, symbols &amp; trademarks.</li>
+<li>
+<a href="https://github.com/diessica/awesome-sketch" rel="nofollow">Awesome Sketch</a> - Curated list of awesome Sketch videos, articles, plugins, whatever, for designers, developers, or neither.</li>
+</ul>
+<h4>
+<a id="icons" class="anchor" href="#icons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Icons</h4>
+<ul>
+<li>
+<a href="https://useiconic.com/" rel="nofollow">Use Iconic</a> - Meet Iconic. The definitive icon set designed for the modern web.</li>
+<li>
+<a href="https://www.iconfinder.com/" rel="nofollow">Icon Finder</a> - Search through 1,739,045 icons or browse 42,226 icon sets.</li>
+<li>
+<a href="http://weloveiconfonts.com/" rel="nofollow">We Love Icon Font</a> - This is a free &amp; open source icon fonts hosting service.</li>
+<li>
+<a href="https://thenounproject.com/" rel="nofollow">The Noun Project</a> - Icons for everything.</li>
+<li>
+<a href="https://iconmonstr.com/" rel="nofollow">Iconmonstr</a> - Discover 3847+ free simple icons in 263 collections.</li>
+</ul>
+<h4>
+<a id="font-foundries" class="anchor" href="#font-foundries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Font Foundries</h4>
+<ul>
+<li>
+<a href="http://open-foundry.com/" rel="nofollow">Open Foundry</a> - New platform for open-source fonts in a noise-free environment.</li>
+<li>
+<a href="http://usemodify.com/" rel="nofollow">Use &amp; Modify</a> - Provide a contemporary set of fonts distributed under libre or open source licences, hand picked by a typography and free culture lover.</li>
+<li>
+<a href="http://www.fontfabric.com/" rel="nofollow">Font Fabric</a> - Fontfabric is an independent type foundry.</li>
+<li>
+<a href="https://www.fontsquirrel.com/" rel="nofollow">Font Squirrel</a> - Free Font Utopia.</li>
+<li>
+<a href="https://playtype.com/" rel="nofollow">Play Type</a> - Browse through our selection of more than a hundred fonts and nearly 500 different font weights.</li>
+<li>
+<a href="http://www.identifont.com/index.html" rel="nofollow">Identyfont</a> - Identify a font by answering questions about key features.</li>
+</ul>
+<h4>
+<a id="typography" class="anchor" href="#typography" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Typography</h4>
+<ul>
+<li>
+<a href="https://www.nngroup.com/articles/typography-terms-ux/" rel="nofollow">NN Group</a> - Typography Terms Cheat Sheet.</li>
+</ul>
+<h4>
+<a id="colors" class="anchor" href="#colors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Colors</h4>
+<ul>
+<li>
+<a href="https://coolors.co/" rel="nofollow">Coolors</a> - The super fast color schemes generator!.</li>
+<li>
+<a href="http://www.colourlovers.com/" rel="nofollow">Colour Lovers</a> - Creative community.</li>
+<li>
+<a href="http://colorhunt.co/" rel="nofollow">Color Hunt</a> - Color Hunt is a social platform for everyone who love colors.</li>
+<li>
+<a href="http://brand-colors.com/" rel="nofollow">Brand Colors</a> - 1100+ color collection available in sass, less, stylus and css.</li>
+</ul>
+<h4>
+<a id="stock-images" class="anchor" href="#stock-images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stock Images</h4>
+<ul>
+<li>
+<a href="https://unsplash.com/" rel="nofollow">Unsplash</a> - Free (do whatever you want) - high-resolution photos.</li>
+<li>
+<a href="https://stocksnap.io/" rel="nofollow">StockSnap</a> - Hundreds of high resolution images added weekly.</li>
+<li>
+<a href="https://pixabay.com/" rel="nofollow">Pixbay</a> - Free images and videos you can use anywhere.</li>
+<li>
+<a href="http://jaymantri.com/" rel="nofollow">Jay Mantry</a> - Free pics (CC0).</li>
+<li>
+<a href="http://thestocks.im/" rel="nofollow">The Stock</a> - The best royalty free stock photos are delivered now along with videos, audios, icons, fonts and colors.</li>
+<li>
+<a href="http://getrefe.tumblr.com/" rel="nofollow">Get Refe</a> - Royalty-free, high-quality, Real Life photos.</li>
+<li>
+<a href="http://isorepublic.com/" rel="nofollow">ISO Republic</a> - ISO Republic provides free stock photos for creative professionals.</li>
+<li>
+<a href="http://allthefreestock.com/" rel="nofollow">All The Free Stock</a> - Get all the Free Stock Images, Videos, Music and Icons in one location.</li>
+<li>
+<a href="https://www.pexels.com" rel="nofollow">Pexels</a> - Free stock images in a range of styles including filtered, natural, and commercial.</li>
+<li>
+<a href="https://undraw.co" rel="nofollow">unDraw</a> - Open-source illustrations for every project you can imagine and create.</li>
+</ul>
+<h4>
+<a id="stock-videos" class="anchor" href="#stock-videos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stock Videos</h4>
+<ul>
+<li>
+<a href="https://vimeo.com/channels/freestockfootage/" rel="nofollow">Vimeo</a> - Royalty Free Stock Video for Free Personal, Corporate or Commercial Use.</li>
+</ul>
+<h4>
+<a id="tools-2" class="anchor" href="#tools-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h4>
+<ul>
+<li>
+<a href="http://patternlab.io/" rel="nofollow">Pattern Lab</a> - Create atomic design systems with Pattern Lab.</li>
+<li>
+<a href="https://photoeditor.polarr.co/" rel="nofollow">Polar</a> - Photo Editor.</li>
+<li>
+<a href="http://www.cockos.com/licecap/" rel="nofollow">Licecap</a> - Simple animated screen captures.</li>
+<li>
+<a href="https://handbrake.fr/" rel="nofollow">Hand Brake</a> - HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.</li>
+<li>
+<a href="https://bjango.com/mac/skalacolor/" rel="nofollow">Skala Color</a> - Extraordinary color picker for designers and developers.</li>
+<li>
+<a href="http://www.fontpicker.io/" rel="nofollow">Font Picker</a> - Webfont library for your browser.</li>
+<li>
+<a href="http://www.fontreach.com/" rel="nofollow">Font Reach</a> - FontReach scans the top million sites to show font usage across the web.</li>
+</ul>
+<h2>
+<a id="prototype" class="anchor" href="#prototype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prototype</h2>
+<h4>
+<a id="articles-2" class="anchor" href="#articles-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles</h4>
+<ul>
+<li>
+<a href="http://the12principles.tumblr.com/" rel="nofollow">The 12 Principles</a> - The 12 basic principles of animation were developed by the ‘old men’ of Walt Disney Studios.</li>
+<li>
+<a href="https://hoverstat.es/" rel="nofollow">Hoverstat</a> - The home of alternative digital design.</li>
+<li>
+<a href="http://microinteractions.com/" rel="nofollow">Microinteractions</a> - Designing with Details.</li>
+<li>
+<a href="https://github.com/fliptheweb/motion-ui-design" rel="nofollow">Motion UI Design</a> - Resources for inspiration, lists of software, libraries and other stuff related to Motion UI design, animations and transitions.</li>
+</ul>
+<h4>
+<a id="softwares" class="anchor" href="#softwares" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Softwares</h4>
+<ul>
+<li>
+<a href="https://marvelapp.com/pop/" rel="nofollow">Pop</a> - POP helps you transform your pen and paper ideas into an interactive iPhone or Android prototype.</li>
+<li>
+<a href="https://www.invisionapp.com/" rel="nofollow">Invision</a> - The world's leading prototyping, collaboration &amp; workflow platform.</li>
+<li>
+<a href="https://marvelapp.com/" rel="nofollow">Marvel</a> - Simple design, prototyping and collaboration.</li>
+<li>
+<a href="https://www.flinto.com/" rel="nofollow">Flinto</a> - Flinto lets designers quickly make interactive prototypes of their mobile, desktop, or web apps.</li>
+<li>
+<a href="http://origami.design/" rel="nofollow">Origami Studio</a> - Explore, iterate, and test your ideas.</li>
+<li>
+<a href="https://framer.com/" rel="nofollow">Framer</a> - All-in-one design workflow.</li>
+<li>
+<a href="http://relativewave.com/form/" rel="nofollow">Form</a> - Build and customize native prototypes directly on device.</li>
+<li>
+<a href="https://proto.io/" rel="nofollow">Proto</a> - Create fully-interactive high-fidelity prototypes that look and work exactly like your app should. No coding required.</li>
+<li>
+<a href="https://www.fusetools.com/" rel="nofollow">Fuse</a> - Create better native apps for iOS and Android with a new breed of development tools.</li>
+<li>
+<a href="https://www.protopie.io" rel="nofollow">ProtoPie</a> - ProtoPie is the easiest prototyping tool to build advanced, highly interactive prototypes.</li>
+</ul>
+<h4>
+<a id="tools-3" class="anchor" href="#tools-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h4>
+<ul>
+<li>
+<a href="https://airbnb.design/lottie/" rel="nofollow">Lottie</a> - Easily add high-quality animation to any native app.</li>
+<li>
+<a href="http://keynotopia.com/" rel="nofollow">Keynotopia</a> - Keynotopia transforms Keynote and PowerPoint into the best rapid prototyping tools for creating mobile, web and desktop UI mockups.</li>
+</ul>
+<h2>
+<a id="accessibility" class="anchor" href="#accessibility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accessibility</h2>
+<h4>
+<a id="articles-3" class="anchor" href="#articles-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles</h4>
+<ul>
+<li>
+<a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction" rel="nofollow">Gov.Uk</a> - Making your service accessible: an introduction.</li>
+<li>
+<a href="https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/" rel="nofollow">Smashing Magazine</a> - Color Contrast And Why You Should Rethink It.</li>
+<li>
+<a href="https://medium.com/@GarronEngstrom/accessibility-101-56f87f3d726e" rel="nofollow">Medium</a> - Accessibility for designers. Mind your RGB’s.</li>
+<li>
+<a href="https://www.webcredible.com/blog/visual-design-and-colour-accessibility/" rel="nofollow">Web Credible</a> - Visual design and color accessibility.</li>
+<li>
+<a href="https://alistapart.com/blog/post/easy-color-contrast-testing" rel="nofollow">A List Apart</a> - Easy Color Contrast Testing.</li>
+<li>
+<a href="https://www.viget.com/articles/color-contrast" rel="nofollow">Viget</a> - Color Contrast for Better Readability.</li>
+</ul>
+<h4>
+<a id="tools-4" class="anchor" href="#tools-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h4>
+<ul>
+<li>
+<a href="http://wave.webaim.org/" rel="nofollow">WAVE</a> - Web Accessibility Evaluation Tool.</li>
+<li>
+<a href="http://6220119.github.io/contrast-ratio/#/black-on-white" rel="nofollow">Contrast Ratio</a> - A tool to calculate the contrast ratio between any two valid CSS colors.</li>
+<li>
+<a href="https://snook.ca/technical/colour_contrast/colour.html#fg=515A5F,bg=FFFFFF" rel="nofollow">Snook</a> - Colour Contrast Check.</li>
+<li>
+<a href="https://www.canvasflip.com/color-blind.php" rel="nofollow">CanvasFlip</a> - Colorblind simulator for Designers.</li>
+</ul>
+<h2>
+<a id="writing" class="anchor" href="#writing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing</h2>
+<ul>
+<li>
+<a href="https://trends.google.com/trends/" rel="nofollow">Google trends</a> - Stories trending now.</li>
+<li>
+<a href="https://books.google.com/ngrams/" rel="nofollow">Google Ngram</a> - Enter phrases into the Google Books Ngram Viewer, it displays a graph showing how those phrases have occurred in a corpus of books.</li>
+<li>
+<a href="http://www.hemingwayapp.com/" rel="nofollow">Hemingway</a> - Hemingway App makes your writing bold and clear.</li>
+<li>
+<a href="https://readable.io/" rel="nofollow">Readable</a> - You have 7 seconds to grab someone's attention. Readable.io helps you cut out the noise.</li>
+<li>
+<a href="http://www.thewriter.com/what-we-think/readability-checker/" rel="nofollow">The Writer</a> - How readable is your writing?.</li>
+<li>
+<a href="https://www.taskade.com/" rel="nofollow">Taskade</a> - Collaborative editor and outliner.</li>
+</ul>
+<h2>
+<a id="data" class="anchor" href="#data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data</h2>
+<ul>
+<li>
+<a href="https://data.london.gov.uk/" rel="nofollow">London Datastore</a> - The London Datastore is a free and open data-sharing portal.</li>
+<li>
+<a href="https://yougov.com/" rel="nofollow">YouGov</a> - We believe in the power of participation.</li>
+<li>
+<a href="https://data.gov.uk/" rel="nofollow">Data.Gov</a> - Find data published by government departments and agencies, public bodies and local authorities.</li>
+<li>
+<a href="https://github.com/tategallery/collection" rel="nofollow">The Tate Collection</a> - Here we present the metadata for around 70,000 artworks.</li>
+<li>
+<a href="https://open.nasa.gov/open-data/" rel="nofollow">NASA</a> - We're Setting Data, Code and APIs free.</li>
+</ul>
+<h2>
+<a id="iot" class="anchor" href="#iot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IoT</h2>
+<h4>
+<a id="articles-4" class="anchor" href="#articles-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles</h4>
+<ul>
+<li>
+<a href="https://www.iotmanifesto.com/" rel="nofollow">IoT Manifesto</a> - Guidelines for responsible design in a connected world.</li>
+<li>
+<a href="http://iotweeklynews.com/" rel="nofollow">IoT Weekly News</a> - Subscribe to hand picked articles by Justin Grammens on the Internet of Things.</li>
+<li>
+<a href="http://internetofthingsagenda.techtarget.com/feature/Design-an-IoT-user-experience-not-an-IoT-product" rel="nofollow">IoT Agenda</a> - Design an IoT user experience, not an IoT product.</li>
+<li>
+<a href="https://iot-for-all.com/designing-the-internet-of-things/" rel="nofollow">IoT For All</a> - Designing the Internet of Things – 5 Key Principles.</li>
+</ul>
+<h4>
+<a id="tools-5" class="anchor" href="#tools-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h4>
+<ul>
+<li>
+<a href="http://nodered.org/" rel="nofollow">Node RED</a> - Flow-based programming for the Internet of Things.</li>
+<li>
+<a href="http://www.getnoodl.com/" rel="nofollow">Noodl</a> - Digital Experience Design Platform.</li>
+</ul>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="nofollow"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg" alt="CC0" style="max-width:100%;"></a></p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bc403a37e738',m:'0209bc4b97c995d3676de8dc6fd2ee8d7ce5f7e1-1610725647-1800-AesE9cY0VTaFm0VC9rFa/MmDiENWBHyRdhF+2U0W0jH4QRcAkk+eGwFxVEVsIoEzur8jZcMOKF5Mx0Q9Wgk6+ESKxgkwhA5YCAJJZtR/k//wFvwHsVE2zsIeQKM2hJHPaRpXgt58JuKIsUQV4Zbb7rh998Tc5vdk6w2YCmwAdbqn',s:[0xbb7935f4b7,0xb1444886c3],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="awesome"/> <!-- -->awesome<!-- --> (<!-- -->1,280<!-- -->) </div><div><input type="checkbox" name="topics" value="awesome-list"/> <!-- -->awesome-list<!-- --> (<!-- -->1,198<!-- -->) </div><div><input type="checkbox" name="topics" value="ui"/> <!-- -->ui<!-- --> (<!-- -->960<!-- -->) </div><div><input type="checkbox" name="topics" value="iot"/> <!-- -->iot<!-- --> (<!-- -->534<!-- -->) </div><div><input type="checkbox" name="topics" value="list"/> <!-- -->list<!-- --> (<!-- -->362<!-- -->) </div><div><input type="checkbox" name="topics" value="design"/> <!-- -->design<!-- --> (<!-- -->349<!-- -->) </div><div><input type="checkbox" name="topics" value="tools"/> <!-- -->tools<!-- --> (<!-- -->318<!-- -->) </div><div><input type="checkbox" name="topics" value="font"/> <!-- -->font<!-- --> (<!-- -->241<!-- -->) </div><div><input type="checkbox" name="topics" value="ux"/> <!-- -->ux<!-- --> (<!-- -->130<!-- -->) </div><div><input type="checkbox" name="topics" value="stock"/> <!-- -->stock<!-- --> (<!-- -->86<!-- -->) </div><div><input type="checkbox" name="topics" value="article"/> <!-- -->article<!-- --> (<!-- -->76<!-- -->) </div><div><input type="checkbox" name="topics" value="bookmark"/> <!-- -->bookmark<!-- --> (<!-- -->50<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Awesome <!-- -->Product <!-- -->Design<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/matttga" target="_blank">Matttga</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/matttga" target="_blank">Matttga</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-be13e063-05dd-48cf-a7a6-5e9151ddd29d">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"article","count":76},{"id":null,"name":"awesome","count":1280},{"id":null,"name":"awesome-list","count":1198},{"id":null,"name":"bookmark","count":50},{"id":null,"name":"design","count":349},{"id":null,"name":"font","count":241},{"id":null,"name":"iot","count":534},{"id":null,"name":"list","count":362},{"id":null,"name":"stock","count":86},{"id":null,"name":"tools","count":318},{"id":null,"name":"ui","count":960},{"id":null,"name":"ux","count":130}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/matttga/awesome-product-design","projects":[],"project":{"id":33534,"created_at":"2018-08-20T23:49:16.528Z","updated_at":"2021-01-14T04:19:05.680Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"awesome-product-design-\" class=\"anchor\" href=\"#awesome-product-design-\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAwesome Product Design \u003ca href=\"https://awesome.re\" rel=\"nofollow\"\u003e\u003cimg src=\"https://awesome.re/badge-flat2.svg\" alt=\"Awesome\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/h1\u003e\n\u003ca href=\"https://en.wikipedia.org/wiki/Digital_product_design\" rel=\"nofollow\"\u003e\n  \u003cimg src=\"https://rawgit.com/teoga/product-design-bookmarks/master/images/pdb_img.svg\" align=\"right\" width=\"100\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003cblockquote\u003e\n\u003cp\u003eA collection of bookmarks, resources, articles for product designers.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003ca href=\"https://en.wikipedia.org/wiki/Digital_product_design\" rel=\"nofollow\"\u003eDigital product design\u003c/a\u003e is an iterative design process to solve a functional problem with a formal solution. A digital product designer identifies a real problem, offers the best possible solution, and launch it to a market that is showing demand for that particular solution.\u003c/p\u003e\n\u003cp\u003eFeel free to \u003ca href=\"https://github.com/matttga/awesome-product-design/blob/master/contributing.md\" rel=\"nofollow\"\u003eadd something interesting\u003c/a\u003e by pull request.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"contents\" class=\"anchor\" href=\"#contents\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContents\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#research\"\u003eResearch\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#ux\"\u003eUX\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#ui\"\u003eUI\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#visual\"\u003eVisual\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#prototype\"\u003ePrototype\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#accessibility\"\u003eAccessibility\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#writing\"\u003eWriting\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#data\"\u003eData\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#iot\"\u003eIoT\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"research\" class=\"anchor\" href=\"#research\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eResearch\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"methods\" class=\"anchor\" href=\"#methods\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethods\u003c/h4\u003e\n\u003ch6\u003e\n\u003ca id=\"research-plan\" class=\"anchor\" href=\"#research-plan\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eResearch Plan\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.smashingmagazine.com/2012/01/ux-research-plan-stakeholders-love/\" rel=\"nofollow\"\u003eSmashing Magazine\u003c/a\u003e - The UX Research Plan That Stakeholders Love.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.nngroup.com/articles/pm-research-plan/\" rel=\"nofollow\"\u003eNN Group\u003c/a\u003e - Project Management for User Research: The Plan.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.interaction-design.org/literature/article/a-one-page-user-research-plan\" rel=\"nofollow\"\u003eInteraction Design\u003c/a\u003e - One Page User Research Plan.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"user-interview\" class=\"anchor\" href=\"#user-interview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUser Interview\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.nngroup.com/articles/interviewing-users/\" rel=\"nofollow\"\u003eNN Group\u003c/a\u003e - Despite many weaknesses, interviews are a valuable method for exploratory user research.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://uxdesign.cc/how-to-get-the-most-out-of-user-interviews-c5d0cd4499b5\" rel=\"nofollow\"\u003eUXDesign.cc\u003c/a\u003e - How to Get the Most Out of User Interviews.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"stakeholder-interviews\" class=\"anchor\" href=\"#stakeholder-interviews\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStakeholder Interviews\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://boxesandarrows.com/a-stakeholder-interview-checklist/\" rel=\"nofollow\"\u003eBoxes and Arrows\u003c/a\u003e - Cheat Sheet For Interviewing Stakeholders.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.uxapprentice.com/resources/stakeholder-interview-template/\" rel=\"nofollow\"\u003eUX Apprentice\u003c/a\u003e - Stakeholder Interview Template.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.interaction-design.org/literature/article/preparing-for-ux-stakeholder-interviews\" rel=\"nofollow\"\u003eInteraction Design\u003c/a\u003e - Preparing for UX Stakeholder Interviews.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"research-synthesis\" class=\"anchor\" href=\"#research-synthesis\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eResearch Synthesis\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxmovement.com/thinking/how-to-turn-user-research-into-usable-data/\" rel=\"nofollow\"\u003eUX Movement\u003c/a\u003e - How to Turn User Research into Usable Data.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.slideshare.net/HJKwon3/design-research-synthesis\" rel=\"nofollow\"\u003eSlideShare\u003c/a\u003e - Design Research Synthesis.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://medium.com/product-labs/using-trello-for-user-research-synthesis-fb1abdfc7c4b\" rel=\"nofollow\"\u003eMedium\u003c/a\u003e - Using Trello for User Research Synthesis.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://webdesign.tutsplus.com/tutorials/how-to-prepare-and-use-an-affinity-diagram--cms-28388\" rel=\"nofollow\"\u003eTuts+\u003c/a\u003e - How to Prepare and Use an Affinity Diagram.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://medium.com/learning-ux/affinity-diagrams-tips-and-tricks-6225e8c1f0df\" rel=\"nofollow\"\u003eMedium\u003c/a\u003e - Affinity Diagrams: Tips and Tricks.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"competitive-analysis\" class=\"anchor\" href=\"#competitive-analysis\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCompetitive Analysis\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://xtensio.com/how-to-create-a-competitive-analysis/\" rel=\"nofollow\"\u003eXtensio\u003c/a\u003e - How To: Create A Competitive Analysis.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://blog.hootsuite.com/the-ultimate-competitive-analysis-template/\" rel=\"nofollow\"\u003eHootsuite\u003c/a\u003e - Competitive Analysis Template To Help You Outsmart The Competition.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"job-to-be-done\" class=\"anchor\" href=\"#job-to-be-done\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eJob to be Done\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://blog.intercom.com/using-job-stories-design-features-ui-ux/\" rel=\"nofollow\"\u003eIntercom\u003c/a\u003e - Designing features using Job Stories.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27\" rel=\"nofollow\"\u003eJTBD\u003c/a\u003e - Replacing The User Story With The Job Story.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"personas\" class=\"anchor\" href=\"#personas\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePersonas\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.usability.gov/how-to-and-tools/methods/personas.html\" rel=\"nofollow\"\u003eUsability.Gov\u003c/a\u003e - The purpose of personas is to create reliable and realistic representations of your key audience.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://uxmag.com/articles/personas-the-foundation-of-a-great-user-experience\" rel=\"nofollow\"\u003eUX Mag\u003c/a\u003e - Personas: The Foundation of a Great User Experience.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://webdesign.tutsplus.com/articles/defining-and-applying-personas-to-ux-design--webdesign-7561\" rel=\"nofollow\"\u003eTuts+\u003c/a\u003e - Defining And Applying Personas to UX Design.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"empathy-map\" class=\"anchor\" href=\"#empathy-map\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEmpathy Map\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.uxpin.com/studio/blog/the-practical-guide-to-empathy-maps-creating-a-10-minute-persona/\" rel=\"nofollow\"\u003eUX Pin\u003c/a\u003e - The Practical Guide to Empathy Maps: 10-Minute User Personas.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://boagworld.com/usability/adapting-empathy-maps-for-ux-design/\" rel=\"nofollow\"\u003eBoagworld\u003c/a\u003e - Adapting empathy maps for UX design.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003e\n\u003ca id=\"storyboard\" class=\"anchor\" href=\"#storyboard\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStoryboard\u003c/h6\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxmag.com/articles/storyboarding-in-the-software-design-process\" rel=\"nofollow\"\u003eUX Magazine\u003c/a\u003e - Storyboarding in the Software Design Process.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://uxplanet.org/storyboarding-in-ux-design-b9d2e18e5fab\" rel=\"nofollow\"\u003eMedium\u003c/a\u003e - Storyboarding in UX Design.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://johnnyholland.org/2011/10/storyboarding-ux-part-1-an-introduction/\" rel=\"nofollow\"\u003eJohnny Holland\u003c/a\u003e - Storyboarding \u0026amp; UX.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.nngroup.com/articles/customer-journey-mapping/\" rel=\"nofollow\"\u003eNN Group\u003c/a\u003e - When and How to Create Customer Journey Maps.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.ux-lady.com/experience-maps-user-journey-and-more-exp-map-layout/\" rel=\"nofollow\"\u003eUX Lady\u003c/a\u003e - Experience maps, user journeys and more.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.smashingmagazine.com/2015/01/all-about-customer-journey-mapping/\" rel=\"nofollow\"\u003eSmashing Magazine\u003c/a\u003e - All You Need To Know About Customer Journey Mapping.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://medium.com/@wnialloconnor/how-to-build-an-experience-map-5e55b7ee4f32\" rel=\"nofollow\"\u003eMedium\u003c/a\u003e - How to build an experience map.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"articles\" class=\"anchor\" href=\"#articles\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArticles\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.smashingmagazine.com/2013/04/rainbow-spreadsheet-collaborative-ux-research-tool/\" rel=\"nofollow\"\u003eSmashing Magazine\u003c/a\u003e - The Rainbow Spreadsheet: A Collaborative Lean UX Research Tool.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://coglode.com/\" rel=\"nofollow\"\u003eCoglode\u003c/a\u003e - Bite-size behavioral research analysis.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"testing\" class=\"anchor\" href=\"#testing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTesting\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.usertesting.com/\" rel=\"nofollow\"\u003eUser Testing\u003c/a\u003e - Unlock customer insights and increase your revenue.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.optimalworkshop.com/\" rel=\"nofollow\"\u003eOptimal Workshop\u003c/a\u003e - User Research Platform that helps you and your team make design decisions with confidence.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.sitepoint.com/how-do-you-measure-the-success-or-failure-of-your-ux-design/\" rel=\"nofollow\"\u003eMeasure Success\u003c/a\u003e - How Do You Measure the Success (or Failure) - of Your UX Design?.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.dtelepathy.com/ux-metrics/#intro\" rel=\"nofollow\"\u003eUX Metrix\u003c/a\u003e - How to Choose the Right UX Metrics for Your Product.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://lookback.io/\" rel=\"nofollow\"\u003eLookback\u003c/a\u003e - Simple, powerful user research.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.appsee.com/\" rel=\"nofollow\"\u003eAppsee\u003c/a\u003e - Appsee's app analytics platform provides an in-depth analysis of your users' behavior.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.fullstory.com/\" rel=\"nofollow\"\u003eFull Story\u003c/a\u003e - What do you want to know about your customer experience?.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.desinion.com/\" rel=\"nofollow\"\u003eDesinion\u003c/a\u003e - Make smart and informed design decisions for your company, or your client's company.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.surveymonkey.com/\" rel=\"nofollow\"\u003eSurvey Monkey\u003c/a\u003e - Turn instincts into insights.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.google.com/analytics/surveys/#?modal_active=none\" rel=\"nofollow\"\u003eGoogle Surveys\u003c/a\u003e - Make better decisions with market research.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.typeform.com/\" rel=\"nofollow\"\u003eTypefrom\u003c/a\u003e - Goodbye forms. Hello typeforms.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://ethn.io/\" rel=\"nofollow\"\u003eEtnio\u003c/a\u003e - Intercept Real People for User Research.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://calendly.com/\" rel=\"nofollow\"\u003eCalendly\u003c/a\u003e - Calendly helps you schedule meetings without the back-and-forth emails.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"ux\" class=\"anchor\" href=\"#ux\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUX\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"guidelines\" class=\"anchor\" href=\"#guidelines\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGuidelines\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.theuxbookmark.com/\" rel=\"nofollow\"\u003eThe UX Bookmark\u003c/a\u003e - Collection of the best UX websites from across the globe.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.gov.uk/service-manual/\" rel=\"nofollow\"\u003eGov.Uk\u003c/a\u003e - Helping government teams create and run great digital services.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://methods.18f.gov/\" rel=\"nofollow\"\u003eMethods 18F\u003c/a\u003e - Collection of tools to bring human-centered design into your project.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://guides.18f.gov/\" rel=\"nofollow\"\u003eGuides 18F\u003c/a\u003e - 18F Guides is the repository for best practices across our teams.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.usability.gov/\" rel=\"nofollow\"\u003eUsability.Gov\u003c/a\u003e - Improving the User Experience.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://medialabamsterdam.com/toolkit/\" rel=\"nofollow\"\u003eMedial Lab Amsterdam\u003c/a\u003e - Design method toolkit.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.designkit.org/methods\" rel=\"nofollow\"\u003eDesign Kit IDEO\u003c/a\u003e - Step-by-step guide to unleashing your creativity.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://gamestorming.com/\" rel=\"nofollow\"\u003eGamestorming\u003c/a\u003e - Gamestorming is a set of co-creation tools used by innovators around the world.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"articles-1\" class=\"anchor\" href=\"#articles-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArticles\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxmag.com/\" rel=\"nofollow\"\u003eUX Magazine\u003c/a\u003e - UX Magazine is a free community resource exploring all facets of experience design.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.uxbooth.com/\" rel=\"nofollow\"\u003eUX Both\u003c/a\u003e - The UX Booth is a publication by and for the user experience community.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxmastery.com/\" rel=\"nofollow\"\u003eUX Mastery\u003c/a\u003e - We help user experience professionals get started and get better.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxmyths.com/\" rel=\"nofollow\"\u003eUX Myths\u003c/a\u003e - Build your product based on evidence, not false beliefs.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://alistapart.com/\" rel=\"nofollow\"\u003eA List Apart\u003c/a\u003e - List Apart explores the design, development, and meaning of web content.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://52weeksofux.com/\" rel=\"nofollow\"\u003e52 Weeks of UX\u003c/a\u003e - Discourse on the process of designing for real people.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.uxpin.com/studio/\" rel=\"nofollow\"\u003eUX Pin\u003c/a\u003e - Guides, articles and ebooks that explore all facets of UX Design.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://theixdlibrary.com/\" rel=\"nofollow\"\u003eThe IxD Library\u003c/a\u003e - Collection of materials related to Interaction Design.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.lukew.com/ff\" rel=\"nofollow\"\u003eLukeW\u003c/a\u003e - Publications on the critical details and big picture behind digital product design.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.nngroup.com/articles/\" rel=\"nofollow\"\u003eNN Group\u003c/a\u003e - Evidence-Based User Experience Research, Training, and Consulting.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.cooper.com/journal/\" rel=\"nofollow\"\u003eCooper\u003c/a\u003e - Blog about design, business, and the world we live in.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.informationdesign.org/\" rel=\"nofollow\"\u003eInformation Design\u003c/a\u003e - InfoDesign Hand-picked since 1997.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://blog.intercom.com/\" rel=\"nofollow\"\u003eIntercom\u003c/a\u003e - Design, Customer Success, \u0026amp; Startup Blog.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://uxdesign.cc/\" rel=\"nofollow\"\u003eUXDesign.cc\u003c/a\u003e - User Experience, Usability, Product Design. Follow the UXDesign.cc.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxreactions.com/\" rel=\"nofollow\"\u003eUX Reactions\u003c/a\u003e - Fun stuff.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"tools\" class=\"anchor\" href=\"#tools\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxrecipe.github.io/\" rel=\"nofollow\"\u003eUX Recipe\u003c/a\u003e - This project is a personal manifesto against the objectification of the term \"UX\".\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://uxchecklist.github.io/\" rel=\"nofollow\"\u003eUX Checklist\u003c/a\u003e - UX Project Checklist.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://ux.stackexchange.com/\" rel=\"nofollow\"\u003eUX Stackexchange\u003c/a\u003e - UX Stack Exchange is a question and answer site.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"ui\" class=\"anchor\" href=\"#ui\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUI\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"guidelines-1\" class=\"anchor\" href=\"#guidelines-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGuidelines\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://ant.design\" rel=\"nofollow\"\u003eAnt Design\u003c/a\u003e - An UI design language for enterprise applications.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://developer.apple.com/design/\" rel=\"nofollow\"\u003eiOS Guidelines\u003c/a\u003e - Get in-depth information and UI resources for designing great apps that integrate seamlessly with Apple platforms.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://material.io/\" rel=\"nofollow\"\u003eGoogle Material\u003c/a\u003e - Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://design.google.com/\" rel=\"nofollow\"\u003eGoogle Design\u003c/a\u003e - Google Design is a cooperative effort led by a group of designers, writers, and developers at Google.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://facebook.design/\" rel=\"nofollow\"\u003eFacebook Design\u003c/a\u003e - Collection of articles, videos, and resources made by designers at Facebook.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://ustwo.com/blog/the-ustwo-pixel-perfect-precision-handbook-3/\" rel=\"nofollow\"\u003eUsTwo\u003c/a\u003e - Pixel Perfect Precision Handbook 3.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://vinsol.com/blog/2014/11/20/tips-for-designers-from-a-developer/\" rel=\"nofollow\"\u003eVinsol\u003c/a\u003e - Tips for Designers: from a Developer.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"inspiration\" class=\"anchor\" href=\"#inspiration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInspiration\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://pttrns.com/\" rel=\"nofollow\"\u003ePttrns\u003c/a\u003e - The mother of all design resources.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.calltoidea.com/\" rel=\"nofollow\"\u003eCall To Idea\u003c/a\u003e - Light up your imagination!.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://androidniceties.tumblr.com/\" rel=\"nofollow\"\u003eAndroid Niceties\u003c/a\u003e - Aiming to provide inspiration and insight into Android UI conventions.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.lovelyui.com/\" rel=\"nofollow\"\u003eLovely UI\u003c/a\u003e - Collection of mobile UI elements.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.brianlovin.com/\" rel=\"nofollow\"\u003eBrian Lovin\u003c/a\u003e - Visual exploration of the best products.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://inspired-ui.com/\" rel=\"nofollow\"\u003eInspired UI\u003c/a\u003e - iOS Mobile Apps Design Patterns.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://sloppyui.tumblr.com/\" rel=\"nofollow\"\u003eSloppy UI\u003c/a\u003e - It's all about intellectual honesty, not trolling.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"tools-1\" class=\"anchor\" href=\"#tools-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://patternlab.io/\" rel=\"nofollow\"\u003ePattern Lab\u003c/a\u003e - Create atomic design systems with Pattern Lab.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://hugeinc.github.io/styleguide/index.html\" rel=\"nofollow\"\u003eHuge\u003c/a\u003e - Tool to make creating and maintaining styleguides easy.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://stylifyme.com/\" rel=\"nofollow\"\u003eStylify Me\u003c/a\u003e - This tool allows the designer to research sites efficiently without the need to inspect each element.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://density.brdrck.me/\" rel=\"nofollow\"\u003eDensity Bucket\u003c/a\u003e - Density Converter.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://labs.rampinteractive.co.uk/android_dp_px_calculator/\" rel=\"nofollow\"\u003eiDetailAid\u003c/a\u003e - Android DP / PX converter.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"visual\" class=\"anchor\" href=\"#visual\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVisual\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"resources\" class=\"anchor\" href=\"#resources\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eResources\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.designprinciplesftw.com/\" rel=\"nofollow\"\u003eDesign Principles FTW\u003c/a\u003e - The biggest collection of Design Principles on the Internet.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://findguidelin.es/\" rel=\"nofollow\"\u003eFind Guidelines\u003c/a\u003e - The fastest way to brand assets.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://styleguides.io/\" rel=\"nofollow\"\u003eStyle Guides\u003c/a\u003e - Website Style Guide Resources.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/alexpate/awesome-design-systems\" rel=\"nofollow\"\u003eAwesome Design Systems\u003c/a\u003e - Curated list of design systems, patterns libraries, and everything in between.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://instantlogosearch.com/\" rel=\"nofollow\"\u003eInstant Logo Search\u003c/a\u003e - Search \u0026amp; download thousands of logos instantly.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.logobook.com/\" rel=\"nofollow\"\u003eLogo Book\u003c/a\u003e - Discover the worlds finest logos, symbols \u0026amp; trademarks.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/diessica/awesome-sketch\" rel=\"nofollow\"\u003eAwesome Sketch\u003c/a\u003e - Curated list of awesome Sketch videos, articles, plugins, whatever, for designers, developers, or neither.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"icons\" class=\"anchor\" href=\"#icons\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIcons\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://useiconic.com/\" rel=\"nofollow\"\u003eUse Iconic\u003c/a\u003e - Meet Iconic. The definitive icon set designed for the modern web.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.iconfinder.com/\" rel=\"nofollow\"\u003eIcon Finder\u003c/a\u003e - Search through 1,739,045 icons or browse 42,226 icon sets.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://weloveiconfonts.com/\" rel=\"nofollow\"\u003eWe Love Icon Font\u003c/a\u003e - This is a free \u0026amp; open source icon fonts hosting service.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://thenounproject.com/\" rel=\"nofollow\"\u003eThe Noun Project\u003c/a\u003e - Icons for everything.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://iconmonstr.com/\" rel=\"nofollow\"\u003eIconmonstr\u003c/a\u003e - Discover 3847+ free simple icons in 263 collections.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"font-foundries\" class=\"anchor\" href=\"#font-foundries\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFont Foundries\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://open-foundry.com/\" rel=\"nofollow\"\u003eOpen Foundry\u003c/a\u003e - New platform for open-source fonts in a noise-free environment.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://usemodify.com/\" rel=\"nofollow\"\u003eUse \u0026amp; Modify\u003c/a\u003e - Provide a contemporary set of fonts distributed under libre or open source licences, hand picked by a typography and free culture lover.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.fontfabric.com/\" rel=\"nofollow\"\u003eFont Fabric\u003c/a\u003e - Fontfabric is an independent type foundry.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.fontsquirrel.com/\" rel=\"nofollow\"\u003eFont Squirrel\u003c/a\u003e - Free Font Utopia.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://playtype.com/\" rel=\"nofollow\"\u003ePlay Type\u003c/a\u003e - Browse through our selection of more than a hundred fonts and nearly 500 different font weights.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.identifont.com/index.html\" rel=\"nofollow\"\u003eIdentyfont\u003c/a\u003e - Identify a font by answering questions about key features.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"typography\" class=\"anchor\" href=\"#typography\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTypography\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.nngroup.com/articles/typography-terms-ux/\" rel=\"nofollow\"\u003eNN Group\u003c/a\u003e - Typography Terms Cheat Sheet.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"colors\" class=\"anchor\" href=\"#colors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eColors\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://coolors.co/\" rel=\"nofollow\"\u003eCoolors\u003c/a\u003e - The super fast color schemes generator!.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.colourlovers.com/\" rel=\"nofollow\"\u003eColour Lovers\u003c/a\u003e - Creative community.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://colorhunt.co/\" rel=\"nofollow\"\u003eColor Hunt\u003c/a\u003e - Color Hunt is a social platform for everyone who love colors.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://brand-colors.com/\" rel=\"nofollow\"\u003eBrand Colors\u003c/a\u003e - 1100+ color collection available in sass, less, stylus and css.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"stock-images\" class=\"anchor\" href=\"#stock-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStock Images\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://unsplash.com/\" rel=\"nofollow\"\u003eUnsplash\u003c/a\u003e - Free (do whatever you want) - high-resolution photos.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://stocksnap.io/\" rel=\"nofollow\"\u003eStockSnap\u003c/a\u003e - Hundreds of high resolution images added weekly.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://pixabay.com/\" rel=\"nofollow\"\u003ePixbay\u003c/a\u003e - Free images and videos you can use anywhere.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://jaymantri.com/\" rel=\"nofollow\"\u003eJay Mantry\u003c/a\u003e - Free pics (CC0).\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://thestocks.im/\" rel=\"nofollow\"\u003eThe Stock\u003c/a\u003e - The best royalty free stock photos are delivered now along with videos, audios, icons, fonts and colors.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://getrefe.tumblr.com/\" rel=\"nofollow\"\u003eGet Refe\u003c/a\u003e - Royalty-free, high-quality, Real Life photos.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://isorepublic.com/\" rel=\"nofollow\"\u003eISO Republic\u003c/a\u003e - ISO Republic provides free stock photos for creative professionals.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://allthefreestock.com/\" rel=\"nofollow\"\u003eAll The Free Stock\u003c/a\u003e - Get all the Free Stock Images, Videos, Music and Icons in one location.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.pexels.com\" rel=\"nofollow\"\u003ePexels\u003c/a\u003e - Free stock images in a range of styles including filtered, natural, and commercial.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://undraw.co\" rel=\"nofollow\"\u003eunDraw\u003c/a\u003e - Open-source illustrations for every project you can imagine and create.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"stock-videos\" class=\"anchor\" href=\"#stock-videos\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStock Videos\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://vimeo.com/channels/freestockfootage/\" rel=\"nofollow\"\u003eVimeo\u003c/a\u003e - Royalty Free Stock Video for Free Personal, Corporate or Commercial Use.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"tools-2\" class=\"anchor\" href=\"#tools-2\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://patternlab.io/\" rel=\"nofollow\"\u003ePattern Lab\u003c/a\u003e - Create atomic design systems with Pattern Lab.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://photoeditor.polarr.co/\" rel=\"nofollow\"\u003ePolar\u003c/a\u003e - Photo Editor.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.cockos.com/licecap/\" rel=\"nofollow\"\u003eLicecap\u003c/a\u003e - Simple animated screen captures.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://handbrake.fr/\" rel=\"nofollow\"\u003eHand Brake\u003c/a\u003e - HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bjango.com/mac/skalacolor/\" rel=\"nofollow\"\u003eSkala Color\u003c/a\u003e - Extraordinary color picker for designers and developers.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.fontpicker.io/\" rel=\"nofollow\"\u003eFont Picker\u003c/a\u003e - Webfont library for your browser.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.fontreach.com/\" rel=\"nofollow\"\u003eFont Reach\u003c/a\u003e - FontReach scans the top million sites to show font usage across the web.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"prototype\" class=\"anchor\" href=\"#prototype\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrototype\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"articles-2\" class=\"anchor\" href=\"#articles-2\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArticles\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://the12principles.tumblr.com/\" rel=\"nofollow\"\u003eThe 12 Principles\u003c/a\u003e - The 12 basic principles of animation were developed by the ‘old men’ of Walt Disney Studios.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://hoverstat.es/\" rel=\"nofollow\"\u003eHoverstat\u003c/a\u003e - The home of alternative digital design.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://microinteractions.com/\" rel=\"nofollow\"\u003eMicrointeractions\u003c/a\u003e - Designing with Details.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/fliptheweb/motion-ui-design\" rel=\"nofollow\"\u003eMotion UI Design\u003c/a\u003e - Resources for inspiration, lists of software, libraries and other stuff related to Motion UI design, animations and transitions.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"softwares\" class=\"anchor\" href=\"#softwares\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSoftwares\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://marvelapp.com/pop/\" rel=\"nofollow\"\u003ePop\u003c/a\u003e - POP helps you transform your pen and paper ideas into an interactive iPhone or Android prototype.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.invisionapp.com/\" rel=\"nofollow\"\u003eInvision\u003c/a\u003e - The world's leading prototyping, collaboration \u0026amp; workflow platform.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://marvelapp.com/\" rel=\"nofollow\"\u003eMarvel\u003c/a\u003e - Simple design, prototyping and collaboration.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.flinto.com/\" rel=\"nofollow\"\u003eFlinto\u003c/a\u003e - Flinto lets designers quickly make interactive prototypes of their mobile, desktop, or web apps.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://origami.design/\" rel=\"nofollow\"\u003eOrigami Studio\u003c/a\u003e - Explore, iterate, and test your ideas.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://framer.com/\" rel=\"nofollow\"\u003eFramer\u003c/a\u003e - All-in-one design workflow.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://relativewave.com/form/\" rel=\"nofollow\"\u003eForm\u003c/a\u003e - Build and customize native prototypes directly on device.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://proto.io/\" rel=\"nofollow\"\u003eProto\u003c/a\u003e - Create fully-interactive high-fidelity prototypes that look and work exactly like your app should. No coding required.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.fusetools.com/\" rel=\"nofollow\"\u003eFuse\u003c/a\u003e - Create better native apps for iOS and Android with a new breed of development tools.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.protopie.io\" rel=\"nofollow\"\u003eProtoPie\u003c/a\u003e - ProtoPie is the easiest prototyping tool to build advanced, highly interactive prototypes.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"tools-3\" class=\"anchor\" href=\"#tools-3\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://airbnb.design/lottie/\" rel=\"nofollow\"\u003eLottie\u003c/a\u003e - Easily add high-quality animation to any native app.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://keynotopia.com/\" rel=\"nofollow\"\u003eKeynotopia\u003c/a\u003e - Keynotopia transforms Keynote and PowerPoint into the best rapid prototyping tools for creating mobile, web and desktop UI mockups.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"accessibility\" class=\"anchor\" href=\"#accessibility\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAccessibility\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"articles-3\" class=\"anchor\" href=\"#articles-3\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArticles\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction\" rel=\"nofollow\"\u003eGov.Uk\u003c/a\u003e - Making your service accessible: an introduction.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/\" rel=\"nofollow\"\u003eSmashing Magazine\u003c/a\u003e - Color Contrast And Why You Should Rethink It.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://medium.com/@GarronEngstrom/accessibility-101-56f87f3d726e\" rel=\"nofollow\"\u003eMedium\u003c/a\u003e - Accessibility for designers. Mind your RGB’s.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.webcredible.com/blog/visual-design-and-colour-accessibility/\" rel=\"nofollow\"\u003eWeb Credible\u003c/a\u003e - Visual design and color accessibility.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://alistapart.com/blog/post/easy-color-contrast-testing\" rel=\"nofollow\"\u003eA List Apart\u003c/a\u003e - Easy Color Contrast Testing.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.viget.com/articles/color-contrast\" rel=\"nofollow\"\u003eViget\u003c/a\u003e - Color Contrast for Better Readability.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"tools-4\" class=\"anchor\" href=\"#tools-4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://wave.webaim.org/\" rel=\"nofollow\"\u003eWAVE\u003c/a\u003e - Web Accessibility Evaluation Tool.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://6220119.github.io/contrast-ratio/#/black-on-white\" rel=\"nofollow\"\u003eContrast Ratio\u003c/a\u003e - A tool to calculate the contrast ratio between any two valid CSS colors.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://snook.ca/technical/colour_contrast/colour.html#fg=515A5F,bg=FFFFFF\" rel=\"nofollow\"\u003eSnook\u003c/a\u003e - Colour Contrast Check.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.canvasflip.com/color-blind.php\" rel=\"nofollow\"\u003eCanvasFlip\u003c/a\u003e - Colorblind simulator for Designers.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"writing\" class=\"anchor\" href=\"#writing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWriting\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://trends.google.com/trends/\" rel=\"nofollow\"\u003eGoogle trends\u003c/a\u003e - Stories trending now.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://books.google.com/ngrams/\" rel=\"nofollow\"\u003eGoogle Ngram\u003c/a\u003e - Enter phrases into the Google Books Ngram Viewer, it displays a graph showing how those phrases have occurred in a corpus of books.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.hemingwayapp.com/\" rel=\"nofollow\"\u003eHemingway\u003c/a\u003e - Hemingway App makes your writing bold and clear.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://readable.io/\" rel=\"nofollow\"\u003eReadable\u003c/a\u003e - You have 7 seconds to grab someone's attention. Readable.io helps you cut out the noise.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.thewriter.com/what-we-think/readability-checker/\" rel=\"nofollow\"\u003eThe Writer\u003c/a\u003e - How readable is your writing?.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.taskade.com/\" rel=\"nofollow\"\u003eTaskade\u003c/a\u003e - Collaborative editor and outliner.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"data\" class=\"anchor\" href=\"#data\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eData\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://data.london.gov.uk/\" rel=\"nofollow\"\u003eLondon Datastore\u003c/a\u003e - The London Datastore is a free and open data-sharing portal.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://yougov.com/\" rel=\"nofollow\"\u003eYouGov\u003c/a\u003e - We believe in the power of participation.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://data.gov.uk/\" rel=\"nofollow\"\u003eData.Gov\u003c/a\u003e - Find data published by government departments and agencies, public bodies and local authorities.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/tategallery/collection\" rel=\"nofollow\"\u003eThe Tate Collection\u003c/a\u003e - Here we present the metadata for around 70,000 artworks.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://open.nasa.gov/open-data/\" rel=\"nofollow\"\u003eNASA\u003c/a\u003e - We're Setting Data, Code and APIs free.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"iot\" class=\"anchor\" href=\"#iot\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIoT\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"articles-4\" class=\"anchor\" href=\"#articles-4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArticles\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.iotmanifesto.com/\" rel=\"nofollow\"\u003eIoT Manifesto\u003c/a\u003e - Guidelines for responsible design in a connected world.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://iotweeklynews.com/\" rel=\"nofollow\"\u003eIoT Weekly News\u003c/a\u003e - Subscribe to hand picked articles by Justin Grammens on the Internet of Things.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://internetofthingsagenda.techtarget.com/feature/Design-an-IoT-user-experience-not-an-IoT-product\" rel=\"nofollow\"\u003eIoT Agenda\u003c/a\u003e - Design an IoT user experience, not an IoT product.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://iot-for-all.com/designing-the-internet-of-things/\" rel=\"nofollow\"\u003eIoT For All\u003c/a\u003e - Designing the Internet of Things – 5 Key Principles.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"tools-5\" class=\"anchor\" href=\"#tools-5\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://nodered.org/\" rel=\"nofollow\"\u003eNode RED\u003c/a\u003e - Flow-based programming for the Internet of Things.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"http://www.getnoodl.com/\" rel=\"nofollow\"\u003eNoodl\u003c/a\u003e - Digital Experience Design Platform.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg\" alt=\"CC0\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":94201255,"name":"awesome-product-design","owner_login":"matttga","description":"A collection of bookmarks, resources, articles for product designers.","pushed_at":"2020-10-27T01:05:43.000Z","stargazers_count":1542,"open_issues_count":6,"has_downloads":true,"archived":false,"license_key":null,"homepage":"","private":false,"project_created_at":"2017-06-13T10:32:26.000Z","project_updated_at":"2021-01-09T22:03:52.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>
