@@ -1,0 +1,32 @@
+{
+  "name": "d3-require",
+  "version": "1.2.4",
+  "description": "A minimal, promise-based implementation to require asynchronous module definitions.",
+  "author": {
+    "name": "Observable, Inc."
+  },
+  "license": "ISC",
+  "main": "dist/d3-require.js",
+  "unpkg": "dist/d3-require.min.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d3/d3-require.git"
+  },
+  "files": [
+    "dist/**/*.js",
+    "src/**/*.js"
+  ],
+  "scripts": {
+    "pretest": "rollup -c",
+    "test": "tape 'test/**/*-test.js' && eslint src",
+    "prepublishOnly": "rm -rf dist && yarn test",
+    "postpublish": "git push && git push --tags && zip -j dist/${npm_package_name}.zip -- LICENSE README.md dist/${npm_package_name}.js dist/${npm_package_name}.min.js"
+  },
+  "devDependencies": {
+    "eslint": "6",
+    "rollup": "1",
+    "rollup-plugin-terser": "5",
+    "tape": "4"
+  }
+}

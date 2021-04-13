@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Preview</title>
+		<meta charset="UTF-8">
+		<script src="../src/Preview.js"></script>
+		<script>
+			function init( ) {
+				var media = new PREVIEW.Media( 'estranged-screenshot.jpg' );
+				var camera = new PREVIEW.SmoothedCamera( );
+				camera.position.z = -1200;
+				
+				var input = new PREVIEW.BasicInputBehaviour( camera );
+				var stage = new PREVIEW.Stage( document.getElementById( 'stage' ), media.create( ), camera );
+				stage.create( );
+				
+				( function( ) {
+					stage.update( );
+					requestAnimFrame( arguments.callee );
+				} )( );
+			}
+		</script>
+		<style>
+			#stage {
+				background: lightgray;
+				
+				height: 320px;
+				width: 640px;
+				position:relative !important;
+			}
+		</style>
+	</head>
+	<body onload="init( )">
+		<h1>Block Preview Test</h1>
+		<p>Drag the below image to move it around, scroll to zoom, and hold middle click to rotate.</p>
+		<div id="stage"></div>
+		<p>Block element test.</p>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+.Section {
+	box-sizing: border-box;
+	display: inline-block;
+	clear: both;
+	width: 100%;
+	margin: 0;
+	padding: 20px;
+	position: relative;
+}
+
+.Section--bordered {
+	border: 2.5px solid black;
+	border-top: none;
+}
+
+.Section--bordered:first-of-type {
+	border-top: 2.5px solid black;
+}
+
+.Section__header {
+	text-align: center;
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+@media (min-width: 600px) {
+	.Section--half {
+		box-sizing: border-box;
+		display: inline-block;
+		width: 50%;
+		padding: 20px;
+	}
+}

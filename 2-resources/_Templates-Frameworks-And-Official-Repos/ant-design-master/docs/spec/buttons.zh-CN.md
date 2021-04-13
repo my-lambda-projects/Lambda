@@ -24,7 +24,7 @@ title: 按钮
 
 #### ② 主按钮
 
-突出“完成”、“推荐”类操作；一个按钮区最多使用一个主按钮。
+突出“完成"、“推荐"类操作；一个按钮区最多使用一个主按钮。
 
 #### ③ 文字按钮
 
@@ -83,13 +83,13 @@ title: 按钮
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
 
-经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。一个屏幕空间中，建议只有一个行动号召按钮。
+经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧"，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。一个屏幕空间中，建议只有一个行动号召按钮。
 
 ## 位置
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*B8D0RJnirLkAAAAAAAAAAABkARQnAQ">
 
-将按钮区放置于用户浏览路径中，便于被用户发现，如 “F 浏览模式” 和 “Z 浏览模式” 。
+将按钮区放置于用户浏览路径中，便于被用户发现，如 “F 浏览模式" 和 “Z 浏览模式" 。
 
 ### 如何确定按钮区的放置位置？
 
@@ -103,14 +103,14 @@ title: 按钮
 
 将按钮区放置在不同的区域，有不同的含义：见右图。
 
-也存在一些特殊情况，将“完成”主题类的动作放在 Header 区。例如，编辑器中为了最大化编辑空间，将“完成”类动作放到了右上角。
+也存在一些特殊情况，将“完成"主题类的动作放在 Header 区。例如，编辑器中为了最大化编辑空间，将“完成"类动作放到了右上角。
 
 ### 什么时候需要在 Footer 中放置按钮区？
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KGGWQLCBfm0AAAAAAAAAAABkARQnAQ">
 
 - Body 区部分内容被折叠或隐藏，例如单屏无法展示完整内容；
-- Body 区的内容复杂度高，例如有多个分组，分组中又有独立的按钮区，这时候需要将该主题的“完成”操作从 body 区区分出来，避免混淆按钮所能影响的内容范围。
+- Body 区的内容复杂度高，例如有多个分组，分组中又有独立的按钮区，这时候需要将该主题的“完成"操作从 body 区区分出来，避免混淆按钮所能影响的内容范围。
 
 简而言之，Footer 的存在就是为了要和 Body 区区分开来。
 
@@ -161,7 +161,7 @@ title: 按钮
 - 必须使用动词。（下拉按钮除外）
 - 与语境紧密关联，用语简练。
 
-Ant Design 组件中默认使用 “确定 / 取消”文案 ，但你仍然可以通过以下方式优化按钮文案：
+Ant Design 组件中默认使用 “确定 / 取消"文案 ，但你仍然可以通过以下方式优化按钮文案：
 
 - 描述任务结果。
 

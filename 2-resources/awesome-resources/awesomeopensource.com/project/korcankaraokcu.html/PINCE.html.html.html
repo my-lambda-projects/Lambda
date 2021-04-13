@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":93,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Pince</title>
+<meta name="description" content="A reverse engineering tool that&#39;ll supply the place of Cheat Engine for linux">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/korcankaraokcu/PINCE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "korcankaraokcu/PINCE",
+  "description": "A reverse engineering tool that'll supply the place of Cheat Engine for linux",
+  "url": "https://awesomeopensource.com/project/korcankaraokcu/PINCE",
+  "sku": "project/korcankaraokcu/PINCE",
+  "mpn": "project/korcankaraokcu/PINCE",
+  "image": "https://github.com/korcankaraokcu.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "korcankaraokcu/PINCE",
+    "logo": "https://github.com/korcankaraokcu.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.77",
+    "ratingCount": "948"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="lI9gxx1p3XiEKCdX1LR4QQun+XcXBiXogy8TUYO848rSOenhXH0QBycb+PMMjnzG5NJZlu925mW6/I5URFxQDw==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/korcankaraokcu/PINCE","location":"/project/korcankaraokcu/PINCE","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/korcankaraokcu/PINCE","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-f206c616-2ef1-44dd-a909-d8ced398a6f5"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Pince</div><div class="aos_project_metadata_description">A reverse engineering tool that&#x27;ll supply the place of Cheat Engine for linux</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">948</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">other</span><div class="aos_project_metadata_header"><a href="https://github.com/korcankaraokcu/PINCE" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/korcankaraokcu/PINCE" target="_blank">https://github.com/korcankaraokcu/PINCE</a></span><div class="aos_project_metadata_header"><a href="https://github.com/korcankaraokcu/PINCE/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/korcankaraokcu/PINCE/issues" target="_blank">23</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">a month ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/python"><div style="display:block;text-decoration:none;padding-bottom:10px">python<span> (<!-- -->49,729<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/python3"><div style="display:block;text-decoration:none;padding-bottom:10px">python3<span> (<!-- -->1,466<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/game"><div style="display:block;text-decoration:none;padding-bottom:10px">game<span> (<!-- -->954<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/reverse-engineering"><div style="display:block;text-decoration:none;padding-bottom:10px">reverse-engineering<span> (<!-- -->446<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/debugging-tool"><div style="display:block;text-decoration:none;padding-bottom:10px">debugging-tool<span> (<!-- -->73<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/injection"><div style="display:block;text-decoration:none;padding-bottom:10px">injection<span> (<!-- -->69<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/disassembler"><div style="display:block;text-decoration:none;padding-bottom:10px">disassembler<span> (<!-- -->62<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/bookmark"><div style="display:block;text-decoration:none;padding-bottom:10px">bookmark<span> (<!-- -->50<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/gdb"><div style="display:block;text-decoration:none;padding-bottom:10px">gdb<span> (<!-- -->43<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/patcher"><div style="display:block;text-decoration:none;padding-bottom:10px">patcher<span> (<!-- -->21<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/memory-hacking"><div style="display:block;text-decoration:none;padding-bottom:10px">memory-hacking<span> (<!-- -->15<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tracer"><div style="display:block;text-decoration:none;padding-bottom:10px">tracer<span> (<!-- -->14<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="pince" class="anchor" href="#pince" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PINCE</h1>
+
+<p>PINCE is a front-end/reverse engineering tool for the GNU Project Debugger (GDB), focused on games. However, it can be used for any reverse-engineering related stuff. PINCE is an abbreviation for "PINCE is not Cheat Engine". PINCE is in development right now, read <a href="#features">Features</a> part of the project to see what is done and <a href="#current-roadmap">Roadmap</a> part to see what is currently planned. Also, please read <a href="https://github.com/korcankaraokcu/PINCE/wiki" rel="nofollow">Wiki Page</a> of the project to understand how PINCE works.</p>
+<h3>
+<a id="feel-free-to-join-our-discord-server" class="anchor" href="#feel-free-to-join-our-discord-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://discord.gg/KCNDp9m" rel="nofollow">Feel free to join our discord server!</a>
+</h3>
+<p><em>Disclaimer: Do not trust to any source other than <a href="#trusted-sources">Trusted Sources</a> that claims to have the source code or package for PINCE and remember to report them <strong>immediately</strong></em></p>
+<p><em>Disclaimer: <strong>YOU</strong> are responsible for your actions. PINCE does <strong>NOT</strong> take any responsibility for the damage caused by the users</em></p>
+<p>Pre-release screenshots:<br>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince1.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince1.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince2.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince2.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince3.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince3.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince4.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince4.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince5.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince5.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince6.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince6.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince7.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince7.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince8.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince8.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince9.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince9.png" alt="" style="max-width:100%;"></a></p>
+<h1>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h1>
+<ul>
+<li>
+<strong>Memory searching:</strong> PINCE uses <a href="https://github.com/scanmem/scanmem" rel="nofollow">libscanmem</a> to search the memory efficiently <strong>[Done]</strong>
+</li>
+<li>
+<strong>Variable Inspection&amp;Modification</strong> <strong>[Done/Basic]</strong>
+<ul>
+<li>
+<strong>CheatEngine-like value type support:</strong> Byte to 8 Bytes, Float, Double, Strings(including utf-8, utf-16, utf-32 and zero-terminate strings), Array of Bytes <strong>[Done]</strong>
+</li>
+<li>
+<strong>Symbol Recognition:</strong> See <a href="https://github.com/korcankaraokcu/PINCE/wiki/About-GDB-Expressions" rel="nofollow">here</a> <strong>[Done]</strong>
+</li>
+<li>
+<strong>Automatic Variable Allocation:</strong> See <a href="https://github.com/korcankaraokcu/PINCE/wiki/About-GDB-Expressions" rel="nofollow">here</a> <strong>[Done]</strong>
+</li>
+<li>
+<strong>Dynamic Address Table:</strong> Supports drag&amp;drop, recursive copy&amp;pasting&amp;inserting and many more <strong>[Done]</strong>
+</li>
+<li>
+<strong>Manual Address Table Update:</strong> <strong>[Done]</strong>
+</li>
+<li>
+<strong>Smart casting:</strong> PINCE lets you modify multiple different-type values together as long as the input is parsable. All parsing/memory errors are directed to the terminal <strong>[Done]</strong>
+</li>
+<li>
+<strong>Continuous Address Table Update:</strong> You can adjust update timer or cancel updating by modifying settings. Non-stop version is Postponed\Quarterway Done <strong>[Done\Only works when the inferior is stopped]</strong>
+</li>
+<li>
+<strong>Variable Locking:</strong> PINCE lets you freeze(constantly write a value to memory cell) variables <strong>[Planned]</strong>
+</li>
+</ul>
+</li>
+<li>
+<strong>Memory View</strong> <strong>[Done/Basic]</strong>
+<ul>
+<li>
+<strong>Infinite Scrolling:</strong> PINCE automatically disassembles the next available instruction(s) on mouse wheel/scrollbar move. Instruction count can be changed from settings. Hex View also supports this feature <strong>[Done]</strong>
+</li>
+<li>
+<strong>Dissect Code:</strong> You can dissect desired memory regions to find referenced calls, jumps and strings. Disassemble screen will automatically handle the referenced data and show you if there's a referenced address in the current dissasemble view. It can be used from Tools-&gt;Dissect Code in the MemoryView window. Using its hotkey instead in the MemoryView window automatically dissects the currently viewed region. You can separately view referenced calls and strings after the search from View-&gt;Referenced Calls/Strings. <em>Note: If you decide to uncheck 'Discard invalid strings' before the search, PINCE will try to search for regular pointers as well</em> <strong>[Done]</strong>
+</li>
+<li>
+<strong>Bookmarking:</strong> Bookmark menu is dynamically created when right clicked in the disassemble screen. So unlike Cheat Engine, PINCE lets you set unlimited number of bookmarks. List of bookmarks can also be viewed from View-&gt;Bookmarks in the MemoryView window. Commenting on an address automatically bookmarks it. <strong>[Done]</strong>
+</li>
+<li>
+<strong>Modify on the fly:</strong> PINCE lets you modify registers on the fly. Unlike CE, you can also change XMM and FPU registers. Check <a href="https://github.com/korcankaraokcu/PINCE/wiki/About-GDB-Expressions" rel="nofollow">GDB expressions in the Wiki page</a> for additional information <strong>[Done]</strong>
+</li>
+<li>
+<strong>Opcode Search:</strong> You can search opcodes with python regular expressions. To use this feature, click Tools-&gt;Search Opcode in the MemoryView window. <strong>[Done]</strong>
+</li>
+</ul>
+</li>
+<li>
+<strong>Debugging</strong> <strong>[Done/Basic]</strong>
+<ul>
+<li>Has basic debugging features such as stepping, stepping over, execute till return, break, continue. Also has breakpoints, watchpoints and breakpoint conditions. Has advanced debugging utilities such as Watchpoint/Breakpoint Tracking and Tracing</li>
+<li>
+<strong>Chained Breakpoints:</strong> Just like CE, PINCE allows you to set multiple, connected breakpoints at once. If an event(such as condition modification or deletion) happens in one of the breakpoints, other connected breakpoints will get affected as well <strong>[Done]</strong>
+</li>
+<li>
+<strong>Watchpoint Tracking:</strong> Allows you to see which instructions have been accessing to the specified address, just like "What accesses/writes to this address" feature in CE <strong>[Done]</strong>
+</li>
+<li>
+<strong>Breakpoint Tracking:</strong> Allows you to track down addresses calculated by the given register expressions at the specified instruction, just like "Find out what addresses this instruction accesses" feature in CE with a little addon, you can enter multiple register expressions, this allows you to check the value of "esi" even if the instruction is something irrelevant like "mov [eax],edx" <strong>[Done]</strong>
+</li>
+<li>
+<strong>Tracing:</strong> Almost the same with CE. But unlike CE, you can stop tracing whenever you want. Created from scratch with shittons of custom features instead of using gdb's trace&amp;collect commands because some people have too much time on their hands <strong>[Done]</strong>
+</li>
+<li>
+<strong>Collision Detection:</strong> GDB normally permits setting unlimited watchpoints next to each other. But this behaviour leads to unexpected outcomes such as causing GDB or the inferior become completely inoperable. GDB also doesn't care about the number(max 4) or the size(x86-&gt;max 4, x64-&gt;max 8) of hardware breakpoints. Fortunately, PINCE checks for these problems whenever you set a new breakpoint and detects them before they happen and then inhibits them in a smart way. Lets say you want to set a breakpoint in the size of 32 bytes. But the maximum size for a breakpoint is 8! So, PINCE creates 4 different breakpoints with the size of 8 bytes and then chains them for future actions <strong>[Done]</strong>
+</li>
+</ul>
+</li>
+<li>
+<strong>Code Injection</strong> <strong>[Working on it]</strong>
+<ul>
+<li>
+<strong>Run-time injection:</strong> Only .so injection is supported for now. In Memory View window, click Tools-&gt;Inject .so file to select the .so file. An example for creating .so file can be found in "libPINCE/Injection/". PINCE will be able to inject single line instructions or code caves in near future <strong>[Partially Done?]</strong>
+</li>
+</ul>
+</li>
+<li>
+<strong>GDB Console</strong> <strong>[Done]</strong>
+<ul>
+<li>Is the power of PINCE not enough for you? Then you can use the gdb console provided by PINCE, it's on the top right in main window</li>
+</ul>
+</li>
+<li>
+<strong>Simplified/Optimized gdb command alternatives</strong> <strong>[Working on it]</strong>
+<ul>
+<li>Custom scripts instead of using gdb's x command for reading memory <strong>[Done]</strong>
+</li>
+<li>Custom scripts instead of using gdb's set command for modifying memory <strong>[Done]</strong>
+</li>
+</ul>
+</li>
+<li>
+<strong>libPINCE- A reusable python library</strong>
+<ul>
+<li>PINCE provides a reusable python library. You can either read the code or check Reference Widget by clicking Help-&gt;libPINCE in Memory Viewer window to see docstrings. Contents of this widget is automatically generated by looking at the docstrings of the source files. PINCE has a unique parsing technique that allows parsing variables. Check the function get_comments_of_variables in SysUtils for the details. This feature might be replaced with Sphinx in the future</li>
+</ul>
+</li>
+<li>
+<strong>Extendable with .so files at runtime</strong>
+<ul>
+<li>See <a href="https://github.com/korcankaraokcu/PINCE/wiki/Extending-PINCE-with-.so-files" rel="nofollow">here</a>
+</li>
+</ul>
+</li>
+<li>
+<strong>Automatic Trainer Generation:</strong> <strong>[Planned]</strong>
+<ul>
+<li>PINCE provides a trainer auto-generated from current address table on demand by using libPINCE and PyQT5 together</li>
+</ul>
+</li>
+</ul>
+<h1>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing</h1>
+<p>Clone this repo by running <code>git clone --recursive https://github.com/korcankaraokcu/PINCE</code> then run <code>sudo sh install_pince.sh</code> in the PINCE directory. Install script currently supports Ubuntu and Debian. For Archlinux, use the <a href="https://aur.archlinux.org/packages/pince-git/" rel="nofollow">AUR package</a> instead.</p>
+<p>If you like to uninstall PINCE, just delete this folder. Almost everything is installed locally, including gdb. Config and user files of PINCE can be found in "~/.config/PINCE", you can manually delete them if you want.</p>
+<p><em><strong>Notes:</strong></em></p>
+<ul>
+<li>GDB enhancements (peda, pwndbg, etc) that use a global gdbinit file might cause PINCE to misfunction at times. Please disable them or use them locally before starting PINCE</li>
+<li>Having spaces in your path might cause GDB to fail compiling</li>
+</ul>
+<h1>
+<a id="running-pince" class="anchor" href="#running-pince" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running PINCE</h1>
+<p>Just run <code>sh PINCE.sh</code> in the PINCE directory</p>
+<h3>
+<a id="for-developers" class="anchor" href="#for-developers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>For developers:</h3>
+<pre><code>sudo apt-get install qttools5-dev-tools (qt5 form designer)
+sudo apt-get install pyqt5-dev-tools (pyuic5)
+sudo pip3 install line_profiler (for performance testing)
+</code></pre>
+<p>How to use line_profiler: Add <code>@profile</code> tag to the desired function and run PINCE with <code>sudo kernprof -l -v PINCE.py</code></p>
+<h1>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>History</h1>
+<ul>
+<li>A few weeks till 17/01/2016 : Learned GDB, process of analysis</li>
+<li>17/01/2016-22/01/2016 : Basic design, grasping of Python3 and Pyqt5, proof-testing</li>
+<li>22/01/2016 : First commit</li>
+<li>19/02/2016 : Moved to Github from Bitbucket</li>
+<li>25/02/2016 : First successful implementation of thread injection[Update-08/05/2016 : PINCE now uses <code>linux-inject</code> as a secondary injection method]</li>
+<li>18/06/2016 : PINCE now supports all-stop mode instead of non-stop mode</li>
+<li>21/06/2016 : Variable Inspection&amp;Modification is finished(At basic level)</li>
+<li>21/08/2016 : Memory View is finished(At basic level)</li>
+<li>24/08/2016 : PINCE no more uses linux-inject because of stability issues(a fix for the <a href="https://github.com/gaffe23/linux-inject/issues/7" rel="nofollow">race conditions in the inferior</a> would be nice)</li>
+<li>26/12/2016 : Debugging is finished(At basic level)</li>
+<li>19/05/2020 : libscanmem integration is complete, enjoy memory searching. Huge thanks to fisu, xk and 12345ieee (libscanmem team)</li>
+</ul>
+<h1>
+<a id="current-roadmap" class="anchor" href="#current-roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Current Roadmap</h1>
+<ul>
+<li>Refactor file naming conventions(libPINCE-&gt;libpince, decide on snake_case or camelCase for modules etc)</li>
+<li>Create <code>CONTRIBUTING.md</code> and combine all non-tutorial notes within it</li>
+<li>Consider replacing read/write_memory_multiple functions with mem_handle&amp;read/write_memory functions, this fixes the "read_memory_multiple follows a bad design pattern" step</li>
+<li>Implement non-stop Continuous Address Table Update feature</li>
+<li>Implement Variable Locking</li>
+<li>Refactorize memory write/read functions</li>
+<li>
+<ul>
+<li>ReferencedStringsWidgetForm refreshes the cache everytime the comboBox_ValueType changes, this creates serious performance issues if total results are more than 800k. Only update the visible rows to prevent this(check <code>disassemble_check_viewport</code> for an example)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Implement same system for the TrackBreakpointWidgetForm if necessary. Do performance tests</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Consider using a class instead of primitive return types to store the raw bytes. This also gets rid of the unnecessary parameter only_bytes. This class should also include a method to display None type as red '??' text for Qt</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>text_to_valuetype is a bad design pattern. Store the information inside the items of tableWidget_AddressTable instead</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>read_memory_multiple follows a bad design pattern, use named tuples or something like that</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Provide an option to cut BOM bytes when writing to memory with the types UTF-16 and UTF-32</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Put a warning for users about replacement bytes for non UTF-8 types</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Extend string types with LE and BE variants of UTF-16 and UTF-32</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Change comboBox_ValueType string order to be ... String_UTF-8 String_Others Array of Bytes</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Implement a custom combobox class for comboBox_ValueType and create a context menu for String_Others item</li>
+</ul>
+</li>
+<li>Indent docstrings properly like GDB_Engine.get_breakpoint_info does(independent from other steps)</li>
+<li>Implement "Investigate Registers" button to gather information about the addresses registers point to(independent from other steps)</li>
+<li>Implement selectionChanged signal of lineEdit_HexView</li>
+<li>Implement multi selection for HexView</li>
+<li>Add the ability to track down registers and addresses in tracer(unsure)(independent from other steps)</li>
+<li>Implement CE's Ultimap-like feature for tracing data, dissect code data and raw instruction list. Search for calls and store their hit counts to filter out the functions that haven't or have executed specific number of times. Implement a flexible input field for the execution count. For instance, 2^x only searches for hit counts 2, 4, 8 and so on, 3x only searches for 3, 6, 9 etc.(independent from other steps)(<a href="https://github.com/cheat-engine/cheat-engine/issues/358" rel="nofollow">CE#358</a>)</li>
+<li>Extend search_referenced_strings with relative search</li>
+<li>Consider adding type guessing for the StackView(independent from other steps)</li>
+<li>Move GUI classes of PINCE.py to their own files</li>
+<li>Handle signals and internal errors that causes gdb to halt, such as SIGSEGV and overlapping breakpoints(independent from other steps)</li>
+<li>Use gdb python API breakpoints instead of breakpoint commands for optimization, also find a way to eliminate output coming from stepping commands such as <code>stepi</code> or <code>nexti</code>(independent from other steps)</li>
+<li>Implement a psuedo-terminal for the inferior like edb does(independent from other steps)</li>
+<li>Implement libPINCE engine</li>
+<li>Implement auto-ESP&amp;aimbot (depends on libPINCE engine)</li>
+<li>Try to optimize TrackBreakpoint and TrackWatchpoint return data structures further, adding an id field might simplify traversing of the tree, performance tests are required(independent from other steps)</li>
+<li>Extend tagging system to PINCE GUI functions</li>
+<li>Implement inject_with_advanced_injection(independent from other steps)</li>
+<li>Implement single-line code injection</li>
+<li>Implement multi-line code injection</li>
+<li>Break on/Catch signals and syscalls</li>
+<li>Move non-communication functions in GDB_Engine to ScriptUtils and create corresponding fields in GDB_Engine and GDBCommandExtensions automatically. This lets entire functionality of libPINCE to be used with both python scripts and gdb python scripts, thus allowing it to be used as a plugin for projects such as radare2</li>
+<li>Flowcharts based on disassembled output</li>
+<li>Automatic function bypassing(make it return the desired value, hook specific parts etc.)</li>
+<li>Implement speedhack(independent from other steps)</li>
+<li>Implement unrandomizer(independent from other steps)</li>
+<li>Implement pointer-scan</li>
+<li>Write at least one test for each function in libPINCE</li>
+<li>Migrate to Sphinx documentation from the custom libPINCE documentation(independent from other steps)</li>
+<li>Embedded tutorial videos</li>
+<li>Super-Uber-Rad credits roll with chiptune tunes</li>
+<li>Implement extra MemoryViewerWindow tabs(independent from other steps)</li>
+<li>
+<del>Consider removing the command file layer of IPC system for GDB_Engine.send_command to speed up things</del>(independent from other steps)[Update-29/04/2018 : Delaying this until GDB/MI implements a native multiline command feature or improves <code>interpreter-exec</code> command to cover every single multiline command type(including <code>define</code> commands)]</li>
+<li>Implement thread info widget</li>
+<li>Add ability to change logo and other assets if people contribute more than one asset per usage. Also consider using <a href="https://github.com/korcankaraokcu/PINCE-media" rel="nofollow">PINCE-media</a> for development if needed(independent from other steps)</li>
+<li>Implement developer mode in settings. Developer mode will include features like dissection of GUI elements on events such as mouse-over(independent from other steps)</li>
+<li>Add ability to include non-absolute calls for dissect code feature(i.e call rax). Should be considered after the first version release. Might be useful for multi-breakpoint related features</li>
+<li>Implement toggling of arrows for easier navigation for dissected regions(independent from other steps)</li>
+<li>Provide information about absolute addresses in disassemble screen(independent from other steps)</li>
+<li>Use type hints(py 3.5) and variable annotations(py 3.6) when support drops for older systems(independent from other steps)</li>
+<li>All tables that hold large amount of data should only update the visible rows(check <code>disassemble_check_viewport</code> for an example)(independent from other steps)</li>
+<li>Add different kinds of themes and the ability to change between them on runtime. Implement dark theme first. Also add the ability to create a custom theme and modify the existing ones(independent from other steps)</li>
+</ul>
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+<p>GPLv3+. See COPYING file for details</p>
+<h1>
+<a id="contact-information" class="anchor" href="#contact-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact Information</h1>
+<p>Korcan Karaokçu(<a href="https://github.com/cagriulas" rel="nofollow">korcankaraokcu</a>) <a href="/cdn-cgi/l/email-protection#4d26223f2e2c23262c3f2c22262e380d2a202c2421632e2220" rel="nofollow"><span class="__cf_email__" data-cfemail="8ee5e1fcedefe0e5effcefe1e5edfbcee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a><br>
+Çağrı Ulaş(<a href="https://github.com/cagriulas" rel="nofollow">cagriulas</a>) <a href="/cdn-cgi/l/email-protection#ed8e8c8a9f8498818c9ead8a808c8481c38e8280" rel="nofollow"><span class="__cf_email__" data-cfemail="a8cbc9cfdac1ddc4c9dbe8cfc5c9c1c486cbc7c5">[email&#160;protected]</span></a><br>
+Jakob Kreuze(<a href="https://github.com/TsarFox" rel="nofollow">TsarFox</a>) <a href="/cdn-cgi/l/email-protection#1c767d77737e5c717971796b7d6e7932727968" rel="nofollow"><span class="__cf_email__" data-cfemail="95fff4fefaf7d5f8f0f8f0e2f4e7f0bbfbf0e1">[email&#160;protected]</span></a><br>
+Gibus <a href="/cdn-cgi/l/email-protection#204c494c414316160e44455660474d41494c0e434f4d" rel="nofollow"><span class="__cf_email__" data-cfemail="f4989d989597c2c2da909182b49399959d98da979b99">[email&#160;protected]</span></a></p>
+<h1>
+<a id="supported-platforms" class="anchor" href="#supported-platforms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported platforms</h1>
+<ul>
+<li>Kubuntu 18.04 &amp; 16.04(Also tested on x86 variants)</li>
+<li>Debian 9 (Stretch)</li>
+<li>Kali Linux</li>
+<li>Parrot OS</li>
+<li>Linux Mint 19 (Tara)(install the package "python3-psutil" if you encounter ImportError or NameError, thanks Gibus)</li>
+<li>Archlinux(tag <a href="https://github.com/cagriulas" rel="nofollow">cagriulas</a> or <a href="https://github.com/TsarFox" rel="nofollow">TsarFox</a> when creating an issue)</li>
+</ul>
+<h1>
+<a id="trusted-sources" class="anchor" href="#trusted-sources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trusted Sources</h1>
+<ul>
+<li><a href="https://github.com/korcankaraokcu/PINCE" rel="nofollow">Official github page</a></li>
+<li><a href="https://aur.archlinux.org/packages/pince-git/" rel="nofollow">AUR package for Archlinux</a></li>
+</ul>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b9c4aba6e738',m:'de8e7b63875172c5aa1b0d5b83559227ec2f9a7f-1610725545-1800-AYhtfOUJbovXvRiLAxtukVinksYGxQUPPKYnn/9jKkVEwkyUo/xDIfMA8+hOf5RbxGVvQNQxFVolT2e4+qJ+pyAGOdSWc8jQ72j/KDkp4dxDBpN4qEpioferKLwIP9i5tSbbjU1mBH4uB8yWL4hZSlg=',s:[0x7ed9612163,0x28b16a4258],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="python"/> <!-- -->python<!-- --> (<!-- -->49,729<!-- -->) </div><div><input type="checkbox" name="topics" value="python3"/> <!-- -->python3<!-- --> (<!-- -->1,466<!-- -->) </div><div><input type="checkbox" name="topics" value="game"/> <!-- -->game<!-- --> (<!-- -->954<!-- -->) </div><div><input type="checkbox" name="topics" value="reverse-engineering"/> <!-- -->reverse-engineering<!-- --> (<!-- -->446<!-- -->) </div><div><input type="checkbox" name="topics" value="debugging-tool"/> <!-- -->debugging-tool<!-- --> (<!-- -->73<!-- -->) </div><div><input type="checkbox" name="topics" value="injection"/> <!-- -->injection<!-- --> (<!-- -->69<!-- -->) </div><div><input type="checkbox" name="topics" value="disassembler"/> <!-- -->disassembler<!-- --> (<!-- -->62<!-- -->) </div><div><input type="checkbox" name="topics" value="bookmark"/> <!-- -->bookmark<!-- --> (<!-- -->50<!-- -->) </div><div><input type="checkbox" name="topics" value="gdb"/> <!-- -->gdb<!-- --> (<!-- -->43<!-- -->) </div><div><input type="checkbox" name="topics" value="patcher"/> <!-- -->patcher<!-- --> (<!-- -->21<!-- -->) </div><div><input type="checkbox" name="topics" value="memory-hacking"/> <!-- -->memory-hacking<!-- --> (<!-- -->15<!-- -->) </div><div><input type="checkbox" name="topics" value="tracer"/> <!-- -->tracer<!-- --> (<!-- -->14<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Pince<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/korcankaraokcu" target="_blank">Korcankaraokcu</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/korcankaraokcu" target="_blank">Korcankaraokcu</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-f206c616-2ef1-44dd-a909-d8ced398a6f5">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"bookmark","count":50},{"id":null,"name":"debugging-tool","count":73},{"id":null,"name":"disassembler","count":62},{"id":null,"name":"game","count":954},{"id":null,"name":"gdb","count":43},{"id":null,"name":"injection","count":69},{"id":null,"name":"memory-hacking","count":15},{"id":null,"name":"patcher","count":21},{"id":null,"name":"python","count":49729},{"id":null,"name":"python3","count":1466},{"id":null,"name":"reverse-engineering","count":446},{"id":null,"name":"tracer","count":14}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/korcankaraokcu/PINCE","projects":[],"project":{"id":95549,"created_at":"2018-08-21T01:38:54.308Z","updated_at":"2021-01-14T02:14:39.408Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"pince\" class=\"anchor\" href=\"#pince\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePINCE\u003c/h1\u003e\n\n\u003cp\u003ePINCE is a front-end/reverse engineering tool for the GNU Project Debugger (GDB), focused on games. However, it can be used for any reverse-engineering related stuff. PINCE is an abbreviation for \"PINCE is not Cheat Engine\". PINCE is in development right now, read \u003ca href=\"#features\"\u003eFeatures\u003c/a\u003e part of the project to see what is done and \u003ca href=\"#current-roadmap\"\u003eRoadmap\u003c/a\u003e part to see what is currently planned. Also, please read \u003ca href=\"https://github.com/korcankaraokcu/PINCE/wiki\" rel=\"nofollow\"\u003eWiki Page\u003c/a\u003e of the project to understand how PINCE works.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"feel-free-to-join-our-discord-server\" class=\"anchor\" href=\"#feel-free-to-join-our-discord-server\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://discord.gg/KCNDp9m\" rel=\"nofollow\"\u003eFeel free to join our discord server!\u003c/a\u003e\n\u003c/h3\u003e\n\u003cp\u003e\u003cem\u003eDisclaimer: Do not trust to any source other than \u003ca href=\"#trusted-sources\"\u003eTrusted Sources\u003c/a\u003e that claims to have the source code or package for PINCE and remember to report them \u003cstrong\u003eimmediately\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eDisclaimer: \u003cstrong\u003eYOU\u003c/strong\u003e are responsible for your actions. PINCE does \u003cstrong\u003eNOT\u003c/strong\u003e take any responsibility for the damage caused by the users\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003ePre-release screenshots:\u003cbr\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince1.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince1.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince2.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince2.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince3.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince3.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince4.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince4.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince5.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince5.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince6.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince6.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince7.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince7.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince8.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince8.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/korcankaraokcu/PINCE/blob/master/media/screenshots/pince9.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/korcankaraokcu/PINCE/master/media/screenshots/pince9.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eMemory searching:\u003c/strong\u003e PINCE uses \u003ca href=\"https://github.com/scanmem/scanmem\" rel=\"nofollow\"\u003elibscanmem\u003c/a\u003e to search the memory efficiently \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eVariable Inspection\u0026amp;Modification\u003c/strong\u003e \u003cstrong\u003e[Done/Basic]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eCheatEngine-like value type support:\u003c/strong\u003e Byte to 8 Bytes, Float, Double, Strings(including utf-8, utf-16, utf-32 and zero-terminate strings), Array of Bytes \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSymbol Recognition:\u003c/strong\u003e See \u003ca href=\"https://github.com/korcankaraokcu/PINCE/wiki/About-GDB-Expressions\" rel=\"nofollow\"\u003ehere\u003c/a\u003e \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAutomatic Variable Allocation:\u003c/strong\u003e See \u003ca href=\"https://github.com/korcankaraokcu/PINCE/wiki/About-GDB-Expressions\" rel=\"nofollow\"\u003ehere\u003c/a\u003e \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDynamic Address Table:\u003c/strong\u003e Supports drag\u0026amp;drop, recursive copy\u0026amp;pasting\u0026amp;inserting and many more \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eManual Address Table Update:\u003c/strong\u003e \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSmart casting:\u003c/strong\u003e PINCE lets you modify multiple different-type values together as long as the input is parsable. All parsing/memory errors are directed to the terminal \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eContinuous Address Table Update:\u003c/strong\u003e You can adjust update timer or cancel updating by modifying settings. Non-stop version is Postponed\\Quarterway Done \u003cstrong\u003e[Done\\Only works when the inferior is stopped]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eVariable Locking:\u003c/strong\u003e PINCE lets you freeze(constantly write a value to memory cell) variables \u003cstrong\u003e[Planned]\u003c/strong\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMemory View\u003c/strong\u003e \u003cstrong\u003e[Done/Basic]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eInfinite Scrolling:\u003c/strong\u003e PINCE automatically disassembles the next available instruction(s) on mouse wheel/scrollbar move. Instruction count can be changed from settings. Hex View also supports this feature \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDissect Code:\u003c/strong\u003e You can dissect desired memory regions to find referenced calls, jumps and strings. Disassemble screen will automatically handle the referenced data and show you if there's a referenced address in the current dissasemble view. It can be used from Tools-\u0026gt;Dissect Code in the MemoryView window. Using its hotkey instead in the MemoryView window automatically dissects the currently viewed region. You can separately view referenced calls and strings after the search from View-\u0026gt;Referenced Calls/Strings. \u003cem\u003eNote: If you decide to uncheck 'Discard invalid strings' before the search, PINCE will try to search for regular pointers as well\u003c/em\u003e \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBookmarking:\u003c/strong\u003e Bookmark menu is dynamically created when right clicked in the disassemble screen. So unlike Cheat Engine, PINCE lets you set unlimited number of bookmarks. List of bookmarks can also be viewed from View-\u0026gt;Bookmarks in the MemoryView window. Commenting on an address automatically bookmarks it. \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eModify on the fly:\u003c/strong\u003e PINCE lets you modify registers on the fly. Unlike CE, you can also change XMM and FPU registers. Check \u003ca href=\"https://github.com/korcankaraokcu/PINCE/wiki/About-GDB-Expressions\" rel=\"nofollow\"\u003eGDB expressions in the Wiki page\u003c/a\u003e for additional information \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eOpcode Search:\u003c/strong\u003e You can search opcodes with python regular expressions. To use this feature, click Tools-\u0026gt;Search Opcode in the MemoryView window. \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDebugging\u003c/strong\u003e \u003cstrong\u003e[Done/Basic]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eHas basic debugging features such as stepping, stepping over, execute till return, break, continue. Also has breakpoints, watchpoints and breakpoint conditions. Has advanced debugging utilities such as Watchpoint/Breakpoint Tracking and Tracing\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eChained Breakpoints:\u003c/strong\u003e Just like CE, PINCE allows you to set multiple, connected breakpoints at once. If an event(such as condition modification or deletion) happens in one of the breakpoints, other connected breakpoints will get affected as well \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWatchpoint Tracking:\u003c/strong\u003e Allows you to see which instructions have been accessing to the specified address, just like \"What accesses/writes to this address\" feature in CE \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBreakpoint Tracking:\u003c/strong\u003e Allows you to track down addresses calculated by the given register expressions at the specified instruction, just like \"Find out what addresses this instruction accesses\" feature in CE with a little addon, you can enter multiple register expressions, this allows you to check the value of \"esi\" even if the instruction is something irrelevant like \"mov [eax],edx\" \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTracing:\u003c/strong\u003e Almost the same with CE. But unlike CE, you can stop tracing whenever you want. Created from scratch with shittons of custom features instead of using gdb's trace\u0026amp;collect commands because some people have too much time on their hands \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eCollision Detection:\u003c/strong\u003e GDB normally permits setting unlimited watchpoints next to each other. But this behaviour leads to unexpected outcomes such as causing GDB or the inferior become completely inoperable. GDB also doesn't care about the number(max 4) or the size(x86-\u0026gt;max 4, x64-\u0026gt;max 8) of hardware breakpoints. Fortunately, PINCE checks for these problems whenever you set a new breakpoint and detects them before they happen and then inhibits them in a smart way. Lets say you want to set a breakpoint in the size of 32 bytes. But the maximum size for a breakpoint is 8! So, PINCE creates 4 different breakpoints with the size of 8 bytes and then chains them for future actions \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eCode Injection\u003c/strong\u003e \u003cstrong\u003e[Working on it]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eRun-time injection:\u003c/strong\u003e Only .so injection is supported for now. In Memory View window, click Tools-\u0026gt;Inject .so file to select the .so file. An example for creating .so file can be found in \"libPINCE/Injection/\". PINCE will be able to inject single line instructions or code caves in near future \u003cstrong\u003e[Partially Done?]\u003c/strong\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eGDB Console\u003c/strong\u003e \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eIs the power of PINCE not enough for you? Then you can use the gdb console provided by PINCE, it's on the top right in main window\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSimplified/Optimized gdb command alternatives\u003c/strong\u003e \u003cstrong\u003e[Working on it]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eCustom scripts instead of using gdb's x command for reading memory \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003eCustom scripts instead of using gdb's set command for modifying memory \u003cstrong\u003e[Done]\u003c/strong\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003elibPINCE- A reusable python library\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003ePINCE provides a reusable python library. You can either read the code or check Reference Widget by clicking Help-\u0026gt;libPINCE in Memory Viewer window to see docstrings. Contents of this widget is automatically generated by looking at the docstrings of the source files. PINCE has a unique parsing technique that allows parsing variables. Check the function get_comments_of_variables in SysUtils for the details. This feature might be replaced with Sphinx in the future\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eExtendable with .so files at runtime\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eSee \u003ca href=\"https://github.com/korcankaraokcu/PINCE/wiki/Extending-PINCE-with-.so-files\" rel=\"nofollow\"\u003ehere\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAutomatic Trainer Generation:\u003c/strong\u003e \u003cstrong\u003e[Planned]\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003ePINCE provides a trainer auto-generated from current address table on demand by using libPINCE and PyQT5 together\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"installing\" class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h1\u003e\n\u003cp\u003eClone this repo by running \u003ccode\u003egit clone --recursive https://github.com/korcankaraokcu/PINCE\u003c/code\u003e then run \u003ccode\u003esudo sh install_pince.sh\u003c/code\u003e in the PINCE directory. Install script currently supports Ubuntu and Debian. For Archlinux, use the \u003ca href=\"https://aur.archlinux.org/packages/pince-git/\" rel=\"nofollow\"\u003eAUR package\u003c/a\u003e instead.\u003c/p\u003e\n\u003cp\u003eIf you like to uninstall PINCE, just delete this folder. Almost everything is installed locally, including gdb. Config and user files of PINCE can be found in \"~/.config/PINCE\", you can manually delete them if you want.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003eNotes:\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eGDB enhancements (peda, pwndbg, etc) that use a global gdbinit file might cause PINCE to misfunction at times. Please disable them or use them locally before starting PINCE\u003c/li\u003e\n\u003cli\u003eHaving spaces in your path might cause GDB to fail compiling\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"running-pince\" class=\"anchor\" href=\"#running-pince\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning PINCE\u003c/h1\u003e\n\u003cp\u003eJust run \u003ccode\u003esh PINCE.sh\u003c/code\u003e in the PINCE directory\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"for-developers\" class=\"anchor\" href=\"#for-developers\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFor developers:\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003esudo apt-get install qttools5-dev-tools (qt5 form designer)\nsudo apt-get install pyqt5-dev-tools (pyuic5)\nsudo pip3 install line_profiler (for performance testing)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eHow to use line_profiler: Add \u003ccode\u003e@profile\u003c/code\u003e tag to the desired function and run PINCE with \u003ccode\u003esudo kernprof -l -v PINCE.py\u003c/code\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"history\" class=\"anchor\" href=\"#history\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHistory\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003eA few weeks till 17/01/2016 : Learned GDB, process of analysis\u003c/li\u003e\n\u003cli\u003e17/01/2016-22/01/2016 : Basic design, grasping of Python3 and Pyqt5, proof-testing\u003c/li\u003e\n\u003cli\u003e22/01/2016 : First commit\u003c/li\u003e\n\u003cli\u003e19/02/2016 : Moved to Github from Bitbucket\u003c/li\u003e\n\u003cli\u003e25/02/2016 : First successful implementation of thread injection[Update-08/05/2016 : PINCE now uses \u003ccode\u003elinux-inject\u003c/code\u003e as a secondary injection method]\u003c/li\u003e\n\u003cli\u003e18/06/2016 : PINCE now supports all-stop mode instead of non-stop mode\u003c/li\u003e\n\u003cli\u003e21/06/2016 : Variable Inspection\u0026amp;Modification is finished(At basic level)\u003c/li\u003e\n\u003cli\u003e21/08/2016 : Memory View is finished(At basic level)\u003c/li\u003e\n\u003cli\u003e24/08/2016 : PINCE no more uses linux-inject because of stability issues(a fix for the \u003ca href=\"https://github.com/gaffe23/linux-inject/issues/7\" rel=\"nofollow\"\u003erace conditions in the inferior\u003c/a\u003e would be nice)\u003c/li\u003e\n\u003cli\u003e26/12/2016 : Debugging is finished(At basic level)\u003c/li\u003e\n\u003cli\u003e19/05/2020 : libscanmem integration is complete, enjoy memory searching. Huge thanks to fisu, xk and 12345ieee (libscanmem team)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"current-roadmap\" class=\"anchor\" href=\"#current-roadmap\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCurrent Roadmap\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003eRefactor file naming conventions(libPINCE-\u0026gt;libpince, decide on snake_case or camelCase for modules etc)\u003c/li\u003e\n\u003cli\u003eCreate \u003ccode\u003eCONTRIBUTING.md\u003c/code\u003e and combine all non-tutorial notes within it\u003c/li\u003e\n\u003cli\u003eConsider replacing read/write_memory_multiple functions with mem_handle\u0026amp;read/write_memory functions, this fixes the \"read_memory_multiple follows a bad design pattern\" step\u003c/li\u003e\n\u003cli\u003eImplement non-stop Continuous Address Table Update feature\u003c/li\u003e\n\u003cli\u003eImplement Variable Locking\u003c/li\u003e\n\u003cli\u003eRefactorize memory write/read functions\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eReferencedStringsWidgetForm refreshes the cache everytime the comboBox_ValueType changes, this creates serious performance issues if total results are more than 800k. Only update the visible rows to prevent this(check \u003ccode\u003edisassemble_check_viewport\u003c/code\u003e for an example)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eImplement same system for the TrackBreakpointWidgetForm if necessary. Do performance tests\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eConsider using a class instead of primitive return types to store the raw bytes. This also gets rid of the unnecessary parameter only_bytes. This class should also include a method to display None type as red '??' text for Qt\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003etext_to_valuetype is a bad design pattern. Store the information inside the items of tableWidget_AddressTable instead\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eread_memory_multiple follows a bad design pattern, use named tuples or something like that\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eProvide an option to cut BOM bytes when writing to memory with the types UTF-16 and UTF-32\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003ePut a warning for users about replacement bytes for non UTF-8 types\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eExtend string types with LE and BE variants of UTF-16 and UTF-32\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eChange comboBox_ValueType string order to be ... String_UTF-8 String_Others Array of Bytes\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003eImplement a custom combobox class for comboBox_ValueType and create a context menu for String_Others item\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eIndent docstrings properly like GDB_Engine.get_breakpoint_info does(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement \"Investigate Registers\" button to gather information about the addresses registers point to(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement selectionChanged signal of lineEdit_HexView\u003c/li\u003e\n\u003cli\u003eImplement multi selection for HexView\u003c/li\u003e\n\u003cli\u003eAdd the ability to track down registers and addresses in tracer(unsure)(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement CE's Ultimap-like feature for tracing data, dissect code data and raw instruction list. Search for calls and store their hit counts to filter out the functions that haven't or have executed specific number of times. Implement a flexible input field for the execution count. For instance, 2^x only searches for hit counts 2, 4, 8 and so on, 3x only searches for 3, 6, 9 etc.(independent from other steps)(\u003ca href=\"https://github.com/cheat-engine/cheat-engine/issues/358\" rel=\"nofollow\"\u003eCE#358\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eExtend search_referenced_strings with relative search\u003c/li\u003e\n\u003cli\u003eConsider adding type guessing for the StackView(independent from other steps)\u003c/li\u003e\n\u003cli\u003eMove GUI classes of PINCE.py to their own files\u003c/li\u003e\n\u003cli\u003eHandle signals and internal errors that causes gdb to halt, such as SIGSEGV and overlapping breakpoints(independent from other steps)\u003c/li\u003e\n\u003cli\u003eUse gdb python API breakpoints instead of breakpoint commands for optimization, also find a way to eliminate output coming from stepping commands such as \u003ccode\u003estepi\u003c/code\u003e or \u003ccode\u003enexti\u003c/code\u003e(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement a psuedo-terminal for the inferior like edb does(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement libPINCE engine\u003c/li\u003e\n\u003cli\u003eImplement auto-ESP\u0026amp;aimbot (depends on libPINCE engine)\u003c/li\u003e\n\u003cli\u003eTry to optimize TrackBreakpoint and TrackWatchpoint return data structures further, adding an id field might simplify traversing of the tree, performance tests are required(independent from other steps)\u003c/li\u003e\n\u003cli\u003eExtend tagging system to PINCE GUI functions\u003c/li\u003e\n\u003cli\u003eImplement inject_with_advanced_injection(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement single-line code injection\u003c/li\u003e\n\u003cli\u003eImplement multi-line code injection\u003c/li\u003e\n\u003cli\u003eBreak on/Catch signals and syscalls\u003c/li\u003e\n\u003cli\u003eMove non-communication functions in GDB_Engine to ScriptUtils and create corresponding fields in GDB_Engine and GDBCommandExtensions automatically. This lets entire functionality of libPINCE to be used with both python scripts and gdb python scripts, thus allowing it to be used as a plugin for projects such as radare2\u003c/li\u003e\n\u003cli\u003eFlowcharts based on disassembled output\u003c/li\u003e\n\u003cli\u003eAutomatic function bypassing(make it return the desired value, hook specific parts etc.)\u003c/li\u003e\n\u003cli\u003eImplement speedhack(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement unrandomizer(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement pointer-scan\u003c/li\u003e\n\u003cli\u003eWrite at least one test for each function in libPINCE\u003c/li\u003e\n\u003cli\u003eMigrate to Sphinx documentation from the custom libPINCE documentation(independent from other steps)\u003c/li\u003e\n\u003cli\u003eEmbedded tutorial videos\u003c/li\u003e\n\u003cli\u003eSuper-Uber-Rad credits roll with chiptune tunes\u003c/li\u003e\n\u003cli\u003eImplement extra MemoryViewerWindow tabs(independent from other steps)\u003c/li\u003e\n\u003cli\u003e\n\u003cdel\u003eConsider removing the command file layer of IPC system for GDB_Engine.send_command to speed up things\u003c/del\u003e(independent from other steps)[Update-29/04/2018 : Delaying this until GDB/MI implements a native multiline command feature or improves \u003ccode\u003einterpreter-exec\u003c/code\u003e command to cover every single multiline command type(including \u003ccode\u003edefine\u003c/code\u003e commands)]\u003c/li\u003e\n\u003cli\u003eImplement thread info widget\u003c/li\u003e\n\u003cli\u003eAdd ability to change logo and other assets if people contribute more than one asset per usage. Also consider using \u003ca href=\"https://github.com/korcankaraokcu/PINCE-media\" rel=\"nofollow\"\u003ePINCE-media\u003c/a\u003e for development if needed(independent from other steps)\u003c/li\u003e\n\u003cli\u003eImplement developer mode in settings. Developer mode will include features like dissection of GUI elements on events such as mouse-over(independent from other steps)\u003c/li\u003e\n\u003cli\u003eAdd ability to include non-absolute calls for dissect code feature(i.e call rax). Should be considered after the first version release. Might be useful for multi-breakpoint related features\u003c/li\u003e\n\u003cli\u003eImplement toggling of arrows for easier navigation for dissected regions(independent from other steps)\u003c/li\u003e\n\u003cli\u003eProvide information about absolute addresses in disassemble screen(independent from other steps)\u003c/li\u003e\n\u003cli\u003eUse type hints(py 3.5) and variable annotations(py 3.6) when support drops for older systems(independent from other steps)\u003c/li\u003e\n\u003cli\u003eAll tables that hold large amount of data should only update the visible rows(check \u003ccode\u003edisassemble_check_viewport\u003c/code\u003e for an example)(independent from other steps)\u003c/li\u003e\n\u003cli\u003eAdd different kinds of themes and the ability to change between them on runtime. Implement dark theme first. Also add the ability to create a custom theme and modify the existing ones(independent from other steps)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h1\u003e\n\u003cp\u003eGPLv3+. See COPYING file for details\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"contact-information\" class=\"anchor\" href=\"#contact-information\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContact Information\u003c/h1\u003e\n\u003cp\u003eKorcan Karaokçu(\u003ca href=\"https://github.com/cagriulas\" rel=\"nofollow\"\u003ekorcankaraokcu\u003c/a\u003e) \u003ca href=\"mailto:korcankaraokcu@gmail.com\" rel=\"nofollow\"\u003ekorcankaraokcu@gmail.com\u003c/a\u003e\u003cbr\u003e\nÇağrı Ulaş(\u003ca href=\"https://github.com/cagriulas\" rel=\"nofollow\"\u003ecagriulas\u003c/a\u003e) \u003ca href=\"mailto:cagriulas@gmail.com\" rel=\"nofollow\"\u003ecagriulas@gmail.com\u003c/a\u003e\u003cbr\u003e\nJakob Kreuze(\u003ca href=\"https://github.com/TsarFox\" rel=\"nofollow\"\u003eTsarFox\u003c/a\u003e) \u003ca href=\"mailto:jakob@memeware.net\" rel=\"nofollow\"\u003ejakob@memeware.net\u003c/a\u003e\u003cbr\u003e\nGibus \u003ca href=\"mailto:lilac66.dev@gmail.com\" rel=\"nofollow\"\u003elilac66.dev@gmail.com\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"supported-platforms\" class=\"anchor\" href=\"#supported-platforms\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupported platforms\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003eKubuntu 18.04 \u0026amp; 16.04(Also tested on x86 variants)\u003c/li\u003e\n\u003cli\u003eDebian 9 (Stretch)\u003c/li\u003e\n\u003cli\u003eKali Linux\u003c/li\u003e\n\u003cli\u003eParrot OS\u003c/li\u003e\n\u003cli\u003eLinux Mint 19 (Tara)(install the package \"python3-psutil\" if you encounter ImportError or NameError, thanks Gibus)\u003c/li\u003e\n\u003cli\u003eArchlinux(tag \u003ca href=\"https://github.com/cagriulas\" rel=\"nofollow\"\u003ecagriulas\u003c/a\u003e or \u003ca href=\"https://github.com/TsarFox\" rel=\"nofollow\"\u003eTsarFox\u003c/a\u003e when creating an issue)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"trusted-sources\" class=\"anchor\" href=\"#trusted-sources\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTrusted Sources\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/korcankaraokcu/PINCE\" rel=\"nofollow\"\u003eOfficial github page\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://aur.archlinux.org/packages/pince-git/\" rel=\"nofollow\"\u003eAUR package for Archlinux\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":52111486,"name":"PINCE","owner_login":"korcankaraokcu","description":"A reverse engineering tool that'll supply the place of Cheat Engine for linux","pushed_at":"2020-12-15T04:17:39.000Z","stargazers_count":948,"open_issues_count":23,"has_downloads":true,"archived":false,"license_key":"other","homepage":"","private":false,"project_created_at":"2016-02-19T19:33:33.000Z","project_updated_at":"2021-01-13T14:57:08.000Z","language":"Python","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css"></head>
+<body>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb</li>
+<li>https://www.tutorialspoint.com/postgresql/postgresql_schema.htm</li>
+</ul>
+<h2 id="setting-up">Setting Up</h2>
+<p>Install:</p>
+<pre><code>brew install postgresql</code></pre>
+<p>Start:</p>
+<pre><code>brew services start postgresql</code></pre>
+<p>Access Postgres:</p>
+<pre><code>psql postgres</code></pre>
+<h2 id="creating-roles">Creating Roles</h2>
+<p>Create role with password:</p>
+<pre><code>CREATE ROLE appuser WITH LOGIN PASSWORD &#39;apppassword&#39; ;</code></pre>
+<p>List roles:</p>
+<pre><code>\du
+                                   List of roles
+ Role name |                         Attributes                         | Member of
+-----------+------------------------------------------------------------+-----------
+ appuser   |                                                            | {}
+ ruan      | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+</code></pre>
+<p>Allow user to create databases:</p>
+<pre><code>ALTER ROLE appuser CREATEDB;</code></pre>
+<p>Exit with <code>\q</code> and logon with <code>appuser</code>:</p>
+<pre><code>psql postgres -U appuser</code></pre>
+<p>Create database:</p>
+<pre><code>create database restapi1;</code></pre>
+<p>List databases:</p>
+<pre><code>\list
+                           List of databases
+   Name    |  Owner  | Encoding | Collate | Ctype |  Access privileges
+-----------+---------+----------+---------+-------+---------------------
+ postgres  | ruan    | UTF8     | C       | C     |
+ restapi1  | appuser | UTF8     | C       | C     | =Tc/appuser        +</code></pre>
+<p>Switch to database:</p>
+<pre><code>postgres=&gt; \c restapi1
+You are now connected to database &quot;restapi1&quot; as user &quot;appuser&quot;.</code></pre>
+<p>Show tables:</p>
+<pre><code>restapi1=&gt; \dt
+             List of relations
+ Schema |      Name       | Type  |  Owner
+--------+-----------------+-------+---------
+ public | alembic_version | table | appuser</code></pre>
+</body></html>

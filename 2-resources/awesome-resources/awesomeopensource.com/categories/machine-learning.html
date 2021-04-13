@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdHWkBbVxZOXFxTUhs=","queueTime":1,"applicationTime":101,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>The Top 347 Machine Learning Topics</title>
+<meta name="description" content="Find Useful Open Source Projects By Browsing and Combining 347 Machine Learning Topics">
+<meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="NYCtxH4rqZCtVoa1AlnhrHbaLlVEGgcD/y8SmNWRs7hPtKxxO+oBusRdCo41+AV0NmwjHx7QkRN5nCLI7QsN3w==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/categories/machine-learning","location":"/categories/machine-learning","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/categories/machine-learning","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-5224c89a-bb56-45d8-80a7-952e96d25e78"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_app_container"><div class="aos_projects_container"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:none;box-shadow:1px 1px 5px lightgray"></div></div><h2 style="margin-top:0px;margin-bottom:20px">The Top 347 Machine Learning Topics </h2><div style="margin-top:10px"><a href="https://awesomeopensource.com">Categories</a> &gt; <b>Machine Learning</b></div><div style="width:100%;display:flex;flex-wrap:wrap"><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-learning">deep-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">3,659</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/machine-learning">machine-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">3,352</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pytorch">pytorch<span class="aos_project_count"> 📔 </span><span class="aos_project_count">2,132</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorflow">tensorflow<span class="aos_project_count"> 📔 </span><span class="aos_project_count">2,063</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/computer-vision">computer-vision<span class="aos_project_count"> 📔 </span><span class="aos_project_count">1,144</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nlp">nlp<span class="aos_project_count"> 📔 </span><span class="aos_project_count">1,004</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/keras">keras<span class="aos_project_count"> 📔 </span><span class="aos_project_count">729</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural-network">neural-network<span class="aos_project_count"> 📔 </span><span class="aos_project_count">695</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/natural-language-processing">natural-language-processing<span class="aos_project_count"> 📔 </span><span class="aos_project_count">637</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reinforcement-learning">reinforcement-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">519</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/convolutional-neural-networks">convolutional-neural-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">442</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-neural-networks">deep-neural-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">440</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/opencv">opencv<span class="aos_project_count"> 📔 </span><span class="aos_project_count">424</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural-networks">neural-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">401</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cnn">cnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">383</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gan">gan<span class="aos_project_count"> 📔 </span><span class="aos_project_count">314</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deeplearning">deeplearning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">270</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lstm">lstm<span class="aos_project_count"> 📔 </span><span class="aos_project_count">262</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/generative-adversarial-network">generative-adversarial-network<span class="aos_project_count"> 📔 </span><span class="aos_project_count">234</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/segmentation">segmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">233</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/semantic-segmentation">semantic-segmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">217</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/scikit-learn">scikit-learn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">194</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-reinforcement-learning">deep-reinforcement-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">191</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/caffe">caffe<span class="aos_project_count"> 📔 </span><span class="aos_project_count">188</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/speech-recognition">speech-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">184</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face-detection">face-detection<span class="aos_project_count"> 📔 </span><span class="aos_project_count">181</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ml">ml<span class="aos_project_count"> 📔 </span><span class="aos_project_count">169</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face-recognition">face-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">165</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rnn">rnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">162</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-classification">image-classification<span class="aos_project_count"> 📔 </span><span class="aos_project_count">159</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/text-classification">text-classification<span class="aos_project_count"> 📔 </span><span class="aos_project_count">159</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/machine-learning-algorithms">machine-learning-algorithms<span class="aos_project_count"> 📔 </span><span class="aos_project_count">154</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recurrent-neural-networks">recurrent-neural-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">147</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/unsupervised-learning">unsupervised-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">146</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sentiment-analysis">sentiment-analysis<span class="aos_project_count"> 📔 </span><span class="aos_project_count">141</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/named-entity-recognition">named-entity-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">118</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/yolo">yolo<span class="aos_project_count"> 📔 </span><span class="aos_project_count">118</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/opencl">opencl<span class="aos_project_count"> 📔 </span><span class="aos_project_count">110</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/word2vec">word2vec<span class="aos_project_count"> 📔 </span><span class="aos_project_count">110</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/attention-mechanism">attention-mechanism<span class="aos_project_count"> 📔 </span><span class="aos_project_count">109</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/model">model<span class="aos_project_count"> 📔 </span><span class="aos_project_count">105</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/transfer-learning">transfer-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">104</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/annotations">annotations<span class="aos_project_count"> 📔 </span><span class="aos_project_count">103</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mxnet">mxnet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">103</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/resnet">resnet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">102</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/seq2seq">seq2seq<span class="aos_project_count"> 📔 </span><span class="aos_project_count">102</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/attention">attention<span class="aos_project_count"> 📔 </span><span class="aos_project_count">101</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recommender-system">recommender-system<span class="aos_project_count"> 📔 </span><span class="aos_project_count">101</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/super-resolution">super-resolution<span class="aos_project_count"> 📔 </span><span class="aos_project_count">101</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face">face<span class="aos_project_count"> 📔 </span><span class="aos_project_count">100</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/automl">automl<span class="aos_project_count"> 📔 </span><span class="aos_project_count">99</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/imagenet">imagenet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">98</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ner">ner<span class="aos_project_count"> 📔 </span><span class="aos_project_count">97</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/yolov3">yolov3<span class="aos_project_count"> 📔 </span><span class="aos_project_count">97</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pose-estimation">pose-estimation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">96</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/speech">speech<span class="aos_project_count"> 📔 </span><span class="aos_project_count">94</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/language-model">language-model<span class="aos_project_count"> 📔 </span><span class="aos_project_count">93</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/machinelearning">machinelearning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">92</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/torch">torch<span class="aos_project_count"> 📔 </span><span class="aos_project_count">90</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/speech-to-text">speech-to-text<span class="aos_project_count"> 📔 </span><span class="aos_project_count">87</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/annotation">annotation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">86</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-segmentation">image-segmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">86</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/anomaly-detection">anomaly-detection<span class="aos_project_count"> 📔 </span><span class="aos_project_count">85</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bayesian-inference">bayesian-inference<span class="aos_project_count"> 📔 </span><span class="aos_project_count">85</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/genetic-algorithm">genetic-algorithm<span class="aos_project_count"> 📔 </span><span class="aos_project_count">83</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/inference">inference<span class="aos_project_count"> 📔 </span><span class="aos_project_count">80</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/coreml">coreml<span class="aos_project_count"> 📔 </span><span class="aos_project_count">79</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/embeddings">embeddings<span class="aos_project_count"> 📔 </span><span class="aos_project_count">79</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/generative-model">generative-model<span class="aos_project_count"> 📔 </span><span class="aos_project_count">78</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nlp-machine-learning">nlp-machine-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">77</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorflow-tutorials">tensorflow-tutorials<span class="aos_project_count"> 📔 </span><span class="aos_project_count">76</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/text-mining">text-mining<span class="aos_project_count"> 📔 </span><span class="aos_project_count">75</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/autoencoder">autoencoder<span class="aos_project_count"> 📔 </span><span class="aos_project_count">74</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vision">vision<span class="aos_project_count"> 📔 </span><span class="aos_project_count">72</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dqn">dqn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">71</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gans">gans<span class="aos_project_count"> 📔 </span><span class="aos_project_count">71</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/style-transfer">style-transfer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">70</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mnist">mnist<span class="aos_project_count"> 📔 </span><span class="aos_project_count">69</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pretrained-models">pretrained-models<span class="aos_project_count"> 📔 </span><span class="aos_project_count">69</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/speech-synthesis">speech-synthesis<span class="aos_project_count"> 📔 </span><span class="aos_project_count">68</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-recognition">image-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">66</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-retrieval">image-retrieval<span class="aos_project_count"> 📔 </span><span class="aos_project_count">66</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/prediction">prediction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">66</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/representation-learning">representation-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">66</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vae">vae<span class="aos_project_count"> 📔 </span><span class="aos_project_count">66</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/natural-language-understanding">natural-language-understanding<span class="aos_project_count"> 📔 </span><span class="aos_project_count">65</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/openai-gym">openai-gym<span class="aos_project_count"> 📔 </span><span class="aos_project_count">65</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/keras-tensorflow">keras-tensorflow<span class="aos_project_count"> 📔 </span><span class="aos_project_count">64</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/onnx">onnx<span class="aos_project_count"> 📔 </span><span class="aos_project_count">63</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/action-recognition">action-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">62</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-generation">image-generation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">62</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sklearn">sklearn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">62</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/human-pose-estimation">human-pose-estimation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">61</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mobilenet">mobilenet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">61</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/machine-translation">machine-translation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">60</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/feature-extraction">feature-extraction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">59</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/generative-art">generative-art<span class="aos_project_count"> 📔 </span><span class="aos_project_count">58</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/relation-extraction">relation-extraction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">58</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/darknet">darknet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">57</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-learning-tutorial">deep-learning-tutorial<span class="aos_project_count"> 📔 </span><span class="aos_project_count">57</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/instance-segmentation">instance-segmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">57</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/unet">unet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">57</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/artificial-neural-networks">artificial-neural-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">56</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recognition">recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">56</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/word-embeddings">word-embeddings<span class="aos_project_count"> 📔 </span><span class="aos_project_count">56</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/xgboost">xgboost<span class="aos_project_count"> 📔 </span><span class="aos_project_count">56</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/asr">asr<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/domain-adaptation">domain-adaptation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hyperparameter-optimization">hyperparameter-optimization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/spacy">spacy<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/svm">svm<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/faster-rcnn">faster-rcnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">54</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensor">tensor<span class="aos_project_count"> 📔 </span><span class="aos_project_count">53</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural-architecture-search">neural-architecture-search<span class="aos_project_count"> 📔 </span><span class="aos_project_count">52</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/chainer">chainer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/crf">crf<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/logistic-regression">logistic-regression<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nlu">nlu<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/remote-sensing">remote-sensing<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/densenet">densenet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">50</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/random-forest">random-forest<span class="aos_project_count"> 📔 </span><span class="aos_project_count">50</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/semi-supervised-learning">semi-supervised-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">50</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dialogue-systems">dialogue-systems<span class="aos_project_count"> 📔 </span><span class="aos_project_count">49</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/collaborative-filtering">collaborative-filtering<span class="aos_project_count"> 📔 </span><span class="aos_project_count">48</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dcgan">dcgan<span class="aos_project_count"> 📔 </span><span class="aos_project_count">48</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/quantization">quantization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">48</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bayesian">bayesian<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/convolutional-networks">convolutional-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/information-extraction">information-extraction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural-machine-translation">neural-machine-translation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorflow-models">tensorflow-models<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cvpr">cvpr<span class="aos_project_count"> 📔 </span><span class="aos_project_count">46</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/matrix-factorization">matrix-factorization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">46</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/supervised-learning">supervised-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">46</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dnn">dnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/feature-engineering">feature-engineering<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/machine">machine<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorflow-examples">tensorflow-examples<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/variational-autoencoder">variational-autoencoder<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/forecasting">forecasting<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/linear-regression">linear-regression<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/model-compression">model-compression<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/text-generation">text-generation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dlib">dlib<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gaussian-processes">gaussian-processes<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interpretability">interpretability<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lstm-neural-networks">lstm-neural-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ppo">ppo<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reconstruction">reconstruction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cvpr2018">cvpr2018<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fasttext">fasttext<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/topic-modeling">topic-modeling<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/automatic-differentiation">automatic-differentiation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">41</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/binder">binder<span class="aos_project_count"> 📔 </span><span class="aos_project_count">41</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recommendation-system">recommendation-system<span class="aos_project_count"> 📔 </span><span class="aos_project_count">41</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rl">rl<span class="aos_project_count"> 📔 </span><span class="aos_project_count">41</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-captioning">image-captioning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/kaldi">kaldi<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pix2pix">pix2pix<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mobilenetv2">mobilenetv2<span class="aos_project_count"> 📔 </span><span class="aos_project_count">39</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/speech-processing">speech-processing<span class="aos_project_count"> 📔 </span><span class="aos_project_count">39</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorboard">tensorboard<span class="aos_project_count"> 📔 </span><span class="aos_project_count">39</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cifar10">cifar10<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face-alignment">face-alignment<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/generative-adversarial-networks">generative-adversarial-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neon">neon<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nlp-library">nlp-library<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/policy-gradient">policy-gradient<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sequence-labeling">sequence-labeling<span class="aos_project_count"> 📔 </span><span class="aos_project_count">37</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/actor-critic">actor-critic<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/classifier">classifier<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/q-learning">q-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/text-detection">text-detection<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/time-series-analysis">time-series-analysis<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cyclegan">cyclegan<span class="aos_project_count"> 📔 </span><span class="aos_project_count">35</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/optimization-algorithms">optimization-algorithms<span class="aos_project_count"> 📔 </span><span class="aos_project_count">35</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pruning">pruning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">34</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/coco">coco<span class="aos_project_count"> 📔 </span><span class="aos_project_count">33</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/convolution">convolution<span class="aos_project_count"> 📔 </span><span class="aos_project_count">33</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lightgbm">lightgbm<span class="aos_project_count"> 📔 </span><span class="aos_project_count">33</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/machine-learning-library">machine-learning-library<span class="aos_project_count"> 📔 </span><span class="aos_project_count">33</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/variational-inference">variational-inference<span class="aos_project_count"> 📔 </span><span class="aos_project_count">33</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/a3c">a3c<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/chinese-nlp">chinese-nlp<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/detector">detector<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gpu-acceleration">gpu-acceleration<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/natural-language-generation">natural-language-generation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cityscapes">cityscapes<span class="aos_project_count"> 📔 </span><span class="aos_project_count">31</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ddpg">ddpg<span class="aos_project_count"> 📔 </span><span class="aos_project_count">31</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gensim">gensim<span class="aos_project_count"> 📔 </span><span class="aos_project_count">31</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/voice-recognition">voice-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">31</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/decision-trees">decision-trees<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/evolutionary-algorithms">evolutionary-algorithms<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nltk">nltk<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sequence-to-sequence">sequence-to-sequence<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/adversarial-learning">adversarial-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bayesian-optimization">bayesian-optimization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep">deep<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-learning-algorithms">deep-learning-algorithms<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cnn-keras">cnn-keras<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/crnn">crnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ensemble-learning">ensemble-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-translation">image-translation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/imitation-learning">imitation-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/inception">inception<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/metric-learning">metric-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/attention-model">attention-model<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gluon">gluon<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gru">gru<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hyperparameter-tuning">hyperparameter-tuning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mtcnn">mtcnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/computervision">computervision<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ctc">ctc<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deepmind">deepmind<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/linguistics">linguistics<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/music-information-retrieval">music-information-retrieval<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pascal-voc">pascal-voc<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vgg16">vgg16<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/automated-machine-learning">automated-machine-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neuroimaging">neuroimaging<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pos-tagging">pos-tagging<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rgbd">rgbd<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/text-summarization">text-summarization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vgg">vgg<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wavenet">wavenet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/augmentation">augmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural-style">neural-style<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pca">pca<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/person-reidentification">person-reidentification<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/stock-price-prediction">stock-price-prediction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorlayer">tensorlayer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-q-network">deep-q-network<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face-tracking">face-tracking<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/glove">glove<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gradient-descent">gradient-descent<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/image-annotation">image-annotation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/predictive-modeling">predictive-modeling<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/baseline">baseline<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/capsule-network">capsule-network<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/depth">depth<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/factorization-machines">factorization-machines<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fcn">fcn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gradient-boosting">gradient-boosting<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/keras-models">keras-models<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/matching">matching<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nmt">nmt<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/activity-recognition">activity-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/experiments">experiments<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/implementation">implementation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/part-of-speech-tagger">part-of-speech-tagger<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sentiment-classification">sentiment-classification<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensorflow-experiments">tensorflow-experiments<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tf-idf">tf-idf<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/video-understanding">video-understanding<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bayesian-data-analysis">bayesian-data-analysis<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bounding-boxes">bounding-boxes<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cudnn">cudnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cupy">cupy<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/octave">octave<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/squad">squad<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/attention-is-all-you-need">attention-is-all-you-need<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/chinese-word-segmentation">chinese-word-segmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cnn-model">cnn-model<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fully-convolutional-networks">fully-convolutional-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/h2o">h2o<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/labeling">labeling<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lasagne">lasagne<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural">neural<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recommendation-engine">recommendation-engine<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wgan">wgan<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dropout">dropout<span class="aos_project_count"> 📔 </span><span class="aos_project_count">18</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/celeba">celeba<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/entity-extraction">entity-extraction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/jieba">jieba<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/kmeans">kmeans<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/online-learning">online-learning<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/resnext">resnext<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tacotron">tacotron<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/word-segmentation">word-segmentation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/backpropagation">backpropagation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/caffe2">caffe2<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cvpr-2017">cvpr-2017<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deeplearning4j">deeplearning4j<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lda">lda<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mujoco">mujoco<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neuroevolution">neuroevolution<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nlg">nlg<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ocr-recognition">ocr-recognition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/stemmer">stemmer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/systems">systems<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wgan-gp">wgan-gp<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/adversarial-networks">adversarial-networks<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/andrew-ng">andrew-ng<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/anomalydetection">anomalydetection<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/capsnet">capsnet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rcnn">rcnn<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/serving">serving<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/stacking">stacking<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/torch7">torch7<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/trpo">trpo<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/yolo2">yolo2<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/edge-detection">edge-detection<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ipynb">ipynb<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/senet">senet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/svd">svd<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/swap">swap<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/acgan">acgan<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/arm-neon">arm-neon<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/began">began<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/chinese-text-segmentation">chinese-text-segmentation<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/clarifai">clarifai<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cntk">cntk<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/conditional-random-fields">conditional-random-fields<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/core-ml">core-ml<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cs231n">cs231n<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dragan">dragan<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ensemble">ensemble<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/evolutionary-algorithm">evolutionary-algorithm<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face-detector">face-detector<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/face-swap">face-swap<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/facerecognition">facerecognition<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gbdt">gbdt<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gbm">gbm<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/genetic-programming">genetic-programming<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/infogan">infogan<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lsh">lsh<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/matconvnet">matconvnet<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mnist-classification">mnist-classification<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mobilenets">mobilenets<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/multi-label">multi-label<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neural-nets">neural-nets<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/neurons">neurons<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/perceptron">perceptron<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/proximal-policy-optimization">proximal-policy-optimization<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pytorch-a3c">pytorch-a3c<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reasoning">reasoning<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recurrent-networks">recurrent-networks<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reward">reward<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rubyml">rubyml<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rubynlp">rubynlp<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sentiment">sentiment<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/seq2seq-model">seq2seq-model<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tensor-algebra">tensor-algebra<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tsne">tsne<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vehicle-detection">vehicle-detection<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/visdom">visdom<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wordnet">wordnet<span class="aos_project_count"> 📔 </span></a></div></div></div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-5224c89a-bb56-45d8-80a7-952e96d25e78">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/categories/machine-learning","projects":[],"project":{},"pageTitle":"The Top 347 Machine Learning Topics ","categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"categoryTopics":[{"name":"deep-learning","count":3659},{"name":"machine-learning","count":3352},{"name":"tensorflow","count":2063},{"name":"pytorch","count":2132},{"name":"computer-vision","count":1144},{"name":"neural-network","count":695},{"name":"nlp","count":1004},{"name":"keras","count":729},{"name":"natural-language-processing","count":637},{"name":"reinforcement-learning","count":519},{"name":"convolutional-neural-networks","count":442},{"name":"neural-networks","count":401},{"name":"deep-neural-networks","count":440},{"name":"opencv","count":424},{"name":"gan","count":314},{"name":"cnn","count":383},{"name":"caffe","count":188},{"name":"lstm","count":262},{"name":"deeplearning","count":270},{"name":"generative-adversarial-network","count":234},{"name":"scikit-learn","count":194},{"name":"rnn","count":162},{"name":"deep-reinforcement-learning","count":191},{"name":"ml","count":169},{"name":"face-detection","count":181},{"name":"segmentation","count":233},{"name":"semantic-segmentation","count":217},{"name":"opencl","count":110},{"name":"annotations","count":103},{"name":"torch","count":90},{"name":"machine-learning-algorithms","count":154},{"name":"face-recognition","count":165},{"name":"seq2seq","count":102},{"name":"recurrent-neural-networks","count":147},{"name":"face","count":100},{"name":"speech-recognition","count":184},{"name":"sentiment-analysis","count":141},{"name":"model","count":105},{"name":"yolo","count":118},{"name":"unsupervised-learning","count":146},{"name":"coreml","count":79},{"name":"image-classification","count":159},{"name":"speech-to-text","count":87},{"name":"tensorflow-tutorials","count":76},{"name":"word2vec","count":110},{"name":"vision","count":72},{"name":"text-mining","count":75},{"name":"speech","count":94},{"name":"text-classification","count":159},{"name":"mxnet","count":103},{"name":"mnist","count":69},{"name":"imagenet","count":98},{"name":"genetic-algorithm","count":83},{"name":"generative-model","count":78},{"name":"recommender-system","count":101},{"name":"named-entity-recognition","count":118},{"name":"resnet","count":102},{"name":"annotation","count":86},{"name":"bayesian-inference","count":85},{"name":"dqn","count":71},{"name":"spacy","count":55},{"name":"speech-synthesis","count":68},{"name":"deep-learning-tutorial","count":57},{"name":"image-recognition","count":66},{"name":"neural-machine-translation","count":47},{"name":"recognition","count":56},{"name":"attention","count":101},{"name":"convolutional-networks","count":47},{"name":"mobilenet","count":61},{"name":"action-recognition","count":62},{"name":"chainer","count":51},{"name":"image-segmentation","count":86},{"name":"machine-translation","count":60},{"name":"style-transfer","count":70},{"name":"tensorboard","count":39},{"name":"attention-mechanism","count":109},{"name":"embeddings","count":79},{"name":"faster-rcnn","count":54},{"name":"machinelearning","count":92},{"name":"nlu","count":51},{"name":"prediction","count":66},{"name":"random-forest","count":50},{"name":"tensor","count":53},{"name":"tensorflow-models","count":47},{"name":"xgboost","count":56},{"name":"darknet","count":57},{"name":"dcgan","count":48},{"name":"densenet","count":50},{"name":"machine-learning-library","count":33},{"name":"hyperparameter-optimization","count":55},{"name":"super-resolution","count":101},{"name":"artificial-neural-networks","count":56},{"name":"openai-gym","count":65},{"name":"autoencoder","count":74},{"name":"dlib","count":43},{"name":"pose-estimation","count":96},{"name":"topic-modeling","count":42},{"name":"a3c","count":32},{"name":"actor-critic","count":36},{"name":"bayesian","count":47},{"name":"cvpr2018","count":42},{"name":"detector","count":32},{"name":"generative-art","count":58},{"name":"linear-regression","count":44},{"name":"machine","count":45},{"name":"neural-style","count":24},{"name":"nlp-library","count":37},{"name":"pix2pix","count":40},{"name":"policy-gradient","count":37},{"name":"sklearn","count":62},{"name":"svm","count":55},{"name":"transfer-learning","count":104},{"name":"word-embeddings","count":56},{"name":"vae","count":66},{"name":"automatic-differentiation","count":41},{"name":"automl","count":99},{"name":"nlp-machine-learning","count":77},{"name":"fasttext","count":42},{"name":"human-pose-estimation","count":61},{"name":"inception","count":28},{"name":"inference","count":80},{"name":"neon","count":37},{"name":"reconstruction","count":43},{"name":"supervised-learning","count":46},{"name":"crf","count":51},{"name":"deep-q-network","count":23},{"name":"anomaly-detection","count":85},{"name":"dialogue-systems","count":49},{"name":"logistic-regression","count":51},{"name":"matrix-factorization","count":46},{"name":"optimization-algorithms","count":35},{"name":"tensorlayer","count":24},{"name":"sequence-to-sequence","count":30},{"name":"bayesian-data-analysis","count":20},{"name":"cntk","count":null},{"name":"convolution","count":33},{"name":"gans","count":71},{"name":"nltk","count":30},{"name":"q-learning","count":36},{"name":"cvpr-2017","count":16},{"name":"dnn","count":45},{"name":"keras-tensorflow","count":64},{"name":"yolov3","count":97},{"name":"language-model","count":93},{"name":"pascal-voc","count":26},{"name":"lasagne","count":19},{"name":"image-retrieval","count":66},{"name":"face-alignment","count":37},{"name":"factorization-machines","count":22},{"name":"ensemble-learning","count":28},{"name":"gensim","count":31},{"name":"mtcnn","count":27},{"name":"caffe2","count":16},{"name":"decision-trees","count":30},{"name":"depth","count":22},{"name":"capsule-network","count":22},{"name":"attention-model","count":27},{"name":"forecasting","count":44},{"name":"neuroimaging","count":25},{"name":"nmt","count":22},{"name":"pretrained-models","count":69},{"name":"torch7","count":15},{"name":"tensorflow-examples","count":45},{"name":"sequence-labeling","count":37},{"name":"capsnet","count":15},{"name":"chinese-nlp","count":32},{"name":"deep-learning-algorithms","count":29},{"name":"cvpr","count":46},{"name":"generative-adversarial-networks","count":37},{"name":"glove","count":23},{"name":"gaussian-processes","count":43},{"name":"deep","count":29},{"name":"h2o","count":19},{"name":"image-generation","count":62},{"name":"information-extraction","count":47},{"name":"lightgbm","count":33},{"name":"matconvnet","count":null},{"name":"natural-language-understanding","count":65},{"name":"ner","count":97},{"name":"onnx","count":63},{"name":"person-reidentification","count":24},{"name":"ppo","count":43},{"name":"semi-supervised-learning","count":50},{"name":"squad","count":20},{"name":"tensorflow-experiments","count":21},{"name":"unet","count":57},{"name":"variational-inference","count":33},{"name":"yolo2","count":15},{"name":"cifar10","count":37},{"name":"cnn-model","count":19},{"name":"octave","count":20},{"name":"gradient-descent","count":23},{"name":"gradient-boosting","count":22},{"name":"feature-engineering","count":45},{"name":"feature-extraction","count":59},{"name":"automated-machine-learning","count":25},{"name":"bayesian-optimization","count":29},{"name":"chinese-text-segmentation","count":null},{"name":"classifier","count":36},{"name":"coco","count":33},{"name":"ctc","count":26},{"name":"ddpg","count":31},{"name":"deepmind","count":26},{"name":"gpu-acceleration","count":32},{"name":"image-captioning","count":40},{"name":"linguistics","count":26},{"name":"pca","count":24},{"name":"rl","count":41},{"name":"speech-processing","count":39},{"name":"text-summarization","count":25},{"name":"video-understanding","count":21},{"name":"vehicle-detection","count":null},{"name":"wgan-gp","count":16},{"name":"andrew-ng","count":15},{"name":"backpropagation","count":16},{"name":"dropout","count":18},{"name":"evolutionary-algorithm","count":null},{"name":"evolutionary-algorithms","count":30},{"name":"resnext","count":17},{"name":"seq2seq-model","count":null},{"name":"vgg","count":25},{"name":"activity-recognition","count":21},{"name":"chinese-word-segmentation","count":19},{"name":"cnn-keras","count":28},{"name":"adversarial-networks","count":15},{"name":"attention-is-all-you-need","count":19},{"name":"cudnn","count":20},{"name":"collaborative-filtering","count":48},{"name":"cyclegan","count":35},{"name":"domain-adaptation","count":55},{"name":"face-tracking","count":23},{"name":"fcn","count":22},{"name":"gru","count":27},{"name":"infogan","count":null},{"name":"instance-segmentation","count":57},{"name":"ipynb","count":14},{"name":"kaldi","count":40},{"name":"neural","count":19},{"name":"part-of-speech-tagger","count":21},{"name":"perceptron","count":null},{"name":"pos-tagging","count":25},{"name":"quantization","count":48},{"name":"remote-sensing","count":51},{"name":"rubyml","count":null},{"name":"stacking","count":15},{"name":"swap","count":14},{"name":"tacotron","count":17},{"name":"text-detection","count":36},{"name":"wgan","count":19},{"name":"music-information-retrieval","count":26},{"name":"trpo","count":15},{"name":"variational-autoencoder","count":45},{"name":"visdom","count":null},{"name":"adversarial-learning","count":29},{"name":"core-ml","count":null},{"name":"keras-models","count":22},{"name":"face-detector","count":null},{"name":"face-swap","count":null},{"name":"gbdt","count":null},{"name":"genetic-programming","count":null},{"name":"jieba","count":17},{"name":"kmeans","count":17},{"name":"lda","count":16},{"name":"metric-learning","count":28},{"name":"mobilenets","count":null},{"name":"natural-language-generation","count":32},{"name":"neurons","count":null},{"name":"neuroevolution","count":16},{"name":"rubynlp","count":null},{"name":"stemmer","count":16},{"name":"sentiment","count":null},{"name":"svd","count":14},{"name":"rgbd","count":25},{"name":"tf-idf","count":21},{"name":"wavenet","count":25},{"name":"anomalydetection","count":15},{"name":"began","count":null},{"name":"dragan","count":null},{"name":"cupy","count":20},{"name":"image-annotation","count":23},{"name":"implementation","count":21},{"name":"cityscapes","count":31},{"name":"computervision","count":26},{"name":"reasoning","count":null},{"name":"representation-learning","count":66},{"name":"reward","count":null},{"name":"voice-recognition","count":31},{"name":"systems","count":16},{"name":"vgg16","count":26},{"name":"tsne","count":null},{"name":"acgan","count":null},{"name":"crnn","count":28},{"name":"cs231n","count":null},{"name":"deeplearning4j","count":16},{"name":"ensemble","count":null},{"name":"lstm-neural-networks","count":43},{"name":"facerecognition","count":null},{"name":"fully-convolutional-networks","count":19},{"name":"gbm","count":null},{"name":"hyperparameter-tuning","count":27},{"name":"image-translation","count":28},{"name":"imitation-learning","count":28},{"name":"interpretability","count":43},{"name":"mnist-classification","count":null},{"name":"mobilenetv2","count":39},{"name":"recommendation-engine","count":19},{"name":"rcnn","count":15},{"name":"pytorch-a3c","count":null},{"name":"recommendation-system","count":41},{"name":"recurrent-networks","count":null},{"name":"senet","count":14},{"name":"time-series-analysis","count":36},{"name":"wordnet","count":null},{"name":"neural-nets","count":null},{"name":"word-segmentation","count":17},{"name":"text-generation","count":44},{"name":"stock-price-prediction","count":24},{"name":"tensor-algebra","count":null},{"name":"nlg","count":16},{"name":"neural-architecture-search","count":52},{"name":"ocr-recognition","count":16},{"name":"model-compression","count":44},{"name":"matching","count":22},{"name":"labeling","count":19},{"name":"multi-label","count":null},{"name":"mujoco","count":16},{"name":"lsh","count":null},{"name":"online-learning","count":17},{"name":"predictive-modeling","count":23},{"name":"pruning","count":34},{"name":"arm-neon","count":null},{"name":"asr","count":55},{"name":"augmentation","count":24},{"name":"baseline","count":22},{"name":"binder","count":41},{"name":"bounding-boxes","count":20},{"name":"celeba","count":17},{"name":"clarifai","count":null},{"name":"conditional-random-fields","count":null},{"name":"edge-detection","count":14},{"name":"entity-extraction","count":17},{"name":"experiments","count":21},{"name":"gluon","count":27},{"name":"sentiment-classification","count":21},{"name":"relation-extraction","count":58},{"name":"proximal-policy-optimization","count":null},{"name":"serving","count":15}],"categoryName":"Machine Learning","advertisement":{"variation":"topics","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/t2"}}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b6f00b75f041',m:'109b750153d8913005e55c6ac2b62890e0903767-1610725429-1800-AZbWyF4rVlMU7NLRMeNgrNNjZhW79StDf54hGsVEmNxwOvVvktKEuHAh2aDhSi38yeGkjQWADEHMW2PQuYzJx2olv0waVxLwqywoIAK0jg5RZxGLEAYJyd+FsiNsdEduqKDqds5imQ+M4GWc9jyXtE0=',s:[0xefb6dc30b7,0x0ba4417a6e],}})();</script></body>
+</html>

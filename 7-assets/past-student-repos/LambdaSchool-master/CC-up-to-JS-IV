@@ -1,0 +1,517 @@
+######################################################################### Array Methods - Common Elements
+// Write a function called commonElements that has parameters for two arrays. 
+// Return an array of all items that are present in both arrays. 
+
+function commonElements(arr1, arr2) {
+  // declare empty array
+  let first = [];
+  // loop through first array
+  for (i = 0; i < arr1.length; i++){
+  // loop through second array
+    for (j = 0; j < arr2.length; j++) {
+  // if an item in the first and second array are equal
+      if (arr1[i] === arr2[j]) {
+  // add item to empty array
+        first.push(arr1[i]);
+      }
+    }
+  }
+  return first;
+}
+
+// return ['a']
+commonElements(['a', 'b', 'c'], ['x', 'y', 'z', 'a'])
+
+####### Alternative Solution - Array Methods - Common Elements ######
+// v1.0 for loop
+function commonElements(arr1, arr2) {
+  const matches = [];                        //empty array called 'matches'
+  let i, len = arr1.length;                  
+  for (i = 0; i < len; i++) {               //loop through first array
+    if (arr2.includes(arr1[i])) {           // if second array .includes() item in first array
+      if(!matches.includes(arr1[i])) {      // if empty array does not include item from first array
+        matches.push(arr1[i]);              // push item from first array into 'matches' array
+      }
+    }    
+  }
+  return matches;
+}
+
+// v1.1
+// function commonElements(arr1, arr2) {    
+// let unique = new Set(arr1);                 // declare new object Set to store arr1
+// const matches = [];                         // empty array called 'matches'
+// for (let item of unique) {                  // for let loop through item in arr1
+//   if (arr2.includes(item)) {                // if item is in arr2
+//     matches.push(item);                     // push item into empty array 'matches'
+//     }
+//   }
+// return matches;
+// }
+
+// // v1.2 Array method .forEach()
+// function commonElements(arr1, arr2) {       
+//   const matches = [];                         //empty array called 'matches'
+//   arr1.forEach(element => {                   //forEach method loop through arr1
+//     if (arr2.includes(element)) {             // if arr2 includes element
+//       if(!matches.includes(element)) {        // if empty array does not include item from first array, thats included in arr2
+//         matches.push(element);                // push item into empty array 'matches'
+//       }
+//     }
+//   });
+//   return matches;
+// }
+
+// // v2.0
+// function commonElements(arr1, arr2) {
+//   return arr1.filter((element, position) => {
+//     if (arr1.indexOf(element) === position)
+//       return arr2.includes(element);
+//   });
+// }
+
+console.log(commonElements([1, 2, 3, 4, 4, 6], [3, 4, 5, 6])); // <--- [ 3, 4, 6 ]
+
+######################################################################## Reverse Number
+// Write a function called reverseNumber that reverses a number.
+
+function reverseNumber(num) {
+  // convert number to string, using .toString()
+  let numstr = num.toString();
+  // use split method to split up string, store in newnumstr
+  let newnumstr = numstr.split("");
+  // use reverse method on newnumstr, assign to rev
+  let rev = newnumstr.reverse();
+  // use join method on rev, assing to newNum
+  let newNum = rev.join("");
+  // convert from string to number, assign to finNum
+  let finNum = Number(newNum);
+  return finNum;
+}
+
+reverseNumber(12345);
+
+######### Alternative Solution - Reverse Number
+// v1.0
+function reverseNumber (num) {
+  let str = num.toString();
+  let len = str.length;
+  let reversed = '';
+  for (let i = len; i > 0; i--) {
+    reversed += str[i - 1];
+  }
+  let result = Number(reversed);
+  return result;
+}
+
+// // v2.0
+// function reverseNumber (num) {
+//   // console.log(num);
+//   let string = num.toString();
+//   // console.log(string);
+//   // console.log(typeof(string));
+//   let arr = string.split('');
+//   // console.log(arr);
+//   let reverse = arr.reverse();
+//   // console.log(reverse);
+//   let join = reverse.join('');
+//   // console.log(join);
+//   let result = Number(join);
+//   return result;
+// }
+
+// // v3.0 Number()
+// function reverseNumber (num) {
+//   return Number(num
+//     .toString()
+//     .split('')
+//     .reverse()
+//     .join(''));
+// }
+
+// // v4.0 parseInt()
+// function reverseNumber(num) {
+//   return parseInt(num
+//     .toString()
+//     .split('')
+//     .reverse()
+//     .join(''));
+// }
+
+// // v5.0 Arithmetic Operators *=, +=, -=, /= and % (modulo operator)
+// function reverseNumber(num) {
+//   let number = num;
+//   let reversed = 0;
+//   while (number !== 0) {
+//     reversed *= 10;
+//     reversed += number % 10;
+//     number -= number % 10;
+//     number /= 10;
+//     // console.log(`reversed: ${reversed}, number: ${number}`);
+//   }
+//   return reversed;
+// }
+
+// // v5.1
+// function reverseNumber(num) {
+//   const arr = [];
+//   // This takes numbers from right to left on the num variable
+//   while (num > 0) {
+//     arr.push(num % 10);
+//     num = Math.floor(num / 10);
+//   }
+//   return Number(arr.join(''));
+// }
+
+// alternative solution (Matthew Meitl) :parseInt
+function reverseNumber(num) {
+  return parseInt(num.toString().split('').reverse().join(''));
+}
+
+// alternative solution (Ryan McLaughlin): parseInt similar
+function reverseNumber(num) {
+ num = num + "";
+ let reverse = num.split("").reverse().join("");
+   return parseInt(reverse); 
+}
+
+######################## REVERSE CASING
+// Write a function that takes in a string, reverses the 'casing' of that string, and returns the "reversed-casing" string.
+
+function reverseCase(str) {
+  //turn string into Array
+      let array = str.split("");
+  //loop through Array
+      for (i = 0; i < array.length; i++) {
+  //check if string Uppercase, turn to lowercase
+      if (array[i] === array[i].toUpperCase()) {
+  // change to lowercase
+      array[i] = array[i].toLowerCase();
+    } else {
+  // change to uppercase
+      array[i] = array[i].toUpperCase();
+    }
+  }
+
+  //turn array back to string
+  let newStr = array.join("");
+  //return string
+  return newStr
+}
+
+reverseCase("JAVASCRIPT is fun55!");
+
+// *** Shorter solution using map() ***
+
+function reverseCase(str) {
+  // str.split -> changes the string into an array
+  // map over the array (loop over the array, for each 'letter', check to see if letter is equal to lower case version of itself) - up to question mark
+  //if it is return teh upper case version in the letter's place
+  //
+  // if not return the lower case version
+  // join the array
+  return str.split("").map(letter => letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase()).join("");
+}
+
+reverseCase("JAVASCRIPT is FuN55");
+
+// ['h', 'E', 'L', 'L', 'o']
+// ['H', 'e', 'l', 'l', 'O']
+
+// if you're looping AND changing use map()
+// if you're executing something use forEach()
+
+
+#################################### String to Camel Case
+***NOTE: .replace() takes in two arguments, regex literal to be replaced (here, dash or underscored followed by any-letter
+****     and second argument is a call-back function
+****     call-back function takes two argument, 's' takes away what was replaced, 'group1' .toUpperCase() any letter
+
+function toCamelCase(str) {
+  // assess if string includes dash or underscore
+  if (str.match(/-/)) {
+    // for dash replace dash followed by letter with call-back function to return that letter uppercase
+      let replaced = str.replace(/-([a-z])/gi, function(s, group1) {
+      return group1.toUpperCase();
+    });
+  return replaced;
+  } else {
+    // for underscore replace underscore followed by letter with call-back function to return that letter uppercase
+      let replaced1 = str.replace(/_([a-z])/gi, function(s, group1) {
+      return group1.toUpperCase();
+    });
+  return replaced1;
+  }
+}
+
+toCamelCase("the-stealth-warrior");
+
+
+################################### Model Solution - String to Camel Case
+// v1.0
+function toCamelCase(str) {
+  if (str === '') return str;                         
+  let snakeCase = str[0];                               // set snakeCase to first index in str??
+  strArr = str.split('');                               // turn string into array - strArr
+  for (let i = 1; i < strArr.length; i++) {             // loop through strArr
+    if (strArr[i] === '-') {                            // if strArr include dash
+      strArr[i + 1] = strArr[i + 1].toUpperCase();      // turn letter following dash .toUpperCase
+    }
+    else if (strArr[i] === '_') {                       // else if strArr includes underscore
+      strArr[i + 1] = strArr[i + 1].toUpperCase();      // turn letter after underscore .toUpperCase
+    }
+    else snakeCase += strArr[i];                        // else add strArr to snakeCase
+  }
+  return snakeCase;
+}
+
+///// Solution using .forEach()
+
+function toCamelCase(str) {
+//change string to array
+    let strArr = str.split("");
+
+// for each index of array, if dash or underscore, take next item and .toUpperCase() it, 
+    strArr.forEach((char, ind)=> {
+        if (char === "-" || char === "_") {
+            strArr[ind + 1] = strArr[ind + 1].toUpperCase();
+            
+      // turn current item, dash or underscore, and make it disappear
+            strArr[ind] = "";
+        }
+    });
+
+    return strArr.join("")
+}
+
+///v 1.5
+
+function toCamelCase(str) {
+  let arr = [];
+  if (str.includes('-') || str.includes('_')) {
+    arr = str.split(/-|_/);                                //// .split(/-|_/) automatically gets rid of delimiters
+  }
+  
+  for (let i = 0; i < arr.length; i++) {
+    let firstChar = arr[i].charAt(0);
+    if (i !== 0) {
+      firstChar = firstChar.toUpperCase();
+    }
+    arr[i] = firstChar + arr[i].slice(1).toLowerCase();
+  }
+  return arr.join('');
+}
+
+
+// // v2.0 for loop with logical inclusive OR operator
+// function toCamelCase(str) {
+//   let arr = str.split('');                           // turn string into array - arr
+//   for (let i = 1; i < arr.length; i++) {             // loop through arr
+//     if(arr[i] === '_' || arr[i] === '-') {           // if index in arr equals underscore or dash
+//       arr[i] = '';                                   // set to blank
+//       arr[i + 1] = arr[i + 1].toUpperCase();         // have following letter be .toUpperCase()
+//     }
+//   }
+//   return arr.join('');                               // join arr back to string
+// }
+
+// // v3.0 Regular expressions
+// function toCamelCase(str){
+//   const arr = str.split(/[-_]/);
+//   for (let i = 1; i < arr.length; i++) {
+//     arr[i] = arr[i][0].toUpperCase() + arr[i].substr(1);
+//   }
+//   return arr.join('');
+// }
+
+// // v4.0 - Global Expressions
+// function toCamelCase(str) {
+//   return str.replace(/(_|-)\w/g, function(m) {return m[1].toUpperCase();});
+// }
+
+// // v4.1
+// function toCamelCase(str) { 
+//   return str.replace(/[_-][a-zA-Z]/g, letter => letter[1].toUpperCase());
+// }
+
+################################## Emulate Logic Gates ###################
+***** Chris solution ******
+
+function NOT (b) {
+  if (b === true) return false;
+  return true;
+}
+
+function AND (x, y) {         // nested if-statement is AND
+  if (x === true) {
+    if (y === true) {
+      return true;
+    }
+  }
+  // if not
+  return false;
+}
+
+function NAND(x, y) {          // NAND opposite of AND
+  // oppsite of AND
+    if (x === true) {
+      if (y === true) {
+      return false;
+    }
+  }
+  // if not
+  return true;
+}
+
+function OR(x, y) {                  
+  if (x === true) return true;
+  if (y === true) return true;
+  // if neither x or y, then return false         // NON-nested if-statement 
+  return false;
+}
+
+function XOR(x, y) {
+  if (x === true) {
+    if (y === true) {
+      return false;
+    }
+  }                               // find edge cases through two-consencutive nested-if-statements
+  if (x === false) {
+    if (y === false) {
+      return false;
+    }
+  }
+  // if both cases above don't work, then return true
+  return true;
+}
+
+******* Emulate Logic Gate - Model Solution **********
+
+// v1.0
+function NOT (b) {
+    if (b === true) return false;
+  return true;
+}
+console.log('NOT');
+console.log(NOT(true));  // ---> false
+console.log(NOT(false)); // ---> true
+
+function AND (x, y) {
+  if (x === true) {
+    if (y === true) return true;
+  }
+  return false;
+}
+console.log('AND');
+console.log(AND(true, true));   // ---> true
+console.log(AND(true, false));  // ---> false
+console.log(AND(false, true));  // ---> false
+console.log(AND(false, false)); // ---> false
+
+function NAND(x, y) {
+  if (x === true) {
+    if (y === true) return false;
+  }
+  return true;
+}
+console.log('NAND');
+console.log(NAND(true, true));   // ---> false
+console.log(NAND(true, false));  // ---> true
+console.log(NAND(false, true));  // ---> true
+console.log(NAND(false, false)); // ---> true
+
+function OR(x, y) {
+  if (x === true) return true;
+  if (y === true) return true;
+  return false;
+}
+console.log('OR');
+console.log(OR(true, true));   // ---> true
+console.log(OR(true, false));  // ---> true
+console.log(OR(false, true));  // ---> true
+console.log(OR(false, false)); // ---> false
+
+function XOR(x, y) {
+  if (x === true) {
+    if (y === true) {
+      return false;
+    }
+  }
+  if (x === false) {
+    if (y === false) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log('XOR');
+console.log(XOR(true, true));   // ---> false
+console.log(XOR(true, false));  // ---> true
+console.log(XOR(false, true));  // ---> true
+console.log(XOR(false, false)); // ---> false
+
+******* Sort letters (or numbers) in a string using .sort() **********
+
+// Write a function called sortString that takes a string of letters and 
+// returns a string with the letters sorted in alphabetical order.
+
+*** NOTE: see http://www.asciitable.com/ to see what Javascript is doing under the hood when sorting
+*** example: Uppercase letters get sorted BEFORE Lowercase letters
+
+function sortString(str) {
+  let newStr = str.split("").sort().join("");
+  return newStr;
+}
+
+sortString('zycxbwa');
+
+############ JS-II - Challenge
+
+############ JS-III - Challenge
+
+/// Own solution
+
+function sumPetYears(arr, kind, multiply) {
+  let petSum = arr.filter(element => element.species === `${kind}`).map(element => element.age*multiply).reduce((acc, element) => acc + element,0);
+  return `The combined ${kind}s' ages: ${petSum}`;
+}
+
+console.log(sumPetYears(pets, 'parakeet', 5));
+
+
+
+/// ONLY using REDUCE
+
+function sumPetYears(arr, kind, multiply) {
+  const combined = arr.reduce((age, pet) => {
+    if (pet.species === kind) age += pet.age * multiply
+    return age
+  }, 0);
+  
+  return `The combined ${kind}s' ages: ${combined}`
+}
+
+
+
+/// Teacher Solution (ES5)
+// ES5
+
+function sumPetYears(arr, kind, multiply) {
+  const filtered = arr.filter(function(value, index, array) {        //*Note: write all three parameters
+      return array[index].species === kind;           // same as next line!
+                                                      // return value.species === kind;
+    });
+  // console.log(filtered);
+  const mapped = filtered.map(function(val) {
+      return val.age * multiply;
+    });
+  // console.log(mapped);
+  const reduced = mapped.reduce(function(accumulator, currentValue) {
+      return accumulator + currentValue;
+    });
+  // console.log(reduced);
+  return `The combined ${kind}s' ages: ${reduced}`;
+  // return "The combined " + kind + "s' ages: " + reduced;
+  // return 'The combined ' + kind + 's\' ages: ' + reduced;
+}
+

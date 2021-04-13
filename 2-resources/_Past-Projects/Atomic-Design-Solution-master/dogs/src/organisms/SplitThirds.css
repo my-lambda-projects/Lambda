@@ -1,0 +1,18 @@
+.SplitThirds {
+  display: flex;
+}
+
+.SplitThirds__left {
+  flex-grow: 1;
+  background-color: #ededed;
+  padding: 30px;
+  margin: 30px;
+  margin-right: 0;
+}
+
+.SplitThirds__right {
+  flex-grow: 2;
+  background-color: #ededed;
+  padding: 30px;
+  margin: 30px;
+}

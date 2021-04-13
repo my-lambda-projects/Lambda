@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":114,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Awesome Mobile Security</title>
+<meta name="description" content="An effort to build a single place for all useful android and iOS security related stuff. All references and tools belong to their respective owners. I&#39;m just maintaining it.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/vaib25vicky/awesome-mobile-security">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "vaib25vicky/awesome-mobile-security",
+  "description": "An effort to build a single place for all useful android and iOS security related stuff. All references and tools belong to their respective owners. I'm just maintaining it.",
+  "url": "https://awesomeopensource.com/project/vaib25vicky/awesome-mobile-security",
+  "sku": "project/vaib25vicky/awesome-mobile-security",
+  "mpn": "project/vaib25vicky/awesome-mobile-security",
+  "image": "https://github.com/vaib25vicky.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "vaib25vicky/awesome-mobile-security",
+    "logo": "https://github.com/vaib25vicky.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "1476"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="BjTdv994Ve5fLFEkUD9+7LJBto7/TuhfdYz/KT0p+7Vemqj/eb5dVY8vHULy/fsTFeW8rjf+d7GbgQOmmzEcNg==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/vaib25vicky/awesome-mobile-security","location":"/project/vaib25vicky/awesome-mobile-security","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/vaib25vicky/awesome-mobile-security","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-148c6cf0-339c-4d8b-947f-a4e1748d7d64"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Awesome <!-- -->Mobile <!-- -->Security</div><div class="aos_project_metadata_description">An effort to build a single place for all useful android and iOS security related stuff. All references and tools belong to their respective owners. I&#x27;m just maintaining it.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,476</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content"></span><div class="aos_project_metadata_header"><a href="https://github.com/vaib25vicky/awesome-mobile-security" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/vaib25vicky/awesome-mobile-security" target="_blank">https://github.com/vaib25vicky/awesome-mobile-security</a></span><div class="aos_project_metadata_header"><a href="https://github.com/vaib25vicky/awesome-mobile-security/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/vaib25vicky/awesome-mobile-security/issues" target="_blank">2</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">a month ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/android"><div style="display:block;text-decoration:none;padding-bottom:10px">android<span> (<!-- -->5,993<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ios"><div style="display:block;text-decoration:none;padding-bottom:10px">ios<span> (<!-- -->3,431<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/awesome"><div style="display:block;text-decoration:none;padding-bottom:10px">awesome<span> (<!-- -->1,280<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/awesome-list"><div style="display:block;text-decoration:none;padding-bottom:10px">awesome-list<span> (<!-- -->1,198<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacking"><div style="display:block;text-decoration:none;padding-bottom:10px">hacking<span> (<!-- -->493<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/mobile"><div style="display:block;text-decoration:none;padding-bottom:10px">mobile<span> (<!-- -->462<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/reverse-engineering"><div style="display:block;text-decoration:none;padding-bottom:10px">reverse-engineering<span> (<!-- -->446<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/security-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">security-tools<span> (<!-- -->373<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/pentesting"><div style="display:block;text-decoration:none;padding-bottom:10px">pentesting<span> (<!-- -->346<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/resources"><div style="display:block;text-decoration:none;padding-bottom:10px">resources<span> (<!-- -->181<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/bugbounty"><div style="display:block;text-decoration:none;padding-bottom:10px">bugbounty<span> (<!-- -->158<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/redteam"><div style="display:block;text-decoration:none;padding-bottom:10px">redteam<span> (<!-- -->110<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacking-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">hacking-tools<span> (<!-- -->62<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/android-security"><div style="display:block;text-decoration:none;padding-bottom:10px">android-security<span> (<!-- -->30<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/mobile-security"><div style="display:block;text-decoration:none;padding-bottom:10px">mobile-security<span> (<!-- -->23<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="awesome-mobile-security-" class="anchor" href="#awesome-mobile-security-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>awesome-mobile-security <a href="https://awesome.re/badge.svg" target="_blank" rel="nofollow"><img src="https://awesome.re/badge.svg" alt="awesome" style="max-width:100%;"></a>
+</h1>
+<p>Maintained by <a href="https://twitter.com/vaib25vicky" rel="nofollow">@vaib25vicky</a> with contributions from the security and developer communities.</p>
+<h2>
+<a id="android" class="anchor" href="#android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Android</h2>
+<h3>
+<a id="general---blogs-papers-how-tos" class="anchor" href="#general---blogs-papers-how-tos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General - Blogs, Papers, How To's</h3>
+<ul>
+<li><a href="https://blog.oversecured.com/Evernote-Universal-XSS-theft-of-all-cookies-from-all-sites-and-more/" rel="nofollow">Evernote: Universal-XSS, theft of all cookies from all sites, and more</a></li>
+<li><a href="https://blog.oversecured.com/Interception-of-Android-implicit-intents/" rel="nofollow">Interception of Android implicit intents</a></li>
+<li><a href="https://blog.oversecured.com/Oversecured-detects-dangerous-vulnerabilities-in-the-TikTok-Android-app/" rel="nofollow">TikTok: three persistent arbitrary code executions and one theft of arbitrary files</a></li>
+<li><a href="https://blog.oversecured.com/Oversecured-automatically-discovers-persistent-code-execution-in-the-Google-Play-Core-Library/" rel="nofollow">Persistent arbitrary code execution in Android's Google Play Core Library: details, explanation and the PoC - CVE-2020-8913</a></li>
+<li><a href="https://blog.oversecured.com/Android-Access-to-app-protected-components/" rel="nofollow">Android: Access to app protected components</a></li>
+<li><a href="https://blog.oversecured.com/Android-arbitrary-code-execution-via-third-party-package-contexts/" rel="nofollow">Android: arbitrary code execution via third-party package contexts</a></li>
+<li><a href="https://medium.com/bugbountywriteup/android-pentesting-lab-4a6fe1a1d2e0" rel="nofollow">Android Pentesting Labs - Step by Step guide for beginners</a></li>
+<li><a href="https://medium.com/swlh/an-android-hacking-primer-3390fef4e6a0" rel="nofollow">An Android Hacking Primer</a></li>
+<li><a href="https://source.android.com/security" rel="nofollow">Secure an Android Device</a></li>
+<li><a href="https://developer.android.com/training/articles/security-tips" rel="nofollow">Security tips</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide" rel="nofollow">OWASP Mobile Security Testing Guide</a></li>
+<li><a href="https://3xpl01tc0d3r.blogspot.com/2019/09/security-testing-for-android-app-part1.html" rel="nofollow">Security Testing for Android Cross Platform Application</a></li>
+<li><a href="https://blog.0daylabs.com/2019/09/18/deep-dive-into-Android-security/" rel="nofollow">Dive deep into Android Application Security</a></li>
+<li><a href="https://www.notsosecure.com/pentesting-android-apps-using-frida/" rel="nofollow">Pentesting Android Apps Using Frida</a></li>
+<li><a href="https://mobile-security.gitbook.io/mobile-security-testing-guide/" rel="nofollow">Mobile Security Testing Guide</a></li>
+<li><a href="https://github.com/sh4hin/MobileApp-Pentest-Cheatsheet" rel="nofollow">Mobile Application Penetration Testing Cheat Sheet</a></li>
+<li><a href="https://www.evilsocket.net/2017/04/27/Android-Applications-Reversing-101/#.WQND0G3TTOM.reddit" rel="nofollow">Android Applications Reversing 101</a></li>
+<li><a href="https://developer.box.com/en/guides/security/" rel="nofollow">Android Security Guidelines</a></li>
+<li><a href="https://pentestlab.blog/2017/02/12/android-webview-vulnerabilities/" rel="nofollow">Android WebView Vulnerabilities</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP_Mobile_Top_10" rel="nofollow">OWASP Mobile Top 10</a></li>
+<li><a href="https://resources.infosecinstitute.com/practical-android-phone-forensics/" rel="nofollow">Practical Android Phone Forensics</a></li>
+<li><a href="http://www.vantagepoint.sg/blog/83-mobile-reverse-engineering-unleashed" rel="nofollow">Mobile Reverse Engineering Unleashed</a></li>
+<li><a href="https://medium.com/@GowthamR1/android-root-detection-bypass-using-objection-and-frida-scripts-d681d30659a7" rel="nofollow">Android Root Detection Bypass Using Objection and Frida Scripts</a></li>
+<li><a href="https://github.com/quark-engine/quark-engine" rel="nofollow">quark-engine - An Obfuscation-Neglect Android Malware Scoring System</a></li>
+<li><a href="https://medium.com/@sarang6489/root-detection-bypass-by-manual-code-manipulation-5478858f4ad1" rel="nofollow">Root Detection Bypass By Manual Code Manipulation.</a></li>
+<li><a href="https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1528491463.pdf" rel="nofollow">Application and Network Usage in Android</a></li>
+<li><a href="http://public.avast.com/research/VB2019-Garcia-etal.pdf" rel="nofollow">GEOST BOTNET - the discovery story of a new Android banking trojan</a></li>
+<li><a href="https://drive.google.com/file/d/1JccmMLi6YTnyRrp_rk6vzKrUX3oXK_Yw/view" rel="nofollow">Mobile Pentesting With Frida</a></li>
+<li><a href="https://www.mobileiron.com/en/blog/magisk-android-rooting" rel="nofollow">Magisk Systemless Root - Detection and Remediation</a></li>
+<li><a href="https://arxiv.org/pdf/1910.06192.pdf" rel="nofollow">AndrODet: An adaptive Android obfuscation detector</a></li>
+<li><a href="https://hackernoon.com/hands-on-mobile-api-security-get-rid-of-client-secrets-a79f111b6844" rel="nofollow">Hands On Mobile API Security</a></li>
+<li><a href="https://nileshsapariya.blogspot.com/2016/11/zero-to-hero-mobile-application-testing.html" rel="nofollow">Zero to Hero - Mobile Application Testing - Android Platform</a></li>
+<li><a href="https://github.com/Magpol/fridafde" rel="nofollow">How to use FRIDA to bruteforce Secure Startup with FDE-encryption on a Samsung G935F running Android 8</a></li>
+<li><a href="https://docs.google.com/presentation/d/1pYB522E71hXrp4m3fL3E3fnAaOIboJKqpbyE5gSsOes/edit" rel="nofollow">Android Malware Adventures</a></li>
+<li><a href="https://nightowl131.github.io/AAPG/" rel="nofollow">AAPG - Android application penetration testing guide</a></li>
+<li><a href="https://www.juanurs.com/Bypassing-Android-Anti-Emulation-Part-I/" rel="nofollow">Bypassing Android Anti-Emulation</a></li>
+<li><a href="https://www.gosecure.net/blog/2020/04/06/bypassing-xamarin-certificate-pinning-on-android/" rel="nofollow">Bypassing Xamarin Certificate Pinning</a></li>
+<li><a href="https://blog.ropnop.com/configuring-burp-suite-with-android-nougat/" rel="nofollow">Configuring Burp Suite With Android Nougat</a></li>
+</ul>
+<h3>
+<a id="books" class="anchor" href="#books" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Books</h3>
+<ul>
+<li><a href="https://www.securecoding.cert.org/confluence/display/android/Android+Secure+Coding+Standard" rel="nofollow">SEI CERT Android Secure Coding Standard</a></li>
+<li><a href="https://www.oreilly.com/library/view/android-security-internals/9781457185496/" rel="nofollow">Android Security Internals</a></li>
+<li><a href="https://androidcookbook.com/" rel="nofollow">Android Cookbook</a></li>
+<li><a href="https://www.amazon.com/Android-Hackers-Handbook-Joshua-Drake/dp/111860864X" rel="nofollow">Android Hacker's Handbook</a></li>
+<li><a href="https://www.packtpub.com/in/application-development/android-security-cookbook" rel="nofollow">Android Security Cookbook</a></li>
+<li><a href="https://www.amazon.in/Mobile-Application-Hackers-Handbook-ebook/dp/B00TSA6KLG" rel="nofollow">The Mobile Application Hacker's Handbook</a></li>
+<li><a href="https://www.oreilly.com/library/view/android-malware-and/9781482252200/" rel="nofollow">Android Malware and Analysis</a></li>
+<li><a href="https://www.crcpress.com/Android-Security-Attacks-and-Defenses/Misra-Dubey/p/book/9780367380182" rel="nofollow">Android Security: Attacks and Defenses</a></li>
+</ul>
+<h3>
+<a id="courses" class="anchor" href="#courses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Courses</h3>
+<ul>
+<li><a href="https://www.lynda.com/Android-tutorials/Learning-Android-Security/689762-2.html" rel="nofollow">Learning-Android-Security</a></li>
+<li><a href="https://www.elearnsecurity.com/course/mobile_application_security_and_penetration_testing/" rel="nofollow">Mobile Application Security and Penetration Testing</a></li>
+<li><a href="https://developer.android.com/courses/advanced-training/overview" rel="nofollow">Advanced Android Development</a></li>
+<li><a href="https://www.edx.org/professional-certificate/harvardx-computer-science-and-mobile-apps" rel="nofollow">Learn the art of mobile app development</a></li>
+<li><a href="https://www.linkedin.com/learning/learning-android-malware-analysis" rel="nofollow">Learning Android Malware Analysis</a></li>
+<li><a href="https://maddiestone.github.io/AndroidAppRE/" rel="nofollow">Android App Reverse Engineering 101</a></li>
+<li><a href="https://manifestsecurity.com/android-application-security/" rel="nofollow">Android Pentesting for Beginners</a></li>
+</ul>
+<h3>
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h3>
+<h4>
+<a id="static-analysis" class="anchor" href="#static-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Static Analysis</h4>
+<ul>
+<li><a href="http://pag.arguslab.org/argus-saf" rel="nofollow">Amandroid – A Static Analysis Framework</a></li>
+<li><a href="https://github.com/maaaaz/androwarn/" rel="nofollow">Androwarn – Yet Another Static Code Analyzer</a></li>
+<li><a href="https://github.com/sonyxperiadev/ApkAnalyser" rel="nofollow">APK Analyzer – Static and Virtual Analysis Tool</a></li>
+<li><a href="https://github.com/honeynet/apkinspector/" rel="nofollow">APK Inspector – A Powerful GUI Tool</a></li>
+<li><a href="https://github.com/hahwul/droid-hunter" rel="nofollow">Droid Hunter – Android application vulnerability analysis and Android pentest tool</a></li>
+<li><a href="https://github.com/google/error-prone" rel="nofollow">Error Prone – Static Analysis Tool</a></li>
+<li><a href="http://findbugs.sourceforge.net/downloads.html" rel="nofollow">Findbugs – Find Bugs in Java Programs</a></li>
+<li><a href="https://github.com/find-sec-bugs/find-sec-bugs/" rel="nofollow">Find Security Bugs – A SpotBugs plugin for security audits of Java web applications.</a></li>
+<li><a href="https://github.com/secure-software-engineering/FlowDroid" rel="nofollow">Flow Droid – Static Data Flow Tracker</a></li>
+<li><a href="https://github.com/JesusFreke/smali" rel="nofollow">Smali/Baksmali – Assembler/Disassembler for the dex format</a></li>
+<li><a href="https://github.com/EugenioDelfa/Smali-CFGs" rel="nofollow">Smali-CFGs – Smali Control Flow Graph’s</a></li>
+<li><a href="https://www.cs.washington.edu/sparta" rel="nofollow">SPARTA – Static Program Analysis for Reliable Trusted Apps</a></li>
+<li><a href="https://plv.colorado.edu/projects/thresher/" rel="nofollow">Thresher – To check heap reachability properties</a></li>
+<li><a href="https://github.com/Sukelluskello/VectorAttackScanner" rel="nofollow">Vector Attack Scanner – To search vulnerable points to attack</a></li>
+<li><a href="https://github.com/novoda/gradle-static-analysis-plugin" rel="nofollow">Gradle Static Analysis Plugin</a></li>
+<li><a href="https://github.com/checkstyle/checkstyle" rel="nofollow">Checkstyle – A tool for checking Java source code</a></li>
+<li><a href="https://github.com/pmd/pmd" rel="nofollow">PMD – An extensible multilanguage static code analyzer</a></li>
+<li><a href="https://github.com/Sable/soot" rel="nofollow">Soot – A Java Optimization Framework</a></li>
+<li><a href="https://github.com/pwittchen/android-quality-starter" rel="nofollow">Android Quality Starter</a></li>
+<li><a href="https://github.com/linkedin/qark" rel="nofollow">QARK – Quick Android Review Kit</a></li>
+<li><a href="https://github.com/facebook/infer" rel="nofollow">Infer – A Static Analysis tool for Java, C, C++ and Objective-C</a></li>
+<li><a href="https://github.com/noveogroup/android-check" rel="nofollow">Android Check – Static Code analysis plugin for Android Project</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/3847-findbugs-idea" rel="nofollow">FindBugs-IDEA Static byte code analysis to look for bugs in Java code</a></li>
+<li><a href="https://github.com/dwisiswant0/apkleaks" rel="nofollow">APK Leaks – Scanning APK file for URIs, endpoints &amp; secrets</a></li>
+</ul>
+<h4>
+<a id="dynamic-analysis" class="anchor" href="#dynamic-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dynamic Analysis</h4>
+<ul>
+<li><a href="https://github.com/abhi-r3v0/Adhrit" rel="nofollow">Adhrit - Android Security Suite for in-depth reconnaissance and static bytecode analysis based on Ghera benchmarks</a></li>
+<li><a href="https://github.com/AndroidHooker/hooker" rel="nofollow">Android Hooker - Opensource project for dynamic analyses of Android applications</a></li>
+<li><a href="http://appaudit.io/" rel="nofollow">AppAudit - Online tool ( including an API) uses dynamic and static analysis</a></li>
+<li><a href="https://github.com/ucsb-seclab/baredroid" rel="nofollow">AppAudit - A bare-metal analysis tool on Android devices</a></li>
+<li><a href="https://github.com/idanr1986/cuckoo-droid" rel="nofollow">CuckooDroid - Extension of Cuckoo Sandbox the Open Source software</a></li>
+<li><a href="https://code.google.com/p/droidbox/" rel="nofollow">DroidBox - Dynamic analysis of Android applications</a></li>
+<li><a href="https://github.com/antojoseph/droid-ff" rel="nofollow">Droid-FF - Android File Fuzzing Framework</a></li>
+<li><a href="https://www.mwrinfosecurity.com/products/drozer/" rel="nofollow">Drozer</a></li>
+<li><a href="https://github.com/programa-stic/marvin-django" rel="nofollow">Marvin - Analyzes Android applications and allows tracking of an app</a></li>
+<li><a href="https://github.com/ac-pm/Inspeckage" rel="nofollow">Inspeckage</a></li>
+<li><a href="https://github.com/mingyuan-xia/PATDroid" rel="nofollow">PATDroid - Collection of tools and data structures for analyzing Android applications</a></li>
+<li><a href="https://github.com/sh4hin/Androl4b" rel="nofollow">AndroL4b - Android security virtual machine based on ubuntu-mate</a></li>
+<li><a href="https://github.com/radareorg/radare2" rel="nofollow">Radare2 - Unix-like reverse engineering framework and commandline tools</a></li>
+<li><a href="https://cutter.re/" rel="nofollow">Cutter - Free and Open Source RE Platform powered by radare2</a></li>
+<li><a href="https://bytecodeviewer.com/" rel="nofollow">ByteCodeViewer - Android APK Reverse Engineering Suite (Decompiler, Editor, Debugger)</a></li>
+<li><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" rel="nofollow">Mobile-Security-Framework MobSF</a></li>
+<li><a href="https://thecobraden.com/projects/cobradroid/" rel="nofollow">CobraDroid - Custom build of the Android operating system geared specifically for application security </a></li>
+<li><a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445" rel="nofollow">Magisk v20.2 - Root &amp; Universal Systemless Interface</a></li>
+<li><a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security" rel="nofollow">Runtime Mobile Security (RMS) - is a powerful web interface that helps you to manipulate Android and iOS Apps at Runtime</a></li>
+<li><a href="https://mobexler.com/" rel="nofollow">MOBEXLER - A Mobile Application Penetration Testing Platform</a></li>
+</ul>
+<h4>
+<a id="android-online-apk-analyzers" class="anchor" href="#android-online-apk-analyzers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Android Online APK Analyzers</h4>
+<ul>
+<li>
+<a href="https://oversecured.com/" rel="nofollow">Oversecured</a> - A static vulnerability scanner for Android apps (APK files) containing 90+ vulnerability categories</li>
+<li><a href="https://androidobservatory.org/upload" rel="nofollow">Android Observatory APK Scan</a></li>
+<li><a href="http://www.decompileandroid.com/" rel="nofollow">Android APK Decompiler</a></li>
+<li><a href="http://andrototal.org/" rel="nofollow">AndroTotal</a></li>
+<li><a href="https://apkscan.nviso.be/" rel="nofollow">NVISO ApkScan</a></li>
+<li><a href="https://www.virustotal.com/#/home/upload" rel="nofollow">VirusTotal</a></li>
+<li><a href="https://scanyourapk.com/" rel="nofollow">Scan Your APK</a></li>
+<li><a href="https://undroid.av-comparatives.org/index.php" rel="nofollow">AVC Undroid</a></li>
+<li><a href="https://metadefender.opswat.com/#!/" rel="nofollow">OPSWAT</a></li>
+<li><a href="https://www.htbridge.com/mobile/" rel="nofollow">ImmuniWeb Mobile App Scanner</a></li>
+<li><a href="https://www.ostorlab.co/scan/mobile/" rel="nofollow">Ostor Lab</a></li>
+<li><a href="https://quixxisecurity.com/" rel="nofollow">Quixxi</a></li>
+<li><a href="http://tracedroid.few.vu.nl/submit.php" rel="nofollow">TraceDroid</a></li>
+<li><a href="http://www.visualthreat.com/UIupload.action" rel="nofollow">Visual Threat</a></li>
+<li><a href="https://appcritique.boozallen.com/" rel="nofollow">App Critique</a></li>
+</ul>
+<h3>
+<a id="labs" class="anchor" href="#labs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Labs</h3>
+<ul>
+<li><a href="https://github.com/oversecured/ovaa" rel="nofollow">OVAA (Oversecured Vulnerable Android App)</a></li>
+<li><a href="https://github.com/payatu/diva-android" rel="nofollow">DIVA (Damn insecure and vulnerable App)</a></li>
+<li><a href="https://github.com/OWASP/SecurityShepherd" rel="nofollow">SecurityShepherd</a></li>
+<li><a href="https://github.com/logicalhacking/DVHMA" rel="nofollow">Damn Vulnerable Hybrid Mobile App (DVHMA)</a></li>
+<li><a href="https://github.com/OWASP/owasp-mstg/tree/master/Crackmes" rel="nofollow">OWASP-mstg</a></li>
+<li><a href="https://github.com/dan7800/VulnerableAndroidAppOracle" rel="nofollow">VulnerableAndroidAppOracle</a></li>
+<li><a href="https://github.com/dineshshetty/Android-InsecureBankv2" rel="nofollow">Android InsecureBankv2</a></li>
+<li><a href="https://github.com/htbridge/pivaa" rel="nofollow">Purposefully Insecure and Vulnerable Android Application (PIIVA)</a></li>
+<li><a href="https://github.com/mwrlabs/drozer/releases/download/2.3.4/sieve.apk" rel="nofollow">Sieve app</a></li>
+<li><a href="https://github.com/CSPF-Founder/DodoVulnerableBank" rel="nofollow">DodoVulnerableBank</a></li>
+<li><a href="https://github.com/CyberScions/Digitalbank" rel="nofollow">Digitalbank</a></li>
+<li><a href="https://github.com/jackMannino/OWASP-GoatDroid-Project" rel="nofollow">OWASP GoatDroid</a></li>
+<li><a href="https://github.com/appknox/vulnerable-application" rel="nofollow">AppKnox Vulnerable Application</a></li>
+<li><a href="https://github.com/Lance0312/VulnApp" rel="nofollow">Vulnerable Android Application</a></li>
+<li><a href="https://dl.dropboxusercontent.com/u/37776965/Work/MoshZuk.apk" rel="nofollow">MoshZuk</a></li>
+<li><a href="http://www.mcafee.com/us/downloads/free-tools/hacme-bank-android.aspx" rel="nofollow">Hackme Bank</a></li>
+<li><a href="https://github.com/SecurityCompass/AndroidLabs" rel="nofollow">Android Security Labs</a></li>
+<li><a href="https://github.com/dineshshetty/Android-InsecureBankv2" rel="nofollow">Android-InsecureBankv2</a></li>
+<li><a href="https://github.com/rafaeltoledo/android-security" rel="nofollow">Android-security</a></li>
+<li><a href="https://github.com/shahenshah99/VulnDroid" rel="nofollow">VulnDroid</a></li>
+<li><a href="https://rossmarks.uk/blog/fridalab/" rel="nofollow">FridaLab</a></li>
+<li><a href="https://santoku-linux.com/" rel="nofollow">Santoku Linux - Mobile Security VM</a></li>
+<li><a href="https://github.com/jaiswalakshansh/Vuldroid" rel="nofollow">Vuldroid</a></li>
+</ul>
+<h3>
+<a id="talks" class="anchor" href="#talks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Talks</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=L3AniAxp_G4" rel="nofollow">One Step Ahead of Cheaters -- Instrumenting Android Emulators</a></li>
+<li><a href="https://www.youtube.com/watch?v=R2brQvQeTvM" rel="nofollow">Vulnerable Out of the Box: An Evaluation of Android Carrier Devices</a></li>
+<li><a href="https://www.youtube.com/watch?v=wd5OU9NvxjU" rel="nofollow">Rock appround the clock: Tracking malware developers by Android</a></li>
+<li><a href="https://www.youtube.com/watch?v=ohjTWylMGEA" rel="nofollow">Chaosdata - Ghost in the Droid: Possessing Android Applications with ParaSpectre</a></li>
+<li><a href="https://www.youtube.com/watch?v=TDk2RId8LFo" rel="nofollow">Remotely Compromising Android and iOS via a Bug in Broadcom's Wi-Fi Chipsets</a></li>
+<li><a href="https://www.youtube.com/watch?v=EkL1sDMXRVk" rel="nofollow">Honey, I Shrunk the Attack Surface – Adventures in Android Security Hardening</a></li>
+<li><a href="https://www.youtube.com/watch?v=hajOlvLhYJY" rel="nofollow">Hide Android Applications in Images</a></li>
+<li><a href="https://www.youtube.com/watch?v=71YP65UANP0" rel="nofollow">Scary Code in the Heart of Android</a></li>
+<li><a href="https://www.youtube.com/watch?v=q_HibdrbIxo" rel="nofollow">Fuzzing Android: A Recipe For Uncovering Vulnerabilities Inside System Components In Android</a></li>
+<li><a href="https://www.youtube.com/watch?v=s0Tqi7fuOSU" rel="nofollow">Unpacking the Packed Unpacker: Reverse Engineering an Android Anti-Analysis Native Library</a></li>
+<li><a href="https://www.youtube.com/watch?v=5eJYCucZ-Tc" rel="nofollow">Android FakeID Vulnerability Walkthrough</a></li>
+<li><a href="https://www.youtube.com/watch?v=1XavjjmfZAY" rel="nofollow">Unleashing D* on Android Kernel Drivers</a></li>
+<li><a href="https://www.youtube.com/watch?v=yU1BrY1ZB2o" rel="nofollow">The Smarts Behind Hacking Dumb Devices</a></li>
+<li><a href="https://www.bugcrowd.com/resources/webinars/overview-of-common-android-app-vulnerabilities/" rel="nofollow">Overview of common Android app vulnerabilities</a></li>
+<li><a href="https://developer.android.com/dev-summit" rel="nofollow">Android Dev Summit 2019</a></li>
+<li><a href="https://www.youtube.com/watch?v=3asW-nBU-JU" rel="nofollow">Android security architecture</a></li>
+<li><a href="https://vimeo.com/335948808" rel="nofollow">Get the Ultimate Privilege of Android Phone</a></li>
+</ul>
+<h3>
+<a id="misc" class="anchor" href="#misc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Misc.</h3>
+<ul>
+<li><a href="https://github.com/B3nac/Android-Reports-and-Resources/blob/master/README.md" rel="nofollow">Android-Reports-and-Resources</a></li>
+<li><a href="https://github.com/ashishb/android-security-awesome" rel="nofollow">android-security-awesome</a></li>
+<li><a href="https://medium.com/mobile-penetration-testing/android-penetration-testing-courses-4effa36ac5ed" rel="nofollow">Android Penetration Testing Courses</a></li>
+<li><a href="https://captmeelo.com/pentest/2019/12/30/lesser-known-tools-for-android-pentest.html" rel="nofollow">Lesser-known Tools for Android Application PenTesting</a></li>
+<li><a href="https://github.com/nelenkov/android-device-check" rel="nofollow">android-device-check - a set of scripts to check Android device security configuration</a></li>
+<li><a href="https://github.com/shroudedcode/apk-mitm" rel="nofollow">apk-mitm - a CLI application that prepares Android APK files for HTTPS inspection</a></li>
+<li><a href="https://github.com/den4uk/andriller" rel="nofollow">Andriller - is software utility with a collection of forensic tools for smartphones</a></li>
+<li><a href="https://www.virusbulletin.com/virusbulletin/2019/11/dexofuzzy-android-malware-similarity-clustering-method-using-opcode-sequence/" rel="nofollow">Dexofuzzy: Android malware similarity clustering method using opcode sequence-Paper</a></li>
+<li><a href="https://docs.google.com/presentation/d/1sFGAERaNRuEORaH06MmZKeFRqpJo1ol1xFieUa1X_OA/edit#slide=id.p1" rel="nofollow">Chasing the Joker</a></li>
+<li><a href="https://i.blackhat.com/eu-19/Thursday/eu-19-Hussain-Side-Channel-Attacks-In-4G-And-5G-Cellular-Networks.pdf" rel="nofollow">Side Channel Attacks in 4G and 5G Cellular Networks-Slides</a></li>
+<li><a href="https://github.com/PaulSec/Shodan.io-mobile-app" rel="nofollow">Shodan.io-mobile-app for Android</a></li>
+<li><a href="https://github.com/sk3ptre/AndroidMalware_2018" rel="nofollow">Popular Android Malware 2018</a></li>
+<li><a href="https://github.com/sk3ptre/AndroidMalware_2019" rel="nofollow">Popular Android Malware 2019</a></li>
+<li><a href="https://github.com/sk3ptre/AndroidMalware_2020" rel="nofollow">Popular Android Malware 2020</a></li>
+</ul>
+<h2>
+<a id="ios" class="anchor" href="#ios" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>iOS</h2>
+<h3>
+<a id="general---blogs-papers-how-tos-1" class="anchor" href="#general---blogs-papers-how-tos-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General - Blogs, Papers, How to's</h3>
+<ul>
+<li><a href="https://www.cse.wustl.edu/%7Ejain/cse571-14/ftp/ios_security/index.html" rel="nofollow">iOS Security</a></li>
+<li><a href="https://medium.com/@ehsahil/basic-ios-apps-security-testing-lab-1-2bf37c2a7d15" rel="nofollow">Basic iOS Apps Security Testing lab</a></li>
+<li><a href="https://resources.infosecinstitute.com/ios-application-security-part-1-setting-up-a-mobile-pentesting-platform/#gref" rel="nofollow">IOS Application security – Setting up a mobile pentesting platform</a></li>
+<li><a href="https://github.com/felixgr/secure-ios-app-dev" rel="nofollow">Collection of the most common vulnerabilities found in iOS applications</a></li>
+<li><a href="https://www.owasp.org/index.php/IOS_Application_Security_Testing_Cheat_Sheet" rel="nofollow">IOS_Application_Security_Testing_Cheat_Sheet</a></li>
+<li><a href="https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06b-basic-security-testing" rel="nofollow">OWASP iOS Basic Security Testing</a></li>
+<li><a href="https://medium.com/@ansjdnakjdnajkd/dynamic-analysis-of-ios-apps-wo-jailbreak-1481ab3020d8" rel="nofollow">Dynamic analysis of iOS apps w/o Jailbreak</a></li>
+<li><a href="https://arjunbrar.com/post/ios-application-injection" rel="nofollow">iOS Application Injection</a></li>
+<li><a href="https://spaceraccoon.dev/low-hanging-apples-hunting-credentials-and-secrets-in-ios-apps" rel="nofollow">Low-Hanging Apples: Hunting Credentials and Secrets in iOS Apps</a></li>
+<li><a href="https://blog.digital-forensics.it/" rel="nofollow">Checkra1n Era - series</a></li>
+<li><a href="https://blog.elcomsoft.com/2019/12/bfu-extraction-forensic-analysis-of-locked-and-disabled-iphones/" rel="nofollow">BFU Extraction: Forensic Analysis of Locked and Disabled iPhones</a></li>
+<li><a href="https://github.com/Magpol/HowTo-decrypt-Signal.sqlite-for-IOS" rel="nofollow">HowTo-decrypt-Signal.sqlite-for-IOS</a></li>
+<li><a href="https://canijailbreak.com/" rel="nofollow">Can I Jailbreak?</a></li>
+<li><a href="https://blog.elcomsoft.com/2019/10/how-to-extract-screen-time-passcodes-and-voice-memos-from-icloud/" rel="nofollow">How to Extract Screen Time Passcodes and Voice Memos from iCloud</a></li>
+<li><a href="https://github.com/iOS-Reverse-Engineering-Dev/Swift-Apps-Reverse-Engineering/blob/master/Reverse%20Engineering%20Swift%20Applications.pdf" rel="nofollow">Reverse Engineering Swift Apps</a></li>
+<li><a href="https://sensepost.com/blog/2019/mettle-your-ios-with-frida/" rel="nofollow">Mettle your iOS with FRIDA</a></li>
+<li><a href="https://blog.securelayer7.net/a-run-time-approach-for-pen-testing-ios-applications-part-ii-objection-in-action/" rel="nofollow">A run-time approach for pentesting iOS applications</a></li>
+<li><a href="http://newosxbook.com/bonus/iBoot.pdf" rel="nofollow">iOS Internals vol 2</a></li>
+<li><a href="https://medium.com/@jon.gabilondo.angulo_7635/understanding-usbmux-and-the-ios-lockdown-service-7f2a1dfd07ae" rel="nofollow">Understanding usbmux and the iOS lockdown service</a></li>
+<li><a href="https://blog.umangis.me/a-deep-dive-into-ios-code-signing/" rel="nofollow">A Deep Dive into iOS Code Signing</a></li>
+<li><a href="https://kishanbagaria.com/airdos/" rel="nofollow">AirDoS: remotely render any nearby iPhone or iPad unusable</a></li>
+<li><a href="https://aboutdfir.com/jailbreaking-checkra1n-configuration/" rel="nofollow">How to access and traverse a #checkra1n jailbroken iPhone File system using SSH</a></li>
+<li><a href="https://googleprojectzero.blogspot.com/2019/08/a-very-deep-dive-into-ios-exploit.html" rel="nofollow">Deep dive into iOS Exploit chains found in the wild - Project Zero</a></li>
+<li><a href="https://googleprojectzero.blogspot.com/2019/08/the-fully-remote-attack-surface-of.html" rel="nofollow">The Fully Remote Attack Surface of the iPhone - Project Zero</a></li>
+</ul>
+<h3>
+<a id="books-1" class="anchor" href="#books-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Books</h3>
+<ul>
+<li><a href="https://www.amazon.com/Hacking-Securing-iOS-Applications-Hijacking/dp/1449318746" rel="nofollow">Hacking and Securing iOS Applications: Stealing Data, Hijacking Software, and How to Prevent It</a></li>
+<li><a href="https://www.apress.com/gp/book/9781484223543" rel="nofollow">iOS Penetration Testing</a></li>
+<li><a href="https://www.allysonomalley.com/" rel="nofollow">iOS App Security, Penetration Testing, and Development</a></li>
+<li><a href="https://www.amazon.com/iOS-Hackers-Handbook-Charlie-Miller/dp/1118204123" rel="nofollow">IOS Hacker's Handbook</a></li>
+<li><a href="https://web.securityinnovation.com/hubfs/iOS%20Hacking%20Guide.pdf" rel="nofollow">Hacking iOS Applications a detailed testing guide</a></li>
+<li><a href="https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/" rel="nofollow">Develop iOS Apps (Swift)</a></li>
+<li><a href="https://www.packtpub.com/in/application-development/ios-programming-cookbook" rel="nofollow">iOS Programming Cookbook</a></li>
+</ul>
+<h3>
+<a id="courses-1" class="anchor" href="#courses-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Courses</h3>
+<ul>
+<li><a href="https://www.pentesteracademy.com/course?id=2" rel="nofollow">Pentesting iOS Applications</a></li>
+<li><a href="https://github.com/ivRodriguezCA/RE-iOS-Apps" rel="nofollow">Reverse Engineering iOS Applications</a></li>
+<li><a href="https://www.coursera.org/learn/ios-app-design-development" rel="nofollow">App Design and Development for iOS</a></li>
+</ul>
+<h3>
+<a id="tools-1" class="anchor" href="#tools-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h3>
+<ul>
+<li><a href="http://www.cydiaimpactor.com/" rel="nofollow">Cydia Impactor</a></li>
+<li><a href="https://checkra.in/" rel="nofollow">checkra1n jailbreak</a></li>
+<li><a href="https://www.idbtool.com/" rel="nofollow">idb - iOS App Security Assessment Tool</a></li>
+<li><a href="https://github.com/frida/frida/releases" rel="nofollow">Frida</a></li>
+<li><a href="https://github.com/sensepost/objection" rel="nofollow">Objection - mobile exploration toolkit by Frida</a></li>
+<li><a href="https://github.com/BishopFox/bfinject" rel="nofollow">Bfinject</a></li>
+<li><a href="http://www.i-funbox.com/" rel="nofollow">iFunbox</a></li>
+<li><a href="https://www.libimobiledevice.org/" rel="nofollow">Libimobiledevice - library to communicate with the services of the Apple ios devices</a></li>
+<li>
+<a href="https://www.veracode.com/sites/default/files/Resources/Tools/iRETTool.zip" rel="nofollow">iRET (iOS Reverse Engineering Toolkit)</a> - includes oTool, dumpDecrypted, SQLite, Theos, Keychain_dumper, Plutil</li>
+<li><a href="https://github.com/GeoSn0w/Myriam" rel="nofollow">Myriam iOS</a></li>
+<li><a href="https://itunes.apple.com/us/app/iweppro/id578135585?mt=8" rel="nofollow">iWep Pro - wireless suite of useful applications used to turn your iOS device into a wireless network diagnostic tool</a></li>
+<li><a href="https://portswigger.net/burp/communitydownload" rel="nofollow">Burp Suite</a></li>
+<li><a href="https://cydia.saurik.com/api/latest/3" rel="nofollow">Cycript</a></li>
+<li><a href="https://github.com/FSecureLABS/needle" rel="nofollow">needle - The iOS Security Testing Framework</a></li>
+<li><a href="https://github.com/abrignoni/iLEAPP" rel="nofollow">iLEAPP - iOS Logs, Events, And Preferences Parser</a></li>
+<li><a href="https://cutter.re/" rel="nofollow">Cutter - Free and Open Source RE Platform powered by radare2</a></li>
+<li><a href="https://github.com/shinvou/decrypt0r" rel="nofollow">decrypt0r - automatically download and decrypt SecureRom stuff</a></li>
+<li><a href="https://github.com/securing/IOSSecuritySuite" rel="nofollow">iOS Security Suite - an advanced and easy-to-use platform security &amp; anti-tampering library</a></li>
+</ul>
+<h3>
+<a id="labs-1" class="anchor" href="#labs-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Labs</h3>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP_iGoat_Tool_Project" rel="nofollow">OWASP iGoat</a></li>
+<li><a href="https://github.com/prateek147/DVIA-v2" rel="nofollow">Damn Vulnerable iOS App (DVIA) v2</a></li>
+<li><a href="https://github.com/prateek147/DVIA" rel="nofollow">Damn Vulnerable iOS App (DVIA) v1</a></li>
+<li><a href="https://github.com/SecurityCompass/iPhoneLabs" rel="nofollow">iPhoneLabs</a></li>
+<li><a href="https://github.com/ManicodeSecurity/iOS-Attack-Defense" rel="nofollow">iOS-Attack-Defense</a></li>
+</ul>
+<h3>
+<a id="talks-1" class="anchor" href="#talks-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Talks</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=BLGFriOKz6U" rel="nofollow">Behind the Scenes of iOS Security</a></li>
+<li><a href="https://www.infoq.com/presentations/ios-security/" rel="nofollow">Modern iOS Application Security</a></li>
+<li><a href="https://www.youtube.com/watch?v=7UNeUT_sRos" rel="nofollow">Demystifying the Secure Enclave Processor</a></li>
+<li><a href="https://www.youtube.com/watch?v=DJFxhShJ6Ns" rel="nofollow">HackPac Hacking Pointer Authentication in iOS User Space</a></li>
+<li><a href="https://www.youtube.com/watch?v=07VqX4bbXTI" rel="nofollow">Analyzing and Attacking Apple Kernel Drivers</a></li>
+<li><a href="https://www.youtube.com/watch?v=bP5VP7vLLKo" rel="nofollow">Remotely Compromising iOS via Wi-Fi and Escaping the Sandbox</a></li>
+<li><a href="https://www.bugcrowd.com/resources/webinars/reverse-engineering-ios-mobile-apps/" rel="nofollow">Reverse Engineering iOS Mobile Apps</a></li>
+<li><a href="https://www.youtube.com/watch?v=DNW6Im31lQo" rel="nofollow">iOS 10 Kernel Heap Revisited</a></li>
+<li><a href="https://media.ccc.de/v/36c3-10806-ktrw_the_journey_to_build_a_debuggable_iphone" rel="nofollow">KTRW: The journey to build a debuggable iPhone</a></li>
+<li><a href="https://media.ccc.de/v/36c3-11238-the_one_weird_trick_securerom_hates" rel="nofollow">The One Weird Trick SecureROM Hates</a></li>
+<li><a href="https://media.ccc.de/v/36c3-11034-tales_of_old_untethering_ios_11" rel="nofollow">Tales of old: untethering iOS 11-Spoiler: Apple is bad at patching</a></li>
+<li><a href="https://media.ccc.de/v/36c3-10497-messenger_hacking_remotely_compromising_an_iphone_through_imessage" rel="nofollow">Messenger Hacking: Remotely Compromising an iPhone through iMessage</a></li>
+<li><a href="https://www.youtube.com/watch?v=p512McKXukU" rel="nofollow">Recreating An iOS 0-Day Jailbreak Out Of Apple's Security Updates</a></li>
+<li><a href="https://vimeo.com/231806976" rel="nofollow">Reverse Engineering the iOS Simulator’s SpringBoard</a></li>
+<li><a href="https://www.youtube.com/watch?v=8cOx7vfszZU&amp;feature=youtu.be" rel="nofollow">Attacking iPhone XS Max</a></li>
+</ul>
+<h3>
+<a id="misc-1" class="anchor" href="#misc-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Misc.</h3>
+<ul>
+<li><a href="https://github.com/ansjdnakjdnajkd/iOS" rel="nofollow">Most usable tools for iOS penetration testing</a></li>
+<li><a href="https://github.com/0xmachos/iOS-Security-Guides" rel="nofollow">iOS-Security-Guides</a></li>
+<li><a href="https://github.com/ashishb/osx-and-ios-security-awesome" rel="nofollow">osx-security-awesome - OSX and iOS related security tools</a></li>
+<li><a href="https://i.blackhat.com/eu-19/Thursday/eu-19-Yen-Trust-In-Apples-Secret-Garden-Exploring-Reversing-Apples-Continuity-Protocol-3.pdf" rel="nofollow">Trust in Apple's Secret Garden: Exploring &amp; Reversing Apple's Continuity Protocol-Slides</a></li>
+<li><a href="https://manuals.info.apple.com/MANUALS/1000/MA1902/en_US/apple-platform-security-guide.pdf" rel="nofollow">Apple Platform Security</a></li>
+<li><a href="https://2013.appsecusa.org/2013/wp-content/uploads/2013/12/viaForensics-AppSecUSA-Nov-2013.pdf" rel="nofollow">Mobile security, forensics &amp; malware analysis with Santoku Linux</a></li>
+</ul>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b99ab949e738',m:'ff6ad282338c958a848b855aa8360c04768cd4f6-1610725539-1800-AaelpRLlKkkfKgE4U/cnHrt4N1zyCchobiiXT3xyoTScfAjw457Y7VtRB3TcuFgFLI/NsOVCXSiCHnLA9S1ZavH6AhFL3s0PMDVr3yKcHByN/s+0KKDDCJadgyyUAXh86I5C64zhsP8LIPkZf/ITBvih3LmPul2ZrAVAAGHmt1K8',s:[0x6b524fc28f,0xae55608a71],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="android"/> <!-- -->android<!-- --> (<!-- -->5,993<!-- -->) </div><div><input type="checkbox" name="topics" value="ios"/> <!-- -->ios<!-- --> (<!-- -->3,431<!-- -->) </div><div><input type="checkbox" name="topics" value="awesome"/> <!-- -->awesome<!-- --> (<!-- -->1,280<!-- -->) </div><div><input type="checkbox" name="topics" value="awesome-list"/> <!-- -->awesome-list<!-- --> (<!-- -->1,198<!-- -->) </div><div><input type="checkbox" name="topics" value="hacking"/> <!-- -->hacking<!-- --> (<!-- -->493<!-- -->) </div><div><input type="checkbox" name="topics" value="mobile"/> <!-- -->mobile<!-- --> (<!-- -->462<!-- -->) </div><div><input type="checkbox" name="topics" value="reverse-engineering"/> <!-- -->reverse-engineering<!-- --> (<!-- -->446<!-- -->) </div><div><input type="checkbox" name="topics" value="security-tools"/> <!-- -->security-tools<!-- --> (<!-- -->373<!-- -->) </div><div><input type="checkbox" name="topics" value="pentesting"/> <!-- -->pentesting<!-- --> (<!-- -->346<!-- -->) </div><div><input type="checkbox" name="topics" value="resources"/> <!-- -->resources<!-- --> (<!-- -->181<!-- -->) </div><div><input type="checkbox" name="topics" value="bugbounty"/> <!-- -->bugbounty<!-- --> (<!-- -->158<!-- -->) </div><div><input type="checkbox" name="topics" value="redteam"/> <!-- -->redteam<!-- --> (<!-- -->110<!-- -->) </div><div><input type="checkbox" name="topics" value="hacking-tools"/> <!-- -->hacking-tools<!-- --> (<!-- -->62<!-- -->) </div><div><input type="checkbox" name="topics" value="android-security"/> <!-- -->android-security<!-- --> (<!-- -->30<!-- -->) </div><div><input type="checkbox" name="topics" value="mobile-security"/> <!-- -->mobile-security<!-- --> (<!-- -->23<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Awesome <!-- -->Mobile <!-- -->Security<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/vaib25vicky" target="_blank">Vaib25vicky</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/vaib25vicky" target="_blank">Vaib25vicky</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-148c6cf0-339c-4d8b-947f-a4e1748d7d64">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"android","count":5993},{"id":null,"name":"android-security","count":30},{"id":null,"name":"awesome","count":1280},{"id":null,"name":"awesome-list","count":1198},{"id":null,"name":"bugbounty","count":158},{"id":null,"name":"hacking","count":493},{"id":null,"name":"hacking-tools","count":62},{"id":null,"name":"ios","count":3431},{"id":null,"name":"mobile","count":462},{"id":null,"name":"mobile-security","count":23},{"id":null,"name":"pentesting","count":346},{"id":null,"name":"redteam","count":110},{"id":null,"name":"resources","count":181},{"id":null,"name":"reverse-engineering","count":446},{"id":null,"name":"security-tools","count":373}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/vaib25vicky/awesome-mobile-security","projects":[],"project":{"id":296948,"created_at":"2020-01-05T22:57:14.258Z","updated_at":"2021-01-14T04:16:51.033Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"awesome-mobile-security-\" class=\"anchor\" href=\"#awesome-mobile-security-\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eawesome-mobile-security \u003ca href=\"https://awesome.re/badge.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://awesome.re/badge.svg\" alt=\"awesome\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/h1\u003e\n\u003cp\u003eMaintained by \u003ca href=\"https://twitter.com/vaib25vicky\" rel=\"nofollow\"\u003e@vaib25vicky\u003c/a\u003e with contributions from the security and developer communities.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"android\" class=\"anchor\" href=\"#android\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAndroid\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"general---blogs-papers-how-tos\" class=\"anchor\" href=\"#general---blogs-papers-how-tos\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGeneral - Blogs, Papers, How To's\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://blog.oversecured.com/Evernote-Universal-XSS-theft-of-all-cookies-from-all-sites-and-more/\" rel=\"nofollow\"\u003eEvernote: Universal-XSS, theft of all cookies from all sites, and more\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.oversecured.com/Interception-of-Android-implicit-intents/\" rel=\"nofollow\"\u003eInterception of Android implicit intents\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.oversecured.com/Oversecured-detects-dangerous-vulnerabilities-in-the-TikTok-Android-app/\" rel=\"nofollow\"\u003eTikTok: three persistent arbitrary code executions and one theft of arbitrary files\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.oversecured.com/Oversecured-automatically-discovers-persistent-code-execution-in-the-Google-Play-Core-Library/\" rel=\"nofollow\"\u003ePersistent arbitrary code execution in Android's Google Play Core Library: details, explanation and the PoC - CVE-2020-8913\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.oversecured.com/Android-Access-to-app-protected-components/\" rel=\"nofollow\"\u003eAndroid: Access to app protected components\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.oversecured.com/Android-arbitrary-code-execution-via-third-party-package-contexts/\" rel=\"nofollow\"\u003eAndroid: arbitrary code execution via third-party package contexts\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/bugbountywriteup/android-pentesting-lab-4a6fe1a1d2e0\" rel=\"nofollow\"\u003eAndroid Pentesting Labs - Step by Step guide for beginners\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/swlh/an-android-hacking-primer-3390fef4e6a0\" rel=\"nofollow\"\u003eAn Android Hacking Primer\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://source.android.com/security\" rel=\"nofollow\"\u003eSecure an Android Device\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://developer.android.com/training/articles/security-tips\" rel=\"nofollow\"\u003eSecurity tips\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide\" rel=\"nofollow\"\u003eOWASP Mobile Security Testing Guide\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://3xpl01tc0d3r.blogspot.com/2019/09/security-testing-for-android-app-part1.html\" rel=\"nofollow\"\u003eSecurity Testing for Android Cross Platform Application\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.0daylabs.com/2019/09/18/deep-dive-into-Android-security/\" rel=\"nofollow\"\u003eDive deep into Android Application Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.notsosecure.com/pentesting-android-apps-using-frida/\" rel=\"nofollow\"\u003ePentesting Android Apps Using Frida\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://mobile-security.gitbook.io/mobile-security-testing-guide/\" rel=\"nofollow\"\u003eMobile Security Testing Guide\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sh4hin/MobileApp-Pentest-Cheatsheet\" rel=\"nofollow\"\u003eMobile Application Penetration Testing Cheat Sheet\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.evilsocket.net/2017/04/27/Android-Applications-Reversing-101/#.WQND0G3TTOM.reddit\" rel=\"nofollow\"\u003eAndroid Applications Reversing 101\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://developer.box.com/en/guides/security/\" rel=\"nofollow\"\u003eAndroid Security Guidelines\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://pentestlab.blog/2017/02/12/android-webview-vulnerabilities/\" rel=\"nofollow\"\u003eAndroid WebView Vulnerabilities\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.owasp.org/index.php/OWASP_Mobile_Top_10\" rel=\"nofollow\"\u003eOWASP Mobile Top 10\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://resources.infosecinstitute.com/practical-android-phone-forensics/\" rel=\"nofollow\"\u003ePractical Android Phone Forensics\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.vantagepoint.sg/blog/83-mobile-reverse-engineering-unleashed\" rel=\"nofollow\"\u003eMobile Reverse Engineering Unleashed\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/@GowthamR1/android-root-detection-bypass-using-objection-and-frida-scripts-d681d30659a7\" rel=\"nofollow\"\u003eAndroid Root Detection Bypass Using Objection and Frida Scripts\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/quark-engine/quark-engine\" rel=\"nofollow\"\u003equark-engine - An Obfuscation-Neglect Android Malware Scoring System\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/@sarang6489/root-detection-bypass-by-manual-code-manipulation-5478858f4ad1\" rel=\"nofollow\"\u003eRoot Detection Bypass By Manual Code Manipulation.\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1528491463.pdf\" rel=\"nofollow\"\u003eApplication and Network Usage in Android\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://public.avast.com/research/VB2019-Garcia-etal.pdf\" rel=\"nofollow\"\u003eGEOST BOTNET - the discovery story of a new Android banking trojan\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://drive.google.com/file/d/1JccmMLi6YTnyRrp_rk6vzKrUX3oXK_Yw/view\" rel=\"nofollow\"\u003eMobile Pentesting With Frida\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.mobileiron.com/en/blog/magisk-android-rooting\" rel=\"nofollow\"\u003eMagisk Systemless Root - Detection and Remediation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://arxiv.org/pdf/1910.06192.pdf\" rel=\"nofollow\"\u003eAndrODet: An adaptive Android obfuscation detector\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://hackernoon.com/hands-on-mobile-api-security-get-rid-of-client-secrets-a79f111b6844\" rel=\"nofollow\"\u003eHands On Mobile API Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://nileshsapariya.blogspot.com/2016/11/zero-to-hero-mobile-application-testing.html\" rel=\"nofollow\"\u003eZero to Hero - Mobile Application Testing - Android Platform\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/Magpol/fridafde\" rel=\"nofollow\"\u003eHow to use FRIDA to bruteforce Secure Startup with FDE-encryption on a Samsung G935F running Android 8\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://docs.google.com/presentation/d/1pYB522E71hXrp4m3fL3E3fnAaOIboJKqpbyE5gSsOes/edit\" rel=\"nofollow\"\u003eAndroid Malware Adventures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://nightowl131.github.io/AAPG/\" rel=\"nofollow\"\u003eAAPG - Android application penetration testing guide\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.juanurs.com/Bypassing-Android-Anti-Emulation-Part-I/\" rel=\"nofollow\"\u003eBypassing Android Anti-Emulation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.gosecure.net/blog/2020/04/06/bypassing-xamarin-certificate-pinning-on-android/\" rel=\"nofollow\"\u003eBypassing Xamarin Certificate Pinning\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.ropnop.com/configuring-burp-suite-with-android-nougat/\" rel=\"nofollow\"\u003eConfiguring Burp Suite With Android Nougat\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"books\" class=\"anchor\" href=\"#books\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBooks\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.securecoding.cert.org/confluence/display/android/Android+Secure+Coding+Standard\" rel=\"nofollow\"\u003eSEI CERT Android Secure Coding Standard\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.oreilly.com/library/view/android-security-internals/9781457185496/\" rel=\"nofollow\"\u003eAndroid Security Internals\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://androidcookbook.com/\" rel=\"nofollow\"\u003eAndroid Cookbook\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.amazon.com/Android-Hackers-Handbook-Joshua-Drake/dp/111860864X\" rel=\"nofollow\"\u003eAndroid Hacker's Handbook\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.packtpub.com/in/application-development/android-security-cookbook\" rel=\"nofollow\"\u003eAndroid Security Cookbook\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.amazon.in/Mobile-Application-Hackers-Handbook-ebook/dp/B00TSA6KLG\" rel=\"nofollow\"\u003eThe Mobile Application Hacker's Handbook\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.oreilly.com/library/view/android-malware-and/9781482252200/\" rel=\"nofollow\"\u003eAndroid Malware and Analysis\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.crcpress.com/Android-Security-Attacks-and-Defenses/Misra-Dubey/p/book/9780367380182\" rel=\"nofollow\"\u003eAndroid Security: Attacks and Defenses\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"courses\" class=\"anchor\" href=\"#courses\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCourses\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.lynda.com/Android-tutorials/Learning-Android-Security/689762-2.html\" rel=\"nofollow\"\u003eLearning-Android-Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.elearnsecurity.com/course/mobile_application_security_and_penetration_testing/\" rel=\"nofollow\"\u003eMobile Application Security and Penetration Testing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://developer.android.com/courses/advanced-training/overview\" rel=\"nofollow\"\u003eAdvanced Android Development\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.edx.org/professional-certificate/harvardx-computer-science-and-mobile-apps\" rel=\"nofollow\"\u003eLearn the art of mobile app development\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.linkedin.com/learning/learning-android-malware-analysis\" rel=\"nofollow\"\u003eLearning Android Malware Analysis\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://maddiestone.github.io/AndroidAppRE/\" rel=\"nofollow\"\u003eAndroid App Reverse Engineering 101\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://manifestsecurity.com/android-application-security/\" rel=\"nofollow\"\u003eAndroid Pentesting for Beginners\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"tools\" class=\"anchor\" href=\"#tools\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h3\u003e\n\u003ch4\u003e\n\u003ca id=\"static-analysis\" class=\"anchor\" href=\"#static-analysis\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStatic Analysis\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"http://pag.arguslab.org/argus-saf\" rel=\"nofollow\"\u003eAmandroid – A Static Analysis Framework\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/maaaaz/androwarn/\" rel=\"nofollow\"\u003eAndrowarn – Yet Another Static Code Analyzer\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sonyxperiadev/ApkAnalyser\" rel=\"nofollow\"\u003eAPK Analyzer – Static and Virtual Analysis Tool\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/honeynet/apkinspector/\" rel=\"nofollow\"\u003eAPK Inspector – A Powerful GUI Tool\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/hahwul/droid-hunter\" rel=\"nofollow\"\u003eDroid Hunter – Android application vulnerability analysis and Android pentest tool\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/google/error-prone\" rel=\"nofollow\"\u003eError Prone – Static Analysis Tool\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://findbugs.sourceforge.net/downloads.html\" rel=\"nofollow\"\u003eFindbugs – Find Bugs in Java Programs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/find-sec-bugs/find-sec-bugs/\" rel=\"nofollow\"\u003eFind Security Bugs – A SpotBugs plugin for security audits of Java web applications.\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/secure-software-engineering/FlowDroid\" rel=\"nofollow\"\u003eFlow Droid – Static Data Flow Tracker\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/JesusFreke/smali\" rel=\"nofollow\"\u003eSmali/Baksmali – Assembler/Disassembler for the dex format\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/EugenioDelfa/Smali-CFGs\" rel=\"nofollow\"\u003eSmali-CFGs – Smali Control Flow Graph’s\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.cs.washington.edu/sparta\" rel=\"nofollow\"\u003eSPARTA – Static Program Analysis for Reliable Trusted Apps\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://plv.colorado.edu/projects/thresher/\" rel=\"nofollow\"\u003eThresher – To check heap reachability properties\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/Sukelluskello/VectorAttackScanner\" rel=\"nofollow\"\u003eVector Attack Scanner – To search vulnerable points to attack\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/novoda/gradle-static-analysis-plugin\" rel=\"nofollow\"\u003eGradle Static Analysis Plugin\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/checkstyle/checkstyle\" rel=\"nofollow\"\u003eCheckstyle – A tool for checking Java source code\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/pmd/pmd\" rel=\"nofollow\"\u003ePMD – An extensible multilanguage static code analyzer\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/Sable/soot\" rel=\"nofollow\"\u003eSoot – A Java Optimization Framework\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/pwittchen/android-quality-starter\" rel=\"nofollow\"\u003eAndroid Quality Starter\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/linkedin/qark\" rel=\"nofollow\"\u003eQARK – Quick Android Review Kit\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/facebook/infer\" rel=\"nofollow\"\u003eInfer – A Static Analysis tool for Java, C, C++ and Objective-C\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/noveogroup/android-check\" rel=\"nofollow\"\u003eAndroid Check – Static Code analysis plugin for Android Project\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://plugins.jetbrains.com/plugin/3847-findbugs-idea\" rel=\"nofollow\"\u003eFindBugs-IDEA Static byte code analysis to look for bugs in Java code\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/dwisiswant0/apkleaks\" rel=\"nofollow\"\u003eAPK Leaks – Scanning APK file for URIs, endpoints \u0026amp; secrets\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"dynamic-analysis\" class=\"anchor\" href=\"#dynamic-analysis\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDynamic Analysis\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/abhi-r3v0/Adhrit\" rel=\"nofollow\"\u003eAdhrit - Android Security Suite for in-depth reconnaissance and static bytecode analysis based on Ghera benchmarks\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/AndroidHooker/hooker\" rel=\"nofollow\"\u003eAndroid Hooker - Opensource project for dynamic analyses of Android applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://appaudit.io/\" rel=\"nofollow\"\u003eAppAudit - Online tool ( including an API) uses dynamic and static analysis\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ucsb-seclab/baredroid\" rel=\"nofollow\"\u003eAppAudit - A bare-metal analysis tool on Android devices\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/idanr1986/cuckoo-droid\" rel=\"nofollow\"\u003eCuckooDroid - Extension of Cuckoo Sandbox the Open Source software\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://code.google.com/p/droidbox/\" rel=\"nofollow\"\u003eDroidBox - Dynamic analysis of Android applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/antojoseph/droid-ff\" rel=\"nofollow\"\u003eDroid-FF - Android File Fuzzing Framework\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.mwrinfosecurity.com/products/drozer/\" rel=\"nofollow\"\u003eDrozer\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/programa-stic/marvin-django\" rel=\"nofollow\"\u003eMarvin - Analyzes Android applications and allows tracking of an app\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ac-pm/Inspeckage\" rel=\"nofollow\"\u003eInspeckage\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/mingyuan-xia/PATDroid\" rel=\"nofollow\"\u003ePATDroid - Collection of tools and data structures for analyzing Android applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sh4hin/Androl4b\" rel=\"nofollow\"\u003eAndroL4b - Android security virtual machine based on ubuntu-mate\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/radareorg/radare2\" rel=\"nofollow\"\u003eRadare2 - Unix-like reverse engineering framework and commandline tools\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cutter.re/\" rel=\"nofollow\"\u003eCutter - Free and Open Source RE Platform powered by radare2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://bytecodeviewer.com/\" rel=\"nofollow\"\u003eByteCodeViewer - Android APK Reverse Engineering Suite (Decompiler, Editor, Debugger)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/MobSF/Mobile-Security-Framework-MobSF\" rel=\"nofollow\"\u003eMobile-Security-Framework MobSF\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://thecobraden.com/projects/cobradroid/\" rel=\"nofollow\"\u003eCobraDroid - Custom build of the Android operating system geared specifically for application security \u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445\" rel=\"nofollow\"\u003eMagisk v20.2 - Root \u0026amp; Universal Systemless Interface\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security\" rel=\"nofollow\"\u003eRuntime Mobile Security (RMS) - is a powerful web interface that helps you to manipulate Android and iOS Apps at Runtime\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://mobexler.com/\" rel=\"nofollow\"\u003eMOBEXLER - A Mobile Application Penetration Testing Platform\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"android-online-apk-analyzers\" class=\"anchor\" href=\"#android-online-apk-analyzers\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAndroid Online APK Analyzers\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://oversecured.com/\" rel=\"nofollow\"\u003eOversecured\u003c/a\u003e - A static vulnerability scanner for Android apps (APK files) containing 90+ vulnerability categories\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://androidobservatory.org/upload\" rel=\"nofollow\"\u003eAndroid Observatory APK Scan\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.decompileandroid.com/\" rel=\"nofollow\"\u003eAndroid APK Decompiler\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://andrototal.org/\" rel=\"nofollow\"\u003eAndroTotal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://apkscan.nviso.be/\" rel=\"nofollow\"\u003eNVISO ApkScan\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.virustotal.com/#/home/upload\" rel=\"nofollow\"\u003eVirusTotal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://scanyourapk.com/\" rel=\"nofollow\"\u003eScan Your APK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://undroid.av-comparatives.org/index.php\" rel=\"nofollow\"\u003eAVC Undroid\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://metadefender.opswat.com/#!/\" rel=\"nofollow\"\u003eOPSWAT\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.htbridge.com/mobile/\" rel=\"nofollow\"\u003eImmuniWeb Mobile App Scanner\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.ostorlab.co/scan/mobile/\" rel=\"nofollow\"\u003eOstor Lab\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://quixxisecurity.com/\" rel=\"nofollow\"\u003eQuixxi\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://tracedroid.few.vu.nl/submit.php\" rel=\"nofollow\"\u003eTraceDroid\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.visualthreat.com/UIupload.action\" rel=\"nofollow\"\u003eVisual Threat\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://appcritique.boozallen.com/\" rel=\"nofollow\"\u003eApp Critique\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"labs\" class=\"anchor\" href=\"#labs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLabs\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/oversecured/ovaa\" rel=\"nofollow\"\u003eOVAA (Oversecured Vulnerable Android App)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/payatu/diva-android\" rel=\"nofollow\"\u003eDIVA (Damn insecure and vulnerable App)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/OWASP/SecurityShepherd\" rel=\"nofollow\"\u003eSecurityShepherd\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/logicalhacking/DVHMA\" rel=\"nofollow\"\u003eDamn Vulnerable Hybrid Mobile App (DVHMA)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/OWASP/owasp-mstg/tree/master/Crackmes\" rel=\"nofollow\"\u003eOWASP-mstg\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/dan7800/VulnerableAndroidAppOracle\" rel=\"nofollow\"\u003eVulnerableAndroidAppOracle\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/dineshshetty/Android-InsecureBankv2\" rel=\"nofollow\"\u003eAndroid InsecureBankv2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/htbridge/pivaa\" rel=\"nofollow\"\u003ePurposefully Insecure and Vulnerable Android Application (PIIVA)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/mwrlabs/drozer/releases/download/2.3.4/sieve.apk\" rel=\"nofollow\"\u003eSieve app\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/CSPF-Founder/DodoVulnerableBank\" rel=\"nofollow\"\u003eDodoVulnerableBank\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/CyberScions/Digitalbank\" rel=\"nofollow\"\u003eDigitalbank\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/jackMannino/OWASP-GoatDroid-Project\" rel=\"nofollow\"\u003eOWASP GoatDroid\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/appknox/vulnerable-application\" rel=\"nofollow\"\u003eAppKnox Vulnerable Application\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/Lance0312/VulnApp\" rel=\"nofollow\"\u003eVulnerable Android Application\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://dl.dropboxusercontent.com/u/37776965/Work/MoshZuk.apk\" rel=\"nofollow\"\u003eMoshZuk\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.mcafee.com/us/downloads/free-tools/hacme-bank-android.aspx\" rel=\"nofollow\"\u003eHackme Bank\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/SecurityCompass/AndroidLabs\" rel=\"nofollow\"\u003eAndroid Security Labs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/dineshshetty/Android-InsecureBankv2\" rel=\"nofollow\"\u003eAndroid-InsecureBankv2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/rafaeltoledo/android-security\" rel=\"nofollow\"\u003eAndroid-security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/shahenshah99/VulnDroid\" rel=\"nofollow\"\u003eVulnDroid\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://rossmarks.uk/blog/fridalab/\" rel=\"nofollow\"\u003eFridaLab\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://santoku-linux.com/\" rel=\"nofollow\"\u003eSantoku Linux - Mobile Security VM\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/jaiswalakshansh/Vuldroid\" rel=\"nofollow\"\u003eVuldroid\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"talks\" class=\"anchor\" href=\"#talks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTalks\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=L3AniAxp_G4\" rel=\"nofollow\"\u003eOne Step Ahead of Cheaters -- Instrumenting Android Emulators\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=R2brQvQeTvM\" rel=\"nofollow\"\u003eVulnerable Out of the Box: An Evaluation of Android Carrier Devices\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=wd5OU9NvxjU\" rel=\"nofollow\"\u003eRock appround the clock: Tracking malware developers by Android\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=ohjTWylMGEA\" rel=\"nofollow\"\u003eChaosdata - Ghost in the Droid: Possessing Android Applications with ParaSpectre\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=TDk2RId8LFo\" rel=\"nofollow\"\u003eRemotely Compromising Android and iOS via a Bug in Broadcom's Wi-Fi Chipsets\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=EkL1sDMXRVk\" rel=\"nofollow\"\u003eHoney, I Shrunk the Attack Surface – Adventures in Android Security Hardening\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=hajOlvLhYJY\" rel=\"nofollow\"\u003eHide Android Applications in Images\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=71YP65UANP0\" rel=\"nofollow\"\u003eScary Code in the Heart of Android\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=q_HibdrbIxo\" rel=\"nofollow\"\u003eFuzzing Android: A Recipe For Uncovering Vulnerabilities Inside System Components In Android\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=s0Tqi7fuOSU\" rel=\"nofollow\"\u003eUnpacking the Packed Unpacker: Reverse Engineering an Android Anti-Analysis Native Library\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=5eJYCucZ-Tc\" rel=\"nofollow\"\u003eAndroid FakeID Vulnerability Walkthrough\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=1XavjjmfZAY\" rel=\"nofollow\"\u003eUnleashing D* on Android Kernel Drivers\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=yU1BrY1ZB2o\" rel=\"nofollow\"\u003eThe Smarts Behind Hacking Dumb Devices\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.bugcrowd.com/resources/webinars/overview-of-common-android-app-vulnerabilities/\" rel=\"nofollow\"\u003eOverview of common Android app vulnerabilities\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://developer.android.com/dev-summit\" rel=\"nofollow\"\u003eAndroid Dev Summit 2019\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=3asW-nBU-JU\" rel=\"nofollow\"\u003eAndroid security architecture\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://vimeo.com/335948808\" rel=\"nofollow\"\u003eGet the Ultimate Privilege of Android Phone\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"misc\" class=\"anchor\" href=\"#misc\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMisc.\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/B3nac/Android-Reports-and-Resources/blob/master/README.md\" rel=\"nofollow\"\u003eAndroid-Reports-and-Resources\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ashishb/android-security-awesome\" rel=\"nofollow\"\u003eandroid-security-awesome\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/mobile-penetration-testing/android-penetration-testing-courses-4effa36ac5ed\" rel=\"nofollow\"\u003eAndroid Penetration Testing Courses\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://captmeelo.com/pentest/2019/12/30/lesser-known-tools-for-android-pentest.html\" rel=\"nofollow\"\u003eLesser-known Tools for Android Application PenTesting\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/nelenkov/android-device-check\" rel=\"nofollow\"\u003eandroid-device-check - a set of scripts to check Android device security configuration\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/shroudedcode/apk-mitm\" rel=\"nofollow\"\u003eapk-mitm - a CLI application that prepares Android APK files for HTTPS inspection\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/den4uk/andriller\" rel=\"nofollow\"\u003eAndriller - is software utility with a collection of forensic tools for smartphones\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.virusbulletin.com/virusbulletin/2019/11/dexofuzzy-android-malware-similarity-clustering-method-using-opcode-sequence/\" rel=\"nofollow\"\u003eDexofuzzy: Android malware similarity clustering method using opcode sequence-Paper\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://docs.google.com/presentation/d/1sFGAERaNRuEORaH06MmZKeFRqpJo1ol1xFieUa1X_OA/edit#slide=id.p1\" rel=\"nofollow\"\u003eChasing the Joker\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://i.blackhat.com/eu-19/Thursday/eu-19-Hussain-Side-Channel-Attacks-In-4G-And-5G-Cellular-Networks.pdf\" rel=\"nofollow\"\u003eSide Channel Attacks in 4G and 5G Cellular Networks-Slides\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/PaulSec/Shodan.io-mobile-app\" rel=\"nofollow\"\u003eShodan.io-mobile-app for Android\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sk3ptre/AndroidMalware_2018\" rel=\"nofollow\"\u003ePopular Android Malware 2018\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sk3ptre/AndroidMalware_2019\" rel=\"nofollow\"\u003ePopular Android Malware 2019\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sk3ptre/AndroidMalware_2020\" rel=\"nofollow\"\u003ePopular Android Malware 2020\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"ios\" class=\"anchor\" href=\"#ios\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eiOS\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"general---blogs-papers-how-tos-1\" class=\"anchor\" href=\"#general---blogs-papers-how-tos-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGeneral - Blogs, Papers, How to's\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.cse.wustl.edu/%7Ejain/cse571-14/ftp/ios_security/index.html\" rel=\"nofollow\"\u003eiOS Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/@ehsahil/basic-ios-apps-security-testing-lab-1-2bf37c2a7d15\" rel=\"nofollow\"\u003eBasic iOS Apps Security Testing lab\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://resources.infosecinstitute.com/ios-application-security-part-1-setting-up-a-mobile-pentesting-platform/#gref\" rel=\"nofollow\"\u003eIOS Application security – Setting up a mobile pentesting platform\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/felixgr/secure-ios-app-dev\" rel=\"nofollow\"\u003eCollection of the most common vulnerabilities found in iOS applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.owasp.org/index.php/IOS_Application_Security_Testing_Cheat_Sheet\" rel=\"nofollow\"\u003eIOS_Application_Security_Testing_Cheat_Sheet\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06b-basic-security-testing\" rel=\"nofollow\"\u003eOWASP iOS Basic Security Testing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/@ansjdnakjdnajkd/dynamic-analysis-of-ios-apps-wo-jailbreak-1481ab3020d8\" rel=\"nofollow\"\u003eDynamic analysis of iOS apps w/o Jailbreak\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://arjunbrar.com/post/ios-application-injection\" rel=\"nofollow\"\u003eiOS Application Injection\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://spaceraccoon.dev/low-hanging-apples-hunting-credentials-and-secrets-in-ios-apps\" rel=\"nofollow\"\u003eLow-Hanging Apples: Hunting Credentials and Secrets in iOS Apps\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.digital-forensics.it/\" rel=\"nofollow\"\u003eCheckra1n Era - series\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.elcomsoft.com/2019/12/bfu-extraction-forensic-analysis-of-locked-and-disabled-iphones/\" rel=\"nofollow\"\u003eBFU Extraction: Forensic Analysis of Locked and Disabled iPhones\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/Magpol/HowTo-decrypt-Signal.sqlite-for-IOS\" rel=\"nofollow\"\u003eHowTo-decrypt-Signal.sqlite-for-IOS\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://canijailbreak.com/\" rel=\"nofollow\"\u003eCan I Jailbreak?\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.elcomsoft.com/2019/10/how-to-extract-screen-time-passcodes-and-voice-memos-from-icloud/\" rel=\"nofollow\"\u003eHow to Extract Screen Time Passcodes and Voice Memos from iCloud\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/iOS-Reverse-Engineering-Dev/Swift-Apps-Reverse-Engineering/blob/master/Reverse%20Engineering%20Swift%20Applications.pdf\" rel=\"nofollow\"\u003eReverse Engineering Swift Apps\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://sensepost.com/blog/2019/mettle-your-ios-with-frida/\" rel=\"nofollow\"\u003eMettle your iOS with FRIDA\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.securelayer7.net/a-run-time-approach-for-pen-testing-ios-applications-part-ii-objection-in-action/\" rel=\"nofollow\"\u003eA run-time approach for pentesting iOS applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://newosxbook.com/bonus/iBoot.pdf\" rel=\"nofollow\"\u003eiOS Internals vol 2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/@jon.gabilondo.angulo_7635/understanding-usbmux-and-the-ios-lockdown-service-7f2a1dfd07ae\" rel=\"nofollow\"\u003eUnderstanding usbmux and the iOS lockdown service\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://blog.umangis.me/a-deep-dive-into-ios-code-signing/\" rel=\"nofollow\"\u003eA Deep Dive into iOS Code Signing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://kishanbagaria.com/airdos/\" rel=\"nofollow\"\u003eAirDoS: remotely render any nearby iPhone or iPad unusable\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://aboutdfir.com/jailbreaking-checkra1n-configuration/\" rel=\"nofollow\"\u003eHow to access and traverse a #checkra1n jailbroken iPhone File system using SSH\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://googleprojectzero.blogspot.com/2019/08/a-very-deep-dive-into-ios-exploit.html\" rel=\"nofollow\"\u003eDeep dive into iOS Exploit chains found in the wild - Project Zero\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://googleprojectzero.blogspot.com/2019/08/the-fully-remote-attack-surface-of.html\" rel=\"nofollow\"\u003eThe Fully Remote Attack Surface of the iPhone - Project Zero\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"books-1\" class=\"anchor\" href=\"#books-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBooks\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.amazon.com/Hacking-Securing-iOS-Applications-Hijacking/dp/1449318746\" rel=\"nofollow\"\u003eHacking and Securing iOS Applications: Stealing Data, Hijacking Software, and How to Prevent It\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.apress.com/gp/book/9781484223543\" rel=\"nofollow\"\u003eiOS Penetration Testing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.allysonomalley.com/\" rel=\"nofollow\"\u003eiOS App Security, Penetration Testing, and Development\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.amazon.com/iOS-Hackers-Handbook-Charlie-Miller/dp/1118204123\" rel=\"nofollow\"\u003eIOS Hacker's Handbook\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://web.securityinnovation.com/hubfs/iOS%20Hacking%20Guide.pdf\" rel=\"nofollow\"\u003eHacking iOS Applications a detailed testing guide\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/\" rel=\"nofollow\"\u003eDevelop iOS Apps (Swift)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.packtpub.com/in/application-development/ios-programming-cookbook\" rel=\"nofollow\"\u003eiOS Programming Cookbook\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"courses-1\" class=\"anchor\" href=\"#courses-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCourses\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.pentesteracademy.com/course?id=2\" rel=\"nofollow\"\u003ePentesting iOS Applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ivRodriguezCA/RE-iOS-Apps\" rel=\"nofollow\"\u003eReverse Engineering iOS Applications\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.coursera.org/learn/ios-app-design-development\" rel=\"nofollow\"\u003eApp Design and Development for iOS\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"tools-1\" class=\"anchor\" href=\"#tools-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"http://www.cydiaimpactor.com/\" rel=\"nofollow\"\u003eCydia Impactor\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://checkra.in/\" rel=\"nofollow\"\u003echeckra1n jailbreak\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.idbtool.com/\" rel=\"nofollow\"\u003eidb - iOS App Security Assessment Tool\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/frida/frida/releases\" rel=\"nofollow\"\u003eFrida\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sensepost/objection\" rel=\"nofollow\"\u003eObjection - mobile exploration toolkit by Frida\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/BishopFox/bfinject\" rel=\"nofollow\"\u003eBfinject\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.i-funbox.com/\" rel=\"nofollow\"\u003eiFunbox\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.libimobiledevice.org/\" rel=\"nofollow\"\u003eLibimobiledevice - library to communicate with the services of the Apple ios devices\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.veracode.com/sites/default/files/Resources/Tools/iRETTool.zip\" rel=\"nofollow\"\u003eiRET (iOS Reverse Engineering Toolkit)\u003c/a\u003e - includes oTool, dumpDecrypted, SQLite, Theos, Keychain_dumper, Plutil\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/GeoSn0w/Myriam\" rel=\"nofollow\"\u003eMyriam iOS\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://itunes.apple.com/us/app/iweppro/id578135585?mt=8\" rel=\"nofollow\"\u003eiWep Pro - wireless suite of useful applications used to turn your iOS device into a wireless network diagnostic tool\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://portswigger.net/burp/communitydownload\" rel=\"nofollow\"\u003eBurp Suite\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cydia.saurik.com/api/latest/3\" rel=\"nofollow\"\u003eCycript\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/FSecureLABS/needle\" rel=\"nofollow\"\u003eneedle - The iOS Security Testing Framework\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/abrignoni/iLEAPP\" rel=\"nofollow\"\u003eiLEAPP - iOS Logs, Events, And Preferences Parser\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cutter.re/\" rel=\"nofollow\"\u003eCutter - Free and Open Source RE Platform powered by radare2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/shinvou/decrypt0r\" rel=\"nofollow\"\u003edecrypt0r - automatically download and decrypt SecureRom stuff\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/securing/IOSSecuritySuite\" rel=\"nofollow\"\u003eiOS Security Suite - an advanced and easy-to-use platform security \u0026amp; anti-tampering library\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"labs-1\" class=\"anchor\" href=\"#labs-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLabs\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.owasp.org/index.php/OWASP_iGoat_Tool_Project\" rel=\"nofollow\"\u003eOWASP iGoat\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/prateek147/DVIA-v2\" rel=\"nofollow\"\u003eDamn Vulnerable iOS App (DVIA) v2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/prateek147/DVIA\" rel=\"nofollow\"\u003eDamn Vulnerable iOS App (DVIA) v1\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/SecurityCompass/iPhoneLabs\" rel=\"nofollow\"\u003eiPhoneLabs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ManicodeSecurity/iOS-Attack-Defense\" rel=\"nofollow\"\u003eiOS-Attack-Defense\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"talks-1\" class=\"anchor\" href=\"#talks-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTalks\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=BLGFriOKz6U\" rel=\"nofollow\"\u003eBehind the Scenes of iOS Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.infoq.com/presentations/ios-security/\" rel=\"nofollow\"\u003eModern iOS Application Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=7UNeUT_sRos\" rel=\"nofollow\"\u003eDemystifying the Secure Enclave Processor\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=DJFxhShJ6Ns\" rel=\"nofollow\"\u003eHackPac Hacking Pointer Authentication in iOS User Space\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=07VqX4bbXTI\" rel=\"nofollow\"\u003eAnalyzing and Attacking Apple Kernel Drivers\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=bP5VP7vLLKo\" rel=\"nofollow\"\u003eRemotely Compromising iOS via Wi-Fi and Escaping the Sandbox\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.bugcrowd.com/resources/webinars/reverse-engineering-ios-mobile-apps/\" rel=\"nofollow\"\u003eReverse Engineering iOS Mobile Apps\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=DNW6Im31lQo\" rel=\"nofollow\"\u003eiOS 10 Kernel Heap Revisited\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://media.ccc.de/v/36c3-10806-ktrw_the_journey_to_build_a_debuggable_iphone\" rel=\"nofollow\"\u003eKTRW: The journey to build a debuggable iPhone\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://media.ccc.de/v/36c3-11238-the_one_weird_trick_securerom_hates\" rel=\"nofollow\"\u003eThe One Weird Trick SecureROM Hates\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://media.ccc.de/v/36c3-11034-tales_of_old_untethering_ios_11\" rel=\"nofollow\"\u003eTales of old: untethering iOS 11-Spoiler: Apple is bad at patching\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://media.ccc.de/v/36c3-10497-messenger_hacking_remotely_compromising_an_iphone_through_imessage\" rel=\"nofollow\"\u003eMessenger Hacking: Remotely Compromising an iPhone through iMessage\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=p512McKXukU\" rel=\"nofollow\"\u003eRecreating An iOS 0-Day Jailbreak Out Of Apple's Security Updates\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://vimeo.com/231806976\" rel=\"nofollow\"\u003eReverse Engineering the iOS Simulator’s SpringBoard\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=8cOx7vfszZU\u0026amp;feature=youtu.be\" rel=\"nofollow\"\u003eAttacking iPhone XS Max\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"misc-1\" class=\"anchor\" href=\"#misc-1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMisc.\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ansjdnakjdnajkd/iOS\" rel=\"nofollow\"\u003eMost usable tools for iOS penetration testing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/0xmachos/iOS-Security-Guides\" rel=\"nofollow\"\u003eiOS-Security-Guides\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ashishb/osx-and-ios-security-awesome\" rel=\"nofollow\"\u003eosx-security-awesome - OSX and iOS related security tools\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://i.blackhat.com/eu-19/Thursday/eu-19-Yen-Trust-In-Apples-Secret-Garden-Exploring-Reversing-Apples-Continuity-Protocol-3.pdf\" rel=\"nofollow\"\u003eTrust in Apple's Secret Garden: Exploring \u0026amp; Reversing Apple's Continuity Protocol-Slides\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://manuals.info.apple.com/MANUALS/1000/MA1902/en_US/apple-platform-security-guide.pdf\" rel=\"nofollow\"\u003eApple Platform Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://2013.appsecusa.org/2013/wp-content/uploads/2013/12/viaForensics-AppSecUSA-Nov-2013.pdf\" rel=\"nofollow\"\u003eMobile security, forensics \u0026amp; malware analysis with Santoku Linux\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":231425210,"name":"awesome-mobile-security","owner_login":"vaib25vicky","description":"An effort to build a single place for all useful android and iOS security related stuff. All references and tools belong to their respective owners. I'm just maintaining it.","pushed_at":"2020-12-21T03:53:47.000Z","stargazers_count":1476,"open_issues_count":2,"has_downloads":true,"archived":false,"license_key":null,"homepage":"","private":false,"project_created_at":"2020-01-02T17:06:25.000Z","project_updated_at":"2021-01-14T03:54:15.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#prototyping-and-testing">Prototyping and Testing</a></li>
+<li><a href="#generators">Generators</a></li>
+<li><a href="#learning">Learning</a></li>
+<li><a href="#libraries">Libraries</a></li>
+<li><a href="#collections">Collections</a></li>
+<li><a href="#explanation">Explanation</a></li>
+<li><a href="#exercises">Exercises</a></li>
+<li><a href="#articles">Articles</a></li>
+<li><a href="#books">Books</a></li>
+<li><a href="#benchmarks">Benchmarks</a></li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/az24scfc(v=vs.110).aspx">Regular Expression Language - Quick Reference</a> - MSDN documentation about Regex.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Regular Expressions</a> - MDN chapter about JavaScript regular expressions.</li>
+<li><a href="http://www.boost.org/doc/libs/1_43_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html">Perl Regular Expression Syntax</a> - Boost documentation.</li>
+<li><a href="https://docs.perl6.org/language/regexes">Perl 6</a> - Regexes in Perl 6.</li>
+<li><a href="http://pcre.org/pcre.txt">PCRE</a> - Concatenated PCRE man pages.</li>
+<li><a href="http://2ality.com/2015/07/regexp-es6.html">ECMAScript 6</a> - New Regexes in ECMAScript 6.</li>
+<li><a href="http://www.cplusplus.com/reference/regex/">regex header in C++</a> - <code>&lt;regex&gt;</code> in C++</li>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">class Pattern in Java</a> - Java 7 docs.</li>
+<li><a href="http://www.scala-lang.org/api/2.12.1/scala/util/matching/Regex.html">class Regex in Scala</a> - Scala Regex.</li>
+<li><a href="https://pymotw.com/3/re/">Python re module</a> - Regular Expressions Python module tutorial.</li>
+<li><a href="http://perl-begin.org/topics/regular-expressions/">Regular Expressions in Perl</a> - Introduction and Reference Links.</li>
+</ul>
+<h2 id="prototyping-and-testing">Prototyping and Testing</h2>
+<ul>
+<li><a href="https://www.debuggex.com/">Debuggex</a> - Online visual Regex tester.</li>
+<li><a href="https://extendsclass.com/regex-tester.html">ExtendsClass</a> - Online visual Regex tester.</li>
+<li><a href="https://www.nodexr.net">Nodexr</a> - Online node-based Regex editor.</li>
+<li><a href="http://regexr.com/">Regexr</a> - Website for interactive Regex prototyping with syntax highlighting (by <span class="citation" data-cites="gskinner">@gskinner</span>).</li>
+<li><a href="https://regex101.com/">Regex101</a> - Online Regex tester, debugger with highlighting.</li>
+<li><a href="http://rubular.com/">Rubular</a> - Ruby-based regular expression editor and tester.</li>
+<li><a href="http://www.rexv.org/">Rex V</a> - AJAX Regular EXpression eValuator.</li>
+<li><a href="http://regviz.org/">RegViz</a> - Tool for debugging JavaScript regular expressions in a visual way.</li>
+<li><a href="https://jex.im/regulex">Regulex</a> - JavaScript Regular Expression Visualizer.</li>
+<li><a href="http://www.pyregex.com/">PyRegex</a> - Online Regex tester to check validity of Regex in the Python language Regex subset.</li>
+<li><a href="http://pythex.org/">pythex</a> - Quick way to test your Python regular expressions.</li>
+<li><a href="http://regexper.com/">Regexper</a> - Regex visualizer for JavaScript using railroad diagrams.</li>
+<li><a href="http://www.gethifi.com/tools/regex">HiFi Regex Tester</a> - Live JavaScript Regular Expression Tester.</li>
+<li><a href="http://regexhero.net/tester/">Regex Hero</a> - . NET online Regex tester.</li>
+<li><a href="http://regexstorm.net/tester">Regex Storm</a> - . NET Regex tester with highlighting and detailed results output.</li>
+<li><a href="https://www.wimpyprogrammer.com/regex-to-strings/">RegEx to Strings</a> - JavaScript library and online tool to generate strings that a regular expression would match.</li>
+<li><a href="http://www.regexpal.com">RegexPal</a> - JavaScript + PCRE online tester.</li>
+<li><a href="http://www.regextester.com">RegexTester</a> - Regular Expression Tester with highlighting for Javascript and PCRE.</li>
+<li><a href="http://www.freeformatter.com/regex-tester.html">Free Formatter</a> - Free online Regex tester.</li>
+<li><a href="https://regex-golang.appspot.com/assets/html/index.html">Regex Tester - Golang</a> - A secure regular expression tester. built using Go</li>
+<li><a href="https://www.phpliveregex.com">PHP Live Regex</a> - PHP specific regular expression tester with live evaluation and code generation for all PHP’s regex functions.</li>
+</ul>
+<h2 id="generators">Generators</h2>
+<ul>
+<li><a href="http://www.txt2re.com/index.php3">Txt2Re</a> - Generate Regular expressions based on a string</li>
+<li><a href="http://regex.inginf.units.it">Regex Generator++</a> - Automatic Generation of Text Extraction Patterns from Examples</li>
+<li><a href="https://github.com/devongovett/regexgen">regexgen</a> - Generates regular expressions that match a set of strings.</li>
+<li><a href="https://github.com/MaLeLabTs/RegexGenerator">RegexGenerator</a> - A tool for generating regular expressions for text extraction (by <span class="citation" data-cites="MaLeLabTs">@MaLeLabTs</span>)</li>
+<li><a href="http://gamon.webfactional.com/regexnumericrangegenerator/">Gamon’s numberic range generator</a> - Regex Numeric Range Generator, when you need to match an integer range.</li>
+<li><a href="https://rgxg.github.io">rgxg</a> - Command line tool to generate Regex</li>
+<li><a href="https://www.wimpyprogrammer.com/strings-to-regex/">Strings to RegEx</a> - JavaScript library and online tool to generate a regular expression that matches strings.</li>
+<li><a href="https://regex.guide/playground">Regex Guide</a> - Plain Text to Regex Generator.</li>
+<li><a href="https://github.com/pemistahl/grex">grex</a> - A command-line tool and library for generating regular expressions from user-provided test cases.</li>
+</ul>
+<h2 id="learning">Learning</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Regular_expression">Wikipedia</a> - Entry on regular expressions.</li>
+<li><a href="http://regex.learncodethehardway.org/book/">Learn Regex The Hard Way</a> - In-progress book that quickly teaches you regular expressions.</li>
+<li><a href="http://swtch.com/~rsc/regexp/regexp1.html">Regular Expression Matching Can Be Simple And Fast</a> - Basic concept of how Regex parsing works.</li>
+<li>[PDF] <a href="http://linuxreviews.org/beginner/tao_of_regular_expressions/tao_of_regular_expressions.en.print.pdf">A Tao Of Regular Expressions</a> - What are Regular Expressions.</li>
+<li><a href="http://www.regular-expressions.info/">Regular-Expressions.info</a> - Informative website for learning regular expressions.</li>
+<li><a href="http://www.rexegg.com/">RexEgg</a> - A regular expressions tutorial that goes deep into advanced features.</li>
+<li><a href="http://tryregex.com/">Try Regex</a> - Try Regex is an interactive regular expressions tutorial.</li>
+<li><a href="https://www.udemy.com/learning-regular-expressions/">Udemy</a> - A Basic Introduction To Using Regular Expressions In Programming.</li>
+<li><a href="http://www.codecademy.com/courses/javascript-intermediate-en-NJ7Lr/0/1">Codecademy</a> - How to use of regular expression.</li>
+<li><a href="https://www.oreilly.com/learning/regex-golf-with-peter-norvig">Regex golf</a> - Regex golf with Peter Norvig.</li>
+<li><a href="https://developers.google.com/edu/python/regular-expressions">Python Regular Expressions</a> - A good introduction to Python Regular Expressions from Google.</li>
+<li><a href="https://www.youtube.com/watch?v=EkluES9Rvak">/Reg(exp){2}lained/: Demystifying Regular Expressions</a> - Fluent 2012 talk reviewing and visualizing basic and intermediate Regular Expressions.</li>
+<li><a href="http://neverfear.org/blog/view/Regex_tutorial_for_people_who_should_know_Regex__but_do_not___Part_1">Regular Expressions - Everything you should know</a> - PDF Series.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/essential/regex/resources.html">The Java Tutorials</a></li>
+<li><a href="http://www.greenend.org.uk/rjk/2002/06/regexp.html">Regex Syntax Summary</a></li>
+<li><a href="http://perl.plover.com/Regex/">How Regexes work</a></li>
+<li><a href="https://hackernoon.com/javascript-learn-regular-expressions-for-beginners-bb6107015d91">Learn Regular Expressions for Beginners</a></li>
+<li><a href="http://www.vogella.com/tutorials/JavaRegularExpressions/article.html">Java Regex Tutorial</a></li>
+<li><a href="https://javascript.info/regular-expressions">Javascript.info - Regular expressions</a> - Regular expressions section in The Modern JavaScript Tutorial</li>
+<li><a href="https://atrilsolutions.zendesk.com/hc/en-us/articles/205539861-Useful-regular-expressions">Useful Regexes</a></li>
+<li><a href="http://rads.stackoverflow.com/amzn/click/0672325667">Teach Yourself Regular Expressions</a></li>
+</ul>
+<h2 id="libraries">Libraries</h2>
+<ul>
+<li><a href="https://laurikari.net/tre/">Tre</a> - Free and portable approximate Regex matching library.</li>
+<li><a href="https://github.com/alexflint/go-restructure">Go-Restructure</a> - Match regular expressions into struct fields in Go (by <span class="citation" data-cites="alexflint">@alexflint</span>). <a href="https://github.com/benjamingr/js-restructure">js</a> <a href="https://gist.github.com/benjamingr/4de21494b3e76088e5f7">C#</a></li>
+<li><a href="https://github.com/wyantb/js-regex">js-regex</a> - Chainable API for construting Regexes.</li>
+<li><a href="https://github.com/VerbalExpressions">VerbalExpressions</a> - VerbalExpressions is a cross-language library that helps to construct difficult regular expressions.</li>
+<li><a href="https://github.com/francisrstokes/super-expressive">Super Expressive</a> - Super Expressive is a JavaScript library that allows you to build regular expressions in natural language.</li>
+<li><a href="http://xregexp.com">XRegExp</a> - JavaScript Regex library.</li>
+<li><a href="https://github.com/google/re2">RE2</a> - RE2 is a fast, safe, thread-friendly alternative to backtracking regular expression engines like those used in PCRE, Perl, and Python. It is a C++ library.</li>
+<li><a href="https://github.com/01org/hyperscan">Hyperscan</a> - High-performance multiple Regex matching library.</li>
+</ul>
+<h2 id="collections">Collections</h2>
+<ul>
+<li><a href="http://regexlib.com/">RegexLib</a> - Regular Expression Library (5000+ indexed expressions).</li>
+<li><a href="https://projects.lukehaas.me/regexhub/">Regexhub</a> - Useful Regex Patterns.</li>
+<li><a href="https://rgxp.ru/">RGXP. RU</a> - Regular Expression Patterns (+testing)</li>
+</ul>
+<h2 id="explanation">Explanation</h2>
+<ul>
+<li><a href="https://www.regextranslator.com/">RegexTranslator</a> - A web app to decode Regex into plain English. You can edit it and translate back.</li>
+<li><a href="http://rick.measham.id.au/paste/explain.pl">Explain.pl</a> - Explain Regular Expressions.</li>
+</ul>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li><a href="https://www.hackerrank.com/domains/regex/re-introduction">HackerRank Regex Challenges</a> - Regex challenges with varying levels of difficulty.</li>
+<li><a href="http://padolsey.github.io/redoku/">Redoku</a> - Little Regex Sudoku/Crossword thing (by <span class="citation" data-cites="padolsey">@padolsey</span>).</li>
+<li><a href="https://github.com/callumacrae/regex-tuesday">Regex Tuesday - Challenges</a> - Challenge list about Regex.</li>
+<li><a href="http://regexcrossword.com">Regex Crossword</a> - A crossword puzzle game using regular expressions.</li>
+<li><a href="http://regexone.com">RegexOne</a> - Learn regular expressions with simple, interactive examples.</li>
+<li><a href="https://regex.sketchengine.co.uk/">Regex Exercises</a> - Regexp exercises.</li>
+<li><a href="http://gregable.com/2015/12/regular-expression-crossword-puzzle.html">Regular Expression Crossword Puzzle</a> - A crossword puzzle with a neat web interface.</li>
+</ul>
+<h2 id="articles">Articles</h2>
+<ul>
+<li><a href="https://www.loggly.com/blog/five-invaluable-techniques-to-improve-regex-performance/">5 Techniques to Improve Regex Performance</a> - Craft your own powerful, yet efficient regex.</li>
+<li><a href="https://www.loggly.com/blog/regexes-the-bad-better-best/">The Bad, the Better, and the Best</a> - How a few characters can make a difference in performance.</li>
+<li><a href="http://www.rexegg.com/regex-best-trick.html">The Greatest Regex Trick Ever</a> - So you’re doubtful at the mention of a “best Regex trick”?</li>
+<li><a href="http://alexwlchan.net/2016/04/regexes-are-code/">Treat regular expressions as code, not magic</a> - If you don’t write them carefully, you can end up with an unmaintainable monstrosity.</li>
+<li><a href="https://iluxonchik.github.io/regular-expression-check-if-number-is-prime/">Demystifying The Regular Expression That Checks If A Number Is Prime</a> - How a regular expression can check if a number is prime.</li>
+<li><a href="https://medium.com/@DmitrySoshnikov/regexp-tree-a-regular-expressions-parser-with-a-simple-ast-format-bcd4d5580df6">Regex Tree: a regular expressions processor</a></li>
+<li><a href="https://www.codeproject.com/Articles/9099/The-Minute-Regex-Tutorial">The thirty minute regex tutorial</a> - Regular Expressions in 30 Minutes.</li>
+<li><a href="https://swtch.com/~rsc/regexp/regexp1.html">Regular Expression Matching Can Be Simple And Fast</a></li>
+<li><a href="https://ponyfoo.com/articles/regular-expressions-post-es6">Regular Expressions in a post ES6 World</a></li>
+<li><a href="https://medium.com/@lennartkoopmann/regular-expression-regex-performance-the-fundamental-guide-3d39e6af33af">Regular expression (regex) performance: The fundamental guide</a></li>
+<li><a href="https://medium.com/rubyinside/the-new-absent-operator-in-ruby-s-regular-expressions-7c3ef6cd0b99">The New ‘Absent Operator’ in Ruby’s Regular Expressions</a></li>
+<li><a href="http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html">Optimizing regexes in Java</a></li>
+<li><a href="https://dzone.com/articles/use-regex-test-password">Use Regex to Test Password Strength in JavaScript</a></li>
+<li><a href="http://www.javaworld.com/article/3188545/learn-java/java-101-regular-expressions-in-java-part-1.html">Java 101</a> - Regular Expressions in Java.</li>
+<li><a href="https://stackoverflow.com/questions/800813/what-is-the-most-difficult-challenging-regular-expression-you-have-ever-written">Most Crazy Regexes</a> - Stack Overflow</li>
+<li><a href="http://www.rexegg.com/regex-humor.html">Regex Humor</a> - Regex jokes and cartoons.</li>
+<li><a href="https://nikic.github.io/2012/06/15/The-true-power-of-regular-expressions.html">The true power of regular expressions</a></li>
+</ul>
+<h2 id="books">Books</h2>
+<ul>
+<li><a href="http://infolab.stanford.edu/~ullman/focs/ch10.pdf">Patterns, Automata, and Regular Expressions</a> - Al Aho and Jeff Ullman (1992) (<em>chapter 10 of <a href="http://infolab.stanford.edu/~ullman/focs.html">Foundations of Computer Science</a></em>)</li>
+<li><a href="http://shop.oreilly.com/product/9780764574894.do">Beginning Regular Expressions</a> - Andrew Watt (2005)</li>
+<li><a href="http://shop.oreilly.com/product/9780596528126.do">Mastering Regular Expressions</a> - Jeffrey E. F. Friedl (2006)</li>
+<li><a href="http://shop.oreilly.com/product/9780596514273.do">Regular Expression Pocket Reference</a> - Tony Stubblebine (2007)</li>
+<li><a href="http://shop.oreilly.com/product/0636920012337.do">Introducing Regular Expressions</a> - Michael Fitzgerald (2012)</li>
+<li><a href="http://shop.oreilly.com/product/0636920023630.do">Regular Expressions Cookbook</a> - Jan Goyvaerts &amp; Steven Levithan (2012)</li>
+<li><a href="http://shop.oreilly.com/product/9781783283156.do">Mastering Python Regular Expressions</a> - Felix Lopez &amp; Victor Romero (2014)</li>
+<li><a href="http://shop.oreilly.com/product/9781783282258.do">JavaScript Regular Expressions</a> - Loiane Groner &amp; Gabriel Manricks (2015)</li>
+<li><a href="https://www.princeton.edu/~mlovett/reference/Regular-Expressions.pdf">Regex - the complete tutorial</a></li>
+<li><a href="https://github.com/learnbyexample/py_regular_expressions">Python re(gex)?</a> - Sundeep Agarwal (2020)</li>
+</ul>
+<h2 id="benchmarks">Benchmarks</h2>
+<ul>
+<li><a href="http://lh3lh3.users.sourceforge.net/reb.shtml">Benchmark of Regex Libraries</a></li>
+<li><a href="https://www.javaadvent.com/2015/12/java-regular-expression-library-benchmarks-2015.html">Java regular expression library benchmarks – 2015</a></li>
+<li><a href="https://github.com/mariomka/regex-benchmark">Languages Regex Benchmark</a> - It’s just a simple Regex benchmark of different programming languages.</li>
+<li><a href="http://sljit.sourceforge.net/regex_perf.html">Performance comparison of regular expression engines</a></li>
+<li><a href="https://github.com/rust-leipzig/regex-performance">Regex Performance</a> - Performance comparison of regular expression engines.</li>
+</ul>
+<h2 id="cheat-sheets">Cheat Sheets</h2>
+<ul>
+<li><a href="https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/">Regular Expressions Cheat Sheet</a></li>
+<li><a href="http://www.rexegg.com/regex-quickstart.html">Regex Cheat Sheet</a></li>
+<li><a href="http://web.mit.edu/hackl/www/lab/turkshop/slides/regex-cheatsheet.pdf">MIT Cheat Sheet</a></li>
+<li><a href="https://zeroturnaround.com/rebellabs/java-regular-expressions-cheat-sheet/">Java Cheat Sheet</a></li>
+<li><a href="https://www.debuggex.com/cheatsheet/regex/javascript">JavaScript Cheat Sheet</a></li>
+</ul>
+<h1 id="other-awesome-lists">Other awesome lists</h1>
+<p>Other amazingly awesome lists can be found at the <a href="https://github.com/sindresorhus/awesome">official awesome list</a> and <a href="https://github.com/jnv/lists">here</a>.</p>
+</body></html>

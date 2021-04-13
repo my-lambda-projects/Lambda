@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Runs the callback whenever the user input type changes (<code>mouse</code> or <code>touch</code>).</p>
+<ul>
+<li>Use two event listeners.</li>
+<li>Assume <code>mouse</code> input initially and bind a <code>'touchstart'</code> event listener to the document.</li>
+<li>On <code>'touchstart'</code>, add a <code>'mousemove'</code> event listener to listen for two consecutive <code>'mousemove'</code> events firing within 20ms, using <code>performance.now()</code>.</li>
+<li>Run the callback with the input type as an argument in either of these situations.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> onUserInputChange <span class="op">=</span> callback <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> type <span class="op">=</span> <span class="st">&#39;mouse&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    lastTime <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">const</span> mousemoveHandler <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="kw">const</span> now <span class="op">=</span> <span class="va">performance</span>.<span class="at">now</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="cf">if</span> (now <span class="op">-</span> lastTime <span class="op">&lt;</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb1-7" title="7">      (type <span class="op">=</span> <span class="st">&#39;mouse&#39;</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">        <span class="at">callback</span>(type)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">        <span class="va">document</span>.<span class="at">removeEventListener</span>(<span class="st">&#39;mousemove&#39;</span><span class="op">,</span> mousemoveHandler)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    lastTime <span class="op">=</span> now<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;touchstart&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="cf">if</span> (type <span class="op">===</span> <span class="st">&#39;touch&#39;</span>) <span class="cf">return</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-14" title="14">    (type <span class="op">=</span> <span class="st">&#39;touch&#39;</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-15" title="15">      <span class="at">callback</span>(type)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-16" title="16">      <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;mousemove&#39;</span><span class="op">,</span> mousemoveHandler)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-17" title="17">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">onUserInputChange</span>(type <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;The user is now using&#39;</span><span class="op">,</span> type<span class="op">,</span> <span class="st">&#39;as an input method.&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

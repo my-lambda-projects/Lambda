@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":1,"applicationTime":88,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Dvc</title>
+<meta name="description" content="🦉Data Version Control | Git for Data &amp; Models">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/iterative/dvc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "iterative/dvc",
+  "description": "🦉Data Version Control | Git for Data & Models",
+  "url": "https://awesomeopensource.com/project/iterative/dvc",
+  "sku": "project/iterative/dvc",
+  "mpn": "project/iterative/dvc",
+  "image": "https://github.com/iterative.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "iterative/dvc",
+    "logo": "https://github.com/iterative.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "7050"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="OHXvspnSiJyOx74+aph7z2rJ81ydZBWVUYWkdenfQ+QrxiiAwiNNZIfSwegk32WQGwncE0kA0IHJsCvzcFRAFA==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/iterative/dvc","location":"/project/iterative/dvc","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/iterative/dvc","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-c57c57d4-a6b6-4d8f-94e9-0f0c9045eba4"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Dvc</div><div class="aos_project_metadata_description">🦉Data Version Control | Git for Data &amp; Models</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">7,050</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">apache-2.0</span><span><div class="aos_project_metadata_header"><a href="https://dvc.org" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://dvc.org" target="_blank">https://dvc.org</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/iterative/dvc" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/iterative/dvc" target="_blank">https://github.com/iterative/dvc</a></span><div class="aos_project_metadata_header"><a href="https://github.com/iterative/dvc/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/iterative/dvc/issues" target="_blank">494</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">2 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/python"><div style="display:block;text-decoration:none;padding-bottom:10px">python<span> (<!-- -->49,729<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacktoberfest"><div style="display:block;text-decoration:none;padding-bottom:10px">hacktoberfest<span> (<!-- -->4,238<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/machine-learning"><div style="display:block;text-decoration:none;padding-bottom:10px">machine-learning<span> (<!-- -->3,352<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/data-science"><div style="display:block;text-decoration:none;padding-bottom:10px">data-science<span> (<!-- -->810<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/git"><div style="display:block;text-decoration:none;padding-bottom:10px">git<span> (<!-- -->760<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ai"><div style="display:block;text-decoration:none;padding-bottom:10px">ai<span> (<!-- -->438<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/developer-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">developer-tools<span> (<!-- -->323<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/collaboration"><div style="display:block;text-decoration:none;padding-bottom:10px">collaboration<span> (<!-- -->106<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/reproducibility"><div style="display:block;text-decoration:none;padding-bottom:10px">reproducibility<span> (<!-- -->45<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>|Banner|</p>
+<p><code>Website &lt;https://dvc.org&gt;</code>_
+• <code>Docs &lt;https://dvc.org/doc&gt;</code>_
+• <code>Blog &lt;http://blog.dataversioncontrol.com&gt;</code>_
+• <code>Twitter &lt;https://twitter.com/DVCorg&gt;</code>_
+• <code>Chat (Community &amp; Support) &lt;https://dvc.org/chat&gt;</code>_
+• <code>Tutorial &lt;https://dvc.org/doc/get-started&gt;</code>_
+• <code>Mailing List &lt;https://sweedom.us10.list-manage.com/subscribe/post?u=a08bf93caae4063c4e6a351f6&amp;id=24c0ecc49a&gt;</code>_</p>
+<p>|Release| |CI| |Maintainability| |Coverage| |Donate| |DOI|</p>
+<p>|PyPI| |Packages| |Brew| |Conda| |Choco| |Snap|</p>
+<p>|</p>
+<p><strong>Data Version Control</strong> or <strong>DVC</strong> is an <strong>open-source</strong> tool for data science and machine
+learning projects. Key features:</p>
+<p>#. Simple <strong>command line</strong> Git-like experience. Does not require installing and maintaining
+any databases. Does not depend on any proprietary online services.</p>
+<p>#. Management and versioning of <strong>datasets</strong> and <strong>machine learning models</strong>. Data is saved in
+S3, Google cloud, Azure, Alibaba cloud, SSH server, HDFS, or even local HDD RAID.</p>
+<p>#. Makes projects <strong>reproducible</strong> and <strong>shareable</strong>; helping to answer questions about how
+a model was built.</p>
+<p>#. Helps manage experiments with Git tags/branches and <strong>metrics</strong> tracking.</p>
+<p><strong>DVC</strong> aims to replace spreadsheet and document sharing tools (such as Excel or Google Docs)
+which are being used frequently as both knowledge repositories and team ledgers.
+DVC also replaces both ad-hoc scripts to track, move, and deploy different model versions;
+as well as ad-hoc data file suffixes and prefixes.</p>
+<p>.. contents:: <strong>Contents</strong>
+:backlinks: none</p>
+<h1>
+<a id="how-dvc-works" class="anchor" href="#how-dvc-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How DVC works</h1>
+<p>We encourage you to read our <code>Get Started &lt;https://dvc.org/doc/get-started&gt;</code>_ guide to better understand what DVC
+is and how it can fit your scenarios.</p>
+<p>The easiest (but not perfect!) <em>analogy</em> to describe it: DVC is Git (or Git-LFS to be precise) &amp; Makefiles
+made right and tailored specifically for ML and Data Science scenarios.</p>
+<p>#. <code>Git/Git-LFS</code> part - DVC helps store and share data artifacts and models, connecting them with a Git repository.
+#. <code>Makefile</code>\ s part - DVC describes how one data or model artifact was built from other data and code.</p>
+<p>DVC usually runs along with Git. Git is used as usual to store and version code (including DVC meta-files). DVC helps
+to store data and model files seamlessly out of Git, while preserving almost the same user experience as if they
+were stored in Git itself. To store and share the data cache, DVC supports multiple remotes - any cloud (S3, Azure,
+Google Cloud, etc) or any on-premise network storage (via SSH, for example).</p>
+<p>|Flowchart|</p>
+<p>The DVC pipelines (computational graph) feature connects code and data together. It is possible to explicitly
+specify all steps required to produce a model: input dependencies including data, commands to run,
+and output information to be saved. See the quick start section below or
+the <code>Get Started &lt;https://dvc.org/doc/get-started&gt;</code>_ tutorial to learn more.</p>
+<h1>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick start</h1>
+<p>Please read <code>Get Started &lt;https://dvc.org/doc/get-started&gt;</code>_ guide for a full version. Common workflow commands include:</p>
+<p>+-----------------------------------+-------------------------------------------------------------------+
+| Step                              | Command                                                           |
++===================================+===================================================================+
+| Track data                        | | <code>$ git add train.py</code>                                          |
+|                                   | | <code>$ dvc add images.zip</code>                                        |
++-----------------------------------+-------------------------------------------------------------------+
+| Connect code and data by commands | | <code>$ dvc run -d images.zip -o images/ unzip -q images.zip</code>      |
+|                                   | | <code>$ dvc run -d images/ -d train.py -o model.p python train.py</code> |
++-----------------------------------+-------------------------------------------------------------------+
+| Make changes and reproduce        | | <code>$ vi train.py</code>                                               |
+|                                   | | <code>$ dvc repro model.p.dvc</code>                                     |
++-----------------------------------+-------------------------------------------------------------------+
+| Share code                        | | <code>$ git add .</code>                                                 |
+|                                   | | <code>$ git commit -m 'The baseline model'</code>                        |
+|                                   | | <code>$ git push</code>                                                  |
++-----------------------------------+-------------------------------------------------------------------+
+| Share data and ML models          | | <code>$ dvc remote add myremote -d s3://mybucket/image_cnn</code>        |
+|                                   | | <code>$ dvc push</code>                                                  |
++-----------------------------------+-------------------------------------------------------------------+</p>
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+<p>There are four options to install DVC: <code>pip</code>, Homebrew, Conda (Anaconda) or an OS-specific package.
+Full instructions are <code>available here &lt;https://dvc.org/doc/get-started/install&gt;</code>_.</p>
+<h2>
+<a id="snap-snapcraftlinux" class="anchor" href="#snap-snapcraftlinux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Snap (Snapcraft/Linux)</h2>
+<p>|Snap|</p>
+<p>.. code-block:: bash</p>
+<p>snap install dvc --classic</p>
+<p>This corresponds to the latest tagged release.
+Add <code>--beta</code> for the latest tagged release candidate,
+or <code>--edge</code> for the latest <code>master</code> version.</p>
+<h2>
+<a id="choco-chocolateywindows" class="anchor" href="#choco-chocolateywindows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Choco (Chocolatey/Windows)</h2>
+<p>|Choco|</p>
+<p>.. code-block:: bash</p>
+<p>choco install dvc</p>
+<h2>
+<a id="brew-homebrewmac-os" class="anchor" href="#brew-homebrewmac-os" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Brew (Homebrew/Mac OS)</h2>
+<p>|Brew|</p>
+<p>.. code-block:: bash</p>
+<p>brew install dvc</p>
+<h2>
+<a id="conda-anaconda" class="anchor" href="#conda-anaconda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conda (Anaconda)</h2>
+<p>|Conda|</p>
+<p>.. code-block:: bash</p>
+<p>conda install -c conda-forge dvc</p>
+<h2>
+<a id="pip-pypi" class="anchor" href="#pip-pypi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>pip (PyPI)</h2>
+<p>|PyPI|</p>
+<p>.. code-block:: bash</p>
+<p>pip install dvc</p>
+<p>Depending on the remote storage type you plan to use to keep and share your data, you might need to specify
+one of the optional dependencies: <code>s3</code>, <code>gs</code>, <code>azure</code>, <code>oss</code>, <code>ssh</code>. Or <code>all</code> to include them all.
+The command should look like this: <code>pip install dvc[s3]</code> (in this case AWS S3 dependencies such as <code>boto3</code>
+will be installed automatically).</p>
+<p>To install the development version, run:</p>
+<p>.. code-block:: bash</p>
+<p>pip install git+git://github.com/iterative/dvc</p>
+<h2>
+<a id="package" class="anchor" href="#package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package</h2>
+<p>|Packages|</p>
+<p>Self-contained packages for Linux, Windows, and Mac are available. The latest version of the packages
+can be found on the GitHub <code>releases page &lt;https://github.com/iterative/dvc/releases&gt;</code>_.</p>
+<p>Ubuntu / Debian (deb)
+^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: bash</p>
+<p>sudo wget <a href="https://dvc.org/deb/dvc.list" rel="nofollow">https://dvc.org/deb/dvc.list</a> -O /etc/apt/sources.list.d/dvc.list
+sudo apt-get update
+sudo apt-get install dvc</p>
+<p>Fedora / CentOS (rpm)
+^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: bash</p>
+<p>sudo wget <a href="https://dvc.org/rpm/dvc.repo" rel="nofollow">https://dvc.org/rpm/dvc.repo</a> -O /etc/yum.repos.d/dvc.repo
+sudo yum update
+sudo yum install dvc</p>
+<h1>
+<a id="comparison-to-related-technologies" class="anchor" href="#comparison-to-related-technologies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comparison to related technologies</h1>
+<p>#. <code>Git-annex &lt;https://git-annex.branchable.com/&gt;</code>_ - DVC uses the idea of storing the content of large files (which should
+not be in a Git repository) in a local key-value store, and uses file hardlinks/symlinks instead of
+copying/duplicating files.</p>
+<p>#. <code>Git-LFS &lt;https://git-lfs.github.com/&gt;</code>_ - DVC is compatible with any remote storage (S3, Google Cloud, Azure, SSH,
+etc). DVC also uses reflinks or hardlinks to avoid copy operations on checkouts; thus handling large data files
+much more efficiently.</p>
+<p>#. <em>Makefile</em> (and analogues including ad-hoc scripts) - DVC tracks dependencies (in a directed acyclic graph).</p>
+<p>#. <code>Workflow Management Systems &lt;https://en.wikipedia.org/wiki/Workflow_management_system&gt;</code>_ - DVC is a workflow
+management system designed specifically to manage machine learning experiments. DVC is built on top of Git.</p>
+<p>#. <code>DAGsHub &lt;https://dagshub.com/&gt;</code>_ - This is a Github equivalent for DVC. Pushing Git+DVC based repositories to DAGsHub will produce in a high level project dashboard; including DVC pipelines and metrics visualizations, as well as links to any DVC-managed files present in cloud storage.</p>
+<h1>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h1>
+<p>|Maintainability| |Donate|</p>
+<p>Contributions are welcome! Please see our <code>Contributing Guide &lt;https://dvc.org/doc/user-guide/contributing/core&gt;</code>_ for more
+details.</p>
+<h1>
+<a id="mailing-list" class="anchor" href="#mailing-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mailing List</h1>
+<p>Want to stay up to date? Want to help improve DVC by participating in our occasional polls? Subscribe to our <code>mailing list &lt;https://sweedom.us10.list-manage.com/subscribe/post?u=a08bf93caae4063c4e6a351f6&amp;id=24c0ecc49a&gt;</code>_. No spam, really low traffic.</p>
+<h1>
+<a id="copyright" class="anchor" href="#copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright</h1>
+<p>This project is distributed under the Apache license version 2.0 (see the LICENSE file in the project root).</p>
+<p>By submitting a pull request to this project, you agree to license your contribution under the Apache license version
+2.0 to this project.</p>
+<h1>
+<a id="citation" class="anchor" href="#citation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Citation</h1>
+<p>|DOI|</p>
+<p>Iterative, <em>DVC: Data Version Control - Git for Data &amp; Models</em> (2020)
+<code>DOI:10.5281/zenodo.012345 &lt;https://doi.org/10.5281/zenodo.3677553&gt;</code>_.</p>
+<p>.. |Banner| image:: <a href="https://dvc.org/img/logo-github-readme.png" rel="nofollow">https://dvc.org/img/logo-github-readme.png</a>
+:target: <a href="https://dvc.org" rel="nofollow">https://dvc.org</a>
+:alt: DVC logo</p>
+<p>.. |Release| image:: <a href="https://img.shields.io/badge/release-ok-brightgreen" rel="nofollow">https://img.shields.io/badge/release-ok-brightgreen</a>
+:target: <a href="https://travis-ci.com/iterative/dvc/branches" rel="nofollow">https://travis-ci.com/iterative/dvc/branches</a>
+:alt: Release</p>
+<p>.. |CI| image:: <a href="https://github.com/iterative/dvc/workflows/Tests/badge.svg?branch=master" rel="nofollow">https://github.com/iterative/dvc/workflows/Tests/badge.svg?branch=master</a>
+:target: <a href="https://github.com/iterative/dvc/actions" rel="nofollow">https://github.com/iterative/dvc/actions</a>
+:alt: GHA Tests</p>
+<p>.. |Maintainability| image:: <a href="https://codeclimate.com/github/iterative/dvc/badges/gpa.svg" rel="nofollow">https://codeclimate.com/github/iterative/dvc/badges/gpa.svg</a>
+:target: <a href="https://codeclimate.com/github/iterative/dvc" rel="nofollow">https://codeclimate.com/github/iterative/dvc</a>
+:alt: Code Climate</p>
+<p>.. |Coverage| image:: <a href="https://codecov.io/gh/iterative/dvc/branch/master/graph/badge.svg" rel="nofollow">https://codecov.io/gh/iterative/dvc/branch/master/graph/badge.svg</a>
+:target: <a href="https://codecov.io/gh/iterative/dvc" rel="nofollow">https://codecov.io/gh/iterative/dvc</a>
+:alt: Codecov</p>
+<p>.. |Donate| image:: <a href="https://img.shields.io/badge/patreon-donate-green.svg?logo=patreon" rel="nofollow">https://img.shields.io/badge/patreon-donate-green.svg?logo=patreon</a>
+:target: <a href="https://www.patreon.com/DVCorg/overview" rel="nofollow">https://www.patreon.com/DVCorg/overview</a>
+:alt: Donate</p>
+<p>.. |Snap| image:: <a href="https://img.shields.io/badge/snap-install-82BEA0.svg?logo=snapcraft" rel="nofollow">https://img.shields.io/badge/snap-install-82BEA0.svg?logo=snapcraft</a>
+:target: <a href="https://snapcraft.io/dvc" rel="nofollow">https://snapcraft.io/dvc</a>
+:alt: Snapcraft</p>
+<p>.. |Choco| image:: <a href="https://img.shields.io/chocolatey/v/dvc?label=choco" rel="nofollow">https://img.shields.io/chocolatey/v/dvc?label=choco</a>
+:target: <a href="https://chocolatey.org/packages/dvc" rel="nofollow">https://chocolatey.org/packages/dvc</a>
+:alt: Chocolatey</p>
+<p>.. |Brew| image:: <a href="https://img.shields.io/homebrew/v/dvc?label=brew" rel="nofollow">https://img.shields.io/homebrew/v/dvc?label=brew</a>
+:target: <a href="https://formulae.brew.sh/formula/dvc" rel="nofollow">https://formulae.brew.sh/formula/dvc</a>
+:alt: Homebrew</p>
+<p>.. |Conda| image:: <a href="https://img.shields.io/conda/v/conda-forge/dvc.svg?label=conda&amp;logo=conda-forge" rel="nofollow">https://img.shields.io/conda/v/conda-forge/dvc.svg?label=conda&amp;logo=conda-forge</a>
+:target: <a href="https://anaconda.org/conda-forge/dvc" rel="nofollow">https://anaconda.org/conda-forge/dvc</a>
+:alt: Conda-forge</p>
+<p>.. |PyPI| image:: <a href="https://img.shields.io/pypi/v/dvc.svg?label=pip&amp;logo=PyPI&amp;logoColor=white" rel="nofollow">https://img.shields.io/pypi/v/dvc.svg?label=pip&amp;logo=PyPI&amp;logoColor=white</a>
+:target: <a href="https://pypi.org/project/dvc" rel="nofollow">https://pypi.org/project/dvc</a>
+:alt: PyPI</p>
+<p>.. |Packages| image:: <a href="https://img.shields.io/github/v/release/iterative/dvc?label=deb%7Cpkg%7Crpm%7Cexe&amp;logo=GitHub" rel="nofollow">https://img.shields.io/github/v/release/iterative/dvc?label=deb|pkg|rpm|exe&amp;logo=GitHub</a>
+:target: <a href="https://github.com/iterative/dvc/releases/latest" rel="nofollow">https://github.com/iterative/dvc/releases/latest</a>
+:alt: deb|pkg|rpm|exe</p>
+<p>.. |DOI| image:: <a href="https://img.shields.io/badge/DOI-10.5281/zenodo.3677553-blue.svg" rel="nofollow">https://img.shields.io/badge/DOI-10.5281/zenodo.3677553-blue.svg</a>
+:target: <a href="https://doi.org/10.5281/zenodo.3677553" rel="nofollow">https://doi.org/10.5281/zenodo.3677553</a>
+:alt: DOI</p>
+<p>.. |Flowchart| image:: <a href="https://dvc.org/img/flow.gif" rel="nofollow">https://dvc.org/img/flow.gif</a>
+:target: <a href="https://dvc.org/img/flow.gif" rel="nofollow">https://dvc.org/img/flow.gif</a>
+:alt: how_dvc_works</p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120baca6b03e738',m:'4fae1d212c9c1adab8eb16872f2fc77ade3f4623-1610725587-1800-ATRxahc9B7jhx61in9rAaGLYJoKMCVGXJ0gzYAInfGqRSXAWXZ/QwhpfawRSOZwdDnk0987qVicEm0k/BTWs5G6SvEq90HFMh9EeJ91TTjkDpjuvjEF6lOZ1e0WhRy6EjjngQ9ftZEOOW0sYpA/J5uw=',s:[0x31dad15f38,0xaa09d39bed],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="python"/> <!-- -->python<!-- --> (<!-- -->49,729<!-- -->) </div><div><input type="checkbox" name="topics" value="hacktoberfest"/> <!-- -->hacktoberfest<!-- --> (<!-- -->4,238<!-- -->) </div><div><input type="checkbox" name="topics" value="machine-learning"/> <!-- -->machine-learning<!-- --> (<!-- -->3,352<!-- -->) </div><div><input type="checkbox" name="topics" value="data-science"/> <!-- -->data-science<!-- --> (<!-- -->810<!-- -->) </div><div><input type="checkbox" name="topics" value="git"/> <!-- -->git<!-- --> (<!-- -->760<!-- -->) </div><div><input type="checkbox" name="topics" value="ai"/> <!-- -->ai<!-- --> (<!-- -->438<!-- -->) </div><div><input type="checkbox" name="topics" value="developer-tools"/> <!-- -->developer-tools<!-- --> (<!-- -->323<!-- -->) </div><div><input type="checkbox" name="topics" value="collaboration"/> <!-- -->collaboration<!-- --> (<!-- -->106<!-- -->) </div><div><input type="checkbox" name="topics" value="reproducibility"/> <!-- -->reproducibility<!-- --> (<!-- -->45<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Dvc<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/iterative" target="_blank">Iterative</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/iterative" target="_blank">Iterative</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-c57c57d4-a6b6-4d8f-94e9-0f0c9045eba4">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"ai","count":438},{"id":null,"name":"collaboration","count":106},{"id":null,"name":"data-science","count":810},{"id":null,"name":"developer-tools","count":323},{"id":null,"name":"git","count":760},{"id":null,"name":"hacktoberfest","count":4238},{"id":null,"name":"machine-learning","count":3352},{"id":null,"name":"python","count":49729},{"id":null,"name":"reproducibility","count":45}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/iterative/dvc","projects":[],"project":{"id":107363,"created_at":"2018-08-21T01:59:41.580Z","updated_at":"2021-01-14T07:22:44.105Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cp\u003e|Banner|\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eWebsite \u0026lt;https://dvc.org\u0026gt;\u003c/code\u003e_\n• \u003ccode\u003eDocs \u0026lt;https://dvc.org/doc\u0026gt;\u003c/code\u003e_\n• \u003ccode\u003eBlog \u0026lt;http://blog.dataversioncontrol.com\u0026gt;\u003c/code\u003e_\n• \u003ccode\u003eTwitter \u0026lt;https://twitter.com/DVCorg\u0026gt;\u003c/code\u003e_\n• \u003ccode\u003eChat (Community \u0026amp; Support) \u0026lt;https://dvc.org/chat\u0026gt;\u003c/code\u003e_\n• \u003ccode\u003eTutorial \u0026lt;https://dvc.org/doc/get-started\u0026gt;\u003c/code\u003e_\n• \u003ccode\u003eMailing List \u0026lt;https://sweedom.us10.list-manage.com/subscribe/post?u=a08bf93caae4063c4e6a351f6\u0026amp;id=24c0ecc49a\u0026gt;\u003c/code\u003e_\u003c/p\u003e\n\u003cp\u003e|Release| |CI| |Maintainability| |Coverage| |Donate| |DOI|\u003c/p\u003e\n\u003cp\u003e|PyPI| |Packages| |Brew| |Conda| |Choco| |Snap|\u003c/p\u003e\n\u003cp\u003e|\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eData Version Control\u003c/strong\u003e or \u003cstrong\u003eDVC\u003c/strong\u003e is an \u003cstrong\u003eopen-source\u003c/strong\u003e tool for data science and machine\nlearning projects. Key features:\u003c/p\u003e\n\u003cp\u003e#. Simple \u003cstrong\u003ecommand line\u003c/strong\u003e Git-like experience. Does not require installing and maintaining\nany databases. Does not depend on any proprietary online services.\u003c/p\u003e\n\u003cp\u003e#. Management and versioning of \u003cstrong\u003edatasets\u003c/strong\u003e and \u003cstrong\u003emachine learning models\u003c/strong\u003e. Data is saved in\nS3, Google cloud, Azure, Alibaba cloud, SSH server, HDFS, or even local HDD RAID.\u003c/p\u003e\n\u003cp\u003e#. Makes projects \u003cstrong\u003ereproducible\u003c/strong\u003e and \u003cstrong\u003eshareable\u003c/strong\u003e; helping to answer questions about how\na model was built.\u003c/p\u003e\n\u003cp\u003e#. Helps manage experiments with Git tags/branches and \u003cstrong\u003emetrics\u003c/strong\u003e tracking.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eDVC\u003c/strong\u003e aims to replace spreadsheet and document sharing tools (such as Excel or Google Docs)\nwhich are being used frequently as both knowledge repositories and team ledgers.\nDVC also replaces both ad-hoc scripts to track, move, and deploy different model versions;\nas well as ad-hoc data file suffixes and prefixes.\u003c/p\u003e\n\u003cp\u003e.. contents:: \u003cstrong\u003eContents\u003c/strong\u003e\n:backlinks: none\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"how-dvc-works\" class=\"anchor\" href=\"#how-dvc-works\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow DVC works\u003c/h1\u003e\n\u003cp\u003eWe encourage you to read our \u003ccode\u003eGet Started \u0026lt;https://dvc.org/doc/get-started\u0026gt;\u003c/code\u003e_ guide to better understand what DVC\nis and how it can fit your scenarios.\u003c/p\u003e\n\u003cp\u003eThe easiest (but not perfect!) \u003cem\u003eanalogy\u003c/em\u003e to describe it: DVC is Git (or Git-LFS to be precise) \u0026amp; Makefiles\nmade right and tailored specifically for ML and Data Science scenarios.\u003c/p\u003e\n\u003cp\u003e#. \u003ccode\u003eGit/Git-LFS\u003c/code\u003e part - DVC helps store and share data artifacts and models, connecting them with a Git repository.\n#. \u003ccode\u003eMakefile\u003c/code\u003e\\ s part - DVC describes how one data or model artifact was built from other data and code.\u003c/p\u003e\n\u003cp\u003eDVC usually runs along with Git. Git is used as usual to store and version code (including DVC meta-files). DVC helps\nto store data and model files seamlessly out of Git, while preserving almost the same user experience as if they\nwere stored in Git itself. To store and share the data cache, DVC supports multiple remotes - any cloud (S3, Azure,\nGoogle Cloud, etc) or any on-premise network storage (via SSH, for example).\u003c/p\u003e\n\u003cp\u003e|Flowchart|\u003c/p\u003e\n\u003cp\u003eThe DVC pipelines (computational graph) feature connects code and data together. It is possible to explicitly\nspecify all steps required to produce a model: input dependencies including data, commands to run,\nand output information to be saved. See the quick start section below or\nthe \u003ccode\u003eGet Started \u0026lt;https://dvc.org/doc/get-started\u0026gt;\u003c/code\u003e_ tutorial to learn more.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"quick-start\" class=\"anchor\" href=\"#quick-start\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuick start\u003c/h1\u003e\n\u003cp\u003ePlease read \u003ccode\u003eGet Started \u0026lt;https://dvc.org/doc/get-started\u0026gt;\u003c/code\u003e_ guide for a full version. Common workflow commands include:\u003c/p\u003e\n\u003cp\u003e+-----------------------------------+-------------------------------------------------------------------+\n| Step                              | Command                                                           |\n+===================================+===================================================================+\n| Track data                        | | \u003ccode\u003e$ git add train.py\u003c/code\u003e                                          |\n|                                   | | \u003ccode\u003e$ dvc add images.zip\u003c/code\u003e                                        |\n+-----------------------------------+-------------------------------------------------------------------+\n| Connect code and data by commands | | \u003ccode\u003e$ dvc run -d images.zip -o images/ unzip -q images.zip\u003c/code\u003e      |\n|                                   | | \u003ccode\u003e$ dvc run -d images/ -d train.py -o model.p python train.py\u003c/code\u003e |\n+-----------------------------------+-------------------------------------------------------------------+\n| Make changes and reproduce        | | \u003ccode\u003e$ vi train.py\u003c/code\u003e                                               |\n|                                   | | \u003ccode\u003e$ dvc repro model.p.dvc\u003c/code\u003e                                     |\n+-----------------------------------+-------------------------------------------------------------------+\n| Share code                        | | \u003ccode\u003e$ git add .\u003c/code\u003e                                                 |\n|                                   | | \u003ccode\u003e$ git commit -m 'The baseline model'\u003c/code\u003e                        |\n|                                   | | \u003ccode\u003e$ git push\u003c/code\u003e                                                  |\n+-----------------------------------+-------------------------------------------------------------------+\n| Share data and ML models          | | \u003ccode\u003e$ dvc remote add myremote -d s3://mybucket/image_cnn\u003c/code\u003e        |\n|                                   | | \u003ccode\u003e$ dvc push\u003c/code\u003e                                                  |\n+-----------------------------------+-------------------------------------------------------------------+\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h1\u003e\n\u003cp\u003eThere are four options to install DVC: \u003ccode\u003epip\u003c/code\u003e, Homebrew, Conda (Anaconda) or an OS-specific package.\nFull instructions are \u003ccode\u003eavailable here \u0026lt;https://dvc.org/doc/get-started/install\u0026gt;\u003c/code\u003e_.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"snap-snapcraftlinux\" class=\"anchor\" href=\"#snap-snapcraftlinux\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSnap (Snapcraft/Linux)\u003c/h2\u003e\n\u003cp\u003e|Snap|\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cp\u003esnap install dvc --classic\u003c/p\u003e\n\u003cp\u003eThis corresponds to the latest tagged release.\nAdd \u003ccode\u003e--beta\u003c/code\u003e for the latest tagged release candidate,\nor \u003ccode\u003e--edge\u003c/code\u003e for the latest \u003ccode\u003emaster\u003c/code\u003e version.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"choco-chocolateywindows\" class=\"anchor\" href=\"#choco-chocolateywindows\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eChoco (Chocolatey/Windows)\u003c/h2\u003e\n\u003cp\u003e|Choco|\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cp\u003echoco install dvc\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"brew-homebrewmac-os\" class=\"anchor\" href=\"#brew-homebrewmac-os\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBrew (Homebrew/Mac OS)\u003c/h2\u003e\n\u003cp\u003e|Brew|\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cp\u003ebrew install dvc\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"conda-anaconda\" class=\"anchor\" href=\"#conda-anaconda\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConda (Anaconda)\u003c/h2\u003e\n\u003cp\u003e|Conda|\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cp\u003econda install -c conda-forge dvc\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"pip-pypi\" class=\"anchor\" href=\"#pip-pypi\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003epip (PyPI)\u003c/h2\u003e\n\u003cp\u003e|PyPI|\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cp\u003epip install dvc\u003c/p\u003e\n\u003cp\u003eDepending on the remote storage type you plan to use to keep and share your data, you might need to specify\none of the optional dependencies: \u003ccode\u003es3\u003c/code\u003e, \u003ccode\u003egs\u003c/code\u003e, \u003ccode\u003eazure\u003c/code\u003e, \u003ccode\u003eoss\u003c/code\u003e, \u003ccode\u003essh\u003c/code\u003e. Or \u003ccode\u003eall\u003c/code\u003e to include them all.\nThe command should look like this: \u003ccode\u003epip install dvc[s3]\u003c/code\u003e (in this case AWS S3 dependencies such as \u003ccode\u003eboto3\u003c/code\u003e\nwill be installed automatically).\u003c/p\u003e\n\u003cp\u003eTo install the development version, run:\u003c/p\u003e\n\u003cp\u003e.. code-block:: bash\u003c/p\u003e\n\u003cp\u003epip install git+git://github.com/iterative/dvc\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"package\" class=\"anchor\" href=\"#package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePackage\u003c/h2\u003e\n\u003cp\u003e|Packages|\u003c/p\u003e\n\u003cp\u003eSelf-contained packages for Linux, Windows, and Mac are available. The latest version of the packages\ncan be found on the GitHub \u003ccode\u003ereleases page \u0026lt;https://github.com/iterative/dvc/releases\u0026gt;\u003c/code\u003e_.\u003c/p\u003e\n\u003cp\u003eUbuntu / Debian (deb)\n^^^^^^^^^^^^^^^^^^^^^\n.. code-block:: bash\u003c/p\u003e\n\u003cp\u003esudo wget \u003ca href=\"https://dvc.org/deb/dvc.list\" rel=\"nofollow\"\u003ehttps://dvc.org/deb/dvc.list\u003c/a\u003e -O /etc/apt/sources.list.d/dvc.list\nsudo apt-get update\nsudo apt-get install dvc\u003c/p\u003e\n\u003cp\u003eFedora / CentOS (rpm)\n^^^^^^^^^^^^^^^^^^^^^\n.. code-block:: bash\u003c/p\u003e\n\u003cp\u003esudo wget \u003ca href=\"https://dvc.org/rpm/dvc.repo\" rel=\"nofollow\"\u003ehttps://dvc.org/rpm/dvc.repo\u003c/a\u003e -O /etc/yum.repos.d/dvc.repo\nsudo yum update\nsudo yum install dvc\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"comparison-to-related-technologies\" class=\"anchor\" href=\"#comparison-to-related-technologies\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eComparison to related technologies\u003c/h1\u003e\n\u003cp\u003e#. \u003ccode\u003eGit-annex \u0026lt;https://git-annex.branchable.com/\u0026gt;\u003c/code\u003e_ - DVC uses the idea of storing the content of large files (which should\nnot be in a Git repository) in a local key-value store, and uses file hardlinks/symlinks instead of\ncopying/duplicating files.\u003c/p\u003e\n\u003cp\u003e#. \u003ccode\u003eGit-LFS \u0026lt;https://git-lfs.github.com/\u0026gt;\u003c/code\u003e_ - DVC is compatible with any remote storage (S3, Google Cloud, Azure, SSH,\netc). DVC also uses reflinks or hardlinks to avoid copy operations on checkouts; thus handling large data files\nmuch more efficiently.\u003c/p\u003e\n\u003cp\u003e#. \u003cem\u003eMakefile\u003c/em\u003e (and analogues including ad-hoc scripts) - DVC tracks dependencies (in a directed acyclic graph).\u003c/p\u003e\n\u003cp\u003e#. \u003ccode\u003eWorkflow Management Systems \u0026lt;https://en.wikipedia.org/wiki/Workflow_management_system\u0026gt;\u003c/code\u003e_ - DVC is a workflow\nmanagement system designed specifically to manage machine learning experiments. DVC is built on top of Git.\u003c/p\u003e\n\u003cp\u003e#. \u003ccode\u003eDAGsHub \u0026lt;https://dagshub.com/\u0026gt;\u003c/code\u003e_ - This is a Github equivalent for DVC. Pushing Git+DVC based repositories to DAGsHub will produce in a high level project dashboard; including DVC pipelines and metrics visualizations, as well as links to any DVC-managed files present in cloud storage.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h1\u003e\n\u003cp\u003e|Maintainability| |Donate|\u003c/p\u003e\n\u003cp\u003eContributions are welcome! Please see our \u003ccode\u003eContributing Guide \u0026lt;https://dvc.org/doc/user-guide/contributing/core\u0026gt;\u003c/code\u003e_ for more\ndetails.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"mailing-list\" class=\"anchor\" href=\"#mailing-list\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMailing List\u003c/h1\u003e\n\u003cp\u003eWant to stay up to date? Want to help improve DVC by participating in our occasional polls? Subscribe to our \u003ccode\u003emailing list \u0026lt;https://sweedom.us10.list-manage.com/subscribe/post?u=a08bf93caae4063c4e6a351f6\u0026amp;id=24c0ecc49a\u0026gt;\u003c/code\u003e_. No spam, really low traffic.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"copyright\" class=\"anchor\" href=\"#copyright\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright\u003c/h1\u003e\n\u003cp\u003eThis project is distributed under the Apache license version 2.0 (see the LICENSE file in the project root).\u003c/p\u003e\n\u003cp\u003eBy submitting a pull request to this project, you agree to license your contribution under the Apache license version\n2.0 to this project.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"citation\" class=\"anchor\" href=\"#citation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCitation\u003c/h1\u003e\n\u003cp\u003e|DOI|\u003c/p\u003e\n\u003cp\u003eIterative, \u003cem\u003eDVC: Data Version Control - Git for Data \u0026amp; Models\u003c/em\u003e (2020)\n\u003ccode\u003eDOI:10.5281/zenodo.012345 \u0026lt;https://doi.org/10.5281/zenodo.3677553\u0026gt;\u003c/code\u003e_.\u003c/p\u003e\n\u003cp\u003e.. |Banner| image:: \u003ca href=\"https://dvc.org/img/logo-github-readme.png\" rel=\"nofollow\"\u003ehttps://dvc.org/img/logo-github-readme.png\u003c/a\u003e\n:target: \u003ca href=\"https://dvc.org\" rel=\"nofollow\"\u003ehttps://dvc.org\u003c/a\u003e\n:alt: DVC logo\u003c/p\u003e\n\u003cp\u003e.. |Release| image:: \u003ca href=\"https://img.shields.io/badge/release-ok-brightgreen\" rel=\"nofollow\"\u003ehttps://img.shields.io/badge/release-ok-brightgreen\u003c/a\u003e\n:target: \u003ca href=\"https://travis-ci.com/iterative/dvc/branches\" rel=\"nofollow\"\u003ehttps://travis-ci.com/iterative/dvc/branches\u003c/a\u003e\n:alt: Release\u003c/p\u003e\n\u003cp\u003e.. |CI| image:: \u003ca href=\"https://github.com/iterative/dvc/workflows/Tests/badge.svg?branch=master\" rel=\"nofollow\"\u003ehttps://github.com/iterative/dvc/workflows/Tests/badge.svg?branch=master\u003c/a\u003e\n:target: \u003ca href=\"https://github.com/iterative/dvc/actions\" rel=\"nofollow\"\u003ehttps://github.com/iterative/dvc/actions\u003c/a\u003e\n:alt: GHA Tests\u003c/p\u003e\n\u003cp\u003e.. |Maintainability| image:: \u003ca href=\"https://codeclimate.com/github/iterative/dvc/badges/gpa.svg\" rel=\"nofollow\"\u003ehttps://codeclimate.com/github/iterative/dvc/badges/gpa.svg\u003c/a\u003e\n:target: \u003ca href=\"https://codeclimate.com/github/iterative/dvc\" rel=\"nofollow\"\u003ehttps://codeclimate.com/github/iterative/dvc\u003c/a\u003e\n:alt: Code Climate\u003c/p\u003e\n\u003cp\u003e.. |Coverage| image:: \u003ca href=\"https://codecov.io/gh/iterative/dvc/branch/master/graph/badge.svg\" rel=\"nofollow\"\u003ehttps://codecov.io/gh/iterative/dvc/branch/master/graph/badge.svg\u003c/a\u003e\n:target: \u003ca href=\"https://codecov.io/gh/iterative/dvc\" rel=\"nofollow\"\u003ehttps://codecov.io/gh/iterative/dvc\u003c/a\u003e\n:alt: Codecov\u003c/p\u003e\n\u003cp\u003e.. |Donate| image:: \u003ca href=\"https://img.shields.io/badge/patreon-donate-green.svg?logo=patreon\" rel=\"nofollow\"\u003ehttps://img.shields.io/badge/patreon-donate-green.svg?logo=patreon\u003c/a\u003e\n:target: \u003ca href=\"https://www.patreon.com/DVCorg/overview\" rel=\"nofollow\"\u003ehttps://www.patreon.com/DVCorg/overview\u003c/a\u003e\n:alt: Donate\u003c/p\u003e\n\u003cp\u003e.. |Snap| image:: \u003ca href=\"https://img.shields.io/badge/snap-install-82BEA0.svg?logo=snapcraft\" rel=\"nofollow\"\u003ehttps://img.shields.io/badge/snap-install-82BEA0.svg?logo=snapcraft\u003c/a\u003e\n:target: \u003ca href=\"https://snapcraft.io/dvc\" rel=\"nofollow\"\u003ehttps://snapcraft.io/dvc\u003c/a\u003e\n:alt: Snapcraft\u003c/p\u003e\n\u003cp\u003e.. |Choco| image:: \u003ca href=\"https://img.shields.io/chocolatey/v/dvc?label=choco\" rel=\"nofollow\"\u003ehttps://img.shields.io/chocolatey/v/dvc?label=choco\u003c/a\u003e\n:target: \u003ca href=\"https://chocolatey.org/packages/dvc\" rel=\"nofollow\"\u003ehttps://chocolatey.org/packages/dvc\u003c/a\u003e\n:alt: Chocolatey\u003c/p\u003e\n\u003cp\u003e.. |Brew| image:: \u003ca href=\"https://img.shields.io/homebrew/v/dvc?label=brew\" rel=\"nofollow\"\u003ehttps://img.shields.io/homebrew/v/dvc?label=brew\u003c/a\u003e\n:target: \u003ca href=\"https://formulae.brew.sh/formula/dvc\" rel=\"nofollow\"\u003ehttps://formulae.brew.sh/formula/dvc\u003c/a\u003e\n:alt: Homebrew\u003c/p\u003e\n\u003cp\u003e.. |Conda| image:: \u003ca href=\"https://img.shields.io/conda/v/conda-forge/dvc.svg?label=conda\u0026amp;logo=conda-forge\" rel=\"nofollow\"\u003ehttps://img.shields.io/conda/v/conda-forge/dvc.svg?label=conda\u0026amp;logo=conda-forge\u003c/a\u003e\n:target: \u003ca href=\"https://anaconda.org/conda-forge/dvc\" rel=\"nofollow\"\u003ehttps://anaconda.org/conda-forge/dvc\u003c/a\u003e\n:alt: Conda-forge\u003c/p\u003e\n\u003cp\u003e.. |PyPI| image:: \u003ca href=\"https://img.shields.io/pypi/v/dvc.svg?label=pip\u0026amp;logo=PyPI\u0026amp;logoColor=white\" rel=\"nofollow\"\u003ehttps://img.shields.io/pypi/v/dvc.svg?label=pip\u0026amp;logo=PyPI\u0026amp;logoColor=white\u003c/a\u003e\n:target: \u003ca href=\"https://pypi.org/project/dvc\" rel=\"nofollow\"\u003ehttps://pypi.org/project/dvc\u003c/a\u003e\n:alt: PyPI\u003c/p\u003e\n\u003cp\u003e.. |Packages| image:: \u003ca href=\"https://img.shields.io/github/v/release/iterative/dvc?label=deb%7Cpkg%7Crpm%7Cexe\u0026amp;logo=GitHub\" rel=\"nofollow\"\u003ehttps://img.shields.io/github/v/release/iterative/dvc?label=deb|pkg|rpm|exe\u0026amp;logo=GitHub\u003c/a\u003e\n:target: \u003ca href=\"https://github.com/iterative/dvc/releases/latest\" rel=\"nofollow\"\u003ehttps://github.com/iterative/dvc/releases/latest\u003c/a\u003e\n:alt: deb|pkg|rpm|exe\u003c/p\u003e\n\u003cp\u003e.. |DOI| image:: \u003ca href=\"https://img.shields.io/badge/DOI-10.5281/zenodo.3677553-blue.svg\" rel=\"nofollow\"\u003ehttps://img.shields.io/badge/DOI-10.5281/zenodo.3677553-blue.svg\u003c/a\u003e\n:target: \u003ca href=\"https://doi.org/10.5281/zenodo.3677553\" rel=\"nofollow\"\u003ehttps://doi.org/10.5281/zenodo.3677553\u003c/a\u003e\n:alt: DOI\u003c/p\u003e\n\u003cp\u003e.. |Flowchart| image:: \u003ca href=\"https://dvc.org/img/flow.gif\" rel=\"nofollow\"\u003ehttps://dvc.org/img/flow.gif\u003c/a\u003e\n:target: \u003ca href=\"https://dvc.org/img/flow.gif\" rel=\"nofollow\"\u003ehttps://dvc.org/img/flow.gif\u003c/a\u003e\n:alt: how_dvc_works\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":83878269,"name":"dvc","owner_login":"iterative","description":"🦉Data Version Control | Git for Data \u0026 Models","pushed_at":"2021-01-14T07:14:48.000Z","stargazers_count":7050,"open_issues_count":494,"has_downloads":true,"archived":false,"license_key":"apache-2.0","homepage":"https://dvc.org","private":false,"project_created_at":"2017-03-04T08:16:33.000Z","project_updated_at":"2021-01-14T00:30:29.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

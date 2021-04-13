@@ -1,0 +1,1718 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/developers/apps/authorizing-oauth-apps by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:34 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Authorizing OAuth Apps - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="You can enable other users to authorize your OAuth App.">
+  
+  
+    <meta name="keywords" content="oauth apps">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/developers/apps/authorizing-oauth-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/developers/apps/authorizing-oauth-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/developers/apps/authorizing-oauth-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/developers/apps/authorizing-oauth-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/developers/apps/authorizing-oauth-apps"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="NKAynds7-ZDONbPqLqBP6ixL5x-g4ZKgauks">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="Developers" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/developers" class="pl-4 pr-5 pb-1 f4">Developers</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/developers/overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Overview</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/about-githubs-apis" class="pl-4 pr-5 py-1">About GitHub's APIs</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/managing-deploy-keys" class="pl-4 pr-5 py-1">Managing deploy keys</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/viewing-deployment-history" class="pl-4 pr-5 py-1">Viewing deployment history</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/using-ssh-agent-forwarding" class="pl-4 pr-5 py-1">Using SSH agent forwarding</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/secret-scanning" class="pl-4 pr-5 py-1">Secret scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/replacing-github-services" class="pl-4 pr-5 py-1">Replacing GitHub Services</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/developers/overview/github-developer-program" class="pl-4 pr-5 py-1 pb-2">GitHub Developer Program</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/developers/webhooks-and-events" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Webhooks and events</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-topics list-style-none position-relative">
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/webhooks-and-events/webhooks" class="pl-4 pr-5 py-2">Webhooks</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/about-webhooks" class="pl-6 pr-5 py-1">About webhooks</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/creating-webhooks" class="pl-6 pr-5 py-1">Creating webhooks</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/configuring-your-server-to-receive-payloads" class="pl-6 pr-5 py-1">Configuring your server to receive payloads</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/testing-webhooks" class="pl-6 pr-5 py-1">Testing webhooks</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/securing-your-webhooks" class="pl-6 pr-5 py-1">Securing your webhooks</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/webhook-events-and-payloads" class="pl-6 pr-5 py-1 pb-2">Webhook events and payloads</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/webhooks-and-events/events" class="pl-4 pr-5 py-2">Events</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/github-event-types" class="pl-6 pr-5 py-1">GitHub event types</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/webhooks-and-events/issue-event-types" class="pl-6 pr-5 py-1 pb-2">Issue event types</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+      <!-- some categories have no maptopics, only articles -->
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/developers/apps" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Apps</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-topics list-style-none position-relative">
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/apps/getting-started-with-apps" class="pl-4 pr-5 py-2">Getting started with apps</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/about-apps" class="pl-6 pr-5 py-1">About apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/activating-optional-features-for-apps" class="pl-6 pr-5 py-1">Activating optional features for apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps" class="pl-6 pr-5 py-1">Differences between GitHub Apps and OAuth Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/migrating-oauth-apps-to-github-apps" class="pl-6 pr-5 py-1">Migrating OAuth Apps to GitHub Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/setting-up-your-development-environment-to-create-a-github-app" class="pl-6 pr-5 py-1 pb-2">Setting up your development environment to create a GitHub App</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/apps/building-github-apps" class="pl-4 pr-5 py-2">Building GitHub Apps</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-a-github-app" class="pl-6 pr-5 py-1">Creating a GitHub App</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/setting-permissions-for-github-apps" class="pl-6 pr-5 py-1">Setting permissions for GitHub Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/authenticating-with-github-apps" class="pl-6 pr-5 py-1">Authenticating with GitHub Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps" class="pl-6 pr-5 py-1">Identifying and authorizing users for GitHub Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/rate-limits-for-github-apps" class="pl-6 pr-5 py-1">Rate limits for GitHub Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/refreshing-user-to-server-access-tokens" class="pl-6 pr-5 py-1">Refreshing user-to-server access tokens</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-a-github-app-from-a-manifest" class="pl-6 pr-5 py-1">Creating a GitHub App from a manifest</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-a-github-app-using-url-parameters" class="pl-6 pr-5 py-1">Creating a GitHub App using URL parameters</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-a-custom-badge-for-your-github-app" class="pl-6 pr-5 py-1 pb-2">Creating a custom badge for your GitHub App</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/apps/managing-github-apps" class="pl-4 pr-5 py-2">Managing GitHub Apps</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/installing-github-apps" class="pl-6 pr-5 py-1">Installing GitHub Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/modifying-a-github-app" class="pl-6 pr-5 py-1">Modifying a GitHub App</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/editing-a-github-apps-permissions" class="pl-6 pr-5 py-1">Editing a GitHub App's permissions</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/making-a-github-app-public-or-private" class="pl-6 pr-5 py-1">Making a GitHub App public or private</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/suspending-a-github-app-installation" class="pl-6 pr-5 py-1">Suspending a GitHub App installation</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/transferring-ownership-of-a-github-app" class="pl-6 pr-5 py-1">Transferring ownership of a GitHub App</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/deleting-a-github-app" class="pl-6 pr-5 py-1 pb-2">Deleting a GitHub App</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic active ">
+              <a href="https://docs.github.com/en/developers/apps/building-oauth-apps" class="pl-4 pr-5 py-2">Building OAuth Apps</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-an-oauth-app" class="pl-6 pr-5 py-1">Creating an OAuth App</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article active is-current-page">
+                  <a href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps" class="pl-6 pr-5 py-1">Authorizing OAuth Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/scopes-for-oauth-apps" class="pl-6 pr-5 py-1">Scopes for OAuth Apps</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-a-custom-badge-for-your-oauth-app" class="pl-6 pr-5 py-1 pb-2">Creating a custom badge for your OAuth App</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/apps/managing-oauth-apps" class="pl-4 pr-5 py-2">Managing OAuth Apps</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/modifying-an-oauth-app" class="pl-6 pr-5 py-1">Modifying an OAuth App</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/transferring-ownership-of-an-oauth-app" class="pl-6 pr-5 py-1">Transferring ownership of an OAuth App</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/troubleshooting-authorization-request-errors" class="pl-6 pr-5 py-1">Troubleshooting authorization request errors</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/troubleshooting-oauth-app-access-token-request-errors" class="pl-6 pr-5 py-1">Troubleshooting OAuth App access token request errors</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/deleting-an-oauth-app" class="pl-6 pr-5 py-1 pb-2">Deleting an OAuth App</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/developers/apps/guides" class="pl-4 pr-5 py-2">Guides</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/using-the-github-api-in-your-app" class="pl-6 pr-5 py-1">Using the GitHub API in your app</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/using-content-attachments" class="pl-6 pr-5 py-1">Using content attachments</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/developers/apps/creating-ci-tests-with-the-checks-api" class="pl-6 pr-5 py-1 pb-2">Creating CI tests with the Checks API</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+      <!-- some categories have no maptopics, only articles -->
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/developers/github-marketplace" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">GitHub Marketplace</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    Developers
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/developers/apps/authorizing-oauth-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/developers/apps/authorizing-oauth-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/developers/apps/authorizing-oauth-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/developers/apps/authorizing-oauth-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: Developers" href="https://docs.github.com/en/developers" class="d-inline-block ">
+        Developers
+      </a>
+    
+  
+    
+      <a title="category: Apps" href="https://docs.github.com/en/developers/apps" class="d-inline-block ">
+        Apps
+      </a>
+    
+  
+    
+      <a title="maptopic: Building OAuth Apps" href="https://docs.github.com/en/developers/apps/building-oauth-apps" class="d-inline-block ">
+        Building OAuth Apps
+      </a>
+    
+  
+    
+      <a title="article: Authorizing OAuth Apps" href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps" class="d-inline-block text-gray-light">
+        Authorizing OAuth Apps
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/developers/apps/authorizing-oauth-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Authorizing OAuth Apps</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"><p>You can enable other users to authorize your OAuth App.</p></div>
+      
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#web-application-flow">Web application flow</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#device-flow">Device flow</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#non-web-application-flow">Non-Web application flow</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#redirect-urls">Redirect URLs</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#creating-multiple-tokens-for-oauth-apps">Creating multiple tokens for OAuth Apps</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#directing-users-to-review-their-access">Directing users to review their access</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#troubleshooting">Troubleshooting</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#further-reading">Further reading</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <p>GitHub&apos;s OAuth implementation supports the standard <a href="https://tools.ietf.org/html/rfc6749#section-4.1">authorization code grant type</a> and the OAuth 2.0 <a href="https://tools.ietf.org/html/rfc8628">Device Authorization Grant</a> for apps that don&apos;t have access to a web browser.</p>
+<p>If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the <a href="#non-web-application-flow">non-web application flow</a>.</p>
+<p>To authorize your OAuth app, consider which authorization flow best fits your app.</p>
+<ul>
+<li><a href="#web-application-flow">web application flow</a>: Used to authorize users for standard OAuth apps that run in the browser. (The <a href="https://tools.ietf.org/html/rfc6749#section-4.2">implicit grant type</a> is not supported.)</li>
+<li><a href="#device-flow">device flow</a>:  Used for headless apps, such as CLI tools.</li>
+</ul>
+<h3 id="web-application-flow"><a href="#web-application-flow">Web application flow</a></h3>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See &quot;<a href="https://docs.github.com/en/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps">Identifying and authorizing users for GitHub Apps</a>&quot; for more information.</p>
+</div>
+<p>The web application flow to authorize users for your app is:</p>
+<ol>
+<li>Users are redirected to request their GitHub identity</li>
+<li>Users are redirected back to your site by GitHub</li>
+<li>Your app accesses the API with the user&apos;s access token</li>
+</ol>
+<h4 id="1-request-a-users-github-identity"><a href="#1-request-a-users-github-identity">1. Request a user&apos;s GitHub identity</a></h4>
+<pre><code>GET https://github.com/login/oauth/authorize
+</code></pre>
+<p>When your GitHub App specifies a <code>login</code> parameter, it prompts users with a specific account they can use for signing in and authorizing your app.</p>
+<h5 id="parameters"><a href="#parameters">Parameters</a></h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>client_id</code></td><td><code>string</code></td><td><strong>Required</strong>. The client ID you received from GitHub when you <a href="https://github.com/settings/applications/new">registered</a>.</td></tr><tr><td><code>redirect_uri</code></td><td><code>string</code></td><td>The URL in your application where users will be sent after authorization. See details below about <a href="#redirect-urls">redirect urls</a>.</td></tr><tr><td><code>login</code></td><td><code>string</code></td><td>Suggests a specific account to use for signing in and authorizing the app.</td></tr><tr><td><code>scope</code></td><td><code>string</code></td><td>A space-delimited list of <a href="https://docs.github.com/en/apps/building-oauth-apps/understanding-scopes-for-oauth-apps">scopes</a>. If not provided, <code>scope</code> defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won&apos;t be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with <code>user</code> scope and another token with <code>repo</code> scope, a third web flow that does not provide a <code>scope</code> will receive a token with <code>user</code> and <code>repo</code> scope.</td></tr><tr><td><code>state</code></td><td><code>string</code></td><td>An unguessable random string. It is used to protect against cross-site request forgery attacks.</td></tr><tr><td><code>allow_signup</code></td><td><code>string</code></td><td>Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is <code>true</code>. Use <code>false</code> when a policy prohibits signups.</td></tr></tbody></table>
+<h4 id="2-users-are-redirected-back-to-your-site-by-github"><a href="#2-users-are-redirected-back-to-your-site-by-github">2. Users are redirected back to your site by GitHub</a></h4>
+<p>If the user accepts your request, GitHub redirects back to your site with a temporary <code>code</code> in a code parameter as well as the state you provided in the previous step in a <code>state</code> parameter. The temporary code will expire after 10 minutes. If the states don&apos;t match, then a third party created the request, and you should abort the process.</p>
+<p>Exchange this <code>code</code> for an access token:</p>
+<pre><code>POST https://github.com/login/oauth/access_token
+</code></pre>
+<h5 id="parameters-1"><a href="#parameters-1">Parameters</a></h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>client_id</code></td><td><code>string</code></td><td><strong>Required.</strong> The client ID you received from GitHub for your OAuth App.</td></tr><tr><td><code>client_secret</code></td><td><code>string</code></td><td><strong>Required.</strong> The client secret you received from GitHub for your OAuth App.</td></tr><tr><td><code>code</code></td><td><code>string</code></td><td><strong>Required.</strong> The code you received as a response to Step 1.</td></tr><tr><td><code>redirect_uri</code></td><td><code>string</code></td><td>The URL in your application where users are sent after authorization.</td></tr><tr><td><code>state</code></td><td><code>string</code></td><td>The unguessable random string you provided in Step 1.</td></tr></tbody></table>
+<h5 id="response"><a href="#response">Response</a></h5>
+<p>By default, the response takes the following form:</p>
+<pre><code>access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&amp;token_type=bearer
+</code></pre>
+<p>You can also receive the content in different formats depending on the Accept
+header:</p>
+<pre><code>Accept: application/json
+{&quot;access_token&quot;:&quot;gho_16C7e42F292c6912E7710c838347Ae178B4a&quot;, &quot;scope&quot;:&quot;repo,gist&quot;, &quot;token_type&quot;:&quot;bearer&quot;}
+
+Accept: application/xml
+&lt;OAuth&gt;
+  &lt;token_type&gt;bearer&lt;/token_type&gt;
+  &lt;scope&gt;repo,gist&lt;/scope&gt;
+  &lt;access_token&gt;gho_16C7e42F292c6912E7710c838347Ae178B4a&lt;/access_token&gt;
+&lt;/OAuth&gt;
+</code></pre>
+<h4 id="3-use-the-access-token-to-access-the-api"><a href="#3-use-the-access-token-to-access-the-api">3. Use the access token to access the API</a></h4>
+<p>The access token allows you to make requests to the API on a behalf of a user.</p>
+<pre><code>Authorization: token OAUTH-TOKEN
+GET https://api.github.com/user
+</code></pre>
+<p>For example, in curl you can set the Authorization header like this:</p>
+<pre><code class="hljs language-shell">curl -H &quot;Authorization: token OAUTH-TOKEN&quot; https://api.github.com/user</code></pre>
+<h3 id="device-flow"><a href="#device-flow">Device flow</a></h3>
+<p>The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.</p>
+<h4 id="overview-of-the-device-flow"><a href="#overview-of-the-device-flow">Overview of the device flow</a></h4>
+<ol>
+<li>Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.</li>
+<li>The app prompts the user to enter a user verification code at <a href="https://github.com/login/device"><code>https://github.com/login/device</code></a>.</li>
+<li>The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.</li>
+</ol>
+<h4 id="step-1-app-requests-the-device-and-user-verification-codes-from-github"><a href="#step-1-app-requests-the-device-and-user-verification-codes-from-github">Step 1: App requests the device and user verification codes from GitHub</a></h4>
+<pre><code>POST https://github.com/login/device/code
+</code></pre>
+<p>Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.</p>
+<h5 id="input-parameters"><a href="#input-parameters">Input Parameters</a></h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>client_id</code></td><td><code>string</code></td><td><strong>Required.</strong> The client ID you received from GitHub for your app.</td></tr><tr><td><code>scope</code></td><td><code>string</code></td><td>The scope that your app is requesting access to.</td></tr></tbody></table>
+<h5 id="response-1"><a href="#response-1">Response</a></h5>
+<pre><code class="hljs language-JSON">{
+  <span class="hljs-attr">&quot;device_code&quot;</span>: <span class="hljs-string">&quot;3584d83530557fdd1f46af8289938c8ef79f9dc5&quot;</span>,
+  <span class="hljs-attr">&quot;user_code&quot;</span>: <span class="hljs-string">&quot;WDJB-MJHT&quot;</span>,
+  <span class="hljs-attr">&quot;verification_uri&quot;</span>: <span class="hljs-string">&quot;https://github.com/login/device&quot;</span>,
+  <span class="hljs-attr">&quot;expires_in&quot;</span>: <span class="hljs-number">900</span>,
+  <span class="hljs-attr">&quot;interval&quot;</span>: <span class="hljs-number">5</span>
+}
+</code></pre>
+<h5 id="response-parameters"><a href="#response-parameters">Response parameters</a></h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>device_code</code></td><td><code>string</code></td><td>The device verification code is 40 characters and used to verify the device.</td></tr><tr><td><code>user_code</code></td><td><code>string</code></td><td>The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.</td></tr><tr><td><code>verification_uri</code></td><td><code>string</code></td><td>The verification URL where users need to enter the <code>user_code</code>: <a href="https://github.com/login/device"><code>https://github.com/login/device</code></a>.</td></tr><tr><td><code>expires_in</code></td><td><code>integer</code></td><td>The number of seconds before the <code>device_code</code> and <code>user_code</code> expire. The default is 900 seconds or 15 minutes.</td></tr><tr><td><code>interval</code></td><td><code>integer</code></td><td>The minimum number of seconds that must pass before you can make a new access token request (<code>POST https://github.com/login/oauth/access_token</code>) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a <code>slow_down</code> error.</td></tr></tbody></table>
+<h4 id="step-2-prompt-the-user-to-enter-the-user-code-in-a-browser"><a href="#step-2-prompt-the-user-to-enter-the-user-code-in-a-browser">Step 2: Prompt the user to enter the user code in a browser</a></h4>
+<p>Your device will show the user verification code and prompt the user to enter the code at <a href="https://github.com/login/device"><code>https://github.com/login/device</code></a>.</p>
+<p>  <img src="https://docs.github.com/assets/images/github-apps/device_authorization_page_for_user_code.png" alt="Field to enter the user verification code displayed on your device"></p>
+<h4 id="step-3-app-polls-github-to-check-if-the-user-authorized-the-device"><a href="#step-3-app-polls-github-to-check-if-the-user-authorized-the-device">Step 3: App polls GitHub to check if the user authorized the device</a></h4>
+<pre><code>POST https://github.com/login/oauth/access_token
+</code></pre>
+<p>Your app will make device authorization requests that poll <code>POST https://github.com/login/oauth/access_token</code>, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling <code>interval</code> retrieved in step 1 to avoid rate limit errors. For more information, see &quot;<a href="#rate-limits-for-the-device-flow">Rate limits for the device flow</a>.&quot;</p>
+<p>The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with <code>POST https://github.com/login/device/code</code>.</p>
+<p>Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.</p>
+<h5 id="input-parameters-1"><a href="#input-parameters-1">Input parameters</a></h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>client_id</code></td><td><code>string</code></td><td><strong>Required.</strong> The client ID you received from GitHub for your OAuth App.</td></tr><tr><td><code>device_code</code></td><td><code>string</code></td><td><strong>Required.</strong> The device verification code you received from the <code>POST https://github.com/login/device/code</code> request.</td></tr><tr><td><code>grant_type</code></td><td><code>string</code></td><td><strong>Required.</strong> The grant type must be <code>urn:ietf:params:oauth:grant-type:device_code</code>.</td></tr></tbody></table>
+<h5 id="response-2"><a href="#response-2">Response</a></h5>
+<pre><code class="hljs language-json">{
+ <span class="hljs-attr">&quot;access_token&quot;</span>: <span class="hljs-string">&quot;gho_16C7e42F292c6912E7710c838347Ae178B4a&quot;</span>,
+  <span class="hljs-attr">&quot;token_type&quot;</span>: <span class="hljs-string">&quot;bearer&quot;</span>,
+  <span class="hljs-attr">&quot;scope&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>
+}
+</code></pre>
+<h4 id="rate-limits-for-the-device-flow"><a href="#rate-limits-for-the-device-flow">Rate limits for the device flow</a></h4>
+<p>When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.</p>
+<p>If you make more than one access token request (<code>POST https://github.com/login/oauth/access_token</code>) within the required minimum timeframe between requests (or <code>interval</code>), you&apos;ll hit the rate limit and receive a <code>slow_down</code> error response. The <code>slow_down</code> error response adds 5 seconds to the last <code>interval</code>. For more information, see the <a href="#errors-for-the-device-flow">Errors for the device flow</a>.</p>
+<h4 id="error-codes-for-the-device-flow"><a href="#error-codes-for-the-device-flow">Error codes for the device flow</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Error code</th><th>Description</th></tr></thead><tbody><tr><td><code>authorization_pending</code></td><td>This error occurs when the authorization request is pending and the user hasn&apos;t entered the user code yet. The app is expected to keep polling the <code>POST https://github.com/login/oauth/access_token</code> request without exceeding the <a href="#response-parameters"><code>interval</code></a>, which requires a minimum number of seconds between each request.</td></tr><tr><td><code>slow_down</code></td><td>When you receive the <code>slow_down</code> error, 5 extra seconds are added to the minimum <code>interval</code> or timeframe required between your requests using <code>POST https://github.com/login/oauth/access_token</code>. For example, if the starting interval required at least 5 seconds between requests and you get a <code>slow_down</code> error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new <code>interval</code> that you must use.</td></tr><tr><td><code>expired_token</code></td><td>If the device code expired, then you will see the <code>token_expired</code> error. You must make a new request for a device code.</td></tr><tr><td><code>unsupported_grant_type</code></td><td>The grant type must be <code>urn:ietf:params:oauth:grant-type:device_code</code> and included as an input parameter when you poll the OAuth token request <code>POST https://github.com/login/oauth/access_token</code>.</td></tr><tr><td><code>incorrect_client_credentials</code></td><td>For the device flow, you must pass your app&apos;s client ID, which you can find on your app settings page. The <code>client_secret</code> is not needed for the device flow.</td></tr><tr><td><code>incorrect_device_code</code></td><td>The device_code provided is not valid.</td></tr><tr><td><code>access_denied</code></td><td>When a user clicks cancel during the authorization process, you&apos;ll receive a <code>access_denied</code> error and the user won&apos;t be able to use the verification code again.</td></tr></tbody></table>
+<p>For more information, see the &quot;<a href="https://tools.ietf.org/html/rfc8628#section-3.5">OAuth 2.0 Device Authorization Grant</a>.&quot;</p>
+<h3 id="non-web-application-flow"><a href="#non-web-application-flow">Non-Web application flow</a></h3>
+<p>Non-web authentication is available for limited situations like testing. If you need to, you can use <a href="https://docs.github.com/en/rest/overview/other-authentication-methods#basic-authentication">Basic Authentication</a> to create a personal access token using your <a href="https://docs.github.com/en/articles/creating-an-access-token-for-command-line-use">Personal access tokens settings page</a>. This technique enables the user to revoke access at any time.</p>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> When using the non-web application flow to create an OAuth2 token, make sure to understand how to <a href="https://docs.github.com/en/rest/overview/other-authentication-methods#working-with-two-factor-authentication">work with
+two-factor authentication</a> if
+you or your users have two-factor authentication enabled.</p>
+</div>
+<h3 id="redirect-urls"><a href="#redirect-urls">Redirect URLs</a></h3>
+<p>The <code>redirect_uri</code> parameter is optional. If left out, GitHub will
+redirect users to the callback URL configured in the OAuth Application
+settings. If provided, the redirect URL&apos;s host and port must exactly
+match the callback URL. The redirect URL&apos;s path must reference a
+subdirectory of the callback URL.</p>
+<pre><code>CALLBACK: http://example.com/path
+
+GOOD: http://example.com/path
+GOOD: http://example.com/path/subdir/other
+BAD:  http://example.com/bar
+BAD:  http://example.com/
+BAD:  http://example.com:8080/path
+BAD:  http://oauth.example.com:8080/path
+BAD:  http://example.org
+</code></pre>
+<h4 id="localhost-redirect-urls"><a href="#localhost-redirect-urls">Localhost redirect urls</a></h4>
+<p>The optional <code>redirect_uri</code> parameter can also be used for localhost URLs. If the application specifies a localhost URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The <code>redirect_uri</code> does not need to match the port specified in the callback url for the app.</p>
+<p>For the <code>http://localhost/path</code> callback URL, you can use this <code>redirect_uri</code>:</p>
+<pre><code>http://localhost:1234/path
+</code></pre>
+<h3 id="creating-multiple-tokens-for-oauth-apps"><a href="#creating-multiple-tokens-for-oauth-apps">Creating multiple tokens for OAuth Apps</a></h3>
+<p>You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.</p>
+<p>This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user&apos;s private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.</p>
+<p>There is a limit to the number of tokens that are issued per user/application/scope combination. If your application requests enough tokens to go over one of the limits, older tokens <em>with the same scope being requested</em> will stop working.</p>
+<div class="extended-markdown warning border rounded-1 mb-4 p-3 border-red bg-red-light f5">
+<p><strong>Warning</strong>: Revoking all permission from an OAuth App deletes any SSH keys the application generated on behalf of the user, including <a href="https://docs.github.com/en/developers/overview/managing-deploy-keys#deploy-keys">deploy keys</a>.</p>
+</div>
+<h3 id="directing-users-to-review-their-access"><a href="#directing-users-to-review-their-access">Directing users to review their access</a></h3>
+<p>You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.</p>
+<p>To build this link, you&apos;ll need your OAuth Apps <code>client_id</code> that you received from GitHub when you registered the application.</p>
+<pre><code>https://github.com/settings/connections/applications/:client_id
+</code></pre>
+<div class="extended-markdown tip border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Tip:</strong> To learn more about the resources that your OAuth App can access for a user, see &quot;<a href="https://docs.github.com/en/rest/guides/discovering-resources-for-a-user">Discovering resources for a user</a>.&quot;</p>
+</div>
+<h3 id="troubleshooting"><a href="#troubleshooting">Troubleshooting</a></h3>
+<ul>
+<li>
+<p>&quot;<a href="https://docs.github.com/en/apps/managing-oauth-apps/troubleshooting-authorization-request-errors">Troubleshooting authorization request errors</a>&quot;</p>
+</li>
+<li>
+<p>&quot;<a href="https://docs.github.com/en/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors">Troubleshooting OAuth App access token request errors</a>&quot;</p>
+</li>
+<li>
+<p>&quot;<a href="#errors-for-the-device-flow">Device flow errors</a>&quot;</p>
+</li>
+</ul>
+<h3 id="further-reading"><a href="#further-reading">Further reading</a></h3>
+<ul>
+<li>&quot;<a href="https://docs.github.com/en/github/authenticating-to-github/about-authentication-to-github">About authentication to GitHub</a>&quot;</li>
+</ul>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/developers/apps/authorizing-oauth-apps.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/developers/apps/authorizing-oauth-apps by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:34 GMT -->
+</html>

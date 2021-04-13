@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Preview</title>
+		<meta charset="UTF-8">
+		<script src="../src/Preview.js"></script>
+		<script>
+			function init( ) {
+				var media = new PREVIEW.Media( 'estranged-video.mp4' );
+				var camera = new PREVIEW.SmoothedCamera( );
+				
+				// Drag to move, scroll wheel to zoom, middle click drag to rotate, esc to reset
+				var input = new PREVIEW.BasicInputBehaviour( camera );
+				
+				var stage_element = document.getElementById( 'stage' );
+				
+				var stage = new PREVIEW.Stage( stage_element, media.create( ), camera );
+				stage.create( );
+				
+				( function( ) {
+					stage.update( );
+					requestAnimFrame( arguments.callee );
+				} )( );
+			}
+		</script>
+		<style>
+			body {
+				margin:0px;
+			}
+		
+			#stage {
+				background: lightgray;
+				height: 100%;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body onload="init( )">
+		<div id="stage"></div>
+	</body>
+</html>

@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":138,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Actions Toolkit</title>
+<meta name="description" content="🛠 A toolkit for building GitHub Actions in Node.js">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/JasonEtco/actions-toolkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "JasonEtco/actions-toolkit",
+  "description": "🛠 A toolkit for building GitHub Actions in Node.js",
+  "url": "https://awesomeopensource.com/project/JasonEtco/actions-toolkit",
+  "sku": "project/JasonEtco/actions-toolkit",
+  "mpn": "project/JasonEtco/actions-toolkit",
+  "image": "https://github.com/JasonEtco.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "JasonEtco/actions-toolkit",
+    "logo": "https://github.com/JasonEtco.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.73",
+    "ratingCount": "840"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="unAcIXbF++h1L2uhH1TqT/gjVfoXoekvuCC1bLlzdtRJd1/tGqzR4ZxHmv+UI44OP+uNgr5IljuYKJGwlnMBYg==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/JasonEtco/actions-toolkit","location":"/project/JasonEtco/actions-toolkit","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/JasonEtco/actions-toolkit","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-4d272485-5ef1-4aa6-b1bb-881cc1f60559"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Actions <!-- -->Toolkit</div><div class="aos_project_metadata_description">🛠 A toolkit for building GitHub Actions in Node.js</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">840</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><div class="aos_project_metadata_header"><a href="https://github.com/JasonEtco/actions-toolkit" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/JasonEtco/actions-toolkit" target="_blank">https://github.com/JasonEtco/actions-toolkit</a></span><div class="aos_project_metadata_header"><a href="https://github.com/JasonEtco/actions-toolkit/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/JasonEtco/actions-toolkit/issues" target="_blank">0</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">13 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/typescript"><div style="display:block;text-decoration:none;padding-bottom:10px">typescript<span> (<!-- -->9,902<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nodejs"><div style="display:block;text-decoration:none;padding-bottom:10px">nodejs<span> (<!-- -->3,563<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/workflow"><div style="display:block;text-decoration:none;padding-bottom:10px">workflow<span> (<!-- -->315<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/github-actions"><div style="display:block;text-decoration:none;padding-bottom:10px">github-actions<span> (<!-- -->197<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/toolkit"><div style="display:block;text-decoration:none;padding-bottom:10px">toolkit<span> (<!-- -->100<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/actions"><div style="display:block;text-decoration:none;padding-bottom:10px">actions<span> (<!-- -->98<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h3 align="center">
+<a id="github-actions-toolkit" class="anchor" href="#github-actions-toolkit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GitHub Actions Toolkit</h3>
+<p align="center">
+  An opinionated toolkit for building GitHub Actions in Node.js<br>
+  <a href="#usage">Usage</a> •
+  <a href="#api">API</a> •
+  <a href="#how-to-test-your-github-actions">How to test your Action</a> •
+  <a href="#faq">FAQ</a>
+</p>
+<p align="center"><a href="https://github.com/JasonEtco/actions-toolkit" rel="nofollow"><img alt="GitHub Actions status" src="https://github.com/JasonEtco/actions-toolkit/workflows/Node%20CI/badge.svg" style="max-width:100%;"></a> <a href="https://codecov.io/gh/JasonEtco/actions-toolkit/" rel="nofollow"><img src="https://badgen.now.sh/codecov/c/github/JasonEtco/actions-toolkit" alt="Codecov" style="max-width:100%;"></a></p>
+<p>This toolkit is an opinionated alternative to (and wrapper around) the <a href="https://github.com/actions/toolkit" rel="nofollow">official toolkit</a>. <code>actions/toolkit</code> makes many features optional in the interest of performance, so you may prefer to use it instead of this library.</p>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+<pre lang="sh" class="highlight-sh"><span class="nv">$ </span>npm <span class="nb">install </span>actions-toolkit
+</pre>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="p">{</span> <span class="nx">Toolkit</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'actions-toolkit'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">tools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">()</span>
+</pre>
+<h3>
+<a id="bootstrap-a-new-action" class="anchor" href="#bootstrap-a-new-action" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bootstrap a new action</h3>
+<pre><code>$ npx actions-toolkit my-cool-action
+</code></pre>
+<p>This will create a new folder <code>my-cool-action</code> with the following files:</p>
+<pre><code>├── Dockerfile
+├── action.yml
+├── index.js
+├── index.test.js
+└── package.json
+</code></pre>
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+<ul>
+<li><a href="#toolkit-options">The Toolkit class</a></li>
+<li><a href="#toolsgithub">Authenticated GitHub API client</a></li>
+<li><a href="#toolslog">Logging</a></li>
+<li><a href="#toolsinputs">Getting workflows' inputs</a></li>
+<li><a href="#toolsoutputs">Output information from your action</a></li>
+<li><a href="#toolscommandcommand-args-match--promise">Slash commands</a></li>
+<li><a href="#toolsreadfilepath-encoding--utf8">Reading files</a></li>
+<li><a href="#toolsexec">Run a CLI command</a></li>
+<li><a href="#toolsexit">End the action's process</a></li>
+<li><a href="#toolscontext">Inspect the webhook event payload</a></li>
+</ul>
+<h3>
+<a id="toolkit-options" class="anchor" href="#toolkit-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Toolkit options</h3>
+<h4>
+<a id="event-optional" class="anchor" href="#event-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>event (optional)</h4>
+<p>An optional list of <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows" rel="nofollow">events that this action works with</a>. If omitted, the action will run for any event - if present, the action will exit with a failing status code for any event that is not allowed.</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">tools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">({</span>
+  <span class="na">event</span><span class="p">:</span> <span class="p">[</span><span class="s1">'issues'</span><span class="p">,</span> <span class="s1">'pull_requests'</span><span class="p">]</span>
+<span class="p">})</span>
+</pre>
+<p>You can also pass a single string:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">tools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">({</span>
+  <span class="na">event</span><span class="p">:</span> <span class="s1">'issues'</span>
+<span class="p">})</span>
+</pre>
+<p>And/or strings that include an action (what actually happened to trigger this event) for even more specificity:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">tools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">({</span>
+  <span class="na">event</span><span class="p">:</span> <span class="p">[</span><span class="s1">'issues.opened'</span><span class="p">]</span>
+<span class="p">})</span>
+</pre>
+<h4>
+<a id="secrets-optional" class="anchor" href="#secrets-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>secrets (optional)</h4>
+<p>You can choose to pass a list of secrets that must be included in the workflow that runs your Action. This ensures that your Action has the secrets it needs to function correctly:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">tools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">({</span>
+  <span class="na">secrets</span><span class="p">:</span> <span class="p">[</span><span class="s1">'SUPER_SECRET_KEY'</span><span class="p">]</span>
+<span class="p">})</span>
+</pre>
+<p>If any of the listed secrets are missing, the Action will fail and log a message.</p>
+<h4>
+<a id="token-optional" class="anchor" href="#token-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>token (optional)</h4>
+<p>You can pass a custom token used for authenticating with the GitHub API:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">tools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">({</span>
+  <span class="na">token</span><span class="p">:</span> <span class="s1">'1234567890abcdefghi'</span>
+<span class="p">})</span>
+</pre>
+<p>The <code>github_token</code> input or <code>process.env.GITHUB_TOKEN</code> will be used if no <code>token</code> was passed.</p>
+<h3>
+<a id="toolkitrun" class="anchor" href="#toolkitrun" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Toolkit.run</h3>
+<p>Run an asynchronous function that receives an instance of <code>Toolkit</code> as its argument. If the function throws an error (or returns a rejected promise), <code>Toolkit.run</code> will log the error and exit the action with a failure status code.</p>
+<p>The toolkit instance can be configured by passing <code>Toolkit</code> options as the second argument to <code>Toolkit.run</code>.</p>
+<pre lang="js" class="highlight-js"><span class="nx">Toolkit</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="k">async</span> <span class="nx">tools</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Action code</span>
+<span class="p">},</span> <span class="p">{</span> <span class="na">event</span><span class="p">:</span> <span class="s1">'push'</span> <span class="p">})</span>
+</pre>
+<br>
+<h3>
+<a id="toolsgithub" class="anchor" href="#toolsgithub" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.github</h3>
+<p>Returns an <a href="https://octokit.github.io/rest.js" rel="nofollow">Octokit SDK</a> client authenticated for this repository. See <a href="https://octokit.github.io/rest.js" rel="nofollow">https://octokit.github.io/rest.js</a> for the API.</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">newIssue</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">issues</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="p">...</span><span class="nx">tools</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">repo</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">:</span> <span class="s1">'New issue!'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="s1">'Hello Universe!'</span>
+<span class="p">})</span>
+</pre>
+<p>You can also make GraphQL requests:</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">graphql</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="nx">variables</span><span class="p">)</span>
+</pre>
+<p>See <a href="https://github.com/octokit/graphql.js" rel="nofollow">https://github.com/octokit/graphql.js</a> for more details on how to leverage the GraphQL API.</p>
+<p><strong>Note:</strong> To make this function, you must pass a GitHub API token to your action. You can do this in the workflow - both of these are automatically used if they exist:</p>
+<pre lang="yaml" class="highlight-yaml"><span class="na">uses</span><span class="pi">:</span> <span class="s">your/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5a4a6b1acaaab85b3f4">[email&#160;protected]</a></span>
+<span class="na">with</span><span class="pi">:</span>
+  <span class="na">github_token</span><span class="pi">:</span> <span class="s">${{ github.token }}</span>
+<span class="na">env</span><span class="pi">:</span>
+  <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+</pre>
+<br>
+<h3>
+<a id="toolslog" class="anchor" href="#toolslog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.log</h3>
+<p>This library comes with a slightly-customized instance of <a href="https://github.com/klaussinani/signale" rel="nofollow">Signale</a>, a great <strong>logging utility</strong>. Check out their docs for <a href="https://github.com/klaussinani/signale#usage" rel="nofollow">the full list of methods</a>. You can use those methods in your action:</p>
+<pre lang="js" class="highlight-js"><span class="nx">tools</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Welcome to this example!'</span><span class="p">)</span>
+<span class="nx">tools</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">'Gonna try this...'</span><span class="p">)</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nx">risky</span><span class="p">()</span>
+  <span class="nx">tools</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="s1">'We did it!'</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">tools</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">fatal</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+<span class="p">}</span>
+</pre>
+<p>In the GitHub Actions output, this is the result:</p>
+<pre><code>ℹ  info      Welcome to this example!
+ℹ  info      Gonna try this...
+✖  fatal     Error: Something bad happened!
+    at Object.&lt;anonymous&gt; (/index.js:5:17)
+    at Module._compile (internal/modules/cjs/loader.js:734:30)
+</code></pre>
+<br>
+<h3>
+<a id="toolsinputs" class="anchor" href="#toolsinputs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.inputs</h3>
+<p>GitHub Actions workflows can define some "inputs" - options that can be passed to the action:</p>
+<pre lang="yaml" class="highlight-yaml"><span class="na">uses</span><span class="pi">:</span> <span class="s">JasonEtco/<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="90f5e8f1fde0fcf5bdf1f3e4f9fffed0e6a1">[email&#160;protected]</a></span>
+<span class="na">with</span><span class="pi">:</span>
+  <span class="na">foo</span><span class="pi">:</span> <span class="s">bar</span>
+</pre>
+<p>You can access those using <code>tools.inputs</code>:</p>
+<pre lang="js" class="highlight-js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tools</span><span class="p">.</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">foo</span><span class="p">)</span> <span class="c1">// -&gt; 'bar'</span>
+</pre>
+<p><em>Note!</em> This is not a plain object, it's an instance of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" rel="nofollow">Proxy</a>, so be aware that there may be some differences.</p>
+<br>
+<h3>
+<a id="toolsoutputs" class="anchor" href="#toolsoutputs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.outputs</h3>
+<p>GitHub Actions workflows can define some "outputs" - options that can be passed to the next actions. You can access those using <code>tools.outputs</code>:</p>
+<pre lang="js" class="highlight-js"><span class="nx">tools</span><span class="p">.</span><span class="nx">outputs</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s1">'bar'</span>
+</pre>
+<p><em>Note!</em> This is not a plain object, it's an instance of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" rel="nofollow">Proxy</a>, so be aware that there may be some differences.</p>
+<br>
+<h3>
+<a id="toolscommandcommand-args-match--promise" class="anchor" href="#toolscommandcommand-args-match--promise" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.command(command, (args, match) =&gt; Promise)</h3>
+<p>Respond to a slash-command posted in a GitHub issue, comment, pull request, pull request review or commit comment. Arguments to the slash command are parsed by <a href="https://github.com/substack/minimist" rel="nofollow">minimist</a>. You can use a slash command in a larger comment, but the command must be at the start of the line:</p>
+<pre><code>Hey, let's deploy this!
+/deploy --app example --container node:alpine
+</code></pre>
+<pre lang="ts" class="highlight-ts"><span class="nx">tools</span><span class="p">.</span><span class="nx">command</span><span class="p">(</span><span class="s1">'deploy'</span><span class="p">,</span> <span class="k">async</span> <span class="p">(</span><span class="nx">args</span><span class="p">:</span> <span class="nx">ParsedArgs</span><span class="p">,</span> <span class="nx">match</span><span class="p">:</span> <span class="nx">RegExpExecArray</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span>
+  <span class="c1">// -&gt; { app: 'example', container: 'node:alpine' }</span>
+<span class="p">})</span>
+</pre>
+<p>The handler will run multiple times for each match:</p>
+<pre><code>/deploy 1
+/deploy 2
+/deploy 3
+</code></pre>
+<pre lang="ts" class="highlight-ts"><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kr">await</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">command</span><span class="p">(</span><span class="s1">'deploy'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">i</span><span class="o">++</span> <span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="c1">// -&gt; 3</span>
+</pre>
+<br>
+<h3>
+<a id="toolsgetpackagejson" class="anchor" href="#toolsgetpackagejson" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.getPackageJSON()</h3>
+<p>Get the package.json file in the project root and returns it as an object.</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">pkg</span> <span class="o">=</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">getPackageJSON</span><span class="p">()</span>
+</pre>
+<br>
+<h3>
+<a id="toolsreadfilepath-encoding--utf8" class="anchor" href="#toolsreadfilepath-encoding--utf8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.readFile(path, [encoding = 'utf8'])</h3>
+<p>Get the contents of a file in the repository. Should be used with <a href="https://github.com/actions/checkout" rel="nofollow">actions/checkout</a> to clone the repository in the actions workflow.</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">contents</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">'example.md'</span><span class="p">)</span>
+</pre>
+<br>
+<h3>
+<a id="toolsexec" class="anchor" href="#toolsexec" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.exec</h3>
+<p>Run a CLI command in the workspace. This uses <a href="https://github.com/actions/toolkit/tree/HEAD/packages/exec" rel="nofollow">@actions/exec</a> under the hood so check there for the full usage.</p>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s1">'npm audit'</span><span class="p">)</span>
+</pre>
+<br>
+<h3>
+<a id="toolstoken" class="anchor" href="#toolstoken" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.token</h3>
+<p>The GitHub API token being used to authenticate requests.</p>
+<br>
+<h3>
+<a id="toolsworkspace" class="anchor" href="#toolsworkspace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.workspace</h3>
+<p>A path to a clone of the repository.</p>
+<br>
+<h3>
+<a id="toolsexit" class="anchor" href="#toolsexit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.exit</h3>
+<p>A collection of methods to end the action's process and tell GitHub what status to set (success, neutral or failure). Internally, these methods call <code>process.exit</code> with the <a href="https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#exit-codes-and-statuses" rel="nofollow">appropriate exit code</a>. You can pass an optional message to each one to be logged before exiting. This can be used like an early return:</p>
+<pre lang="js" class="highlight-js"><span class="k">if</span> <span class="p">(</span><span class="nx">someCheck</span><span class="p">)</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">exit</span><span class="p">.</span><span class="nx">neutral</span><span class="p">(</span><span class="s1">'No _action_ necessary!'</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">anError</span><span class="p">)</span> <span class="nx">tools</span><span class="p">.</span><span class="nx">exit</span><span class="p">.</span><span class="nx">failure</span><span class="p">(</span><span class="s1">'We failed!'</span><span class="p">)</span>
+<span class="nx">tools</span><span class="p">.</span><span class="nx">exit</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="s1">'We did it team!'</span><span class="p">)</span>
+</pre>
+<br>
+<h3>
+<a id="toolscontext" class="anchor" href="#toolscontext" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context</h3>
+<h4>
+<a id="toolscontextaction" class="anchor" href="#toolscontextaction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.action</h4>
+<p>The name of the action</p>
+<h4>
+<a id="toolscontextactor" class="anchor" href="#toolscontextactor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.actor</h4>
+<p>The actor that triggered the workflow (usually a user's login)</p>
+<h4>
+<a id="toolscontextevent" class="anchor" href="#toolscontextevent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.event</h4>
+<p>The name of the event that triggered the workflow</p>
+<h4>
+<a id="toolscontextpayload" class="anchor" href="#toolscontextpayload" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.payload</h4>
+<p>A JSON object of the webhook payload object that triggered the workflow</p>
+<h4>
+<a id="toolscontextref" class="anchor" href="#toolscontextref" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.ref</h4>
+<p>The Git <code>ref</code> at which the action was triggered</p>
+<h4>
+<a id="toolscontextsha" class="anchor" href="#toolscontextsha" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.sha</h4>
+<p>The Git <code>sha</code> at which the action was triggered</p>
+<h4>
+<a id="toolscontextworkflow" class="anchor" href="#toolscontextworkflow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.workflow</h4>
+<p>The name of the workflow that was triggered.</p>
+<h4>
+<a id="toolscontextissue" class="anchor" href="#toolscontextissue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.issue</h4>
+<p>The <code>owner</code>, <code>repo</code>, and <code>issue_number</code> params for making API requests against an issue or pull request.</p>
+<h4>
+<a id="toolscontextpullrequest" class="anchor" href="#toolscontextpullrequest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.pullRequest</h4>
+<p>The <code>owner</code>, <code>repo</code>, and <code>pull_number</code> params for making API requests against a pull request.</p>
+<h4>
+<a id="toolscontextrepo" class="anchor" href="#toolscontextrepo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tools.context.repo</h4>
+<p>The <code>owner</code> and <code>repo</code> params for making API requests against a repository. This uses the <code>GITHUB_REPOSITORY</code> environment variable under the hood.</p>
+<h2>
+<a id="how-to-test-your-github-actions" class="anchor" href="#how-to-test-your-github-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to test your GitHub Actions</h2>
+<p>Similar to building CLIs, GitHub Actions usually works by running a file with <code>node &lt;file&gt;</code>; this means that writing a complete test suite can be tricky. Here's a pattern for writing tests using actions-toolkit, by mocking <code>Toolkit.run</code>:</p>
+<details>
+<summary>index.js</summary>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="p">{</span> <span class="nx">Toolkit</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'actions-toolkit'</span><span class="p">)</span>
+<span class="nx">Toolkit</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="k">async</span> <span class="nx">tools</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">tools</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="s1">'Yay!'</span><span class="p">)</span>
+<span class="p">})</span>
+</pre>
+</details>
+<details>
+<summary>index.test.js</summary>
+<pre lang="js" class="highlight-js"><span class="kd">const</span> <span class="p">{</span> <span class="nx">Toolkit</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'actions-toolkit'</span><span class="p">)</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'tests'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">action</span>
+
+  <span class="nx">beforeAll</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Mock `Toolkit.run` to redefine `action` when its called</span>
+    <span class="nx">Toolkit</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="nx">fn</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">fn</span> <span class="p">}</span>
+    <span class="c1">// Require the index.js file, after we've mocked `Toolkit.run`</span>
+    <span class="nx">require</span><span class="p">(</span><span class="s1">'./index.js'</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'logs successfully'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Create a fake instance of `Toolkit`</span>
+    <span class="kd">const</span> <span class="nx">fakeTools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Toolkit</span><span class="p">()</span>
+    <span class="c1">// Mock the logger, or whatever else you need</span>
+    <span class="nx">fakeTools</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">success</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">()</span>
+    <span class="kr">await</span> <span class="nx">action</span><span class="p">(</span><span class="nx">fakeTools</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">fakeTools</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">success</span><span class="p">).</span><span class="nx">toHaveBeenCalled</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre>
+</details>
+<p>You can then mock things by tweaking environment variables and redefining <code>tools.context.payload</code>. You can check out <a href="https://github.com/JasonEtco/create-an-issue/blob/HEAD/tests/" rel="nofollow">this repo's tests</a> as an example.</p>
+<h2>
+<a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation</h2>
+<p><strong>actions-toolkit</strong> is a wrapper around some fantastic open source libraries, and provides some helper methods for dealing with the GitHub Actions runtime. Actions all run in Docker containers, so this library aims to help you focus on your code and not the runtime. You can learn more about <a href="https://jasonet.co/posts/building-github-actions-in-node/" rel="nofollow">building Actions in Node.js</a> to get started!</p>
+<p>After building a GitHub Action in Node.js, it was clear to me that I was writing code that other actions will want to use. Reading files from the repository, making requests to the GitHub API, or running arbitrary executables on the project, etc.</p>
+<p>So, I thought it'd be useful to build those out into a library to help you build actions in Node.js 🎉</p>
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h2>
+<p><strong>Aren't these just wrappers around existing functions?</strong></p>
+<p>Yep! I just didn't want to rewrite them for my next Action, so here we are.</p>
+<p><strong>What's the difference between this and <a href="https://github.com/actions/toolkit" rel="nofollow">actions/toolkit</a>?</strong></p>
+<p>This library was the inspiration for the official toolkit. Nowadays, it's an opinionated alternative. My goal for the library is to make building simple actions easy, while the official toolkit needs to support more complicated use-cases (like performance and scaling concerns).</p>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bd142eb8e738',m:'35411305b9e0d53dd4fe8e7af52e32e134e5ceb1-1610725681-1800-ASppwpkHjGpllzDbbFmzr0Kh9tBVjR62r2xpevqM/SA1n3EMS1iHAxrUrRpn9lLhMmbtrba/klawL7DitCy+7HWO8dSHM73vKTOP6WhjnYRBSlSycUIQ17QjUQgPes4vFwPH1LLjmuWgpgLFKwLu33Hty0cTzqECCG6LYhJ7+6UD',s:[0xfc36266da3,0x8a9924205d],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="typescript"/> <!-- -->typescript<!-- --> (<!-- -->9,902<!-- -->) </div><div><input type="checkbox" name="topics" value="nodejs"/> <!-- -->nodejs<!-- --> (<!-- -->3,563<!-- -->) </div><div><input type="checkbox" name="topics" value="workflow"/> <!-- -->workflow<!-- --> (<!-- -->315<!-- -->) </div><div><input type="checkbox" name="topics" value="github-actions"/> <!-- -->github-actions<!-- --> (<!-- -->197<!-- -->) </div><div><input type="checkbox" name="topics" value="toolkit"/> <!-- -->toolkit<!-- --> (<!-- -->100<!-- -->) </div><div><input type="checkbox" name="topics" value="actions"/> <!-- -->actions<!-- --> (<!-- -->98<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Actions <!-- -->Toolkit<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/JasonEtco" target="_blank">Jasonetco</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/JasonEtco" target="_blank">Jasonetco</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-4d272485-5ef1-4aa6-b1bb-881cc1f60559">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"actions","count":98},{"id":null,"name":"github-actions","count":197},{"id":null,"name":"nodejs","count":3563},{"id":null,"name":"toolkit","count":100},{"id":null,"name":"typescript","count":9902},{"id":null,"name":"workflow","count":315}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/JasonEtco/actions-toolkit","projects":[],"project":{"id":141714,"created_at":"2019-02-12T15:04:41.432Z","updated_at":"2021-01-14T01:17:56.433Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch3 align=\"center\"\u003e\n\u003ca id=\"github-actions-toolkit\" class=\"anchor\" href=\"#github-actions-toolkit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGitHub Actions Toolkit\u003c/h3\u003e\n\u003cp align=\"center\"\u003e\n  An opinionated toolkit for building GitHub Actions in Node.js\u003cbr\u003e\n  \u003ca href=\"#usage\"\u003eUsage\u003c/a\u003e •\n  \u003ca href=\"#api\"\u003eAPI\u003c/a\u003e •\n  \u003ca href=\"#how-to-test-your-github-actions\"\u003eHow to test your Action\u003c/a\u003e •\n  \u003ca href=\"#faq\"\u003eFAQ\u003c/a\u003e\n\u003c/p\u003e\n\u003cp align=\"center\"\u003e\u003ca href=\"https://github.com/JasonEtco/actions-toolkit\" rel=\"nofollow\"\u003e\u003cimg alt=\"GitHub Actions status\" src=\"https://github.com/JasonEtco/actions-toolkit/workflows/Node%20CI/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://codecov.io/gh/JasonEtco/actions-toolkit/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badgen.now.sh/codecov/c/github/JasonEtco/actions-toolkit\" alt=\"Codecov\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThis toolkit is an opinionated alternative to (and wrapper around) the \u003ca href=\"https://github.com/actions/toolkit\" rel=\"nofollow\"\u003eofficial toolkit\u003c/a\u003e. \u003ccode\u003eactions/toolkit\u003c/code\u003e makes many features optional in the interest of performance, so you may prefer to use it instead of this library.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h3\u003e\n\u003cpre lang=\"sh\" class=\"highlight-sh\"\u003e\u003cspan class=\"nv\"\u003e$ \u003c/span\u003enpm \u003cspan class=\"nb\"\u003einstall \u003c/span\u003eactions-toolkit\n\u003c/pre\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e \u003cspan class=\"p\"\u003e}\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'actions-toolkit'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"bootstrap-a-new-action\" class=\"anchor\" href=\"#bootstrap-a-new-action\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBootstrap a new action\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e$ npx actions-toolkit my-cool-action\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis will create a new folder \u003ccode\u003emy-cool-action\u003c/code\u003e with the following files:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e├── Dockerfile\n├── action.yml\n├── index.js\n├── index.test.js\n└── package.json\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"api\" class=\"anchor\" href=\"#api\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAPI\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#toolkit-options\"\u003eThe Toolkit class\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolsgithub\"\u003eAuthenticated GitHub API client\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolslog\"\u003eLogging\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolsinputs\"\u003eGetting workflows' inputs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolsoutputs\"\u003eOutput information from your action\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolscommandcommand-args-match--promise\"\u003eSlash commands\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolsreadfilepath-encoding--utf8\"\u003eReading files\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolsexec\"\u003eRun a CLI command\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolsexit\"\u003eEnd the action's process\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#toolscontext\"\u003eInspect the webhook event payload\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"toolkit-options\" class=\"anchor\" href=\"#toolkit-options\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eToolkit options\u003c/h3\u003e\n\u003ch4\u003e\n\u003ca id=\"event-optional\" class=\"anchor\" href=\"#event-optional\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eevent (optional)\u003c/h4\u003e\n\u003cp\u003eAn optional list of \u003ca href=\"https://help.github.com/en/actions/reference/events-that-trigger-workflows\" rel=\"nofollow\"\u003eevents that this action works with\u003c/a\u003e. If omitted, the action will run for any event - if present, the action will exit with a failing status code for any event that is not allowed.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n  \u003cspan class=\"na\"\u003eevent\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'issues'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s1\"\u003e'pull_requests'\u003c/span\u003e\u003cspan class=\"p\"\u003e]\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eYou can also pass a single string:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n  \u003cspan class=\"na\"\u003eevent\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'issues'\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eAnd/or strings that include an action (what actually happened to trigger this event) for even more specificity:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n  \u003cspan class=\"na\"\u003eevent\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'issues.opened'\u003c/span\u003e\u003cspan class=\"p\"\u003e]\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"secrets-optional\" class=\"anchor\" href=\"#secrets-optional\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esecrets (optional)\u003c/h4\u003e\n\u003cp\u003eYou can choose to pass a list of secrets that must be included in the workflow that runs your Action. This ensures that your Action has the secrets it needs to function correctly:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n  \u003cspan class=\"na\"\u003esecrets\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"s1\"\u003e'SUPER_SECRET_KEY'\u003c/span\u003e\u003cspan class=\"p\"\u003e]\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eIf any of the listed secrets are missing, the Action will fail and log a message.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"token-optional\" class=\"anchor\" href=\"#token-optional\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etoken (optional)\u003c/h4\u003e\n\u003cp\u003eYou can pass a custom token used for authenticating with the GitHub API:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n  \u003cspan class=\"na\"\u003etoken\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'1234567890abcdefghi'\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eThe \u003ccode\u003egithub_token\u003c/code\u003e input or \u003ccode\u003eprocess.env.GITHUB_TOKEN\u003c/code\u003e will be used if no \u003ccode\u003etoken\u003c/code\u003e was passed.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"toolkitrun\" class=\"anchor\" href=\"#toolkitrun\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eToolkit.run\u003c/h3\u003e\n\u003cp\u003eRun an asynchronous function that receives an instance of \u003ccode\u003eToolkit\u003c/code\u003e as its argument. If the function throws an error (or returns a rejected promise), \u003ccode\u003eToolkit.run\u003c/code\u003e will log the error and exit the action with a failure status code.\u003c/p\u003e\n\u003cp\u003eThe toolkit instance can be configured by passing \u003ccode\u003eToolkit\u003c/code\u003e options as the second argument to \u003ccode\u003eToolkit.run\u003c/code\u003e.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003erun\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"k\"\u003easync\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"c1\"\u003e// Action code\u003c/span\u003e\n\u003cspan class=\"p\"\u003e},\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e \u003cspan class=\"na\"\u003eevent\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'push'\u003c/span\u003e \u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsgithub\" class=\"anchor\" href=\"#toolsgithub\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.github\u003c/h3\u003e\n\u003cp\u003eReturns an \u003ca href=\"https://octokit.github.io/rest.js\" rel=\"nofollow\"\u003eOctokit SDK\u003c/a\u003e client authenticated for this repository. See \u003ca href=\"https://octokit.github.io/rest.js\" rel=\"nofollow\"\u003ehttps://octokit.github.io/rest.js\u003c/a\u003e for the API.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003enewIssue\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"kr\"\u003eawait\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003egithub\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eissues\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003ecreate\u003c/span\u003e\u003cspan class=\"p\"\u003e({\u003c/span\u003e\n  \u003cspan class=\"p\"\u003e...\u003c/span\u003e\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003econtext\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003erepo\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"na\"\u003etitle\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'New issue!'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n  \u003cspan class=\"na\"\u003ebody\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"s1\"\u003e'Hello Universe!'\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eYou can also make GraphQL requests:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eresult\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"kr\"\u003eawait\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003egithub\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003egraphql\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003equery\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003evariables\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/octokit/graphql.js\" rel=\"nofollow\"\u003ehttps://github.com/octokit/graphql.js\u003c/a\u003e for more details on how to leverage the GraphQL API.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To make this function, you must pass a GitHub API token to your action. You can do this in the workflow - both of these are automatically used if they exist:\u003c/p\u003e\n\u003cpre lang=\"yaml\" class=\"highlight-yaml\"\u003e\u003cspan class=\"na\"\u003euses\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e \u003cspan class=\"s\"\u003eyour/action@v1\u003c/span\u003e\n\u003cspan class=\"na\"\u003ewith\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e\n  \u003cspan class=\"na\"\u003egithub_token\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e \u003cspan class=\"s\"\u003e${{ github.token }}\u003c/span\u003e\n\u003cspan class=\"na\"\u003eenv\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e\n  \u003cspan class=\"na\"\u003eGITHUB_TOKEN\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e \u003cspan class=\"s\"\u003e${{ secrets.GITHUB_TOKEN }}\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolslog\" class=\"anchor\" href=\"#toolslog\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.log\u003c/h3\u003e\n\u003cp\u003eThis library comes with a slightly-customized instance of \u003ca href=\"https://github.com/klaussinani/signale\" rel=\"nofollow\"\u003eSignale\u003c/a\u003e, a great \u003cstrong\u003elogging utility\u003c/strong\u003e. Check out their docs for \u003ca href=\"https://github.com/klaussinani/signale#usage\" rel=\"nofollow\"\u003ethe full list of methods\u003c/a\u003e. You can use those methods in your action:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'Welcome to this example!'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003einfo\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'Gonna try this...'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"k\"\u003etry\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003erisky\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003esuccess\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'We did it!'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e \u003cspan class=\"k\"\u003ecatch\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003eerror\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003efatal\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003eerror\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eIn the GitHub Actions output, this is the result:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eℹ  info      Welcome to this example!\nℹ  info      Gonna try this...\n✖  fatal     Error: Something bad happened!\n    at Object.\u0026lt;anonymous\u0026gt; (/index.js:5:17)\n    at Module._compile (internal/modules/cjs/loader.js:734:30)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsinputs\" class=\"anchor\" href=\"#toolsinputs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.inputs\u003c/h3\u003e\n\u003cp\u003eGitHub Actions workflows can define some \"inputs\" - options that can be passed to the action:\u003c/p\u003e\n\u003cpre lang=\"yaml\" class=\"highlight-yaml\"\u003e\u003cspan class=\"na\"\u003euses\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e \u003cspan class=\"s\"\u003eJasonEtco/example-action@v1\u003c/span\u003e\n\u003cspan class=\"na\"\u003ewith\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e\n  \u003cspan class=\"na\"\u003efoo\u003c/span\u003e\u003cspan class=\"pi\"\u003e:\u003c/span\u003e \u003cspan class=\"s\"\u003ebar\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eYou can access those using \u003ccode\u003etools.inputs\u003c/code\u003e:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"nx\"\u003econsole\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003einputs\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003efoo\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"c1\"\u003e// -\u0026gt; 'bar'\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003cem\u003eNote!\u003c/em\u003e This is not a plain object, it's an instance of \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy\" rel=\"nofollow\"\u003eProxy\u003c/a\u003e, so be aware that there may be some differences.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsoutputs\" class=\"anchor\" href=\"#toolsoutputs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.outputs\u003c/h3\u003e\n\u003cp\u003eGitHub Actions workflows can define some \"outputs\" - options that can be passed to the next actions. You can access those using \u003ccode\u003etools.outputs\u003c/code\u003e:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eoutputs\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003efoo\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s1\"\u003e'bar'\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003e\u003cem\u003eNote!\u003c/em\u003e This is not a plain object, it's an instance of \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy\" rel=\"nofollow\"\u003eProxy\u003c/a\u003e, so be aware that there may be some differences.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolscommandcommand-args-match--promise\" class=\"anchor\" href=\"#toolscommandcommand-args-match--promise\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.command(command, (args, match) =\u0026gt; Promise)\u003c/h3\u003e\n\u003cp\u003eRespond to a slash-command posted in a GitHub issue, comment, pull request, pull request review or commit comment. Arguments to the slash command are parsed by \u003ca href=\"https://github.com/substack/minimist\" rel=\"nofollow\"\u003eminimist\u003c/a\u003e. You can use a slash command in a larger comment, but the command must be at the start of the line:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eHey, let's deploy this!\n/deploy --app example --container node:alpine\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre lang=\"ts\" class=\"highlight-ts\"\u003e\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003ecommand\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'deploy'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"k\"\u003easync\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003eargs\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"nx\"\u003eParsedArgs\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"nx\"\u003ematch\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e \u003cspan class=\"nx\"\u003eRegExpExecArray\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003econsole\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003eargs\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"c1\"\u003e// -\u0026gt; { app: 'example', container: 'node:alpine' }\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eThe handler will run multiple times for each match:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e/deploy 1\n/deploy 2\n/deploy 3\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre lang=\"ts\" class=\"highlight-ts\"\u003e\u003cspan class=\"kd\"\u003elet\u003c/span\u003e \u003cspan class=\"nx\"\u003ei\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"mi\"\u003e0\u003c/span\u003e\n\u003cspan class=\"kr\"\u003eawait\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003ecommand\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'deploy'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e \u003cspan class=\"nx\"\u003ei\u003c/span\u003e\u003cspan class=\"o\"\u003e++\u003c/span\u003e \u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003cspan class=\"nx\"\u003econsole\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003ei\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"c1\"\u003e// -\u0026gt; 3\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsgetpackagejson\" class=\"anchor\" href=\"#toolsgetpackagejson\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.getPackageJSON()\u003c/h3\u003e\n\u003cp\u003eGet the package.json file in the project root and returns it as an object.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003epkg\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003egetPackageJSON\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsreadfilepath-encoding--utf8\" class=\"anchor\" href=\"#toolsreadfilepath-encoding--utf8\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.readFile(path, [encoding = 'utf8'])\u003c/h3\u003e\n\u003cp\u003eGet the contents of a file in the repository. Should be used with \u003ca href=\"https://github.com/actions/checkout\" rel=\"nofollow\"\u003eactions/checkout\u003c/a\u003e to clone the repository in the actions workflow.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003econtents\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"kr\"\u003eawait\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003ereadFile\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'example.md'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsexec\" class=\"anchor\" href=\"#toolsexec\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.exec\u003c/h3\u003e\n\u003cp\u003eRun a CLI command in the workspace. This uses \u003ca href=\"https://github.com/actions/toolkit/tree/HEAD/packages/exec\" rel=\"nofollow\"\u003e@actions/exec\u003c/a\u003e under the hood so check there for the full usage.\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003eresult\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"kr\"\u003eawait\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eexec\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'npm audit'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolstoken\" class=\"anchor\" href=\"#toolstoken\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.token\u003c/h3\u003e\n\u003cp\u003eThe GitHub API token being used to authenticate requests.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsworkspace\" class=\"anchor\" href=\"#toolsworkspace\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.workspace\u003c/h3\u003e\n\u003cp\u003eA path to a clone of the repository.\u003c/p\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolsexit\" class=\"anchor\" href=\"#toolsexit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.exit\u003c/h3\u003e\n\u003cp\u003eA collection of methods to end the action's process and tell GitHub what status to set (success, neutral or failure). Internally, these methods call \u003ccode\u003eprocess.exit\u003c/code\u003e with the \u003ca href=\"https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#exit-codes-and-statuses\" rel=\"nofollow\"\u003eappropriate exit code\u003c/a\u003e. You can pass an optional message to each one to be logged before exiting. This can be used like an early return:\u003c/p\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003esomeCheck\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eexit\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eneutral\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'No _action_ necessary!'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003eanError\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eexit\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003efailure\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'We failed!'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eexit\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003esuccess\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'We did it team!'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ch3\u003e\n\u003ca id=\"toolscontext\" class=\"anchor\" href=\"#toolscontext\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context\u003c/h3\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextaction\" class=\"anchor\" href=\"#toolscontextaction\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.action\u003c/h4\u003e\n\u003cp\u003eThe name of the action\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextactor\" class=\"anchor\" href=\"#toolscontextactor\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.actor\u003c/h4\u003e\n\u003cp\u003eThe actor that triggered the workflow (usually a user's login)\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextevent\" class=\"anchor\" href=\"#toolscontextevent\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.event\u003c/h4\u003e\n\u003cp\u003eThe name of the event that triggered the workflow\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextpayload\" class=\"anchor\" href=\"#toolscontextpayload\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.payload\u003c/h4\u003e\n\u003cp\u003eA JSON object of the webhook payload object that triggered the workflow\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextref\" class=\"anchor\" href=\"#toolscontextref\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.ref\u003c/h4\u003e\n\u003cp\u003eThe Git \u003ccode\u003eref\u003c/code\u003e at which the action was triggered\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextsha\" class=\"anchor\" href=\"#toolscontextsha\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.sha\u003c/h4\u003e\n\u003cp\u003eThe Git \u003ccode\u003esha\u003c/code\u003e at which the action was triggered\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextworkflow\" class=\"anchor\" href=\"#toolscontextworkflow\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.workflow\u003c/h4\u003e\n\u003cp\u003eThe name of the workflow that was triggered.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextissue\" class=\"anchor\" href=\"#toolscontextissue\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.issue\u003c/h4\u003e\n\u003cp\u003eThe \u003ccode\u003eowner\u003c/code\u003e, \u003ccode\u003erepo\u003c/code\u003e, and \u003ccode\u003eissue_number\u003c/code\u003e params for making API requests against an issue or pull request.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextpullrequest\" class=\"anchor\" href=\"#toolscontextpullrequest\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.pullRequest\u003c/h4\u003e\n\u003cp\u003eThe \u003ccode\u003eowner\u003c/code\u003e, \u003ccode\u003erepo\u003c/code\u003e, and \u003ccode\u003epull_number\u003c/code\u003e params for making API requests against a pull request.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"toolscontextrepo\" class=\"anchor\" href=\"#toolscontextrepo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etools.context.repo\u003c/h4\u003e\n\u003cp\u003eThe \u003ccode\u003eowner\u003c/code\u003e and \u003ccode\u003erepo\u003c/code\u003e params for making API requests against a repository. This uses the \u003ccode\u003eGITHUB_REPOSITORY\u003c/code\u003e environment variable under the hood.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"how-to-test-your-github-actions\" class=\"anchor\" href=\"#how-to-test-your-github-actions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to test your GitHub Actions\u003c/h2\u003e\n\u003cp\u003eSimilar to building CLIs, GitHub Actions usually works by running a file with \u003ccode\u003enode \u0026lt;file\u0026gt;\u003c/code\u003e; this means that writing a complete test suite can be tricky. Here's a pattern for writing tests using actions-toolkit, by mocking \u003ccode\u003eToolkit.run\u003c/code\u003e:\u003c/p\u003e\n\u003cdetails\u003e\n\u003csummary\u003eindex.js\u003c/summary\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e \u003cspan class=\"p\"\u003e}\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'actions-toolkit'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003erun\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"k\"\u003easync\u003c/span\u003e \u003cspan class=\"nx\"\u003etools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003etools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003esuccess\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'Yay!'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n\u003csummary\u003eindex.test.js\u003c/summary\u003e\n\u003cpre lang=\"js\" class=\"highlight-js\"\u003e\u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e \u003cspan class=\"p\"\u003e}\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'actions-toolkit'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\u003cspan class=\"nx\"\u003edescribe\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'tests'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"kd\"\u003elet\u003c/span\u003e \u003cspan class=\"nx\"\u003eaction\u003c/span\u003e\n\n  \u003cspan class=\"nx\"\u003ebeforeAll\u003c/span\u003e\u003cspan class=\"p\"\u003e(()\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"c1\"\u003e// Mock `Toolkit.run` to redefine `action` when its called\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003erun\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003efn\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e \u003cspan class=\"nx\"\u003eaction\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003efn\u003c/span\u003e \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n    \u003cspan class=\"c1\"\u003e// Require the index.js file, after we've mocked `Toolkit.run`\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003erequire\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'./index.js'\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\n  \u003cspan class=\"nx\"\u003eit\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s1\"\u003e'logs successfully'\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"k\"\u003easync\u003c/span\u003e \u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u0026gt;\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"c1\"\u003e// Create a fake instance of `Toolkit`\u003c/span\u003e\n    \u003cspan class=\"kd\"\u003econst\u003c/span\u003e \u003cspan class=\"nx\"\u003efakeTools\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"k\"\u003enew\u003c/span\u003e \u003cspan class=\"nx\"\u003eToolkit\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n    \u003cspan class=\"c1\"\u003e// Mock the logger, or whatever else you need\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003efakeTools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003esuccess\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003ejest\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003efn\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n    \u003cspan class=\"kr\"\u003eawait\u003c/span\u003e \u003cspan class=\"nx\"\u003eaction\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003efakeTools\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003eexpect\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003efakeTools\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003elog\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003esuccess\u003c/span\u003e\u003cspan class=\"p\"\u003e).\u003c/span\u003e\u003cspan class=\"nx\"\u003etoHaveBeenCalled\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n  \u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003cspan class=\"p\"\u003e})\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/details\u003e\n\u003cp\u003eYou can then mock things by tweaking environment variables and redefining \u003ccode\u003etools.context.payload\u003c/code\u003e. You can check out \u003ca href=\"https://github.com/JasonEtco/create-an-issue/blob/HEAD/tests/\" rel=\"nofollow\"\u003ethis repo's tests\u003c/a\u003e as an example.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"motivation\" class=\"anchor\" href=\"#motivation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMotivation\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eactions-toolkit\u003c/strong\u003e is a wrapper around some fantastic open source libraries, and provides some helper methods for dealing with the GitHub Actions runtime. Actions all run in Docker containers, so this library aims to help you focus on your code and not the runtime. You can learn more about \u003ca href=\"https://jasonet.co/posts/building-github-actions-in-node/\" rel=\"nofollow\"\u003ebuilding Actions in Node.js\u003c/a\u003e to get started!\u003c/p\u003e\n\u003cp\u003eAfter building a GitHub Action in Node.js, it was clear to me that I was writing code that other actions will want to use. Reading files from the repository, making requests to the GitHub API, or running arbitrary executables on the project, etc.\u003c/p\u003e\n\u003cp\u003eSo, I thought it'd be useful to build those out into a library to help you build actions in Node.js 🎉\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"faq\" class=\"anchor\" href=\"#faq\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFAQ\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eAren't these just wrappers around existing functions?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eYep! I just didn't want to rewrite them for my next Action, so here we are.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat's the difference between this and \u003ca href=\"https://github.com/actions/toolkit\" rel=\"nofollow\"\u003eactions/toolkit\u003c/a\u003e?\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThis library was the inspiration for the official toolkit. Nowadays, it's an opinionated alternative. My goal for the library is to make building simple actions easy, while the official toolkit needs to support more complicated use-cases (like performance and scaling concerns).\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":156046432,"name":"actions-toolkit","owner_login":"JasonEtco","description":"🛠 A toolkit for building GitHub Actions in Node.js","pushed_at":"2021-01-03T20:25:46.000Z","stargazers_count":840,"open_issues_count":0,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"","private":false,"project_created_at":"2018-11-04T03:39:37.000Z","project_updated_at":"2021-01-09T09:46:32.000Z","language":"TypeScript","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

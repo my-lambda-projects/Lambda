@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":252,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Csvtk</title>
+<meta name="description" content="A cross-platform, efficient and practical CSV/TSV toolkit in Golang">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/shenwei356/csvtk">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "shenwei356/csvtk",
+  "description": "A cross-platform, efficient and practical CSV/TSV toolkit in Golang",
+  "url": "https://awesomeopensource.com/project/shenwei356/csvtk",
+  "sku": "project/shenwei356/csvtk",
+  "mpn": "project/shenwei356/csvtk",
+  "image": "https://github.com/shenwei356.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "shenwei356/csvtk",
+    "logo": "https://github.com/shenwei356.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.62",
+    "ratingCount": "539"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="rlMLbZ2PV+DSPyVYXwUeCrYiR7uXt5NFSQpU8lMgjmlSQkUU7mWNW4aDEV6NPdnysHZOX0u7wDaEY/3t6vbXfQ==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/shenwei356/csvtk","location":"/project/shenwei356/csvtk","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/shenwei356/csvtk","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-9d56ba14-9255-4a08-b26b-e23695b21303"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Csvtk</div><div class="aos_project_metadata_description">A cross-platform, efficient and practical CSV/TSV toolkit in Golang</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">539</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="http://bioinf.shenwei.me/csvtk" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="http://bioinf.shenwei.me/csvtk" target="_blank">http://bioinf.shenwei.me/csvtk</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/shenwei356/csvtk" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/shenwei356/csvtk" target="_blank">https://github.com/shenwei356/csvtk</a></span><div class="aos_project_metadata_header"><a href="https://github.com/shenwei356/csvtk/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/shenwei356/csvtk/issues" target="_blank">4</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">4 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/go"><div style="display:block;text-decoration:none;padding-bottom:10px">go<span> (<!-- -->14,132<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/golang"><div style="display:block;text-decoration:none;padding-bottom:10px">golang<span> (<!-- -->3,600<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cross-platform"><div style="display:block;text-decoration:none;padding-bottom:10px">cross-platform<span> (<!-- -->643<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/command-line"><div style="display:block;text-decoration:none;padding-bottom:10px">command-line<span> (<!-- -->501<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tool"><div style="display:block;text-decoration:none;padding-bottom:10px">tool<span> (<!-- -->382<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/csv"><div style="display:block;text-decoration:none;padding-bottom:10px">csv<span> (<!-- -->258<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/bioinformatics"><div style="display:block;text-decoration:none;padding-bottom:10px">bioinformatics<span> (<!-- -->253<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/toolkit"><div style="display:block;text-decoration:none;padding-bottom:10px">toolkit<span> (<!-- -->100<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tsv"><div style="display:block;text-decoration:none;padding-bottom:10px">tsv<span> (<!-- -->23<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="csvtk---a-cross-platform-efficient-and-practical-csvtsv-toolkit" class="anchor" href="#csvtk---a-cross-platform-efficient-and-practical-csvtsv-toolkit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>csvtk - A cross-platform, efficient and practical CSV/TSV toolkit</h1>
+<ul>
+<li>
+<strong>Documents:</strong> <a href="http://bioinf.shenwei.me/csvtk/" rel="nofollow">http://bioinf.shenwei.me/csvtk</a>
+( <a href="http://bioinf.shenwei.me/csvtk/usage/" rel="nofollow"><strong>Usage</strong></a>  and <a href="http://bioinf.shenwei.me/csvtk/tutorial/" rel="nofollow"><strong>Tutorial</strong></a>). <a href="http://bioinf.shenwei.me/csvtk/chinese" rel="nofollow">中文介绍</a>
+</li>
+<li>
+<strong>Source code:</strong>  <a href="https://github.com/shenwei356/csvtk" rel="nofollow">https://github.com/shenwei356/csvtk</a> <a href="https://github.com/shenwei356/csvtk" rel="nofollow"><img src="https://img.shields.io/github/stars/shenwei356/csvtk.svg?style=social&amp;label=Star&amp;?maxAge=2592000" alt="GitHub stars" style="max-width:100%;"></a>
+<a href="https://github.com/shenwei356/csvtk/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/shenwei356/csvtk.svg?maxAge=2592000" alt="license" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/shenwei356/csvtk" rel="nofollow"><img src="https://travis-ci.org/shenwei356/csvtk.svg?branch=master" alt="Build Status" style="max-width:100%;"></a>
+</li>
+<li>
+<strong>Latest version:</strong> <a href="https://github.com/shenwei356/csvtk/releases" rel="nofollow"><img src="https://img.shields.io/github/release/shenwei356/csvtk.svg?style=flat" alt="Latest Stable Version" style="max-width:100%;"></a>
+<a href="http://bioinf.shenwei.me/csvtk/download/" rel="nofollow"><img src="https://img.shields.io/github/downloads/shenwei356/csvtk/latest/total.svg?maxAge=3600" alt="Github Releases" style="max-width:100%;"></a>
+<a href="http://bioinf.shenwei.me/csvtk/download/" rel="nofollow"><img src="https://img.shields.io/badge/platform-any-ec2eb4.svg?style=flat" alt="Cross-platform" style="max-width:100%;"></a>
+<a href="https://anaconda.org/bioconda/csvtk" rel="nofollow"><img src="https://anaconda.org/bioconda/csvtk/badges/version.svg" alt="Anaconda Cloud" style="max-width:100%;"></a>
+</li>
+</ul>
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<p>Similar to FASTA/Q format in field of Bioinformatics,
+CSV/TSV formats are basic and ubiquitous file formats in both Bioinformatics and data science.</p>
+<p>People usually use spreadsheet software like MS Excel to process table data.
+However this is all by clicking and typing, which is <strong>not
+automated and is time-consuming to repeat</strong>, especially when you want to
+apply similar operations with different datasets or purposes.</p>
+<p><em><strong>You can also accomplish some CSV/TSV manipulations using shell commands,
+but more code is needed to handle the header line. Shell commands do not
+support selecting columns with column names either.</strong></em></p>
+<p><code>csvtk</code> is <strong>convenient for rapid data investigation
+and also easy to integrate into analysis pipelines</strong>.
+It could save you lots of time in (not) writing Python/R scripts.</p>
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#subcommands">Subcommands</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#bash-completion">Bash-completion</a></li>
+<li><a href="#compared-to-csvkit">Compared to <code>csvkit</code)</li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#starchart">Starchart</a></li>
+</ul>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+<ul>
+<li>
+<strong>Cross-platform</strong> (Linux/Windows/Mac OS X/OpenBSD/FreeBSD)</li>
+<li><strong>Light weight and out-of-the-box, no dependencies, no compilation, no configuration</strong></li>
+<li>
+<strong>Fast</strong>,  <strong>multiple-CPUs supported</strong> (some commands)</li>
+<li><strong>Practical functions provided by N subcommands</strong></li>
+<li><strong>Support STDIN and gziped input/output file, easy being used in pipe</strong></li>
+<li>Most of the subcommands support <em><strong>unselecting fields</strong></em> and <em><strong>fuzzy fields</strong></em>,
+e.g. <code>-f "-id,-name"</code> for all fields except "id" and "name",
+<code>-F -f "a.*"</code> for all fields with prefix "a.".</li>
+<li>
+<strong>Support some common plots</strong> (see <a href="http://bioinf.shenwei.me/csvtk/usage/#plot" rel="nofollow">usage</a>)</li>
+<li><del>Seamlessly support for data with meta line (e.g., <code>sep=,</code>) of separator declaration used by MS Excel</del></li>
+</ul>
+<h2>
+<a id="subcommands" class="anchor" href="#subcommands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Subcommands</h2>
+<p>47 subcommands in total.</p>
+<p><strong>Information</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#headers" rel="nofollow"><code>headers</code></a>: prints headers</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#dim/nrow/ncol" rel="nofollow"><code>dim</code></a>: dimensions of CSV file</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#dim/nrow/ncol" rel="nofollow"><code>nrow</code></a>: print number of records</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#dim/nrow/ncol" rel="nofollow"><code>ncol</code></a>: print number of columns</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#summary" rel="nofollow"><code>summary</code></a>: summary statistics of selected digital fields (groupby group fields)</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#watch" rel="nofollow"><code>watch</code></a>: online monitoring and histogram of selected field</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#corr" rel="nofollow"><code>corr</code></a>: calculate Pearson correlation between numeric columns</li>
+</ul>
+<p><strong>Format conversion</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#pretty" rel="nofollow"><code>pretty</code></a>: converts CSV to readable aligned table</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#csv2tab" rel="nofollow"><code>csv2tab</code></a>: converts CSV to tabular format</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#tab2csv" rel="nofollow"><code>tab2csv</code></a>: converts tabular format to CSV</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#space2tab" rel="nofollow"><code>space2tab</code></a>: converts space delimited format to CSV</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#transpose" rel="nofollow"><code>transpose</code></a>: transposes CSV data</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#csv2md" rel="nofollow"><code>csv2md</code></a>: converts CSV to markdown format</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#csv2json" rel="nofollow"><code>csv2json</code></a>: converts CSV to JSON format</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#csv2xlsx" rel="nofollow"><code>csv2xlsx</code></a>: convert CSV/TSV files to XLSX file</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#xlsx2csv" rel="nofollow"><code>xlsx2csv</code></a>: converts XLSX to CSV format</li>
+</ul>
+<p><strong>Set operations</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#head" rel="nofollow"><code>head</code></a>: prints first N records</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#concat" rel="nofollow"><code>concat</code></a>: concatenates CSV/TSV files by rows</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#sample" rel="nofollow"><code>sample</code></a>: sampling by proportion</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#cut" rel="nofollow"><code>cut</code></a>: select and arrange fields</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#grep" rel="nofollow"><code>grep</code></a>: greps data by selected fields with patterns/regular expressions</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#uniq" rel="nofollow"><code>uniq</code></a>: unique data without sorting</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#freq" rel="nofollow"><code>freq</code></a>: frequencies of selected fields</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#inter" rel="nofollow"><code>inter</code></a>: intersection of multiple files</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#filter" rel="nofollow"><code>filter</code></a>: filters rows by values of selected fields with arithmetic expression</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#filter2" rel="nofollow"><code>filter2</code></a>: filters rows by awk-like arithmetic/string expressions</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#join" rel="nofollow"><code>join</code></a>: join files by selected fields (inner, left and outer join)</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#split" rel="nofollow"><code>split</code></a> splits CSV/TSV into multiple files according to column values</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#splitxlsx" rel="nofollow"><code>splitxlsx</code></a>: splits XLSX sheet into multiple sheets according to column values</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#comb" rel="nofollow"><code>comb</code></a>: compute combinations of items at every row</li>
+</ul>
+<p><strong>Edit</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#add-header" rel="nofollow"><code>add-header</code></a>: add column names</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#del-header" rel="nofollow"><code>del-header</code></a>: delete column names</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#rename" rel="nofollow"><code>rename</code></a>: renames column names with new names</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#rename2" rel="nofollow"><code>rename2</code></a>: renames column names by regular expression</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#replace" rel="nofollow"><code>replace</code></a>: replaces data of selected fields by regular expression</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#round" rel="nofollow"><code>round</code></a>: round float to n decimal places</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#mutate" rel="nofollow"><code>mutate</code></a>: creates new columns from selected fields by regular expression</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#mutate2" rel="nofollow"><code>mutate2</code></a>: creates new column from selected fields by awk-like arithmetic/string expressions</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#sep" rel="nofollow"><code>sep</code></a>: separate column into multiple columns</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#gather" rel="nofollow"><code>gather</code></a>: gathers columns into key-value pairs</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#unfold" rel="nofollow"><code>unfold</code></a>: unfold multiple values in cells of a field</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#fold" rel="nofollow"><code>fold</code></a>: fold multiple values of a field into cells of groups</li>
+</ul>
+<p><strong>Ordering</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#sort" rel="nofollow"><code>sort</code></a>: sorts by selected fields</li>
+</ul>
+<p><strong>Ploting</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#plot" rel="nofollow"><code>plot</code></a> see <a href="http://bioinf.shenwei.me/csvtk/usage/#plot" rel="nofollow">usage</a>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#hist" rel="nofollow"><code>plot hist</code></a> histogram</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#box" rel="nofollow"><code>plot box</code></a> boxplot</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#line" rel="nofollow"><code>plot line</code></a> line plot and scatter plot</li>
+</ul>
+</li>
+</ul>
+<p><strong>Misc</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#cat" rel="nofollow"><code>cat</code></a> stream file and report progress</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#version" rel="nofollow"><code>version</code></a>   print version information and check for update</li>
+<li>
+<a href="https://bioinf.shenwei.me/csvtk/usage/#genautocomplete" rel="nofollow"><code>genautocomplete</code></a> generate shell autocompletion script</li>
+</ul>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<p><a href="https://github.com/shenwei356/csvtk/releases" rel="nofollow">Download Page</a></p>
+<p><code>csvtk</code> is implemented in <a href="https://golang.org/" rel="nofollow">Go</a> programming language,
+executable binary files <strong>for most popular operating systems</strong> are freely available
+in <a href="https://github.com/shenwei356/csvtk/releases" rel="nofollow">release</a> page.</p>
+<h4>
+<a id="method-1-download-binaries-latest-stabledev-version" class="anchor" href="#method-1-download-binaries-latest-stabledev-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 1: Download binaries (latest stable/dev version)</h4>
+<p>Just <a href="https://github.com/shenwei356/csvtk/releases" rel="nofollow">download</a> compressed
+executable file of your operating system,
+and decompress it with <code>tar -zxvf *.tar.gz</code> command or other tools.
+And then:</p>
+<ol>
+<li>
+<p><strong>For Linux-like systems</strong></p>
+<ol>
+<li>
+<p>If you have root privilege simply copy it to <code>/usr/local/bin</code>:</p>
+<pre><code> sudo cp csvtk /usr/local/bin/
+</code></pre>
+</li>
+<li>
+<p>Or copy to anywhere in the environment variable <code>PATH</code>:</p>
+<pre><code> mkdir -p $HOME/bin/; cp csvtk $HOME/bin/
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>For windows</strong>, just copy <code>csvtk.exe</code> to <code>C:\WINDOWS\system32</code>.</p>
+</li>
+</ol>
+<h4>
+<a id="method-2-install-via-conda-latest-stable-version---" class="anchor" href="#method-2-install-via-conda-latest-stable-version---" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 2: Install via conda (latest stable version)  <a href="https://anaconda.org/bioconda/csvtk" rel="nofollow"><img src="https://anaconda.org/bioconda/csvtk/badges/version.svg" alt="Anaconda Cloud" style="max-width:100%;"></a> <a href="https://anaconda.org/bioconda/csvtk" rel="nofollow"><img src="https://anaconda.org/bioconda/csvtk/badges/downloads.svg" alt="downloads" style="max-width:100%;"></a>
+</h4>
+<pre><code>conda install -c bioconda csvtk
+</code></pre>
+<h4>
+<a id="method-3-for-go-developer-latest-stabledev-version" class="anchor" href="#method-3-for-go-developer-latest-stabledev-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 3: For Go developer (latest stable/dev version)</h4>
+<pre><code>go get -u github.com/shenwei356/csvtk/csvtk
+</code></pre>
+<h4>
+<a id="method-4-for-archlinux-aur-users-may-be-not-the-latest" class="anchor" href="#method-4-for-archlinux-aur-users-may-be-not-the-latest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 4: For ArchLinux AUR users (may be not the latest)</h4>
+<pre><code>yaourt -S csvtk
+</code></pre>
+<h2>
+<a id="bash-completion" class="anchor" href="#bash-completion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bash-completion</h2>
+<p>Note: The current version supports Bash only.
+This should work for *nix systems with Bash installed.</p>
+<p>Howto:</p>
+<ol>
+<li>
+<p>run: <code>csvtk genautocomplete</code></p>
+</li>
+<li>
+<p>create and edit <code>~/.bash_completion</code> file if you don't have it.</p>
+<pre><code> nano ~/.bash_completion
+</code></pre>
+<p>add the following:</p>
+<pre><code> for bcfile in ~/.bash_completion.d/* ; do
+   . $bcfile
+ done
+</code></pre>
+</li>
+</ol>
+<h2>
+<a id="compared-to-csvkit" class="anchor" href="#compared-to-csvkit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compared to <code>csvkit</code>
+</h2>
+<p><a href="http://csvkit.readthedocs.org/" rel="nofollow">csvkit</a>, attention: this table wasn't updated for 2 years.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Features</th>
+<th align="center">csvtk</th>
+<th align="center">csvkit</th>
+<th align="left">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Read    Gzip</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="left">read gzip files</td>
+</tr>
+<tr>
+<td align="left">Fields ranges</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="left">e.g. <code>-f 1-4,6</code>
+</td>
+</tr>
+<tr>
+<td align="left"><strong>Unselect fileds</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">e.g. <code>-1</code> for excluding first column</td>
+</tr>
+<tr>
+<td align="left"><strong>Fuzzy fields</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">e.g. <code>ab*</code> for columns with name prefix "ab"</td>
+</tr>
+<tr>
+<td align="left">Reorder fields</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="left">it means <code>-f 1,2</code> is different from <code>-f 2,1</code>
+</td>
+</tr>
+<tr>
+<td align="left"><strong>Rename columns</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">rename with new name(s) or from existed names</td>
+</tr>
+<tr>
+<td align="left">Sort by multiple keys</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="left">bash sort like operations</td>
+</tr>
+<tr>
+<td align="left"><strong>Sort by number</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">e.g. <code>-k 1:n</code>
+</td>
+</tr>
+<tr>
+<td align="left"><strong>Multiple sort</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">e.g. <code>-k 2:r -k 1:nr</code>
+</td>
+</tr>
+<tr>
+<td align="left">Pretty output</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="left">convert CSV to readable aligned table</td>
+</tr>
+<tr>
+<td align="left"><strong>Unique data</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">unique data of selected fields</td>
+</tr>
+<tr>
+<td align="left"><strong>frequency</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">frequencies of selected fields</td>
+</tr>
+<tr>
+<td align="left"><strong>Sampling</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">sampling by proportion</td>
+</tr>
+<tr>
+<td align="left"><strong>Mutate fields</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">create new columns from selected fields</td>
+</tr>
+<tr>
+<td align="left"><strong>Repalce</strong></td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="left">replace data of selected fields</td>
+</tr>
+</tbody>
+</table>
+<p>Similar tools:</p>
+<ul>
+<li>
+<a href="http://csvkit.readthedocs.org/" rel="nofollow">csvkit</a> - A suite of utilities for converting to and working with CSV, the king of tabular file formats. <a href="http://csvkit.rtfd.org/" rel="nofollow">http://csvkit.rtfd.org/</a>
+</li>
+<li>
+<a href="https://github.com/BurntSushi/xsv" rel="nofollow">xsv</a> - A fast CSV toolkit written in Rust.</li>
+<li>
+<a href="https://github.com/johnkerl/miller" rel="nofollow">miller</a> - Miller is like sed, awk, cut, join, and sort for
+name-indexed data such as CSV and tabular JSON <a href="http://johnkerl.org/miller" rel="nofollow">http://johnkerl.org/miller</a>
+</li>
+<li>
+<a href="https://github.com/eBay/tsv-utils" rel="nofollow">tsv-utils</a> - Command line utilities for tab-separated value files written in the D programming language.</li>
+</ul>
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<p>More <a href="http://shenwei356.github.io/csvtk/usage/" rel="nofollow">examples</a> and <a href="http://shenwei356.github.io/csvtk/tutorial/" rel="nofollow">tutorial</a>.</p>
+<p><strong>Attention</strong></p>
+<ol>
+<li>The CSV parser requires all the lines have same number of fields/columns.
+Even lines with spaces will cause error.
+Use '-I/--ignore-illegal-row' to skip these lines if neccessary.</li>
+<li>By default, csvtk thinks your files have header row, if not, switch flag <code>-H</code> on.</li>
+<li>Column names better be unique.</li>
+<li>By default, lines starting with <code>#</code> will be ignored, if the header row
+starts with <code>#</code>, please assign flag <code>-C</code> another rare symbol, e.g. <code>'$'</code>.</li>
+<li>By default, csvtk handles CSV files, use flag <code>-t</code> for tab-delimited files.</li>
+<li>If <code>"</code> exists in tab-delimited files, use flag <code>-l</code>.</li>
+<li>Do not mix use digital fields and column names.</li>
+</ol>
+<p>Examples</p>
+<ol>
+<li>
+<p>Pretty result</p>
+<pre><code> $ csvtk pretty names.csv
+ id   first_name   last_name   username
+ 11   Rob          Pike        rob
+ 2    Ken          Thompson    ken
+ 4    Robert       Griesemer   gri
+ 1    Robert       Thompson    abc
+ NA   Robert       Abel        123
+</code></pre>
+</li>
+<li>
+<p>Summary of selected digital fields, supporting "group-by"</p>
+<pre><code> $ cat testdata/digitals2.csv \
+     | csvtk summary --ignore-non-digits --fields f4:sum,f5:sum --groups f1,f2 \
+     | csvtk pretty
+ f1    f2     f4:sum   f5:sum
+ bar   xyz    7.00     106.00
+ bar   xyz2   4.00     4.00
+ foo   bar    6.00     3.00
+ foo   bar2   4.50     5.00
+</code></pre>
+</li>
+<li>
+<p>Select fields/columns (<code>cut</code>)</p>
+<ul>
+<li>By index: <code>csvtk cut -f 1,2</code>
+</li>
+<li>By names: <code>csvtk cut -f first_name,username</code>
+</li>
+<li>
+<strong>Unselect</strong>: <code>csvtk cut -f -1,-2</code> or <code>csvtk cut -f -first_name</code>
+</li>
+<li>
+<strong>Fuzzy fields</strong>: <code>csvtk cut -F -f "*_name,username"</code>
+</li>
+<li>Field ranges: <code>csvtk cut -f 2-4</code> for column 2,3,4 or <code>csvtk cut -f -3--1</code> for discarding column 1,2,3</li>
+<li>All fields: <code>csvtk cut -F -f "*"</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Search by selected fields (<code>grep</code>) (matched parts will be highlighted as red)</p>
+<ul>
+<li>By exactly matching: <code>csvtk grep -f first_name -p Robert -p Rob</code>
+</li>
+<li>By regular expression: <code>csvtk grep -f first_name -r -p Rob</code>
+</li>
+<li>By pattern list: <code>csvtk grep -f first_name -P name_list.txt</code>
+</li>
+<li>Remore rows containing missing data (NA): <code>csvtk grep -F -f "*" -r -p "^$" -v</code>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Rename column names</strong> (<code>rename</code> and <code>rename2</code>)</p>
+<ul>
+<li>Setting new names: <code>csvtk rename -f A,B -n a,b</code> or <code>csvtk rename -f 1-3 -n a,b,c</code>
+</li>
+<li>Replacing with original names by regular express: <code>cat ../testdata/c.csv | ./csvtk rename2 -F -f "*" -p "(.*)" -r 'prefix_$1'</code> for adding prefix to all column names.</li>
+</ul>
+</li>
+<li>
+<p><strong>Edit data with regular expression</strong> (<code>replace</code>)</p>
+<ul>
+<li>Remove Chinese charactors:  <code>csvtk replace -F -f "*_name" -p "\p{Han}+" -r ""</code>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create new column from selected fields by regular expression</strong> (<code>mutate</code>)</p>
+<ul>
+<li>In default, copy a column: <code>csvtk mutate -f id</code>
+</li>
+<li>Extract prefix of data as group name (get "A" from "A.1" as group name):
+<code>csvtk mutate -f sample -n group -p "^(.+?)\."</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Sort by multiple keys (<code>sort</code>)</p>
+<ul>
+<li>By single column : <code>csvtk sort -k 1</code> or <code>csvtk sort -k last_name</code>
+</li>
+<li>By multiple columns: <code>csvtk sort -k 1,2</code> or <code>csvtk sort -k 1 -k 2</code> or <code>csvtk sort -k last_name,age</code>
+</li>
+<li>Sort by number: <code>csvtk sort -k 1:n</code> or  <code>csvtk sort -k 1:nr</code> for reverse number</li>
+<li>Complex sort: <code>csvtk sort -k region -k age:n -k id:nr</code>
+</li>
+<li>In natural order: <code>csvtk sort -k chr:N</code>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Join multiple files by keys</strong> (<code>join</code>)</p>
+<ul>
+<li>All files have same key column: <code>csvtk join -f id file1.csv file2.csv</code>
+</li>
+<li>Files have different key columns: <code>csvtk join -f "username;username;name" names.csv phone.csv adress.csv -k</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Filter by numbers (<code>filter</code>)</p>
+<ul>
+<li>Single field: <code>csvtk filter -f "id&gt;0"</code>
+</li>
+<li>
+<strong>Multiple fields</strong>: <code>csvtk filter -f "1-3&gt;0"</code>
+</li>
+<li>Using <code>--any</code> to print record if any of the field satisfy the condition: <code>csvtk filter -f "1-3&gt;0" --any</code>
+</li>
+<li>
+<strong>fuzzy fields</strong>: <code>csvtk filter -F -f "A*!=0"</code>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Filter rows by awk-like arithmetic/string expressions</strong> (<code>filter2</code>)</p>
+<ul>
+<li>Using field index: <code>csvtk filter2 -f '$3&gt;0'</code>
+</li>
+<li>Using column names: <code>csvtk filter2 -f '$id &gt; 0'</code>
+</li>
+<li>Both arithmetic and string expressions: <code>csvtk filter2 -f '$id &gt; 3 || $username=="ken"'</code>
+</li>
+<li>More complicated: <code>csvtk filter2 -H -t -f '$1 &gt; 2 &amp;&amp; $2 % 2 == 0'</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Ploting</p>
+<ul>
+<li>
+<p>plot histogram with data of the second column:</p>
+<pre><code>  csvtk -t plot hist testdata/grouped_data.tsv.gz -f 2 | display
+</code></pre>
+<p><a href="https://github.com/shenwei356/csvtk/blob/master/testdata/figures/histogram.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/histogram.png" alt="histogram.png" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>plot boxplot with data of the "GC Content" (third) column,
+group information is the "Group" column.</p>
+<pre><code>  csvtk -t plot box testdata/grouped_data.tsv.gz -g "Group" \
+      -f "GC Content" --width 3 | display
+</code></pre>
+<p><a href="https://github.com/shenwei356/csvtk/blob/master/testdata/figures/boxplot.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/boxplot.png" alt="boxplot.png" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>plot horiz boxplot with data of the "Length" (second) column,
+group information is the "Group" column.</p>
+<pre><code> csvtk -t plot box testdata/grouped_data.tsv.gz -g "Group" -f "Length"  \
+     --height 3 --width 5 --horiz --title "Horiz box plot" | display
+</code></pre>
+</li>
+</ul>
+<p><a href="https://github.com/shenwei356/csvtk/blob/master/testdata/figures/boxplot2.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/boxplot2.png" alt="boxplot2.png" style="max-width:100%;"></a></p>
+<ul>
+<li>
+<p>plot line plot with X-Y data</p>
+<pre><code>  csvtk -t plot line testdata/xy.tsv -x X -y Y -g Group | display
+</code></pre>
+<p><a href="https://github.com/shenwei356/csvtk/blob/master/testdata/figures/lineplot.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/lineplot.png" alt="lineplot.png" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>plot scatter plot with X-Y data</p>
+<pre><code>  csvtk -t plot line testdata/xy.tsv -x X -y Y -g Group --scatter | display
+</code></pre>
+<p><a href="https://github.com/shenwei356/csvtk/blob/master/testdata/figures/scatter.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/scatter.png" alt="scatter.png" style="max-width:100%;"></a></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+<p>We are grateful to <a href="https://github.com/dawnmy" rel="nofollow">Zhiluo Deng</a> and
+<a href="https://github.com/penglbio" rel="nofollow">Li Peng</a> for suggesting features and reporting bugs.</p>
+<p>Thanks <a href="https://github.com/avilella" rel="nofollow">Albert Vilella</a> for features suggestion,
+which makes csvtk feature-rich。</p>
+<h2>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h2>
+<p><a href="https://github.com/shenwei356/csvtk/issues" rel="nofollow">Create an issue</a> to report bugs,
+propose new functions or ask for help.</p>
+<p>Or <a href="https://shenwei356.github.io/csvtk/usage/#disqus_thread" rel="nofollow">leave a comment</a>.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><a href="https://github.com/shenwei356/csvtk/blob/master/LICENSE" rel="nofollow">MIT License</a></p>
+<h2>
+<a id="starchart" class="anchor" href="#starchart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Starchart</h2>
+<a href="https://starchart.cc/shenwei356/csvtk.svg" target="_blank" rel="nofollow"><img src="https://starchart.cc/shenwei356/csvtk.svg" alt="Stargazers over time" style="max-width:100%;"></a>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120baa2cefae738',m:'ff73478716b3cc1addb0800f8c0331c7bc273ca1-1610725581-1800-AaCWlAqOnmvBwRiFV6qKV6gmc7dCrlVzZ+HS893uglg+ZJON/DQN9hyMgjyp11G3aKR9cerv7y4fbXQPZGugObquNqUb9HfjkK1FWje4uvWIT+tnHWqNEXmE21WMxv1fKMcazoOiBTGc8RhwMu4u77U=',s:[0x61013831b4,0x8a9924205d],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="go"/> <!-- -->go<!-- --> (<!-- -->14,132<!-- -->) </div><div><input type="checkbox" name="topics" value="golang"/> <!-- -->golang<!-- --> (<!-- -->3,600<!-- -->) </div><div><input type="checkbox" name="topics" value="cross-platform"/> <!-- -->cross-platform<!-- --> (<!-- -->643<!-- -->) </div><div><input type="checkbox" name="topics" value="command-line"/> <!-- -->command-line<!-- --> (<!-- -->501<!-- -->) </div><div><input type="checkbox" name="topics" value="tool"/> <!-- -->tool<!-- --> (<!-- -->382<!-- -->) </div><div><input type="checkbox" name="topics" value="csv"/> <!-- -->csv<!-- --> (<!-- -->258<!-- -->) </div><div><input type="checkbox" name="topics" value="bioinformatics"/> <!-- -->bioinformatics<!-- --> (<!-- -->253<!-- -->) </div><div><input type="checkbox" name="topics" value="toolkit"/> <!-- -->toolkit<!-- --> (<!-- -->100<!-- -->) </div><div><input type="checkbox" name="topics" value="tsv"/> <!-- -->tsv<!-- --> (<!-- -->23<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Csvtk<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/shenwei356" target="_blank">Shenwei356</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/shenwei356" target="_blank">Shenwei356</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-9d56ba14-9255-4a08-b26b-e23695b21303">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"bioinformatics","count":253},{"id":null,"name":"command-line","count":501},{"id":null,"name":"cross-platform","count":643},{"id":null,"name":"csv","count":258},{"id":null,"name":"go","count":14132},{"id":null,"name":"golang","count":3600},{"id":null,"name":"tool","count":382},{"id":null,"name":"toolkit","count":100},{"id":null,"name":"tsv","count":23}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/shenwei356/csvtk","projects":[],"project":{"id":65637,"created_at":"2018-08-21T00:48:48.456Z","updated_at":"2021-01-13T21:29:26.869Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"csvtk---a-cross-platform-efficient-and-practical-csvtsv-toolkit\" class=\"anchor\" href=\"#csvtk---a-cross-platform-efficient-and-practical-csvtsv-toolkit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ecsvtk - A cross-platform, efficient and practical CSV/TSV toolkit\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eDocuments:\u003c/strong\u003e \u003ca href=\"http://bioinf.shenwei.me/csvtk/\" rel=\"nofollow\"\u003ehttp://bioinf.shenwei.me/csvtk\u003c/a\u003e\n( \u003ca href=\"http://bioinf.shenwei.me/csvtk/usage/\" rel=\"nofollow\"\u003e\u003cstrong\u003eUsage\u003c/strong\u003e\u003c/a\u003e  and \u003ca href=\"http://bioinf.shenwei.me/csvtk/tutorial/\" rel=\"nofollow\"\u003e\u003cstrong\u003eTutorial\u003c/strong\u003e\u003c/a\u003e). \u003ca href=\"http://bioinf.shenwei.me/csvtk/chinese\" rel=\"nofollow\"\u003e中文介绍\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSource code:\u003c/strong\u003e  \u003ca href=\"https://github.com/shenwei356/csvtk\" rel=\"nofollow\"\u003ehttps://github.com/shenwei356/csvtk\u003c/a\u003e \u003ca href=\"https://github.com/shenwei356/csvtk\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/stars/shenwei356/csvtk.svg?style=social\u0026amp;label=Star\u0026amp;?maxAge=2592000\" alt=\"GitHub stars\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/LICENSE\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/license/shenwei356/csvtk.svg?maxAge=2592000\" alt=\"license\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://travis-ci.org/shenwei356/csvtk\" rel=\"nofollow\"\u003e\u003cimg src=\"https://travis-ci.org/shenwei356/csvtk.svg?branch=master\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eLatest version:\u003c/strong\u003e \u003ca href=\"https://github.com/shenwei356/csvtk/releases\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/release/shenwei356/csvtk.svg?style=flat\" alt=\"Latest Stable Version\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://bioinf.shenwei.me/csvtk/download/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/downloads/shenwei356/csvtk/latest/total.svg?maxAge=3600\" alt=\"Github Releases\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://bioinf.shenwei.me/csvtk/download/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/platform-any-ec2eb4.svg?style=flat\" alt=\"Cross-platform\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://anaconda.org/bioconda/csvtk\" rel=\"nofollow\"\u003e\u003cimg src=\"https://anaconda.org/bioconda/csvtk/badges/version.svg\" alt=\"Anaconda Cloud\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"introduction\" class=\"anchor\" href=\"#introduction\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eSimilar to FASTA/Q format in field of Bioinformatics,\nCSV/TSV formats are basic and ubiquitous file formats in both Bioinformatics and data science.\u003c/p\u003e\n\u003cp\u003ePeople usually use spreadsheet software like MS Excel to process table data.\nHowever this is all by clicking and typing, which is \u003cstrong\u003enot\nautomated and is time-consuming to repeat\u003c/strong\u003e, especially when you want to\napply similar operations with different datasets or purposes.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003eYou can also accomplish some CSV/TSV manipulations using shell commands,\nbut more code is needed to handle the header line. Shell commands do not\nsupport selecting columns with column names either.\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003ecsvtk\u003c/code\u003e is \u003cstrong\u003econvenient for rapid data investigation\nand also easy to integrate into analysis pipelines\u003c/strong\u003e.\nIt could save you lots of time in (not) writing Python/R scripts.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"table-of-contents\" class=\"anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTable of Contents\u003c/h2\u003e\n\n\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#features\"\u003eFeatures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#subcommands\"\u003eSubcommands\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#installation\"\u003eInstallation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#bash-completion\"\u003eBash-completion\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#compared-to-csvkit\"\u003eCompared to \u003ccode\u003ecsvkit\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#examples\"\u003eExamples\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#acknowledgements\"\u003eAcknowledgements\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contact\"\u003eContact\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#license\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#starchart\"\u003eStarchart\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch2\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eCross-platform\u003c/strong\u003e (Linux/Windows/Mac OS X/OpenBSD/FreeBSD)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLight weight and out-of-the-box, no dependencies, no compilation, no configuration\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFast\u003c/strong\u003e,  \u003cstrong\u003emultiple-CPUs supported\u003c/strong\u003e (some commands)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ePractical functions provided by N subcommands\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSupport STDIN and gziped input/output file, easy being used in pipe\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eMost of the subcommands support \u003cem\u003e\u003cstrong\u003eunselecting fields\u003c/strong\u003e\u003c/em\u003e and \u003cem\u003e\u003cstrong\u003efuzzy fields\u003c/strong\u003e\u003c/em\u003e,\ne.g. \u003ccode\u003e-f \"-id,-name\"\u003c/code\u003e for all fields except \"id\" and \"name\",\n\u003ccode\u003e-F -f \"a.*\"\u003c/code\u003e for all fields with prefix \"a.\".\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSupport some common plots\u003c/strong\u003e (see \u003ca href=\"http://bioinf.shenwei.me/csvtk/usage/#plot\" rel=\"nofollow\"\u003eusage\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\u003cdel\u003eSeamlessly support for data with meta line (e.g., \u003ccode\u003esep=,\u003c/code\u003e) of separator declaration used by MS Excel\u003c/del\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"subcommands\" class=\"anchor\" href=\"#subcommands\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSubcommands\u003c/h2\u003e\n\u003cp\u003e47 subcommands in total.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eInformation\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#headers\" rel=\"nofollow\"\u003e\u003ccode\u003eheaders\u003c/code\u003e\u003c/a\u003e: prints headers\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#dim/nrow/ncol\" rel=\"nofollow\"\u003e\u003ccode\u003edim\u003c/code\u003e\u003c/a\u003e: dimensions of CSV file\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#dim/nrow/ncol\" rel=\"nofollow\"\u003e\u003ccode\u003enrow\u003c/code\u003e\u003c/a\u003e: print number of records\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#dim/nrow/ncol\" rel=\"nofollow\"\u003e\u003ccode\u003encol\u003c/code\u003e\u003c/a\u003e: print number of columns\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#summary\" rel=\"nofollow\"\u003e\u003ccode\u003esummary\u003c/code\u003e\u003c/a\u003e: summary statistics of selected digital fields (groupby group fields)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#watch\" rel=\"nofollow\"\u003e\u003ccode\u003ewatch\u003c/code\u003e\u003c/a\u003e: online monitoring and histogram of selected field\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#corr\" rel=\"nofollow\"\u003e\u003ccode\u003ecorr\u003c/code\u003e\u003c/a\u003e: calculate Pearson correlation between numeric columns\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFormat conversion\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#pretty\" rel=\"nofollow\"\u003e\u003ccode\u003epretty\u003c/code\u003e\u003c/a\u003e: converts CSV to readable aligned table\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#csv2tab\" rel=\"nofollow\"\u003e\u003ccode\u003ecsv2tab\u003c/code\u003e\u003c/a\u003e: converts CSV to tabular format\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#tab2csv\" rel=\"nofollow\"\u003e\u003ccode\u003etab2csv\u003c/code\u003e\u003c/a\u003e: converts tabular format to CSV\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#space2tab\" rel=\"nofollow\"\u003e\u003ccode\u003espace2tab\u003c/code\u003e\u003c/a\u003e: converts space delimited format to CSV\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#transpose\" rel=\"nofollow\"\u003e\u003ccode\u003etranspose\u003c/code\u003e\u003c/a\u003e: transposes CSV data\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#csv2md\" rel=\"nofollow\"\u003e\u003ccode\u003ecsv2md\u003c/code\u003e\u003c/a\u003e: converts CSV to markdown format\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#csv2json\" rel=\"nofollow\"\u003e\u003ccode\u003ecsv2json\u003c/code\u003e\u003c/a\u003e: converts CSV to JSON format\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#csv2xlsx\" rel=\"nofollow\"\u003e\u003ccode\u003ecsv2xlsx\u003c/code\u003e\u003c/a\u003e: convert CSV/TSV files to XLSX file\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#xlsx2csv\" rel=\"nofollow\"\u003e\u003ccode\u003exlsx2csv\u003c/code\u003e\u003c/a\u003e: converts XLSX to CSV format\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSet operations\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#head\" rel=\"nofollow\"\u003e\u003ccode\u003ehead\u003c/code\u003e\u003c/a\u003e: prints first N records\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#concat\" rel=\"nofollow\"\u003e\u003ccode\u003econcat\u003c/code\u003e\u003c/a\u003e: concatenates CSV/TSV files by rows\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#sample\" rel=\"nofollow\"\u003e\u003ccode\u003esample\u003c/code\u003e\u003c/a\u003e: sampling by proportion\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#cut\" rel=\"nofollow\"\u003e\u003ccode\u003ecut\u003c/code\u003e\u003c/a\u003e: select and arrange fields\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#grep\" rel=\"nofollow\"\u003e\u003ccode\u003egrep\u003c/code\u003e\u003c/a\u003e: greps data by selected fields with patterns/regular expressions\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#uniq\" rel=\"nofollow\"\u003e\u003ccode\u003euniq\u003c/code\u003e\u003c/a\u003e: unique data without sorting\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#freq\" rel=\"nofollow\"\u003e\u003ccode\u003efreq\u003c/code\u003e\u003c/a\u003e: frequencies of selected fields\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#inter\" rel=\"nofollow\"\u003e\u003ccode\u003einter\u003c/code\u003e\u003c/a\u003e: intersection of multiple files\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#filter\" rel=\"nofollow\"\u003e\u003ccode\u003efilter\u003c/code\u003e\u003c/a\u003e: filters rows by values of selected fields with arithmetic expression\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#filter2\" rel=\"nofollow\"\u003e\u003ccode\u003efilter2\u003c/code\u003e\u003c/a\u003e: filters rows by awk-like arithmetic/string expressions\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#join\" rel=\"nofollow\"\u003e\u003ccode\u003ejoin\u003c/code\u003e\u003c/a\u003e: join files by selected fields (inner, left and outer join)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#split\" rel=\"nofollow\"\u003e\u003ccode\u003esplit\u003c/code\u003e\u003c/a\u003e splits CSV/TSV into multiple files according to column values\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#splitxlsx\" rel=\"nofollow\"\u003e\u003ccode\u003esplitxlsx\u003c/code\u003e\u003c/a\u003e: splits XLSX sheet into multiple sheets according to column values\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#comb\" rel=\"nofollow\"\u003e\u003ccode\u003ecomb\u003c/code\u003e\u003c/a\u003e: compute combinations of items at every row\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eEdit\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#add-header\" rel=\"nofollow\"\u003e\u003ccode\u003eadd-header\u003c/code\u003e\u003c/a\u003e: add column names\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#del-header\" rel=\"nofollow\"\u003e\u003ccode\u003edel-header\u003c/code\u003e\u003c/a\u003e: delete column names\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#rename\" rel=\"nofollow\"\u003e\u003ccode\u003erename\u003c/code\u003e\u003c/a\u003e: renames column names with new names\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#rename2\" rel=\"nofollow\"\u003e\u003ccode\u003erename2\u003c/code\u003e\u003c/a\u003e: renames column names by regular expression\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#replace\" rel=\"nofollow\"\u003e\u003ccode\u003ereplace\u003c/code\u003e\u003c/a\u003e: replaces data of selected fields by regular expression\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#round\" rel=\"nofollow\"\u003e\u003ccode\u003eround\u003c/code\u003e\u003c/a\u003e: round float to n decimal places\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#mutate\" rel=\"nofollow\"\u003e\u003ccode\u003emutate\u003c/code\u003e\u003c/a\u003e: creates new columns from selected fields by regular expression\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#mutate2\" rel=\"nofollow\"\u003e\u003ccode\u003emutate2\u003c/code\u003e\u003c/a\u003e: creates new column from selected fields by awk-like arithmetic/string expressions\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#sep\" rel=\"nofollow\"\u003e\u003ccode\u003esep\u003c/code\u003e\u003c/a\u003e: separate column into multiple columns\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#gather\" rel=\"nofollow\"\u003e\u003ccode\u003egather\u003c/code\u003e\u003c/a\u003e: gathers columns into key-value pairs\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#unfold\" rel=\"nofollow\"\u003e\u003ccode\u003eunfold\u003c/code\u003e\u003c/a\u003e: unfold multiple values in cells of a field\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#fold\" rel=\"nofollow\"\u003e\u003ccode\u003efold\u003c/code\u003e\u003c/a\u003e: fold multiple values of a field into cells of groups\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eOrdering\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#sort\" rel=\"nofollow\"\u003e\u003ccode\u003esort\u003c/code\u003e\u003c/a\u003e: sorts by selected fields\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003ePloting\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#plot\" rel=\"nofollow\"\u003e\u003ccode\u003eplot\u003c/code\u003e\u003c/a\u003e see \u003ca href=\"http://bioinf.shenwei.me/csvtk/usage/#plot\" rel=\"nofollow\"\u003eusage\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#hist\" rel=\"nofollow\"\u003e\u003ccode\u003eplot hist\u003c/code\u003e\u003c/a\u003e histogram\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#box\" rel=\"nofollow\"\u003e\u003ccode\u003eplot box\u003c/code\u003e\u003c/a\u003e boxplot\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#line\" rel=\"nofollow\"\u003e\u003ccode\u003eplot line\u003c/code\u003e\u003c/a\u003e line plot and scatter plot\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eMisc\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#cat\" rel=\"nofollow\"\u003e\u003ccode\u003ecat\u003c/code\u003e\u003c/a\u003e stream file and report progress\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#version\" rel=\"nofollow\"\u003e\u003ccode\u003eversion\u003c/code\u003e\u003c/a\u003e   print version information and check for update\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/csvtk/usage/#genautocomplete\" rel=\"nofollow\"\u003e\u003ccode\u003egenautocomplete\u003c/code\u003e\u003c/a\u003e generate shell autocompletion script\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/releases\" rel=\"nofollow\"\u003eDownload Page\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003ecsvtk\u003c/code\u003e is implemented in \u003ca href=\"https://golang.org/\" rel=\"nofollow\"\u003eGo\u003c/a\u003e programming language,\nexecutable binary files \u003cstrong\u003efor most popular operating systems\u003c/strong\u003e are freely available\nin \u003ca href=\"https://github.com/shenwei356/csvtk/releases\" rel=\"nofollow\"\u003erelease\u003c/a\u003e page.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"method-1-download-binaries-latest-stabledev-version\" class=\"anchor\" href=\"#method-1-download-binaries-latest-stabledev-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 1: Download binaries (latest stable/dev version)\u003c/h4\u003e\n\u003cp\u003eJust \u003ca href=\"https://github.com/shenwei356/csvtk/releases\" rel=\"nofollow\"\u003edownload\u003c/a\u003e compressed\nexecutable file of your operating system,\nand decompress it with \u003ccode\u003etar -zxvf *.tar.gz\u003c/code\u003e command or other tools.\nAnd then:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFor Linux-like systems\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eIf you have root privilege simply copy it to \u003ccode\u003e/usr/local/bin\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e sudo cp csvtk /usr/local/bin/\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOr copy to anywhere in the environment variable \u003ccode\u003ePATH\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e mkdir -p $HOME/bin/; cp csvtk $HOME/bin/\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFor windows\u003c/strong\u003e, just copy \u003ccode\u003ecsvtk.exe\u003c/code\u003e to \u003ccode\u003eC:\\WINDOWS\\system32\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch4\u003e\n\u003ca id=\"method-2-install-via-conda-latest-stable-version---\" class=\"anchor\" href=\"#method-2-install-via-conda-latest-stable-version---\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 2: Install via conda (latest stable version)  \u003ca href=\"https://anaconda.org/bioconda/csvtk\" rel=\"nofollow\"\u003e\u003cimg src=\"https://anaconda.org/bioconda/csvtk/badges/version.svg\" alt=\"Anaconda Cloud\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://anaconda.org/bioconda/csvtk\" rel=\"nofollow\"\u003e\u003cimg src=\"https://anaconda.org/bioconda/csvtk/badges/downloads.svg\" alt=\"downloads\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003econda install -c bioconda csvtk\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"method-3-for-go-developer-latest-stabledev-version\" class=\"anchor\" href=\"#method-3-for-go-developer-latest-stabledev-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 3: For Go developer (latest stable/dev version)\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003ego get -u github.com/shenwei356/csvtk/csvtk\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"method-4-for-archlinux-aur-users-may-be-not-the-latest\" class=\"anchor\" href=\"#method-4-for-archlinux-aur-users-may-be-not-the-latest\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 4: For ArchLinux AUR users (may be not the latest)\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003eyaourt -S csvtk\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"bash-completion\" class=\"anchor\" href=\"#bash-completion\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBash-completion\u003c/h2\u003e\n\u003cp\u003eNote: The current version supports Bash only.\nThis should work for *nix systems with Bash installed.\u003c/p\u003e\n\u003cp\u003eHowto:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003erun: \u003ccode\u003ecsvtk genautocomplete\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ecreate and edit \u003ccode\u003e~/.bash_completion\u003c/code\u003e file if you don't have it.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e nano ~/.bash_completion\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eadd the following:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e for bcfile in ~/.bash_completion.d/* ; do\n   . $bcfile\n done\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"compared-to-csvkit\" class=\"anchor\" href=\"#compared-to-csvkit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCompared to \u003ccode\u003ecsvkit\u003c/code\u003e\n\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"http://csvkit.readthedocs.org/\" rel=\"nofollow\"\u003ecsvkit\u003c/a\u003e, attention: this table wasn't updated for 2 years.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"left\"\u003eFeatures\u003c/th\u003e\n\u003cth align=\"center\"\u003ecsvtk\u003c/th\u003e\n\u003cth align=\"center\"\u003ecsvkit\u003c/th\u003e\n\u003cth align=\"left\"\u003eNote\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eRead    Gzip\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"left\"\u003eread gzip files\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eFields ranges\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"left\"\u003ee.g. \u003ccode\u003e-f 1-4,6\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eUnselect fileds\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003ee.g. \u003ccode\u003e-1\u003c/code\u003e for excluding first column\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eFuzzy fields\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003ee.g. \u003ccode\u003eab*\u003c/code\u003e for columns with name prefix \"ab\"\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eReorder fields\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"left\"\u003eit means \u003ccode\u003e-f 1,2\u003c/code\u003e is different from \u003ccode\u003e-f 2,1\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eRename columns\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003erename with new name(s) or from existed names\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eSort by multiple keys\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"left\"\u003ebash sort like operations\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eSort by number\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003ee.g. \u003ccode\u003e-k 1:n\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eMultiple sort\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003ee.g. \u003ccode\u003e-k 2:r -k 1:nr\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003ePretty output\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"left\"\u003econvert CSV to readable aligned table\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eUnique data\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003eunique data of selected fields\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003efrequency\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003efrequencies of selected fields\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eSampling\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003esampling by proportion\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eMutate fields\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003ecreate new columns from selected fields\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eRepalce\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"left\"\u003ereplace data of selected fields\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eSimilar tools:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"http://csvkit.readthedocs.org/\" rel=\"nofollow\"\u003ecsvkit\u003c/a\u003e - A suite of utilities for converting to and working with CSV, the king of tabular file formats. \u003ca href=\"http://csvkit.rtfd.org/\" rel=\"nofollow\"\u003ehttp://csvkit.rtfd.org/\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/BurntSushi/xsv\" rel=\"nofollow\"\u003exsv\u003c/a\u003e - A fast CSV toolkit written in Rust.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/johnkerl/miller\" rel=\"nofollow\"\u003emiller\u003c/a\u003e - Miller is like sed, awk, cut, join, and sort for\nname-indexed data such as CSV and tabular JSON \u003ca href=\"http://johnkerl.org/miller\" rel=\"nofollow\"\u003ehttp://johnkerl.org/miller\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/eBay/tsv-utils\" rel=\"nofollow\"\u003etsv-utils\u003c/a\u003e - Command line utilities for tab-separated value files written in the D programming language.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExamples\u003c/h2\u003e\n\u003cp\u003eMore \u003ca href=\"http://shenwei356.github.io/csvtk/usage/\" rel=\"nofollow\"\u003eexamples\u003c/a\u003e and \u003ca href=\"http://shenwei356.github.io/csvtk/tutorial/\" rel=\"nofollow\"\u003etutorial\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAttention\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eThe CSV parser requires all the lines have same number of fields/columns.\nEven lines with spaces will cause error.\nUse '-I/--ignore-illegal-row' to skip these lines if neccessary.\u003c/li\u003e\n\u003cli\u003eBy default, csvtk thinks your files have header row, if not, switch flag \u003ccode\u003e-H\u003c/code\u003e on.\u003c/li\u003e\n\u003cli\u003eColumn names better be unique.\u003c/li\u003e\n\u003cli\u003eBy default, lines starting with \u003ccode\u003e#\u003c/code\u003e will be ignored, if the header row\nstarts with \u003ccode\u003e#\u003c/code\u003e, please assign flag \u003ccode\u003e-C\u003c/code\u003e another rare symbol, e.g. \u003ccode\u003e'$'\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eBy default, csvtk handles CSV files, use flag \u003ccode\u003e-t\u003c/code\u003e for tab-delimited files.\u003c/li\u003e\n\u003cli\u003eIf \u003ccode\u003e\"\u003c/code\u003e exists in tab-delimited files, use flag \u003ccode\u003e-l\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eDo not mix use digital fields and column names.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eExamples\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003ePretty result\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e $ csvtk pretty names.csv\n id   first_name   last_name   username\n 11   Rob          Pike        rob\n 2    Ken          Thompson    ken\n 4    Robert       Griesemer   gri\n 1    Robert       Thompson    abc\n NA   Robert       Abel        123\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSummary of selected digital fields, supporting \"group-by\"\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e $ cat testdata/digitals2.csv \\\n     | csvtk summary --ignore-non-digits --fields f4:sum,f5:sum --groups f1,f2 \\\n     | csvtk pretty\n f1    f2     f4:sum   f5:sum\n bar   xyz    7.00     106.00\n bar   xyz2   4.00     4.00\n foo   bar    6.00     3.00\n foo   bar2   4.50     5.00\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSelect fields/columns (\u003ccode\u003ecut\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBy index: \u003ccode\u003ecsvtk cut -f 1,2\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eBy names: \u003ccode\u003ecsvtk cut -f first_name,username\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eUnselect\u003c/strong\u003e: \u003ccode\u003ecsvtk cut -f -1,-2\u003c/code\u003e or \u003ccode\u003ecsvtk cut -f -first_name\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFuzzy fields\u003c/strong\u003e: \u003ccode\u003ecsvtk cut -F -f \"*_name,username\"\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eField ranges: \u003ccode\u003ecsvtk cut -f 2-4\u003c/code\u003e for column 2,3,4 or \u003ccode\u003ecsvtk cut -f -3--1\u003c/code\u003e for discarding column 1,2,3\u003c/li\u003e\n\u003cli\u003eAll fields: \u003ccode\u003ecsvtk cut -F -f \"*\"\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSearch by selected fields (\u003ccode\u003egrep\u003c/code\u003e) (matched parts will be highlighted as red)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBy exactly matching: \u003ccode\u003ecsvtk grep -f first_name -p Robert -p Rob\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eBy regular expression: \u003ccode\u003ecsvtk grep -f first_name -r -p Rob\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eBy pattern list: \u003ccode\u003ecsvtk grep -f first_name -P name_list.txt\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eRemore rows containing missing data (NA): \u003ccode\u003ecsvtk grep -F -f \"*\" -r -p \"^$\" -v\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRename column names\u003c/strong\u003e (\u003ccode\u003erename\u003c/code\u003e and \u003ccode\u003erename2\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSetting new names: \u003ccode\u003ecsvtk rename -f A,B -n a,b\u003c/code\u003e or \u003ccode\u003ecsvtk rename -f 1-3 -n a,b,c\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eReplacing with original names by regular express: \u003ccode\u003ecat ../testdata/c.csv | ./csvtk rename2 -F -f \"*\" -p \"(.*)\" -r 'prefix_$1'\u003c/code\u003e for adding prefix to all column names.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eEdit data with regular expression\u003c/strong\u003e (\u003ccode\u003ereplace\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eRemove Chinese charactors:  \u003ccode\u003ecsvtk replace -F -f \"*_name\" -p \"\\p{Han}+\" -r \"\"\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eCreate new column from selected fields by regular expression\u003c/strong\u003e (\u003ccode\u003emutate\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIn default, copy a column: \u003ccode\u003ecsvtk mutate -f id\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eExtract prefix of data as group name (get \"A\" from \"A.1\" as group name):\n\u003ccode\u003ecsvtk mutate -f sample -n group -p \"^(.+?)\\.\"\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSort by multiple keys (\u003ccode\u003esort\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBy single column : \u003ccode\u003ecsvtk sort -k 1\u003c/code\u003e or \u003ccode\u003ecsvtk sort -k last_name\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eBy multiple columns: \u003ccode\u003ecsvtk sort -k 1,2\u003c/code\u003e or \u003ccode\u003ecsvtk sort -k 1 -k 2\u003c/code\u003e or \u003ccode\u003ecsvtk sort -k last_name,age\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eSort by number: \u003ccode\u003ecsvtk sort -k 1:n\u003c/code\u003e or  \u003ccode\u003ecsvtk sort -k 1:nr\u003c/code\u003e for reverse number\u003c/li\u003e\n\u003cli\u003eComplex sort: \u003ccode\u003ecsvtk sort -k region -k age:n -k id:nr\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eIn natural order: \u003ccode\u003ecsvtk sort -k chr:N\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eJoin multiple files by keys\u003c/strong\u003e (\u003ccode\u003ejoin\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eAll files have same key column: \u003ccode\u003ecsvtk join -f id file1.csv file2.csv\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eFiles have different key columns: \u003ccode\u003ecsvtk join -f \"username;username;name\" names.csv phone.csv adress.csv -k\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eFilter by numbers (\u003ccode\u003efilter\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSingle field: \u003ccode\u003ecsvtk filter -f \"id\u0026gt;0\"\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMultiple fields\u003c/strong\u003e: \u003ccode\u003ecsvtk filter -f \"1-3\u0026gt;0\"\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUsing \u003ccode\u003e--any\u003c/code\u003e to print record if any of the field satisfy the condition: \u003ccode\u003ecsvtk filter -f \"1-3\u0026gt;0\" --any\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003efuzzy fields\u003c/strong\u003e: \u003ccode\u003ecsvtk filter -F -f \"A*!=0\"\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFilter rows by awk-like arithmetic/string expressions\u003c/strong\u003e (\u003ccode\u003efilter2\u003c/code\u003e)\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUsing field index: \u003ccode\u003ecsvtk filter2 -f '$3\u0026gt;0'\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUsing column names: \u003ccode\u003ecsvtk filter2 -f '$id \u0026gt; 0'\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eBoth arithmetic and string expressions: \u003ccode\u003ecsvtk filter2 -f '$id \u0026gt; 3 || $username==\"ken\"'\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eMore complicated: \u003ccode\u003ecsvtk filter2 -H -t -f '$1 \u0026gt; 2 \u0026amp;\u0026amp; $2 % 2 == 0'\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePloting\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eplot histogram with data of the second column:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  csvtk -t plot hist testdata/grouped_data.tsv.gz -f 2 | display\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/testdata/figures/histogram.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/histogram.png\" alt=\"histogram.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eplot boxplot with data of the \"GC Content\" (third) column,\ngroup information is the \"Group\" column.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  csvtk -t plot box testdata/grouped_data.tsv.gz -g \"Group\" \\\n      -f \"GC Content\" --width 3 | display\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/testdata/figures/boxplot.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/boxplot.png\" alt=\"boxplot.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eplot horiz boxplot with data of the \"Length\" (second) column,\ngroup information is the \"Group\" column.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e csvtk -t plot box testdata/grouped_data.tsv.gz -g \"Group\" -f \"Length\"  \\\n     --height 3 --width 5 --horiz --title \"Horiz box plot\" | display\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/testdata/figures/boxplot2.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/boxplot2.png\" alt=\"boxplot2.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eplot line plot with X-Y data\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  csvtk -t plot line testdata/xy.tsv -x X -y Y -g Group | display\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/testdata/figures/lineplot.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/lineplot.png\" alt=\"lineplot.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eplot scatter plot with X-Y data\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  csvtk -t plot line testdata/xy.tsv -x X -y Y -g Group --scatter | display\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/testdata/figures/scatter.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/csvtk/master/testdata/figures/scatter.png\" alt=\"scatter.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"acknowledgements\" class=\"anchor\" href=\"#acknowledgements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgements\u003c/h2\u003e\n\u003cp\u003eWe are grateful to \u003ca href=\"https://github.com/dawnmy\" rel=\"nofollow\"\u003eZhiluo Deng\u003c/a\u003e and\n\u003ca href=\"https://github.com/penglbio\" rel=\"nofollow\"\u003eLi Peng\u003c/a\u003e for suggesting features and reporting bugs.\u003c/p\u003e\n\u003cp\u003eThanks \u003ca href=\"https://github.com/avilella\" rel=\"nofollow\"\u003eAlbert Vilella\u003c/a\u003e for features suggestion,\nwhich makes csvtk feature-rich。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"contact\" class=\"anchor\" href=\"#contact\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContact\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/issues\" rel=\"nofollow\"\u003eCreate an issue\u003c/a\u003e to report bugs,\npropose new functions or ask for help.\u003c/p\u003e\n\u003cp\u003eOr \u003ca href=\"https://shenwei356.github.io/csvtk/usage/#disqus_thread\" rel=\"nofollow\"\u003eleave a comment\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/csvtk/blob/master/LICENSE\" rel=\"nofollow\"\u003eMIT License\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"starchart\" class=\"anchor\" href=\"#starchart\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStarchart\u003c/h2\u003e\n\u003ca href=\"https://starchart.cc/shenwei356/csvtk.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://starchart.cc/shenwei356/csvtk.svg\" alt=\"Stargazers over time\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":55350474,"name":"csvtk","owner_login":"shenwei356","description":"A cross-platform, efficient and practical CSV/TSV toolkit in Golang","pushed_at":"2021-01-12T15:12:30.000Z","stargazers_count":539,"open_issues_count":4,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"http://bioinf.shenwei.me/csvtk","private":false,"project_created_at":"2016-04-03T14:31:16.000Z","project_updated_at":"2021-01-13T20:27:51.000Z","language":"Go","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

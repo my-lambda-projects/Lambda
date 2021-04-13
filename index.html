@@ -14,42 +14,29 @@
       rel="apple-touch-icon">
     <link type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./w1-style.css" rel="stylesheet">
+    <link href="./css/main-style.css" rel="stylesheet">
     <style>
-      #out {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      @media screen and (min-width: 40em) {
+        article {
+          display: grid;
+          grid-template-columns: 3fr 1fr;
+          column-gap: 20px;
+        }
+
+        nav ul {
+          display: flex;
+        }
+
+        nav li {
+          flex: 1;
+        }
       }
-.loading-overlay {
-display: none;
-background: rgba( 26, 26, 26, 0.7 );
-position: fixed;
-width: 100%;
-height: 100%;
-z-index: 5;
-top: 0;
-}
 
-.loading-overlay-image-container {
-display: none;
-position: fixed;
-z-index: 7;
-top: 50%;
-left: 50%;
-transform: translate( -50%, -50% );
-}
-
-.loading-overlay-img {
-width: 50px;
-height: 50px;
-border-radius: 5px;
-}
     </style>
     <!-- <script>
    
     </script> -->
-    <script async src="./index.js"></script>
+    <script async src="./js/index.js"></script>
 
     <!----------------------jQuery------------------------------------------------------------------------------------------->
     <!-- <script async defer src="./jQuery-min.js"></script> -->
@@ -66,10 +53,27 @@ border-radius: 5px;
       } );
 
     </script>
+    
+      <!-------------------------------------Angolia Search---------------------------------------------------------------------------------------------------------------------------------->
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+  algoliasearchNetlify({
+    appId: '5UFU8H2XQ2',
+    apiKey: '3882cac807db103c3bbd02d853d9e785',
+    siteId: '0a9e6d86-b295-4037-b04d-88da85c1f6b5',
+    branch: 'master',
+    selector: 'div#search',
+  });
+</script>
   </head>
   <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
   <body>
+
     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div id="out">
       <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -85,140 +89,231 @@ border-radius: 5px;
             fill="currentColor"></path>
         </svg></a>
       <!------------------------------------------------------------------------------------------------------------------------------------------------->
-   <h1 style="color:rgb(84, 172, 226); align-content:center;">This is:
-     <span class="txt-rotate" data-period="2000"
-       data-rotate='[ " Lambda Student Resources", "created by Bryan Guner" ]'></span>
-   </h1>
-  <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-        <div id="loading"
-          style="background: url('./giphy.gif') no-repeat center center;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999999;">
-        </div>
-        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-           <h2>One-Drive-File-Storage!</h2>
+      <h1 style="color:rgb(84, 172, 226); align-content:center;">This is:
+        <span class="txt-rotate" data-period="2000"
+          data-rotate='[ " Lambda Student Resources", "created by Bryan Guner" ]'></span>
+      </h1>
+      <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+      <div id="loading"
+        style="background: url('./giphy.gif') no-repeat center center;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999999;">
+      </div>
+      
+      <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+      <h2>One-Drive-File-Storage!</h2>
 
       <div class="loading-overlay"></div>
       <div class="loading-overlay-image-container">
         <img src="./giphy.gif" class="loading-overlay-img" />
       </div>
+            <br>
+            </br>
       <div style="display:flex; flex-direction: row;">
-        <iframe
+        <iframe class="embed"
           src="https://onedrive.live.com/embed?cid=D21009FDD967A241&resid=D21009FDD967A241%21538729&authkey=AHSDSyoYqzg2K2E"
           width="165" height="128" frameborder="0" scrolling="no"></iframe>
-      
+
       </div>
       <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
- 
+
+      <br>
+      </br>
+
+      <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="embed">
       <br>
       <br>
       <ul>
         <li class="btn"><a href="./directory.html">🧭NAVIGATION🧭&nbsp;</a></li>
         <li class="btn"><a href=".link.html">🧭External Links (most used websites)🧭&nbsp;</a></li>
-        <li class="btn"><a href="./assets/web-dev-utils/lambda-prep/directory.html">🧰Tools🔨&nbsp;</a></li>
+        <li class="btn"><a href="./7-assets/web-dev-utils/lambda-prep/directory.html">🧰Tools🔨&nbsp;</a></li>
         <li class="btn"><a href="https://lambda-prep.netlify.app/">📖Lambda Prep-Resource Site📗&nbsp;</a></li>
         <li class="btn"><a href=".RESOURCES.html">🖥️Code Playground🖲️&nbsp;</a></li>
         <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/applied-js-1.html">✨applied-js-1.html✨&nbsp;</a></li>
         <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/HTML_PATTERNS">🧱HTML_PATTERNS🕸️ &nbsp;</a></li>
         <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/js-fundamentals.html">✨js-fundamentals✨&nbsp;</a></li>
-        <li class="btn"><a href="./WEEKS/wk1/2-resources/agenda.html">💬Agenda💬&nbsp;</a></li>
         <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/styling-n-js.html">✨styling-n-js✨&nbsp;</a></li>
         <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/using-git.html">😺using-git😺&nbsp;</a></li>
         <li class="btn"><a href="https://trusting-dijkstra-4d3b17.netlify.app/">🎄DATA STRUCTURES🌐&nbsp;</a></li>
         <li class="btn"><a href="WEEKS\wk1\2-resources\agenda.html">📗Agenda📗&nbsp;</a></li>
         <li class="btn"><a href="WEEKS\wk1\2-resources\agenda.html">📼Video Previewer📹&nbsp;</a></li>
         <li class="btn"><a href="about\Using_Canvas.html">📊Using Canvas📊&nbsp;</a></li>
+        <li class="btn"><a href="about\Using_Canvas.html">🖋️Brit's Code Pens✏️&nbsp;</a></li>
+        <li class="btn"><a href="2-resources/__CHEAT-SHEETS/right.html">Cheat Sheets&nbsp;</a></li>
       </ul>
+         </div>
+      <!--------------------------------------------------------------------------------------------------------------------------------------------------->
       <br>
-      <br>
-      <br>
+      </br>
       <div style="display:flex; flex-direction: row;">
-      <iframe class="animate" id="ann" src="https://embedable-content.netlify.app/standalone/test.html" height="365"
+
+      <iframe class="animate embed" id="ann" src="https://embedable-content.netlify.app/standalone/test.html" height="365"
         style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350 loading="lazy" align-content:center
         allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white"></iframe>
         
       <button onclick="removeaudio()" id="myBtn">Mute</button>
-      <iframe class="animate" id="audio"
-        src="https://project-showcase-bgoonz.netlify.app/future-tech-innov-creative/etc/musicviz/index_starter.html"
+      <iframe class="animate embed" id="audio"
+        src="https://project-showcase-bgoonz.netlify.app/future-tech-innov-creative/etc/musicviz/index_forexample.html"
         height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350 allow="autoplay" id="audio"
         style="display:none" align-content:center allowtransparency="true" allowfullscreen="true" opacity="0.7"
         box-shaddow="16px white"></iframe>
 </div>
+      <!---------------------------------------------------------Announcments------------------------------------------------------------------------------------------>
+      <br>
+      </br>
       <h2 style="color:white; align-content:center;"> Announcements </h2>
 
       <iframe class="embed" src="./anouncments.html" height="800" style="width:90%" scrolling="yes" frameborder="no"
         loading="lazy" allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="8px white"></iframe>
       <br>
       <br>
+            <!---------------------------------------------------------Quizes------------------------------------------------------------------------------------------>
+
+            <iframe class="embed" src="https://web-dev-interview-prep-quiz-website.netlify.app/"
+              style="width:90%!important; height:800px;"></iframe>
+            <!----------------------------------------------------------------------------------------------------------------------------------------->
+
+        <br>
+        <br>
       <h2> General Resources:</h2>
-      <iframe class="embed" src="./RESOURCES.html" height="800" style="width:90%;!important" scrolling="yes" frameborder="no"
-        loading="lazy"></iframe>
-      <br>
-      <br>
+      <iframe class="embed" src="./RESOURCES.html" height="800" style="width:90%;!important" scrolling="yes"
+        frameborder="no" loading="lazy"></iframe>
       <br>
       <h2>Demo's</h2>
       <br>
-      <br>
-      <br>
-      <iframe class="embed"  src="https://embedable-content.netlify.app/main.html"
+      <iframe class="embed" src="https://embedable-content.netlify.app/main.html"
         style="width:90%!important; height:800px;"></iframe>
       <br>
-      <br>
-      <br>
+            <br>
+            </br>
       <!----------------------------------------------------------------------->
       <h2>Comments</h2>
-      <iframe  src="https://Comments.bgoonz.repl.co"
+      <iframe src="https://Comments.bgoonz.repl.co"
         style="background-color: rgba(255, 255, 255, 0.214) ;border-radius:45px; color:white;!important" height="800px"
         width="90%" scrolling="yes" frameborder="yes" allowtransparency="false" scroll="true"
-        allowfullscreen="true"></iframe> <iframe id="hexload" class="animate" id="ann"
-          src="https://codepen.io/bgoonz/embed/ExZxMPN?height=265&theme-id=dark&default-tab=result" height="250px"
-          width="90%"" scrolling=" no" frameborder="yes" border-radius:85px; loading="lazy" align-content:center
-          allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white"></iframe>
+        allowfullscreen="true"></iframe> 
+        
+              <br>
+              </br>
+              
+              <iframe id="hexload" class="animate" id="ann"
+        src="https://codepen.io/bgoonz/embed/ExZxMPN?height=265&theme-id=dark&default-tab=result" height="250px"
+        width="90%"" scrolling=" no" frameborder="yes" border-radius:85px; loading="lazy" align-content:center
+        allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white"></iframe>
       <div class="shadow">
+              <br>
+              </br>
         <!-------------------------------------------------------------------------------------->
       </div>
+            <br>
+            </br>
       <hr>
+      <center>
+        <h2 style="align-self:center;">World Clock(Click To See Localized Time)</h2>
+      </center>
+      <iframe width="90%" height="629" frameborder="0"
+        src="https://observablehq.com/embed/1b6399182c98cd36@480?cells=chart%2Cviewof+date"></iframe>
+      <!-- <h2>Contact</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <p>
+          <label>Your Name: <input type="text" name="name" /></label>
+        </p>
+        <p>
+          <label>Your Email: <input type="email" name="email" /></label>
+        </p>
+        <p>
+          <label>Your Role: <select name="role[]" multiple>
+              <option value="leader">Leader</option>
+              <option value="follower">Follower</option>
+            </select></label>
+        </p>
+        <p>
+          <label>Message: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+          <button
+            type="submit">Send</button>
+        </p>
+      </form> -->
 
-        <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/directory.html" >🧭NAVIGATION🧭&nbsp;<img src=""></a></li>
-        <li class="btn"><a href="https://portfolio42.netlify.app/" target=”_blank”>ABOUT&nbsp;<img src=""></a></li>
-        <li class="btn"> <a href="https://lambda-w-1-notes.netlify.app/" target=”_blank”>🏠HOME!&nbsp;<img src=""></a>
-        </li>
-
+<!------------------------------------------------------------------------------------------------------->
+      <br>
+      </br>
+      <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/directory.html">🧭NAVIGATION🧭&nbsp;<img src=""></a></li>
+      <li class="btn"><a href="https://portfolio42.netlify.app/" target=”_blank”>ABOUT&nbsp;<img src=""></a></li>
+      <li class="btn"> <a href="https://lambda-w-1-notes.netlify.app/" target=”_blank”>🏠HOME!&nbsp;<img src=""></a>
+      </li>
+            <br>
+            </br>
+      <!------------------------------------------------------------------------------------------------------->
+      <a class="bookmarklet_button"
+        href="javascript:(function(){f='https://www.addtoany.com/share#url='+encodeURIComponent(window.location.href)+'&amp;title='+encodeURIComponent(document.title);a=function(){if(!window.open(f,'addtoany','width=800,height=600,toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
+        title="AddToAny"
+        onclick="alert('Drag this link onto your toolbar to add the AddToAny Bookmarklet');return false">Drag to
+        Bookmarks to add to Bookmarks!</a>
+              <br>
+              </br>
       <script src="https://www.freevisitorcounters.com/auth.php?id=fdf7005310189aaad83125635a22c042daac8a70"
         type="text/javascript"></script>
       <script async src="https://www.freevisitorcounters.com/en/home/counter/814984/t/0" type="text/javascript">
       </script>
       <script>
-       
+        function removeaudio() {
+          var elem = document.getElementById( 'audio' );
+          elem.parentNode.removeChild( elem );
+          return false;
+        }
 
-
-          function removeaudio() {
-            var elem = document.getElementById( 'audio' );
-            elem.parentNode.removeChild( elem );
-            return false;
+        function pageInit() {
+          // Hook up the "remove audio" button
+          var btn = document.getElementById( 'btnRemoveaudio' );
+          if ( btn.addEventListener ) {
+            // DOM2 standard
+            btn.addEventListener( 'click', removeaudio, false );
+          } else if ( btn.attachEvent ) {
+            // IE (IE9 finally supports the above, though)
+            btn.attachEvent( 'onclick', removeaudio );
+          } else {
+            // Really old or non-standard browser, try DOM0
+            btn.onclick = removeaudio;
           }
-
-          function pageInit() {
-            // Hook up the "remove audio" button
-            var btn = document.getElementById( 'btnRemoveaudio' );
-            if ( btn.addEventListener ) {
-              // DOM2 standard
-              btn.addEventListener( 'click', removeaudio, false );
-            } else if ( btn.attachEvent ) {
-              // IE (IE9 finally supports the above, though)
-              btn.attachEvent( 'onclick', removeaudio );
-            } else {
-              // Really old or non-standard browser, try DOM0
-              btn.onclick = removeaudio;
-            }
-          }
-  
+        };
 
       </script>
-            <!-- include our loader overlay script -->
-      
-  <a style="color:black;" href='https://free-hit-counters.net/'>Free Hit Counters</a>
+
+<!--------------------bug fix for scroll to top on page load error----------->
+      <script>
+        function out() {
+          document.getElementById( 'out' ).scrollIntoView();
+        };
+
+        function bottom() {
+          document.getElementById( 'bottom' ).scrollIntoView();
+          window.setTimeout( function () {
+            out();
+          }, 1000 );
+        };
+
+        bottom();
+
+      </script>
+
+      <a style="color:black;" href='https://free-hit-counters.net/'>Free Hit Counters</a>
       <script type='text/javascript'
         src='https://www.freevisitorcounters.com/auth.php?id=f904dfc58ec6c182f5b6f3c4144fb84f03f356bc'></script>
       <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/815451/t/0"></script>
+      
+
+        <br>
+        </br>
+          <br>
+          </br>
+            <br>
+            </br>
+      <!---------------------------------------------------Footer------------------------------------------------------------------------------>     
+      
+       <iframe id='footer' src="https://nervous-spence-2c9965.netlify.app/"
+   frameborder="0" scrolling="no" border:none;   ></iframe>
   </body>
 
 </html>
