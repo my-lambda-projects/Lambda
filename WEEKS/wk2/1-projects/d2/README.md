@@ -29,6 +29,9 @@ Exercises are outlined in the `index.js` file, please read the instructions care
 Using VSCode and Command Line:
 
 
+hi!
+
+
 1. Fork the repo
 2. Clone your forked version of the repo
 3. cd into your repo and create a branch with your first and last name

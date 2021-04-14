@@ -1,0 +1,129 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                width="504" height="254">
+                
+            <g>
+                <rect x="50" y="80"
+            width="206" height="30"
+            style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+                    
+                <line x1="60" y1="80" x2="60" y2="110"
+                style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+                <line x1="246" y1="80" x2="246" y2="110"
+                style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+             
+                <title>function isFive(num)</title>
+            <text x="75" y="100"
+                font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="100">function isFive(num)</tspan>
+            </text>
+                
+            </g><g>
+            <rect x="117" y="143.5"
+            width="145.8" height="30"
+            rx="3" ry="3"
+            style="fill:#ce93d8; stroke:#444; stroke-width:1" />                
+            <polygon points="87,158.5 117,128.5 147,158.5 117,188.5"
+            style="fill:#ce93d8; stroke:#444; stroke-width:1" />
+            <title>(num === 5)</title>
+            <text x="162" y="163.5"
+                font-family="monospace" font-size="13" fill="#222">
+                <tspan x="162" y="163.5">(num === 5)</tspan>
+            </text>
+            
+            <text x="109.2" y="163.5"
+        font-family="monospace" font-size="13" fill="#222">if</text> <text x="124.8" y="190.45"
+        font-family="monospace" font-size="13" fill="#222">+</text> <text x="266.7" y="156.55"
+        font-family="monospace" font-size="13" fill="#222">-</text>
+        </g>
+            <g>
+                <rect x="137" y="198.5"
+            width="115.80000000000001" height="30"
+            rx="3" ry="3"
+            style="fill:#90caf9; stroke:#444; stroke-width:1" />
+                
+                <line x1="252.8" y1="208.5" x2="257.8" y2="208.5"
+                style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+                
+                <line x1="252.8" y1="218.5" x2="257.8" y2="218.5"
+                style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+
+                <path d="M257.8, 202.5 L273.8, 213.5 L257.8, 224.5 Z" 
+        fill="#a5d6a7" stroke="#444" stroke-width="1" />
+                             
+                <title>return ture</title>
+            <text x="152" y="218.5"
+                font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="218.5">return ture</tspan>
+            </text>
+                
+            </g>
+            <g>
+                <rect x="333.8" y="198.5"
+            width="123.6" height="30"
+            rx="3" ry="3"
+            style="fill:#90caf9; stroke:#444; stroke-width:1" />
+                
+                <line x1="457.4" y1="208.5" x2="462.4" y2="208.5"
+                style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+                
+                <line x1="457.4" y1="218.5" x2="462.4" y2="218.5"
+                style="fill:#a5d6a7; stroke:#444; stroke-width:1" />
+
+                <path d="M462.4, 202.5 L478.4, 213.5 L462.4, 224.5 Z" 
+        fill="#a5d6a7" stroke="#444" stroke-width="1" />
+                             
+                <title>return false</title>
+            <text x="348.8" y="218.5"
+                font-family="monospace" font-size="13" fill="#222">
+                <tspan x="348.8" y="218.5">return false</tspan>
+            </text>
+                
+            </g>
+            <g>
+               <rect x="25" y="13.75"
+            width="216.6" height="24"
+            style="fill:#fff59d; stroke:#444; stroke-width:1" />
+               <circle cx="25" cy="25" r="15"
+        style="fill:#fff59d; stroke:#444; stroke-width:1" />
+               <title>Program: source module</title>
+            <text x="55" y="30"
+                font-family="monospace" font-size="13" fill="#222">
+                <tspan x="55" y="30">Program: source module</tspan>
+            </text>
+            </g>
+            <g>
+               <path d="M25, 40 L25 91 Q25 95
+                29 95
+                L42 95 "
+        style="fill:none; stroke:#444; stroke-width:1" />
+               <path d="M42, 92 L50, 95 L42, 98 Z" 
+        fill="#333" />
+            </g>
+            <g>
+               <path d="M68.5, 110 L68.5 154.5 Q68.5 158.5
+                72.5 158.5
+                L79 158.5 "
+        style="fill:none; stroke:#444; stroke-width:1" />
+               <path d="M79, 155.5 L87, 158.5 L79, 161.5 Z" 
+        fill="#333" />
+            </g>
+            <g>
+               <path d="M117, 188.5 L117 209.5 Q117 213.5
+                121 213.5
+                L129 213.5 "
+        style="fill:none; stroke:#444; stroke-width:1" />
+               <path d="M129, 210.5 L137, 213.5 L129, 216.5 Z" 
+        fill="#333" />
+            </g>
+            <g>
+               <path d="M262.8, 158.5 L309.8 158.5  Q313.8 158.5
+                313.8 162.5
+                L313.8 205.5 Q313.8 213.5
+                317.8 213.5
+                L325.8 213.5 "
+        style="fill:none; stroke:#444; stroke-width:1" />
+               <path d="M325.8, 210.5 L333.8, 213.5 L325.8, 216.5 Z" 
+        fill="#333" />
+            </g>
+            </svg>
