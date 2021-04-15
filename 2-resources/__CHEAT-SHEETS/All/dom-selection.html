@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h2 id="reference">Reference</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="selection">Selection</h3>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> sel <span class="op">=</span> <span class="va">document</span>.<span class="at">getSelection</span>()</a></code></pre>
+    </div>
+    <p>See: <a href="https://devdocs.io/dom/selection" class="uri">https://devdocs.io/dom/selection</a></p>
+    <h3 id="methods">Methods</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">sel</span>.<span class="at">removeAllRanges</span>() <span class="co">//  deselects</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">sel</span>.<span class="at">addRange</span>(range) <span class="co">//    sets a selection</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">sel</span>.<span class="at">removeRange</span>(range) <span class="co">// remove a range</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">sel</span>.<span class="at">rangeCount</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">sel</span>.<span class="at">getRangeAt</span>(<span class="dv">0</span>) <span class="co">// get the 0th range</span></a></code></pre>
+    </div>
+    <h3 id="collapsing">Collapsing</h3>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">sel</span>.<span class="at">collapse</span>(parent<span class="op">,</span> offset)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">sel</span>.<span class="at">collapseToEnd</span>()</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="va">sel</span>.<span class="at">collapseToStart</span>()</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="va">sel</span>.<span class="at">isCollapsed</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">sel</span>.<span class="at">containsNode</span>(node)</a></code></pre>
+    </div>
+    <h3 id="deleting">Deleting</h3>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">sel</span>.<span class="at">deleteFromDocument</span>()</a></code></pre>
+    </div>
+    <h3 id="events">Events</h3>
+    <div class="sourceCode" id="cb7">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;selectionchange&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{}</span>)</a></code></pre>
+    </div>
+  </body>
+
+</html>

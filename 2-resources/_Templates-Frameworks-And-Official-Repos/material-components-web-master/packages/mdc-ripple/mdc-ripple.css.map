@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAuBA,QAAQ,CAAR,UAAQ",
+    "sources": [
+        "mdc-ripple.scss"
+    ],
+    "names": [],
+    "file": "mdc-ripple.css"
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="spec-tasks">Spec tasks</h3>
+<pre><code>rake spec:controllers
+rake spec:helpers
+rake spec:lib
+rake spec:mailers
+rake spec:models
+rake spec:requests
+rake spec:routing
+rake spec:views</code></pre>
+<h3 id="models">Models</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># spec/models/*.rb</span></a>
+<a class="sourceLine" id="cb2-2" title="2">describe <span class="dt">MyModel</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">end</span></a></code></pre></div>
+<h3 id="controllers">Controllers</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># spec/controllers/*.rb</span></a>
+<a class="sourceLine" id="cb3-2" title="2">describe <span class="dt">MyController</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  describe <span class="st">&quot;POST update&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    render_views <span class="co">#optional</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">    it <span class="st">&quot;works&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-7" title="7">      post <span class="st">:update</span>, { <span class="st">user: </span>{ <span class="st">name: &quot;john&quot;</span> } }</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">      controller</a>
+<a class="sourceLine" id="cb3-10" title="10">      controller.send ...</a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12">      response</a>
+<a class="sourceLine" id="cb3-13" title="13">      expect(response).to be_success</a>
+<a class="sourceLine" id="cb3-14" title="14">      expect(response).to have_http_status(<span class="dv">200</span>)</a>
+<a class="sourceLine" id="cb3-15" title="15">      expect(response).to render_template(<span class="st">&quot;index&quot;</span>)</a>
+<a class="sourceLine" id="cb3-16" title="16">      expect(response).to redirect_to <span class="st">&#39;/..&#39;</span></a>
+<a class="sourceLine" id="cb3-17" title="17"></a>
+<a class="sourceLine" id="cb3-18" title="18">      expect(assigns <span class="st">:article</span>).to eq article</a>
+<a class="sourceLine" id="cb3-19" title="19"></a>
+<a class="sourceLine" id="cb3-20" title="20">      response.status</a>
+<a class="sourceLine" id="cb3-21" title="21">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-22" title="22">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="kw">end</span></a></code></pre></div>
+<h3 id="request">Request</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"># spec/requests<span class="co">/*.rb</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">describe &quot;home page&quot; do</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">  it &quot;displays the user&#39;s username after successful login&quot; do</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">    get &quot;/login&quot;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">    post &quot;/login&quot;, username: &quot;jdoe&quot;, password: &quot;secret&quot;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">    expect(response.status).to eql 200</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">    expect(response).to redirect_to(...)</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">    expect(response).to render_template(:show)</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">    expect(response.body).to include &#39;hello&#39;</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">    follow_redirect!</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">  end</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="co">end</span></a></code></pre></div>
+<h3 id="routing">Routing</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># spec/routing/*.rb</span></a>
+<a class="sourceLine" id="cb5-2" title="2">describe <span class="st">&quot;routing to profiles&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  it <span class="st">&quot;routes /profile/:username to profile#show for username&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    expect(<span class="st">get: &quot;/profiles/jsmith&quot;</span>).to route_to(</a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="st">controller: &quot;profiles&quot;</span>,</a>
+<a class="sourceLine" id="cb5-6" title="6">      <span class="st">action: &quot;show&quot;</span>,</a>
+<a class="sourceLine" id="cb5-7" title="7">      <span class="st">username: &quot;jsmith&quot;</span></a>
+<a class="sourceLine" id="cb5-8" title="8">    )</a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb5-10" title="10"></a>
+<a class="sourceLine" id="cb5-11" title="11">  it <span class="st">&quot;does not expose a list of profiles&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb5-12" title="12">    expect(<span class="st">get: &quot;/profiles&quot;</span>).not_to be_routable</a>
+<a class="sourceLine" id="cb5-13" title="13">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="kw">end</span></a></code></pre></div>
+<h3 id="helpers">Helpers</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># spec/helpers/*.rb</span></a>
+<a class="sourceLine" id="cb6-2" title="2">describe <span class="dt">EventsHelper</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  describe <span class="st">&quot;#link_to_event&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    it <span class="st">&quot;displays the title, and formatted date&quot;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-5" title="5">      event = <span class="dt">Event</span>.new(<span class="st">&quot;Ruby Kaigi&quot;</span>, <span class="dt">Date</span>.new(<span class="dv">2010</span>, <span class="dv">8</span>, <span class="dv">27</span>))</a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7">      <span class="co"># helper is an instance of ActionView::Base configured with the</span></a>
+<a class="sourceLine" id="cb6-8" title="8">      <span class="co"># EventsHelper and all of Rails&#39; built-in helpers</span></a>
+<a class="sourceLine" id="cb6-9" title="9">      expect(helper.link_to_event).to match <span class="ot">/Ruby Kaigi, 27 Aug, 2010/</span></a>
+<a class="sourceLine" id="cb6-10" title="10">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb6-11" title="11">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="kw">end</span></a></code></pre></div>
+<h3 id="features">Features</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># spec/features/*.rb</span></a>
+<a class="sourceLine" id="cb7-2" title="2">feature <span class="st">&#39;Signing in&#39;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  given(<span class="st">:something</span>) { <span class="st">&quot;hi&quot;</span> }</a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">  background <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="dt">User</span>.make <span class="st">email: &#39;hi@gmail.com&#39;</span></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-8" title="8"></a>
+<a class="sourceLine" id="cb7-9" title="9">  scenario <span class="st">&#39;Signing in with credentials&#39;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="kw">end</span></a></code></pre></div>
+<h3 id="matchers">Matchers</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">be_a_new(<span class="dt">Widget</span>)  <span class="co"># new_record?</span></a>
+<a class="sourceLine" id="cb8-2" title="2">render_template(<span class="st">&quot;new&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3">render_template(<span class="st">partial: &#39;form&#39;</span>, <span class="st">locals: </span>{...})</a>
+<a class="sourceLine" id="cb8-4" title="4">redirect_to(widgets_path)</a>
+<a class="sourceLine" id="cb8-5" title="5">route_to(..)</a>
+<a class="sourceLine" id="cb8-6" title="6">be_routable</a>
+<a class="sourceLine" id="cb8-7" title="7">have_http_status(<span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb8-8" title="8">have_http_status(<span class="st">:created</span>)</a></code></pre></div>
+<h3 id="time-helpers">Time helpers</h3>
+<pre><code>travel_to Time.new(2014, 11, 14, 01, 04, 44)
+...
+travel_back
+
+travel_to Time.new(2014, 11, 14, 01, 04, 44) do
+  ...
+end</code></pre>
+</body></html>

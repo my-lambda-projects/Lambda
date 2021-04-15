@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h2 id="common-time-formats">Common time formats</h2>
+    <p>{: .-one-column}</p>
+    <ul>
+      <li><a href="./strftime">UNIX strftime</a> - Used by Ruby, <code>date</code>, and more</li>
+      <li><a href="./moment#formatting">Moment.js</a> - Used by Moment.js, date-fns, and more</li>
+    </ul>
+    <p>{% include common/strftime_format.md title=“strftime format" %}</p>
+    <p>{% include common/moment_format.md title=“Moment.js format" %}</p>
+  </body>
+
+</html>

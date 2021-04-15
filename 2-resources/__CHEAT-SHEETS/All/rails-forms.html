@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="form-builder">Form builder</h2>
+<pre class="haml"><code>- form_for @post do |f|</code></pre>
+<p>Field names will be prefixed with <code>post</code> (the class name), and values will be derived from this object (eg, <code>f.text_field :name</code> from <code>@post.name</code>).</p>
+<h3 id="options">Options</h3>
+<pre class="haml"><code>- form_for @post, |
+  url: { method: &#39;put&#39;, action: &#39;create&#39; }, |
+  html: { class: &#39;nifty_form&#39; } |
+  do |f|</code></pre>
+<h2 id="fields">Fields</h2>
+<h3 id="text">Text</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">f.text_field <span class="st">:title</span></a>
+<a class="sourceLine" id="cb3-2" title="2">f.text_area <span class="st">:body</span>, <span class="st">size: &#39;60x12&#39;</span></a></code></pre></div>
+<h3 id="checkbox">Checkbox</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1">f.check_box <span class="st">:remember_me</span></a>
+<a class="sourceLine" id="cb4-2" title="2">f.label <span class="st">:remember_me</span>, <span class="st">&quot;Remember me&quot;</span></a></code></pre></div>
+<h3 id="radio">Radio</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1">f.radio_button <span class="st">:gender</span>, <span class="st">&#39;male&#39;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">f.label <span class="st">:gender_male</span>, <span class="st">&quot;Male&quot;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4">f.radio_button <span class="st">:gender</span>, <span class="st">&#39;female&#39;</span></a>
+<a class="sourceLine" id="cb5-5" title="5">f.label <span class="st">:gender_female</span>, <span class="st">&quot;Female&quot;</span></a></code></pre></div>
+<h3 id="label">Label</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1">f.label <span class="st">:title</span></a>
+<a class="sourceLine" id="cb6-2" title="2">f.label <span class="st">:title</span>, <span class="st">&quot;Title&quot;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">f.label <span class="st">:title</span>, <span class="st">&quot;Title&quot;</span>, <span class="kw">class</span>: <span class="st">&quot;title&quot;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">f.label(<span class="st">:post</span>, <span class="st">:terms</span>) { <span class="st">&quot;Accept terms&quot;</span> }</a></code></pre></div>
+<h3 id="submit-button">Submit button</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">f.submit <span class="st">&quot;Create&quot;</span></a></code></pre></div>
+<h3 id="hidden-fields">Hidden fields</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">f.hidden_field <span class="st">:id</span></a></code></pre></div>
+<h2 id="misc">Misc</h2>
+<h3 id="the-model">The model</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb9-1" title="1">f.object</a></code></pre></div>
+<h3 id="fields-for">Fields for</h3>
+<pre class="haml"><code>= form_for @post do |f|
+  = fields_for :author, @post.author do |ff|
+    = ff.text_field :name</code></pre>
+<h3 id="select-dropdowns">Select dropdowns</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" title="1">f.select <span class="st">:city_id</span>, [[<span class="st">&#39;Lisbon&#39;</span>,<span class="dv">1</span>], [<span class="st">&#39;Madrid&#39;</span>,<span class="dv">2</span>], ...], <span class="dv">4</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co"># (4 = selected)</span></a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4">options_for_select [[<span class="st">&#39;Lisbon&#39;</span>,<span class="dv">1</span>], [<span class="st">&#39;Madrid&#39;</span>,<span class="dv">2</span>], ...], <span class="dv">4</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="co"># Just makes &lt;option&gt; tags</span></a></code></pre></div>
+<h3 id="collections">Collections</h3>
+<pre><code>f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial
+f.collection_select :city_id, City.all, :id, :name
+# (field, collection, value_key, label_key)</code></pre>
+<h3 id="time-select">Time select</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb13-1" title="1">f.time_zone_select <span class="st">:time_zone</span></a>
+<a class="sourceLine" id="cb13-2" title="2">f.date_select <span class="st">:birthday</span></a></code></pre></div>
+<h3 id="i18n">I18n</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb14-1" title="1"><span class="fu">helpers:</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="fu">submit:</span></a>
+<a class="sourceLine" id="cb14-3" title="3">    <span class="co"># helpers.submit.&lt;action&gt;</span></a>
+<a class="sourceLine" id="cb14-4" title="4">    <span class="fu">create:</span><span class="at"> </span><span class="st">&quot;Create a %{model}&quot;</span></a>
+<a class="sourceLine" id="cb14-5" title="5">    <span class="fu">update:</span><span class="at"> </span><span class="st">&quot;Confirm changes to %{model}&quot;</span></a>
+<a class="sourceLine" id="cb14-6" title="6"></a>
+<a class="sourceLine" id="cb14-7" title="7">    <span class="co"># helpers.submit.&lt;model&gt;.&lt;action&gt;</span></a>
+<a class="sourceLine" id="cb14-8" title="8">    <span class="fu">article:</span></a>
+<a class="sourceLine" id="cb14-9" title="9">      <span class="fu">create:</span><span class="at"> </span><span class="st">&quot;Publish article&quot;</span></a>
+<a class="sourceLine" id="cb14-10" title="10">      <span class="fu">update:</span><span class="at"> </span><span class="st">&quot;Update article&quot;</span></a>
+<a class="sourceLine" id="cb14-11" title="11"></a>
+<a class="sourceLine" id="cb14-12" title="12">  <span class="co"># helpers.label.&lt;model&gt;.&lt;field&gt;</span></a>
+<a class="sourceLine" id="cb14-13" title="13">  <span class="fu">label:</span></a>
+<a class="sourceLine" id="cb14-14" title="14">    <span class="fu">post:</span></a>
+<a class="sourceLine" id="cb14-15" title="15">      <span class="fu">body:</span><span class="at"> </span><span class="st">&quot;Your body text&quot;</span></a></code></pre></div>
+<h3 id="outside-f">Outside <code>f</code></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb15-1" title="1">radio_button(<span class="st">&quot;post&quot;</span>, <span class="st">&quot;category&quot;</span>, <span class="st">&quot;rails&quot;</span>)</a>
+<a class="sourceLine" id="cb15-2" title="2">radio_button(<span class="st">&quot;post&quot;</span>, <span class="st">&quot;category&quot;</span>, <span class="st">&quot;java&quot;</span>)</a>
+<a class="sourceLine" id="cb15-3" title="3"></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="co"># picks from @post.category</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="co"># &lt;input type=&quot;radio&quot; id=&quot;post_category_rails&quot; name=&quot;post[category]&quot;</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="co">#  value=&quot;rails&quot; checked=&quot;checked&quot; /&gt;</span></a></code></pre></div>
+<h3 id="reference">Reference</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb16-1" title="1">select(method, choices = <span class="dv">nil</span>, options = {}, html_options = {}, &amp;block)</a>
+<a class="sourceLine" id="cb16-2" title="2">  choices == [ [<span class="st">&#39;label&#39;</span>, id], ... ]</a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4">submit(value=<span class="dv">nil</span>, options={})</a></code></pre></div>
+</body></html>

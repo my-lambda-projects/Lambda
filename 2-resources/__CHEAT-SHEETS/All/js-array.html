@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="arrays">Arrays</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">list</span> = [a,b,c,d,e]</a></code></pre></div>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">list</span>[1]                 // → b</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">list.indexOf</span>(b)         <span class="ex">//</span> → 1</a></code></pre></div>
+<h3 id="subsets">Subsets</h3>
+<h4 id="immutable">Immutable</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">list.slice</span>(0,1)         <span class="ex">//</span> → [a        ]</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">list.slice</span>(1)           <span class="ex">//</span> → [  b,c,d,e]</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ex">list.slice</span>(1,2)         <span class="ex">//</span> → [  b      ]</a></code></pre></div>
+<h4 id="mutative">Mutative</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">re</span> = list.splice(1)     <span class="ex">//</span> re = [b,c,d,e]  list == [a]</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">re</span> = list.splice(1,2)   <span class="ex">//</span> re = [b,c]      list == [a,d,e]</a></code></pre></div>
+<h3 id="adding-items">Adding items</h3>
+<h4 id="immutable-1">Immutable</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">list.concat</span>([X,Y])      <span class="ex">//</span> → [_,_,_,_,_,X,Y]</a></code></pre></div>
+<h4 id="mutative-1">Mutative</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">list.push</span>(X)            <span class="ex">//</span> list == [_,_,_,_,_,X]</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">list.unshift</span>(X)         <span class="ex">//</span> list == [X,_,_,_,_,_]</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="ex">list.splice</span>(2, 0, X)    <span class="ex">//</span> list == [_,_,X,_,_,_]</a></code></pre></div>
+<h3 id="inserting">Inserting</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">//</span> after -- [_,_,REF,NEW,_,_]</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="ex">list.splice</span>(list.indexOf(REF)<span class="ex">+1</span>, 0, NEW))</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">//</span> before -- [_,_,NEW,REF,_,_]</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">list.splice</span>(list.indexOf(REF), <span class="ex">0</span>, NEW))</a></code></pre></div>
+<h3 id="replace-items">Replace items</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">list.splice</span>(2, 1, X)    <span class="ex">//</span> list == [a,b,X,d,e]</a></code></pre></div>
+<h3 id="removing-items">Removing items</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">list.pop</span>()              <span class="ex">//</span> → e    list == [a,b,c,d]</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="ex">list.shift</span>()            <span class="ex">//</span> → a    list == [b,c,d,e]</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="ex">list.splice</span>(2, 1)       <span class="ex">//</span> → [c]  list == [a,b,d,e]</a></code></pre></div>
+<h3 id="iterables">Iterables</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="ex">.filter</span>(n =<span class="op">&gt;</span> ...) =<span class="op">&gt;</span> <span class="ex">array</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="ex">.find</span>(n =<span class="op">&gt;</span> ...)  <span class="ex">//</span> es6</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="ex">.findIndex</span>(...)  <span class="ex">//</span> es6</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"><span class="ex">.every</span>(n =<span class="op">&gt;</span> ...) =<span class="op">&gt;</span> <span class="ex">Boolean</span> // ie9+</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="ex">.some</span>(n =<span class="op">&gt;</span> ..) =<span class="op">&gt;</span> <span class="ex">Boolean</span>   // ie9+</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">.map</span>(n =<span class="op">&gt;</span> ...)   <span class="ex">//</span> ie9+</a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="ex">.reduce</span>((total, n) =<span class="op">&gt;</span> <span class="ex">total</span>) <span class="ex">//</span> ie9+</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="ex">.reduceRight</span>(...)</a></code></pre></div>
+</body></html>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAuBA,QAAQ,CAAR,UAAQ",
+    "sources": [
+        "mdc-touch-target.scss"
+    ],
+    "names": [],
+    "file": "mdc-touch-target.css"
+}

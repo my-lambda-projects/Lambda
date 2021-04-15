@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAuBA,QAAQ,CAAR,UAAQ",
+    "sources": [
+        "mdc-theme.scss"
+    ],
+    "names": [],
+    "file": "mdc-theme.css"
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>{% raw %}</p>
+<h3 id="lists">Lists</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;li</span><span class="ot"> v-for=</span><span class="st">&quot;todo in todos&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  {{ todo.text }}</a>
+<a class="sourceLine" id="cb1-3" title="3">  {{ $index }}</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">&lt;/li&gt;</span></a></code></pre></div>
+<h3 id="events">Events</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;button</span><span class="ot"> v-on:click=</span><span class="st">&#39;submit&#39;</span><span class="kw">&gt;</span>Go<span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<h3 id="components">Components</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">components</span><span class="op">:</span> <span class="op">{</span> <span class="dt">app</span><span class="op">:</span> App <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">}</span>)</a></code></pre></div>
+<h2 id="api">API</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">Vue</span>.<span class="at">extend</span>(<span class="op">{</span> ... <span class="op">}</span>)        <span class="co">// creating components</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">Vue</span>.<span class="at">nextTick</span>(() <span class="kw">=&gt;</span> <span class="op">{</span>...<span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="va">Vue</span>.<span class="at">set</span>(object<span class="op">,</span> key<span class="op">,</span> val)  <span class="co">// reactive</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">Vue</span>.<span class="at">delete</span>(object<span class="op">,</span> key)</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="va">Vue</span>.<span class="at">directive</span>(<span class="st">&#39;my-dir&#39;</span><span class="op">,</span> <span class="op">{</span> bind<span class="op">,</span> update<span class="op">,</span> unbind <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">// &lt;div v-my-dir=&#39;...&#39;&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="va">Vue</span>.<span class="at">elementDirective</span>(<span class="st">&#39;my-dir&#39;</span><span class="op">,</span> <span class="op">{</span> bind<span class="op">,</span> update<span class="op">,</span> unbind <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">// &lt;my-dir&gt;...&lt;/my-dir&gt;</span></a>
+<a class="sourceLine" id="cb4-12" title="12"></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;my-component&#39;</span><span class="op">,</span> <span class="va">Vue</span>.<span class="at">extend</span>(<span class="op">{</span> .. <span class="op">}</span>))</a>
+<a class="sourceLine" id="cb4-14" title="14"></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="va">Vue</span>.<span class="at">partial</span>(<span class="st">&#39;my-partial&#39;</span><span class="op">,</span> <span class="st">&#39;&lt;div&gt;hi {{msg}}&lt;/div&gt;&#39;</span>)</a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="co">// &lt;partial name=&#39;my-partial&#39;&gt;&lt;/partial&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span> ... <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">props</span><span class="op">:</span> [<span class="st">&#39;size&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="dt">props</span><span class="op">:</span> <span class="op">{</span> <span class="dt">size</span><span class="op">:</span> Number <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="dt">computed</span><span class="op">:</span> <span class="op">{</span> <span class="at">fullname</span>() <span class="op">{</span> <span class="cf">return</span> <span class="kw">this</span>.<span class="at">name</span> <span class="op">+</span> <span class="st">&#39; &#39;</span> <span class="op">+</span> <span class="kw">this</span>.<span class="at">lastName</span> <span class="op">}</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="dt">methods</span><span class="op">:</span> <span class="op">{</span> <span class="at">go</span>() <span class="op">{</span> ... <span class="op">}</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  <span class="dt">watch</span><span class="op">:</span> <span class="op">{</span> <span class="at">a</span> (val<span class="op">,</span> oldVal) <span class="op">{</span> ... <span class="op">}</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="dt">el</span><span class="op">:</span> <span class="st">&#39;#foo&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;...&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="dt">replace</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="co">// replace element (default true)</span></a>
+<a class="sourceLine" id="cb5-11" title="11"></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="co">// lifecycle</span></a>
+<a class="sourceLine" id="cb5-13" title="13">  <span class="at">created</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="at">beforeCompile</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="at">compiled</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-16" title="16">  <span class="at">ready</span> () <span class="op">{},</span> <span class="co">// $el is inserted for the first time</span></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="at">attached</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-18" title="18">  <span class="at">detached</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-19" title="19">  <span class="at">beforeDestroy</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-20" title="20">  <span class="at">destroyed</span> () <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-21" title="21"></a>
+<a class="sourceLine" id="cb5-22" title="22">  <span class="co">// options</span></a>
+<a class="sourceLine" id="cb5-23" title="23">  <span class="dt">directives</span><span class="op">:</span> <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-24" title="24">  <span class="dt">elementDirectives</span><span class="op">:</span> <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-25" title="25">  <span class="dt">filters</span><span class="op">:</span> <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-26" title="26">  <span class="dt">components</span><span class="op">:</span> <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-27" title="27">  <span class="dt">transitions</span><span class="op">:</span> <span class="op">{},</span></a>
+<a class="sourceLine" id="cb5-28" title="28">  <span class="dt">partials</span><span class="op">:</span> <span class="op">{}</span></a>
+<a class="sourceLine" id="cb5-29" title="29"><span class="op">}</span>)</a></code></pre></div>
+<h2 id="vue-templates">Vue templates</h2>
+<p>Via <a href="https://www.npmjs.com/package/vueify">vueify</a></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// app.vue</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="op">&lt;</span>template<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="op">&lt;</span>h1 <span class="kw">class</span><span class="op">=</span><span class="st">&quot;red&quot;</span><span class="op">&gt;{{</span>msg<span class="op">}}</span>&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">&lt;/template<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"> </a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="op">&lt;</span>script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="at">data</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-9" title="9">      <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-10" title="10">        <span class="dt">msg</span><span class="op">:</span> <span class="st">&#39;Hello world!&#39;</span></a>
+<a class="sourceLine" id="cb6-11" title="11">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-12" title="12">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-14" title="14">&lt;/script<span class="op">&gt;</span> </a></code></pre></div>
+<p>Also</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">&lt;template</span><span class="ot"> lang=</span><span class="st">&#39;jade&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">h1(class=&#39;red&#39;) {{msg}}</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">&lt;/template&gt;</span></a></code></pre></div>
+<p>{% endraw %}</p>
+</body></html>

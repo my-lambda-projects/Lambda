@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="amazon-web-services-aws-a-cheat-sheet">Amazon Web Services (AWS): A cheat sheet</h1>
+  <blockquote>
+    <p>This comprehensive guide about AWS covers the expansive cloud services offered by Amazon, common use cases and
+      technical limitations, and what to know when adopting this technology.</p>
+  </blockquote>
+  <p>This comprehensive guide about AWS covers the expansive cloud services offered by Amazon, common use cases and
+    technical limitations, and what to know when adopting this technology.</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2018/08/06/dc16c8f2-3889-48c1-93c4-e1ea2023bc8d/resize/770x/feb544699ac1b4d0ac948ff6afcaaa9e/awscloud.jpg"
+      alt="awscloud.jpg" />
+    <figcaption>awscloud.jpg</figcaption>
+  </figure>
+  <p>Image: iStockphoto/zakokor</p>
+  <p>The rise of cloud computing provides businesses the ability to quickly provision computing resources without the
+    costly and laborious task of building data centers, and without the costs of running servers with underutilized
+    capacity due to variable workloads.</p>
+  <p><strong>SEE:</strong> <a href="https://www.zdnet.com/topic/managing-the-multicloud/"><strong>Managing the
+        multicloud</strong></a> <strong>(ZDNet/TechRepublic special feature) |</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/managing-the-multicloud-challenges-opportunities-and-best-practices-free-pdf/"><strong>Download
+        the free PDF version</strong></a> <strong>(TechRepublic)</strong></p>
+  <p><a href="https://aws.amazon.com/">Amazon Web Services</a> (AWS) was the first large vendor of easily affordable
+    cloud infrastructure and services, and remains the single largest player in the cloud computing market. For
+    startups, this low barrier to entry has enabled the rise of popular photo sharing services such as <a
+      href="http://imgur.com/">imgur</a>, while established companies like <a
+      href="https://www.techrepublic.com/article/5-lessons-it-learned-from-the-netflix-cloud-journey/">Netflix</a> have
+    transitioned their workloads to AWS to decrease the complexity of their deployment while reducing costs.</p>
+  <p>This guide to AWS is both an easily digestible introduction to Amazon's cloud ecosystem, as well as a “living”
+    guide that will be updated periodically to keep IT leaders in the loop on new AWS services and ways in which they
+    can be leveraged.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/aws-summit-online-highlights-free-pdf/"><strong>AWS
+        Summit Online highlights (free PDF)</strong></a> <strong>(TechRepublic)</strong></p>
+  <h2 id="executive-summary">Executive summary</h2>
+  <ul>
+    <li><strong>What is AWS?</strong> AWS is a collection of various cloud computing services and applications offered
+      by Amazon.com. The most popular of these services include Elastic Compute Cloud (<a
+        href="https://aws.amazon.com/ec2/">EC2</a>) and Simple Storage Service (<a
+        href="https://www.techrepublic.com/article/amazon-s3-the-smart-persons-guide/">S3</a>).</li>
+    <li><strong>Why does AWS matter?</strong> AWS has no upfront costs or appreciable time delay in resource
+      provisioning-capacity is available on demand. With a usage-based billing formula, it is an economical alternative
+      to on-premises servers.</li>
+    <li><strong>Who does AWS affect?</strong> AWS offers services relevant to any organization, large or small, with an
+      internet presence or a need for private data storage and retrieval.</li>
+    <li><strong>When was AWS launched?</strong> The AWS platform launched in 2006, though new services and “regions”
+      (data centers) have been added continually since launch.</li>
+    <li><strong>What services compete with AWS?</strong> <a
+        href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft Azure</a> and <a
+        href="https://www.techrepublic.com/article/google-cloud-platform-the-smart-persons-guide/">Google Cloud
+        Platform</a> are two of the top competitors to AWS.</li>
+    <li><strong>How do I become an AWS engineer?</strong> Amazon has a formal certification available for AWS DevOps
+      engineers, but the certification isn't necessary to perform the job. Regardless, interested professionals need to
+      learn how to manage AWS instances, which involves many different skills.</li>
+    <li><strong>How do I get and use AWS?</strong> You can get started with AWS using the free tier, which allows
+      limited free use for up to one year. S3 pricing starts at $0.023 per GB, while EC2 instances start at $0.0059 per
+      hour (may vary by region).</li>
+  </ul>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic's cheat sheets
+        and smart person's guides</a></strong></p>
+  <p>What is AWS? AWS is a platform consisting of a variety of cloud computing services offered by Amazon.com. Instead
+    of building an in-house data center, or leasing general purpose servers from traditional data centers, the costs of
+    resource provisioning on AWS reflect actual usage, not reserved capacity. The service in question is also a factor
+    in billing-pricing varies based on the individual product and storage type.</p>
+  <p>For example, pricing for S3 is divided into three tiers. In the US-East region, the standard storage tier starts at
+    $0.023 per GB per month for the first 50 terabytes, with discounts thereafter. Infrequent access storage starts at
+    $0.0125 per GB, and Glacier storage, designed to host backups and data archives, starts at $0.004 per GB.</p>
+  <p>In addition to the aforementioned EC2 and S3 services, other services exist in the AWS portfolio. <a
+      href="https://aws.amazon.com/cloudfront/">CloudFront</a>, a content-delivery network (CDN), mirrors resources at
+    “edge locations” to improve page loading time. <a href="https://aws.amazon.com/rds/">Relational Database Service</a>
+    (RDS) is a scalable database server that supports MySQL/MariaDB, PostgreSQL, Oracle, and Microsoft SQL Server, as
+    well as Amazon's own <a href="https://aws.amazon.com/rds/aurora/">Aurora</a> implementation of MySQL. Similarly, <a
+      href="https://aws.amazon.com/dynamodb/">DynamoDB</a> offers scalable NoSQL database support. <a
+      href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a> allows users to quickly deploy and manage
+    applications in the cloud from preconfigured <a
+      href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">container</a> images.</p>
+  <p>AWS also offers specialized resources that are applicable to specific use cases. Video stored on S3 can be easily
+    transcoded for mobile devices using <a href="https://aws.amazon.com/elastictranscoder/">Elastic Transcoder</a>, and
+    for any process not yet automatable simple tasks can be completed by remote workers in <a
+      href="https://www.techrepublic.com/resource-library/downloads/inside-amazon-s-clickworker-platform-how-half-a-million-people-are-being-paid-pennies-to-train-ai-pdf-download/">Mechanical
+      Turk</a>--though, this is more crowd computing than cloud computing. <a
+      href="https://www.techrepublic.com/article/amazon-connect-is-a-cloud-based-call-center-you-can-launch-within-minutes/">Amazon
+      Connect</a> is a cloud-based contact center service delivered through AWS, allowing businesses to scale to
+    thousands of customer support agents.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/aws-9-pro-tips-and-best-practices-free-pdf/"><strong>AWS:
+        9 pro tips and best practices (free PDF)</strong></a> <strong>(TechRepublic)</strong></p>
+  <p>At the 2016 <a href="https://www.techrepublic.com/videos/video-amazons-top-priorities-for-aws-reinvent-2016/">AWS
+      re:Invent</a> conference, a substantial emphasis was placed on AI services, with the announcement of <a
+      href="https://aws.amazon.com/rekognition/">Amazon Rekognition</a>, a deep-learning based image recognition system;
+    <a href="https://aws.amazon.com/polly/">Amazon Polly</a>, a text-to-speech system that supports <a
+      href="https://docs.aws.amazon.com/polly/latest/dg/SupportedLanguage.html">25 languages</a>, and differentiates for
+    different dialects of English, Spanish, and Portuguese; as well as <a
+      href="https://www.techrepublic.com/article/amazon-lex-the-smart-persons-guide/">Amazon Lex</a>, the speech
+    recognition and <a href="https://www.techrepublic.com/article/natural-language-processing-a-cheat-sheet/">natural
+      language processing</a> technology that powers the <a
+      href="https://www.techrepublic.com/article/amazon-alexa-the-smart-persons-guide/">Alexa virtual assistant</a>,
+    used in the <a
+      href="https://www.techrepublic.com/pictures/cracking-open-the-amazon-echo-cloud-connected-speaker/">Amazon Echo
+      speaker</a> and <a href="https://www.cnet.com/products/amazon-fire-tv-stick-with-alexa-voice-remote/review/">Fire
+      TV digital media player</a>.</p>
+  <p>AWS has specialized services for <a href="https://aws.amazon.com/iot-platform/">Internet of Things (IoT)</a>
+    devices, with particular emphasis on enabling encrypted communication between devices, and transmitting information
+    to the cloud. <a href="https://aws.amazon.com/greengrass/?tag=tr-vig-20">AWS Greengrass</a> is a service that allows
+    local compute, messaging, data caching, and synchronization.</p>
+  <p>In 2018, Amazon <a
+      href="https://www.zdnet.com/article/aws-and-blockchain-the-cloud-giant-announces-two-ledger-services/">introduced
+      its first blockchain offerings at the AWS re:Invent conference</a>. Amazon Quantum Ledger Database (QLDB) is a
+    fully-managed ledger database with a central trusted authority, and Amazon Managed Blockchain allows users to create
+    and manage blockchain networks using Ethereum or HyperLedger. The company also announced AWS Outposts, a
+    collaboration with <a href="https://www.zdnet.com/article/aws-outpost-brings-its-cloud-hardware-on-premises/">VMware
+      to bring AWS cloud services on-premises for hybrid cloud deployments</a>.</p>
+  <p>Other new services introduced include <a
+      href="https://www.zdnet.com/article/aws-advances-machine-learning-with-new-chip-elastic-inference/">Amazon Elastic
+      Inference and AWS Inferentia for machine learning</a>, <a
+      href="https://www.zdnet.com/article/amazon-rolls-out-fsx-for-windows-file-server/">FSx</a> for native Windows file
+    systems, <a href="https://www.zdnet.com/article/aws-unveils-lake-formation-for-easy-data-lake-building/">Lake
+      Formation</a> for speeding up data lake building, <a
+      href="https://www.zdnet.com/article/aws-global-accelerator-to-boost-performance-across-regions/">Global
+      Accelerator</a> for increasing performance across regions, <a
+      href="https://www.zdnet.com/article/aws-iot-suite-now-includes-sitewise-for-industrial-data-collection/">SiteWise</a>
+    for industrial data collection, <a
+      href="https://www.zdnet.com/article/aws-launches-robomaker-dev-service-for-building-intelligent-robotics-apps/">RoboMaker
+      dev service</a> for building intelligent robotics apps, and <a
+      href="https://www.zdnet.com/article/aws-ground-station-fully-managed-ground-station-as-a-service/">AWS Ground
+      Station</a> for transmitting and processing data between satellites.</p>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/article/aws-robomaker-a-cheat-sheet/">AWS RoboMaker: A cheat
+        sheet</a> (TechRepublic)</strong></p>
+  <p>Amazon Web Services has also added non-Intel options for EC2 compute instances. First, <a
+      href="https://www.zdnet.com/article/aws-intros-new-ec2-instances-with-amd-epyc-processors/">AMD EPYC processors
+      are available</a> for M5 and T3 general purpose instances as well as R5 memory optimized instances, for 10 percent
+    less than Intel Xeon-powered versions of those instances. Amazon announced <a
+      href="https://www.techrepublic.com/article/aws-graviton-brings-arm-servers-to-public-cloud-for-the-first-time-heres-how-to-get-started/">custom
+      Arm processors, called AWS Graviton, at re:Invent 2018</a>. Graviton was developed internally at Amazon, and is
+    based on 2015-era Cortex-A72 microarchitecture, though it has support for <a
+      href="https://www.zdnet.com/article/arm-unveils-neoverse-new-brand-for-evolving-internet-infrastructure/">Arm
+      Neoverse</a> server extensions.</p>
+  <p>At <a
+      href="https://www.techrepublic.com/article/aws-reinvent-keynote-highlights-reinvention-culture-faster-cloud-instances-and-more-options-for-serverless/">re:Invent
+      2020</a>, <a href="https://www.zdnet.com/article/aws-unveils-macos-instances-on-ec2/">Amazon announced the
+      availability of macOS instances in EC2 along with lots of other new features, covered below.</a> The macOS
+    instances will use a combination of <a
+      href="https://www.techrepublic.com/article/aws-opens-the-door-to-macos-for-developers-via-mac-mini/">Mac mini
+      machines</a> and the AWS Nitro abstraction layer to allow both Catalina and Mojave instances to utilize other AWS
+    resources like S3, EBS, and EFS. Unfortunately, instances powered by <a
+      href="https://www.techrepublic.com/article/apples-macbook-air-with-m1-chip-everything-you-need-to-know/">Apple
+      Silicon M1 chips</a> won't be available until sometime in 2021. Regardless of the wait, AWS is now the only cloud
+    provider with on-demand macOS instances.</p>
+  <p>Amazon announced a new product called <a
+      href="https://aws.amazon.com/about-aws/whats-new/2019/12/introducing-amazon-braket/?trk=ls_card">Amazon Braket</a>
+    in December 2019, which is a fully-managed quantum computing platform designed for building, testing, and running
+    quantum algorithms. Braket left preview in mid-2020 and is now generally available.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/aws-reinvent-keynote-highlights-reinvention-culture-faster-cloud-instances-and-more-options-for-serverless/">AWS
+          re:Invent keynote highlights reinvention culture, faster cloud instances, and serverless
+          deployments</a> (TechRepublic)</p>
+    </li>
+    <li><a href="https://www.techrepublic.com/article/aws-ceo-urges-companies-to-hire-builders/">AWS CEO urges companies
+        to “hire builders”</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/videos/aws-reinvent-why-outposts-are-primed-to-deliver-value-for-on-prem-workloads/">AWS
+        re:Invent: Why Outposts are primed to deliver value for on-prem workloads</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/aws-billing-is-broken-and-kubernetes-wont-last-says-irreverent-economist-corey-quinn/">AWS
+          billing is broken and Kubernetes won't last, says irreverent cloud economist Corey Quinn</a> (TechRepublic)
+      </p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/aws-introduces-savings-plans-in-attempt-to-make-cloud-instance-billing-not-terrible/">AWS
+          introduces Savings Plans in attempt to make cloud instance billing not terrible</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="why-does-aws-matter">Why does AWS matter?</h2>
+  <p>AWS, like other cloud service providers, offers the ability to instantly provision computing resources on demand.
+    Compared to the laborious task of planning and building on-site data center infrastructure, along with the requisite
+    hardware upgrades, maintenance costs, server cooling requirements, electricity costs, and use of
+    floorspace-particularly for offices in urban centers with associated real estate costs-the savings can add up very
+    quickly.</p>
+  <p>The benefit of AWS extends beyond cost, however. Managed services of AWS reduce the administrative burden of IT,
+    freeing them to work on new projects rather than spending time on general system upkeep. For example, in RDS, the
+    administrative console can be used to automatically apply security updates to the underlying software stack, as well
+    as manage backups, snapshots, deployments in multiple availability zones, and seamlessly replace an instance in the
+    event of hardware failure.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/aws-lambda-a-guide-to-the-serverless-computing-framework-free-pdf/"><strong>AWS
+        Lambda: A guide to the serverless computing framework (free PDF)</strong></a> <strong>(TechRepublic)</strong>
+  </p>
+  <p>Amazon has made AWS a leader in cloud-based machine learning. Since launching a long list of <a
+      href="https://aws.amazon.com/machine-learning/">AI-based services</a> at re:Invent in 2016 (mentioned above),
+    Amazon has extended its offerings to make AWS competitive with Google's <a
+      href="https://cloud.google.com/products/ai/">Cloud AI</a>.</p>
+  <p>Since 2016 Amazon has added services like <a href="https://aws.amazon.com/sagemaker/">SageMaker</a>, which rapidly
+    trains machine learning models for faster deployment, and <a href="https://aws.amazon.com/deeplens/">AWS
+      DeepLens</a>, a deep-learning enabled video camera.</p>
+  <p>As the largest public cloud services provider, Amazon acts as a trendsetter for the industry. Their purchasing
+    power and scale gives them the ability to influence the industry at large. As part of this, Amazon's development of
+    Arm-powered AWS Graviton CPUs is likely to result in an increased focus in open source on optimizations for server
+    applications to harness the full power of the Arm architecture in a way in which smaller vendors would not be able
+    to affect.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/amazon-partners-with-formula-1-for-new-2020-racing-performance-stats/">Amazon
+        partners with Formula 1 for new 2020 racing performance stats</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/cloud-computing-this-new-tool-from-aws-could-make-life-easier-for-developers/">Cloud
+        computing: This new tool from AWS could make life easier for developers</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/aws-outposts-are-now-supported-in-govcloud-us-regions-what-this-means-for-it-pros/">AWS
+        Outposts are now supported in GovCloud (US) Regions: What this means for IT pros</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/rackspace-on-aws-openstack-and-the-future-of-the-cloud/">Rackspace CEO on
+        AWS, OpenStack and the future of the cloud</a> (ZDNet)</li>
+  </ul>
+  <h2 id="who-does-aws-affect">Who does AWS affect?</h2>
+  <p>Practically any organization that uses computers has a use case applicable to a service provided by AWS. Even for
+    the most basic uses-such as using S3 Glacier for offsite backups-AWS is a compelling alternative to traditional
+    solutions. While AWS started as a cloud-based replacement for simple storage and compute operations, it has expanded
+    to cover practically every use case imaginable, with targeted services for databases, IoT development, business
+    productivity, messaging, game development, virtual desktops, analytics, machine learning, and more.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/cloud-data-storage-policy/"><strong>Cloud Data
+        Storage Policy</strong></a> <strong>(TechRepublic Premium)</strong></p>
+  <p>Additionally, while established organizations likely have capital for traditional data center deployments,
+    cash-strapped startups benefit from the absence of deployment costs and paying only for resources used, as opposed
+    to paying for capacity provisioned, or being forced to pay for infrastructure hardware. Utilizing cloud service
+    providers such as AWS also allows for scale as a company grows, as well as establishing cloud infrastructure early
+    in its growth.</p>
+  <p>Of note, Amazon's largest brick-and-mortar competitor Walmart reportedly issued an ultimatum to suppliers and
+    software vendors in 2017 to <a
+      href="http://www.zdnet.com/article/walmart-takes-its-amazon-battle-to-the-clouds/">cease using AWS</a> for their
+    businesses, at the risk of losing business with the big box retailer. While Walmart has contributed to the open
+    source OpenStack platform, the company is not requiring its partners to use cloud services from a particular vendor.
+  </p>
+  <p>Since issuing that ultimatum Walmart has begun using Microsoft Azure, but the company has said <a
+      href="https://www.techrepublic.com/article/walmarts-big-bet-on-microsoft-azure-wont-kill-its-private-cloud-work-in-openstack/">it
+      isn't abandoning</a> its OpenStack investments as of July 2018; as of 2020, the <a
+      href="https://www.zdnet.com/article/microsoft-and-walmart-are-teaming-on-a-potential-tiktok-takeover-deal/">partnership
+      between Microsoft and Walmart</a> continues as well.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/aws-summit-online-keynote-lets-get-back-to-the-fundamentals/">AWS
+        Summit online keynote: Let's get back to the fundamentals</a>  (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/aws-marketplace-offers-cutovers-it-work-orchestration-platform-for-remote-teams/">AWS
+        Marketplace offers Cutover's IT work orchestration platform for remote teams</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/vmware-cloud-on-aws-gets-updates-focused-on-affordability/">VMware Cloud
+        on AWS gets updates focused on affordability</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/resource-library/whitepapers/special-report-prepare-for-serverless-computing-free-pdf/">Special
+        report: Prepare for serverless computing (free PDF)</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="when-was-aws-launched">When was AWS launched?</h2>
+  <p>AWS launched in 2006, though various services and geographic service regions have been added continually since
+    launch. Presently, AWS services are available in distinct global “regions”: US East (Ohio and Northern Virginia), US
+    West (Oregon and Northern California), Canada, (Montreal), Brazil (São Paulo), England (London), EU (Ireland,
+    France, Italy, Sweden, and Germany), Middle East (Bahrain), Africa (Cape Town), Asia Pacific (Singapore, Sydney,
+    Tokyo, Seoul, Osaka, Mumbai, and Hong Kong), and Mainland China (Beijing, Ningxia). An additional region exclusively
+    for <a href="https://aws.amazon.com/govcloud-us/">GovCloud</a> users exists in the Northwestern United States.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/top-cloud-providers-in-2020-aws-microsoft-azure-and-google-cloud-hybrid-saas-players/"><strong>Top
+        cloud providers in 2020: AWS, Microsoft Azure, and Google Cloud, hybrid, SaaS players</strong></a>
+    <strong>(TechRepublic Premium)</strong></p>
+  <p>In November 2014, Amazon announced a plan to <a href="https://aws.amazon.com/about-aws/sustainability/">transition
+      AWS to 100% renewable energy</a>. By April 2015, one quarter of consumed energy was provided by renewable sources.
+    At the end of 2016, over 40% of consumed energy was provided by renewable sources, while Amazon <a
+      href="https://aws.amazon.com/about-aws/sustainability/">planned to reach 50% by the end of 2017</a>. Amazon
+    announced that it had <a href="https://aws.amazon.com/about-aws/sustainability/sustainability-timeline/">surpassed
+      50% renewable energy in 2018</a>, and in 2019 the company said it planned to build <a
+      href="https://www.businesswire.com/news/home/20190408005471/en/Amazon-Announces-New-Renewable-Energy-Projects-Support">wind
+      farms in Ireland, the US, and Sweden</a> to support AWS infrastructure.</p>
+  <p>In early 2018 <a
+      href="https://aws.amazon.com/blogs/aws/aws-auto-scaling-unified-scaling-for-your-cloud-applications/">AWS
+      launched</a> a unified <a
+      href="https://aws.amazon.com/blogs/aws/aws-auto-scaling-unified-scaling-for-your-cloud-applications/">auto
+      scaling</a> dashboard that can be found in the AWS Management Console. It allows administrators to control scaling
+    of multiple AWS products easily from one location.</p>
+  <p>At re:Invent 2020, AWS CEO Andy Jassy <a
+      href="https://www.techrepublic.com/article/aws-reinvent-day-1-top-5-announcements-include-machine-learning-storage-innovations-and-container-capabilities/">revealed
+      a laundry list of new AWS features</a>, many of which revolve around the objective of automating the more tedious
+    aspects of machine learning and data analytics. </p>
+  <p>Newly announced features at re:Invent 2020 include: </p>
+  <ul>
+    <li>macOS instances in EC2, making AWS the only cloud provider to offer macOS instances</li>
+    <li>
+      <p>Habana Gaudi-based EC2 instances coming in the first half of 2021 designed for deep learning</p>
+    </li>
+    <li>
+      <p>AWS Trainium, a new AWS-designed machine learning training chip that Jassy said will deliver “the most
+        cost-effective training in the cloud”</p>
+    </li>
+    <li>
+      <p>Amazon ECS and EKS Anywhere, which lets ECS and EKS customers run the two platforms in their own data centers
+        on local hardware</p>
+    </li>
+    <li>
+      <p>Lambda container support, which will allow for Lambda functions built right in to container workflows</p>
+    </li>
+    <li>
+      <p>AWS Proton, a fully managed deployment service for containers and apps</p>
+    </li>
+    <li>
+      <p>io2 block express, the first SAN built for the cloud</p>
+    </li>
+    <li>
+      <p>Aurora serverless v2, which will scale more quickly </p>
+    </li>
+    <li>
+      <p>Babelfish for Amazon Aurora PostgreSQL, which can understand proprietary SQL dialects and translate them into
+        Auroral PostreSQL</p>
+    </li>
+    <li>
+      <p>AQS Glue elastic views, which will create more efficient dashboards by copying relevant data from the datastore
+        to the local host while GEV monitors the datastore for any changes</p>
+    </li>
+    <li>
+      <p>Sagemaker data wrangler, which will examine unstructured data and give recommendations for how to translate it
+        into data Sagemaker can use</p>
+    </li>
+    <li>
+      <p>Sagemaker Feature Store, a new purpose-built feature store in Sagemaker</p>
+    </li>
+    <li>
+      <p>Sagemaker pipelines for building automated CI/CD pipelines into the Sagemaker ML platform</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/unveiled-at-aws-reinvent-the-new-machine-learning-powered-amazon-devops-guru/">Amazon
+          DevOps Guru</a>, which promises to identify operational issues like resources running out of space,
+        misconfigured alarms, etc., before they become serious trouble</p>
+    </li>
+    <li>
+      <p>Amazon Quicksight Q, a natural language business intelligence tool that can generate data models based on
+        regular, everyday questions</p>
+    </li>
+    <li>
+      <p>Amazon Monitron, a machine learning end-to-end equipment monitoring platform that builds operational profiles
+        for industrial equipment and notifies relevant parties of any deviations from the norm.</p>
+    </li>
+  </ul>
+  <p>Other changes from 2020 re:Invent include AWS releasing Babelfish for PostgreSQL as an open source project, a
+    change in Lambda billing increments from 100ms to 1ms, and changes to Amazon Connect to improve user experience with
+    machine learning tools.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/aws-and-blackberry-plan-to-use-data-insights-to-boost-driving-experiences/">AWS
+        and BlackBerry plan to use data insights to boost driving experiences</a> (TechRepublic)</li>
+    <li>
+      <p><a href="https://www.zdnet.com/article/aws-rds-on-outposts-goes-ga/">AWS RDS on Outposts goes GA</a> (ZDNet)
+      </p>
+    </li>
+    <li><a href="http://www.zdnet.com/article/aws-remains-focused-on-startup-sector-despite-global-reach/">AWS remains
+        focused on startup sector despite global reach</a> (ZDNet)</li>
+    <li><a
+        href="http://www.zdnet.com/article/genealogy-company-ancestry-migrates-entire-infrastructure-to-aws/">Genealogy
+        company Ancestry migrates entire infrastructure to AWS</a> (ZDNet)</li>
+    <li><a
+        href="https://www.zdnet.com/article/linus-torvalds-rejects-stupid-aws-made-linux-patch-for-intel-cpu-snoop-attack/">Linus
+        Torvalds rejects ‘beyond stupid' AWS-made Linux patch for Intel CPU Snoop attack</a> (ZDNet)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/aws-releases-snowcone-the-latest-in-its-lineup-of-rugged-edge-computing-devices/">AWS
+          releases Snowcone, the latest in its lineup of rugged edge computing devices</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h2 id="what-services-compete-with-aws">What services compete with AWS?</h2>
+  <p>According to tech market research firm Canalys, <a
+      href="https://www.canalys.com/static/press_release/2020/Canalys---Cloud-market-share-Q4-2019-and-full-year-2019.pdf">AWS
+      comprised 32.4% of the public cloud market as of Q4 2019</a>, with Google, Microsoft, Alibaba, and IBM combined
+    totaling less than 30% of the market.</p>
+  <p>In much the same way that Amazon as an internet retailer is intended to be everything to everyone, so is AWS. While
+    competing cloud services offer alternatives for general use cases of AWS, no competing cloud service has an exact
+    replacement for every product included in AWS.</p>
+  <p>In terms of scale, Google, Microsoft, Alibaba, and IBM are certainly capable of handling any amount of data or
+    compute tasks you can generate.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/power-checklist-local-email-server-to-cloud-migration/"><strong>Power
+        checklist: Local email server-to-cloud migration</strong></a> <strong>(TechRepublic Premium)</strong></p>
+  <p>For organizations looking to migrate from an on-premise SharePoint system, or with other deep dependencies on
+    Microsoft products, Azure is likely the most compelling option for a seamless transition to the cloud.</p>
+  <p>Google Cloud Platform's core strengths are in machine learning, big data tools, and extensive container support.
+  </p>
+  <p>For IoT, the cloud provider market is still wide open, with tailored solutions available from <a
+      href="https://www.predix.com/">GE Predix</a>, Samsung's <a href="https://artik.cloud/">ARTIK Cloud</a>, and <a
+      href="https://www.thingworx.com/">ThingWorx</a>.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/top-5-things-to-know-about-serverless-computing/">Top 5 things to
+        know about serverless computing</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/serverless-computing-the-smart-persons-guide/">Serverless
+        computing: A cheat sheet</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/pictures/photos-15-high-profile-companies-that-run-on-top-of-amazon-web-services/">Photos:
+        15 high profile companies that run on top of Amazon Web Services</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/aws-releases-snowcone-the-latest-in-its-lineup-of-rugged-edge-computing-devices/">AWS
+        releases Snowcone, the latest in its lineup of rugged edge computing devices</a> (ZDNet)</li>
+  </ul>
+  <h2 id="how-do-i-become-an-aws-engineer">How do I become an AWS engineer?</h2>
+  <p>Tech professionals interested in becoming an AWS engineer should head over to Amazon's <a
+      href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">AWS Certified DevOps Engineer
+      certification portal</a> to see what skills Amazon says are required in order to manage AWS instances, find out
+    how to prep for the certification exam, see sample questions, or schedule an exam session. However, this
+    certification isn't necessary to perform the job functions of an AWS <a
+      href="https://www.techrepublic.com/article/devops-the-smart-persons-guide/">DevOps</a> engineer.</p>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/article/how-to-become-a-devops-engineer-a-cheat-sheet/">How to
+        become a DevOps engineer: A cheat sheet</a> (TechRepublic)</strong></p>
+  <p>TechRepublic previously covered <a
+      href="https://www.techrepublic.com/article/how-to-get-a-job-in-cloud-computing-10-skills-to-master/">skills that
+      are essential for cloud engineers to master</a>, and while the list does include AWS, it also mentions several <a
+      href="https://www.techrepublic.com/article/three-resources-to-improve-your-understanding-of-aws-security-and-harden-cloud-deployments/">programming
+      languages, automation suites, and analytics tools that are essential</a>. In essence, AWS is a proprietary
+    platform, but the basic skills needed to manage it are the same as any other cloud product.</p>
+  <p>Anyone who wants to learn more about the specifics of being an AWS engineer should check out the list of <a
+      href="https://aws.amazon.com/training/course-descriptions/">online courses</a> that Amazon maintains in its AWS
+    Training portal.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/phishing-attack-impersonates-amazon-web-services-to-steal-user-credentials/">Phishing
+        attack impersonates Amazon Web Services to steal user credentials</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/amazon-honeycode-aims-to-help-you-build-apps-without-writing-code/">Amazon
+        Honeycode aims to help you build apps without writing code</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/aws-launches-honeycode-a-no-code-app-building-service/">AWS launches
+        Amazon Honeycode, a no-code app building service</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/amazon-puts-one-year-moratorium-on-police-use-of-facial-recognition-software/">Amazon
+        puts one-year moratorium on police use of facial recognition software</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/salesforce-aws-launch-amazon-connect-integration-with-service-cloud/">Salesforce,
+        AWS launch Amazon Connect integration with Service Cloud</a> (ZDNet)</li>
+    <li><a
+        href="https://www.zdnet.com/article/top-aws-engineer-tim-bray-quits-1m-plus-job-over-amazon-firing-employees/">Top
+        AWS engineer Tim Bray quits $1m-plus job over Amazon firing employees</a> (ZDNet)</li>
+  </ul>
+  <h2 id="how-do-i-get-and-use-aws">How do I get and use AWS?</h2>
+  <p><a
+      href="https://www.techrepublic.com/article/three-resources-to-improve-your-understanding-of-aws-security-and-harden-cloud-deployments/">Developers
+      can get started with AWS</a> using the <a href="https://aws.amazon.com/free/">Free Tier</a>, which is available to
+    anyone without restriction for the first 12 months. It features 750 hours per month of EC2 t.2 micro instances of
+    Linux or Windows, as well as 5 GB of standard storage in S3 with 20,000 GET and 2,000 PUT requests.</p>
+  <p>Also available is 25 GB of storage in DynamoDB with 25 units of write and read capacity each, which Amazon
+    estimates to be sufficient to handle 200 million requests per month. It includes one million free requests per month
+    in <a href="https://www.techrepublic.com/article/amazon-lambda-the-smart-persons-guide/">Lambda</a>, and 20,000 free
+    requests in <a href="https://aws.amazon.com/kms/">AWS Key Management</a>, and free access grants in a dozen other
+    AWS services. After the 12 month unlimited period ends, <a href="https://aws.amazon.com/free/faqs/?ft=n">some
+      restrictions</a> take effect. Free tier users should be sure they know all the details about products they need
+    that may be affected by the end of the free tier unlimited period.</p>
+  <p>For startups, <a
+      href="https://www.techrepublic.com/article/aws-imagine-grants-offer-up-to-100000-in-cloud-services-to-non-profits/">various
+      tiers of free credits (up to $100,000</a>) are available depending on your accelerator. These promotional credits
+    can be applied to most AWS products, though are not usable with Mechanical Turk, AWS Marketplace, or some types of
+    support requests.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/aws-isnt-the-cheapskates-cloud-and-amazon-doesnt-care/">AWS isn't
+        the cheapskate's cloud, and Amazon doesn't care</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/5-architectural-principles-for-building-big-data-systems-on-aws/">5
+        architectural principles for building big data systems on AWS</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/resource-library/whitepapers/hybrid-cloud-a-guide-for-it-pros-free-pdf/">Hybrid
+        cloud: A guide for IT pros (free PDF)</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-liberty-mutual-is-transforming-its-it-using-serverless-computing/">How
+        Liberty Mutual is transforming its IT using serverless computing</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/slack-and-amazon-web-services-team-up-to-integrate-platforms/">Slack
+        and Amazon Web Services team up to integrate platforms</a> (TechRepublic) </li>
+    <li><a href="https://www.zdnet.com/article/aws-said-it-mitigated-a-2-3-tbps-ddos-attack-the-largest-ever/">AWS said
+        it mitigated a 2.3 Tbps DDoS attack, the largest ever</a> (ZDNet)</li>
+    <li><a href="https://www.zdnet.com/article/docker-partners-with-aws-to-smooth-container-deployments/">Docker
+        partners with AWS to smooth container deployments</a> (ZDNet)</li>
+    <li><a
+        href="https://www.zdnet.com/article/aws-graviton2-m6g-instances-generally-available-watch-demand-closely/">AWS'
+        Graviton2 M6g instances generally available: Watch demand closely</a> (ZDNet)</li>
+  </ul>
+  <p><em><strong>Note:</strong> This article was written and updated by James Sanders. It was also updated by Brandon
+      Vigliarolo.</em></p>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="cloud-and-everything-as-a-service-newsletter">Cloud and Everything as a Service Newsletter</h3>
+  <p>This is your go-to resource for XaaS, AWS, Microsoft Azure, Google Cloud Platform, cloud engineering jobs, and
+    cloud security news and tips. Delivered Mondays</p>
+  <p>Sign up today</p>
+  <p><a href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

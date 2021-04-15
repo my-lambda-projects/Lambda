@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="usage">Usage</h3>
+<p>{: .-prime}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">find</span> <span class="op">&lt;</span>path<span class="op">&gt;</span> <span class="op">&lt;</span>conditions<span class="op">&gt;</span> <span class="op">&lt;</span>actions<span class="op">&gt;</span></a></code></pre></div>
+<h3 id="conditions">Conditions</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">-name</span> <span class="st">&quot;*.c&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">-user</span> jonathan</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">-nouser</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">-type</span> f            <span class="co"># File</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">-type</span> d            <span class="co"># Directory</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="ex">-type</span> l            <span class="co"># Symlink</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">-depth</span> 2           <span class="co"># At least 3 levels deep</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">-regex</span> PATTERN</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">-size</span> 8            <span class="co"># Exactly 8 512-bit blocks </span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">-size</span> -128c        <span class="co"># Smaller than 128 bytes</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="ex">-size</span> 1440k        <span class="co"># Exactly 1440KiB</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="ex">-size</span> +10M         <span class="co"># Larger than 10MiB</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="ex">-size</span> +2G          <span class="co"># Larger than 2GiB</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">-newer</span>   file.txt</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="ex">-newerm</span>  file.txt        <span class="co"># modified newer than file.txt</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="ex">-newerX</span>  file.txt        <span class="co"># [c]hange, [m]odified, [B]create</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="ex">-newerXt</span> <span class="st">&quot;1 hour ago&quot;</span>    <span class="co"># [t]imestamp</span></a></code></pre></div>
+<h3 id="access-time-conditions">Access time conditions</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">-atime</span> 0           <span class="co"># Last accessed between now and 24 hours ago</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">-atime</span> +0          <span class="co"># Accessed more than 24 hours ago</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="ex">-atime</span> 1           <span class="co"># Accessed between 24 and 48 hours ago</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="ex">-atime</span> +1          <span class="co"># Accessed more than 48 hours ago</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="ex">-atime</span> -1          <span class="co"># Accessed less than 24 hours ago (same a 0)</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="ex">-ctime</span> -6h30m      <span class="co"># File status changed within the last 6 hours and 30 minutes</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="ex">-mtime</span> +1w         <span class="co"># Last modified more than 1 week ago</span></a></code></pre></div>
+<p>These conditions only work in MacOS and BSD-like systems (no GNU/Linux support).</p>
+<h3 id="condition-flow">Condition flow</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1">\! <span class="ex">-name</span> <span class="st">&quot;*.c&quot;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="dt">\(</span> <span class="ex">x</span> -or y <span class="dt">\)</span></a></code></pre></div>
+<h3 id="actions">Actions</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">-exec</span> rm {} <span class="dt">\;</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="ex">-print</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="ex">-delete</span></a></code></pre></div>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">find</span> . -name <span class="st">&#39;*.jpg&#39;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="fu">find</span> . -name <span class="st">&#39;*.jpg&#39;</span> -exec rm {} <span class="dt">\;</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="fu">find</span> . -newerBt <span class="st">&quot;24 hours ago&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"><span class="fu">find</span> . -type f -mtime +29 <span class="co"># find files modified more than 30 days ago</span></a></code></pre></div>
+</body></html>

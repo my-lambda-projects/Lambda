@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="date">Date</h2>
+<p>{: .-left-reference}</p>
+<h3 id="constructor">Constructor</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// Now</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">new</span> <span class="at">Date</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// ms since epoch</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">new</span> <span class="at">Date</span>(<span class="dv">1419785527580</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// Date format</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">new</span> <span class="at">Date</span>(<span class="st">&quot;May 17, 1995 03:24:00&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// ISO date format</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">new</span> <span class="at">Date</span>(<span class="st">&quot;2013-03-01T01:10:00&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2014</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">59</span><span class="op">,</span> <span class="dv">0</span>)</a></code></pre></div>
+<h3 id="constructor-1">Constructor</h3>
+<div class="line-block"><code>new Date(</code> | <code>2014,</code> | <code>2,</code> | <code>1,</code> | <code>13,</code> | <code>0,</code> | <code>59,</code> | <code>0)</code> |<br />
+Date | Year | Month | Day | Hour | Min | Sec | Milli |</div>
+<p>{: .-css-breakdown}</p>
+<p>Months are zero-indexed (eg, January is <code>0</code>).</p>
+<h3 id="conversion">Conversion</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>d.toString()</code></td>
+<td><code>"Mon Dec 29 2014 00:58:28 GMT+0800 (PHT)"</code></td>
+</tr>
+<tr class="even">
+<td><code>d.toTimeString()</code></td>
+<td><code>"00:58:46 GMT+0800 (PHT)"</code></td>
+</tr>
+<tr class="odd">
+<td><code>d.toUTCString()</code></td>
+<td><code>"Sun, 28 Dec 2014 16:58:59 GMT"</code></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>d.toDateString()</code></td>
+<td><code>"Thu Jan 10 2013"</code></td>
+</tr>
+<tr class="even">
+<td><code>d.toISOString()</code></td>
+<td><code>"2013-01-09T16:00:00.000Z"</code></td>
+</tr>
+<tr class="odd">
+<td><code>d.toLocaleString()</code></td>
+<td><code>"12/29/2014, 12:57:31 AM"</code></td>
+</tr>
+<tr class="even">
+<td><code>d.toLocaleTimeString()</code></td>
+<td><code>"12:57:31 AM"</code></td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>d.getTime()</code></td>
+<td><code>1419785527580</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="accessing">Accessing</h2>
+<h3 id="getters">Getters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.getDate()</code></td>
+<td><code>1..31</code></td>
+</tr>
+<tr class="even">
+<td><code>.getDay()</code></td>
+<td><code>0..6</code> (sun..sat)</td>
+</tr>
+<tr class="odd">
+<td><code>.getFullYear()</code></td>
+<td><code>2014</code></td>
+</tr>
+<tr class="even">
+<td><code>.getMonth()</code></td>
+<td><code>0..11</code></td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>.getHours()</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.getMinutes()</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.getSeconds()</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.getMilliseconds()</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>.getTime()</code></td>
+<td>ms since epoch</td>
+</tr>
+<tr class="even">
+<td><code>.getTimezoneOffset()</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>UTC versions are also available (eg, <code>.getUTCDate()</code>, <code>.getUTCDay()</code>, etc).</p>
+<h3 id="setters">Setters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.setDate</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.setDay</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.setFullYear</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.setMonth</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>.setHours</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.setMinutes</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.setSeconds</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.setMilliseconds</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>.setTime</code> <em>(val)</em></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.setTimezoneOffset</code> <em>(val)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>See the getters list.</p>
+</body></html>

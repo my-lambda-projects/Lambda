@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="titles">Titles</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1">set_meta_tags <span class="st">title: &#39;Member Login&#39;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co"># &lt;title&gt;Some Page Title&lt;/title&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1">set_meta_tags <span class="st">site: &#39;Site Title&#39;</span>, <span class="st">title: &#39;Member Login&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># &lt;title&gt;Site Title | Page Title&lt;/title&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">set_meta_tags(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="st">site: &#39;Site Title&#39;</span>,</a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="st">title: &#39;Member Login&#39;</span>,</a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="st">reverse: </span><span class="dv">true</span>,</a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="st">separator: &#39;&amp;middot;&#39;</span>.html_safe</a>
+<a class="sourceLine" id="cb3-6" title="6">)</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co"># &lt;title&gt;Page Title · Site Title&lt;/title&gt;</span></a></code></pre></div>
+<p>Works in a controller or a view.</p>
+<h3 id="setting-defaults">Setting defaults</h3>
+<pre><code>rails generate meta_tags:install</code></pre>
+<p>This creates <code>config/initializers/meta_tags.rb</code> that you can edit.</p>
+<h3 id="others">Others</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1">set_meta_tags <span class="st">site: &#39;Site name&#39;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">set_meta_tags <span class="st">title: &#39;Title&#39;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">set_meta_tags <span class="st">description: &quot;All text about keywords&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1">set_meta_tags <span class="st">keywords: </span><span class="ot">%w[</span><span class="st">abc def ghi</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb6-2" title="2">set_meta_tags <span class="st">canonical: &#39;http://...&#39;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">set_meta_tags <span class="st">icon: &#39;favicon.ico&#39;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">set_meta_tags <span class="st">author: &#39;http://...&#39;</span></a>
+<a class="sourceLine" id="cb6-5" title="5">set_meta_tags <span class="st">alternate: </span>{ <span class="st">&#39;fr&#39;</span> =&gt; <span class="st">&#39;http://...&#39;</span> }</a>
+<a class="sourceLine" id="cb6-6" title="6">set_meta_tags <span class="st">prev: &#39;http://...&#39;</span></a>
+<a class="sourceLine" id="cb6-7" title="7">set_meta_tags <span class="kw">next</span>: <span class="st">&#39;http://...&#39;</span></a>
+<a class="sourceLine" id="cb6-8" title="8">set_meta_tags <span class="st">image_src: &#39;http://...&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">set_meta_tags <span class="st">noindex: </span><span class="dv">true</span></a>
+<a class="sourceLine" id="cb7-2" title="2">set_meta_tags <span class="st">nofollow: </span><span class="dv">true</span></a>
+<a class="sourceLine" id="cb7-3" title="3">set_meta_tags <span class="st">follow: </span><span class="dv">true</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">set_meta_tags <span class="st">og: </span>{ <span class="st">image: </span>[<span class="st">&#39;...&#39;</span>] }</a>
+<a class="sourceLine" id="cb8-2" title="2">set_meta_tags <span class="st">twitter: </span>{ <span class="st">description: &#39;...&#39;</span> }</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb9-1" title="1">set_meta_tags <span class="st">separator: &#39;·&#39;</span>   <span class="co"># Site · Page title</span></a>
+<a class="sourceLine" id="cb9-2" title="2">set_meta_tags <span class="st">prefix: </span><span class="ch">&#39; &#39;</span>      <span class="co"># Around the separator</span></a>
+<a class="sourceLine" id="cb9-3" title="3">set_meta_tags <span class="st">suffix: </span><span class="ch">&#39; &#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb10-1" title="1">set_meta_tags <span class="st">lowercase: </span><span class="dv">true</span>  <span class="co"># Lowercase page title</span></a>
+<a class="sourceLine" id="cb10-2" title="2">set_meta_tags <span class="st">reverse: </span><span class="dv">true</span>    <span class="co"># Site name last</span></a></code></pre></div>
+<h3 id="in-views">In views</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># Displaying tags</span></a>
+<a class="sourceLine" id="cb11-2" title="2">&lt;%= display_meta_tags <span class="ot">%&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># Displaying tags individually</span></a>
+<a class="sourceLine" id="cb12-2" title="2">&lt;h1&gt;&lt;%= title <span class="ot">%&gt;</span><span class="st">&lt;/h1</span><span class="ot">&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb13-1" title="1"><span class="co"># Setting tags</span></a>
+<a class="sourceLine" id="cb13-2" title="2">&lt;% title <span class="st">&#39;Member Login&#39;</span> %&gt;</a>
+<a class="sourceLine" id="cb13-3" title="3">&lt;% description <span class="st">&#39;My page&#39;</span> %&gt;</a>
+<a class="sourceLine" id="cb13-4" title="4">&lt;% keywords <span class="st">&#39;..&#39;</span> %&gt;</a></code></pre></div>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>Accurate as of 2.1.0. See: <a href="https://github.com/kpumuk/meta-tags" class="uri">https://github.com/kpumuk/meta-tags</a></li>
+</ul>
+</body></html>

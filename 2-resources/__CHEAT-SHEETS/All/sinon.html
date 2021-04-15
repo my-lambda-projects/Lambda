@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="creating-spies">Creating spies</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">fn <span class="op">=</span> <span class="va">sinon</span>.<span class="at">spy</span>()</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">fn</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">fn</span>.<span class="at">calledOnce</span> <span class="op">==</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">fn</span>.<span class="at">callCount</span> <span class="op">==</span> <span class="dv">1</span></a></code></pre></div>
+<h3 id="spyingstubbing">Spying/stubbing</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">sinon</span>.<span class="at">spy</span>($<span class="op">,</span> <span class="st">&#39;ajax&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">$</span>.<span class="at">ajax</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">$</span>.<span class="va">ajax</span>.<span class="at">calledOnce</span> <span class="op">==</span> <span class="kw">true</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">sinon</span>.<span class="at">stub</span>($<span class="op">,</span> <span class="st">&#39;ajax&#39;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span> ... <span class="op">}</span>) <span class="co">// function optional</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">$</span>.<span class="va">ajax</span>.<span class="at">calledWithMatch</span>(<span class="op">{</span> <span class="dt">url</span><span class="op">:</span> <span class="st">&#39;/x&#39;</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="va">$</span>.<span class="va">ajax</span>.<span class="at">restore</span>()</a></code></pre></div>
+<h3 id="spystub-properties">Spy/stub properties</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">spy</a>
+<a class="sourceLine" id="cb7-2" title="2">  .<span class="at">args</span>        <span class="co">//=&gt; [ [..], [..] ] one per call</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  .<span class="at">thisValues</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  .<span class="at">returnValues</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">  .<span class="at">called</span>      <span class="co">//=&gt; true</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  .<span class="at">notCalled</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  .<span class="at">callCount</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  .<span class="at">calledOnce</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  .<span class="at">calledTwice</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  .<span class="at">calledThrice</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1">  .<span class="at">getCalls</span>()   <span class="co">//=&gt; Array</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  .<span class="at">getCall</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb9-3" title="3">  .<span class="at">firstCall</span></a></code></pre></div>
+<h3 id="anonymous-stub">Anonymous stub</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1">stub <span class="op">=</span> <span class="va">sinon</span>.<span class="at">stub</span>().<span class="at">returns</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="at">stub</span>() <span class="op">==</span> <span class="dv">42</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1">stub</a>
+<a class="sourceLine" id="cb11-2" title="2">  .<span class="at">withArgs</span>(<span class="dv">42</span>).<span class="at">returns</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb11-3" title="3">  .<span class="at">withArgs</span>(<span class="dv">43</span>).<span class="at">throws</span>(<span class="st">&quot;TypeError&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1">stub</a>
+<a class="sourceLine" id="cb12-2" title="2">  .<span class="at">returns</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb12-3" title="3">  .<span class="at">throws</span>(<span class="st">&quot;TypeError&quot;</span>)</a>
+<a class="sourceLine" id="cb12-4" title="4">  .<span class="at">returnsArg</span>(<span class="dv">0</span>) <span class="co">// Return 1st argument</span></a>
+<a class="sourceLine" id="cb12-5" title="5">  .<span class="at">callsArg</span>(<span class="dv">0</span>)</a></code></pre></div>
+<h3 id="fake-date">Fake date</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="va">sinon</span>.<span class="at">useFakeTimers</span>(<span class="op">+</span><span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2011</span><span class="op">,</span><span class="dv">9</span><span class="op">,</span><span class="dv">1</span>))<span class="op">;</span></a></code></pre></div>
+<h3 id="fake-server">Fake server</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1">server <span class="op">=</span> <span class="va">sinon</span>.<span class="va">fakeServer</span>.<span class="at">create</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;/file.json&#39;</span><span class="op">,</span> ...)</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="va">server</span>.<span class="at">requests</span>[<span class="dv">0</span>].<span class="at">respond</span>(</a>
+<a class="sourceLine" id="cb15-3" title="3">  <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb15-4" title="4">  <span class="op">{</span> <span class="st">&#39;Content-Type&#39;</span><span class="op">:</span> <span class="st">&#39;application/json&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb15-5" title="5">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="op">{</span> <span class="dt">hello</span><span class="op">:</span> <span class="st">&#39;world&#39;</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb15-6" title="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="va">server</span>.<span class="at">restore</span>()</a></code></pre></div>
+<h3 id="fake-xhr">Fake XHR</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1">xhr <span class="op">=</span> <span class="va">sinon</span>.<span class="at">useFakeXMLHttpRequest</span>()</a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="va">xhr</span>.<span class="at">restore</span>()</a></code></pre></div>
+<h3 id="sandbox">Sandbox</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="at">beforeEach</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-2" title="2">  <span class="va">global</span>.<span class="at">sinon</span> <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;sinon&#39;</span>).<span class="va">sandbox</span>.<span class="at">create</span>()</a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="at">afterEach</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-2" title="2">  <span class="va">global</span>.<span class="va">sinon</span>.<span class="at">restore</span>()</a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="op">}</span>)</a></code></pre></div>
+</body></html>

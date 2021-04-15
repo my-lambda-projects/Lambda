@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="install-bolt">Install Bolt</h3>
+    <div class="sourceCode" id="cb1">
+      <pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># On MacOS</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">brew</span> cask install puppetlabs/puppet/puppet-bolt</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co"># On Windows</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ex">choco</span> install puppet-bolt</a></code></pre>
+    </div>
+    <p>Bolt is available as a package for most platforms. See <a
+        href="https://puppet.com/docs/bolt/latest/bolt_installing.html">installing bolt</a></p>
+    <h3 id="create-a-module-with-a-task">Create a module with a task</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">mkdir</span> -p ~/.puppetlabs/bolt/modules/mymodule/tasks</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">cp</span> myscript.sh ~/.puppetlabs/bolt/modules/mymodule/tasks/</a></code></pre>
+    </div>
+    <p>Tasks can be written in any language your targets can run. See <a
+        href="https://puppet.com/docs/bolt/latest/writing_tasks.html">writing tasks</a> for more details.</p>
+    <h3 id="run-bolt">Run Bolt</h3>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">bolt</span> task run mymodule::myscript -n node1.example.com,node2.example.com --private-key ~/.ssh/id_rsa-private</a></code></pre>
+    </div>
+    <p>See <code>bolt task run --help</code> for more information and command line options.</p>
+  </body>
+
+</html>

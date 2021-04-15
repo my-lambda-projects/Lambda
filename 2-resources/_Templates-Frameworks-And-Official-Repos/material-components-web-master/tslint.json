@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "gts/tslint.json"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.{j,t}s",
+      "**/node_modules/**/*.{j,t}s"
+    ]
+  }
+}

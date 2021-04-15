@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAqBA,QAAQ,CAAR,WAAQ",
+    "sources": [
+        "mdc-select-helper-text.scss"
+    ],
+    "names": [],
+    "file": "mdc-select-helper-text.css"
+}

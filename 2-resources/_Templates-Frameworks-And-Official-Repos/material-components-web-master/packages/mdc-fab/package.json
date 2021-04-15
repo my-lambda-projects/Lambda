@@ -1,0 +1,31 @@
+{
+  "name": "@material/fab",
+  "description": "The Material Components for the web floating action button component",
+  "version": "10.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "floating action button",
+    "fab"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-fab"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@material/animation": "^10.0.0",
+    "@material/dom": "^10.0.0",
+    "@material/elevation": "^10.0.0",
+    "@material/feature-targeting": "^10.0.0",
+    "@material/ripple": "^10.0.0",
+    "@material/rtl": "^10.0.0",
+    "@material/shape": "^10.0.0",
+    "@material/theme": "^10.0.0",
+    "@material/touch-target": "^10.0.0",
+    "@material/typography": "^10.0.0",
+    "tslib": "^2.1.0"
+  }
+}

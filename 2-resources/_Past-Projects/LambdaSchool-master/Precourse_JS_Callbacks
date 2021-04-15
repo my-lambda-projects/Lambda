@@ -1,0 +1,141 @@
+####################################
+CALL-BACKS functions & .forEach & .map
+####################################
+
+####### .forEach
+// an array of words
+const words = [ 'cattywampus', 'snickersnee', 'lollygag', 'pandiculation', 'ratoon' ];
+
+// logWords() takes x argument; x is any string
+function logWords(x){
+  console.log(x + " is a word.");
+}
+
+// Use forEach to console.log all the words in the words array. forEach loops through 'words' array, pass logWords as a call-back to .forEach function
+
+words.forEach(logWords);
+
+###### .forEach
+// an array of numbers
+const numbers = [ 8, 3, 22, 0, -73, 15 ];
+
+// logHalfNumbers() takes x argument; x is any number
+function logHalfNumbers(x){
+  console.log(x/2)
+}
+
+// Use forEach loops through 'numbers' array, pass logWords as a call-back to .forEach function, .forEach does NOT return array
+numbers.forEach(logHalfNumbers);
+
+####### .map
+//array of words
+const words = [ 'cattywampus', 'snickersnee', 'lollygag', 'pandiculation', 'ratoon' ];
+
+// function takes string as argument; returns index 0 - first letter
+function getFirstLetter(word) {
+  return word[0];
+}
+
+// .map function loops through 'words' array, passing getFirstLetter function as call-back; map returns ENTIRE ARRAY
+const firstLetters = words.map(getFirstLetter);
+console.log(firstLetters);
+
+######## .map
+// an array of words
+const words = [ 'cattywampus', 'snickersnee', 'lollygag', 'pandiculation', 'ratoon' ];
+
+// function takes 'last' string as argument, use .slice(-1) method to take last letter of every word
+function getLastLetter(last) {
+  return last.slice(-1);
+}
+
+// use .map function on 'words' array, running getLastLetter as call-back; .map returns an array
+const lastLetters = words.map(getLastLetter);
+console.log(lastLetters);
+
+######### .map
+// an array of words
+const words = [ 'cattywampus', 'snickersnee', 'lollygag', 'pandiculation', 'ratoon' ];
+
+// function loops through words array; take call-back as function that splits/reverse/joins words; 
+// .map returns array of new words
+
+const reversedWords = words.map(function(word) {       f
+  let s = word.split('');
+  let r = s.reverse();
+  let j = r.join('');
+  return j;
+}); 
+
+console.log(reversedWords);
+
+########## .map
+// an array of numbers
+const numbers = [ 8, 3, 22, 0, -73, 15 ];
+
+
+// function takes in any number as argument; returns absolute number
+function absNumbers(num){ 
+  return Math.abs(num);
+}
+
+// Use .map to create an array containing the absolute value of every number in the numbers array
+const absoluteNumbers = numbers.map(absNumbers);
+console.log(absoluteNumbers);
+
+########### .map
+// an array of numbers
+const numbers = [ 8, 3, 22, 0, -73, 15 ];
+
+// rounded to the nearest 10. For example: 10, 0, 20, 0, etc. 
+function roundTen(num){
+  return Math.ceil(num / 10) * 10;
+}
+
+// .map takes in call-back function roundTen
+// store in new variable roundedToTenNumbers 
+const roundedToTenNumbers = numbers.map(roundTen);
+console.log(roundedToTenNumbers);
+
+########### .map  
+// an array of words
+const words = [ 'cattywampus', 'snickersnee', 'lollygag', 'pandiculation', 'ratoon' ];
+
+// function to check if word contains 's'
+function containS(word){
+  if (word.includes("s")) {      // .includes method
+    return word;
+  } else {
+    return null;
+  }
+}
+
+// Use map to create an array that contains only the words from the words array containing 's'.
+// .map takes call-back function, returns array
+const wordsWithS = words.map(containS);
+console.log(wordsWithS);
+
+########### .reduce
+// an array of numbers
+const numbers = [ 8, 3, 22, 0, -73, 15 ];
+
+
+// function takes currentTotal, nextNumber as argument, returns their sum
+function sum(currentTotal, nextNumber) {
+  return currentTotal + nextNumber;
+}
+
+// .reduce function called on 'numbers' array, takes call-back function of 'sum'; returns a single number
+const sumTotal = numbers.reduce(sum);
+console.log(sumTotal);
+
+########### .reduce
+// an array of words
+const words = [ 'cattywampus', 'snickersnee', 'lollygag', 'pandiculation', 'ratoon' ];
+
+// .reduce function called on 'words' array; takes in two argument, returns single word
+const alphabeticallyLast = words.reduce(function(currentW, nextW) {
+  return nextW;
+});
+
+console.log(alphabeticallyLast);

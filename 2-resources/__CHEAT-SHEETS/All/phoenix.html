@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="quick-start">Quick start</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># Install Phoenix</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">mix</span> local.hex</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="ex">mix</span> archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># Create a new project</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">mix</span> phx.new hello</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Start the application</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">mix</span> phx.server</a></code></pre></div>
+<p>Install Erlang, Elixir, Node.js, PostgreSQL first. See: <a href="https://hexdocs.pm/phoenix/installation.html">Installation</a> <em>(hexdocs.pm)</em></p>
+<h3 id="directory-structure">Directory structure</h3>
+<pre><code>./
+├── _build
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── static/
+│   └── node_modules/
+├── config/
+├── deps/
+├── lib/
+│   ├── hello/
+│   ├── hello.ex
+│   ├── hello_web/
+│   │   ├── channels/
+│   │   ├── controllers/
+│   │   ├── templates/
+│   │   ├── views/
+│   │   ├── router.ex
+│   │   └── gettext.ex
+│   └── hello_web.ex
+├── priv/
+└── test/</code></pre>
+<p>{: .-box-chars}</p>
+<p>See: <a href="https://hexdocs.pm/phoenix/adding_pages.html">Adding pages</a> <em>(hexdocs.pm)</em></p>
+<h3 id="migrations">Migrations</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1">$ <span class="ex">mix</span> ecto.gen.migration update_posts_table</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="ex">creating</span> priv/repo/migrations/20160602085927_update_posts_table.exs</a>
+<a class="sourceLine" id="cb5-3" title="3">  ···</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb6-1" title="1">create table(<span class="va">:documents</span>) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  add <span class="va">:title</span>, <span class="va">:string</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  add <span class="va">:title</span>, <span class="va">:string</span>, <span class="va">default:</span> <span class="st">&quot;Hello&quot;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  add <span class="va">:body</span>, <span class="va">:text</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  add <span class="va">:age</span>, <span class="va">:integer</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  add <span class="va">:price</span>, <span class="va">:float</span>, <span class="va">precision:</span> <span class="dv">10</span>, <span class="va">scale:</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  timestamps</a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw">end</span></a></code></pre></div>
+<p><a href="./phoenix-migrations">Ecto migrations cheatsheet</a> {: .-crosslink}</p>
+<h3 id="routing">Routing</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb7-1" title="1">get <span class="st">&quot;/&quot;</span>, <span class="cn">PageController</span>, <span class="va">:index</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">resources <span class="st">&quot;/users&quot;</span>, <span class="cn">UserController</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  resources <span class="st">&quot;/posts&quot;</span>, <span class="cn">PostController</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">end</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb8-1" title="1">user_post_path(conn, <span class="va">:index</span>, <span class="dv">17</span>)     <span class="co"># → /users/17/posts</span></a>
+<a class="sourceLine" id="cb8-2" title="2">user_post_path(conn, <span class="va">:show</span>, <span class="dv">17</span>, <span class="dv">12</span>)  <span class="co"># → /users/17/posts/12</span></a></code></pre></div>
+<p><a href="./phoenix-routing">Phoenix routing cheatsheet</a> {: .-crosslink}</p>
+<h3 id="conn">Conn</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb9-1" title="1">conn<span class="op">.</span>host          <span class="co"># → &quot;example.com&quot;</span></a>
+<a class="sourceLine" id="cb9-2" title="2">conn<span class="op">.</span>method        <span class="co"># → &quot;GET&quot;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">conn<span class="op">.</span>path_info     <span class="co"># → [&quot;posts&quot;, &quot;1&quot;]</span></a>
+<a class="sourceLine" id="cb9-4" title="4">conn<span class="op">.</span>request_path  <span class="co"># → &quot;/posts/1&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb10-1" title="1">conn</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="op">|&gt;</span> put_status(<span class="dv">202</span>)</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">|&gt;</span> html(<span class="st">&quot;&lt;html&gt;&lt;head&gt;···&quot;</span>)</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="op">|&gt;</span> json(%{ <span class="va">message:</span> <span class="st">&quot;Hello&quot;</span> })</a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="op">|&gt;</span> text(<span class="st">&quot;Hello&quot;</span>)</a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="op">|&gt;</span> redirect(<span class="va">to:</span> <span class="st">&quot;/foo&quot;</span>)</a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="op">|&gt;</span> render(<span class="st">&quot;index.html&quot;</span>)</a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="op">|&gt;</span> render(<span class="st">&quot;index.html&quot;</span>, <span class="va">hello:</span> <span class="st">&quot;world&quot;</span>)</a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="op">|&gt;</span> render(<span class="cn">MyApp</span><span class="op">.</span><span class="cn">ErrorView</span>, <span class="st">&quot;404.html&quot;</span>)</a></code></pre></div>
+<p><a href="./phoenix-conn">Phoenix conn cheatsheet</a> {: .-crosslink}</p>
+<h3 id="ecto">Ecto</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1">$ <span class="ex">mix</span> phx.gen.html \</a>
+<a class="sourceLine" id="cb11-2" title="2">    Accounts <span class="dt">\ </span>      <span class="co"># domain</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="ex">Profile</span> <span class="dt">\ </span>       <span class="co"># schema</span></a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="ex">profiles</span> <span class="dt">\ </span>      <span class="co"># table name</span></a>
+<a class="sourceLine" id="cb11-5" title="5">    <span class="ex">email</span>:string \</a>
+<a class="sourceLine" id="cb11-6" title="6">    age:integer</a></code></pre></div>
+<p><a href="./phoenix-ecto">Ecto cheatsheet</a> {: .-crosslink}</p>
+<h3 id="also-see">Also see</h3>
+<ul>
+<li><a href="http://phoenixframework.org/">Phoenix framework site</a> <em>(phoenixframework.org)</em></li>
+<li><a href="https://hexdocs.pm/phoenix/overview.html">Phoenix: getting started</a> <em>(hexdocs.pm)</em></li>
+</ul>
+</body></html>

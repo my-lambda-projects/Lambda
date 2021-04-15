@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="ets">ETS</h2>
+<h3 id="usage">Usage</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb1-1" title="1">iex<span class="op">&gt;</span> table <span class="op">=</span> <span class="va">:ets</span><span class="op">.</span>new(<span class="va">:my_table</span>, [])</a>
+<a class="sourceLine" id="cb1-2" title="2">     <span class="dv">8211</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb2-1" title="1">iex<span class="op">&gt;</span> <span class="va">:ets</span><span class="op">.</span>insert(table, {<span class="va">:fruit</span>, <span class="st">&quot;Apple&quot;</span>})</a>
+<a class="sourceLine" id="cb2-2" title="2">iex<span class="op">&gt;</span> <span class="va">:ets</span><span class="op">.</span>lookup(table, <span class="va">:fruit</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3">     [{<span class="va">:fruit</span>, <span class="st">&quot;Apple&quot;</span>}]</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb3-1" title="1">iex<span class="op">&gt;</span> <span class="va">:ets</span><span class="op">.</span>delete(table)</a>
+<a class="sourceLine" id="cb3-2" title="2">iex<span class="op">&gt;</span> <span class="va">:ets</span><span class="op">.</span>delete_all_objects(table)</a></code></pre></div>
+<h3 id="flags">Flags</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb4-1" title="1">iex<span class="op">&gt;</span> table <span class="op">=</span> <span class="va">:ets</span><span class="op">.</span>new(<span class="va">:my_table</span>, [<span class="va">:set</span>, <span class="va">:protected</span>])</a></code></pre></div>
+<p>{: .-setup}</p>
+<div class="line-block"><code>:set</code> | no duplicate keys (or: <code>:ordered_set</code>, <code>:bag</code>, <code>:duplicate_bag</code>) |<br />
+<code>:protected</code> | only this process can use it (or: <code>:public</code>, <code>:private</code>) |</div>
+<h3 id="ordered-sets">Ordered sets</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb5-1" title="1"><span class="va">:ets</span><span class="op">.</span>first(table)</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">:ets</span><span class="op">.</span>last(table)</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">:ets</span><span class="op">.</span>next(table, key)</a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">:ets</span><span class="op">.</span>prev(table, key)</a></code></pre></div>
+<h2 id="references">References</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="http://erlang.org/doc/man/ets.html" class="uri">http://erlang.org/doc/man/ets.html</a></li>
+<li><a href="http://learnyousomeerlang.com/ets" class="uri">http://learnyousomeerlang.com/ets</a></li>
+</ul>
+</body></html>

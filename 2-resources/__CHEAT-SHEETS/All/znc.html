@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="start">Start</h2>
+<pre><code>/msg *status addserver irc.undernet.org [6667]
+/msg *status connect
+
+/msg *status loadmod webadmin
+/msg *status loadmod admin
+/msg *status loadmod away
+/msg *status loadmod awaynick
+/msg *status loadmod clientnotify    # Notifies when another client logs
+/msg *status loadmod keepnick
+/msg *status loadmod kickrejoin</code></pre>
+<h2 id="away">Away</h2>
+<pre><code>/msg *status loadmod away
+/msg *away away
+/msg *away back
+/msg *away show   #=&gt; Show messages
+/msg *away delete all</code></pre>
+<h2 id="watch">Watch</h2>
+<pre><code>/msg *status loadmod watch
+/msg *watch list
+/msg *watch add * *watch *rico*
+/msg *watch add * *watch *%nick%*</code></pre>
+</body></html>

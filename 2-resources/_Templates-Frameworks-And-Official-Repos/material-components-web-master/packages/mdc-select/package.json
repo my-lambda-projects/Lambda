@@ -1,0 +1,40 @@
+{
+  "name": "@material/select",
+  "description": "The Material Components web select (text field drop-down) component",
+  "version": "10.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "select",
+    "multi select"
+  ],
+  "main": "dist/mdc.select.js",
+  "module": "index.js",
+  "sideEffects": false,
+  "types": "dist/mdc.select.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-select"
+  },
+  "dependencies": {
+    "@material/animation": "^10.0.0",
+    "@material/base": "^10.0.0",
+    "@material/density": "^10.0.0",
+    "@material/dom": "^10.0.0",
+    "@material/feature-targeting": "^10.0.0",
+    "@material/floating-label": "^10.0.0",
+    "@material/line-ripple": "^10.0.0",
+    "@material/list": "^10.0.0",
+    "@material/menu": "^10.0.0",
+    "@material/menu-surface": "^10.0.0",
+    "@material/notched-outline": "^10.0.0",
+    "@material/ripple": "^10.0.0",
+    "@material/rtl": "^10.0.0",
+    "@material/shape": "^10.0.0",
+    "@material/theme": "^10.0.0",
+    "@material/typography": "^10.0.0",
+    "tslib": "^2.1.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,kDAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,oDAAQ;AACR,QAAQ,CAAR,uCAAQ;AACR,QAAQ,CAAR,wJAAQ;AACR,QAAQ,CAAR,gFAAQ;AACR,QAAQ,CAAR,8BAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,oDAAQ;AACR,QAAQ,CAAR,wBAAQ",
+    "sources": [
+        "mdc-select-helper-text.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-select-helper-text.import.css"
+}

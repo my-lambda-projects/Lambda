@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="screen-sizes">Screen sizes</h3>
+    <pre><code>         768          992                1200
+&#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;
+&lt;---------^------------^------------------^---------&gt;
+     xs         sm              md             lg
+   (phone)   (tablet)        (laptop)       (desktop)</code></pre>
+    <p>Min:</p>
+    <pre class="scss"><code>@media (min-width: @screen-sm-min) // &gt;= 768px (small tablet)
+@media (min-width: @screen-md-min) // &gt;= 992px (medium laptop)
+@media (min-width: @screen-lg-min) // &gt;= 1200px (large desktop)</code></pre>
+    <p>Max:</p>
+    <pre class="scss"><code>@media (max-width: @screen-xs-max) { // &lt; 768px (xsmall phone)
+@media (max-width: @screen-sm-max) { // &lt; 992px (small tablet)
+@media (max-width: @screen-md-max) { // &lt; 1200px (medium laptop)</code></pre>
+    <h3 id="columns">Columns</h3>
+    <pre class="scss"><code>.container
+.container-fluid</code></pre>
+    <pre class="scss"><code>.col-xs-1
+.col-sm-1
+.col-md-1
+.col-lg-1
+.col-md-offset-1</code></pre>
+    <p>Mixins:</p>
+    <pre class="scss"><code>@include make-xs-column(12);
+@include make-sm-column(6);
+@include make-md-column(3);
+@include make-lg-column(3);</code></pre>
+    <pre class="scss"><code>@include make-sm-column-offset(1);
+@include make-sm-column-push(1);
+@include make-sm-column-pull(1);</code></pre>
+    <h3 id="utilities">Utilities</h3>
+    <pre class="scss"><code>.pull-left
+.pull-right</code></pre>
+    <pre class="scss"><code>.hidden-{xs,sm,md,lg}
+.visible-{xs,sm,md,lg}
+.visible-{xs,sm,md,lg,print}-{block,inline,inline-block}</code></pre>
+    <pre class="scss"><code>.center-block  /* margin: auto */
+.clearfix
+.text-{center,left,right,justify,nowrap}
+.text-{lowercase,uppercase,capitalize}</code></pre>
+    <pre class="scss"><code>.show
+.hidden</code></pre>
+    <h3 id="modal">Modal</h3>
+    <div class="sourceCode" id="cb12">
+      <pre
+        class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">&lt;a</span><span class="ot"> data-toggle=</span><span class="st">&#39;modal&#39;</span><span class="ot"> data-target=</span><span class="st">&#39;#new&#39;</span><span class="kw">&gt;</span></a></code></pre>
+    </div>
+    <pre class="haml"><code>#new.modal.fade(role=&#39;dialog&#39;)
+  .modal-dialog // .modal-lg, .modal-sm
+    .modal-content
+      .modal-header
+        %h4.modal-title hello
+        %button.close{type: &#39;button&#39;, data: { dismiss: &#39;modal&#39; }}
+          %span{&#39;aria-hidden&#39; =&gt; true}!= &quot;&amp;times;&quot;
+          %span.sr-only Close
+      .modal-body
+        ...
+      .modal-footer
+        ...</code></pre>
+    <h3 id="modal-via-ajax-rails">Modal via ajax (Rails)</h3>
+    <pre class="haml"><code>%button.btn{data: { |
+  toggle: &#39;modal&#39;, |
+  target: &#39;#chooseTheme&#39;, |
+  remote: &#39;/path/to/remote&#39;}
+  Change Theme</code></pre>
+    <pre class="haml"><code>.modal.fade#chooseTheme
+  .modal-dialog.modal-xl
+    .modal-content
+      .modal-header
+        %h4.modal-title Choose a theme
+
+      .modal-body
+        .spinner-panel.-lg
+          %i</code></pre>
+    <h3 id="tooltip">Tooltip</h3>
+    <div class="sourceCode" id="cb16">
+      <pre
+        class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;span</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="ot">  data-toggle=</span><span class="st">&#39;tooltip&#39;</span></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="ot">  title=</span><span class="st">&#39;tooltip&#39;</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="ot">  data-placement=</span><span class="st">&#39;left|top|bottom|right&#39;</span><span class="kw">&gt;</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb17">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="at">$</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="at">$</span>(<span class="st">&#39;[data-toogle~=&quot;tooltip&quot;]&#39;</span>).<span class="at">tooltip</span>()</a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <h3 id="input-groups">Input groups</h3>
+    <pre class="haml"><code>.input-group
+    input.form-control(type=&#39;text&#39;)
+    .input-group-addon years</code></pre>
+  </body>
+
+</html>
