@@ -6,4295 +6,4871 @@ test
 
 ```
 
-├── [hi](./0-notes)
-├── [hi](./1-projects
-│   ├── [hi](./A_arrays_solution
-│   ├── [hi](./A_conditionals_solution
-│   ├── [hi](./A_executing_code_solution
-│   ├── [hi](./A_functions_solution
-│   ├── [hi](./A_loops_solution
-│   ├── [hi](./A_nested_loops_solution
-│   ├── [hi](./Atomic-Design-Solution-master
-│   │   └── dogs
-│   │       ├── [hi](./public
-│   │       └── src
-│   │           ├── [hi](./atoms
-│   │           ├── [hi](./molecules
-│   │           ├── [hi](./organisms
-│   │           ├── [hi](./pages
-│   │           └── templates
-│   ├── [hi](./B_arrays_solution
-│   ├── [hi](./Basic-JavaScript-master
-│   │   ├── [hi](./src
-│   │   └── tests
-│   ├── [hi](./B_expressions_solution
-│   ├── [hi](./B_functions_solution
-│   ├── [hi](./B_loops_solution
-│   ├── [hi](./B_two_dimensional_arrays_solution
-│   ├── [hi](./C_arrays_solution
-│   ├── [hi](./C_functions_solution
-│   ├── [hi](./Client-Auth-Solution-master
-│   │   ├── [hi](./public
-│   │   └── src
-│   │       ├── [hi](./actions
-│   │       ├── [hi](./components
-│   │       │   └── HOC
-│   │       └── reducers
-│   ├── [hi](./C_loops_solution
-│   ├── [hi](./C_more_problems_solution
-│   ├── [hi](./Components-BEM-Solution-master
-│   │   ├── [hi](./components
-│   │   │   ├── [hi](./Box
-│   │   │   ├── [hi](./Dropdown
-│   │   │   └── Section
-│   │   └── markups
-│   ├── [hi](./Components-Constructors-Solution-master
-│   │   ├── [hi](./components
-│   │   │   ├── [hi](./Box
-│   │   │   ├── [hi](./Dropdown
-│   │   │   ├── [hi](./Section
-│   │   │   └── Tabs
-│   │   └── markups
-│   ├── [hi](./C_variables_solution
-│   ├── [hi](./Data-Structures-master
-│   │   ├── [hi](./avl_tree
-│   │   ├── [hi](./binary_search_tree
-│   │   ├── [hi](./doubly_linked_list
-│   │   ├── [hi](./heap
-│   │   ├── [hi](./lru_cache
-│   │   ├── [hi](./queue
-│   │   ├── [hi](./singly_linked_list
-│   │   └── stack
-│   ├── [hi](./DOM-JavaScript-mini-Solution-master
-│   │   └── components
-│   │       ├── [hi](./Box
-│   │       ├── [hi](./Header
-│   │       ├── [hi](./List
-│   │       ├── [hi](./Nav
-│   │       ├── [hi](./Section
-│   │       └── Tabs
-│   ├── [hi](./D_string_indexing_and_methods_solution
-│   ├── [hi](./HTML-CSS-mini-Solution-master
-│   │   └── components
-│   │       ├── [hi](./Box
-│   │       ├── [hi](./Header
-│   │       └── Section
-│   ├── [hi](./Intro-Python-II-master
-│   │   ├── [hi](./examples
-│   │   └── src
-│   ├── [hi](./Intro-Python-I-master
-│   │   └── src
-│   ├── [hi](./Intro-to-C-master
-│   │   ├── [hi](./fizzbuzz
-│   │   │   └── tests
-│   │   ├── [hi](./hangman
-│   │   ├── [hi](./malloc
-│   │   │   └── tests
-│   │   ├── [hi](./pointers
-│   │   │   └── tests
-│   │   ├── [hi](./queue
-│   │   │   └── tests
-│   │   ├── [hi](./quicksort
-│   │   │   └── tests
-│   │   ├── [hi](./strings
-│   │   │   └── tests
-│   │   ├── [hi](./structs
-│   │   │   └── tests
-│   │   └── utils
-│   ├── [hi](./JavaScript-III-master
-│   │   └── assignments
-│   ├── [hi](./JS-Exercise-Classes
-│   │   └── test
-│   ├── [hi](./LS-Data-Structures-II-Solution-master
-│   │   ├── [hi](./src
-│   │   └── tests
-│   ├── [hi](./LS-Data-Structures-I-Solution-master
-│   │   ├── [hi](./src
-│   │   └── tests
-│   ├── [hi](./master
-│   ├── [hi](./Mongo-Mini-II-Solution-master
-│   ├── [hi](./nested-data-exercises-master
-│   │   ├── [hi](./data
-│   │   └── test
-│   ├── [hi](./Node-Express-Gmaps-Solution-Day-II-master
-│   │   └── src
-│   │       ├── [hi](./controllers
-│   │       └── models
-│   ├── [hi](./Node-Express-Gmaps-Solution-Day-I-master
-│   │   └── src
-│   │       ├── [hi](./controllers
-│   │       └── models
-│   ├── [hi](./_Pet-Projects
-│   │   └── whack-a-mole
-│   ├── [hi](./Python-OOP-Toy-master
-│   │   └── src
-│   ├── [hi](./React-Todo-Solution-master
-│   │   ├── [hi](./public
-│   │   └── src
-│   │       └── tests
-│   ├── [hi](./Relational-Databases-master
-│   ├── [hi](./solutions
-│   ├── [hi](./Sprint-Challenge--Intro-Python-master
-│   │   └── src
-│   │       ├── [hi](./cityreader
-│   │       ├── [hi](./comp
-│   │       └── oop
-│   ├── [hi](./webapi-ii-challenge-master
-│   │   └── data
-│   │       ├── [hi](./migrations
-│   │       └── seeds
-│   └── web-guided-project-testing-web-apps-solution-main
-│       ├── [hi](./public
-│       └── src
-│           └── components)
-├── [hi](./2-resources
-│   ├── [hi](./Atomic-Design-Solution-master
-│   │   └── dogs
-│   │       ├── [hi](./public
-│   │       └── src
-│   │           ├── [hi](./atoms
-│   │           ├── [hi](./molecules
-│   │           ├── [hi](./organisms
-│   │           ├── [hi](./pages
-│   │           └── templates
-│   ├── [hi](./__CHEAT-SHEETS
-│   │   ├── [hi](./All
-│   │   ├── [hi](./guided-cheatsheets
-│   │   │   ├── [hi](./auto-generate-boilerplate
-│   │   │   │   └── test2
-│   │   │   └── test.html
-│   │   └── pdf
-│   │       ├── [hi](./css
-│   │       ├── [hi](./css.html
-│   │       ├── [hi](./database
-│   │       ├── [hi](./database.html
-│   │       ├── [hi](./data-structures
-│   │       ├── [hi](./data-structures.html
-│   │       ├── [hi](./engineering
-│   │       ├── [hi](./engineering.html
-│   │       ├── [hi](./general-comp-sci
-│   │       ├── [hi](./git
-│   │       ├── [hi](./git.html
-│   │       ├── [hi](./html
-│   │       ├── [hi](./html.html
-│   │       ├── [hi](./java
-│   │       ├── [hi](./java.html
-│   │       ├── [hi](./javascript
-│   │       ├── [hi](./javascript.html
-│   │       ├── [hi](./linux
-│   │       ├── [hi](./linux.html
-│   │       ├── [hi](./math
-│   │       ├── [hi](./math.html
-│   │       ├── [hi](./misc
-│   │       ├── [hi](./misc.html
-│   │       ├── [hi](./python
-│   │       ├── [hi](./python.html
-│   │       ├── [hi](./ruby
-│   │       ├── [hi](./ruby.html
-│   │       ├── [hi](./unsorted
-│   │       ├── [hi](./web
-│   │       └── web.html
-│   ├── [hi](./Client-Auth-Solution-master
-│   │   ├── [hi](./public
-│   │   └── src
-│   │       ├── [hi](./actions
-│   │       ├── [hi](./components
-│   │       │   └── HOC
-│   │       └── reducers
-│   ├── [hi](./Components-BEM-Solution-master
-│   │   ├── [hi](./components
-│   │   │   ├── [hi](./Box
-│   │   │   ├── [hi](./Dropdown
-│   │   │   └── Section
-│   │   └── markups
-│   ├── [hi](./Components-Constructors-Solution-master
-│   │   ├── [hi](./components
-│   │   │   ├── [hi](./Box
-│   │   │   ├── [hi](./Dropdown
-│   │   │   ├── [hi](./Section
-│   │   │   └── Tabs
-│   │   └── markups
-│   ├── [hi](./DOM-JavaScript-mini-Solution-master
-│   │   └── components
-│   │       ├── [hi](./Box
-│   │       ├── [hi](./Header
-│   │       ├── [hi](./List
-│   │       ├── [hi](./Nav
-│   │       ├── [hi](./Section
-│   │       └── Tabs
-│   ├── [hi](./HTML-CSS-mini-Solution-master
-│   │   └── components
-│   │       ├── [hi](./Box
-│   │       ├── [hi](./Header
-│   │       └── Section
-│   ├── [hi](./JavaScript-I-master
-│   │   └── assignments
-│   ├── [hi](./LS-Data-Structures-II-Solution-master
-│   │   ├── [hi](./src
-│   │   └── tests
-│   ├── [hi](./LS-Data-Structures-I-Solution-master
-│   │   ├── [hi](./src
-│   │   └── tests
-│   ├── [hi](./Node-Express-Gmaps-Solution-Day-II-master
-│   │   └── src
-│   │       ├── [hi](./controllers
-│   │       └── models
-│   ├── [hi](./Node-Express-Gmaps-Solution-Day-I-master
-│   │   └── src
-│   │       ├── [hi](./controllers
-│   │       └── models
-│   ├── [hi](./_Past-Projects
-│   │   └── LambdaSchool-master
-│   │       ├── [hi](./31d1
-│   │       ├── [hi](./aa-score
-│   │       │   ├── [hi](./public
-│   │       │   └── src
-│   │       ├── [hi](./Administration
-│   │       │   ├── [hi](./certs
-│   │       │   ├── [hi](./marketing
-│   │       │   ├── [hi](./studying
-│   │       │   └── zoom
-│   │       ├── [hi](./bw1-tl
-│   │       │   ├── [hi](./admin
-│   │       │   ├── [hi](./api
-│   │       │   ├── [hi](./auth
-│   │       │   ├── [hi](./database
-│   │       │   │   ├── [hi](./migrations
-│   │       │   │   └── seeds
-│   │       │   ├── [hi](./middleware
-│   │       │   ├── [hi](./todos
-│   │       │   └── volunteer
-│   │       ├── [hi](./css
-│   │       ├── [hi](./evoingram.github.io
-│   │       ├── [hi](./JavaScript30
-│   │       │   ├── [hi](./01
-│   │       │   │   └── sounds
-│   │       │   ├── [hi](./02
-│   │       │   ├── [hi](./03
-│   │       │   ├── [hi](./04
-│   │       │   ├── [hi](./05
-│   │       │   ├── [hi](./06
-│   │       │   ├── [hi](./07
-│   │       │   ├── [hi](./08
-│   │       │   ├── [hi](./09
-│   │       │   ├── [hi](./10
-│   │       │   ├── [hi](./11
-│   │       │   ├── [hi](./12
-│   │       │   ├── [hi](./13
-│   │       │   ├── [hi](./14
-│   │       │   ├── [hi](./15
-│   │       │   ├── [hi](./16
-│   │       │   ├── [hi](./17
-│   │       │   ├── [hi](./18
-│   │       │   ├── [hi](./19
-│   │       │   ├── [hi](./20
-│   │       │   ├── [hi](./21
-│   │       │   ├── [hi](./22
-│   │       │   ├── [hi](./23
-│   │       │   ├── [hi](./24
-│   │       │   ├── [hi](./25
-│   │       │   ├── [hi](./26
-│   │       │   ├── [hi](./27
-│   │       │   ├── [hi](./28
-│   │       │   ├── [hi](./29
-│   │       │   └── 30
-│   │       ├── [hi](./labs
-│   │       │   ├── [hi](./backend
-│   │       │   ├── [hi](./frontend
-│   │       │   ├── [hi](./last journal entry
-│   │       │   └── video-to-next-group
-│   │       ├── [hi](./m1
-│   │       │   ├── [hi](./11b1
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./Git-Flow-Practice
-│   │       │   │   ├── [hi](./great-idea
-│   │       │   │   │   ├── [hi](./css
-│   │       │   │   │   └── img
-│   │       │   │   ├── [hi](./great-idea-website
-│   │       │   │   │   ├── [hi](./css
-│   │       │   │   │   └── img
-│   │       │   │   └── Web26Git
-│   │       │   ├── [hi](./11c1
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./great-idea-website
-│   │       │   │   │   ├── [hi](./css
-│   │       │   │   │   └── img
-│   │       │   │   └── User-Interface
-│   │       │   ├── [hi](./11d1
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./great-idea
-│   │       │   │   │   ├── [hi](./css
-│   │       │   │   │   └── img
-│   │       │   │   └── UI-III-Flexbox
-│   │       │   ├── [hi](./12a1
-│   │       │   │   ├── [hi](./css
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./img
-│   │       │   │   └── responsive-web-design-I
-│   │       │   ├── [hi](./12b1
-│   │       │   │   ├── [hi](./dimension
-│   │       │   │   │   ├── [hi](./assets
-│   │       │   │   │   │   └── sass
-│   │       │   │   │   └── html5up-dimension
-│   │       │   │   │       └── assets
-│   │       │   │   │           └── sass
-│   │       │   │   └── solidstate
-│   │       │   │       └── assets
-│   │       │   │           └── sass
-│   │       │   ├── [hi](./12c1
-│   │       │   │   ├── [hi](./css
-│   │       │   │   └── less
-│   │       │   ├── [hi](./12d1
-│   │       │   │   ├── [hi](./css
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./img
-│   │       │   │   └── less
-│   │       │   ├── [hi](./13a1
-│   │       │   │   └── assignments
-│   │       │   ├── [hi](./13b1
-│   │       │   │   └── assignments
-│   │       │   ├── [hi](./13c1
-│   │       │   │   └── assignments
-│   │       │   ├── [hi](./13d1
-│   │       │   │   ├── [hi](./new
-│   │       │   │   │   └── test
-│   │       │   │   └── old
-│   │       │   │       └── assignments
-│   │       │   ├── [hi](./13e1
-│   │       │   │   └── challenges
-│   │       │   ├── [hi](./14a1
-│   │       │   │   └── Marketing-page
-│   │       │   ├── [hi](./SC-ACSS
-│   │       │   └── Sprint-Challenge--Advanced-CSS
-│   │       ├── [hi](./m2
-│   │       │   ├── [hi](./21a1
-│   │       │   │   ├── [hi](./css
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./img
-│   │       │   │   ├── [hi](./js
-│   │       │   │   └── stretch-assignment
-│   │       │   │       └── digital_timer
-│   │       │   ├── [hi](./21b1
-│   │       │   ├── [hi](./21c1
-│   │       │   │   ├── [hi](./Article
-│   │       │   │   ├── [hi](./assets
-│   │       │   │   ├── [hi](./css
-│   │       │   │   ├── [hi](./Header
-│   │       │   │   ├── [hi](./LESS
-│   │       │   │   └── Menu
-│   │       │   ├── [hi](./21d1
-│   │       │   │   ├── [hi](./assets
-│   │       │   │   └── GitHubCard
-│   │       │   ├── [hi](./21e1
-│   │       │   │   ├── [hi](./assets
-│   │       │   │   │   └── carousel
-│   │       │   │   ├── [hi](./components
-│   │       │   │   │   ├── [hi](./Cards
-│   │       │   │   │   ├── [hi](./Carousel
-│   │       │   │   │   ├── [hi](./Header
-│   │       │   │   │   ├── [hi](./Tabs
-│   │       │   │   │   └── TopBar
-│   │       │   │   ├── [hi](./CSS
-│   │       │   │   └── LESS
-│   │       │   ├── [hi](./22a1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   ├── [hi](./22b1
-│   │       │   │   ├── [hi](./design-files
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./components
-│   │       │   │       │   ├── [hi](./ButtonComponents
-│   │       │   │       │   │   ├── [hi](./NumberButtons
-│   │       │   │       │   │   ├── [hi](./OperatorButtons
-│   │       │   │       │   │   └── SpecialButtons
-│   │       │   │       │   └── DisplayComponents
-│   │       │   │       └── Img
-│   │       │   ├── [hi](./22c1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   ├── [hi](./reactstrap-project
-│   │       │   │   │   ├── [hi](./public
-│   │       │   │   │   └── src
-│   │       │   │   └── src
-│   │       │   ├── [hi](./22e1
-│   │       │   │   └── starwars
-│   │       │   │       ├── [hi](./public
-│   │       │   │       └── src
-│   │       │   │           └── components
-│   │       │   ├── [hi](./23a1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       └── components
-│   │       │   ├── [hi](./23a2
-│   │       │   │   └── images
-│   │       │   ├── [hi](./23b1
-│   │       │   │   └── client
-│   │       │   │       ├── [hi](./public
-│   │       │   │       └── src
-│   │       │   │           └── Movies
-│   │       │   ├── [hi](./23c1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   ├── [hi](./src
-│   │       │   │   │   └── CustomHooks
-│   │       │   │   └── team-builder
-│   │       │   ├── [hi](./23d1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       └── CustomHooks
-│   │       │   ├── [hi](./23d2
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   ├── [hi](./23e1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       └── components
-│   │       │   └── 24a1
-│   │       │       ├── [hi](./public
-│   │       │       │   └── img
-│   │       │       └── src
-│   │       │           └── components
-│   │       │               └── old pages
-│   │       ├── [hi](./m3
-│   │       │   ├── [hi](./31a1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       └── components
-│   │       │   │           └── TodoComponents
-│   │       │   ├── [hi](./31a2
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   ├── [hi](./31b1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       └── components
-│   │       │   ├── [hi](./31c1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./components
-│   │       │   │       └── hooks
-│   │       │   ├── [hi](./31d1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./components
-│   │       │   │       └── hooks
-│   │       │   ├── [hi](./31e1
-│   │       │   │   └── client
-│   │       │   │       ├── [hi](./public
-│   │       │   │       └── src
-│   │       │   │           ├── [hi](./components
-│   │       │   │           └── hooks
-│   │       │   ├── [hi](./32a1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./components
-│   │       │   │       ├── [hi](./contexts
-│   │       │   │       └── sass
-│   │       │   ├── [hi](./32b1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./components
-│   │       │   │       └── reducers
-│   │       │   ├── [hi](./32c1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./actions
-│   │       │   │       ├── [hi](./components
-│   │       │   │       └── reducers
-│   │       │   ├── [hi](./32d1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./actions
-│   │       │   │       ├── [hi](./components
-│   │       │   │       ├── [hi](./fonts
-│   │       │   │       ├── [hi](./img
-│   │       │   │       └── reducers
-│   │       │   ├── [hi](./32e1
-│   │       │   │   └── smurfs
-│   │       │   │       ├── [hi](./public
-│   │       │   │       └── src
-│   │       │   │           ├── [hi](./actions
-│   │       │   │           ├── [hi](./components
-│   │       │   │           └── reducers
-│   │       │   ├── [hi](./33a1
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./controls
-│   │       │   │       ├── [hi](./dashboard
-│   │       │   │       └── display
-│   │       │   ├── [hi](./33b1
-│   │       │   │   └── friends
-│   │       │   │       ├── [hi](./public
-│   │       │   │       └── src
-│   │       │   │           ├── [hi](./actions
-│   │       │   │           ├── [hi](./components
-│   │       │   │           ├── [hi](./reducers
-│   │       │   │           └── utils
-│   │       │   ├── [hi](./33d1
-│   │       │   │   └── client
-│   │       │   │       ├── [hi](./public
-│   │       │   │       └── src
-│   │       │   │           └── Movies
-│   │       │   └── 33e1
-│   │       │       └── client
-│   │       │           ├── [hi](./public
-│   │       │           └── src
-│   │       │               ├── [hi](./actions
-│   │       │               ├── [hi](./components
-│   │       │               ├── [hi](./reducers
-│   │       │               └── utils
-│   │       ├── [hi](./m4
-│   │       │   ├── [hi](./41a1
-│   │       │   │   └── data
-│   │       │   │       ├── [hi](./migrations
-│   │       │   │       └── seeds
-│   │       │   ├── [hi](./41a2
-│   │       │   │   └── data
-│   │       │   │       ├── [hi](./migrations
-│   │       │   │       └── seeds
-│   │       │   ├── [hi](./41b1
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── hubs
-│   │       │   ├── [hi](./41b2
-│   │       │   │   └── data
-│   │       │   │       ├── [hi](./migrations
-│   │       │   │       └── seeds
-│   │       │   ├── [hi](./41c1
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   ├── [hi](./hubs
-│   │       │   │   └── messages
-│   │       │   ├── [hi](./41c2
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   ├── [hi](./posts
-│   │       │   │   └── users
-│   │       │   ├── [hi](./41d1
-│   │       │   │   ├── [hi](./api
-│   │       │   │   └── data
-│   │       │   │       └── migrations
-│   │       │   ├── [hi](./41e1
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./helpers
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── routers
-│   │       │   ├── [hi](./41e1app
-│   │       │   │   ├── [hi](./public
-│   │       │   │   └── src
-│   │       │   │       └── components
-│   │       │   ├── [hi](./42a1
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   ├── [hi](./dbintro
-│   │       │   │   ├── [hi](./migrations
-│   │       │   │   └── posts
-│   │       │   ├── [hi](./42a2
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── routers
-│   │       │   ├── [hi](./42b1
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./data
-│   │       │   │   └── fruits
-│   │       │   ├── [hi](./42b2
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── routers
-│   │       │   ├── [hi](./42c1
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── users
-│   │       │   ├── [hi](./42c2
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── schemes
-│   │       │   ├── [hi](./42d1
-│   │       │   │   └── data
-│   │       │   │       └── seeds
-│   │       │   ├── [hi](./42d2
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── recipes
-│   │       │   ├── [hi](./42e1
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── projects
-│   │       │   ├── [hi](./43a1
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./auth
-│   │       │   │   ├── [hi](./authintro
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   └── migrations
-│   │       │   │   ├── [hi](./__MACOSX
-│   │       │   │   │   └── authintro
-│   │       │   │   └── users
-│   │       │   ├── [hi](./43a2
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./auth
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   └── migrations
-│   │       │   │   └── users
-│   │       │   ├── [hi](./43b1
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./auth
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   └── migrations
-│   │       │   │   └── users
-│   │       │   ├── [hi](./43b2
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./auth
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   └── migrations
-│   │       │   │   ├── [hi](./sessions
-│   │       │   │   └── users
-│   │       │   ├── [hi](./43c1
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./auth
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   └── migrations
-│   │       │   │   ├── [hi](./jwts
-│   │       │   │   └── users
-│   │       │   ├── [hi](./43c2
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./auth
-│   │       │   │   ├── [hi](./config
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   └── migrations
-│   │       │   │   ├── [hi](./__MACOSX
-│   │       │   │   │   └── sessions
-│   │       │   │   └── users
-│   │       │   ├── [hi](./43d1
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./data
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── hobbits
-│   │       │   ├── [hi](./43d1a
-│   │       │   │   └── ls
-│   │       │   ├── [hi](./43d2
-│   │       │   │   ├── [hi](./api
-│   │       │   │   ├── [hi](./cohorts
-│   │       │   │   ├── [hi](./database
-│   │       │   │   │   ├── [hi](./migrations
-│   │       │   │   │   └── seeds
-│   │       │   │   └── students
-│   │       │   └── 43e1
-│   │       │       ├── [hi](./43e1
-│   │       │       │   ├── [hi](./public
-│   │       │       │   └── src
-│   │       │       │       └── components
-│   │       │       ├── [hi](./api
-│   │       │       ├── [hi](./auth
-│   │       │       ├── [hi](./database
-│   │       │       │   └── migrations
-│   │       │       └── jokes
-│   │       ├── [hi](./m5
-│   │       │   ├── [hi](./51a1
-│   │       │   │   └── src
-│   │       │   │       └── employeeApp
-│   │       │   ├── [hi](./51b1
-│   │       │   │   └── src
-│   │       │   │       └── collections
-│   │       │   │           └── src
-│   │       │   │               └── collections
-│   │       │   ├── [hi](./51c1
-│   │       │   │   └── transportation
-│   │       │   │       └── src
-│   │       │   │           └── transport
-│   │       │   ├── [hi](./51d1
-│   │       │   │   ├── [hi](./bin
-│   │       │   │   │   └── src
-│   │       │   │   │       ├── [hi](./main
-│   │       │   │   │       │   ├── [hi](./java
-│   │       │   │   │       │   │   └── com
-│   │       │   │   │       │   │       └── lambdaschool
-│   │       │   │   │       │   │           └── webemployees3
-│   │       │   │   │       │   └── resources
-│   │       │   │   │       └── test
-│   │       │   │   │           └── java
-│   │       │   │   │               └── com
-│   │       │   │   │                   └── lambdaschool
-│   │       │   │   │                       └── webemployees3
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./main
-│   │       │   │       │   ├── [hi](./java
-│   │       │   │       │   │   └── com
-│   │       │   │       │   │       └── lambdaschool
-│   │       │   │       │   │           └── j51d1
-│   │       │   │       │   └── resources
-│   │       │   │       │       └── static
-│   │       │   │       └── test
-│   │       │   │           └── java
-│   │       │   │               └── com
-│   │       │   │                   └── lambdaschool
-│   │       │   │                       └── webemployees3
-│   │       │   ├── [hi](./51d2
-│   │       │   │   ├── [hi](./src
-│   │       │   │   │   ├── [hi](./main
-│   │       │   │   │   │   ├── [hi](./java
-│   │       │   │   │   │   │   └── com
-│   │       │   │   │   │   │       └── lambdaschool
-│   │       │   │   │   │   │           └── j51d2
-│   │       │   │   │   │   └── resources
-│   │       │   │   │   └── test
-│   │       │   │   │       └── java
-│   │       │   │   │           └── com
-│   │       │   │   │               └── lambdaschool
-│   │       │   │   │                   └── j51d2
-│   │       │   │   └── target
-│   │       │   │       └── classes
-│   │       │   ├── [hi](./51e1
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./main
-│   │       │   │       │   ├── [hi](./java
-│   │       │   │       │   │   └── com
-│   │       │   │       │   │       └── lambdaschool
-│   │       │   │       │   │           └── j51e1
-│   │       │   │       │   └── resources
-│   │       │   │       └── test
-│   │       │   │           └── java
-│   │       │   │               └── com
-│   │       │   │                   └── lambdaschool
-│   │       │   │                       └── j51e1
-│   │       │   ├── [hi](./52b1
-│   │       │   │   └── assets
-│   │       │   ├── [hi](./52c1
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./main
-│   │       │   │       │   ├── [hi](./java
-│   │       │   │       │   │   └── com
-│   │       │   │       │   │       └── lambdaschool
-│   │       │   │       │   │           └── j52c1
-│   │       │   │       │   │               ├── [hi](./controllers
-│   │       │   │       │   │               ├── [hi](./models
-│   │       │   │       │   │               ├── [hi](./repos
-│   │       │   │       │   │               └── services
-│   │       │   │       │   └── resources
-│   │       │   │       └── test
-│   │       │   │           └── java
-│   │       │   │               └── com
-│   │       │   │                   └── lambdaschool
-│   │       │   │                       └── j52c1
-│   │       │   ├── [hi](./52c2
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./main
-│   │       │   │       │   ├── [hi](./java
-│   │       │   │       │   │   └── com
-│   │       │   │       │   │       └── lambdaschool
-│   │       │   │       │   │           └── j52c2
-│   │       │   │       │   │               ├── [hi](./controllers
-│   │       │   │       │   │               ├── [hi](./models
-│   │       │   │       │   │               ├── [hi](./repos
-│   │       │   │       │   │               └── services
-│   │       │   │       │   └── resources
-│   │       │   │       └── test
-│   │       │   │           └── java
-│   │       │   │               └── com
-│   │       │   │                   └── lambdaschool
-│   │       │   │                       └── j52c2
-│   │       │   ├── [hi](./52d1
-│   │       │   │   └── oauth
-│   │       │   │       ├── [hi](./oauth2
-│   │       │   │       │   └── src
-│   │       │   │       │       ├── [hi](./main
-│   │       │   │       │       │   ├── [hi](./java
-│   │       │   │       │       │   │   └── com
-│   │       │   │       │       │   │       └── lambdaschool
-│   │       │   │       │       │   │           └── usermodel
-│   │       │   │       │       │   │               ├── [hi](./config
-│   │       │   │       │       │   │               ├── [hi](./controllers
-│   │       │   │       │       │   │               ├── [hi](./exceptions
-│   │       │   │       │       │   │               ├── [hi](./handlers
-│   │       │   │       │       │   │               ├── [hi](./logging
-│   │       │   │       │       │   │               ├── [hi](./models
-│   │       │   │       │       │   │               ├── [hi](./repository
-│   │       │   │       │       │   │               ├── [hi](./services
-│   │       │   │       │       │   │               └── view
-│   │       │   │       │       │   └── resources
-│   │       │   │       │       │       └── info
-│   │       │   │       │       └── test
-│   │       │   │       │           ├── [hi](./java
-│   │       │   │       │           │   └── com
-│   │       │   │       │           │       └── lambdaschool
-│   │       │   │       │           │           └── usermodel
-│   │       │   │       │           │               ├── [hi](./controllers
-│   │       │   │       │           │               └── services
-│   │       │   │       │           └── resources
-│   │       │   │       └── oauth2 - initial
-│   │       │   │           └── src
-│   │       │   │               ├── [hi](./main
-│   │       │   │               │   ├── [hi](./java
-│   │       │   │               │   │   └── com
-│   │       │   │               │   │       └── lambdaschool
-│   │       │   │               │   │           ├── [hi](./authenticatedusers
-│   │       │   │               │   │           │   ├── [hi](./config
-│   │       │   │               │   │           │   ├── [hi](./controller
-│   │       │   │               │   │           │   ├── [hi](./model
-│   │       │   │               │   │           │   ├── [hi](./repository
-│   │       │   │               │   │           │   ├── [hi](./service
-│   │       │   │               │   │           │   └── view
-│   │       │   │               │   │           └── usermodel
-│   │       │   │               │   │               ├── [hi](./config
-│   │       │   │               │   │               ├── [hi](./controllers
-│   │       │   │               │   │               ├── [hi](./exceptions
-│   │       │   │               │   │               ├── [hi](./handlers
-│   │       │   │               │   │               ├── [hi](./logging
-│   │       │   │               │   │               ├── [hi](./models
-│   │       │   │               │   │               ├── [hi](./repository
-│   │       │   │               │   │               ├── [hi](./services
-│   │       │   │               │   │               └── view
-│   │       │   │               │   └── resources
-│   │       │   │               │       └── info
-│   │       │   │               └── test
-│   │       │   │                   └── java
-│   │       │   │                       └── com
-│   │       │   │                           └── lambdaschool
-│   │       │   │                               ├── [hi](./authenticatedusers
-│   │       │   │                               └── usermodel
-│   │       │   ├── [hi](./53a1
-│   │       │   │   ├── [hi](./oauth2ExceptionLogging-final
-│   │       │   │   │   └── src
-│   │       │   │   │       └── main
-│   │       │   │   │           ├── [hi](./java
-│   │       │   │   │           │   └── com
-│   │       │   │   │           │       └── lambdaschool
-│   │       │   │   │           │           └── oauth2
-│   │       │   │   │           │               ├── [hi](./config
-│   │       │   │   │           │               ├── [hi](./controllers
-│   │       │   │   │           │               ├── [hi](./exceptions
-│   │       │   │   │           │               ├── [hi](./handlers
-│   │       │   │   │           │               ├── [hi](./logging
-│   │       │   │   │           │               ├── [hi](./models
-│   │       │   │   │           │               ├── [hi](./repository
-│   │       │   │   │           │               ├── [hi](./services
-│   │       │   │   │           │               └── view
-│   │       │   │   │           └── resources
-│   │       │   │   ├── [hi](./src
-│   │       │   │   │   ├── [hi](./main
-│   │       │   │   │   │   ├── [hi](./java
-│   │       │   │   │   │   │   └── com
-│   │       │   │   │   │   │       └── lambdaschool
-│   │       │   │   │   │   │           └── authenticatedusers
-│   │       │   │   │   │   │               ├── [hi](./config
-│   │       │   │   │   │   │               ├── [hi](./controller
-│   │       │   │   │   │   │               ├── [hi](./exceptions
-│   │       │   │   │   │   │               ├── [hi](./handlers
-│   │       │   │   │   │   │               ├── [hi](./model
-│   │       │   │   │   │   │               ├── [hi](./repository
-│   │       │   │   │   │   │               ├── [hi](./service
-│   │       │   │   │   │   │               └── view
-│   │       │   │   │   │   └── resources
-│   │       │   │   │   │       └── info
-│   │       │   │   │   └── test
-│   │       │   │   │       └── java
-│   │       │   │   │           └── com
-│   │       │   │   │               └── lambdaschool
-│   │       │   │   │                   ├── [hi](./authenticatedusers
-│   │       │   │   │                   └── usermodel
-│   │       │   │   └── target
-│   │       │   │       └── classes
-│   │       │   │           └── info
-│   │       │   ├── [hi](./53b1
-│   │       │   │   ├── [hi](./clientrestaurants
-│   │       │   │   │   └── src
-│   │       │   │   │       ├── [hi](./main
-│   │       │   │   │       │   ├── [hi](./java
-│   │       │   │   │       │   │   └── com
-│   │       │   │   │       │   │       └── lambda
-│   │       │   │   │       │   │           └── clientrestaurants
-│   │       │   │   │       │   │               ├── [hi](./client
-│   │       │   │   │       │   │               └── model
-│   │       │   │   │       │   └── resources
-│   │       │   │   │       └── test
-│   │       │   │   │           └── java
-│   │       │   │   │               └── com
-│   │       │   │   │                   └── lambda
-│   │       │   │   │                       └── clientrestaurants
-│   │       │   │   ├── [hi](./restaurants-initial
-│   │       │   │   │   ├── [hi](./src
-│   │       │   │   │   │   └── main
-│   │       │   │   │   │       ├── [hi](./java
-│   │       │   │   │   │       │   └── com
-│   │       │   │   │   │       │       └── lambdaschool
-│   │       │   │   │   │       │           └── restaurants
-│   │       │   │   │   │       │               ├── [hi](./config
-│   │       │   │   │   │       │               ├── [hi](./controller
-│   │       │   │   │   │       │               ├── [hi](./model
-│   │       │   │   │   │       │               ├── [hi](./repos
-│   │       │   │   │   │       │               └── service
-│   │       │   │   │   │       └── resources
-│   │       │   │   │   │           └── info
-│   │       │   │   │   └── target
-│   │       │   │   │       ├── [hi](./classes
-│   │       │   │   │       │   ├── [hi](./com
-│   │       │   │   │       │   │   └── lambdaschool
-│   │       │   │   │       │   │       └── restaurants
-│   │       │   │   │       │   │           ├── [hi](./config
-│   │       │   │   │       │   │           ├── [hi](./controller
-│   │       │   │   │       │   │           ├── [hi](./model
-│   │       │   │   │       │   │           ├── [hi](./repos
-│   │       │   │   │       │   │           └── service
-│   │       │   │   │       │   └── info
-│   │       │   │   │       ├── [hi](./failsafe-reports
-│   │       │   │   │       ├── [hi](./maven-archiver
-│   │       │   │   │       ├── [hi](./maven-status
-│   │       │   │   │       │   └── maven-compiler-plugin
-│   │       │   │   │       │       ├── [hi](./compile
-│   │       │   │   │       │       │   └── default-compile
-│   │       │   │   │       │       └── testCompile
-│   │       │   │   │       │           └── default-testCompile
-│   │       │   │   │       └── surefire-reports
-│   │       │   │   └── restaurants-pagesswagger
-│   │       │   │       ├── [hi](./src
-│   │       │   │       │   └── main
-│   │       │   │       │       ├── [hi](./java
-│   │       │   │       │       │   └── com
-│   │       │   │       │       │       └── lambdaschool
-│   │       │   │       │       │           └── restaurants
-│   │       │   │       │       │               ├── [hi](./config
-│   │       │   │       │       │               ├── [hi](./controller
-│   │       │   │       │       │               ├── [hi](./exception
-│   │       │   │       │       │               ├── [hi](./model
-│   │       │   │       │       │               ├── [hi](./repos
-│   │       │   │       │       │               └── service
-│   │       │   │       │       └── resources
-│   │       │   │       │           ├── [hi](./info
-│   │       │   │       │           └── templates
-│   │       │   │       └── target
-│   │       │   │           ├── [hi](./classes
-│   │       │   │           │   ├── [hi](./info
-│   │       │   │           │   └── templates
-│   │       │   │           ├── [hi](./heroku
-│   │       │   │           │   └── app
-│   │       │   │           ├── [hi](./maven-archiver
-│   │       │   │           └── maven-status
-│   │       │   │               └── maven-compiler-plugin
-│   │       │   │                   ├── [hi](./compile
-│   │       │   │                   │   └── default-compile
-│   │       │   │                   └── testCompile
-│   │       │   │                       └── default-testCompile
-│   │       │   ├── [hi](./53c1
-│   │       │   │   ├── [hi](./restaurants-initial
-│   │       │   │   │   └── src
-│   │       │   │   │       └── main
-│   │       │   │   │           ├── [hi](./java
-│   │       │   │   │           │   └── com
-│   │       │   │   │           │       └── lambdaschool
-│   │       │   │   │           │           └── restaurants
-│   │       │   │   │           │               ├── [hi](./config
-│   │       │   │   │           │               ├── [hi](./controller
-│   │       │   │   │           │               ├── [hi](./model
-│   │       │   │   │           │               ├── [hi](./repos
-│   │       │   │   │           │               └── service
-│   │       │   │   │           └── resources
-│   │       │   │   │               └── info
-│   │       │   │   └── restaurants-testing
-│   │       │   │       └── src
-│   │       │   │           ├── [hi](./main
-│   │       │   │           │   ├── [hi](./java
-│   │       │   │           │   │   └── com
-│   │       │   │           │   │       └── lambdaschool
-│   │       │   │           │   │           └── restaurants
-│   │       │   │           │   │               ├── [hi](./config
-│   │       │   │           │   │               ├── [hi](./controller
-│   │       │   │           │   │               ├── [hi](./model
-│   │       │   │           │   │               ├── [hi](./repos
-│   │       │   │           │   │               └── service
-│   │       │   │           │   └── resources
-│   │       │   │           │       └── info
-│   │       │   │           └── test
-│   │       │   │               ├── [hi](./java
-│   │       │   │               │   └── com
-│   │       │   │               │       └── lambdaschool
-│   │       │   │               │           └── restaurants
-│   │       │   │               │               ├── [hi](./controller
-│   │       │   │               │               └── service
-│   │       │   │               └── resources
-│   │       │   └── 53d1
-│   │       │       ├── [hi](./JS-FrontEnd-by-jheinz1999
-│   │       │       │   ├── [hi](./public
-│   │       │       │   └── src
-│   │       │       │       └── components
-│   │       │       └── StartHere
-│   │       │           └── src
-│   │       │               ├── [hi](./main
-│   │       │               │   ├── [hi](./java
-│   │       │               │   │   └── com
-│   │       │               │   │       └── lambdaschool
-│   │       │               │   │           └── starthere
-│   │       │               │   │               ├── [hi](./config
-│   │       │               │   │               ├── [hi](./controllers
-│   │       │               │   │               ├── [hi](./exceptions
-│   │       │               │   │               ├── [hi](./handlers
-│   │       │               │   │               ├── [hi](./logging
-│   │       │               │   │               ├── [hi](./models
-│   │       │               │   │               ├── [hi](./repository
-│   │       │               │   │               ├── [hi](./services
-│   │       │               │   │               └── view
-│   │       │               │   └── resources
-│   │       │               │       └── info
-│   │       │               └── test
-│   │       │                   ├── [hi](./java
-│   │       │                   │   └── com
-│   │       │                   │       └── lambdaschool
-│   │       │                   │           └── starthere
-│   │       │                   │               ├── [hi](./controllers
-│   │       │                   │               └── services
-│   │       │                   └── resources
-│   │       ├── [hi](./m6
-│   │       │   ├── [hi](./61a1
-│   │       │   │   └── src
-│   │       │   ├── [hi](./61b1
-│   │       │   │   ├── [hi](./examples
-│   │       │   │   └── src
-│   │       │   ├── [hi](./61c1
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./cityreader
-│   │       │   │       │   └── __pycache__
-│   │       │   │       ├── [hi](./comp
-│   │       │   │       │   └── __pycache__
-│   │       │   │       └── oop
-│   │       │   │           └── __pycache__
-│   │       │   ├── [hi](./62a1
-│   │       │   │   ├── [hi](./avl_tree
-│   │       │   │   ├── [hi](./benchmarks
-│   │       │   │   ├── [hi](./binary_search_tree
-│   │       │   │   ├── [hi](./doubly_linked_list
-│   │       │   │   ├── [hi](./heap
-│   │       │   │   ├── [hi](./lru_cache
-│   │       │   │   ├── [hi](./queue
-│   │       │   │   ├── [hi](./queue_and_stack
-│   │       │   │   ├── [hi](./singly_linked_list
-│   │       │   │   └── stack
-│   │       │   ├── [hi](./62b1
-│   │       │   │   ├── [hi](./names
-│   │       │   │   ├── [hi](./reverse
-│   │       │   │   └── ring_buffer
-│   │       │   ├── [hi](./63a1
-│   │       │   │   └── src
-│   │       │   │       ├── [hi](./iterative_sorting
-│   │       │   │       └── searching
-│   │       │   ├── [hi](./63b1
-│   │       │   │   └── src
-│   │       │   │       └── recursive_sorting
-│   │       │   │           └── __pycache__
-│   │       │   ├── [hi](./63c1
-│   │       │   │   ├── [hi](./eating_cookies
-│   │       │   │   ├── [hi](./knapsack
-│   │       │   │   │   └── data
-│   │       │   │   ├── [hi](./making_change
-│   │       │   │   ├── [hi](./moving_zeroes
-│   │       │   │   ├── [hi](./product_of_all_other_numbers
-│   │       │   │   ├── [hi](./recipe_batches
-│   │       │   │   ├── [hi](./rock_paper_scissors
-│   │       │   │   ├── [hi](./single_number
-│   │       │   │   ├── [hi](./sliding_window_max
-│   │       │   │   │   └── data
-│   │       │   │   └── stock_prices
-│   │       │   └── 63d1
-│   │       │       ├── [hi](./recursive_count_th
-│   │       │       ├── [hi](./robot_sort
-│   │       │       └── Short-Answer
-│   │       ├── [hi](./m7
-│   │       │   ├── [hi](./71a1
-│   │       │   │   ├── [hi](./applications
-│   │       │   │   │   ├── [hi](./crack_caesar
-│   │       │   │   │   ├── [hi](./expensive_seq
-│   │       │   │   │   ├── [hi](./histo
-│   │       │   │   │   ├── [hi](./lookup_table
-│   │       │   │   │   ├── [hi](./markov
-│   │       │   │   │   ├── [hi](./no_dups
-│   │       │   │   │   ├── [hi](./sumdiff
-│   │       │   │   │   └── word_count
-│   │       │   │   └── hashtable
-│   │       │   ├── [hi](./71e1
-│   │       │   │   └── hashtables
-│   │       │   │       ├── [hi](./ex1
-│   │       │   │       ├── [hi](./ex2
-│   │       │   │       ├── [hi](./ex3
-│   │       │   │       ├── [hi](./ex4
-│   │       │   │       └── ex5
-│   │       │   ├── [hi](./72a1
-│   │       │   │   ├── [hi](./objectives
-│   │       │   │   │   ├── [hi](./breadth-first-search
-│   │       │   │   │   │   └── img
-│   │       │   │   │   ├── [hi](./connected-components
-│   │       │   │   │   │   └── img
-│   │       │   │   │   ├── [hi](./depth-first-search
-│   │       │   │   │   │   └── img
-│   │       │   │   │   ├── [hi](./graph-intro
-│   │       │   │   │   │   └── img
-│   │       │   │   │   ├── [hi](./graph-representations
-│   │       │   │   │   │   └── img
-│   │       │   │   │   └── randomness
-│   │       │   │   └── projects
-│   │       │   │       ├── [hi](./adventure
-│   │       │   │       │   └── maps
-│   │       │   │       ├── [hi](./ancestor
-│   │       │   │       ├── [hi](./graph
-│   │       │   │       └── social
-│   │       │   ├── [hi](./73a1
-│   │       │   │   ├── [hi](./asm
-│   │       │   │   └── ls8
-│   │       │   │       └── examples
-│   │       │   └── 74a1
-│   │       ├── [hi](./node_modules
-│   │       ├── [hi](./src
-│   │       │   ├── [hi](./iterative_sorting
-│   │       │   └── searching
-│   │       ├── [hi](./summary
-│   │       │   ├── [hi](./certifications
-│   │       │   │   ├── [hi](./IBM zOS
-│   │       │   │   └── Oracle Autonomous DB
-│   │       │   │       ├── [hi](./1 Overview
-│   │       │   │       ├── [hi](./2 Provisioning and Connectivity
-│   │       │   │       ├── [hi](./3 Migration and Data Loding into Autonomous DB
-│   │       │   │       ├── [hi](./4 Migrating and Data Loading
-│   │       │   │       ├── [hi](./5 Monitoring Autonomous DB
-│   │       │   │       └── 6 Tools Reporting Analytics
-│   │       │   ├── [hi](./cobol
-│   │       │   │   ├── [hi](./COBOL example programs_files
-│   │       │   │   ├── [hi](./COBOL Programming Course_files
-│   │       │   │   └── COBOL Programming Exercises_files
-│   │       │   ├── [hi](./complete
-│   │       │   │   ├── [hi](./Decks
-│   │       │   │   └── notes-books
-│   │       │   ├── [hi](./general
-│   │       │   ├── [hi](./interviewing
-│   │       │   ├── [hi](./Node Express Knex
-│   │       │   │   └── Create Back End Guide
-│   │       │   ├── [hi](./testing
-│   │       │   └── typescript
-│   │       └── tlbw
-│   │           └── client
-│   │               ├── [hi](./public
-│   │               └── src
-│   │                   ├── [hi](./components
-│   │                   │   ├── [hi](./context
-│   │                   │   │   └── strainsSelectContext
-│   │                   │   └── strains
-│   │                   └── imgs
-│   ├── [hi](./React-Todo-Solution-master
-│   │   ├── [hi](./public
-│   │   └── src
-│   │       └── tests
-│   ├── [hi](./_Sprint-Resources
-│   │   └── Sprint Challenge Study Guide - Unit 1, Sprint 1
-│   ├── [hi](./_Templates-Frameworks-And-Official-Repos
-│   │   ├── [hi](./ant-design-master
-│   │   │   ├── [hi](./components
-│   │   │   │   ├── [hi](./affix
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./alert
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./anchor
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./auto-complete
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./avatar
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./back-top
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./badge
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./breadcrumb
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./button
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./calendar
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./locale
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./card
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./carousel
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./cascader
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./checkbox
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./col
-│   │   │   │   │   └── style
-│   │   │   │   ├── [hi](./collapse
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./comment
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./config-provider
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./date-picker
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./generatePicker
-│   │   │   │   │   ├── [hi](./locale
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./descriptions
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./divider
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./drawer
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./dropdown
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./empty
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./form
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./hooks
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./grid
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./hooks
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./icon
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   ├── [hi](./image
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./input
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./input-number
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./layout
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./list
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./locale
-│   │   │   │   ├── [hi](./locale-provider
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./mentions
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./menu
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./message
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./hooks
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./modal
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   ├── [hi](./__tests__
-│   │   │   │   │   │   └── __snapshots__
-│   │   │   │   │   └── useModal
-│   │   │   │   ├── [hi](./notification
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./hooks
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./overview
-│   │   │   │   ├── [hi](./page-header
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./pagination
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./popconfirm
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./popover
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./progress
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./radio
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./rate
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./result
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./row
-│   │   │   │   │   └── style
-│   │   │   │   ├── [hi](./select
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   ├── [hi](./__tests__
-│   │   │   │   │   │   └── __snapshots__
-│   │   │   │   │   └── utils
-│   │   │   │   ├── [hi](./skeleton
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./slider
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./space
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./spin
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./statistic
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./steps
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./style
-│   │   │   │   │   ├── [hi](./color
-│   │   │   │   │   ├── [hi](./core
-│   │   │   │   │   │   └── motion
-│   │   │   │   │   ├── [hi](./mixins
-│   │   │   │   │   └── themes
-│   │   │   │   ├── [hi](./switch
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./table
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./hooks
-│   │   │   │   │   │   └── useFilter
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./tabs
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./tag
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./__tests__
-│   │   │   │   │   └── __snapshots__
-│   │   │   │   ├── [hi](./timeline
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./time-picker
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./locale
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./tooltip
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./transfer
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./tree
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   ├── [hi](./__tests__
-│   │   │   │   │   │   └── __snapshots__
-│   │   │   │   │   └── utils
-│   │   │   │   ├── [hi](./tree-select
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./typography
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   └── __tests__
-│   │   │   │   │       └── __snapshots__
-│   │   │   │   ├── [hi](./upload
-│   │   │   │   │   ├── [hi](./demo
-│   │   │   │   │   ├── [hi](./style
-│   │   │   │   │   ├── [hi](./__tests__
-│   │   │   │   │   │   └── __snapshots__
-│   │   │   │   │   └── UploadList
-│   │   │   │   ├── [hi](./_util
-│   │   │   │   │   ├── [hi](./hooks
-│   │   │   │   │   └── __tests__
-│   │   │   │   └── version
-│   │   │   │       └── style
-│   │   │   ├── [hi](./docs
-│   │   │   │   ├── [hi](./react
-│   │   │   │   └── spec
-│   │   │   ├── [hi](./scripts
-│   │   │   │   └── previewEditor
-│   │   │   ├── [hi](./site
-│   │   │   │   └── theme
-│   │   │   │       ├── [hi](./static
-│   │   │   │       └── template
-│   │   │   │           ├── [hi](./Color
-│   │   │   │           ├── [hi](./Content
-│   │   │   │           │   └── Demo
-│   │   │   │           ├── [hi](./Home
-│   │   │   │           │   ├── [hi](./Banner
-│   │   │   │           │   └── DesignPage
-│   │   │   │           ├── [hi](./Icon
-│   │   │   │           ├── [hi](./IconDisplay
-│   │   │   │           ├── [hi](./Layout
-│   │   │   │           │   └── Header
-│   │   │   │           └── Resources
-│   │   │   │               └── Articles
-│   │   │   ├── [hi](./tests
-│   │   │   │   ├── [hi](./dekko
-│   │   │   │   ├── [hi](./matchers
-│   │   │   │   ├── [hi](./__mocks__
-│   │   │   │   │   └── rc-util
-│   │   │   │   │       └── lib
-│   │   │   │   ├── [hi](./shared
-│   │   │   │   └── __snapshots__
-│   │   │   └── typings
-│   │   └── material-components-web-master
-│   │       ├── [hi](./docs
-│   │       │   ├── [hi](./code
-│   │       │   ├── [hi](./codelabs
-│   │       │   ├── [hi](./contribute
-│   │       │   └── open_source
-│   │       ├── [hi](./packages
-│   │       │   ├── [hi](./material-components-web
-│   │       │   ├── [hi](./mdc-animation
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-auto-init
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-banner
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-base
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-button
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-card
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-checkbox
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-chips
-│   │       │   │   ├── [hi](./action
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./chip
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./chip-set
-│   │       │   │   │   └── test
-│   │       │   │   └── deprecated
-│   │       │   │       ├── [hi](./chip
-│   │       │   │       │   └── test
-│   │       │   │       ├── [hi](./chip-set
-│   │       │   │       │   └── test
-│   │       │   │       ├── [hi](./test
-│   │       │   │       └── trailingaction
-│   │       │   │           └── test
-│   │       │   ├── [hi](./mdc-circular-progress
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-data-table
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-density
-│   │       │   ├── [hi](./mdc-dialog
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-dom
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-drawer
-│   │       │   │   ├── [hi](./dismissible
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./images
-│   │       │   │   ├── [hi](./modal
-│   │       │   │   │   └── test
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-elevation
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-fab
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-feature-targeting
-│   │       │   ├── [hi](./mdc-floating-label
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-form-field
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-icon-button
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-image-list
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-layout-grid
-│   │       │   ├── [hi](./mdc-linear-progress
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-line-ripple
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-list
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-menu
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-menu-surface
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-notched-outline
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-progress-indicator
-│   │       │   ├── [hi](./mdc-radio
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-ripple
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-rtl
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-segmented-button
-│   │       │   │   ├── [hi](./segment
-│   │       │   │   │   └── test
-│   │       │   │   └── segmented-button
-│   │       │   │       └── test
-│   │       │   ├── [hi](./mdc-select
-│   │       │   │   ├── [hi](./helper-text
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./icon
-│   │       │   │   │   └── test
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-shape
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-slider
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-snackbar
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-switch
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-tab
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-tab-bar
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-tab-indicator
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-tab-scroller
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-textfield
-│   │       │   │   ├── [hi](./character-counter
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./helper-text
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./icon
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-theme
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-tooltip
-│   │       │   │   ├── [hi](./images
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-top-app-bar
-│   │       │   │   ├── [hi](./fixed
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./images
-│   │       │   │   ├── [hi](./short
-│   │       │   │   │   └── test
-│   │       │   │   ├── [hi](./standard
-│   │       │   │   │   └── test
-│   │       │   │   └── test
-│   │       │   ├── [hi](./mdc-touch-target
-│   │       │   │   └── test
-│   │       │   └── mdc-typography
-│   │       │       └── test
-│   │       ├── [hi](./scripts
-│   │       │   ├── [hi](./build
-│   │       │   ├── [hi](./documentation
-│   │       │   └── webpack
-│   │       └── testing
-│   │           ├── [hi](./dom
-│   │           ├── [hi](./featuretargeting
-│   │           └── helpers
-│   └── web-guided-project-testing-web-apps-solution-main
-│       ├── [hi](./public
-│       └── src
-│           └── components)
-├── [hi](./3-misc
-│   ├── [hi](./articles-from-interwebs
-│   │   └── Jquery-tips-n-tricks_files
-│   ├── [hi](./Beginner
-│   │   ├── [hi](./capSentence
-│   │   ├── [hi](./chunkArray
-│   │   ├── [hi](./factorial
-│   │   ├── [hi](./falsyBouncer
-│   │   ├── [hi](./fibonacci
-│   │   ├── [hi](./fizzBuzz
-│   │   ├── [hi](./hammingDistance
-│   │   ├── [hi](./isAnagram
-│   │   ├── [hi](./longestWord
-│   │   ├── [hi](./maxRecurringChar
-│   │   ├── [hi](./mergeArrays
-│   │   ├── [hi](./palindromeChecker
-│   │   ├── [hi](./reverseString
-│   │   ├── [hi](./searchReplace
-│   │   ├── [hi](./vowelsCounter
-│   │   └── whereIBelong
-│   ├── [hi](./node-web-scraper-master
-│   │   └── node-web-scraper-master
-│   └── SandboxSQL-master
-│       └── SandboxSQL-master
-│           ├── [hi](./iOS
-│           │   ├── [hi](./Base.lproj
-│           │   └── Images.xcassets
-│           │       └── AppIcon.appiconset
-│           ├── [hi](./SQLSandbox.xcodeproj
-│           │   ├── [hi](./project.xcworkspace
-│           │   │   ├── [hi](./xcshareddata
-│           │   │   └── xcuserdata
-│           │   │       ├── [hi](./pcottle.xcuserdatad
-│           │   │       └── tom.xcuserdatad
-│           │   ├── [hi](./xcshareddata
-│           │   │   └── xcschemes
-│           │   └── xcuserdata
-│           │       ├── [hi](./pcottle.xcuserdatad
-│           │       │   └── xcschemes
-│           │       └── tom.xcuserdatad
-│           │           └── xcschemes
-│           └── src
-│               └── js
-│                   ├── [hi](./actions
-│                   ├── [hi](./constants
-│                   ├── [hi](./data
-│                   ├── [hi](./dispatcher
-│                   ├── [hi](./query
-│                   ├── [hi](./stores
-│                   ├── [hi](./__tests__
-│                   ├── [hi](./tokens
-│                   ├── [hi](./utils
-│                   └── views)
-├── [hi](./4-test-prep
-│   └── Study-Guides)
-├── [hi](./5-websites
-│   └── lambda-prep
-│       ├── [hi](./javascript-practice
-│       │   ├── [hi](./00_expressions_variables
-│       │   │   ├── [hi](./exercises
-│       │   │   │   ├── [hi](./A_executing_code_exercise
-│       │   │   │   ├── [hi](./B_expressions_exercise
-│       │   │   │   ├── [hi](./C_variables_exercise
-│       │   │   │   └── D_string_indexing_and_methods_exercise
-│       │   │   └── solutions
-│       │   ├── [hi](./01_conditionals
-│       │   │   ├── [hi](./exercises
-│       │   │   │   └── A_conditionals_exercise
-│       │   │   └── solutions
-│       │   ├── [hi](./02_functions
-│       │   │   ├── [hi](./exercises
-│       │   │   │   ├── [hi](./A_functions_exercise
-│       │   │   │   ├── [hi](./B_functions_exercise
-│       │   │   │   └── C_functions_exercise
-│       │   │   └── solutions
-│       │   ├── [hi](./03_loops
-│       │   │   ├── [hi](./exercises
-│       │   │   │   ├── [hi](./A_loops_exercise
-│       │   │   │   ├── [hi](./B_loops_exercise
-│       │   │   │   └── C_loops_exercise
-│       │   │   └── solutions
-│       │   ├── [hi](./04_arrays
-│       │   │   ├── [hi](./exercises
-│       │   │   │   ├── [hi](./A_arrays_exercise
-│       │   │   │   ├── [hi](./B_arrays_exercise
-│       │   │   │   └── C_arrays_exercise
-│       │   │   └── solutions
-│       │   ├── [hi](./05_nesting
-│       │   │   ├── [hi](./exercises
-│       │   │   │   ├── [hi](./A_nested_loops_exercise
-│       │   │   │   ├── [hi](./B_two_dimensional_arrays_exercise
-│       │   │   │   └── C_more_problems_exercise
-│       │   │   └── solutions
-│       │   ├── [hi](./06_decomposition_pattern
-│       │   │   ├── [hi](./A_decomposing_problems_exercise
-│       │   │   ├── [hi](./B_decomposing_problems_exercise
-│       │   │   └── C_decomposing_problems_exercise
-│       │   ├── [hi](./07_objects
-│       │   │   ├── [hi](./A_objects_exercise
-│       │   │   ├── [hi](./B_objects_exercise
-│       │   │   └── C_objects_exercise
-│       │   ├── [hi](./08_higher_order_functions
-│       │   │   ├── [hi](./A_native_callback_methods_exercise
-│       │   │   └── B_native_callback_methods_exercise
-│       │   ├── [hi](./-ALL-JS-Files
-│       │   └── simple-side-bar
-│       │       ├── [hi](./css
-│       │       └── vendor
-│       │           ├── [hi](./bootstrap
-│       │           │   ├── [hi](./css
-│       │           │   └── js
-│       │           └── jquery
-│       ├── [hi](./markdown
-│       ├── [hi](./readme
-│       │   └── README_files
-│       └── _Resources
-│           ├── [hi](./node_modules
-│           │   ├── [hi](./jquery
-│           │   │   ├── [hi](./dist
-│           │   │   ├── [hi](./external
-│           │   │   │   └── sizzle
-│           │   │   │       └── dist
-│           │   │   └── src
-│           │   │       ├── [hi](./ajax
-│           │   │       │   └── var
-│           │   │       ├── [hi](./attributes
-│           │   │       ├── [hi](./core
-│           │   │       │   └── var
-│           │   │       ├── [hi](./css
-│           │   │       │   └── var
-│           │   │       ├── [hi](./data
-│           │   │       │   └── var
-│           │   │       ├── [hi](./deferred
-│           │   │       ├── [hi](./deprecated
-│           │   │       ├── [hi](./effects
-│           │   │       ├── [hi](./event
-│           │   │       ├── [hi](./exports
-│           │   │       ├── [hi](./manipulation
-│           │   │       │   └── var
-│           │   │       ├── [hi](./queue
-│           │   │       ├── [hi](./traversing
-│           │   │       │   └── var
-│           │   │       └── var
-│           │   ├── [hi](./loadashes6
-│           │   │   └── lodash
-│           │   │       └── fp
-│           │   ├── [hi](./mout
-│           │   │   ├── [hi](./array
-│           │   │   ├── [hi](./collection
-│           │   │   ├── [hi](./date
-│           │   │   │   └── i18n
-│           │   │   ├── [hi](./doc
-│           │   │   ├── [hi](./function
-│           │   │   ├── [hi](./lang
-│           │   │   ├── [hi](./math
-│           │   │   ├── [hi](./number
-│           │   │   ├── [hi](./object
-│           │   │   ├── [hi](./queryString
-│           │   │   ├── [hi](./random
-│           │   │   ├── [hi](./src
-│           │   │   │   ├── [hi](./array
-│           │   │   │   ├── [hi](./collection
-│           │   │   │   ├── [hi](./date
-│           │   │   │   │   └── i18n
-│           │   │   │   ├── [hi](./function
-│           │   │   │   ├── [hi](./lang
-│           │   │   │   ├── [hi](./math
-│           │   │   │   ├── [hi](./number
-│           │   │   │   ├── [hi](./object
-│           │   │   │   ├── [hi](./queryString
-│           │   │   │   ├── [hi](./random
-│           │   │   │   ├── [hi](./string
-│           │   │   │   └── time
-│           │   │   ├── [hi](./string
-│           │   │   └── time
-│           │   └── web-dev-utils
-│           │       ├── [hi](./bootstrap-4.3.1-dist
-│           │       │   ├── [hi](./css
-│           │       │   └── js
-│           │       ├── [hi](./GIT-HTML-PREVIEW-TOOL
-│           │       │   └── GIT-HTML-PREVIEW-TOOL-master
-│           │       ├── [hi](./images
-│           │       ├── [hi](./Markdown-Templates
-│           │       │   └── Markdown-Templates-master
-│           │       │       ├── [hi](./html-readmes
-│           │       │       └── images
-│           │       ├── [hi](./personal-utilities
-│           │       │   ├── [hi](./Auto-table-Of-Contents
-│           │       │   ├── [hi](./copy-2-clip
-│           │       │   ├── [hi](./css
-│           │       │   ├── [hi](./js
-│           │       │   └── prism
-│           │       └── TexTools
-│           │           └── TexTools-master
-│           │               ├── [hi](./backup-stable-build
-│           │               │   ├── [hi](./css
-│           │               │   └── js
-│           │               ├── [hi](./css
-│           │               ├── [hi](./js
-│           │               └── sandbox
-│           └── Precourse-master
-│               ├── [hi](./Lesson01-Git
-│               ├── [hi](./Lesson02-HTML-CSS
-│               │   └── homework
-│               ├── [hi](./Lesson03-CSS-Positioning
-│               │   └── homework
-│               │       └── assets
-│               ├── [hi](./Lesson04-JS-I
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson05-JS-II
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson06-JS-III
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson07-JS-IV
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson08-JS-V
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson09-JS-VI
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson10-JS-VII
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson11-JS-VIII
-│               │   └── homework
-│               │       └── tests
-│               ├── [hi](./Lesson12-DOM
-│               │   └── homework
-│               │       ├── [hi](./assets
-│               │       └── __tests__
-│               └── Precourse-master
-│                   ├── [hi](./Lesson01-Git
-│                   ├── [hi](./Lesson02-HTML-CSS
-│                   │   └── homework
-│                   ├── [hi](./Lesson03-CSS-Positioning
-│                   │   └── homework
-│                   │       └── assets
-│                   ├── [hi](./Lesson04-JS-I
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson05-JS-II
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson06-JS-III
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson07-JS-IV
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson08-JS-V
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson09-JS-VI
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson10-JS-VII
-│                   │   └── homework
-│                   │       └── tests
-│                   ├── [hi](./Lesson11-JS-VIII
-│                   │   └── homework
-│                   │       └── tests
-│                   └── Lesson12-DOM
-│                       └── homework
-│                           ├── [hi](./assets
-│                           └── __tests__)
-├── [hi](./about
-│   └── Using Canvas 27a0cf2408124ad19a3802565bd24de6
-│       └── How are courses structured in Canvas How do I know 3dfccdd4ff5f462dacde3b358c627e60)
-├── [hi](./assets
-│   ├── [hi](./AUDIO-VISUALIZER
-│   │   ├── [hi](./Box2D
-│   │   │   ├── [hi](./assets
-│   │   │   └── libs
-│   │   ├── [hi](./Gary Ad
-│   │   │   ├── [hi](./Baked
-│   │   │   │   └── sounds
-│   │   │   └── Raw
-│   │   ├── [hi](./GaryPewPew
-│   │   │   ├── [hi](./Animate
-│   │   │   ├── [hi](./js
-│   │   │   └── sounds
-│   │   ├── [hi](./js
-│   │   ├── [hi](./MusicViz
-│   │   │   └── js
-│   │   ├── [hi](./MusicViz2
-│   │   │   ├── [hi](./js
-│   │   │   └── sounds
-│   │   ├── [hi](./Performance
-│   │   │   ├── [hi](./Context2DLog
-│   │   │   ├── [hi](./FauxCanvas
-│   │   │   ├── [hi](./framerate
-│   │   │   │   ├── [hi](./assets
-│   │   │   │   └── js
-│   │   │   ├── [hi](./Snowmark
-│   │   │   │   ├── [hi](./css
-│   │   │   │   └── js
-│   │   │   └── Zombie
-│   │   │       └── images
-│   │   ├── [hi](./Planetary Gary
-│   │   │   ├── [hi](./Animate
-│   │   │   ├── [hi](./assets
-│   │   │   │   ├── [hi](./images
-│   │   │   │   └── sounds
-│   │   │   ├── [hi](./js
-│   │   │   └── libs
-│   │   └── sounds
-│   ├── [hi](./fonts
-│   ├── [hi](./footer
-│   ├── [hi](./images
-│   ├── [hi](./jquery
-│   │   ├── [hi](./dist
-│   │   ├── [hi](./external
-│   │   │   └── sizzle
-│   │   │       └── dist
-│   │   └── src
-│   │       ├── [hi](./ajax
-│   │       │   └── var
-│   │       ├── [hi](./attributes
-│   │       ├── [hi](./core
-│   │       │   └── var
-│   │       ├── [hi](./css
-│   │       │   └── var
-│   │       ├── [hi](./data
-│   │       │   └── var
-│   │       ├── [hi](./deferred
-│   │       ├── [hi](./deprecated
-│   │       ├── [hi](./effects
-│   │       ├── [hi](./event
-│   │       ├── [hi](./exports
-│   │       ├── [hi](./manipulation
-│   │       │   └── var
-│   │       ├── [hi](./queue
-│   │       ├── [hi](./traversing
-│   │       │   └── var
-│   │       └── var
-│   ├── [hi](./loadashes6
-│   │   └── lodash
-│   │       └── fp
-│   ├── [hi](./might-delete
-│   │   └── _MARKDOWN
-│   ├── [hi](./mout
-│   │   ├── [hi](./array
-│   │   ├── [hi](./collection
-│   │   ├── [hi](./date
-│   │   │   └── i18n
-│   │   ├── [hi](./doc
-│   │   ├── [hi](./function
-│   │   ├── [hi](./lang
-│   │   ├── [hi](./math
-│   │   ├── [hi](./number
-│   │   ├── [hi](./object
-│   │   ├── [hi](./queryString
-│   │   ├── [hi](./random
-│   │   ├── [hi](./src
-│   │   │   ├── [hi](./array
-│   │   │   ├── [hi](./collection
-│   │   │   ├── [hi](./date
-│   │   │   │   └── i18n
-│   │   │   ├── [hi](./function
-│   │   │   ├── [hi](./lang
-│   │   │   ├── [hi](./math
-│   │   │   ├── [hi](./number
-│   │   │   ├── [hi](./object
-│   │   │   ├── [hi](./queryString
-│   │   │   ├── [hi](./random
-│   │   │   ├── [hi](./string
-│   │   │   └── time
-│   │   ├── [hi](./string
-│   │   └── time
-│   ├── [hi](./past-student-repos
-│   │   ├── [hi](./data_struct_and_algo-master
-│   │   │   └── logs
-│   │   ├── [hi](./Data-Structures-and-Algorithms-master
-│   │   │   ├── [hi](./assets
-│   │   │   └── src
-│   │   │       ├── [hi](./algorithms
-│   │   │       │   ├── [hi](./strings
-│   │   │       │   │   └── knuth-morris-pratt
-│   │   │       │   └── tree
-│   │   │       │       ├── [hi](./breadth-first-search
-│   │   │       │       └── depth-first-search
-│   │   │       ├── [hi](./analysis-of-algorithms
-│   │   │       │   └── asymptotic-notation
-│   │   │       └── data-structures
-│   │   │           ├── [hi](./graph
-│   │   │           ├── [hi](./linked_lists
-│   │   │           └── tree
-│   │   │               ├── [hi](./binary-search-tree
-│   │   │               └── binary-tree
-│   │   ├── [hi](./Data-Structures-master
-│   │   │   ├── [hi](./avl_tree
-│   │   │   ├── [hi](./binary_search_tree
-│   │   │   ├── [hi](./doubly_linked_list
-│   │   │   ├── [hi](./heap
-│   │   │   ├── [hi](./javascript
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./lru_cache
-│   │   │   ├── [hi](./python
-│   │   │   │   ├── [hi](./binary_search_tree
-│   │   │   │   ├── [hi](./doubly_linked_list
-│   │   │   │   ├── [hi](./heap
-│   │   │   │   ├── [hi](./linked_list
-│   │   │   │   └── queue
-│   │   │   └── queue
-│   │   ├── [hi](./Data-Structures-Notes-master
-│   │   │   ├── [hi](./BST_and_Heaps
-│   │   │   ├── [hi](./Doubly_Linked_List
-│   │   │   ├── [hi](./Interview_Problems
-│   │   │   └── Linked_Lists
-│   │   ├── [hi](./dev-portfolio-master
-│   │   │   ├── [hi](./public
-│   │   │   ├── [hi](./src
-│   │   │   │   ├── [hi](./components
-│   │   │   │   │   └── ~reusables
-│   │   │   │   │       ├── [hi](./atoms
-│   │   │   │   │       ├── [hi](./molecules
-│   │   │   │   │       └── variables
-│   │   │   │   ├── [hi](./global-scss
-│   │   │   │   └── views
-│   │   │   │       ├── [hi](./1-Intro
-│   │   │   │       ├── [hi](./2-About
-│   │   │   │       ├── [hi](./3-Skills
-│   │   │   │       ├── [hi](./4-Projects
-│   │   │   │       ├── [hi](./5-Resume
-│   │   │   │       └── 6-Contact
-│   │   │   └── tests_setup
-│   │   │       └── __mocks__
-│   │   ├── [hi](./DOM-II-master
-│   │   ├── [hi](./_DS-Python
-│   │   │   ├── [hi](./Algorithms-I-Notes-master
-│   │   │   │   └── practice_algs
-│   │   │   └── Algorithms-master
-│   │   │       ├── [hi](./climbing_stairs
-│   │   │       ├── [hi](./knapsack
-│   │   │       │   └── data
-│   │   │       ├── [hi](./making_change
-│   │   │       ├── [hi](./recipe_batches
-│   │   │       ├── [hi](./rock_paper_scissors
-│   │   │       └── stock_prices
-│   │   ├── [hi](./feelscollective-master
-│   │   │   ├── [hi](./css
-│   │   │   ├── [hi](./fonts
-│   │   │   │   ├── [hi](./icomoon
-│   │   │   │   └── open-iconic
-│   │   │   ├── [hi](./images
-│   │   │   ├── [hi](./js
-│   │   │   └── scss
-│   │   ├── [hi](./five-master
-│   │   │   └── FiveFeed
-│   │   │       ├── [hi](./lambda
-│   │   │       ├── [hi](./lambda-src
-│   │   │       └── src
-│   │   │           ├── [hi](./components
-│   │   │           │   └── unused
-│   │   │           ├── [hi](./fonts
-│   │   │           ├── [hi](./icons
-│   │   │           ├── [hi](./images
-│   │   │           ├── [hi](./pages
-│   │   │           └── shared
-│   │   ├── [hi](./Graphs-master
-│   │   │   ├── [hi](./javascript
-│   │   │   │   ├── [hi](./guided-demo
-│   │   │   │   │   ├── [hi](./graphs-1
-│   │   │   │   │   │   └── src
-│   │   │   │   │   └── graphs-2
-│   │   │   │   │       └── src
-│   │   │   │   ├── [hi](./objectives
-│   │   │   │   │   ├── [hi](./breadth-first-search
-│   │   │   │   │   │   └── img
-│   │   │   │   │   ├── [hi](./connected-components
-│   │   │   │   │   │   └── img
-│   │   │   │   │   ├── [hi](./depth-first-search
-│   │   │   │   │   │   └── img
-│   │   │   │   │   └── graph-intro
-│   │   │   │   │       └── img
-│   │   │   │   └── projects
-│   │   │   │       └── graph
-│   │   │   │           ├── [hi](./public
-│   │   │   │           └── src
-│   │   │   ├── [hi](./objectives
-│   │   │   │   ├── [hi](./breadth-first-search
-│   │   │   │   │   └── img
-│   │   │   │   ├── [hi](./connected-components
-│   │   │   │   │   └── img
-│   │   │   │   ├── [hi](./depth-first-search
-│   │   │   │   │   └── img
-│   │   │   │   ├── [hi](./graph-intro
-│   │   │   │   │   └── img
-│   │   │   │   ├── [hi](./graph-representations
-│   │   │   │   │   └── img
-│   │   │   │   └── randomness
-│   │   │   ├── [hi](./projects
-│   │   │   │   ├── [hi](./adventure
-│   │   │   │   ├── [hi](./ancestor
-│   │   │   │   ├── [hi](./graph
-│   │   │   │   └── social
-│   │   │   └── python
-│   │   │       ├── [hi](./guided-demo
-│   │   │       │   ├── [hi](./graphs-1
-│   │   │       │   │   └── src
-│   │   │       │   └── graphs-2
-│   │   │       │       └── src
-│   │   │       └── projects
-│   │   │           └── graph
-│   │   │               └── src
-│   │   ├── [hi](./Graphs-Notes-master
-│   │   │   ├── [hi](./img
-│   │   │   ├── [hi](./lecture1
-│   │   │   ├── [hi](./lecture2
-│   │   │   ├── [hi](./lecture3
-│   │   │   └── lecture4
-│   │   ├── [hi](./Hash-Tables-Notes-master
-│   │   ├── [hi](./homepage-master
-│   │   │   ├── [hi](./css
-│   │   │   ├── [hi](./fonts
-│   │   │   ├── [hi](./images
-│   │   │   └── js
-│   │   │       ├── [hi](./backstretch
-│   │   │       ├── [hi](./bootstrap
-│   │   │       ├── [hi](./easing
-│   │   │       ├── [hi](./magnific-popup
-│   │   │       ├── [hi](./owl-carousel
-│   │   │       ├── [hi](./uitotop
-│   │   │       └── wow
-│   │   ├── [hi](./HTTP-AJAX-II-master
-│   │   │   ├── [hi](./app
-│   │   │   │   ├── [hi](./public
-│   │   │   │   └── src
-│   │   │   │       └── components
-│   │   │   └── server
-│   │   ├── [hi](./HTTP-AJAX-master
-│   │   │   └── friends
-│   │   │       ├── [hi](./public
-│   │   │       └── src
-│   │   │           ├── [hi](./actions
-│   │   │           ├── [hi](./components
-│   │   │           └── reducers
-│   │   ├── [hi](./_Individual-Projects
-│   │   │   ├── [hi](./Advanced-Form-Management-Guided-master
-│   │   │   │   └── app
-│   │   │   │       ├── [hi](./public
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   │               └── Notes
-│   │   │   ├── [hi](./Bootstrap-I-master
-│   │   │   │   ├── [hi](./css
-│   │   │   │   ├── [hi](./_example-resume
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   └── js
-│   │   │   │   ├── [hi](./img
-│   │   │   │   ├── [hi](./js
-│   │   │   │   └── less
-│   │   │   ├── [hi](./Components-BEM-master
-│   │   │   │   ├── [hi](./components
-│   │   │   │   │   ├── [hi](./Box
-│   │   │   │   │   └── Section
-│   │   │   │   └── markups
-│   │   │   ├── [hi](./Components-Constructors-master
-│   │   │   │   ├── [hi](./components
-│   │   │   │   │   └── Tabs
-│   │   │   │   └── markups
-│   │   │   ├── [hi](./Computer-Architecture-Notes-master
-│   │   │   │   ├── [hi](./lectureI
-│   │   │   │   ├── [hi](./lectureII
-│   │   │   │   ├── [hi](./lectureIII
-│   │   │   │   └── lectureIV
-│   │   │   ├── [hi](./Course_and_Book_Notes-master
-│   │   │   │   ├── [hi](./Algorithm Design Manual
-│   │   │   │   │   ├── [hi](./Chapter 1
-│   │   │   │   │   ├── [hi](./Chapter 10
-│   │   │   │   │   ├── [hi](./Chapter 2
-│   │   │   │   │   ├── [hi](./Chapter 3
-│   │   │   │   │   ├── [hi](./Chapter 4
-│   │   │   │   │   ├── [hi](./Chapter 5
-│   │   │   │   │   ├── [hi](./Chapter 6
-│   │   │   │   │   ├── [hi](./Chapter 7
-│   │   │   │   │   ├── [hi](./Chapter 8
-│   │   │   │   │   └── Chapter 9
-│   │   │   │   ├── [hi](./Computer_Science_Distilled
-│   │   │   │   ├── [hi](./Lambda_Notes
-│   │   │   │   │   ├── [hi](./Authentication
-│   │   │   │   │   ├── [hi](./Computer_Architecture
-│   │   │   │   │   ├── [hi](./Data_Structures_and_Algorithms
-│   │   │   │   │   ├── [hi](./DevOps
-│   │   │   │   │   ├── [hi](./Graphs
-│   │   │   │   │   ├── [hi](./Mongo
-│   │   │   │   │   ├── [hi](./Operating_Systems
-│   │   │   │   │   ├── [hi](./Security
-│   │   │   │   │   ├── [hi](./Testing
-│   │   │   │   │   └── Theory_of_Computation
-│   │   │   │   ├── [hi](./Programming_Foundations
-│   │   │   │   ├── [hi](./The_C_Programming_Language
-│   │   │   │   │   └── Chapter_1
-│   │   │   │   ├── [hi](./Think Like a Programmer
-│   │   │   │   │   ├── [hi](./Chapter 1
-│   │   │   │   │   ├── [hi](./Chapter 2
-│   │   │   │   │   └── Chapter 3
-│   │   │   │   └── YoutubeVideos
-│   │   │   ├── [hi](./JavaScript-III-master
-│   │   │   │   └── assignments
-│   │   │   ├── [hi](./JavaScript-II-master
-│   │   │   │   └── assignments
-│   │   │   ├── [hi](./JavaScript-I-master
-│   │   │   │   └── assignments
-│   │   │   └── JavaScript-IV-master
-│   │   │       └── assignments
-│   │   ├── [hi](./Intro-Python-master
-│   │   │   └── src
-│   │   │       ├── [hi](./day-1-toy
-│   │   │       ├── [hi](./days-2-4-adv
-│   │   │       ├── [hi](./mini-challenge
-│   │   │       └── python-example
-│   │   ├── [hi](./Intro-to-C-master
-│   │   │   ├── [hi](./first
-│   │   │   ├── [hi](./fizzbuzz
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./hangman
-│   │   │   ├── [hi](./malloc
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./pointers
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./queue
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./quicksort
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./strings
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./structs
-│   │   │   │   └── tests
-│   │   │   └── utils
-│   │   ├── [hi](./JavaScript-I-Guided-master
-│   │   ├── [hi](./lambda-demo-project-master
-│   │   │   ├── [hi](./api
-│   │   │   ├── [hi](./public
-│   │   │   └── src
-│   │   ├── [hi](./lambda-lecture-notes-main
-│   │   │   ├── [hi](./3-1-advanced-react
-│   │   │   │   ├── [hi](./images
-│   │   │   │   └── pdf
-│   │   │   ├── [hi](./3-2-advanced-state-mangement
-│   │   │   │   └── images
-│   │   │   └── 3-3-advanced-web-applications
-│   │   │       └── images
-│   │   ├── [hi](./Lambda-School-Instruction-Notes-master
-│   │   │   ├── [hi](./10. Data Persistence in Web APIs
-│   │   │   │   └── assets
-│   │   │   ├── [hi](./11. Authentication
-│   │   │   └── 12. Testing
-│   │   ├── [hi](./Lambda-School-master
-│   │   │   ├── [hi](./Week 1
-│   │   │   │   ├── [hi](./Sprint-Challenge User-Interface
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── img
-│   │   │   │   ├── [hi](./User Interface I HTML Markup
-│   │   │   │   ├── [hi](./User-Interface II Innovation
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── great-idea-website
-│   │   │   │   │       ├── [hi](./css
-│   │   │   │   │       └── img
-│   │   │   │   ├── [hi](./User Interface III Services Page
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── great-idea
-│   │   │   │   │       ├── [hi](./css
-│   │   │   │   │       └── img
-│   │   │   │   └── User Interface I  Project 2 - Sweet Eats Bakery
-│   │   │   ├── [hi](./Week 10
-│   │   │   │   ├── [hi](./Car-Sales
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./actions
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       │   ├── [hi](./CSS
-│   │   │   │   │       │   └── TodoComponents
-│   │   │   │   │       ├── [hi](./images
-│   │   │   │   │       └── reducers
-│   │   │   │   ├── [hi](./React-Redux-App
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   │   └── images
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./actions
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       ├── [hi](./images
-│   │   │   │   │       └── reducers
-│   │   │   │   ├── [hi](./react-shopping-cart
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       ├── [hi](./context
-│   │   │   │   │       └── sass
-│   │   │   │   ├── [hi](./reducer-todo
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       │   ├── [hi](./CSS
-│   │   │   │   │       │   └── TodoComponents
-│   │   │   │   │       ├── [hi](./images
-│   │   │   │   │       └── reducers
-│   │   │   │   └── Sprint-Challenge-State-Management-Smurfs
-│   │   │   │       └── smurfs
-│   │   │   │           ├── [hi](./public
-│   │   │   │           └── src
-│   │   │   │               ├── [hi](./actions
-│   │   │   │               ├── [hi](./components
-│   │   │   │               ├── [hi](./reducers
-│   │   │   │               └── REFERENCES
-│   │   │   │                   ├── [hi](./components
-│   │   │   │                   └── images
-│   │   │   ├── [hi](./Week 11
-│   │   │   │   ├── [hi](./Auth-Friends
-│   │   │   │   │   └── friends
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           ├── [hi](./actions
-│   │   │   │   │           ├── [hi](./axios
-│   │   │   │   │           ├── [hi](./components
-│   │   │   │   │           └── reducers
-│   │   │   │   ├── [hi](./HTTP-Movies-Assignment
-│   │   │   │   │   └── client
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           └── Movies
-│   │   │   │   ├── [hi](./react-bubbles
-│   │   │   │   │   └── client
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       ├── [hi](./References
-│   │   │   │   │       │   ├── [hi](./actions
-│   │   │   │   │       │   ├── [hi](./components
-│   │   │   │   │       │   └── reducers
-│   │   │   │   │       └── src
-│   │   │   │   │           ├── [hi](./actions
-│   │   │   │   │           ├── [hi](./axios
-│   │   │   │   │           ├── [hi](./components
-│   │   │   │   │           └── reducers
-│   │   │   │   └── webtesting-iii-challenge
-│   │   │   │       ├── [hi](./public
-│   │   │   │       └── src
-│   │   │   │           ├── [hi](./controls
-│   │   │   │           ├── [hi](./dashboard
-│   │   │   │           └── display
-│   │   │   │               └── __snapshots__
-│   │   │   ├── [hi](./Week 12 - FoodieFun
-│   │   │   ├── [hi](./Week 13
-│   │   │   │   ├── [hi](./node-api1-project
-│   │   │   │   │   └── data
-│   │   │   │   │       ├── [hi](./migrations
-│   │   │   │   │       └── seeds
-│   │   │   │   ├── [hi](./webapi-challenge-sprint
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./helpers
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── routes
-│   │   │   │   │       └── middleware
-│   │   │   │   ├── [hi](./webapi-ii-challenge
-│   │   │   │   │   ├── [hi](./comments
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── posts
-│   │   │   │   └── webapi-iii-challenge
-│   │   │   │       ├── [hi](./data
-│   │   │   │       │   ├── [hi](./migrations
-│   │   │   │       │   └── seeds
-│   │   │   │       ├── [hi](./global-middleware
-│   │   │   │       ├── [hi](./posts
-│   │   │   │       │   └── middleware
-│   │   │   │       └── users
-│   │   │   │           └── middleware
-│   │   │   ├── [hi](./Week 14
-│   │   │   │   ├── [hi](./node-db3-challenge
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── schemes
-│   │   │   │   ├── [hi](./node-db4
-│   │   │   │   │   └── data
-│   │   │   │   │       ├── [hi](./helpers
-│   │   │   │   │       ├── [hi](./migrations
-│   │   │   │   │       └── seeds
-│   │   │   │   ├── [hi](./node-db-challenge-sprint
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── routers
-│   │   │   │   ├── [hi](./webdb-i-challenge
-│   │   │   │   │   └── data
-│   │   │   │   │       ├── [hi](./migrations
-│   │   │   │   │       └── seeds
-│   │   │   │   └── webdb-ii-challenge
-│   │   │   │       └── data
-│   │   │   │           ├── [hi](./migrations
-│   │   │   │           └── seeds
-│   │   │   ├── [hi](./Week 15
-│   │   │   │   ├── [hi](./node-server-testing-challenge
-│   │   │   │   ├── [hi](./Sprint-Challenge-Authentication
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   └── jokes
-│   │   │   │   ├── [hi](./webauth-i-challenge
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   ├── [hi](./restricted
-│   │   │   │   │   └── users
-│   │   │   │   └── webauth-iii-challenge
-│   │   │   │       ├── [hi](./data
-│   │   │   │       │   ├── [hi](./migrations
-│   │   │   │       │   └── seeds
-│   │   │   │       ├── [hi](./restricted
-│   │   │   │       └── users
-│   │   │   ├── [hi](./Week 16 - Mentor Me
-│   │   │   ├── [hi](./Week 17 - 25 Future Hope
-│   │   │   ├── [hi](./Week 2
-│   │   │   │   ├── [hi](./Digital Resume
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   └── less
-│   │   │   │   ├── [hi](./Fun Bus
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   └── less
-│   │   │   │   ├── [hi](./Portfolio
-│   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   │   │   └── images
-│   │   │   │   │   │   │       └── ie
-│   │   │   │   │   │   ├── [hi](./js
-│   │   │   │   │   │   ├── [hi](./sass
-│   │   │   │   │   │   │   └── libs
-│   │   │   │   │   │   └── webfonts
-│   │   │   │   │   └── images
-│   │   │   │   ├── [hi](./Resposnive-Web-Design
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── img
-│   │   │   │   └── Sprint Challenge
-│   │   │   │       ├── [hi](./css
-│   │   │   │       ├── [hi](./design-files
-│   │   │   │       ├── [hi](./img
-│   │   │   │       └── less
-│   │   │   ├── [hi](./Week 3
-│   │   │   │   ├── [hi](./JavaScript-I
-│   │   │   │   │   └── assignments
-│   │   │   │   ├── [hi](./JavaScript-II
-│   │   │   │   │   └── assignments
-│   │   │   │   ├── [hi](./JavaScript-III
-│   │   │   │   │   └── assignments
-│   │   │   │   ├── [hi](./JavaScript-IV
-│   │   │   │   │   └── assignments
-│   │   │   │   └── Sprint-Challenge
-│   │   │   │       └── challenges
-│   │   │   ├── [hi](./Week 4 - Local Voter Guide
-│   │   │   │   ├── [hi](./css
-│   │   │   │   ├── [hi](./images
-│   │   │   │   └── less
-│   │   │   ├── [hi](./Week 5
-│   │   │   │   ├── [hi](./DOM-I
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   ├── [hi](./js
-│   │   │   │   │   └── stretch-assignment
-│   │   │   │   │       └── digital_timer
-│   │   │   │   ├── [hi](./DOM-II
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   ├── [hi](./js
-│   │   │   │   │   ├── [hi](./less
-│   │   │   │   │   └── stretch-assignment
-│   │   │   │   ├── [hi](./github-usercard
-│   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   └── GitHubCard
-│   │   │   │   ├── [hi](./Newsfeed-Components
-│   │   │   │   │   ├── [hi](./Article
-│   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./Header
-│   │   │   │   │   ├── [hi](./LESS
-│   │   │   │   │   └── Menu
-│   │   │   │   └── Sprint-Challenge-Applied-Javascript
-│   │   │   │       ├── [hi](./assets
-│   │   │   │       │   └── carousel
-│   │   │   │       ├── [hi](./components
-│   │   │   │       │   ├── [hi](./Cards
-│   │   │   │       │   ├── [hi](./Carousel
-│   │   │   │       │   ├── [hi](./Header
-│   │   │   │       │   ├── [hi](./Tabs
-│   │   │   │       │   └── TopBar
-│   │   │   │       ├── [hi](./CSS
-│   │   │   │       └── LESS
-│   │   │   ├── [hi](./Week 6
-│   │   │   │   ├── [hi](./lambda-calculator
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       │   ├── [hi](./ButtonComponents
-│   │   │   │   │       │   │   ├── [hi](./NumberButtons
-│   │   │   │   │       │   │   ├── [hi](./OperatorButtons
-│   │   │   │   │       │   │   └── SpecialButtons
-│   │   │   │   │       │   └── DisplayComponents
-│   │   │   │   │       └── Img
-│   │   │   │   ├── [hi](./nasa-photo-of-the-day
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./react-american-football-scoreboard
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   └── Sprint-Challenge-React-Wars
-│   │   │   │       ├── [hi](./public
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   ├── [hi](./Week 7
-│   │   │   │   ├── [hi](./React-Router-Basic-Nav
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./React-Router-Movies
-│   │   │   │   │   ├── [hi](./client
-│   │   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   │   └── src
-│   │   │   │   │   │       └── Movies
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── Movies
-│   │   │   │   ├── [hi](./Sprint-Challenge-Single-Page-Apps
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./team-builder
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   └── User-Onboarding
-│   │   │   │       ├── [hi](./public
-│   │   │   │       └── src
-│   │   │   ├── [hi](./Week 8 - Water My Plants
-│   │   │   └── Week 9
-│   │   │       ├── [hi](./dark-mode
-│   │   │       │   ├── [hi](./public
-│   │   │       │   └── src
-│   │   │       │       ├── [hi](./components
-│   │   │       │       └── hooks
-│   │   │       ├── [hi](./Github-User-Card
-│   │   │       │   └── src
-│   │   │       │       ├── [hi](./components
-│   │   │       │       ├── [hi](./images
-│   │   │       │       └── styles
-│   │   │       ├── [hi](./React-Todo
-│   │   │       │   └── src
-│   │   │       │       ├── [hi](./components
-│   │   │       │       │   ├── [hi](./CSS
-│   │   │       │       │   └── TodoComponents
-│   │   │       │       ├── [hi](./images
-│   │   │       │       └── styles
-│   │   │       └── Sprint-Challenge-Advanced-React
-│   │   │           └── client
-│   │   │               ├── [hi](./public
-│   │   │               └── src
-│   │   │                   └── components
-│   │   │                       └── hooks
-│   │   ├── [hi](./LambdaSchool-master
-│   │   │   ├── [hi](./31d1
-│   │   │   ├── [hi](./aa-score
-│   │   │   │   ├── [hi](./public
-│   │   │   │   └── src
-│   │   │   ├── [hi](./Administration
-│   │   │   │   ├── [hi](./certs
-│   │   │   │   ├── [hi](./marketing
-│   │   │   │   ├── [hi](./studying
-│   │   │   │   └── zoom
-│   │   │   ├── [hi](./bw1-tl
-│   │   │   │   ├── [hi](./admin
-│   │   │   │   ├── [hi](./api
-│   │   │   │   ├── [hi](./auth
-│   │   │   │   ├── [hi](./database
-│   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   └── seeds
-│   │   │   │   ├── [hi](./middleware
-│   │   │   │   ├── [hi](./todos
-│   │   │   │   └── volunteer
-│   │   │   ├── [hi](./css
-│   │   │   ├── [hi](./JavaScript30
-│   │   │   │   ├── [hi](./01
-│   │   │   │   │   └── sounds
-│   │   │   │   ├── [hi](./02
-│   │   │   │   ├── [hi](./03
-│   │   │   │   ├── [hi](./04
-│   │   │   │   ├── [hi](./05
-│   │   │   │   ├── [hi](./06
-│   │   │   │   ├── [hi](./07
-│   │   │   │   ├── [hi](./08
-│   │   │   │   ├── [hi](./09
-│   │   │   │   ├── [hi](./10
-│   │   │   │   ├── [hi](./11
-│   │   │   │   ├── [hi](./12
-│   │   │   │   ├── [hi](./13
-│   │   │   │   ├── [hi](./14
-│   │   │   │   ├── [hi](./15
-│   │   │   │   ├── [hi](./16
-│   │   │   │   ├── [hi](./17
-│   │   │   │   ├── [hi](./18
-│   │   │   │   ├── [hi](./19
-│   │   │   │   ├── [hi](./20
-│   │   │   │   ├── [hi](./21
-│   │   │   │   ├── [hi](./22
-│   │   │   │   ├── [hi](./23
-│   │   │   │   ├── [hi](./24
-│   │   │   │   ├── [hi](./25
-│   │   │   │   ├── [hi](./26
-│   │   │   │   ├── [hi](./27
-│   │   │   │   ├── [hi](./28
-│   │   │   │   ├── [hi](./29
-│   │   │   │   └── 30
-│   │   │   ├── [hi](./labs
-│   │   │   │   ├── [hi](./last journal entry
-│   │   │   │   └── video-to-next-group
-│   │   │   ├── [hi](./m1
-│   │   │   │   ├── [hi](./11b1
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./great-idea
-│   │   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   │   └── img
-│   │   │   │   │   └── great-idea-website
-│   │   │   │   │       ├── [hi](./css
-│   │   │   │   │       └── img
-│   │   │   │   ├── [hi](./11c1
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── great-idea-website
-│   │   │   │   │       ├── [hi](./css
-│   │   │   │   │       └── img
-│   │   │   │   ├── [hi](./11d1
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── great-idea
-│   │   │   │   │       ├── [hi](./css
-│   │   │   │   │       └── img
-│   │   │   │   ├── [hi](./12a1
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   └── img
-│   │   │   │   ├── [hi](./12b1
-│   │   │   │   │   ├── [hi](./dimension
-│   │   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   │   │   └── sass
-│   │   │   │   │   │   └── html5up-dimension
-│   │   │   │   │   │       └── assets
-│   │   │   │   │   │           └── sass
-│   │   │   │   │   └── solidstate
-│   │   │   │   │       └── assets
-│   │   │   │   │           └── sass
-│   │   │   │   ├── [hi](./12c1
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   └── less
-│   │   │   │   ├── [hi](./12d1
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   └── less
-│   │   │   │   ├── [hi](./13a1
-│   │   │   │   │   └── assignments
-│   │   │   │   ├── [hi](./13b1
-│   │   │   │   │   └── assignments
-│   │   │   │   ├── [hi](./13c1
-│   │   │   │   │   └── assignments
-│   │   │   │   ├── [hi](./13d1
-│   │   │   │   │   ├── [hi](./new
-│   │   │   │   │   │   └── test
-│   │   │   │   │   └── old
-│   │   │   │   │       └── assignments
-│   │   │   │   └── 13e1
-│   │   │   │       └── challenges
-│   │   │   ├── [hi](./m2
-│   │   │   │   ├── [hi](./21a1
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./img
-│   │   │   │   │   ├── [hi](./js
-│   │   │   │   │   └── stretch-assignment
-│   │   │   │   │       └── digital_timer
-│   │   │   │   ├── [hi](./21b1
-│   │   │   │   ├── [hi](./21c1
-│   │   │   │   │   ├── [hi](./Article
-│   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   ├── [hi](./css
-│   │   │   │   │   ├── [hi](./Header
-│   │   │   │   │   ├── [hi](./LESS
-│   │   │   │   │   └── Menu
-│   │   │   │   ├── [hi](./21d1
-│   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   └── GitHubCard
-│   │   │   │   ├── [hi](./21e1
-│   │   │   │   │   ├── [hi](./assets
-│   │   │   │   │   │   └── carousel
-│   │   │   │   │   ├── [hi](./components
-│   │   │   │   │   │   ├── [hi](./Cards
-│   │   │   │   │   │   ├── [hi](./Carousel
-│   │   │   │   │   │   ├── [hi](./Header
-│   │   │   │   │   │   ├── [hi](./Tabs
-│   │   │   │   │   │   └── TopBar
-│   │   │   │   │   ├── [hi](./CSS
-│   │   │   │   │   └── LESS
-│   │   │   │   ├── [hi](./22a1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./22b1
-│   │   │   │   │   ├── [hi](./design-files
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       │   ├── [hi](./ButtonComponents
-│   │   │   │   │       │   │   ├── [hi](./NumberButtons
-│   │   │   │   │       │   │   ├── [hi](./OperatorButtons
-│   │   │   │   │       │   │   └── SpecialButtons
-│   │   │   │   │       │   └── DisplayComponents
-│   │   │   │   │       └── Img
-│   │   │   │   ├── [hi](./22c1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./22e1
-│   │   │   │   │   └── starwars
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   ├── [hi](./23a1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./23a2
-│   │   │   │   │   └── images
-│   │   │   │   ├── [hi](./23b1
-│   │   │   │   │   └── client
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           └── Movies
-│   │   │   │   ├── [hi](./23c1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   ├── [hi](./src
-│   │   │   │   │   │   └── CustomHooks
-│   │   │   │   │   └── team-builder
-│   │   │   │   ├── [hi](./23d1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── CustomHooks
-│   │   │   │   ├── [hi](./23d2
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./23e1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   └── 24a1
-│   │   │   │       ├── [hi](./public
-│   │   │   │       │   └── img
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   │               └── old pages
-│   │   │   ├── [hi](./m3
-│   │   │   │   ├── [hi](./31a1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   │           └── TodoComponents
-│   │   │   │   ├── [hi](./31a2
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./31b1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./31c1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       └── hooks
-│   │   │   │   ├── [hi](./31d1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       └── hooks
-│   │   │   │   ├── [hi](./31e1
-│   │   │   │   │   └── client
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           ├── [hi](./components
-│   │   │   │   │           └── hooks
-│   │   │   │   ├── [hi](./32a1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       ├── [hi](./contexts
-│   │   │   │   │       └── sass
-│   │   │   │   ├── [hi](./32b1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       └── reducers
-│   │   │   │   ├── [hi](./32c1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./actions
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       └── reducers
-│   │   │   │   ├── [hi](./32d1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./actions
-│   │   │   │   │       ├── [hi](./components
-│   │   │   │   │       ├── [hi](./fonts
-│   │   │   │   │       ├── [hi](./img
-│   │   │   │   │       └── reducers
-│   │   │   │   ├── [hi](./32e1
-│   │   │   │   │   └── smurfs
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           ├── [hi](./actions
-│   │   │   │   │           ├── [hi](./components
-│   │   │   │   │           └── reducers
-│   │   │   │   ├── [hi](./33a1
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./controls
-│   │   │   │   │       ├── [hi](./dashboard
-│   │   │   │   │       └── display
-│   │   │   │   ├── [hi](./33b1
-│   │   │   │   │   └── friends
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           ├── [hi](./actions
-│   │   │   │   │           ├── [hi](./components
-│   │   │   │   │           ├── [hi](./reducers
-│   │   │   │   │           └── utils
-│   │   │   │   ├── [hi](./33d1
-│   │   │   │   │   └── client
-│   │   │   │   │       ├── [hi](./public
-│   │   │   │   │       └── src
-│   │   │   │   │           └── Movies
-│   │   │   │   └── 33e1
-│   │   │   │       └── client
-│   │   │   │           ├── [hi](./public
-│   │   │   │           └── src
-│   │   │   │               ├── [hi](./actions
-│   │   │   │               ├── [hi](./components
-│   │   │   │               ├── [hi](./reducers
-│   │   │   │               └── utils
-│   │   │   ├── [hi](./m4
-│   │   │   │   ├── [hi](./41a1
-│   │   │   │   │   └── data
-│   │   │   │   │       ├── [hi](./migrations
-│   │   │   │   │       └── seeds
-│   │   │   │   ├── [hi](./41a2
-│   │   │   │   │   └── data
-│   │   │   │   │       ├── [hi](./migrations
-│   │   │   │   │       └── seeds
-│   │   │   │   ├── [hi](./41b1
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── hubs
-│   │   │   │   ├── [hi](./41b2
-│   │   │   │   │   └── data
-│   │   │   │   │       ├── [hi](./migrations
-│   │   │   │   │       └── seeds
-│   │   │   │   ├── [hi](./41c1
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   ├── [hi](./hubs
-│   │   │   │   │   └── messages
-│   │   │   │   ├── [hi](./41c2
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   ├── [hi](./posts
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./41d1
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   └── data
-│   │   │   │   │       └── migrations
-│   │   │   │   ├── [hi](./41e1
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./helpers
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── routers
-│   │   │   │   ├── [hi](./41e1app
-│   │   │   │   │   ├── [hi](./public
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./42a1
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── posts
-│   │   │   │   ├── [hi](./42a2
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── routers
-│   │   │   │   ├── [hi](./42b1
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   └── fruits
-│   │   │   │   ├── [hi](./42b2
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── routers
-│   │   │   │   ├── [hi](./42c1
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./42c2
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── schemes
-│   │   │   │   ├── [hi](./42d1
-│   │   │   │   │   └── data
-│   │   │   │   │       └── seeds
-│   │   │   │   ├── [hi](./42d2
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── recipes
-│   │   │   │   ├── [hi](./42e1
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── projects
-│   │   │   │   ├── [hi](./43a1
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   ├── [hi](./__MACOSX
-│   │   │   │   │   │   └── authintro
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./43a2
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./43b1
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./43b2
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./43c1
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./43c2
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./auth
-│   │   │   │   │   ├── [hi](./config
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   └── migrations
-│   │   │   │   │   ├── [hi](./__MACOSX
-│   │   │   │   │   │   └── sessions
-│   │   │   │   │   └── users
-│   │   │   │   ├── [hi](./43d1
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./data
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── hobbits
-│   │   │   │   ├── [hi](./43d2
-│   │   │   │   │   ├── [hi](./api
-│   │   │   │   │   ├── [hi](./cohorts
-│   │   │   │   │   ├── [hi](./database
-│   │   │   │   │   │   ├── [hi](./migrations
-│   │   │   │   │   │   └── seeds
-│   │   │   │   │   └── students
-│   │   │   │   └── 43e1
-│   │   │   │       ├── [hi](./43e1
-│   │   │   │       │   ├── [hi](./public
-│   │   │   │       │   └── src
-│   │   │   │       │       └── components
-│   │   │   │       ├── [hi](./api
-│   │   │   │       ├── [hi](./auth
-│   │   │   │       ├── [hi](./database
-│   │   │   │       │   └── migrations
-│   │   │   │       └── jokes
-│   │   │   ├── [hi](./m5
-│   │   │   │   ├── [hi](./51a1
-│   │   │   │   │   └── src
-│   │   │   │   │       └── employeeApp
-│   │   │   │   ├── [hi](./51b1
-│   │   │   │   │   └── src
-│   │   │   │   │       └── collections
-│   │   │   │   │           └── src
-│   │   │   │   │               └── collections
-│   │   │   │   ├── [hi](./51c1
-│   │   │   │   │   └── transportation
-│   │   │   │   │       └── src
-│   │   │   │   │           └── transport
-│   │   │   │   ├── [hi](./51d1
-│   │   │   │   │   ├── [hi](./bin
-│   │   │   │   │   │   └── src
-│   │   │   │   │   │       ├── [hi](./main
-│   │   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │   │       │   │   └── com
-│   │   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │   │       │   │           └── webemployees3
-│   │   │   │   │   │       │   └── resources
-│   │   │   │   │   │       └── test
-│   │   │   │   │   │           └── java
-│   │   │   │   │   │               └── com
-│   │   │   │   │   │                   └── lambdaschool
-│   │   │   │   │   │                       └── webemployees3
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./main
-│   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │       │   │   └── com
-│   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │       │   │           └── j51d1
-│   │   │   │   │       │   └── resources
-│   │   │   │   │       │       └── static
-│   │   │   │   │       └── test
-│   │   │   │   │           └── java
-│   │   │   │   │               └── com
-│   │   │   │   │                   └── lambdaschool
-│   │   │   │   │                       └── webemployees3
-│   │   │   │   ├── [hi](./51d2
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./main
-│   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │       │   │   └── com
-│   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │       │   │           └── j51d2
-│   │   │   │   │       │   └── resources
-│   │   │   │   │       └── test
-│   │   │   │   │           └── java
-│   │   │   │   │               └── com
-│   │   │   │   │                   └── lambdaschool
-│   │   │   │   │                       └── j51d2
-│   │   │   │   ├── [hi](./51e1
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./main
-│   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │       │   │   └── com
-│   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │       │   │           └── j51e1
-│   │   │   │   │       │   └── resources
-│   │   │   │   │       └── test
-│   │   │   │   │           └── java
-│   │   │   │   │               └── com
-│   │   │   │   │                   └── lambdaschool
-│   │   │   │   │                       └── j51e1
-│   │   │   │   ├── [hi](./52b1
-│   │   │   │   │   └── assets
-│   │   │   │   ├── [hi](./52c1
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./main
-│   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │       │   │   └── com
-│   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │       │   │           └── j52c1
-│   │   │   │   │       │   │               ├── [hi](./controllers
-│   │   │   │   │       │   │               ├── [hi](./models
-│   │   │   │   │       │   │               ├── [hi](./repos
-│   │   │   │   │       │   │               └── services
-│   │   │   │   │       │   └── resources
-│   │   │   │   │       └── test
-│   │   │   │   │           └── java
-│   │   │   │   │               └── com
-│   │   │   │   │                   └── lambdaschool
-│   │   │   │   │                       └── j52c1
-│   │   │   │   ├── [hi](./52c2
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./main
-│   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │       │   │   └── com
-│   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │       │   │           └── j52c2
-│   │   │   │   │       │   │               ├── [hi](./controllers
-│   │   │   │   │       │   │               ├── [hi](./models
-│   │   │   │   │       │   │               ├── [hi](./repos
-│   │   │   │   │       │   │               └── services
-│   │   │   │   │       │   └── resources
-│   │   │   │   │       └── test
-│   │   │   │   │           └── java
-│   │   │   │   │               └── com
-│   │   │   │   │                   └── lambdaschool
-│   │   │   │   │                       └── j52c2
-│   │   │   │   ├── [hi](./52d1
-│   │   │   │   │   └── oauth
-│   │   │   │   │       ├── [hi](./oauth2
-│   │   │   │   │       │   └── src
-│   │   │   │   │       │       ├── [hi](./main
-│   │   │   │   │       │       │   ├── [hi](./java
-│   │   │   │   │       │       │   │   └── com
-│   │   │   │   │       │       │   │       └── lambdaschool
-│   │   │   │   │       │       │   │           └── usermodel
-│   │   │   │   │       │       │   │               ├── [hi](./config
-│   │   │   │   │       │       │   │               ├── [hi](./controllers
-│   │   │   │   │       │       │   │               ├── [hi](./exceptions
-│   │   │   │   │       │       │   │               ├── [hi](./handlers
-│   │   │   │   │       │       │   │               ├── [hi](./logging
-│   │   │   │   │       │       │   │               ├── [hi](./models
-│   │   │   │   │       │       │   │               ├── [hi](./repository
-│   │   │   │   │       │       │   │               ├── [hi](./services
-│   │   │   │   │       │       │   │               └── view
-│   │   │   │   │       │       │   └── resources
-│   │   │   │   │       │       │       └── info
-│   │   │   │   │       │       └── test
-│   │   │   │   │       │           ├── [hi](./java
-│   │   │   │   │       │           │   └── com
-│   │   │   │   │       │           │       └── lambdaschool
-│   │   │   │   │       │           │           └── usermodel
-│   │   │   │   │       │           │               ├── [hi](./controllers
-│   │   │   │   │       │           │               └── services
-│   │   │   │   │       │           └── resources
-│   │   │   │   │       └── oauth2 - initial
-│   │   │   │   │           └── src
-│   │   │   │   │               ├── [hi](./main
-│   │   │   │   │               │   ├── [hi](./java
-│   │   │   │   │               │   │   └── com
-│   │   │   │   │               │   │       └── lambdaschool
-│   │   │   │   │               │   │           ├── [hi](./authenticatedusers
-│   │   │   │   │               │   │           │   ├── [hi](./config
-│   │   │   │   │               │   │           │   ├── [hi](./controller
-│   │   │   │   │               │   │           │   ├── [hi](./model
-│   │   │   │   │               │   │           │   ├── [hi](./repository
-│   │   │   │   │               │   │           │   ├── [hi](./service
-│   │   │   │   │               │   │           │   └── view
-│   │   │   │   │               │   │           └── usermodel
-│   │   │   │   │               │   │               ├── [hi](./config
-│   │   │   │   │               │   │               ├── [hi](./controllers
-│   │   │   │   │               │   │               ├── [hi](./exceptions
-│   │   │   │   │               │   │               ├── [hi](./handlers
-│   │   │   │   │               │   │               ├── [hi](./logging
-│   │   │   │   │               │   │               ├── [hi](./models
-│   │   │   │   │               │   │               ├── [hi](./repository
-│   │   │   │   │               │   │               ├── [hi](./services
-│   │   │   │   │               │   │               └── view
-│   │   │   │   │               │   └── resources
-│   │   │   │   │               │       └── info
-│   │   │   │   │               └── test
-│   │   │   │   │                   └── java
-│   │   │   │   │                       └── com
-│   │   │   │   │                           └── lambdaschool
-│   │   │   │   │                               ├── [hi](./authenticatedusers
-│   │   │   │   │                               └── usermodel
-│   │   │   │   ├── [hi](./53a1
-│   │   │   │   │   ├── [hi](./oauth2ExceptionLogging-final
-│   │   │   │   │   │   └── src
-│   │   │   │   │   │       └── main
-│   │   │   │   │   │           ├── [hi](./java
-│   │   │   │   │   │           │   └── com
-│   │   │   │   │   │           │       └── lambdaschool
-│   │   │   │   │   │           │           └── oauth2
-│   │   │   │   │   │           │               ├── [hi](./config
-│   │   │   │   │   │           │               ├── [hi](./controllers
-│   │   │   │   │   │           │               ├── [hi](./exceptions
-│   │   │   │   │   │           │               ├── [hi](./handlers
-│   │   │   │   │   │           │               ├── [hi](./logging
-│   │   │   │   │   │           │               ├── [hi](./models
-│   │   │   │   │   │           │               ├── [hi](./repository
-│   │   │   │   │   │           │               ├── [hi](./services
-│   │   │   │   │   │           │               └── view
-│   │   │   │   │   │           └── resources
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./main
-│   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │       │   │   └── com
-│   │   │   │   │       │   │       └── lambdaschool
-│   │   │   │   │       │   │           └── authenticatedusers
-│   │   │   │   │       │   │               ├── [hi](./config
-│   │   │   │   │       │   │               ├── [hi](./controller
-│   │   │   │   │       │   │               ├── [hi](./exceptions
-│   │   │   │   │       │   │               ├── [hi](./handlers
-│   │   │   │   │       │   │               ├── [hi](./model
-│   │   │   │   │       │   │               ├── [hi](./repository
-│   │   │   │   │       │   │               ├── [hi](./service
-│   │   │   │   │       │   │               └── view
-│   │   │   │   │       │   └── resources
-│   │   │   │   │       │       └── info
-│   │   │   │   │       └── test
-│   │   │   │   │           └── java
-│   │   │   │   │               └── com
-│   │   │   │   │                   └── lambdaschool
-│   │   │   │   │                       ├── [hi](./authenticatedusers
-│   │   │   │   │                       └── usermodel
-│   │   │   │   ├── [hi](./53b1
-│   │   │   │   │   ├── [hi](./clientrestaurants
-│   │   │   │   │   │   └── src
-│   │   │   │   │   │       ├── [hi](./main
-│   │   │   │   │   │       │   ├── [hi](./java
-│   │   │   │   │   │       │   │   └── com
-│   │   │   │   │   │       │   │       └── lambda
-│   │   │   │   │   │       │   │           └── clientrestaurants
-│   │   │   │   │   │       │   │               ├── [hi](./client
-│   │   │   │   │   │       │   │               └── model
-│   │   │   │   │   │       │   └── resources
-│   │   │   │   │   │       └── test
-│   │   │   │   │   │           └── java
-│   │   │   │   │   │               └── com
-│   │   │   │   │   │                   └── lambda
-│   │   │   │   │   │                       └── clientrestaurants
-│   │   │   │   │   ├── [hi](./restaurants-initial
-│   │   │   │   │   │   └── src
-│   │   │   │   │   │       └── main
-│   │   │   │   │   │           ├── [hi](./java
-│   │   │   │   │   │           │   └── com
-│   │   │   │   │   │           │       └── lambdaschool
-│   │   │   │   │   │           │           └── restaurants
-│   │   │   │   │   │           │               ├── [hi](./config
-│   │   │   │   │   │           │               ├── [hi](./controller
-│   │   │   │   │   │           │               ├── [hi](./model
-│   │   │   │   │   │           │               ├── [hi](./repos
-│   │   │   │   │   │           │               └── service
-│   │   │   │   │   │           └── resources
-│   │   │   │   │   │               └── info
-│   │   │   │   │   └── restaurants-pagesswagger
-│   │   │   │   │       └── src
-│   │   │   │   │           └── main
-│   │   │   │   │               ├── [hi](./java
-│   │   │   │   │               │   └── com
-│   │   │   │   │               │       └── lambdaschool
-│   │   │   │   │               │           └── restaurants
-│   │   │   │   │               │               ├── [hi](./config
-│   │   │   │   │               │               ├── [hi](./controller
-│   │   │   │   │               │               ├── [hi](./exception
-│   │   │   │   │               │               ├── [hi](./model
-│   │   │   │   │               │               ├── [hi](./repos
-│   │   │   │   │               │               └── service
-│   │   │   │   │               └── resources
-│   │   │   │   │                   ├── [hi](./info
-│   │   │   │   │                   └── templates
-│   │   │   │   ├── [hi](./53c1
-│   │   │   │   │   ├── [hi](./restaurants-initial
-│   │   │   │   │   │   └── src
-│   │   │   │   │   │       └── main
-│   │   │   │   │   │           ├── [hi](./java
-│   │   │   │   │   │           │   └── com
-│   │   │   │   │   │           │       └── lambdaschool
-│   │   │   │   │   │           │           └── restaurants
-│   │   │   │   │   │           │               ├── [hi](./config
-│   │   │   │   │   │           │               ├── [hi](./controller
-│   │   │   │   │   │           │               ├── [hi](./model
-│   │   │   │   │   │           │               ├── [hi](./repos
-│   │   │   │   │   │           │               └── service
-│   │   │   │   │   │           └── resources
-│   │   │   │   │   │               └── info
-│   │   │   │   │   └── restaurants-testing
-│   │   │   │   │       └── src
-│   │   │   │   │           ├── [hi](./main
-│   │   │   │   │           │   ├── [hi](./java
-│   │   │   │   │           │   │   └── com
-│   │   │   │   │           │   │       └── lambdaschool
-│   │   │   │   │           │   │           └── restaurants
-│   │   │   │   │           │   │               ├── [hi](./config
-│   │   │   │   │           │   │               ├── [hi](./controller
-│   │   │   │   │           │   │               ├── [hi](./model
-│   │   │   │   │           │   │               ├── [hi](./repos
-│   │   │   │   │           │   │               └── service
-│   │   │   │   │           │   └── resources
-│   │   │   │   │           │       └── info
-│   │   │   │   │           └── test
-│   │   │   │   │               ├── [hi](./java
-│   │   │   │   │               │   └── com
-│   │   │   │   │               │       └── lambdaschool
-│   │   │   │   │               │           └── restaurants
-│   │   │   │   │               │               ├── [hi](./controller
-│   │   │   │   │               │               └── service
-│   │   │   │   │               └── resources
-│   │   │   │   └── 53d1
-│   │   │   │       ├── [hi](./JS-FrontEnd-by-jheinz1999
-│   │   │   │       │   ├── [hi](./public
-│   │   │   │       │   └── src
-│   │   │   │       │       └── components
-│   │   │   │       └── StartHere
-│   │   │   │           └── src
-│   │   │   │               ├── [hi](./main
-│   │   │   │               │   ├── [hi](./java
-│   │   │   │               │   │   └── com
-│   │   │   │               │   │       └── lambdaschool
-│   │   │   │               │   │           └── starthere
-│   │   │   │               │   │               ├── [hi](./config
-│   │   │   │               │   │               ├── [hi](./controllers
-│   │   │   │               │   │               ├── [hi](./exceptions
-│   │   │   │               │   │               ├── [hi](./handlers
-│   │   │   │               │   │               ├── [hi](./logging
-│   │   │   │               │   │               ├── [hi](./models
-│   │   │   │               │   │               ├── [hi](./repository
-│   │   │   │               │   │               ├── [hi](./services
-│   │   │   │               │   │               └── view
-│   │   │   │               │   └── resources
-│   │   │   │               │       └── info
-│   │   │   │               └── test
-│   │   │   │                   ├── [hi](./java
-│   │   │   │                   │   └── com
-│   │   │   │                   │       └── lambdaschool
-│   │   │   │                   │           └── starthere
-│   │   │   │                   │               ├── [hi](./controllers
-│   │   │   │                   │               └── services
-│   │   │   │                   └── resources
-│   │   │   ├── [hi](./m6
-│   │   │   │   ├── [hi](./61a1
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./61b1
-│   │   │   │   │   ├── [hi](./examples
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./61c1
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./cityreader
-│   │   │   │   │       ├── [hi](./comp
-│   │   │   │   │       └── oop
-│   │   │   │   ├── [hi](./62a1
-│   │   │   │   │   ├── [hi](./avl_tree
-│   │   │   │   │   ├── [hi](./benchmarks
-│   │   │   │   │   ├── [hi](./binary_search_tree
-│   │   │   │   │   ├── [hi](./doubly_linked_list
-│   │   │   │   │   ├── [hi](./heap
-│   │   │   │   │   ├── [hi](./lru_cache
-│   │   │   │   │   ├── [hi](./queue
-│   │   │   │   │   ├── [hi](./queue_and_stack
-│   │   │   │   │   ├── [hi](./singly_linked_list
-│   │   │   │   │   └── stack
-│   │   │   │   ├── [hi](./62b1
-│   │   │   │   │   ├── [hi](./names
-│   │   │   │   │   ├── [hi](./reverse
-│   │   │   │   │   └── ring_buffer
-│   │   │   │   ├── [hi](./63a1
-│   │   │   │   │   └── src
-│   │   │   │   │       ├── [hi](./iterative_sorting
-│   │   │   │   │       └── searching
-│   │   │   │   ├── [hi](./63b1
-│   │   │   │   │   └── src
-│   │   │   │   │       └── recursive_sorting
-│   │   │   │   ├── [hi](./63c1
-│   │   │   │   │   ├── [hi](./eating_cookies
-│   │   │   │   │   ├── [hi](./knapsack
-│   │   │   │   │   │   └── data
-│   │   │   │   │   ├── [hi](./making_change
-│   │   │   │   │   ├── [hi](./moving_zeroes
-│   │   │   │   │   ├── [hi](./product_of_all_other_numbers
-│   │   │   │   │   ├── [hi](./recipe_batches
-│   │   │   │   │   ├── [hi](./rock_paper_scissors
-│   │   │   │   │   ├── [hi](./single_number
-│   │   │   │   │   ├── [hi](./sliding_window_max
-│   │   │   │   │   │   └── data
-│   │   │   │   │   └── stock_prices
-│   │   │   │   └── 63d1
-│   │   │   │       ├── [hi](./recursive_count_th
-│   │   │   │       ├── [hi](./robot_sort
-│   │   │   │       └── Short-Answer
-│   │   │   ├── [hi](./m7
-│   │   │   │   ├── [hi](./71a1
-│   │   │   │   │   ├── [hi](./applications
-│   │   │   │   │   │   ├── [hi](./crack_caesar
-│   │   │   │   │   │   ├── [hi](./expensive_seq
-│   │   │   │   │   │   ├── [hi](./histo
-│   │   │   │   │   │   ├── [hi](./lookup_table
-│   │   │   │   │   │   ├── [hi](./markov
-│   │   │   │   │   │   ├── [hi](./no_dups
-│   │   │   │   │   │   ├── [hi](./sumdiff
-│   │   │   │   │   │   └── word_count
-│   │   │   │   │   └── hashtable
-│   │   │   │   ├── [hi](./71e1
-│   │   │   │   │   └── hashtables
-│   │   │   │   │       ├── [hi](./ex1
-│   │   │   │   │       ├── [hi](./ex2
-│   │   │   │   │       ├── [hi](./ex3
-│   │   │   │   │       ├── [hi](./ex4
-│   │   │   │   │       └── ex5
-│   │   │   │   ├── [hi](./72a1
-│   │   │   │   │   ├── [hi](./objectives
-│   │   │   │   │   │   ├── [hi](./breadth-first-search
-│   │   │   │   │   │   │   └── img
-│   │   │   │   │   │   ├── [hi](./connected-components
-│   │   │   │   │   │   │   └── img
-│   │   │   │   │   │   ├── [hi](./depth-first-search
-│   │   │   │   │   │   │   └── img
-│   │   │   │   │   │   ├── [hi](./graph-intro
-│   │   │   │   │   │   │   └── img
-│   │   │   │   │   │   ├── [hi](./graph-representations
-│   │   │   │   │   │   │   └── img
-│   │   │   │   │   │   └── randomness
-│   │   │   │   │   └── projects
-│   │   │   │   │       ├── [hi](./adventure
-│   │   │   │   │       │   └── maps
-│   │   │   │   │       ├── [hi](./ancestor
-│   │   │   │   │       ├── [hi](./graph
-│   │   │   │   │       └── social
-│   │   │   │   ├── [hi](./73a1
-│   │   │   │   │   ├── [hi](./asm
-│   │   │   │   │   └── ls8
-│   │   │   │   │       └── examples
-│   │   │   │   └── 74a1
-│   │   │   ├── [hi](./src
-│   │   │   │   ├── [hi](./iterative_sorting
-│   │   │   │   └── searching
-│   │   │   ├── [hi](./summary
-│   │   │   │   ├── [hi](./certifications
-│   │   │   │   │   ├── [hi](./IBM zOS
-│   │   │   │   │   └── Oracle Autonomous DB
-│   │   │   │   │       ├── [hi](./1 Overview
-│   │   │   │   │       ├── [hi](./2 Provisioning and Connectivity
-│   │   │   │   │       ├── [hi](./3 Migration and Data Loding into Autonomous DB
-│   │   │   │   │       ├── [hi](./4 Migrating and Data Loading
-│   │   │   │   │       ├── [hi](./5 Monitoring Autonomous DB
-│   │   │   │   │       └── 6 Tools Reporting Analytics
-│   │   │   │   ├── [hi](./cobol
-│   │   │   │   │   ├── [hi](./COBOL example programs_files
-│   │   │   │   │   ├── [hi](./COBOL Programming Course_files
-│   │   │   │   │   └── COBOL Programming Exercises_files
-│   │   │   │   ├── [hi](./complete
-│   │   │   │   │   ├── [hi](./Decks
-│   │   │   │   │   └── notes-books
-│   │   │   │   ├── [hi](./general
-│   │   │   │   ├── [hi](./interviewing
-│   │   │   │   ├── [hi](./Node Express Knex
-│   │   │   │   │   └── Create Back End Guide
-│   │   │   │   ├── [hi](./testing
-│   │   │   │   └── typescript
-│   │   │   └── tlbw
-│   │   │       └── client
-│   │   │           ├── [hi](./public
-│   │   │           └── src
-│   │   │               ├── [hi](./components
-│   │   │               │   ├── [hi](./context
-│   │   │               │   │   └── strainsSelectContext
-│   │   │               │   └── strains
-│   │   │               └── imgs
-│   │   ├── [hi](./_misc
-│   │   │   └── Blockchain-Notes-master
-│   │   │       └── communication_gp
-│   │   ├── [hi](./Mongo-I-master
-│   │   │   └── src
-│   │   │       ├── [hi](./controllers
-│   │   │       ├── [hi](./models
-│   │   │       └── routes
-│   │   ├── [hi](./_MOST-USEFUL
-│   │   │   └── Boilerplate-master
-│   │   │       ├── [hi](./Apollo
-│   │   │       │   ├── [hi](./client
-│   │   │       │   ├── [hi](./imports
-│   │   │       │   │   ├── [hi](./api
-│   │   │       │   │   └── ui
-│   │   │       │   └── server
-│   │   │       ├── [hi](./Express-MongoDB
-│   │   │       │   └── src
-│   │   │       │       ├── [hi](./config
-│   │   │       │       ├── [hi](./controllers
-│   │   │       │       └── __tests__
-│   │   │       ├── [hi](./React-Redux
-│   │   │       │   └── src
-│   │   │       │       ├── [hi](./actions
-│   │   │       │       ├── [hi](./assets
-│   │   │       │       ├── [hi](./containers
-│   │   │       │       ├── [hi](./reducers
-│   │   │       │       └── tests
-│   │   │       │           ├── [hi](./__mock__
-│   │   │       │           └── __tests__
-│   │   │       │               └── __snapshots__
-│   │   │       └── TypeGraphQL
-│   │   ├── [hi](./Node-Blog-master
-│   │   │   ├── [hi](./api
-│   │   │   │   ├── [hi](./post
-│   │   │   │   ├── [hi](./tag
-│   │   │   │   └── user
-│   │   │   ├── [hi](./config
-│   │   │   ├── [hi](./data
-│   │   │   │   ├── [hi](./helpers
-│   │   │   │   ├── [hi](./migrations
-│   │   │   │   └── seeds
-│   │   │   └── routers
-│   │   ├── [hi](./portfolio-main
-│   │   │   ├── [hi](./components
-│   │   │   ├── [hi](./pages
-│   │   │   ├── [hi](./public
-│   │   │   │   └── static
-│   │   │   │       ├── [hi](./favicons
-│   │   │   │       └── images
-│   │   │   ├── [hi](./scripts
-│   │   │   ├── [hi](./styles
-│   │   │   └── utils
-│   │   ├── [hi](./Precourse-master
-│   │   │   ├── [hi](./Lesson10-JS-VII
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   ├── [hi](./Lesson11-JS-VIII
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   ├── [hi](./Lesson12-DOM
-│   │   │   │   └── homework
-│   │   │   │       ├── [hi](./assets
-│   │   │   │       └── __tests__
-│   │   │   ├── [hi](./Lesson1-Git
-│   │   │   ├── [hi](./Lesson2-HTML-CSS
-│   │   │   │   └── homework
-│   │   │   ├── [hi](./Lesson3-CSS-Positioning
-│   │   │   │   └── homework
-│   │   │   │       └── assets
-│   │   │   ├── [hi](./Lesson4-JS-I
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   ├── [hi](./Lesson5-JS-II
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   ├── [hi](./Lesson6-JS-III
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   ├── [hi](./Lesson7-JS-IV
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   ├── [hi](./Lesson8-JS-V
-│   │   │   │   └── homework
-│   │   │   │       └── tests
-│   │   │   └── Lesson9-JS-VI
-│   │   │       └── homework
-│   │   │           └── tests
-│   │   ├── [hi](./Python-II-Notes-master
-│   │   │   └── src
-│   │   ├── [hi](./Python-master
-│   │   │   ├── [hi](./arithmetic_analysis
-│   │   │   │   └── image_data
-│   │   │   ├── [hi](./backtracking
-│   │   │   ├── [hi](./bit_manipulation
-│   │   │   ├── [hi](./blockchain
-│   │   │   ├── [hi](./boolean_algebra
-│   │   │   ├── [hi](./cellular_automata
-│   │   │   ├── [hi](./ciphers
-│   │   │   ├── [hi](./compression
-│   │   │   │   └── image_data
-│   │   │   ├── [hi](./computer_vision
-│   │   │   ├── [hi](./conversions
-│   │   │   ├── [hi](./data_structures
-│   │   │   │   ├── [hi](./binary_tree
-│   │   │   │   ├── [hi](./disjoint_set
-│   │   │   │   ├── [hi](./hashing
-│   │   │   │   │   └── number_theory
-│   │   │   │   ├── [hi](./heap
-│   │   │   │   ├── [hi](./linked_list
-│   │   │   │   ├── [hi](./queue
-│   │   │   │   ├── [hi](./stacks
-│   │   │   │   └── trie
-│   │   │   ├── [hi](./digital_image_processing
-│   │   │   │   ├── [hi](./dithering
-│   │   │   │   ├── [hi](./edge_detection
-│   │   │   │   ├── [hi](./filters
-│   │   │   │   ├── [hi](./histogram_equalization
-│   │   │   │   │   ├── [hi](./image_data
-│   │   │   │   │   └── output_data
-│   │   │   │   ├── [hi](./image_data
-│   │   │   │   ├── [hi](./resize
-│   │   │   │   └── rotation
-│   │   │   ├── [hi](./divide_and_conquer
-│   │   │   ├── [hi](./dynamic_programming
-│   │   │   ├── [hi](./electronics
-│   │   │   ├── [hi](./file_transfer
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./fuzzy_logic
-│   │   │   ├── [hi](./genetic_algorithm
-│   │   │   ├── [hi](./geodesy
-│   │   │   ├── [hi](./graphics
-│   │   │   ├── [hi](./graphs
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./hashes
-│   │   │   ├── [hi](./knapsack
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./linear_algebra
-│   │   │   │   └── src
-│   │   │   ├── [hi](./machine_learning
-│   │   │   │   ├── [hi](./forecasting
-│   │   │   │   └── lstm
-│   │   │   ├── [hi](./maths
-│   │   │   │   ├── [hi](./images
-│   │   │   │   └── series
-│   │   │   ├── [hi](./matrix
-│   │   │   │   └── tests
-│   │   │   ├── [hi](./networking_flow
-│   │   │   ├── [hi](./neural_network
-│   │   │   ├── [hi](./other
-│   │   │   ├── [hi](./project_euler
-│   │   │   │   ├── [hi](./problem_001
-│   │   │   │   ├── [hi](./problem_002
-│   │   │   │   ├── [hi](./problem_003
-│   │   │   │   ├── [hi](./problem_004
-│   │   │   │   ├── [hi](./problem_005
-│   │   │   │   ├── [hi](./problem_006
-│   │   │   │   ├── [hi](./problem_007
-│   │   │   │   ├── [hi](./problem_008
-│   │   │   │   ├── [hi](./problem_009
-│   │   │   │   ├── [hi](./problem_010
-│   │   │   │   ├── [hi](./problem_011
-│   │   │   │   ├── [hi](./problem_012
-│   │   │   │   ├── [hi](./problem_013
-│   │   │   │   ├── [hi](./problem_014
-│   │   │   │   ├── [hi](./problem_015
-│   │   │   │   ├── [hi](./problem_016
-│   │   │   │   ├── [hi](./problem_017
-│   │   │   │   ├── [hi](./problem_018
-│   │   │   │   ├── [hi](./problem_019
-│   │   │   │   ├── [hi](./problem_020
-│   │   │   │   ├── [hi](./problem_021
-│   │   │   │   ├── [hi](./problem_022
-│   │   │   │   ├── [hi](./problem_023
-│   │   │   │   ├── [hi](./problem_024
-│   │   │   │   ├── [hi](./problem_025
-│   │   │   │   ├── [hi](./problem_026
-│   │   │   │   ├── [hi](./problem_027
-│   │   │   │   ├── [hi](./problem_028
-│   │   │   │   ├── [hi](./problem_029
-│   │   │   │   ├── [hi](./problem_030
-│   │   │   │   ├── [hi](./problem_031
-│   │   │   │   ├── [hi](./problem_032
-│   │   │   │   ├── [hi](./problem_033
-│   │   │   │   ├── [hi](./problem_034
-│   │   │   │   ├── [hi](./problem_035
-│   │   │   │   ├── [hi](./problem_036
-│   │   │   │   ├── [hi](./problem_037
-│   │   │   │   ├── [hi](./problem_038
-│   │   │   │   ├── [hi](./problem_039
-│   │   │   │   ├── [hi](./problem_040
-│   │   │   │   ├── [hi](./problem_041
-│   │   │   │   ├── [hi](./problem_042
-│   │   │   │   ├── [hi](./problem_043
-│   │   │   │   ├── [hi](./problem_044
-│   │   │   │   ├── [hi](./problem_045
-│   │   │   │   ├── [hi](./problem_046
-│   │   │   │   ├── [hi](./problem_047
-│   │   │   │   ├── [hi](./problem_048
-│   │   │   │   ├── [hi](./problem_049
-│   │   │   │   ├── [hi](./problem_050
-│   │   │   │   ├── [hi](./problem_051
-│   │   │   │   ├── [hi](./problem_052
-│   │   │   │   ├── [hi](./problem_053
-│   │   │   │   ├── [hi](./problem_054
-│   │   │   │   ├── [hi](./problem_055
-│   │   │   │   ├── [hi](./problem_056
-│   │   │   │   ├── [hi](./problem_057
-│   │   │   │   ├── [hi](./problem_058
-│   │   │   │   ├── [hi](./problem_059
-│   │   │   │   ├── [hi](./problem_062
-│   │   │   │   ├── [hi](./problem_063
-│   │   │   │   ├── [hi](./problem_064
-│   │   │   │   ├── [hi](./problem_065
-│   │   │   │   ├── [hi](./problem_067
-│   │   │   │   ├── [hi](./problem_069
-│   │   │   │   ├── [hi](./problem_070
-│   │   │   │   ├── [hi](./problem_071
-│   │   │   │   ├── [hi](./problem_072
-│   │   │   │   ├── [hi](./problem_074
-│   │   │   │   ├── [hi](./problem_075
-│   │   │   │   ├── [hi](./problem_076
-│   │   │   │   ├── [hi](./problem_077
-│   │   │   │   ├── [hi](./problem_080
-│   │   │   │   ├── [hi](./problem_081
-│   │   │   │   ├── [hi](./problem_085
-│   │   │   │   ├── [hi](./problem_086
-│   │   │   │   ├── [hi](./problem_087
-│   │   │   │   ├── [hi](./problem_089
-│   │   │   │   ├── [hi](./problem_091
-│   │   │   │   ├── [hi](./problem_097
-│   │   │   │   ├── [hi](./problem_099
-│   │   │   │   ├── [hi](./problem_101
-│   │   │   │   ├── [hi](./problem_102
-│   │   │   │   ├── [hi](./problem_107
-│   │   │   │   ├── [hi](./problem_112
-│   │   │   │   ├── [hi](./problem_113
-│   │   │   │   ├── [hi](./problem_119
-│   │   │   │   ├── [hi](./problem_120
-│   │   │   │   ├── [hi](./problem_123
-│   │   │   │   ├── [hi](./problem_125
-│   │   │   │   ├── [hi](./problem_129
-│   │   │   │   ├── [hi](./problem_135
-│   │   │   │   ├── [hi](./problem_173
-│   │   │   │   ├── [hi](./problem_174
-│   │   │   │   ├── [hi](./problem_180
-│   │   │   │   ├── [hi](./problem_188
-│   │   │   │   ├── [hi](./problem_191
-│   │   │   │   ├── [hi](./problem_203
-│   │   │   │   ├── [hi](./problem_206
-│   │   │   │   ├── [hi](./problem_207
-│   │   │   │   ├── [hi](./problem_234
-│   │   │   │   ├── [hi](./problem_301
-│   │   │   │   └── problem_551
-│   │   │   ├── [hi](./quantum
-│   │   │   ├── [hi](./scheduling
-│   │   │   ├── [hi](./scripts
-│   │   │   ├── [hi](./searches
-│   │   │   ├── [hi](./sorts
-│   │   │   ├── [hi](./strings
-│   │   │   ├── [hi](./traversals
-│   │   │   └── web_programming
-│   │   ├── [hi](./react-carousel-master
-│   │   │   ├── [hi](./public
-│   │   │   └── src
-│   │   │       └── assets
-│   │   ├── [hi](./react-design-patterns-and-best-practices-master
-│   │   │   ├── [hi](./chapter-03
-│   │   │   │   └── reusable-components
-│   │   │   │       ├── [hi](./src
-│   │   │   │       │   └── components
-│   │   │   │       └── stories
-│   │   │   ├── [hi](./chapter-04
-│   │   │   │   ├── [hi](./container-presentational
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   │           └── geolocation
-│   │   │   │   └── higher-order-components
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   ├── [hi](./chapter-05
-│   │   │   │   ├── [hi](./data-fetching
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./data-flow
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   └── react-refetch
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   ├── [hi](./chapter-06
-│   │   │   │   ├── [hi](./controlled-components
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./css-transition-group
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./event-switch
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./json-schema
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./react-motion
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./refs-dom
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./refs-instance
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./svg
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   └── uncontrolled-components
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   ├── [hi](./chapter-07
-│   │   │   │   ├── [hi](./css-modules
-│   │   │   │   ├── [hi](./inline-styles
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./radium
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   └── styled-components
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   ├── [hi](./chapter-08
-│   │   │   │   ├── [hi](./data-fetching
-│   │   │   │   │   └── src
-│   │   │   │   ├── [hi](./next
-│   │   │   │   │   └── pages
-│   │   │   │   └── server-side-rendering
-│   │   │   │       └── src
-│   │   │   ├── [hi](./chapter-09
-│   │   │   │   ├── [hi](./constants-props
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./creating-functions
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   ├── [hi](./good-design
-│   │   │   │   │   └── src
-│   │   │   │   │       └── components
-│   │   │   │   └── keys
-│   │   │   │       └── src
-│   │   │   │           └── components
-│   │   │   ├── [hi](./chapter-10
-│   │   │   │   ├── [hi](./enzyme
-│   │   │   │   ├── [hi](./higher-order-components
-│   │   │   │   │   └── __snapshots__
-│   │   │   │   ├── [hi](./jest
-│   │   │   │   ├── [hi](./mocha
-│   │   │   │   │   └── test
-│   │   │   │   ├── [hi](./page-object
-│   │   │   │   └── real-world
-│   │   │   │       └── __snapshots__
-│   │   │   └── chapter-11
-│   │   │       ├── [hi](./index-as-key
-│   │   │       │   └── src
-│   │   │       │       └── components
-│   │   │       ├── [hi](./initializing-state
-│   │   │       │   └── src
-│   │   │       │       └── components
-│   │   │       └── mutating-state
-│   │   │           └── src
-│   │   │               └── components
-│   │   ├── [hi](./React-Todo-master
-│   │   │   ├── [hi](./public
-│   │   │   └── src
-│   │   │       └── components
-│   │   │           └── TodoComponents
-│   │   ├── [hi](./Relational-Databases-master
-│   │   │   └── solutions
-│   │   ├── [hi](./Server-Testing-master
-│   │   ├── [hi](./Sorting-master
-│   │   │   └── src
-│   │   │       ├── [hi](./iterative_sorting
-│   │   │       ├── [hi](./recursive_sorting
-│   │   │       └── searching
-│   │   ├── [hi](./Sprint-Challenge--Graphs-master
-│   │   │   ├── [hi](./img
-│   │   │   └── src
-│   │   ├── [hi](./Sprint-Challenge--JavaScript-master
-│   │   │   ├── [hi](./challenges
-│   │   │   ├── [hi](./src
-│   │   │   └── tests
-│   │   ├── [hi](./Sprint-Challenge-Node-Express-master
-│   │   │   ├── [hi](./data
-│   │   │   │   ├── [hi](./helpers
-│   │   │   │   ├── [hi](./migrations
-│   │   │   │   └── seeds
-│   │   │   ├── [hi](./express
-│   │   │   │   ├── [hi](./public
-│   │   │   │   └── src
-│   │   │   └── routes
-│   │   ├── [hi](./Sprint-Challenge-RDBMS-master
-│   │   │   ├── [hi](./data
-│   │   │   │   ├── [hi](./migrations
-│   │   │   │   └── seeds
-│   │   │   └── routes
-│   │   ├── [hi](./sql-lab-master
-│   │   │   └── img
-│   │   ├── [hi](./Static-Pages-master
-│   │   ├── [hi](./web-guided-project-HTTP-main
-│   │   │   ├── [hi](./client
-│   │   │   │   └── src
-│   │   │   │       └── components
-│   │   │   └── server
-│   │   └── Whiteboard-Pairing-master
-│   │       ├── [hi](./BalancedBinaryTree
-│   │       ├── [hi](./BalancedBrackets
-│   │       ├── [hi](./BitcoinTrading
-│   │       ├── [hi](./BSTFromArray
-│   │       ├── [hi](./ClimbingStairs
-│   │       ├── [hi](./CountingVotes
-│   │       ├── [hi](./DepthFirstSearch
-│   │       ├── [hi](./FindRotationPoint
-│   │       ├── [hi](./IntegerPairs
-│   │       ├── [hi](./KthToLastNode
-│   │       ├── [hi](./LargestContiguousSum
-│   │       ├── [hi](./LargestStack
-│   │       ├── [hi](./LinkedListPalindrome
-│   │       ├── [hi](./MatrixSpiralCopy
-│   │       ├── [hi](./MergingTwoPackages
-│   │       ├── [hi](./MinHeap
-│   │       ├── [hi](./MinJumps
-│   │       ├── [hi](./NthFibonacci
-│   │       ├── [hi](./OneWayFlight
-│   │       ├── [hi](./ProductOfAllOtherNumbers
-│   │       ├── [hi](./QueueWithTwoStacks
-│   │       ├── [hi](./ReverseLinkedList
-│   │       ├── [hi](./RingBuffer
-│   │       ├── [hi](./RobotPaths
-│   │       ├── [hi](./RockPaperScissors
-│   │       ├── [hi](./RotateImage
-│   │       ├── [hi](./SetOfStacks
-│   │       ├── [hi](./SortStack
-│   │       ├── [hi](./SortTopScores
-│   │       ├── [hi](./TemperatureTracker
-│   │       ├── [hi](./TimePlanner
-│   │       └── ValidateBinaryTree
-│   └── web-dev-utils
-│       ├── [hi](./bootstrap-4.3.1-dist
-│       │   ├── [hi](./css
-│       │   └── js
-│       ├── [hi](./GIT-HTML-PREVIEW-TOOL
-│       │   └── GIT-HTML-PREVIEW-TOOL-master
-│       ├── [hi](./Markdown-Templates
-│       │   └── Markdown-Templates-master
-│       │       └── images
-│       ├── [hi](./personal-utilities
-│       │   ├── [hi](./Auto-table-Of-Contents
-│       │   ├── [hi](./copy-2-clip
-│       │   ├── [hi](./css
-│       │   ├── [hi](./extract-css
-│       │   │   ├── [hi](./css
-│       │   │   ├── [hi](./img
-│       │   │   └── js
-│       │   ├── [hi](./js
-│       │   └── prism
-│       └── TexTools
-│           └── TexTools-master
-│               ├── [hi](./backup-stable-build
-│               │   ├── [hi](./css
-│               │   └── js
-│               ├── [hi](./css
-│               ├── [hi](./js
-│               └── sandbox)
-├── [hi](./Documentation)
-├── [hi](./screenshot-preview
-│   ├── [hi](./examples
-│   └── src)
-└── WEEKS)
-    ├── [hi](./wk1)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   │   │   ├── [hi](./closures_files)
-    │   │   │   ├── [hi](./Farm to Table_files)
-    │   │   │   ├── [hi](./func-scope_files)
-    │   │   │   ├── [hi](./git-quiz_files)
-    │   │   │   └── Quiz_Git_files)
-    │   │    )
-    │   │   │   ├── [hi](./flexbox-explained_files)
-    │   │   │   └── notes_files)
-    │   │   )
-    │   ├── [hi](./1-projects)
-    │   │    │   ├── [hi](./User_Interface_I_HTML_Markup)
-    │   │   │   └── User_Interface_I__Project_2_-_Sweet_Eats_Bakery)
-    │   │    )
-    │   │   │   └── web-module-project-intro-css)
-    │   │   │       ├── [hi](./assets)
-    │   │   │       └── design)
-    │   │    │   └── refactor-d3-proj-w-flex)
-    │   │   │       ├── [hi](./assets)
-    │   │   │       └── design)
-    │   │   )
-    │   ├── [hi](./2-resources)
-    │   │   ├── [hi](./agenda_files)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk10)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk11)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk12)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk14)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk15)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk16)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk17)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk18)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk19)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk2)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk20)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk3)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk4)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk5)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk6)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk7)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    ├── [hi](./wk8)
-    │   ├── [hi](./0-notes)
-    │   │    )
-    │   ├── [hi](./1-projects)
-    │   │    )
-    │   ├── [hi](./2-resources)
-    │   │    )
-    │   ├── [hi](./3-misc)
-    │   │    )
-    │   └── 4-test-prep)
-    │       └── Study-Guides)
-    └── wk9)
-        ├── [hi](./0-notes)
-        │   )
-        │)
-        ├── [hi](./1-projects)
-        │   )
-        │)
-        ├── [hi](./2-resources)
-        │   )
-        │)
-        ├── [hi](./3-misc)
-        │   )
-        │)
-        └── 4-test-prep)
-            └── Study-Guides)
+[01;34m.)
+├──[✅]--(0-notes)
+│     └──[✅]--(medium-articles)
+├──[✅]--(1-projects)
+│     ├──[✅]--(A_arrays_solution)
+│     ├──[✅]--(A_conditionals_solution)
+│     ├──[✅]--(A_executing_code_solution)
+│     ├──[✅]--(A_functions_solution)
+│     ├──[✅]--(A_loops_solution)
+│     ├──[✅]--(A_nested_loops_solution)
+│     ├──[✅]--(Atomic-Design-Solution-master)
+│     │     └──[✅]--(dogs)
+│     │                              ├──[✅]--(public)
+│     │                              └──[✅]--(src)
+│     │                                                ├──[✅]--(atoms)
+│     │                                                ├──[✅]--(molecules)
+│     │                                                ├──[✅]--(organisms)
+│     │                                                ├──[✅]--(pages)
+│     │                                                └──[✅]--(templates)
+│     ├──[✅]--(B_arrays_solution)
+│     ├──[✅]--(B_expressions_solution)
+│     ├──[✅]--(B_functions_solution)
+│     ├──[✅]--(B_loops_solution)
+│     ├──[✅]--(B_two_dimensional_arrays_solution)
+│     ├──[✅]--(Basic-JavaScript-master)
+│     │     ├──[✅]--(src)
+│     │     └──[✅]--(tests)
+│     ├──[✅]--(C_arrays_solution)
+│     ├──[✅]--(C_functions_solution)
+│     ├──[✅]--(C_loops_solution)
+│     ├──[✅]--(C_more_problems_solution)
+│     ├──[✅]--(C_variables_solution)
+│     ├──[✅]--(Client-Auth-Solution-master)
+│     │     ├──[✅]--(public)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(actions)
+│     │                              ├──[✅]--(components)
+│     │                              │     └──[✅]--(HOC)
+│     │                              └──[✅]--(reducers)
+│     ├──[✅]--(Closures-Callbacks-ArrayMethods)
+│     │     └──[✅]--(JS-Exercise-Closures-Callbacks-ArrayMethods-master)
+│     │                              ├──[✅]--(data)
+│     │                              └──[✅]--(test)
+│     ├──[✅]--(Components-BEM-Solution-master)
+│     │     ├──[✅]--(components)
+│     │     │     ├──[✅]--(Box)
+│     │     │     ├──[✅]--(Dropdown)
+│     │     │     └──[✅]--(Section)
+│     │     └──[✅]--(markups)
+│     ├──[✅]--(Components-Constructors-Solution-master)
+│     │     ├──[✅]--(components)
+│     │     │     ├──[✅]--(Box)
+│     │     │     ├──[✅]--(Dropdown)
+│     │     │     ├──[✅]--(Section)
+│     │     │     └──[✅]--(Tabs)
+│     │     └──[✅]--(markups)
+│     ├──[✅]--(DOM-JavaScript-mini-Solution-master)
+│     │     └──[✅]--(components)
+│     │                              ├──[✅]--(Box)
+│     │                              ├──[✅]--(Header)
+│     │                              ├──[✅]--(List)
+│     │                              ├──[✅]--(Nav)
+│     │                              ├──[✅]--(Section)
+│     │                              └──[✅]--(Tabs)
+│     ├──[✅]--(D_string_indexing_and_methods_solution)
+│     ├──[✅]--(Data-Structures-master)
+│     │     ├──[✅]--(avl_tree)
+│     │     ├──[✅]--(binary_search_tree)
+│     │     ├──[✅]--(doubly_linked_list)
+│     │     ├──[✅]--(heap)
+│     │     ├──[✅]--(lru_cache)
+│     │     ├──[✅]--(queue)
+│     │     ├──[✅]--(singly_linked_list)
+│     │     └──[✅]--(stack)
+│     ├──[✅]--(HTML-CSS-mini-Solution-master)
+│     │     └──[✅]--(components)
+│     │                              ├──[✅]--(Box)
+│     │                              ├──[✅]--(Header)
+│     │                              └──[✅]--(Section)
+│     ├──[✅]--(Intro-Python-I-master)
+│     │     └──[✅]--(src)
+│     ├──[✅]--(Intro-Python-II-master)
+│     │     ├──[✅]--(examples)
+│     │     └──[✅]--(src)
+│     ├──[✅]--(Intro-to-C-master)
+│     │     ├──[✅]--(fizzbuzz)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(hangman)
+│     │     ├──[✅]--(malloc)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(pointers)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(queue)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(quicksort)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(strings)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(structs)
+│     │     │     └──[✅]--(tests)
+│     │     └──[✅]--(utils)
+│     ├──[✅]--(JS-Exercise-Classes)
+│     │     └──[✅]--(test)
+│     ├──[✅]--(JavaScript-III-master)
+│     │     └──[✅]--(assignments)
+│     ├──[✅]--(LS-Data-Structures-I-Solution-master)
+│     │     ├──[✅]--(src)
+│     │     └──[✅]--(tests)
+│     ├──[✅]--(LS-Data-Structures-II-Solution-master)
+│     │     ├──[✅]--(src)
+│     │     └──[✅]--(tests)
+│     ├──[✅]--(Mongo-Mini-II-Solution-master)
+│     ├──[✅]--(Node-Express-Gmaps-Solution-Day-I-master)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(controllers)✅
+│     │                              └──[✅]--(models)
+│     ├──[✅]--(Node-Express-Gmaps-Solution-Day-II-master)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(controllers)
+│     │                              └──[✅]--(models)
+│     ├──[✅]--(Python-OOP-Toy-master)
+│     │     └──[✅]--(src)
+│     ├──[✅]--(React-Todo-Solution-master)
+│     │     ├──[✅]--(public)
+│     │     └──[✅]--(src)
+│     │                              └──[✅]--(tests)
+│     ├──[✅]--(Relational-Databases-master)
+│     ├──[✅]--(Sprint-Challenge--Intro-Python-master)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(cityreader)
+│     │                              ├──[✅]--(comp)
+│     │                              └──[✅]--(oop)
+│     ├──[✅]--(_Pet-Projects)
+│     │     └──[✅]--(whack-a-mole)
+│     ├──[✅]--(_Pet-prac-projects)
+│     │     ├──[✅]--(01   -   JavaScript   Drum   Kit)
+│     │     │     └──[✅]--(sounds)
+│     │     ├──[✅]--(02   -   JS   and   CSS   Clock)
+│     │     ├──[✅]--(03   -   CSS   Variables)
+│     │     ├──[✅]--(04   -   Array   Cardio   Day   1)
+│     │     ├──[✅]--(05   -   Flex   Panel   Gallery)
+│     │     ├──[✅]--(06   -   Type   Ahead)
+│     │     ├──[✅]--(07   -   Array   Cardio   Day   2)
+│     │     ├──[✅]--(08   -   Fun   with   HTML5   Canvas)
+│     │     ├──[✅]--(09   -   Dev   Tools   Domination)
+│     │     ├──[✅]--(10   -   Hold   S✅ft   and   Check   Checkboxes)
+│     │     ├──[✅]--(11   -   Custom   Video   Player)
+│     │     ├──[✅]--(12   -   Key   Sequence   Detection)
+│     │     ├──[✅]--(13   -   Slide   in   on   Scroll)
+│     │     ├──[✅]--(14   -   JavaScript   References   VS   Copying)
+│     │     ├──[✅]--(15   -   LocalStorage)
+│     │     ├──[✅]--(16   -   Mouse   Move   Shadow)
+│     │     ├──[✅]--(17   -   Sort   Without   Articles)
+│     │     ├──[✅]--(18   -   Adding   Up   Times   with   Reduce)
+│     │     ├──[✅]--(19   -   Webcam   Fun)
+│     │     ├──[✅]--(20   -   Speech   Detection)
+│     │     ├──[✅]--(21   -   Geolocation)
+│     │     ├──[✅]--(22   -   Follow   Along   Link   ✅ghlighter)
+│     │     ├──[✅]--(23   -   Speech   Synthesis)
+│     │     ├──[✅]--(24   -   Sticky   Nav)
+│     │     ├──[✅]--(25   -   Event   Capture,   Propagation,   Bubbling   and   Once)
+│     │     ├──[✅]--(26   -   Stripe   Follow   Along   Nav)
+│     │     ├──[✅]--(27   -   Click   and   Drag)
+│     │     ├──[✅]--(28   -   Video   Speed   Controller)
+│     │     ├──[✅]--(29   -   Countdown   Timer)
+│     │     └──[✅]--(30   -   Whack   A   Mole)
+│     ├──[✅]--(master)
+│     ├──[✅]--(nested-data-exercises-master)
+│     │     ├──[✅]--(data)
+│     │     └──[✅]--(test)
+│     ├──[✅]--(solutions)
+│     ├──[✅]--(web-guided-project-testing-web-apps-solution-main)
+│     │     ├──[✅]--(public)
+│     │     └──[✅]--(src)
+│     │                              └──[✅]--(components)
+│     └──[✅]--(webapi-ii-challenge-master)
+│                              └──[✅]--(data)
+│                                                ├──[✅]--(migrations)
+│                                                └──[✅]--(seeds)
+├──[✅]--(10-miscellaneous)
+│     └──[✅]--(scrap)
+├──[✅]--(11-Site-Documentation)
+├──[✅]--(2-resources)
+│     ├──[✅]--(Atomic-Design-Solution-master)
+│     │     └──[✅]--(dogs)
+│     │                              ├──[✅]--(public)
+│     │                              └──[✅]--(src)
+│     │                                                ├──[✅]--(atoms)
+│     │                                                ├──[✅]--(molecules)
+│     │                                                ├──[✅]--(organisms)
+│     │                                                ├──[✅]--(pages)
+│     │                                                └──[✅]--(templates)
+│     ├──[✅]--(Client-Auth-Solution-master)
+│     │     ├──[✅]--(public)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(actions)
+│     │                              ├──[✅]--(components)
+│     │                              │     └──[✅]--(HOC)
+│     │                              └──[✅]--(reducers)
+│     ├──[✅]--(Components-BEM-Solution-master)
+│     │     ├──[✅]--(components)
+│     │     │     ├──[✅]--(Box)
+│     │     │     ├──[✅]--(Dropdown)
+│     │     │     └──[✅]--(Section)
+│     │     └──[✅]--(markups)
+│     ├──[✅]--(Components-Constructors-Solution-master)
+│     │     ├──[✅]--(components)
+│     │     │     ├──[✅]--(Box)
+│     │     │     ├──[✅]--(Dropdown)
+│     │     │     ├──[✅]--(Section)
+│     │     │     └──[✅]--(Tabs)
+│     │     └──[✅]--(markups)
+│     ├──[✅]--(DOM-JavaScript-mini-Solution-master)
+│     │     └──[✅]--(components)
+│     │                              ├──[✅]--(Box)
+│     │                              ├──[✅]--(Header)
+│     │                              ├──[✅]--(List)
+│     │                              ├──[✅]--(Nav)
+│     │                              ├──[✅]--(Section)
+│     │                              └──[✅]--(Tabs)
+│     ├──[✅]--(HTML-CSS-mini-Solution-master)
+│     │     └──[✅]--(components)
+│     │                              ├──[✅]--(Box)
+│     │                              ├──[✅]--(Header)
+│     │                              └──[✅]--(Section)
+│     ├──[✅]--(JavaScript-I-master)
+│     │     └──[✅]--(assignments)
+│     ├──[✅]--(LS-Data-Structures-I-Solution-master)
+│     │     ├──[✅]--(src)
+│     │     └──[✅]--(tests)
+│     ├──[✅]--(LS-Data-Structures-II-Solution-master)
+│     │     ├──[✅]--(src)
+│     │     └──[✅]--(tests)
+│     ├──[✅]--(LambdaSQL-master)
+│     │     └──[✅]--(LambdaSQL-master)
+│     │                              ├──[✅]--(module1)
+│     │                              ├──[✅]--(module2)
+│     │                              ├──[✅]--(module3)
+│     │                              └──[✅]--(module4)
+│     ├──[✅]--(MDB5-STANDARD-UI-KIT-Free-3.4.0)
+│     │     ├──[✅]--(css)
+│     │     ├──[✅]--(img)
+│     │     ├──[✅]--(js)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(js)
+│     │                              │     ├──[✅]--(bootstrap)
+│     │                              │     ├──[✅]--(free)
+│     │                              │     └──[✅]--(mdb)
+│     │                              └──[✅]--(scss)
+│     │                                                ├──[✅]--(bootstrap)
+│     │                                                ├──[✅]--(bootstrap-rtl-fix)
+│     │                                                ├──[✅]--(custom)
+│     │                                                └──[✅]--(free)
+│     ├──[✅]--(Node-Express-Gmaps-Solution-Day-I-master)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(controllers)
+│     │                              └──[✅]--(models)
+│     ├──[✅]--(Node-Express-Gmaps-Solution-Day-II-master)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(controllers)
+│     │                              └──[✅]--(models)
+│     ├──[✅]--(React-Todo-Solution-master)
+│     │     ├──[✅]--(public)
+│     │     └──[✅]--(src)
+│     │                              └──[✅]--(tests)
+│     ├──[✅]--(WEB-DEV-Checklist)
+│     │     └──[✅]--(WebDeveloperChecklist_files)
+│     ├──[✅]--(_External-learning-resources)
+│     │     ├──[✅]--(00-Javascript)
+│     │     │     ├──[✅]--(-Serverless-JavaScript-by-Example)
+│     │     │     │     ├──[✅]--(Section   1)
+│     │     │     │     ├──[✅]--(Section   2)
+│     │     │     │     ├──[✅]--(Section   3)
+│     │     │     │     ├──[✅]--(Section   4)
+│     │     │     │     └──[✅]--(Section   5)
+│     │     │     ├──[✅]--(JavaScript-Essentials)
+│     │     │     │     ├──[✅]--(Section   1)
+│     │     │     │     └──[✅]--(Section   2)
+│     │     │     ├──[✅]--(JavaScript-and-jQuery)
+│     │     │     │     ├──[✅]--(Day_1)
+│     │     │     │     ├──[✅]--(Day_2)
+│     │     │     │     ├──[✅]--(Day_3)
+│     │     │     │     ├──[✅]--(Day_4)
+│     │     │     │     ├──[✅]--(Day_5)
+│     │     │     │     ├──[✅]--(Day_6)
+│     │     │     │     └──[✅]--(Day_7)
+│     │     │     ├──[✅]--(JavaScript-useful-methods)
+│     │     │     │     └──[✅]--(JS)
+│     │     │     ├──[✅]--(Node.js_Design_Patterns)
+│     │     │     │     ├──[✅]--(Chapter01)
+│     │     │     │     ├──[✅]--(Chapter02)
+│     │     │     │     ├──[✅]--(Chapter03)
+│     │     │     │     ├──[✅]--(Chapter04)
+│     │     │     │     ├──[✅]--(Chapter05)
+│     │     │     │     ├──[✅]--(Chapter06)
+│     │     │     │     ├──[✅]--(Chapter07)
+│     │     │     │     ├──[✅]--(Chapter08)
+│     │     │     │     ├──[✅]--(Chapter09)
+│     │     │     │     ├──[✅]--(Chapter10)
+│     │     │     │     └──[✅]--(Chapter11)
+│     │     │     └──[✅]--(Object-oriented-programming-for-JavaScript)
+│     │     │                              ├──[✅]--(Module   1)
+│     │     │                              └──[✅]--(Module   2)
+│     │     └──[✅]--(01-Typescript)
+│     │                              ├──[✅]--(Learning-Typescript-2)
+│     │                              │     ├──[✅]--(Chapter02)
+│     │                              │     ├──[✅]--(Chapter03)
+│     │                              │     ├──[✅]--(Chapter07)
+│     │                              │     ├──[✅]--(Chapter09)
+│     │                              │     └──[✅]--(Chapter10)
+│     │                              ├──[✅]--(LearningTypeScript)
+│     │                              │     ├──[✅]--(chapters)
+│     │                              │     ├──[✅]--(media)
+│     │                              │     └──[✅]--(test)
+│     │                              └──[✅]--(learn-typescript-3)
+│     │                                                ├──[✅]--(01-getting-started)
+│     │                                                ├──[✅]--(02-type-system-introduction)
+│     │                                                ├──[✅]--(03-javascript-features)
+│     │                                                ├──[✅]--(04-project)
+│     │                                                ├──[✅]--(05-diving-deeper)
+│     │                                                ├──[✅]--(06-integration)
+│     │                                                ├──[✅]--(lib)
+│     │                                                └──[✅]--(solutions)
+│     ├──[✅]--(_GENERAL-RESOURCES)
+│     │     ├──[✅]--(code-camp)
+│     │     │     ├──[✅]--(01-responsive-web-design)
+│     │     │     │     ├──[✅]--(applied-accessibility)
+│     │     │     │     ├──[✅]--(applied-visual-design)
+│     │     │     │     ├──[✅]--(basic-css)
+│     │     │     │     ├──[✅]--(basic-css-cafe-menu)
+│     │     │     │     ├──[✅]--(basic-html-and-html5)
+│     │     │     │     ├──[✅]--(basic-html-cat-photo-app)
+│     │     │     │     ├──[✅]--(css-flexbox)
+│     │     │     │     ├──[✅]--(css-grid)
+│     │     │     │     ├──[✅]--(css-variables-skyline)
+│     │     │     │     ├──[✅]--(responsive-web-design-principles)
+│     │     │     │     └──[✅]--(responsive-web-design-projects)
+│     │     │     ├──[✅]--(02-javascript-algorithms-and-data-structures)
+│     │     │     │     ├──[✅]--(basic-algorithm-scripting)
+│     │     │     │     ├──[✅]--(basic-data-structures)
+│     │     │     │     ├──[✅]--(basic-javascript)
+│     │     │     │     ├──[✅]--(basic-javascript-rpg-game)
+│     │     │     │     ├──[✅]--(debugging)
+│     │     │     │     ├──[✅]--(es6)
+│     │     │     │     ├──[✅]--(functional-programming)
+│     │     │     │     ├──[✅]--(functional-programming-spreadsheet)
+│     │     │     │     ├──[✅]--(intermediate-algorithm-scripting)
+│     │     │     │     ├──[✅]--(intermediate-javascript-calorie-counter)
+│     │     │     │     ├──[✅]--(javascript-algorithms-and-data-structures-projects)
+│     │     │     │     ├──[✅]--(object-oriented-programming)
+│     │     │     │     └──[✅]--(regular-expressions)
+│     │     │     ├──[✅]--(03-front-end-libraries)
+│     │     │     │     ├──[✅]--(bootstrap)
+│     │     │     │     ├──[✅]--(front-end-libraries-projects)
+│     │     │     │     ├──[✅]--(jquery)
+│     │     │     │     ├──[✅]--(react)
+│     │     │     │     ├──[✅]--(react-and-redux)
+│     │     │     │     ├──[✅]--(redux)
+│     │     │     │     └──[✅]--(sass)
+│     │     │     ├──[✅]--(04-data-visualization)
+│     │     │     │     ├──[✅]--(d3-dashboard)
+│     │     │     │     ├──[✅]--(data-visualization-projects)
+│     │     │     │     ├──[✅]--(data-visualization-with-d3)
+│     │     │     │     └──[✅]--(json-apis-and-ajax)
+│     │     │     ├──[✅]--(05-apis-and-microservices)
+│     │     │     │     ├──[✅]--(apis-and-microservices-projects)
+│     │     │     │     ├──[✅]--(basic-node-and-express)
+│     │     │     │     ├──[✅]--(managing-packages-with-npm)
+│     │     │     │     └──[✅]--(mongodb-and-mongoose)
+│     │     │     ├──[✅]--(06-quality-assurance)
+│     │     │     │     ├──[✅]--(advanced-node-and-express)
+│     │     │     │     ├──[✅]--(quality-assurance-and-testing-with-chai)
+│     │     │     │     └──[✅]--(quality-assurance-projects)
+│     │     │     ├──[✅]--(07-scientific-computing-with-python)
+│     │     │     │     ├──[✅]--(python-for-everybody)
+│     │     │     │     └──[✅]--(scientific-computing-with-python-projects)
+│     │     │     ├──[✅]--(08-data-analysis-with-python)
+│     │     │     │     ├──[✅]--(data-analysis-with-python-course)
+│     │     │     │     ├──[✅]--(data-analysis-with-python-projects)
+│     │     │     │     └──[✅]--(numpy)
+│     │     │     ├──[✅]--(09-information-security)
+│     │     │     │     ├──[✅]--(information-security-projects)
+│     │     │     │     ├──[✅]--(information-security-with-helmetjs)
+│     │     │     │     └──[✅]--(python-for-penetration-testing)
+│     │     │     ├──[✅]--(10-coding-interview-prep)
+│     │     │     │     ├──[✅]--(algorithms)
+│     │     │     │     ├──[✅]--(data-structures)
+│     │     │     │     ├──[✅]--(project-euler)
+│     │     │     │     ├──[✅]--(rosetta-code)
+│     │     │     │     └──[✅]--(take-home-projects)
+│     │     │     ├──[✅]--(11-mac✅ne-learning-with-python)
+│     │     │     │     ├──[✅]--(how-neural-networks-work)
+│     │     │     │     ├──[✅]--(mac✅ne-learning-with-python-projects)
+│     │     │     │     └──[✅]--(tensorflow)
+│     │     │     └──[✅]--(12-certificates)
+│     │     │                              ├──[✅]--(apis-and-microservices-certificate)
+│     │     │                              ├──[✅]--(data-analysis-with-python-certificate)
+│     │     │                              ├──[✅]--(data-visualization-certificate)
+│     │     │                              ├──[✅]--(front-end-libraries-certificate)
+│     │     │                              ├──[✅]--(information-security-certificate)
+│     │     │                              ├──[✅]--(javascript-algorithms-and-data-structures-certificate)
+│     │     │                              ├──[✅]--(legacy-back-end-certificate)
+│     │     │                              ├──[✅]--(legacy-data-visualization-certificate)
+│     │     │                              ├──[✅]--(legacy-front-end-certificate)
+│     │     │                              ├──[✅]--(legacy-full-stack-certificate)
+│     │     │                              ├──[✅]--(legacy-information-security-and-quality-assurance-certificate)
+│     │     │                              ├──[✅]--(mac✅ne-learning-with-python-certificate)
+│     │     │                              ├──[✅]--(quality-assurance-certificate)
+│     │     │                              ├──[✅]--(responsive-web-design-certificate)
+│     │     │                              └──[✅]--(scientific-computing-with-python-certificate)
+│     │     └──[✅]--(w3c-standard-forHTML)
+│     │                              ├──[✅]--(html5appsproject.files.wordpress.com)
+│     │                              │     └──[✅]--(2014)
+│     │                              ├──[✅]--(open-stand.org)
+│     │                              │     └──[✅]--(wp-content)
+│     │                              ├──[✅]--(pixel.wp.com)
+│     │                              ├──[✅]--(www.developereconomics.com)
+│     │                              │     └──[✅]--(wp-content)
+│     │                              └──[✅]--(www.w3.org)
+│     │                                                ├──[✅]--(2015)
+│     │                                                ├──[✅]--(WAI)
+│     │                                                └──[✅]--(standards)
+│     ├──[✅]--(_OFFICIAL-resource-documentations)
+│     │     ├──[✅]--(docs.github.com)
+│     │     │     ├──[✅]--(assets)
+│     │     │     │     ├──[✅]--(fonts)
+│     │     │     │     └──[✅]--(images)
+│     │     │     ├──[✅]--(dist)
+│     │     │     │     └──[✅]--(fonts)
+│     │     │     ├──[✅]--(en)
+│     │     │     │     ├──[✅]--(actions)
+│     │     │     │     ├──[✅]--(code-security)
+│     │     │     │     ├──[✅]--(developers)
+│     │     │     │     ├──[✅]--(enterprise-server@2.21)
+│     │     │     │     ├──[✅]--(enterprise-server@2.22)
+│     │     │     │     ├──[✅]--(enterprise-server@3.0)
+│     │     │     │     ├──[✅]--(github)
+│     │     │     │     ├──[✅]--(github-ae@latest)
+│     │     │     │     ├──[✅]--(graphql)
+│     │     │     │     ├──[✅]--(organizations)
+│     │     │     │     ├──[✅]--(packages)
+│     │     │     │     └──[✅]--(rest)
+│     │     │     └──[✅]--(images)
+│     │     │                              ├──[✅]--(modules)
+│     │     │                              └──[✅]--(spinners)
+│     │     └──[✅]--(npm-docs)
+│     │                              ├──[✅]--(commands)
+│     │                              ├──[✅]--(configuring-npm)
+│     │                              └──[✅]--(using-npm)
+│     ├──[✅]--(_Orginization-and-lambda-procedure)
+│     ├──[✅]--(_PYTHON)
+│     │     └──[✅]--(code-examples-master)
+│     │                              ├──[✅]--(aws)
+│     │                              │     ├──[✅]--(aws-policies)
+│     │                              │     ├──[✅]--(bash)
+│     │                              │     └──[✅]--(python)
+│     │                              ├──[✅]--(concourse)
+│     │                              ├──[✅]--(elasticsearch)
+│     │                              │     └──[✅]--(python)
+│     │                              ├──[✅]--(golang)
+│     │                              │     ├──[✅]--(basics)
+│     │                              │     └──[✅]--(robotgo)
+│     │                              ├──[✅]--(mongodb)
+│     │                              │     ├──[✅]--(golang)
+│     │                              │     └──[✅]--(python)
+│     │                              ├──[✅]--(mysql)
+│     │                              │     └──[✅]--(python)
+│     │                              ├──[✅]--(python-flask)
+│     │                              │     └──[✅]--(api)
+│     │                              ├──[✅]--(ruby)
+│     │                              │     └──[✅]--(basics)
+│     │                              └──[✅]--(sqlite)
+│     │                                                └──[✅]--(python)
+│     ├──[✅]--(_Past-Projects)
+│     │     ├──[✅]--(Atomic-Design-Solution-master)
+│     │     │     └──[✅]--(dogs)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(Client-Auth-Solution-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(actions)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              └──[✅]--(reducers)
+│     │     ├──[✅]--(Components-BEM-Solution-master)
+│     │     │     ├──[✅]--(components)
+│     │     │     │     ├──[✅]--(Box)
+│     │     │     │     ├──[✅]--(Dropdown)
+│     │     │     │     └──[✅]--(Section)
+│     │     │     └──[✅]--(markups)
+│     │     ├──[✅]--(Components-Constructors-Solution-master)
+│     │     │     ├──[✅]--(components)
+│     │     │     │     ├──[✅]--(Box)
+│     │     │     │     ├──[✅]--(Dropdown)
+│     │     │     │     ├──[✅]--(Section)
+│     │     │     │     └──[✅]--(Tabs)
+│     │     │     └──[✅]--(markups)
+│     │     ├──[✅]--(DOM-II-master)
+│     │     ├──[✅]--(DOM-JavaScript-mini-Solution-master)
+│     │     │     └──[✅]--(components)
+│     │     │                              ├──[✅]--(Box)
+│     │     │                              ├──[✅]--(Header)
+│     │     │                              ├──[✅]--(List)
+│     │     │                              ├──[✅]--(Nav)
+│     │     │                              ├──[✅]--(Section)
+│     │     │                              └──[✅]--(Tabs)
+│     │     ├──[✅]--(Data-Structures-Notes-master)
+│     │     │     ├──[✅]--(BST_and_Heaps)
+│     │     │     ├──[✅]--(Doubly_Linked_List)
+│     │     │     ├──[✅]--(Interview_Problems)
+│     │     │     └──[✅]--(Linked_Lists)
+│     │     ├──[✅]--(Data-Structures-and-Algorithms-master)
+│     │     │     ├──[✅]--(assets)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(algorithms)
+│     │     │                              ├──[✅]--(analysis-of-algorithms)
+│     │     │                              └──[✅]--(data-structures)
+│     │     ├──[✅]--(Data-Structures-master)
+│     │     │     ├──[✅]--(avl_tree)
+│     │     │     ├──[✅]--(binary_search_tree)
+│     │     │     ├──[✅]--(doubly_linked_list)
+│     │     │     ├──[✅]--(heap)
+│     │     │     ├──[✅]--(javascript)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(lru_cache)
+│     │     │     ├──[✅]--(python)
+│     │     │     │     ├──[✅]--(binary_search_tree)
+│     │     │     │     ├──[✅]--(doubly_linked_list)
+│     │     │     │     ├──[✅]--(heap)
+│     │     │     │     ├──[✅]--(linked_list)
+│     │     │     │     └──[✅]--(queue)
+│     │     │     └──[✅]--(queue)
+│     │     ├──[✅]--(Graphs-Notes-master)
+│     │     │     ├──[✅]--(img)
+│     │     │     ├──[✅]--(lecture1)
+│     │     │     ├──[✅]--(lecture2)
+│     │     │     ├──[✅]--(lecture3)
+│     │     │     └──[✅]--(lecture4)
+│     │     ├──[✅]--(Graphs-master)
+│     │     │     ├──[✅]--(javascript)
+│     │     │     │     ├──[✅]--(guided-demo)
+│     │     │     │     ├──[✅]--(objectives)
+│     │     │     │     └──[✅]--(projects)
+│     │     │     ├──[✅]--(objectives)
+│     │     │     │     ├──[✅]--(breadth-first-search)
+│     │     │     │     ├──[✅]--(connected-components)
+│     │     │     │     ├──[✅]--(depth-first-search)
+│     │     │     │     ├──[✅]--(graph-intro)
+│     │     │     │     ├──[✅]--(graph-representations)
+│     │     │     │     └──[✅]--(randomness)
+│     │     │     ├──[✅]--(projects)
+│     │     │     │     ├──[✅]--(adventure)
+│     │     │     │     ├──[✅]--(ancestor)
+│     │     │     │     ├──[✅]--(graph)
+│     │     │     │     └──[✅]--(social)
+│     │     │     └──[✅]--(python)
+│     │     │                              ├──[✅]--(guided-demo)
+│     │     │                              └──[✅]--(projects)
+│     │     ├──[✅]--(HTML-CSS-mini-Solution-master)
+│     │     │     └──[✅]--(components)
+│     │     │                              ├──[✅]--(Box)
+│     │     │                              ├──[✅]--(Header)
+│     │     │                              └──[✅]--(Section)
+│     │     ├──[✅]--(HTTP-AJAX-II-master)
+│     │     │     ├──[✅]--(app)
+│     │     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(server)
+│     │     ├──[✅]--(HTTP-AJAX-master)
+│     │     │     └──[✅]--(friends)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(Hash-Tables-Notes-master)
+│     │     ├──[✅]--(Intro-Python-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(day-1-toy)
+│     │     │                              ├──[✅]--(days-2-4-adv)
+│     │     │                              ├──[✅]--(mini-challenge)
+│     │     │                              └──[✅]--(python-example)
+│     │     ├──[✅]--(Intro-to-C-master)
+│     │     │     ├──[✅]--(first)
+│     │     │     ├──[✅]--(fizzbuzz)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(hangman)
+│     │     │     ├──[✅]--(malloc)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(pointers)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(queue)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(quicksort)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(strings)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(structs)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     └──[✅]--(utils)
+│     │     ├──[✅]--(JavaScript-I-Guided-master)
+│     │     ├──[✅]--(LS-Data-Structures-I-Solution-master)
+│     │     │     ├──[✅]--(src)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(LS-Data-Structures-II-Solution-master)
+│     │     │     ├──[✅]--(src)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(Lambda-School-Instruction-Notes-master)
+│     │     │     ├──[✅]--(10.   Data   Persistence   in   Web   APIs)
+│     │     │     │     └──[✅]--(assets)
+│     │     │     ├──[✅]--(11.   Authentication)
+│     │     │     └──[✅]--(12.   Testing)
+│     │     ├──[✅]--(Lambda-School-master)
+│     │     │     ├──[✅]--(Week   1)
+│     │     │     │     ├──[✅]--(Sprint-Challenge   User-Interface)
+│     │     │     │     ├──[✅]--(User   Interface   I         Project   2   -   Sweet   Eats   Bakery)
+│     │     │     │     ├──[✅]--(User   Interface   I   HTML   Markup)
+│     │     │     │     ├──[✅]--(User   Interface   III   Services   Page)
+│     │     │     │     └──[✅]--(User-Interface   II   Innovation)
+│     │     │     ├──[✅]--(Week   10)
+│     │     │     │     ├──[✅]--(Car-Sales)
+│     │     │     │     ├──[✅]--(React-Redux-App)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-State-Management-Smurfs)
+│     │     │     │     ├──[✅]--(react-shopping-cart)
+│     │     │     │     └──[✅]--(reducer-todo)
+│     │     │     ├──[✅]--(Week   11)
+│     │     │     │     ├──[✅]--(Auth-Friends)
+│     │     │     │     ├──[✅]--(HTTP-Movies-Assignment)
+│     │     │     │     ├──[✅]--(react-bubbles)
+│     │     │     │     └──[✅]--(webtesting-iii-challenge)
+│     │     │     ├──[✅]--(Week   12   -   FoodieFun)
+│     │     │     ├──[✅]--(Week   13)
+│     │     │     │     ├──[✅]--(node-api1-project)
+│     │     │     │     ├──[✅]--(webapi-challenge-sprint)
+│     │     │     │     ├──[✅]--(webapi-ii-challenge)
+│     │     │     │     └──[✅]--(webapi-iii-challenge)
+│     │     │     ├──[✅]--(Week   14)
+│     │     │     │     ├──[✅]--(node-db-challenge-sprint)
+│     │     │     │     ├──[✅]--(node-db3-challenge)
+│     │     │     │     ├──[✅]--(node-db4)
+│     │     │     │     ├──[✅]--(webdb-i-challenge)
+│     │     │     │     └──[✅]--(webdb-ii-challenge)
+│     │     │     ├──[✅]--(Week   15)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-Authentication)
+│     │     │     │     ├──[✅]--(node-server-testing-challenge)
+│     │     │     │     ├──[✅]--(webauth-i-challenge)
+│     │     │     │     └──[✅]--(webauth-iii-challenge)
+│     │     │     ├──[✅]--(Week   16   -   Mentor   Me)
+│     │     │     ├──[✅]--(Week   17   -   25   Future   Hope)
+│     │     │     ├──[✅]--(Week   2)
+│     │     │     │     ├──[✅]--(Digital   Resume)
+│     │     │     │     ├──[✅]--(Fun   Bus)
+│     │     │     │     ├──[✅]--(Portfolio)
+│     │     │     │     ├──[✅]--(Resposnive-Web-Design)
+│     │     │     │     └──[✅]--(Sprint   Challenge)
+│     │     │     ├──[✅]--(Week   3)
+│     │     │     │     ├──[✅]--(JavaScript-I)
+│     │     │     │     ├──[✅]--(JavaScript-II)
+│     │     │     │     ├──[✅]--(JavaScript-III)
+│     │     │     │     ├──[✅]--(JavaScript-IV)
+│     │     │     │     └──[✅]--(Sprint-Challenge)
+│     │     │     ├──[✅]--(Week   4   -   Local   Voter   Guide)
+│     │     │     │     ├──[✅]--(css)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(less)
+│     │     │     ├──[✅]--(Week   5)
+│     │     │     │     ├──[✅]--(DOM-I)
+│     │     │     │     ├──[✅]--(DOM-II)
+│     │     │     │     ├──[✅]--(Newsfeed-Components)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-Applied-Javascript)
+│     │     │     │     └──[✅]--(github-usercard)
+│     │     │     ├──[✅]--(Week   6)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-React-Wars)
+│     │     │     │     ├──[✅]--(lambda-calculator)
+│     │     │     │     ├──[✅]--(nasa-photo-of-the-day)
+│     │     │     │     └──[✅]--(react-american-football-scoreboard)
+│     │     │     ├──[✅]--(Week   7)
+│     │     │     │     ├──[✅]--(React-Router-Basic-Nav)
+│     │     │     │     ├──[✅]--(React-Router-Movies)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-Single-Page-Apps)
+│     │     │     │     ├──[✅]--(User-Onboarding)
+│     │     │     │     └──[✅]--(team-builder)
+│     │     │     ├──[✅]--(Week   8   -   Water   My   Plants)
+│     │     │     └──[✅]--(Week   9)
+│     │     │                              ├──[✅]--(Github-User-Card)
+│     │     │                              ├──[✅]--(React-Todo)
+│     │     │                              ├──[✅]--(Sprint-Challenge-Advanced-React)
+│     │     │                              └──[✅]--(dark-mode)
+│     │     ├──[✅]--(LambdaSchool-master)
+│     │     │     ├──[✅]--(31d1)
+│     │     │     ├──[✅]--(Administration)
+│     │     │     │     ├──[✅]--(Tech   Skills   Day   badges)
+│     │     │     │     ├──[✅]--(__MACOSX)
+│     │     │     │     ├──[✅]--(certs)
+│     │     │     │     ├──[✅]--(marketing)
+│     │     │     │     ├──[✅]--(studying)
+│     │     │     │     └──[✅]--(zoom)
+│     │     │     ├──[✅]--(Front-End-master)
+│     │     │     │     ├──[✅]--(Front-End-master)
+│     │     │     │     └──[✅]--(client)
+│     │     │     ├──[✅]--(JavaScript30)
+│     │     │     │     ├──[✅]--(01)
+│     │     │     │     ├──[✅]--(02)
+│     │     │     │     ├──[✅]--(03)
+│     │     │     │     ├──[✅]--(04)
+│     │     │     │     ├──[✅]--(05)
+│     │     │     │     ├──[✅]--(06)
+│     │     │     │     ├──[✅]--(07)
+│     │     │     │     ├──[✅]--(08)
+│     │     │     │     ├──[✅]--(09)
+│     │     │     │     ├──[✅]--(10)
+│     │     │     │     ├──[✅]--(11)
+│     │     │     │     ├──[✅]--(12)
+│     │     │     │     ├──[✅]--(13)
+│     │     │     │     ├──[✅]--(14)
+│     │     │     │     ├──[✅]--(15)
+│     │     │     │     ├──[✅]--(16)
+│     │     │     │     ├──[✅]--(17)
+│     │     │     │     ├──[✅]--(18)
+│     │     │     │     ├──[✅]--(19)
+│     │     │     │     ├──[✅]--(20)
+│     │     │     │     ├──[✅]--(21)
+│     │     │     │     ├──[✅]--(22)
+│     │     │     │     ├──[✅]--(23)
+│     │     │     │     ├──[✅]--(24)
+│     │     │     │     ├──[✅]--(25)
+│     │     │     │     ├──[✅]--(26)
+│     │     │     │     ├──[✅]--(27)
+│     │     │     │     ├──[✅]--(28)
+│     │     │     │     ├──[✅]--(29)
+│     │     │     │     ├──[✅]--(30)
+│     │     │     │     └──[✅]--(JavaScript30-master)
+│     │     │     ├──[✅]--(aa-score)
+│     │     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(src)
+│     │     │     ├──[✅]--(bw1-tl)
+│     │     │     │     ├──[✅]--(BackEnd-master)
+│     │     │     │     ├──[✅]--(admin)
+│     │     │     │     ├──[✅]--(api)
+│     │     │     │     ├──[✅]--(auth)
+│     │     │     │     ├──[✅]--(database)
+│     │     │     │     ├──[✅]--(middleware)
+│     │     │     │     ├──[✅]--(todos)
+│     │     │     │     └──[✅]--(volunteer)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(evoingram.github.io)
+│     │     │     ├──[✅]--(labs)
+│     │     │     │     ├──[✅]--(backend)
+│     │     │     │     ├──[✅]--(frontend)
+│     │     │     │     ├──[✅]--(last   journal   entry)
+│     │     │     │     └──[✅]--(video-to-next-group)
+│     │     │     ├──[✅]--(m1)
+│     │     │     │     ├──[✅]--(11b1)
+│     │     │     │     ├──[✅]--(11c1)
+│     │     │     │     ├──[✅]--(11d1)
+│     │     │     │     ├──[✅]--(12a1)
+│     │     │     │     ├──[✅]--(12b1)
+│     │     │     │     ├──[✅]--(12c1)
+│     │     │     │     ├──[✅]--(12d1)
+│     │     │     │     ├──[✅]--(13a1)
+│     │     │     │     ├──[✅]--(13b1)
+│     │     │     │     ├──[✅]--(13c1)
+│     │     │     │     ├──[✅]--(13d1)
+│     │     │     │     ├──[✅]--(13e1)
+│     │     │     │     ├──[✅]--(14a1)
+│     │     │     │     ├──[✅]--(SC-ACSS)
+│     │     │     │     └──[✅]--(Sprint-Challenge--Advanced-CSS)
+│     │     │     ├──[✅]--(m2)
+│     │     │     │     ├──[✅]--(21a1)
+│     │     │     │     ├──[✅]--(21b1)
+│     │     │     │     ├──[✅]--(21c1)
+│     │     │     │     ├──[✅]--(21d1)
+│     │     │     │     ├──[✅]--(21e1)
+│     │     │     │     ├──[✅]--(22a1)
+│     │     │     │     ├──[✅]--(22b1)
+│     │     │     │     ├──[✅]--(22c1)
+│     │     │     │     ├──[✅]--(22e1)
+│     │     │     │     ├──[✅]--(23a1)
+│     │     │     │     ├──[✅]--(23a2)
+│     │     │     │     ├──[✅]--(23b1)
+│     │     │     │     ├──[✅]--(23c1)
+│     │     │     │     ├──[✅]--(23d1)
+│     │     │     │     ├──[✅]--(23d2)
+│     │     │     │     ├──[✅]--(23e1)
+│     │     │     │     └──[✅]--(24a1)
+│     │     │     ├──[✅]--(m3)
+│     │     │     │     ├──[✅]--(31a1)
+│     │     │     │     ├──[✅]--(31a2)
+│     │     │     │     ├──[✅]--(31b1)
+│     │     │     │     ├──[✅]--(31c1)
+│     │     │     │     ├──[✅]--(31d1)
+│     │     │     │     ├──[✅]--(31e1)
+│     │     │     │     ├──[✅]--(32a1)
+│     │     │     │     ├──[✅]--(32b1)
+│     │     │     │     ├──[✅]--(32c1)
+│     │     │     │     ├──[✅]--(32d1)
+│     │     │     │     ├──[✅]--(32e1)
+│     │     │     │     ├──[✅]--(33a1)
+│     │     │     │     ├──[✅]--(33b1)
+│     │     │     │     ├──[✅]--(33d1)
+│     │     │     │     └──[✅]--(33e1)
+│     │     │     ├──[✅]--(m4)
+│     │     │     │     ├──[✅]--(41a1)
+│     │     │     │     ├──[✅]--(41a2)
+│     │     │     │     ├──[✅]--(41b1)
+│     │     │     │     ├──[✅]--(41b2)
+│     │     │     │     ├──[✅]--(41c1)
+│     │     │     │     ├──[✅]--(41c2)
+│     │     │     │     ├──[✅]--(41d1)
+│     │     │     │     ├──[✅]--(41e1)
+│     │     │     │     ├──[✅]--(41e1app)
+│     │     │     │     ├──[✅]--(42a1)
+│     │     │     │     ├──[✅]--(42a2)
+│     │     │     │     ├──[✅]--(42b1)
+│     │     │     │     ├──[✅]--(42b2)
+│     │     │     │     ├──[✅]--(42c1)
+│     │     │     │     ├──[✅]--(42c2)
+│     │     │     │     ├──[✅]--(42d1)
+│     │     │     │     ├──[✅]--(42d2)
+│     │     │     │     ├──[✅]--(42e1)
+│     │     │     │     ├──[✅]--(43a1)
+│     │     │     │     ├──[✅]--(43a2)
+│     │     │     │     ├──[✅]--(43b1)
+│     │     │     │     ├──[✅]--(43b2)
+│     │     │     │     ├──[✅]--(43c1)
+│     │     │     │     ├──[✅]--(43c2)
+│     │     │     │     ├──[✅]--(43d1)
+│     │     │     │     ├──[✅]--(43d1a)
+│     │     │     │     ├──[✅]--(43d2)
+│     │     │     │     └──[✅]--(43e1)
+│     │     │     ├──[✅]--(m5)
+│     │     │     │     ├──[✅]--(51a1)
+│     │     │     │     ├──[✅]--(51b1)
+│     │     │     │     ├──[✅]--(51c1)
+│     │     │     │     ├──[✅]--(51d1)
+│     │     │     │     ├──[✅]--(51d2)
+│     │     │     │     ├──[✅]--(51e1)
+│     │     │     │     ├──[✅]--(52b1)
+│     │     │     │     ├──[✅]--(52c1)
+│     │     │     │     ├──[✅]--(52c2)
+│     │     │     │     ├──[✅]--(52d1)
+│     │     │     │     ├──[✅]--(53a1)
+│     │     │     │     ├──[✅]--(53b1)
+│     │     │     │     ├──[✅]--(53c1)
+│     │     │     │     └──[✅]--(53d1)
+│     │     │     ├──[✅]--(m6)
+│     │     │     │     ├──[✅]--(61a1)
+│     │     │     │     ├──[✅]--(61b1)
+│     │     │     │     ├──[✅]--(61c1)
+│     │     │     │     ├──[✅]--(62a1)
+│     │     │     │     ├──[✅]--(62b1)
+│     │     │     │     ├──[✅]--(63a1)
+│     │     │     │     ├──[✅]--(63b1)
+│     │     │     │     ├──[✅]--(63c1)
+│     │     │     │     └──[✅]--(63d1)
+│     │     │     ├──[✅]--(m7)
+│     │     │     │     ├──[✅]--(71a1)
+│     │     │     │     ├──[✅]--(71e1)
+│     │     │     │     ├──[✅]--(72a1)
+│     │     │     │     ├──[✅]--(73a1)
+│     │     │     │     └──[✅]--(74a1)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(iterative_sorting)
+│     │     │     │     └──[✅]--(searc✅ng)
+│     │     │     ├──[✅]--(summary)
+│     │     │     │     ├──[✅]--(Node   Express   Knex)
+│     │     │     │     ├──[✅]--(certifications)
+│     │     │     │     ├──[✅]--(cobol)
+│     │     │     │     ├──[✅]--(complete)
+│     │     │     │     ├──[✅]--(general)
+│     │     │     │     ├──[✅]--(interviewing)
+│     │     │     │     ├──[✅]--(testing)
+│     │     │     │     └──[✅]--(typescript)
+│     │     │     └──[✅]--(tlbw)
+│     │     │                              └──[✅]--(client)
+│     │     ├──[✅]--(Mongo-I-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(controllers)
+│     │     │                              ├──[✅]--(models)
+│     │     │                              └──[✅]--(routes)
+│     │     ├──[✅]--(Node-Blog-master)
+│     │     │     ├──[✅]--(api)
+│     │     │     │     ├──[✅]--(post)
+│     │     │     │     ├──[✅]--(tag)
+│     │     │     │     └──[✅]--(user)
+│     │     │     ├──[✅]--(config)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(helpers)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(routers)
+│     │     ├──[✅]--(Node-Express-Gmaps-Solution-Day-I-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(controllers)
+│     │     │                              └──[✅]--(models)
+│     │     ├──[✅]--(Node-Express-Gmaps-Solution-Day-II-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(controllers)
+│     │     │                              └──[✅]--(models)
+│     │     ├──[✅]--(Precourse-master)
+│     │     │     ├──[✅]--(Lesson1-Git)
+│     │     │     ├──[✅]--(Lesson10-JS-VII)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson11-JS-VIII)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson12-DOM)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson2-HTML-CSS)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson3-CSS-Positioning)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson4-JS-I)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson5-JS-II)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson6-JS-III)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson7-JS-IV)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson8-JS-V)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     └──[✅]--(Lesson9-JS-VI)
+│     │     │                              └──[✅]--(homework)
+│     │     ├──[✅]--(Python-II-Notes-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(__pycache__)
+│     │     ├──[✅]--(Python-master)
+│     │     │     ├──[✅]--(arithmetic_analysis)
+│     │     │     │     └──[✅]--(image_data)
+│     │     │     ├──[✅]--(backtracking)
+│     │     │     ├──[✅]--(bit_manipulation)
+│     │     │     ├──[✅]--(blockchain)
+│     │     │     ├──[✅]--(boolean_algebra)
+│     │     │     ├──[✅]--(cellular_automata)
+│     │     │     ├──[✅]--(ciphers)
+│     │     │     ├──[✅]--(compression)
+│     │     │     │     └──[✅]--(image_data)
+│     │     │     ├──[✅]--(computer_vision)
+│     │     │     ├──[✅]--(conversions)
+│     │     │     ├──[✅]--(data_structures)
+│     │     │     │     ├──[✅]--(binary_tree)
+│     │     │     │     ├──[✅]--(disjoint_set)
+│     │     │     │     ├──[✅]--(has✅ng)
+│     │     │     │     ├──[✅]--(heap)
+│     │     │     │     ├──[✅]--(linked_list)
+│     │     │     │     ├──[✅]--(queue)
+│     │     │     │     ├──[✅]--(stacks)
+│     │     │     │     └──[✅]--(trie)
+│     │     │     ├──[✅]--(digital_image_processing)
+│     │     │     │     ├──[✅]--(dithering)
+│     │     │     │     ├──[✅]--(edge_detection)
+│     │     │     │     ├──[✅]--(filters)
+│     │     │     │     ├──[✅]--(✅stogram_equalization)
+│     │     │     │     ├──[✅]--(image_data)
+│     │     │     │     ├──[✅]--(resize)
+│     │     │     │     └──[✅]--(rotation)
+│     │     │     ├──[✅]--(divide_and_conquer)
+│     │     │     ├──[✅]--(dynamic_programming)
+│     │     │     ├──[✅]--(electronics)
+│     │     │     ├──[✅]--(file_transfer)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(fuzzy_logic)
+│     │     │     ├──[✅]--(genetic_algorithm)
+│     │     │     ├──[✅]--(geodesy)
+│     │     │     ├──[✅]--(grap✅cs)
+│     │     │     ├──[✅]--(graphs)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(hashes)
+│     │     │     ├──[✅]--(knapsack)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(linear_algebra)
+│     │     │     │     └──[✅]--(src)
+│     │     │     ├──[✅]--(mac✅ne_learning)
+│     │     │     │     ├──[✅]--(forecasting)
+│     │     │     │     └──[✅]--(lstm)
+│     │     │     ├──[✅]--(maths)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(series)
+│     │     │     ├──[✅]--(matrix)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(networking_flow)
+│     │     │     ├──[✅]--(neural_network)
+│     │     │     ├──[✅]--(other)
+│     │     │     ├──[✅]--(project_euler)
+│     │     │     │     ├──[✅]--(problem_001)
+│     │     │     │     ├──[✅]--(problem_002)
+│     │     │     │     ├──[✅]--(problem_003)
+│     │     │     │     ├──[✅]--(problem_004)
+│     │     │     │     ├──[✅]--(problem_005)
+│     │     │     │     ├──[✅]--(problem_006)
+│     │     │     │     ├──[✅]--(problem_007)
+│     │     │     │     ├──[✅]--(problem_008)
+│     │     │     │     ├──[✅]--(problem_009)
+│     │     │     │     ├──[✅]--(problem_010)
+│     │     │     │     ├──[✅]--(problem_011)
+│     │     │     │     ├──[✅]--(problem_012)
+│     │     │     │     ├──[✅]--(problem_013)
+│     │     │     │     ├──[✅]--(problem_014)
+│     │     │     │     ├──[✅]--(problem_015)
+│     │     │     │     ├──[✅]--(problem_016)
+│     │     │     │     ├──[✅]--(problem_017)
+│     │     │     │     ├──[✅]--(problem_018)
+│     │     │     │     ├──[✅]--(problem_019)
+│     │     │     │     ├──[✅]--(problem_020)
+│     │     │     │     ├──[✅]--(problem_021)
+│     │     │     │     ├──[✅]--(problem_022)
+│     │     │     │     ├──[✅]--(problem_023)
+│     │     │     │     ├──[✅]--(problem_024)
+│     │     │     │     ├──[✅]--(problem_025)
+│     │     │     │     ├──[✅]--(problem_026)
+│     │     │     │     ├──[✅]--(problem_027)
+│     │     │     │     ├──[✅]--(problem_028)
+│     │     │     │     ├──[✅]--(problem_029)
+│     │     │     │     ├──[✅]--(problem_030)
+│     │     │     │     ├──[✅]--(problem_031)
+│     │     │     │     ├──[✅]--(problem_032)
+│     │     │     │     ├──[✅]--(problem_033)
+│     │     │     │     ├──[✅]--(problem_034)
+│     │     │     │     ├──[✅]--(problem_035)
+│     │     │     │     ├──[✅]--(problem_036)
+│     │     │     │     ├──[✅]--(problem_037)
+│     │     │     │     ├──[✅]--(problem_038)
+│     │     │     │     ├──[✅]--(problem_039)
+│     │     │     │     ├──[✅]--(problem_040)
+│     │     │     │     ├──[✅]--(problem_041)
+│     │     │     │     ├──[✅]--(problem_042)
+│     │     │     │     ├──[✅]--(problem_043)
+│     │     │     │     ├──[✅]--(problem_044)
+│     │     │     │     ├──[✅]--(problem_045)
+│     │     │     │     ├──[✅]--(problem_046)
+│     │     │     │     ├──[✅]--(problem_047)
+│     │     │     │     ├──[✅]--(problem_048)
+│     │     │     │     ├──[✅]--(problem_049)
+│     │     │     │     ├──[✅]--(problem_050)
+│     │     │     │     ├──[✅]--(problem_051)
+│     │     │     │     ├──[✅]--(problem_052)
+│     │     │     │     ├──[✅]--(problem_053)
+│     │     │     │     ├──[✅]--(problem_054)
+│     │     │     │     ├──[✅]--(problem_055)
+│     │     │     │     ├──[✅]--(problem_056)
+│     │     │     │     ├──[✅]--(problem_057)
+│     │     │     │     ├──[✅]--(problem_058)
+│     │     │     │     ├──[✅]--(problem_059)
+│     │     │     │     ├──[✅]--(problem_062)
+│     │     │     │     ├──[✅]--(problem_063)
+│     │     │     │     ├──[✅]--(problem_064)
+│     │     │     │     ├──[✅]--(problem_065)
+│     │     │     │     ├──[✅]--(problem_067)
+│     │     │     │     ├──[✅]--(problem_069)
+│     │     │     │     ├──[✅]--(problem_070)
+│     │     │     │     ├──[✅]--(problem_071)
+│     │     │     │     ├──[✅]--(problem_072)
+│     │     │     │     ├──[✅]--(problem_074)
+│     │     │     │     ├──[✅]--(problem_075)
+│     │     │     │     ├──[✅]--(problem_076)
+│     │     │     │     ├──[✅]--(problem_077)
+│     │     │     │     ├──[✅]--(problem_080)
+│     │     │     │     ├──[✅]--(problem_081)
+│     │     │     │     ├──[✅]--(problem_085)
+│     │     │     │     ├──[✅]--(problem_086)
+│     │     │     │     ├──[✅]--(problem_087)
+│     │     │     │     ├──[✅]--(problem_089)
+│     │     │     │     ├──[✅]--(problem_091)
+│     │     │     │     ├──[✅]--(problem_097)
+│     │     │     │     ├──[✅]--(problem_099)
+│     │     │     │     ├──[✅]--(problem_101)
+│     │     │     │     ├──[✅]--(problem_102)
+│     │     │     │     ├──[✅]--(problem_107)
+│     │     │     │     ├──[✅]--(problem_112)
+│     │     │     │     ├──[✅]--(problem_113)
+│     │     │     │     ├──[✅]--(problem_119)
+│     │     │     │     ├──[✅]--(problem_120)
+│     │     │     │     ├──[✅]--(problem_123)
+│     │     │     │     ├──[✅]--(problem_125)
+│     │     │     │     ├──[✅]--(problem_129)
+│     │     │     │     ├──[✅]--(problem_135)
+│     │     │     │     ├──[✅]--(problem_173)
+│     │     │     │     ├──[✅]--(problem_174)
+│     │     │     │     ├──[✅]--(problem_180)
+│     │     │     │     ├──[✅]--(problem_188)
+│     │     │     │     ├──[✅]--(problem_191)
+│     │     │     │     ├──[✅]--(problem_203)
+│     │     │     │     ├──[✅]--(problem_206)
+│     │     │     │     ├──[✅]--(problem_207)
+│     │     │     │     ├──[✅]--(problem_234)
+│     │     │     │     ├──[✅]--(problem_301)
+│     │     │     │     └──[✅]--(problem_551)
+│     │     │     ├──[✅]--(quantum)
+│     │     │     ├──[✅]--(scheduling)
+│     │     │     ├──[✅]--(scripts)
+│     │     │     ├──[✅]--(searches)
+│     │     │     ├──[✅]--(sorts)
+│     │     │     ├──[✅]--(strings)
+│     │     │     ├──[✅]--(traversals)
+│     │     │     └──[✅]--(web_programming)
+│     │     ├──[✅]--(React-Todo-Solution-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(tests)
+│     │     ├──[✅]--(React-Todo-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(Relational-Databases-master)
+│     │     │     └──[✅]--(solutions)
+│     │     ├──[✅]--(Server-Testing-master)
+│     │     ├──[✅]--(Sorting-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(iterative_sorting)
+│     │     │                              ├──[✅]--(recursive_sorting)
+│     │     │                              └──[✅]--(searc✅ng)
+│     │     ├──[✅]--(Static-Pages-master)
+│     │     ├──[✅]--(W✅teboard-Pairing-master)
+│     │     │     ├──[✅]--(BSTFromArray)
+│     │     │     ├──[✅]--(BalancedBinaryTree)
+│     │     │     ├──[✅]--(BalancedBrackets)
+│     │     │     ├──[✅]--(BitcoinTrading)
+│     │     │     ├──[✅]--(ClimbingStairs)
+│     │     │     ├──[✅]--(CountingVotes)
+│     │     │     ├──[✅]--(DepthFirstSearch)
+│     │     │     ├──[✅]--(FindRotationPoint)
+│     │     │     ├──[✅]--(IntegerPairs)
+│     │     │     ├──[✅]--(KthToLastNode)
+│     │     │     ├──[✅]--(LargestContiguousSum)
+│     │     │     ├──[✅]--(LargestStack)
+│     │     │     ├──[✅]--(LinkedListPalindrome)
+│     │     │     ├──[✅]--(MatrixSpiralCopy)
+│     │     │     ├──[✅]--(MergingTwoPackages)
+│     │     │     ├──[✅]--(MinHeap)
+│     │     │     ├──[✅]--(MinJumps)
+│     │     │     ├──[✅]--(NthFibonacci)
+│     │     │     ├──[✅]--(OneWayFlight)
+│     │     │     ├──[✅]--(ProductOfAllOtherNumbers)
+│     │     │     ├──[✅]--(QueueWithTwoStacks)
+│     │     │     ├──[✅]--(ReverseLinkedList)
+│     │     │     ├──[✅]--(RingBuffer)
+│     │     │     ├──[✅]--(RobotPaths)
+│     │     │     ├──[✅]--(RockPaperScissors)
+│     │     │     ├──[✅]--(RotateImage)
+│     │     │     ├──[✅]--(SetOfStacks)
+│     │     │     ├──[✅]--(SortStack)
+│     │     │     ├──[✅]--(SortTopScores)
+│     │     │     ├──[✅]--(TemperatureTracker)
+│     │     │     ├──[✅]--(TimePlanner)
+│     │     │     └──[✅]--(ValidateBinaryTree)
+│     │     ├──[✅]--(_DS-Python)
+│     │     │     ├──[✅]--(Algorithms-I-Notes-master)
+│     │     │     │     └──[✅]--(practice_algs)
+│     │     │     └──[✅]--(Algorithms-master)
+│     │     │                              ├──[✅]--(climbing_stairs)
+│     │     │                              ├──[✅]--(knapsack)
+│     │     │                              ├──[✅]--(making_change)
+│     │     │                              ├──[✅]--(recipe_batches)
+│     │     │                              ├──[✅]--(rock_paper_scissors)
+│     │     │                              └──[✅]--(stock_prices)
+│     │     ├──[✅]--(_Individual-Projects)
+│     │     │     ├──[✅]--(Advanced-Form-Management-Guided-master)
+│     │     │     │     └──[✅]--(app)
+│     │     │     ├──[✅]--(Bootstrap-I-master)
+│     │     │     │     ├──[✅]--(_example-resume)
+│     │     │     │     ├──[✅]--(css)
+│     │     │     │     ├──[✅]--(img)
+│     │     │     │     ├──[✅]--(js)
+│     │     │     │     └──[✅]--(less)
+│     │     │     ├──[✅]--(Components-BEM-master)
+│     │     │     │     ├──[✅]--(components)
+│     │     │     │     └──[✅]--(markups)
+│     │     │     ├──[✅]--(Components-Constructors-master)
+│     │     │     │     ├──[✅]--(components)
+│     │     │     │     └──[✅]--(markups)
+│     │     │     ├──[✅]--(Computer-Arc✅tecture-Notes-master)
+│     │     │     │     ├──[✅]--(lectureI)
+│     │     │     │     ├──[✅]--(lectureII)
+│     │     │     │     ├──[✅]--(lectureIII)
+│     │     │     │     └──[✅]--(lectureIV)
+│     │     │     ├──[✅]--(Course_and_Book_Notes-master)
+│     │     │     │     ├──[✅]--(Algorithm   Design   Manual)
+│     │     │     │     ├──[✅]--(Computer   Science   Distilled)
+│     │     │     │     ├──[✅]--(Lambda_Notes)
+│     │     │     │     ├──[✅]--(Programming   Foundations)
+│     │     │     │     ├──[✅]--(The_C_Programming_Language)
+│     │     │     │     ├──[✅]--(T✅nk   Like   a   Programmer)
+│     │     │     │     └──[✅]--(YoutubeVideos)
+│     │     │     ├──[✅]--(JavaScript-I-master)
+│     │     │     │     └──[✅]--(assignments)
+│     │     │     ├──[✅]--(JavaScript-II-master)
+│     │     │     │     └──[✅]--(assignments)
+│     │     │     ├──[✅]--(JavaScript-III-master)
+│     │     │     │     └──[✅]--(assignments)
+│     │     │     └──[✅]--(JavaScript-IV-master)
+│     │     │                              └──[✅]--(assignments)
+│     │     ├──[✅]--(_MOST-USEFUL)
+│     │     │     └──[✅]--(Boilerplate-master)
+│     │     │                              ├──[✅]--(Apollo)
+│     │     │                              ├──[✅]--(Express-MongoDB)
+│     │     │                              ├──[✅]--(React-Redux)
+│     │     │                              └──[✅]--(TypeGraphQL)
+│     │     ├──[✅]--(_misc)
+│     │     │     └──[✅]--(Blockchain-Notes-master)
+│     │     │                              └──[✅]--(communication_gp)
+│     │     ├──[✅]--(data_struct_and_algo-master)
+│     │     │     └──[✅]--(logs)
+│     │     ├──[✅]--(dev-portfolio-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(components)
+│     │     │     │     ├──[✅]--(global-scss)
+│     │     │     │     └──[✅]--(views)
+│     │     │     └──[✅]--(tests_setup)
+│     │     │                              └──[✅]--(__mocks__)
+│     │     ├──[✅]--(feelscollective-master)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(fonts)
+│     │     │     │     ├──[✅]--(icomoon)
+│     │     │     │     └──[✅]--(open-iconic)
+│     │     │     ├──[✅]--(images)
+│     │     │     ├──[✅]--(js)
+│     │     │     └──[✅]--(scss)
+│     │     ├──[✅]--(five-master)
+│     │     │     └──[✅]--(FiveFeed)
+│     │     │                              ├──[✅]--(lambda)
+│     │     │                              ├──[✅]--(lambda-src)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(homepage-master)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(fonts)
+│     │     │     ├──[✅]--(images)
+│     │     │     └──[✅]--(js)
+│     │     │                              ├──[✅]--(backstretch)
+│     │     │                              ├──[✅]--(bootstrap)
+│     │     │                              ├──[✅]--(easing)
+│     │     │                              ├──[✅]--(magnific-popup)
+│     │     │                              ├──[✅]--(owl-carousel)
+│     │     │                              ├──[✅]--(uitotop)
+│     │     │                              └──[✅]--(wow)
+│     │     ├──[✅]--(lambda-demo-project-master)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(lambda-lecture-notes-main)
+│     │     │     ├──[✅]--(3-1-advanced-react)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(pdf)
+│     │     │     ├──[✅]--(3-2-advanced-state-mangement)
+│     │     │     │     └──[✅]--(images)
+│     │     │     └──[✅]--(3-3-advanced-web-applications)
+│     │     │                              └──[✅]--(images)
+│     │     ├──[✅]--(portfolio-main)
+│     │     │     ├──[✅]--(components)
+│     │     │     ├──[✅]--(pages)
+│     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(static)
+│     │     │     ├──[✅]--(scripts)
+│     │     │     ├──[✅]--(styles)
+│     │     │     └──[✅]--(utils)
+│     │     ├──[✅]--(react-carousel-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(assets)
+│     │     ├──[✅]--(react-design-patterns-and-best-practices-master)
+│     │     │     ├──[✅]--(chapter-03)
+│     │     │     │     └──[✅]--(reusable-components)
+│     │     │     ├──[✅]--(chapter-04)
+│     │     │     │     ├──[✅]--(container-presentational)
+│     │     │     │     └──[✅]--(✅gher-order-components)
+│     │     │     ├──[✅]--(chapter-05)
+│     │     │     │     ├──[✅]--(data-fetc✅ng)
+│     │     │     │     ├──[✅]--(data-flow)
+│     │     │     │     └──[✅]--(react-refetch)
+│     │     │     ├──[✅]--(chapter-06)
+│     │     │     │     ├──[✅]--(controlled-components)
+│     │     │     │     ├──[✅]--(css-transition-group)
+│     │     │     │     ├──[✅]--(event-switch)
+│     │     │     │     ├──[✅]--(json-schema)
+│     │     │     │     ├──[✅]--(react-motion)
+│     │     │     │     ├──[✅]--(refs-dom)
+│     │     │     │     ├──[✅]--(refs-instance)
+│     │     │     │     ├──[✅]--(svg)
+│     │     │     │     └──[✅]--(uncontrolled-components)
+│     │     │     ├──[✅]--(chapter-07)
+│     │     │     │     ├──[✅]--(css-modules)
+│     │     │     │     ├──[✅]--(inline-styles)
+│     │     │     │     ├──[✅]--(radium)
+│     │     │     │     └──[✅]--(styled-components)
+│     │     │     ├──[✅]--(chapter-08)
+│     │     │     │     ├──[✅]--(data-fetc✅ng)
+│     │     │     │     ├──[✅]--(next)
+│     │     │     │     └──[✅]--(server-side-rendering)
+│     │     │     ├──[✅]--(chapter-09)
+│     │     │     │     ├──[✅]--(constants-props)
+│     │     │     │     ├──[✅]--(creating-functions)
+│     │     │     │     ├──[✅]--(good-design)
+│     │     │     │     └──[✅]--(keys)
+│     │     │     ├──[✅]--(chapter-10)
+│     │     │     │     ├──[✅]--(enzyme)
+│     │     │     │     ├──[✅]--(✅gher-order-components)
+│     │     │     │     ├──[✅]--(jest)
+│     │     │     │     ├──[✅]--(mocha)
+│     │     │     │     ├──[✅]--(page-object)
+│     │     │     │     └──[✅]--(real-world)
+│     │     │     └──[✅]--(chapter-11)
+│     │     │                              ├──[✅]--(index-as-key)
+│     │     │                              ├──[✅]--(initializing-state)
+│     │     │                              └──[✅]--(mutating-state)
+│     │     ├──[✅]--(sql-lab-master)
+│     │     │     └──[✅]--(img)
+│     │     ├──[✅]--(web-guided-project-HTTP-main)
+│     │     │     ├──[✅]--(client)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(server)
+│     │     └──[✅]--(web-guided-project-testing-web-apps-solution-main)
+│     │                              ├──[✅]--(public)
+│     │                              └──[✅]--(src)
+│     │                                                └──[✅]--(components)
+│     ├──[✅]--(_Sprint-Resources)
+│     │     └──[✅]--(Sprint   Challenge   Study   Guide   -   Unit   1,   Sprint   1)
+│     ├──[✅]--(_Templates-Frameworks-And-Official-Repos)
+│     │     ├──[✅]--(ant-design-master)
+│     │     │     ├──[✅]--(components)
+│     │     │     │     ├──[✅]--(__tests__)
+│     │     │     │     ├──[✅]--(_util)
+│     │     │     │     ├──[✅]--(affix)
+│     │     │     │     ├──[✅]--(alert)
+│     │     │     │     ├──[✅]--(anchor)
+│     │     │     │     ├──[✅]--(auto-complete)
+│     │     │     │     ├──[✅]--(avatar)
+│     │     │     │     ├──[✅]--(back-top)
+│     │     │     │     ├──[✅]--(badge)
+│     │     │     │     ├──[✅]--(breadcrumb)
+│     │     │     │     ├──[✅]--(button)
+│     │     │     │     ├──[✅]--(calendar)
+│     │     │     │     ├──[✅]--(card)
+│     │     │     │     ├──[✅]--(carousel)
+│     │     │     │     ├──[✅]--(cascader)
+│     │     │     │     ├──[✅]--(checkbox)
+│     │     │     │     ├──[✅]--(col)
+│     │     │     │     ├──[✅]--(collapse)
+│     │     │     │     ├──[✅]--(comment)
+│     │     │     │     ├──[✅]--(config-provider)
+│     │     │     │     ├──[✅]--(date-picker)
+│     │     │     │     ├──[✅]--(descriptions)
+│     │     │     │     ├──[✅]--(divider)
+│     │     │     │     ├──[✅]--(drawer)
+│     │     │     │     ├──[✅]--(dropdown)
+│     │     │     │     ├──[✅]--(empty)
+│     │     │     │     ├──[✅]--(form)
+│     │     │     │     ├──[✅]--(grid)
+│     │     │     │     ├──[✅]--(icon)
+│     │     │     │     ├──[✅]--(image)
+│     │     │     │     ├──[✅]--(input)
+│     │     │     │     ├──[✅]--(input-number)
+│     │     │     │     ├──[✅]--(layout)
+│     │     │     │     ├──[✅]--(list)
+│     │     │     │     ├──[✅]--(locale)
+│     │     │     │     ├──[✅]--(locale-provider)
+│     │     │     │     ├──[✅]--(mentions)
+│     │     │     │     ├──[✅]--(menu)
+│     │     │     │     ├──[✅]--(message)
+│     │     │     │     ├──[✅]--(modal)
+│     │     │     │     ├──[✅]--(notification)
+│     │     │     │     ├──[✅]--(overview)
+│     │     │     │     ├──[✅]--(page-header)
+│     │     │     │     ├──[✅]--(pagination)
+│     │     │     │     ├──[✅]--(popconfirm)
+│     │     │     │     ├──[✅]--(popover)
+│     │     │     │     ├──[✅]--(progress)
+│     │     │     │     ├──[✅]--(radio)
+│     │     │     │     ├──[✅]--(rate)
+│     │     │     │     ├──[✅]--(result)
+│     │     │     │     ├──[✅]--(row)
+│     │     │     │     ├──[✅]--(select)
+│     │     │     │     ├──[✅]--(skeleton)
+│     │     │     │     ├──[✅]--(slider)
+│     │     │     │     ├──[✅]--(space)
+│     │     │     │     ├──[✅]--(spin)
+│     │     │     │     ├──[✅]--(statistic)
+│     │     │     │     ├──[✅]--(steps)
+│     │     │     │     ├──[✅]--(style)
+│     │     │     │     ├──[✅]--(switch)
+│     │     │     │     ├──[✅]--(table)
+│     │     │     │     ├──[✅]--(tabs)
+│     │     │     │     ├──[✅]--(tag)
+│     │     │     │     ├──[✅]--(time-picker)
+│     │     │     │     ├──[✅]--(timeline)
+│     │     │     │     ├──[✅]--(tooltip)
+│     │     │     │     ├──[✅]--(transfer)
+│     │     │     │     ├──[✅]--(tree)
+│     │     │     │     ├──[✅]--(tree-select)
+│     │     │     │     ├──[✅]--(typography)
+│     │     │     │     ├──[✅]--(upload)
+│     │     │     │     └──[✅]--(version)
+│     │     │     ├──[✅]--(docs)
+│     │     │     │     ├──[✅]--(react)
+│     │     │     │     └──[✅]--(spec)
+│     │     │     ├──[✅]--(scripts)
+│     │     │     │     └──[✅]--(previewEditor)
+│     │     │     ├──[✅]--(site)
+│     │     │     │     └──[✅]--(theme)
+│     │     │     ├──[✅]--(tests)
+│     │     │     │     ├──[✅]--(__mocks__)
+│     │     │     │     ├──[✅]--(__snapshots__)
+│     │     │     │     ├──[✅]--(dekko)
+│     │     │     │     ├──[✅]--(matchers)
+│     │     │     │     └──[✅]--(shared)
+│     │     │     └──[✅]--(typings)
+│     │     └──[✅]--(material-components-web-master)
+│     │                              ├──[✅]--(docs)
+│     │                              │     ├──[✅]--(code)
+│     │                              │     ├──[✅]--(codelabs)
+│     │                              │     ├──[✅]--(contribute)
+│     │                              │     └──[✅]--(open_source)
+│     │                              ├──[✅]--(packages)
+│     │                              │     ├──[✅]--(material-components-web)
+│     │                              │     ├──[✅]--(mdc-animation)
+│     │                              │     ├──[✅]--(mdc-auto-init)
+│     │                              │     ├──[✅]--(mdc-banner)
+│     │                              │     ├──[✅]--(mdc-base)
+│     │                              │     ├──[✅]--(mdc-button)
+│     │                              │     ├──[✅]--(mdc-card)
+│     │                              │     ├──[✅]--(mdc-checkbox)
+│     │                              │     ├──[✅]--(mdc-c✅ps)
+│     │                              │     ├──[✅]--(mdc-circular-progress)
+│     │                              │     ├──[✅]--(mdc-data-table)
+│     │                              │     ├──[✅]--(mdc-density)
+│     │                              │     ├──[✅]--(mdc-dialog)
+│     │                              │     ├──[✅]--(mdc-dom)
+│     │                              │     ├──[✅]--(mdc-drawer)
+│     │                              │     ├──[✅]--(mdc-elevation)
+│     │                              │     ├──[✅]--(mdc-fab)
+│     │                              │     ├──[✅]--(mdc-feature-targeting)
+│     │                              │     ├──[✅]--(mdc-floating-label)
+│     │                              │     ├──[✅]--(mdc-form-field)
+│     │                              │     ├──[✅]--(mdc-icon-button)
+│     │                              │     ├──[✅]--(mdc-image-list)
+│     │                              │     ├──[✅]--(mdc-layout-grid)
+│     │                              │     ├──[✅]--(mdc-line-ripple)
+│     │                              │     ├──[✅]--(mdc-linear-progress)
+│     │                              │     ├──[✅]--(mdc-list)
+│     │                              │     ├──[✅]--(mdc-menu)
+│     │                              │     ├──[✅]--(mdc-menu-surface)
+│     │                              │     ├──[✅]--(mdc-notched-outline)
+│     │                              │     ├──[✅]--(mdc-progress-indicator)
+│     │                              │     ├──[✅]--(mdc-radio)
+│     │                              │     ├──[✅]--(mdc-ripple)
+│     │                              │     ├──[✅]--(mdc-rtl)
+│     │                              │     ├──[✅]--(mdc-segmented-button)
+│     │                              │     ├──[✅]--(mdc-select)
+│     │                              │     ├──[✅]--(mdc-shape)
+│     │                              │     ├──[✅]--(mdc-slider)
+│     │                              │     ├──[✅]--(mdc-snackbar)
+│     │                              │     ├──[✅]--(mdc-switch)
+│     │                              │     ├──[✅]--(mdc-tab)
+│     │                              │     ├──[✅]--(mdc-tab-bar)
+│     │                              │     ├──[✅]--(mdc-tab-indicator)
+│     │                              │     ├──[✅]--(mdc-tab-scroller)
+│     │                              │     ├──[✅]--(mdc-textfield)
+│     │                              │     ├──[✅]--(mdc-theme)
+│     │                              │     ├──[✅]--(mdc-tooltip)
+│     │                              │     ├──[✅]--(mdc-top-app-bar)
+│     │                              │     ├──[✅]--(mdc-touch-target)
+│     │                              │     └──[✅]--(mdc-typography)
+│     │                              ├──[✅]--(scripts)
+│     │                              │     ├──[✅]--(build)
+│     │                              │     ├──[✅]--(documentation)
+│     │                              │     └──[✅]--(webpack)
+│     │                              └──[✅]--(testing)
+│     │                                                ├──[✅]--(dom)
+│     │                                                ├──[✅]--(featuretargeting)
+│     │                                                └──[✅]--(helpers)
+│     ├──[✅]--(_Understanding-Git)
+│     ├──[✅]--(__CHEAT-SHEETS)
+│     │     ├──[✅]--(All)
+│     │     ├──[✅]--(cheatsheets-master)
+│     │     │     └──[✅]--(cheatsheets-master)
+│     │     │                              ├──[✅]--(alertmanager)
+│     │     │                              ├──[✅]--(ansible)
+│     │     │                              ├──[✅]--(aws-cli)
+│     │     │                              ├──[✅]--(aws-codebuild)
+│     │     │                              ├──[✅]--(aws-ecr)
+│     │     │                              ├──[✅]--(aws-iam)
+│     │     │                              ├──[✅]--(aws-python)
+│     │     │                              ├──[✅]--(bash)
+│     │     │                              ├──[✅]--(benchmarking)
+│     │     │                              ├──[✅]--(blackbox-exporter)
+│     │     │                              ├──[✅]--(cadvisor)
+│     │     │                              ├──[✅]--(ceph)
+│     │     │                              ├──[✅]--(cloudwatch)
+│     │     │                              ├──[✅]--(concourse)
+│     │     │                              ├──[✅]--(docker)
+│     │     │                              ├──[✅]--(drone-ci)
+│     │     │                              ├──[✅]--(dynamodb)
+│     │     │                              ├──[✅]--(ec2-metadata)
+│     │     │                              ├──[✅]--(ecs)
+│     │     │                              ├──[✅]--(elasticsearch)
+│     │     │                              ├──[✅]--(fluent-bit)
+│     │     │                              ├──[✅]--(font-awesome)
+│     │     │                              ├──[✅]--(git)
+│     │     │                              ├──[✅]--(github-actions)
+│     │     │                              ├──[✅]--(golang)
+│     │     │                              ├──[✅]--(grafana)
+│     │     │                              ├──[✅]--(grok)
+│     │     │                              ├──[✅]--(influxdb)
+│     │     │                              ├──[✅]--(iterm)
+│     │     │                              ├──[✅]--(javascript)
+│     │     │                              ├──[✅]--(jq)
+│     │     │                              ├──[✅]--(k3s)
+│     │     │                              ├──[✅]--(kubernetes)
+│     │     │                              ├──[✅]--(loki)
+│     │     │                              ├──[✅]--(mongodb)
+│     │     │                              ├──[✅]--(mysql)
+│     │     │                              ├──[✅]--(neo4j-cypher)
+│     │     │                              ├──[✅]--(nginx)
+│     │     │                              ├──[✅]--(postgresql)
+│     │     │                              ├──[✅]--(prometheus)
+│     │     │                              ├──[✅]--(pushgateway)
+│     │     │                              ├──[✅]--(python)
+│     │     │                              ├──[✅]--(regex)
+│     │     │                              ├──[✅]--(samba)
+│     │     │                              ├──[✅]--(sftp)
+│     │     │                              ├──[✅]--(slack)
+│     │     │                              ├──[✅]--(ssh)
+│     │     │                              ├──[✅]--(ssh-keygen)
+│     │     │                              ├──[✅]--(sudo)
+│     │     │                              ├──[✅]--(sysadmin)
+│     │     │                              ├──[✅]--(systemd)
+│     │     │                              ├──[✅]--(terraform)
+│     │     │                              ├──[✅]--(vim)
+│     │     │                              └──[✅]--(zipkin)
+│     │     ├──[✅]--(guided-cheatsheets)
+│     │     │     ├──[✅]--(auto-generate-boilerplate)
+│     │     │     │     └──[✅]--(test2)
+│     │     │     └──[✅]--(test.html)
+│     │     └──[✅]--(pdf)
+│     │                              ├──[✅]--(css)
+│     │                              ├──[✅]--(data-structures)
+│     │                              ├──[✅]--(database)
+│     │                              ├──[✅]--(engineering)
+│     │                              ├──[✅]--(general-comp-sci)
+│     │                              ├──[✅]--(git)
+│     │                              ├──[✅]--(git.html)
+│     │                              ├──[✅]--(html)
+│     │                              ├──[✅]--(java)
+│     │                              ├──[✅]--(javascript)
+│     │                              ├──[✅]--(linux)
+│     │                              ├──[✅]--(math)
+│     │                              ├──[✅]--(misc)
+│     │                              ├──[✅]--(python)
+│     │                              ├──[✅]--(python.html)
+│     │                              ├──[✅]--(ruby)
+│     │                              ├──[✅]--(ruby.html)
+│     │                              ├──[✅]--(unsorted)
+│     │                              └──[✅]--(web)
+│     ├──[✅]--(awesome-resources)
+│     │     ├──[✅]--(101.awesome.tools.for.web.designers.and.developers)
+│     │     ├──[✅]--(Awesome-Design-Tools-master)
+│     │     │     ├──[✅]--(Media)
+│     │     │     └──[✅]--(docs)
+│     │     │                              ├──[✅]--(assets)
+│     │     │                              ├──[✅]--(css)
+│     │     │                              ├──[✅]--(js)
+│     │     │                              └──[✅]--(modules)
+│     │     ├──[✅]--(Awesome-master)
+│     │     │     └──[✅]--(media)
+│     │     ├──[✅]--(Awesome.WSL.repo)
+│     │     ├──[✅]--(Awesome_APIs-master)
+│     │     ├──[✅]--(Cumulative-Resource-List-master)
+│     │     │     └──[✅]--(README-s)
+│     │     ├──[✅]--(Cumulative.Resource.List.repo)
+│     │     ├──[✅]--(Staging)
+│     │     │     └──[✅]--(A-to-Z-Resources-for-Students-master)
+│     │     │                              ├──[✅]--(Android)
+│     │     │                              ├──[✅]--(BlockChain)
+│     │     │                              ├──[✅]--(CheatSheet)
+│     │     │                              ├──[✅]--(GSOC)
+│     │     │                              ├──[✅]--(ML)
+│     │     │                              ├──[✅]--(Node.JS)
+│     │     │                              ├──[✅]--(Projects)
+│     │     │                              ├──[✅]--(Python)
+│     │     │                              ├──[✅]--(res)
+│     │     │                              └──[✅]--(translation)
+│     │     ├──[✅]--(awesome-cheatsheet-master)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(awesome-cheatsheets)
+│     │     │     ├──[✅]--(backend)
+│     │     │     ├──[✅]--(databases)
+│     │     │     ├──[✅]--(frontend)
+│     │     │     ├──[✅]--(languages)
+│     │     │     └──[✅]--(tools)
+│     │     ├──[✅]--(awesome-chrome-devtools-master)
+│     │     │     └──[✅]--(awesome-chrome-devtools-master)
+│     │     ├──[✅]--(awesome-cli-apps-master)
+│     │     │     └──[✅]--(media)
+│     │     ├──[✅]--(awesome-cpp-master)
+│     │     ├──[✅]--(awesome-creative-coding-master)
+│     │     │     └──[✅]--(website)
+│     │     ├──[✅]--(awesome-css-master)
+│     │     ├──[✅]--(awesome-dotfiles-master)
+│     │     ├──[✅]--(awesome-for-beginners-master)
+│     │     │     └──[✅]--(assets)
+│     │     ├──[✅]--(awesome-gists-master)
+│     │     │     └──[✅]--(awesome-gists-master)
+│     │     ├──[✅]--(awesome-heroku-master)
+│     │     │     └──[✅]--(awesome-heroku-master)
+│     │     │                              └──[✅]--(images)
+│     │     ├──[✅]--(awesome-interview-questions-master)
+│     │     ├──[✅]--(awesome-javascript-master)
+│     │     │     └──[✅]--(awesome-javascript-master)
+│     │     ├──[✅]--(awesome-js-master)
+│     │     │     └──[✅]--(awesome-js-master)
+│     │     ├──[✅]--(awesome-list-master)
+│     │     │     └──[✅]--(cheatsheets)
+│     │     ├──[✅]--(awesome-main)
+│     │     │     └──[✅]--(media)
+│     │     ├──[✅]--(awesome-nodejs-master)
+│     │     │     ├──[✅]--(awesome-nodejs-master)
+│     │     │     │     └──[✅]--(media)
+│     │     │     └──[✅]--(media)
+│     │     ├──[✅]--(awesome-piracy-master)
+│     │     ├──[✅]--(awesome-python-applications-master)
+│     │     │     ├──[✅]--(notebooks)
+│     │     │     └──[✅]--(templates)
+│     │     ├──[✅]--(awesome-python-master)
+│     │     │     └──[✅]--(docs)
+│     │     │                              └──[✅]--(css)
+│     │     ├──[✅]--(awesome-react-hooks-master)
+│     │     ├──[✅]--(awesome-react-render-props-master)
+│     │     │     └──[✅]--(awesome-react-render-props-master)
+│     │     ├──[✅]--(awesome-readme-master)
+│     │     ├──[✅]--(awesome-redux-master)
+│     │     │     └──[✅]--(examples)
+│     │     ├──[✅]--(awesome-selfhosted-master)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(awesome-shell-master)
+│     │     ├──[✅]--(awesome-vscode-master)
+│     │     │     ├──[✅]--(screenshots)
+│     │     │     └──[✅]--(themes)
+│     │     │                              └──[✅]--(screenshots)
+│     │     ├──[✅]--(awesome.cpp.repo)
+│     │     ├──[✅]--(awesome.interview.questions)
+│     │     ├──[✅]--(awesome.js.snippets)
+│     │     ├──[✅]--(awesome.json.repo)
+│     │     ├──[✅]--(awesome.markdown)
+│     │     ├──[✅]--(awesome.postgres.repo)
+│     │     ├──[✅]--(awesome.react.components.repo)
+│     │     ├──[✅]--(awesome.regex.repo)
+│     │     ├──[✅]--(awesome.rest.repo)
+│     │     ├──[✅]--(awesome.web.dev.resources.repo)
+│     │     ├──[✅]--(awesomeopensource.com)
+│     │     │     ├──[✅]--(categories)
+│     │     │     ├──[✅]--(cdn-cgi)
+│     │     │     │     ├──[✅]--(bm)
+│     │     │     │     └──[✅]--(scripts)
+│     │     │     ├──[✅]--(packs)
+│     │     │     ├──[✅]--(project)
+│     │     │     │     ├──[✅]--(0k.html)
+│     │     │     │     ├──[✅]--(3F)
+│     │     │     │     ├──[✅]--(500tech)
+│     │     │     │     ├──[✅]--(864381832)
+│     │     │     │     ├──[✅]--(APIs-guru.html)
+│     │     │     │     ├──[✅]--(AdnanHodzic.html)
+│     │     │     │     ├──[✅]--(AliasIO)
+│     │     │     │     ├──[✅]--(AlisamTechnology)
+│     │     │     │     ├──[✅]--(AloneMonkey.html)
+│     │     │     │     ├──[✅]--(ApiGen)
+│     │     │     │     ├──[✅]--(ArchStrike)
+│     │     │     │     ├──[✅]--(Armin2208.html)
+│     │     │     │     ├──[✅]--(AryToNeX.html)
+│     │     │     │     ├──[✅]--(Ashung)
+│     │     │     │     ├──[✅]--(Azure)
+│     │     │     │     ├──[✅]--(BinaryAnalysisPlatform.html)
+│     │     │     │     ├──[✅]--(CTCaer)
+│     │     │     │     ├──[✅]--(CUTR-at-USF)
+│     │     │     │     ├──[✅]--(CVarisco.html)
+│     │     │     │     ├──[✅]--(CalebFenton.html)
+│     │     │     │     ├──[✅]--(CedricGuillemet.html)
+│     │     │     │     ├──[✅]--(CharlesPikachu)
+│     │     │     │     ├──[✅]--(Col-E.html)
+│     │     │     │     ├──[✅]--(Cosmo.html)
+│     │     │     │     ├──[✅]--(CrestApps)
+│     │     │     │     ├──[✅]--(DataBiosphere)
+│     │     │     │     ├──[✅]--(Dav1dde)
+│     │     │     │     ├──[✅]--(DavideViolante.html)
+│     │     │     │     ├──[✅]--(DeathKing.html)
+│     │     │     │     ├──[✅]--(DennisYurichev.html)
+│     │     │     │     ├──[✅]--(Depressurizer.html)
+│     │     │     │     ├──[✅]--(DevUtilsApp)
+│     │     │     │     ├──[✅]--(DextApp)
+│     │     │     │     ├──[✅]--(Dobiasd.html)
+│     │     │     │     ├──[✅]--(DreamCats)
+│     │     │     │     ├──[✅]--(EFPrefix)
+│     │     │     │     ├──[✅]--(EasyCorp)
+│     │     │     │     ├──[✅]--(EntilZha.html)
+│     │     │     │     ├──[✅]--(Gh0u1L5.html)
+│     │     │     │     ├──[✅]--(GoogleChrome)
+│     │     │     │     ├──[✅]--(GoogleChromeLabs)
+│     │     │     │     ├──[✅]--(GoogleCloudPlatform)
+│     │     │     │     ├──[✅]--(GoogleContainerTools)
+│     │     │     │     ├──[✅]--(GordyD.html)
+│     │     │     │     ├──[✅]--(HDB-Li.html)
+│     │     │     │     ├──[✅]--(Hack-with-Github.html)
+│     │     │     │     ├──[✅]--(✅tomis.html)
+│     │     │     │     ├──[✅]--(HosseinKarami)
+│     │     │     │     ├──[✅]--(ITI)
+│     │     │     │     ├──[✅]--(Ice-Hazymoon)
+│     │     │     │     ├──[✅]--(Impedimenta)
+│     │     │     │     ├──[✅]--(Ismaestro.html)
+│     │     │     │     ├──[✅]--(IvanMathy)
+│     │     │     │     ├──[✅]--(JamesIves)
+│     │     │     │     ├──[✅]--(JasonEtco)
+│     │     │     │     ├──[✅]--(JasonS✅n.html)
+│     │     │     │     ├──[✅]--(Jeroen-G.html)
+│     │     │     │     ├──[✅]--(Jimmey-Jiang.html)
+│     │     │     │     ├──[✅]--(Jocs)
+│     │     │     │     ├──[✅]--(JohnSundell)
+│     │     │     │     ├──[✅]--(JonathanSalwan.html)
+│     │     │     │     ├──[✅]--(Juude.html)
+│     │     │     │     ├──[✅]--(Karumi.html)
+│     │     │     │     ├──[✅]--(KidkArolis)
+│     │     │     │     ├──[✅]--(KuroLabs.html)
+│     │     │     │     ├──[✅]--(LANIF-UI.html)
+│     │     │     │     ├──[✅]--(Labelbox)
+│     │     │     │     ├──[✅]--(Leniolabs)
+│     │     │     │     ├──[✅]--(LockGit)
+│     │     │     │     ├──[✅]--(LorenzCK.html)
+│     │     │     │     ├──[✅]--(Louiszhai.html)
+│     │     │     │     ├──[✅]--(LuxLang.html)
+│     │     │     │     ├──[✅]--(M4cs)
+│     │     │     │     ├──[✅]--(MLton.html)
+│     │     │     │     ├──[✅]--(Maktm.html)
+│     │     │     │     ├──[✅]--(Mantle.html)
+│     │     │     │     ├──[✅]--(MarioAriasC.html)
+│     │     │     │     ├──[✅]--(Metnew.html)
+│     │     │     │     ├──[✅]--(MontFerret.html)
+│     │     │     │     ├──[✅]--(MostlyAdequate.html)
+│     │     │     │     ├──[✅]--(NYAN-x-CAT.html)
+│     │     │     │     ├──[✅]--(Naituw.html)
+│     │     │     │     ├──[✅]--(NationalSecurityAgency.html)
+│     │     │     │     ├──[✅]--(NixOS.html)
+│     │     │     │     ├──[✅]--(NoiseByNorthwest.html)
+│     │     │     │     ├──[✅]--(OJ.html)
+│     │     │     │     ├──[✅]--(OWASP.html)
+│     │     │     │     ├──[✅]--(OXOYO)
+│     │     │     │     ├──[✅]--(OpenAPITools)
+│     │     │     │     ├──[✅]--(Optixal)
+│     │     │     │     ├──[✅]--(PegasusCharles)
+│     │     │     │     ├──[✅]--(Perfare.html)
+│     │     │     │     ├──[✅]--(PipedreamHQ)
+│     │     │     │     ├──[✅]--(PowerJob)
+│     │     │     │     ├──[✅]--(Powerlevel9k)
+│     │     │     │     ├──[✅]--(PrefectHQ)
+│     │     │     │     ├──[✅]--(Protoqol)
+│     │     │     │     ├──[✅]--(QBDI.html)
+│     │     │     │     ├──[✅]--(Qftm)
+│     │     │     │     ├──[✅]--(REDasmOrg.html)
+│     │     │     │     ├──[✅]--(Raat✅gesh)
+│     │     │     │     ├──[✅]--(React-Proto)
+│     │     │     │     ├──[✅]--(React-Sight)
+│     │     │     │     ├──[✅]--(ReactJSResources.html)
+│     │     │     │     ├──[✅]--(ReactPrimer.html)
+│     │     │     │     ├──[✅]--(Rhymen.html)
+│     │     │     │     ├──[✅]--(Screetsec.html)
+│     │     │     │     ├──[✅]--(SeanDragon.html)
+│     │     │     │     ├──[✅]--(SecWiki.html)
+│     │     │     │     ├──[✅]--(SimulatedGREG.html)
+│     │     │     │     ├──[✅]--(Sly777.html)
+│     │     │     │     ├──[✅]--(SteamRE.html)
+│     │     │     │     ├──[✅]--(Stratio)
+│     │     │     │     ├──[✅]--(Suor.html)
+│     │     │     │     ├──[✅]--(SymbiFlow)
+│     │     │     │     ├──[✅]--(TalkingData)
+│     │     │     │     ├──[✅]--(Tamsiree)
+│     │     │     │     ├──[✅]--(Tencent)
+│     │     │     │     ├──[✅]--(TheLartians)
+│     │     │     │     ├──[✅]--(TheresAFewConors)
+│     │     │     │     ├──[✅]--(ThoughtWorksInc.html)
+│     │     │     │     ├──[✅]--(TwakeApp.html)
+│     │     │     │     ├──[✅]--(TypeStrong)
+│     │     │     │     ├──[✅]--(WeBankFinTech)
+│     │     │     │     ├──[✅]--(WerWolv.html)
+│     │     │     │     ├──[✅]--(XorTroll.html)
+│     │     │     │     ├──[✅]--(Xudong-Huang)
+│     │     │     │     ├──[✅]--(YetiForceCompany)
+│     │     │     │     ├──[✅]--(a0rtega.html)
+│     │     │     │     ├──[✅]--(aNNiMON.html)
+│     │     │     │     ├──[✅]--(ab✅jithvijayan.html)
+│     │     │     │     ├──[✅]--(abreheret.html)
+│     │     │     │     ├──[✅]--(actionsflow)
+│     │     │     │     ├──[✅]--(adamhalasz)
+│     │     │     │     ├──[✅]--(adelsz)
+│     │     │     │     ├──[✅]--(adnanh)
+│     │     │     │     ├──[✅]--(adomokos)
+│     │     │     │     ├──[✅]--(adtac)
+│     │     │     │     ├──[✅]--(aelassas)
+│     │     │     │     ├──[✅]--(agconti.html)
+│     │     │     │     ├──[✅]--(ahmadawais)
+│     │     │     │     ├──[✅]--(airbus-seclab.html)
+│     │     │     │     ├──[✅]--(al0ne)
+│     │     │     │     ├──[✅]--(albrow.html)
+│     │     │     │     ├──[✅]--(alecthomas.html)
+│     │     │     │     ├──[✅]--(alibaba)
+│     │     │     │     ├──[✅]--(alibaba.html)
+│     │     │     │     ├──[✅]--(aloisdeniel)
+│     │     │     │     ├──[✅]--(aloisdeniel.html)
+│     │     │     │     ├──[✅]--(alphaSeclab.html)
+│     │     │     │     ├──[✅]--(alyssaxuu.html)
+│     │     │     │     ├──[✅]--(androguard.html)
+│     │     │     │     ├──[✅]--(android-notes)
+│     │     │     │     ├──[✅]--(android10.html)
+│     │     │     │     ├──[✅]--(andydbc)
+│     │     │     │     ├──[✅]--(angular)
+│     │     │     │     ├──[✅]--(ankitrohatgi.html)
+│     │     │     │     ├──[✅]--(ansible-semaphore)
+│     │     │     │     ├──[✅]--(ansjdnakjdnajkd)
+│     │     │     │     ├──[✅]--(ant-design.html)
+│     │     │     │     ├──[✅]--(ant-move.html)
+│     │     │     │     ├──[✅]--(anti-ddos)
+│     │     │     │     ├──[✅]--(antonioribeiro)
+│     │     │     │     ├──[✅]--(aol.html)
+│     │     │     │     ├──[✅]--(apache)
+│     │     │     │     ├──[✅]--(apache.html)
+│     │     │     │     ├──[✅]--(api-platform)
+│     │     │     │     ├──[✅]--(appbaseio)
+│     │     │     │     ├──[✅]--(appwrite)
+│     │     │     │     ├──[✅]--(appzcoder)
+│     │     │     │     ├──[✅]--(aquynh.html)
+│     │     │     │     ├──[✅]--(argoproj)
+│     │     │     │     ├──[✅]--(armory3d.html)
+│     │     │     │     ├──[✅]--(arrow-kt.html)
+│     │     │     │     ├──[✅]--(arthurbergmz)
+│     │     │     │     ├──[✅]--(as✅shb)
+│     │     │     │     ├──[✅]--(as✅shpatel26)
+│     │     │     │     ├──[✅]--(assemble)
+│     │     │     │     ├──[✅]--(async-labs.html)
+│     │     │     │     ├──[✅]--(atomantic)
+│     │     │     │     ├──[✅]--(averagesecurityguy)
+│     │     │     │     ├──[✅]--(awalterschulze.html)
+│     │     │     │     ├──[✅]--(aws)
+│     │     │     │     ├──[✅]--(awslabs)
+│     │     │     │     ├──[✅]--(b-ryan)
+│     │     │     │     ├──[✅]--(b12io)
+│     │     │     │     ├──[✅]--(badgen)
+│     │     │     │     ├──[✅]--(balsikandar)
+│     │     │     │     ├──[✅]--(bamlab)
+│     │     │     │     ├──[✅]--(banago)
+│     │     │     │     ├──[✅]--(banq)
+│     │     │     │     ├──[✅]--(bchavez)
+│     │     │     │     ├──[✅]--(bcicen)
+│     │     │     │     ├──[✅]--(bestony)
+│     │     │     │     ├──[✅]--(bighuang624)
+│     │     │     │     ├──[✅]--(bitjson.html)
+│     │     │     │     ├──[✅]--(bitwes.html)
+│     │     │     │     ├──[✅]--(bjankord.html)
+│     │     │     │     ├──[✅]--(bkaradzic)
+│     │     │     │     ├──[✅]--(blackholll)
+│     │     │     │     ├──[✅]--(bnb)
+│     │     │     │     ├──[✅]--(boo1ean)
+│     │     │     │     ├──[✅]--(bootleg.html)
+│     │     │     │     ├──[✅]--(boyney123.html)
+│     │     │     │     ├──[✅]--(brazilian-utils)
+│     │     │     │     ├──[✅]--(brianvoe)
+│     │     │     │     ├──[✅]--(brikis98)
+│     │     │     │     ├──[✅]--(broadinstitute)
+│     │     │     │     ├──[✅]--(brunch)
+│     │     │     │     ├──[✅]--(bt3gl.html)
+│     │     │     │     ├──[✅]--(bufferapp.html)
+│     │     │     │     ├──[✅]--(buginux.html)
+│     │     │     │     ├──[✅]--(buildbot)
+│     │     │     │     ├──[✅]--(builderbook.html)
+│     │     │     │     ├──[✅]--(burghardt)
+│     │     │     │     ├──[✅]--(bxcodec)
+│     │     │     │     ├──[✅]--(caicloud)
+│     │     │     │     ├──[✅]--(caixw)
+│     │     │     │     ├──[✅]--(camunda)
+│     │     │     │     ├──[✅]--(carp-lang.html)
+│     │     │     │     ├──[✅]--(ccampbell)
+│     │     │     │     ├──[✅]--(cea-sec.html)
+│     │     │     │     ├──[✅]--(cesarferreira.html)
+│     │     │     │     ├──[✅]--(cferdinandi.html)
+│     │     │     │     ├──[✅]--(chaps-io)
+│     │     │     │     ├──[✅]--(checkly)
+│     │     │     │     ├──[✅]--(chengderen)
+│     │     │     │     ├──[✅]--(chenxiancai.html)
+│     │     │     │     ├──[✅]--(c✅nese-poetry)
+│     │     │     │     ├──[✅]--(chrissimpkins)
+│     │     │     │     ├──[✅]--(chrisvfritz.html)
+│     │     │     │     ├──[✅]--(ciaochaos)
+│     │     │     │     ├──[✅]--(cmu-sei.html)
+│     │     │     │     ├──[✅]--(code-✅ke.html)
+│     │     │     │     ├──[✅]--(codexu)
+│     │     │     │     ├──[✅]--(codilime.html)
+│     │     │     │     ├──[✅]--(common-workflow-language)
+│     │     │     │     ├──[✅]--(compodoc)
+│     │     │     │     ├──[✅]--(concourse)
+│     │     │     │     ├──[✅]--(cornflourblue.html)
+│     │     │     │     ├──[✅]--(cortesi)
+│     │     │     │     ├──[✅]--(coryhouse.html)
+│     │     │     │     ├──[✅]--(cosmtrek)
+│     │     │     │     ├──[✅]--(cristianoliveira)
+│     │     │     │     ├──[✅]--(csstree)
+│     │     │     │     ├──[✅]--(cteamx)
+│     │     │     │     ├──[✅]--(ctrlplusb.html)
+│     │     │     │     ├──[✅]--(cyclejs.html)
+│     │     │     │     ├──[✅]--(dagster-io)
+│     │     │     │     ├──[✅]--(dailydotdev)
+│     │     │     │     ├──[✅]--(damnever.html)
+│     │     │     │     ├──[✅]--(danger)
+│     │     │     │     ├──[✅]--(danielfsousa.html)
+│     │     │     │     ├──[✅]--(danielgerlag)
+│     │     │     │     ├──[✅]--(danielkrupinski.html)
+│     │     │     │     ├──[✅]--(danilowoz.html)
+│     │     │     │     ├──[✅]--(das-labor.html)
+│     │     │     │     ├──[✅]--(dashvlas)
+│     │     │     │     ├──[✅]--(datawrapper.html)
+│     │     │     │     ├──[✅]--(david942j)
+│     │     │     │     ├──[✅]--(davidkpiano)
+│     │     │     │     ├──[✅]--(davyxu.html)
+│     │     │     │     ├──[✅]--(ddwhan0123)
+│     │     │     │     ├──[✅]--(deanishe)
+│     │     │     │     ├──[✅]--(denji)
+│     │     │     │     ├──[✅]--(deployphp.html)
+│     │     │     │     ├──[✅]--(dev-labs-bg)
+│     │     │     │     ├──[✅]--(developit.html)
+│     │     │     │     ├──[✅]--(devspace-cloud)
+│     │     │     │     ├──[✅]--(dgageot.html)
+│     │     │     │     ├──[✅]--(didi)
+│     │     │     │     ├──[✅]--(diegohaz)
+│     │     │     │     ├──[✅]--(diegohaz.html)
+│     │     │     │     ├──[✅]--(djkaty.html)
+│     │     │     │     ├──[✅]--(djrobstep)
+│     │     │     │     ├──[✅]--(dkhamsing.html)
+│     │     │     │     ├──[✅]--(dnote)
+│     │     │     │     ├──[✅]--(dominikwilkowski)
+│     │     │     │     ├──[✅]--(donnemartin)
+│     │     │     │     ├──[✅]--(dotnet.html)
+│     │     │     │     ├──[✅]--(dpnishant.html)
+│     │     │     │     ├──[✅]--(dreddsa5dies)
+│     │     │     │     ├──[✅]--(drone)
+│     │     │     │     ├──[✅]--(dropbox)
+│     │     │     │     ├──[✅]--(dry-python.html)
+│     │     │     │     ├──[✅]--(dsasmblr.html)
+│     │     │     │     ├──[✅]--(efremidze)
+│     │     │     │     ├──[✅]--(egison.html)
+│     │     │     │     ├──[✅]--(electron-react-boilerplate.html)
+│     │     │     │     ├──[✅]--(eliukblau.html)
+│     │     │     │     ├──[✅]--(elixirs)
+│     │     │     │     ├──[✅]--(enkodellc.html)
+│     │     │     │     ├──[✅]--(ergonomica.html)
+│     │     │     │     ├──[✅]--(ericalli.html)
+│     │     │     │     ├──[✅]--(ericmdantas)
+│     │     │     │     ├──[✅]--(eteran.html)
+│     │     │     │     ├──[✅]--(evernote.html)
+│     │     │     │     ├──[✅]--(evhub.html)
+│     │     │     │     ├──[✅]--(evilmartians)
+│     │     │     │     ├──[✅]--(explosion.html)
+│     │     │     │     ├──[✅]--(expressjs)
+│     │     │     │     ├──[✅]--(fabric8io)
+│     │     │     │     ├──[✅]--(fahad19.html)
+│     │     │     │     ├──[✅]--(fantasyland.html)
+│     │     │     │     ├──[✅]--(fastai)
+│     │     │     │     ├──[✅]--(fatih.html)
+│     │     │     │     ├──[✅]--(faxad)
+│     │     │     │     ├──[✅]--(felix-lang.html)
+│     │     │     │     ├──[✅]--(fesh0r.html)
+│     │     │     │     ├──[✅]--(fireeye.html)
+│     │     │     │     ├──[✅]--(firmianay.html)
+│     │     │     │     ├──[✅]--(flatlogic.html)
+│     │     │     │     ├──[✅]--(flexdinesh.html)
+│     │     │     │     ├──[✅]--(flexsurfer)
+│     │     │     │     ├──[✅]--(flosell.html)
+│     │     │     │     ├──[✅]--(fluture-js.html)
+│     │     │     │     ├──[✅]--(francescomalatesta.html)
+│     │     │     │     ├──[✅]--(freeCodeCamp)
+│     │     │     │     ├──[✅]--(frees-io.html)
+│     │     │     │     ├──[✅]--(frostming.html)
+│     │     │     │     ├──[✅]--(fucongcong)
+│     │     │     │     ├──[✅]--(functionaljava.html)
+│     │     │     │     ├──[✅]--(fungos.html)
+│     │     │     │     ├──[✅]--(funkia.html)
+│     │     │     │     ├──[✅]--(furioussoul)
+│     │     │     │     ├──[✅]--(fuse-box)
+│     │     │     │     ├──[✅]--(gaasedelen.html)
+│     │     │     │     ├──[✅]--(galaxyproject)
+│     │     │     │     ├──[✅]--(garden-io)
+│     │     │     │     ├──[✅]--(gautamkrishnar)
+│     │     │     │     ├──[✅]--(gbdev)
+│     │     │     │     ├──[✅]--(gcanti.html)
+│     │     │     │     ├──[✅]--(gchaincl)
+│     │     │     │     ├──[✅]--(geekidea)
+│     │     │     │     ├──[✅]--(getify.html)
+│     │     │     │     ├──[✅]--(gfngfn.html)
+│     │     │     │     ├──[✅]--(ghosh)
+│     │     │     │     ├──[✅]--(gibbed.html)
+│     │     │     │     ├──[✅]--(gigobyte.html)
+│     │     │     │     ├──[✅]--(git-town)
+│     │     │     │     ├──[✅]--(github)
+│     │     │     │     ├──[✅]--(github-serendipity)
+│     │     │     │     ├──[✅]--(gitless-vcs)
+│     │     │     │     ├──[✅]--(glauth)
+│     │     │     │     ├──[✅]--(go-flutter-desktop.html)
+│     │     │     │     ├──[✅]--(gocd)
+│     │     │     │     ├──[✅]--(golangci)
+│     │     │     │     ├──[✅]--(goldbergyoni)
+│     │     │     │     ├──[✅]--(google)
+│     │     │     │     ├──[✅]--(google.html)
+│     │     │     │     ├──[✅]--(got✅nkster.html)
+│     │     │     │     ├──[✅]--(grain-lang.html)
+│     │     │     │     ├──[✅]--(grame-cncm.html)
+│     │     │     │     ├──[✅]--(graphql-editor)
+│     │     │     │     ├──[✅]--(gravitational)
+│     │     │     │     ├──[✅]--(grin-compiler.html)
+│     │     │     │     ├──[✅]--(gruntwork-io)
+│     │     │     │     ├──[✅]--(guozhaolong)
+│     │     │     │     ├──[✅]--(hack4impact.html)
+│     │     │     │     ├──[✅]--(hacklcx)
+│     │     │     │     ├──[✅]--(hacktoolspack)
+│     │     │     │     ├──[✅]--(hahwul)
+│     │     │     │     ├──[✅]--(halfzebra.html)
+│     │     │     │     ├──[✅]--(harryheman.html)
+│     │     │     │     ├──[✅]--(hasura)
+│     │     │     │     ├──[✅]--(headcrab-rs)
+│     │     │     │     ├──[✅]--(hemanth.html)
+│     │     │     │     ├──[✅]--(hmemcpy.html)
+│     │     │     │     ├──[✅]--(hoffstadt)
+│     │     │     │     ├──[✅]--(hoppscotch)
+│     │     │     │     ├──[✅]--(horsicq.html)
+│     │     │     │     ├──[✅]--(hteso.html)
+│     │     │     │     ├──[✅]--(htr-tech.html)
+│     │     │     │     ├──[✅]--(httpie)
+│     │     │     │     ├──[✅]--(htty)
+│     │     │     │     ├──[✅]--(hugsy.html)
+│     │     │     │     ├──[✅]--(huiyadanli.html)
+│     │     │     │     ├──[✅]--(hundredrabbits.html)
+│     │     │     │     ├──[✅]--(hybridsjs.html)
+│     │     │     │     ├──[✅]--(hyper0x.html)
+│     │     │     │     ├──[✅]--(iBotPeaches.html)
+│     │     │     │     ├──[✅]--(iGio90.html)
+│     │     │     │     ├──[✅]--(icebob.html)
+│     │     │     │     ├──[✅]--(iddoeldor.html)
+│     │     │     │     ├──[✅]--(imazen.html)
+│     │     │     │     ├──[✅]--(infinitered.html)
+│     │     │     │     ├──[✅]--(insidegui)
+│     │     │     │     ├──[✅]--(iridakos)
+│     │     │     │     ├──[✅]--(iterative)
+│     │     │     │     ├──[✅]--(ivRodriguezCA.html)
+│     │     │     │     ├──[✅]--(izdi.html)
+│     │     │     │     ├──[✅]--(jacktasia)
+│     │     │     │     ├──[✅]--(jagenjo)
+│     │     │     │     ├──[✅]--(janlelis)
+│     │     │     │     ├──[✅]--(japgolly.html)
+│     │     │     │     ├──[✅]--(java-diff-utils)
+│     │     │     │     ├──[✅]--(javierbyte.html)
+│     │     │     │     ├──[✅]--(javiereguiluz)
+│     │     │     │     ├──[✅]--(javrasya)
+│     │     │     │     ├──[✅]--(jayfk)
+│     │     │     │     ├──[✅]--(jaykali)
+│     │     │     │     ├──[✅]--(jdblischak)
+│     │     │     │     ├──[✅]--(jedireza.html)
+│     │     │     │     ├──[✅]--(j✅pster)
+│     │     │     │     ├──[✅]--(jhspetersson.html)
+│     │     │     │     ├──[✅]--(joealcorn)
+│     │     │     │     ├──[✅]--(johncarl81.html)
+│     │     │     │     ├──[✅]--(johnno1962.html)
+│     │     │     │     ├──[✅]--(johnpapa)
+│     │     │     │     ├──[✅]--(jondot)
+│     │     │     │     ├──[✅]--(joshburgess.html)
+│     │     │     │     ├──[✅]--(jrvansuita)
+│     │     │     │     ├──[✅]--(jsdoc2md)
+│     │     │     │     ├──[✅]--(jsynowiec.html)
+│     │     │     │     ├──[✅]--(juicycleff.html)
+│     │     │     │     ├──[✅]--(julien-lafont)
+│     │     │     │     ├──[✅]--(justjanne)
+│     │     │     │     ├──[✅]--(k8gege)
+│     │     │     │     ├──[✅]--(kaitai-io.html)
+│     │     │     │     ├──[✅]--(kbrsh.html)
+│     │     │     │     ├──[✅]--(kefirjs.html)
+│     │     │     │     ├──[✅]--(kefranabg)
+│     │     │     │     ├──[✅]--(kenvix.html)
+│     │     │     │     ├──[✅]--(keystone-engine.html)
+│     │     │     │     ├──[✅]--(kickstarter.html)
+│     │     │     │     ├──[✅]--(kiegroup)
+│     │     │     │     ├──[✅]--(kkoomen)
+│     │     │     │     ├──[✅]--(knipknap)
+│     │     │     │     ├──[✅]--(knownsec)
+│     │     │     │     ├──[✅]--(koalaman)
+│     │     │     │     ├──[✅]--(korcankaraokcu.html)
+│     │     │     │     ├──[✅]--(kostya.html)
+│     │     │     │     ├──[✅]--(kriasoft.html)
+│     │     │     │     ├──[✅]--(krzysztofzablocki.html)
+│     │     │     │     ├──[✅]--(kunalkapadia.html)
+│     │     │     │     ├──[✅]--(ladjs.html)
+│     │     │     │     ├──[✅]--(laravel-enso.html)
+│     │     │     │     ├──[✅]--(laravel-zero.html)
+│     │     │     │     ├──[✅]--(lastbackend)
+│     │     │     │     ├──[✅]--(lazy-luo)
+│     │     │     │     ├──[✅]--(leemengtaiwan)
+│     │     │     │     ├──[✅]--(lengjibo)
+│     │     │     │     ├──[✅]--(lennylxx.html)
+│     │     │     │     ├──[✅]--(lettier.html)
+│     │     │     │     ├──[✅]--(l✅e1)
+│     │     │     │     ├──[✅]--(lief-project.html)
+│     │     │     │     ├──[✅]--(lifepillar)
+│     │     │     │     ├──[✅]--(ligurio)
+│     │     │     │     ├──[✅]--(liriliri)
+│     │     │     │     ├──[✅]--(lk-geimfari)
+│     │     │     │     ├──[✅]--(llh911001.html)
+│     │     │     │     ├──[✅]--(looly.html)
+│     │     │     │     ├──[✅]--(loot.html)
+│     │     │     │     ├──[✅]--(louthy.html)
+│     │     │     │     ├──[✅]--(lsegal.html)
+│     │     │     │     ├──[✅]--(luafun.html)
+│     │     │     │     ├──[✅]--(luangjokaj.html)
+│     │     │     │     ├──[✅]--(luong-komorebi)
+│     │     │     │     ├──[✅]--(lvarayut.html)
+│     │     │     │     ├──[✅]--(lvwzhen.html)
+│     │     │     │     ├──[✅]--(lxerxa)
+│     │     │     │     ├──[✅]--(lyft)
+│     │     │     │     ├──[✅]--(m0bilesecurity.html)
+│     │     │     │     ├──[✅]--(m4ll0k.html)
+│     │     │     │     ├──[✅]--(macbre)
+│     │     │     │     ├──[✅]--(maciejczyzewski)
+│     │     │     │     ├──[✅]--(maciejtreder.html)
+│     │     │     │     ├──[✅]--(madhums.html)
+│     │     │     │     ├──[✅]--(maildev)
+│     │     │     │     ├──[✅]--(maldevel)
+│     │     │     │     ├──[✅]--(manoloide)
+│     │     │     │     ├──[✅]--(marblejs.html)
+│     │     │     │     ├──[✅]--(marin-m.html)
+│     │     │     │     ├──[✅]--(matcornic)
+│     │     │     │     ├──[✅]--(mattbrictson.html)
+│     │     │     │     ├──[✅]--(matteodem.html)
+│     │     │     │     ├──[✅]--(matttga)
+│     │     │     │     ├──[✅]--(mcginty)
+│     │     │     │     ├──[✅]--(mckeever02)
+│     │     │     │     ├──[✅]--(mcnamee.html)
+│     │     │     │     ├──[✅]--(mehulj94.html)
+│     │     │     │     ├──[✅]--(meitu.html)
+│     │     │     │     ├──[✅]--(mgechev.html)
+│     │     │     │     ├──[✅]--(mgeeky)
+│     │     │     │     ├──[✅]--(microsoft)
+│     │     │     │     ├──[✅]--(microsoft.html)
+│     │     │     │     ├──[✅]--(mikub)
+│     │     │     │     ├──[✅]--(milessabin.html)
+│     │     │     │     ├──[✅]--(milostosic.html)
+│     │     │     │     ├──[✅]--(minamarkham.html)
+│     │     │     │     ├──[✅]--(mingrammer)
+│     │     │     │     ├──[✅]--(minio)
+│     │     │     │     ├──[✅]--(miripiruni)
+│     │     │     │     ├──[✅]--(modm-io)
+│     │     │     │     ├──[✅]--(modularcode.html)
+│     │     │     │     ├──[✅]--(monix.html)
+│     │     │     │     ├──[✅]--(moonad.html)
+│     │     │     │     ├──[✅]--(morkt.html)
+│     │     │     │     ├──[✅]--(muesli)
+│     │     │     │     ├──[✅]--(multitheftauto.html)
+│     │     │     │     ├──[✅]--(myntra)
+│     │     │     │     ├──[✅]--(mytechnotalent.html)
+│     │     │     │     ├──[✅]--(n8n-io)
+│     │     │     │     ├──[✅]--(nabla-c0d3.html)
+│     │     │     │     ├──[✅]--(nanobox-io)
+│     │     │     │     ├──[✅]--(ncform)
+│     │     │     │     ├──[✅]--(nektos)
+│     │     │     │     ├──[✅]--(nerevu.html)
+│     │     │     │     ├──[✅]--(nette)
+│     │     │     │     ├──[✅]--(nezhar)
+│     │     │     │     ├──[✅]--(nginx-boilerplate.html)
+│     │     │     │     ├──[✅]--(ngx-rocket)
+│     │     │     │     ├──[✅]--(niieani.html)
+│     │     │     │     ├──[✅]--(nisrulz)
+│     │     │     │     ├──[✅]--(nixzhu)
+│     │     │     │     ├──[✅]--(njpatel)
+│     │     │     │     ├──[✅]--(nlkl.html)
+│     │     │     │     ├──[✅]--(nmikhailov.html)
+│     │     │     │     ├──[✅]--(nosarthur)
+│     │     │     │     ├──[✅]--(notrab.html)
+│     │     │     │     ├──[✅]--(npm)
+│     │     │     │     ├──[✅]--(nsacyber)
+│     │     │     │     ├──[✅]--(nsomar)
+│     │     │     │     ├──[✅]--(nunomaduro.html)
+│     │     │     │     ├──[✅]--(nvdv)
+│     │     │     │     ├──[✅]--(o-gs)
+│     │     │     │     ├──[✅]--(o2sh.html)
+│     │     │     │     ├──[✅]--(ocornut)
+│     │     │     │     ├──[✅]--(octodns)
+│     │     │     │     ├──[✅]--(okonet)
+│     │     │     │     ├──[✅]--(okteto)
+│     │     │     │     ├──[✅]--(oleg-py.html)
+│     │     │     │     ├──[✅]--(oliver-gomes.html)
+│     │     │     │     ├──[✅]--(onmyway133)
+│     │     │     │     ├──[✅]--(open-rpa)
+│     │     │     │     ├──[✅]--(opendevops-cn)
+│     │     │     │     ├──[✅]--(optics-dev.html)
+│     │     │     │     ├──[✅]--(ornicar.html)
+│     │     │     │     ├──[✅]--(ory)
+│     │     │     │     ├──[✅]--(paed01)
+│     │     │     │     ├──[✅]--(palatable.html)
+│     │     │     │     ├──[✅]--(panda-re.html)
+│     │     │     │     ├──[✅]--(pankod.html)
+│     │     │     │     ├──[✅]--(passcod)
+│     │     │     │     ├──[✅]--(paxtonhare.html)
+│     │     │     │     ├──[✅]--(pdcgomes)
+│     │     │     │     ├──[✅]--(pditommaso)
+│     │     │     │     ├──[✅]--(pdoc3)
+│     │     │     │     ├──[✅]--(pemistahl.html)
+│     │     │     │     ├──[✅]--(petervanderdoes)
+│     │     │     │     ├──[✅]--(petervmeijgaard.html)
+│     │     │     │     ├──[✅]--(phar-io)
+│     │     │     │     ├──[✅]--(pharo-project)
+│     │     │     │     ├──[✅]--(pheuter.html)
+│     │     │     │     ├──[✅]--(phodal)
+│     │     │     │     ├──[✅]--(phodal.html)
+│     │     │     │     ├──[✅]--(phpmentors-jp)
+│     │     │     │     ├──[✅]--(plasma-disassembler.html)
+│     │     │     │     ├──[✅]--(plopjs)
+│     │     │     │     ├──[✅]--(pocotan001)
+│     │     │     │     ├──[✅]--(pod4g.html)
+│     │     │     │     ├──[✅]--(pointfreeco.html)
+│     │     │     │     ├──[✅]--(polyaxon)
+│     │     │     │     ├──[✅]--(portable-cto)
+│     │     │     │     ├──[✅]--(postmanlabs)
+│     │     │     │     ├──[✅]--(pret.html)
+│     │     │     │     ├──[✅]--(prisma.html)
+│     │     │     │     ├──[✅]--(proYang.html)
+│     │     │     │     ├──[✅]--(programa-stic.html)
+│     │     │     │     ├──[✅]--(ps✅hn)
+│     │     │     │     ├──[✅]--(puckel)
+│     │     │     │     ├──[✅]--(puppeteer)
+│     │     │     │     ├──[✅]--(pwndbg.html)
+│     │     │     │     ├──[✅]--(python-attrs.html)
+│     │     │     │     ├──[✅]--(qiangxue.html)
+│     │     │     │     ├──[✅]--(qilingframework.html)
+│     │     │     │     ├──[✅]--(radareorg.html)
+│     │     │     │     ├──[✅]--(radicle-dev)
+│     │     │     │     ├──[✅]--(rahuldkjain)
+│     │     │     │     ├──[✅]--(raphaelhanneken)
+│     │     │     │     ├──[✅]--(rappasoft.html)
+│     │     │     │     ├──[✅]--(raysan5)
+│     │     │     │     ├──[✅]--(react-everywhere.html)
+│     │     │     │     ├──[✅]--(react-native-community.html)
+│     │     │     │     ├──[✅]--(react-ui-builder)
+│     │     │     │     ├──[✅]--(reactopt)
+│     │     │     │     ├──[✅]--(recoilphp)
+│     │     │     │     ├──[✅]--(reenhanced)
+│     │     │     │     ├──[✅]--(release-it.html)
+│     │     │     │     ├──[✅]--(responsively-org)
+│     │     │     │     ├──[✅]--(retroplasma.html)
+│     │     │     │     ├──[✅]--(reviewboard)
+│     │     │     │     ├──[✅]--(reviewdog)
+│     │     │     │     ├──[✅]--(rgleichman.html)
+│     │     │     │     ├──[✅]--(rialto-php)
+│     │     │     │     ├──[✅]--(ribice.html)
+│     │     │     │     ├──[✅]--(ring-lang.html)
+│     │     │     │     ├──[✅]--(rizinorg.html)
+│     │     │     │     ├──[✅]--(rmusser01.html)
+│     │     │     │     ├──[✅]--(rockbruno)
+│     │     │     │     ├──[✅]--(rokoroku.html)
+│     │     │     │     ├──[✅]--(ropensci)
+│     │     │     │     ├──[✅]--(rosuH)
+│     │     │     │     ├──[✅]--(rs)
+│     │     │     │     ├──[✅]--(rsapkf)
+│     │     │     │     ├──[✅]--(rubycdp)
+│     │     │     │     ├──[✅]--(ruyadorno)
+│     │     │     │     ├──[✅]--(rwieruch.html)
+│     │     │     │     ├──[✅]--(ryceg)
+│     │     │     │     ├──[✅]--(saadq)
+│     │     │     │     ├──[✅]--(sahat.html)
+│     │     │     │     ├──[✅]--(salesagility)
+│     │     │     │     ├──[✅]--(salgum1114)
+│     │     │     │     ├──[✅]--(samuelsimoes.html)
+│     │     │     │     ├──[✅]--(santiq.html)
+│     │     │     │     ├──[✅]--(saojs.html)
+│     │     │     │     ├──[✅]--(scala-exercises.html)
+│     │     │     │     ├──[✅]--(scala.html)
+│     │     │     │     ├──[✅]--(scalalandio.html)
+│     │     │     │     ├──[✅]--(scalaz.html)
+│     │     │     │     ├──[✅]--(scastiel)
+│     │     │     │     ├──[✅]--(scipipe)
+│     │     │     │     ├──[✅]--(sdiehl.html)
+│     │     │     │     ├──[✅]--(selfrefactor.html)
+│     │     │     │     ├──[✅]--(sfermigier.html)
+│     │     │     │     ├──[✅]--(sgr-ksmt.html)
+│     │     │     │     ├──[✅]--(sh4✅n.html)
+│     │     │     │     ├──[✅]--(sharkdp.html)
+│     │     │     │     ├──[✅]--(shenwei356.html)
+│     │     │     │     ├──[✅]--(sherlock-project)
+│     │     │     │     ├──[✅]--(s✅vammathur)
+│     │     │     │     ├──[✅]--(shroudedcode.html)
+│     │     │     │     ├──[✅]--(sigalor.html)
+│     │     │     │     ├──[✅]--(simeji.html)
+│     │     │     │     ├──[✅]--(sindresorhus)
+│     │     │     │     ├──[✅]--(sindresorhus.html)
+│     │     │     │     ├──[✅]--(sismics)
+│     │     │     │     ├──[✅]--(smallmuou)
+│     │     │     │     ├──[✅]--(smallnest)
+│     │     │     │     ├──[✅]--(softwaremill.html)
+│     │     │     │     ├──[✅]--(sogou)
+│     │     │     │     ├──[✅]--(source-foundry)
+│     │     │     │     ├──[✅]--(spatie)
+│     │     │     │     ├──[✅]--(spatie.html)
+│     │     │     │     ├──[✅]--(spencerdodd)
+│     │     │     │     ├──[✅]--(spikespaz)
+│     │     │     │     ├──[✅]--(spirit.html)
+│     │     │     │     ├──[✅]--(square)
+│     │     │     │     ├──[✅]--(steshaw.html)
+│     │     │     │     ├──[✅]--(storybook-eol)
+│     │     │     │     ├──[✅]--(strazzere.html)
+│     │     │     │     ├──[✅]--(streamlit)
+│     │     │     │     ├──[✅]--(subethaedit)
+│     │     │     │     ├──[✅]--(sunscrapers)
+│     │     │     │     ├──[✅]--(susam)
+│     │     │     │     ├──[✅]--(swimlane)
+│     │     │     │     ├──[✅]--(tallesl.html)
+│     │     │     │     ├──[✅]--(talyssonoc.html)
+│     │     │     │     ├──[✅]--(tanelpoder)
+│     │     │     │     ├──[✅]--(taniarascia.html)
+│     │     │     │     ├──[✅]--(tankywoo.html)
+│     │     │     │     ├──[✅]--(taviso.html)
+│     │     │     │     ├──[✅]--(team-gryff)
+│     │     │     │     ├──[✅]--(teambit)
+│     │     │     │     ├──[✅]--(teamclairvoyant)
+│     │     │     │     ├──[✅]--(techprimate)
+│     │     │     │     ├──[✅]--(terraform-docs)
+│     │     │     │     ├──[✅]--(tfsec)
+│     │     │     │     ├──[✅]--(the-road-to-graphql.html)
+│     │     │     │     ├──[✅]--(thoughtbot)
+│     │     │     │     ├──[✅]--(thunks)
+│     │     │     │     ├──[✅]--(tiangolo)
+│     │     │     │     ├──[✅]--(tidyverse.html)
+│     │     │     │     ├──[✅]--(tmrts.html)
+│     │     │     │     ├──[✅]--(tmspzz.html)
+│     │     │     │     ├──[✅]--(tpolecat.html)
+│     │     │     │     ├──[✅]--(tr1s.html)
+│     │     │     │     ├──[✅]--(txn2)
+│     │     │     │     ├──[✅]--(txt✅nking)
+│     │     │     │     ├──[✅]--(typelead.html)
+│     │     │     │     ├──[✅]--(typelevel.html)
+│     │     │     │     ├──[✅]--(typelift.html)
+│     │     │     │     ├──[✅]--(tzutalin)
+│     │     │     │     ├──[✅]--(unicodeveloper.html)
+│     │     │     │     ├──[✅]--(unicorn-engine.html)
+│     │     │     │     ├──[✅]--(universal-ctags)
+│     │     │     │     ├──[✅]--(uxmal.html)
+│     │     │     │     ├──[✅]--(vaib25vicky.html)
+│     │     │     │     ├──[✅]--(vaibhavpandeyvpz.html)
+│     │     │     │     ├──[✅]--(vavr-io.html)
+│     │     │     │     ├──[✅]--(veggiemonk)
+│     │     │     │     ├──[✅]--(vektra)
+│     │     │     │     ├──[✅]--(verbose)
+│     │     │     │     ├──[✅]--(vercel)
+│     │     │     │     ├──[✅]--(versionpress)
+│     │     │     │     ├──[✅]--(victorb)
+│     │     │     │     ├──[✅]--(viewflow)
+│     │     │     │     ├──[✅]--(vitalysim.html)
+│     │     │     │     ├──[✅]--(vivisect.html)
+│     │     │     │     ├──[✅]--(vkostyukov.html)
+│     │     │     │     ├──[✅]--(voidcosmos.html)
+│     │     │     │     ├──[✅]--(vue-generators)
+│     │     │     │     ├──[✅]--(vuegg)
+│     │     │     │     ├──[✅]--(w3tecch.html)
+│     │     │     │     ├──[✅]--(watchexec)
+│     │     │     │     ├──[✅]--(wbkd.html)
+│     │     │     │     ├──[✅]--(wclr)
+│     │     │     │     ├──[✅]--(webpro)
+│     │     │     │     ├──[✅]--(welldone-software.html)
+│     │     │     │     ├──[✅]--(wellyshen.html)
+│     │     │     │     ├──[✅]--(wisk.html)
+│     │     │     │     ├──[✅]--(wix)
+│     │     │     │     ├──[✅]--(wking-io)
+│     │     │     │     ├──[✅]--(wo52616111.html)
+│     │     │     │     ├──[✅]--(wordplate.html)
+│     │     │     │     ├──[✅]--(workco.html)
+│     │     │     │     ├──[✅]--(wx-chevalier.html)
+│     │     │     │     ├──[✅]--(x-motemen)
+│     │     │     │     ├──[✅]--(x64dbg.html)
+│     │     │     │     ├──[✅]--(xcpretty)
+│     │     │     │     ├──[✅]--(xjh22222228)
+│     │     │     │     ├──[✅]--(xoreos.html)
+│     │     │     │     ├──[✅]--(xsynaptic)
+│     │     │     │     ├──[✅]--(xudaolong)
+│     │     │     │     ├──[✅]--(xxjwxc)
+│     │     │     │     ├──[✅]--(yeoman)
+│     │     │     │     ├──[✅]--(yonaskolb)
+│     │     │     │     ├──[✅]--(yos✅mkd)
+│     │     │     │     ├──[✅]--(yulingtianxia)
+│     │     │     │     ├──[✅]--(yulingtianxia.html)
+│     │     │     │     ├──[✅]--(z-pattern-matc✅ng.html)
+│     │     │     │     ├──[✅]--(zagahr)
+│     │     │     │     ├──[✅]--(zealdocs)
+│     │     │     │     ├──[✅]--(zeebe-io)
+│     │     │     │     ├──[✅]--(zeffy.html)
+│     │     │     │     ├──[✅]--(zegl)
+│     │     │     │     ├──[✅]--(zerosoul)
+│     │     │     │     ├──[✅]--(zio.html)
+│     │     │     │     ├──[✅]--(zjw-swun.html)
+│     │     │     │     └──[✅]--(zubairehman.html)
+│     │     │     └──[✅]--(projects)
+│     │     ├──[✅]--(frontend-dev-bookmarks-master)
+│     │     │     └──[✅]--(frontend-dev-bookmarks-master)
+│     │     │                              ├──[✅]--(animation)
+│     │     │                              ├──[✅]--(appearance)
+│     │     │                              ├──[✅]--(arc✅tecture)
+│     │     │                              ├──[✅]--(compatibility)
+│     │     │                              ├──[✅]--(ecosystem)
+│     │     │                              ├──[✅]--(languages-protocols-browser-apis)
+│     │     │                              ├──[✅]--(user-interface-components)
+│     │     │                              └──[✅]--(workflow)
+│     │     └──[✅]--(fucking.awesome.python)
+│     ├──[✅]--(netlify-functions)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(_data)
+│     │                              ├──[✅]--(_includes)
+│     │                              │     ├──[✅]--(layouts)
+│     │                              │     └──[✅]--(partials)
+│     │                              ├──[✅]--(admin)
+│     │                              ├──[✅]--(assets)
+│     │                              │     ├──[✅]--(css)
+│     │                              │     ├──[✅]--(images)
+│     │                              │     └──[✅]--(js)
+│     │                              ├──[✅]--(examples)
+│     │                              ├──[✅]--(functions)
+│     │                              └──[✅]--(pages)
+│     ├──[✅]--(python-data-generation)
+│     ├──[✅]--(technology_books-master)
+│     │     ├──[✅]--(Android)
+│     │     ├──[✅]--(AngularJS)
+│     │     ├──[✅]--(Ansible)
+│     │     ├──[✅]--(Arduino)
+│     │     ├──[✅]--(CSS)
+│     │     ├──[✅]--(Delp✅)
+│     │     ├──[✅]--(DevOps)
+│     │     ├──[✅]--(Docker)
+│     │     ├──[✅]--(Docker-swarm)
+│     │     ├──[✅]--(Game   Developement)
+│     │     ├──[✅]--(Github)
+│     │     ├──[✅]--(Golang)
+│     │     ├──[✅]--(Java)
+│     │     │     └──[✅]--(spring)
+│     │     ├──[✅]--(JavaScript)
+│     │     ├──[✅]--(Jenkins)
+│     │     ├──[✅]--(K8s)
+│     │     ├──[✅]--(Kafka)
+│     │     ├──[✅]--(Linux)
+│     │     ├──[✅]--(Mac✅ne-Learning)
+│     │     ├──[✅]--(Mesos)
+│     │     ├──[✅]--(MongoDB)
+│     │     ├──[✅]--(NodeJS)
+│     │     ├──[✅]--(OpenStack)
+│     │     ├──[✅]--(Python)
+│     │     ├──[✅]--(R)
+│     │     ├──[✅]--(Raspberry)
+│     │     ├──[✅]--(Redis)
+│     │     ├──[✅]--(Ruby)
+│     │     ├──[✅]--(Terraform)
+│     │     ├──[✅]--(Unity)
+│     │     └──[✅]--(Zookeeper)
+│     └──[✅]--(web-guided-project-testing-web-apps-solution-main)
+│                              ├──[✅]--(public)
+│                              └──[✅]--(src)
+│                                                └──[✅]--(components)
+├──[✅]--(3-misc)
+│     ├──[✅]--(Beginner)
+│     │     ├──[✅]--(capSentence)
+│     │     ├──[✅]--(chunkArray)
+│     │     ├──[✅]--(factorial)
+│     │     ├──[✅]--(falsyBouncer)
+│     │     ├──[✅]--(fibonacci)
+│     │     ├──[✅]--(fizzBuzz)
+│     │     ├──[✅]--(hammingDistance)
+│     │     ├──[✅]--(isAnagram)
+│     │     ├──[✅]--(longestWord)
+│     │     ├──[✅]--(maxRecurringChar)
+│     │     ├──[✅]--(mergeArrays)
+│     │     ├──[✅]--(palindromeChecker)
+│     │     ├──[✅]--(reverseString)
+│     │     ├──[✅]--(searchReplace)
+│     │     ├──[✅]--(vowelsCounter)
+│     │     └──[✅]--(whereIBelong)
+│     ├──[✅]--(SandboxSQL-master)
+│     │     └──[✅]--(SandboxSQL-master)
+│     │                              ├──[✅]--(SQLSandbox.xcodeproj)
+│     │                              │     ├──[✅]--(project.xcworkspace)
+│     │                              │     ├──[✅]--(xcshareddata)
+│     │                              │     └──[✅]--(xcuserdata)
+│     │                              ├──[✅]--(iOS)
+│     │                              │     ├──[✅]--(Base.lproj)
+│     │                              │     └──[✅]--(Images.xcassets)
+│     │                              └──[✅]--(src)
+│     │                                                └──[✅]--(js)
+│     ├──[✅]--(articles-from-interwebs)
+│     │     └──[✅]--(Jquery-tips-n-tricks_files)
+│     └──[✅]--(node-web-scraper-master)
+│                              └──[✅]--(node-web-scraper-master)
+├──[✅]--(4-test-prep)
+│     └──[✅]--(Study-Guides)
+├──[✅]--(5-websites)
+│     ├──[✅]--(lambda-prep)
+│     │     ├──[✅]--(_Resources)
+│     │     │     └──[✅]--(Precourse-master)
+│     │     │                              ├──[✅]--(Lesson01-Git)
+│     │     │                              ├──[✅]--(Lesson02-HTML-CSS)
+│     │     │                              ├──[✅]--(Lesson03-CSS-Positioning)
+│     │     │                              ├──[✅]--(Lesson04-JS-I)
+│     │     │                              ├──[✅]--(Lesson05-JS-II)
+│     │     │                              ├──[✅]--(Lesson06-JS-III)
+│     │     │                              ├──[✅]--(Lesson07-JS-IV)
+│     │     │                              ├──[✅]--(Lesson08-JS-V)
+│     │     │                              ├──[✅]--(Lesson09-JS-VI)
+│     │     │                              ├──[✅]--(Lesson10-JS-VII)
+│     │     │                              ├──[✅]--(Lesson11-JS-VIII)
+│     │     │                              ├──[✅]--(Lesson12-DOM)
+│     │     │                              └──[✅]--(Precourse-master)
+│     │     ├──[✅]--(javascript-practice)
+│     │     │     ├──[✅]--(-ALL-JS-Files)
+│     │     │     ├──[✅]--(00_expressions_variables)
+│     │     │     │     ├──[✅]--(exercises)
+│     │     │     │     └──[✅]--(solutions)
+│     │     │     ├──[✅]--(01_conditionals)
+│     │     │     │     ├──[✅]--(exercises)
+│     │     │     │     └──[✅]--(solutions)
+│     │     │     ├──[✅]--(02_functions)
+│     │     │     │     ├──[✅]--(exercises)
+│     │     │     │     └──[✅]--(solutions)
+│     │     │     ├──[✅]--(03_loops)
+│     │     │     │     ├──[✅]--(exercises)
+│     │     │     │     └──[✅]--(solutions)
+│     │     │     ├──[✅]--(04_arrays)
+│     │     │     │     ├──[✅]--(exercises)
+│     │     │     │     └──[✅]--(solutions)
+│     │     │     ├──[✅]--(05_nesting)
+│     │     │     │     ├──[✅]--(exercises)
+│     │     │     │     └──[✅]--(solutions)
+│     │     │     ├──[✅]--(06_decomposition_pattern)
+│     │     │     │     ├──[✅]--(A_decomposing_problems_exercise)
+│     │     │     │     ├──[✅]--(B_decomposing_problems_exercise)
+│     │     │     │     └──[✅]--(C_decomposing_problems_exercise)
+│     │     │     ├──[✅]--(07_objects)
+│     │     │     │     ├──[✅]--(A_objects_exercise)
+│     │     │     │     ├──[✅]--(B_objects_exercise)
+│     │     │     │     └──[✅]--(C_objects_exercise)
+│     │     │     ├──[✅]--(08_✅gher_order_functions)
+│     │     │     │     ├──[✅]--(A_native_callback_methods_exercise)
+│     │     │     │     └──[✅]--(B_native_callback_methods_exercise)
+│     │     │     └──[✅]--(simple-side-bar)
+│     │     │                              ├──[✅]--(css)
+│     │     │                              └──[✅]--(vendor)
+│     │     ├──[✅]--(markdown)
+│     │     └──[✅]--(readme)
+│     │                              └──[✅]--(README_files)
+│     └──[✅]--(templates)
+│                              ├──[✅]--(css)
+│                              ├──[✅]--(doc)
+│                              ├──[✅]--(img)
+│                              └──[✅]--(js)
+│                                                └──[✅]--(vendor)
+├──[✅]--(6-about)
+│     ├──[✅]--(Using   Canvas   27a0cf2408124ad19a3802565bd24de6)
+│     │     └──[✅]--(How   are   courses   structured   in   Canvas   How   do   I   know   3dfccdd4ff5f462dacde3b358c627e60)
+│     └──[✅]--(brits-codepens)
+├──[✅]--(7-assets)
+│     ├──[✅]--(AUDIO-VISUALIZER)
+│     │     ├──[✅]--(Box2D)
+│     │     │     ├──[✅]--(assets)
+│     │     │     └──[✅]--(libs)
+│     │     ├──[✅]--(Gary   Ad)
+│     │     │     ├──[✅]--(Baked)
+│     │     │     │     └──[✅]--(sounds)
+│     │     │     └──[✅]--(Raw)
+│     │     ├──[✅]--(GaryPewPew)
+│     │     │     ├──[✅]--(Animate)
+│     │     │     ├──[✅]--(js)
+│     │     │     └──[✅]--(sounds)
+│     │     ├──[✅]--(MusicViz)
+│     │     │     └──[✅]--(js)
+│     │     ├──[✅]--(MusicViz2)
+│     │     │     ├──[✅]--(js)
+│     │     │     └──[✅]--(sounds)
+│     │     ├──[✅]--(Performance)
+│     │     │     ├──[✅]--(Context2DLog)
+│     │     │     ├──[✅]--(FauxCanvas)
+│     │     │     ├──[✅]--(Snowmark)
+│     │     │     │     ├──[✅]--(css)
+│     │     │     │     └──[✅]--(js)
+│     │     │     ├──[✅]--(Zombie)
+│     │     │     │     └──[✅]--(images)
+│     │     │     └──[✅]--(framerate)
+│     │     │                              ├──[✅]--(assets)
+│     │     │                              └──[✅]--(js)
+│     │     ├──[✅]--(Planetary   Gary)
+│     │     │     ├──[✅]--(Animate)
+│     │     │     ├──[✅]--(assets)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(sounds)
+│     │     │     ├──[✅]--(js)
+│     │     │     └──[✅]--(libs)
+│     │     ├──[✅]--(js)
+│     │     └──[✅]--(sounds)
+│     ├──[✅]--(_IMAGES)
+│     ├──[✅]--(fonts)
+│     ├──[✅]--(footer)
+│     ├──[✅]--(images)
+│     ├──[✅]--(jquery)
+│     │     ├──[✅]--(dist)
+│     │     ├──[✅]--(external)
+│     │     │     └──[✅]--(sizzle)
+│     │     │                              └──[✅]--(dist)
+│     │     └──[✅]--(src)
+│     │                              ├──[✅]--(ajax)
+│     │                              │     └──[✅]--(var)
+│     │                              ├──[✅]--(attributes)
+│     │                              ├──[✅]--(core)
+│     │                              │     └──[✅]--(var)
+│     │                              ├──[✅]--(css)
+│     │                              │     └──[✅]--(var)
+│     │                              ├──[✅]--(data)
+│     │                              │     └──[✅]--(var)
+│     │                              ├──[✅]--(deferred)
+│     │                              ├──[✅]--(deprecated)
+│     │                              ├──[✅]--(effects)
+│     │                              ├──[✅]--(event)
+│     │                              ├──[✅]--(exports)
+│     │                              ├──[✅]--(manipulation)
+│     │                              │     └──[✅]--(var)
+│     │                              ├──[✅]--(queue)
+│     │                              ├──[✅]--(traversing)
+│     │                              │     └──[✅]--(var)
+│     │                              └──[✅]--(var)
+│     ├──[✅]--(loadashes6)
+│     │     └──[✅]--(lodash)
+│     │                              └──[✅]--(fp)
+│     ├──[✅]--(might-delete)
+│     │     └──[✅]--(_MARKDOWN)
+│     ├──[✅]--(mout)
+│     │     ├──[✅]--(array)
+│     │     ├──[✅]--(collection)
+│     │     ├──[✅]--(date)
+│     │     │     └──[✅]--(i18n)
+│     │     ├──[✅]--(doc)
+│     │     ├──[✅]--(function)
+│     │     ├──[✅]--(lang)
+│     │     ├──[✅]--(math)
+│     │     ├──[✅]--(number)
+│     │     ├──[✅]--(object)
+│     │     ├──[✅]--(queryString)
+│     │     ├──[✅]--(random)
+│     │     ├──[✅]--(src)
+│     │     │     ├──[✅]--(array)
+│     │     │     ├──[✅]--(collection)
+│     │     │     ├──[✅]--(date)
+│     │     │     │     └──[✅]--(i18n)
+│     │     │     ├──[✅]--(function)
+│     │     │     ├──[✅]--(lang)
+│     │     │     ├──[✅]--(math)
+│     │     │     ├──[✅]--(number)
+│     │     │     ├──[✅]--(object)
+│     │     │     ├──[✅]--(queryString)
+│     │     │     ├──[✅]--(random)
+│     │     │     ├──[✅]--(string)
+│     │     │     └──[✅]--(time)
+│     │     ├──[✅]--(string)
+│     │     └──[✅]--(time)
+│     ├──[✅]--(past-student-repos)
+│     │     ├──[✅]--(DOM-II-master)
+│     │     ├──[✅]--(Data-Structures-Notes-master)
+│     │     │     ├──[✅]--(BST_and_Heaps)
+│     │     │     ├──[✅]--(Doubly_Linked_List)
+│     │     │     ├──[✅]--(Interview_Problems)
+│     │     │     └──[✅]--(Linked_Lists)
+│     │     ├──[✅]--(Data-Structures-and-Algorithms-master)
+│     │     │     ├──[✅]--(assets)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(algorithms)
+│     │     │                              ├──[✅]--(analysis-of-algorithms)
+│     │     │                              └──[✅]--(data-structures)
+│     │     ├──[✅]--(Data-Structures-master)
+│     │     │     ├──[✅]--(avl_tree)
+│     │     │     ├──[✅]--(binary_search_tree)
+│     │     │     ├──[✅]--(doubly_linked_list)
+│     │     │     ├──[✅]--(heap)
+│     │     │     ├──[✅]--(javascript)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(lru_cache)
+│     │     │     ├──[✅]--(python)
+│     │     │     │     ├──[✅]--(binary_search_tree)
+│     │     │     │     ├──[✅]--(doubly_linked_list)
+│     │     │     │     ├──[✅]--(heap)
+│     │     │     │     ├──[✅]--(linked_list)
+│     │     │     │     └──[✅]--(queue)
+│     │     │     └──[✅]--(queue)
+│     │     ├──[✅]--(Graphs-Notes-master)
+│     │     │     ├──[✅]--(img)
+│     │     │     ├──[✅]--(lecture1)
+│     │     │     ├──[✅]--(lecture2)
+│     │     │     ├──[✅]--(lecture3)
+│     │     │     └──[✅]--(lecture4)
+│     │     ├──[✅]--(Graphs-master)
+│     │     │     ├──[✅]--(javascript)
+│     │     │     │     ├──[✅]--(guided-demo)
+│     │     │     │     ├──[✅]--(objectives)
+│     │     │     │     └──[✅]--(projects)
+│     │     │     ├──[✅]--(objectives)
+│     │     │     │     ├──[✅]--(breadth-first-search)
+│     │     │     │     ├──[✅]--(connected-components)
+│     │     │     │     ├──[✅]--(depth-first-search)
+│     │     │     │     ├──[✅]--(graph-intro)
+│     │     │     │     ├──[✅]--(graph-representations)
+│     │     │     │     └──[✅]--(randomness)
+│     │     │     ├──[✅]--(projects)
+│     │     │     │     ├──[✅]--(adventure)
+│     │     │     │     ├──[✅]--(ancestor)
+│     │     │     │     ├──[✅]--(graph)
+│     │     │     │     └──[✅]--(social)
+│     │     │     └──[✅]--(python)
+│     │     │                              ├──[✅]--(guided-demo)
+│     │     │                              └──[✅]--(projects)
+│     │     ├──[✅]--(HTTP-AJAX-II-master)
+│     │     │     ├──[✅]--(app)
+│     │     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(server)
+│     │     ├──[✅]--(HTTP-AJAX-master)
+│     │     │     └──[✅]--(friends)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(Hash-Tables-Notes-master)
+│     │     ├──[✅]--(Intro-Python-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(day-1-toy)
+│     │     │                              ├──[✅]--(days-2-4-adv)
+│     │     │                              ├──[✅]--(mini-challenge)
+│     │     │                              └──[✅]--(python-example)
+│     │     ├──[✅]--(Intro-to-C-master)
+│     │     │     ├──[✅]--(first)
+│     │     │     ├──[✅]--(fizzbuzz)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(hangman)
+│     │     │     ├──[✅]--(malloc)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(pointers)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(queue)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(quicksort)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(strings)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(structs)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     └──[✅]--(utils)
+│     │     ├──[✅]--(JavaScript-I-Guided-master)
+│     │     ├──[✅]--(Lambda-School-Instruction-Notes-master)
+│     │     │     ├──[✅]--(10.   Data   Persistence   in   Web   APIs)
+│     │     │     │     └──[✅]--(assets)
+│     │     │     ├──[✅]--(11.   Authentication)
+│     │     │     └──[✅]--(12.   Testing)
+│     │     ├──[✅]--(Lambda-School-master)
+│     │     │     ├──[✅]--(Week   1)
+│     │     │     │     ├──[✅]--(Sprint-Challenge   User-Interface)
+│     │     │     │     ├──[✅]--(User   Interface   I         Project   2   -   Sweet   Eats   Bakery)
+│     │     │     │     ├──[✅]--(User   Interface   I   HTML   Markup)
+│     │     │     │     ├──[✅]--(User   Interface   III   Services   Page)
+│     │     │     │     └──[✅]--(User-Interface   II   Innovation)
+│     │     │     ├──[✅]--(Week   10)
+│     │     │     │     ├──[✅]--(Car-Sales)
+│     │     │     │     ├──[✅]--(React-Redux-App)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-State-Management-Smurfs)
+│     │     │     │     ├──[✅]--(react-shopping-cart)
+│     │     │     │     └──[✅]--(reducer-todo)
+│     │     │     ├──[✅]--(Week   11)
+│     │     │     │     ├──[✅]--(Auth-Friends)
+│     │     │     │     ├──[✅]--(HTTP-Movies-Assignment)
+│     │     │     │     ├──[✅]--(react-bubbles)
+│     │     │     │     └──[✅]--(webtesting-iii-challenge)
+│     │     │     ├──[✅]--(Week   12   -   FoodieFun)
+│     │     │     ├──[✅]--(Week   13)
+│     │     │     │     ├──[✅]--(node-api1-project)
+│     │     │     │     ├──[✅]--(webapi-challenge-sprint)
+│     │     │     │     ├──[✅]--(webapi-ii-challenge)
+│     │     │     │     └──[✅]--(webapi-iii-challenge)
+│     │     │     ├──[✅]--(Week   14)
+│     │     │     │     ├──[✅]--(node-db-challenge-sprint)
+│     │     │     │     ├──[✅]--(node-db3-challenge)
+│     │     │     │     ├──[✅]--(node-db4)
+│     │     │     │     ├──[✅]--(webdb-i-challenge)
+│     │     │     │     └──[✅]--(webdb-ii-challenge)
+│     │     │     ├──[✅]--(Week   15)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-Authentication)
+│     │     │     │     ├──[✅]--(node-server-testing-challenge)
+│     │     │     │     ├──[✅]--(webauth-i-challenge)
+│     │     │     │     └──[✅]--(webauth-iii-challenge)
+│     │     │     ├──[✅]--(Week   16   -   Mentor   Me)
+│     │     │     ├──[✅]--(Week   17   -   25   Future   Hope)
+│     │     │     ├──[✅]--(Week   2)
+│     │     │     │     ├──[✅]--(Digital   Resume)
+│     │     │     │     ├──[✅]--(Fun   Bus)
+│     │     │     │     ├──[✅]--(Portfolio)
+│     │     │     │     ├──[✅]--(Resposnive-Web-Design)
+│     │     │     │     └──[✅]--(Sprint   Challenge)
+│     │     │     ├──[✅]--(Week   3)
+│     │     │     │     ├──[✅]--(JavaScript-I)
+│     │     │     │     ├──[✅]--(JavaScript-II)
+│     │     │     │     ├──[✅]--(JavaScript-III)
+│     │     │     │     ├──[✅]--(JavaScript-IV)
+│     │     │     │     └──[✅]--(Sprint-Challenge)
+│     │     │     ├──[✅]--(Week   4   -   Local   Voter   Guide)
+│     │     │     │     ├──[✅]--(css)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(less)
+│     │     │     ├──[✅]--(Week   5)
+│     │     │     │     ├──[✅]--(DOM-I)
+│     │     │     │     ├──[✅]--(DOM-II)
+│     │     │     │     ├──[✅]--(Newsfeed-Components)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-Applied-Javascript)
+│     │     │     │     └──[✅]--(github-usercard)
+│     │     │     ├──[✅]--(Week   6)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-React-Wars)
+│     │     │     │     ├──[✅]--(lambda-calculator)
+│     │     │     │     ├──[✅]--(nasa-photo-of-the-day)
+│     │     │     │     └──[✅]--(react-american-football-scoreboard)
+│     │     │     ├──[✅]--(Week   7)
+│     │     │     │     ├──[✅]--(React-Router-Basic-Nav)
+│     │     │     │     ├──[✅]--(React-Router-Movies)
+│     │     │     │     ├──[✅]--(Sprint-Challenge-Single-Page-Apps)
+│     │     │     │     ├──[✅]--(User-Onboarding)
+│     │     │     │     └──[✅]--(team-builder)
+│     │     │     ├──[✅]--(Week   8   -   Water   My   Plants)
+│     │     │     └──[✅]--(Week   9)
+│     │     │                              ├──[✅]--(Github-User-Card)
+│     │     │                              ├──[✅]--(React-Todo)
+│     │     │                              ├──[✅]--(Sprint-Challenge-Advanced-React)
+│     │     │                              └──[✅]--(dark-mode)
+│     │     ├──[✅]--(LambdaSchool-master)
+│     │     │     ├──[✅]--(31d1)
+│     │     │     ├──[✅]--(Administration)
+│     │     │     │     ├──[✅]--(certs)
+│     │     │     │     ├──[✅]--(marketing)
+│     │     │     │     ├──[✅]--(studying)
+│     │     │     │     └──[✅]--(zoom)
+│     │     │     ├──[✅]--(JavaScript30)
+│     │     │     │     ├──[✅]--(01)
+│     │     │     │     ├──[✅]--(02)
+│     │     │     │     ├──[✅]--(03)
+│     │     │     │     ├──[✅]--(04)
+│     │     │     │     ├──[✅]--(05)
+│     │     │     │     ├──[✅]--(06)
+│     │     │     │     ├──[✅]--(07)
+│     │     │     │     ├──[✅]--(08)
+│     │     │     │     ├──[✅]--(09)
+│     │     │     │     ├──[✅]--(10)
+│     │     │     │     ├──[✅]--(11)
+│     │     │     │     ├──[✅]--(12)
+│     │     │     │     ├──[✅]--(13)
+│     │     │     │     ├──[✅]--(14)
+│     │     │     │     ├──[✅]--(15)
+│     │     │     │     ├──[✅]--(16)
+│     │     │     │     ├──[✅]--(17)
+│     │     │     │     ├──[✅]--(18)
+│     │     │     │     ├──[✅]--(19)
+│     │     │     │     ├──[✅]--(20)
+│     │     │     │     ├──[✅]--(21)
+│     │     │     │     ├──[✅]--(22)
+│     │     │     │     ├──[✅]--(23)
+│     │     │     │     ├──[✅]--(24)
+│     │     │     │     ├──[✅]--(25)
+│     │     │     │     ├──[✅]--(26)
+│     │     │     │     ├──[✅]--(27)
+│     │     │     │     ├──[✅]--(28)
+│     │     │     │     ├──[✅]--(29)
+│     │     │     │     └──[✅]--(30)
+│     │     │     ├──[✅]--(aa-score)
+│     │     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(src)
+│     │     │     ├──[✅]--(bw1-tl)
+│     │     │     │     ├──[✅]--(admin)
+│     │     │     │     ├──[✅]--(api)
+│     │     │     │     ├──[✅]--(auth)
+│     │     │     │     ├──[✅]--(database)
+│     │     │     │     ├──[✅]--(middleware)
+│     │     │     │     ├──[✅]--(todos)
+│     │     │     │     └──[✅]--(volunteer)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(labs)
+│     │     │     │     ├──[✅]--(last   journal   entry)
+│     │     │     │     └──[✅]--(video-to-next-group)
+│     │     │     ├──[✅]--(m1)
+│     │     │     │     ├──[✅]--(11b1)
+│     │     │     │     ├──[✅]--(11c1)
+│     │     │     │     ├──[✅]--(11d1)
+│     │     │     │     ├──[✅]--(12a1)
+│     │     │     │     ├──[✅]--(12b1)
+│     │     │     │     ├──[✅]--(12c1)
+│     │     │     │     ├──[✅]--(12d1)
+│     │     │     │     ├──[✅]--(13a1)
+│     │     │     │     ├──[✅]--(13b1)
+│     │     │     │     ├──[✅]--(13c1)
+│     │     │     │     ├──[✅]--(13d1)
+│     │     │     │     └──[✅]--(13e1)
+│     │     │     ├──[✅]--(m2)
+│     │     │     │     ├──[✅]--(21a1)
+│     │     │     │     ├──[✅]--(21b1)
+│     │     │     │     ├──[✅]--(21c1)
+│     │     │     │     ├──[✅]--(21d1)
+│     │     │     │     ├──[✅]--(21e1)
+│     │     │     │     ├──[✅]--(22a1)
+│     │     │     │     ├──[✅]--(22b1)
+│     │     │     │     ├──[✅]--(22c1)
+│     │     │     │     ├──[✅]--(22e1)
+│     │     │     │     ├──[✅]--(23a1)
+│     │     │     │     ├──[✅]--(23a2)
+│     │     │     │     ├──[✅]--(23b1)
+│     │     │     │     ├──[✅]--(23c1)
+│     │     │     │     ├──[✅]--(23d1)
+│     │     │     │     ├──[✅]--(23d2)
+│     │     │     │     ├──[✅]--(23e1)
+│     │     │     │     └──[✅]--(24a1)
+│     │     │     ├──[✅]--(m3)
+│     │     │     │     ├──[✅]--(31a1)
+│     │     │     │     ├──[✅]--(31a2)
+│     │     │     │     ├──[✅]--(31b1)
+│     │     │     │     ├──[✅]--(31c1)
+│     │     │     │     ├──[✅]--(31d1)
+│     │     │     │     ├──[✅]--(31e1)
+│     │     │     │     ├──[✅]--(32a1)
+│     │     │     │     ├──[✅]--(32b1)
+│     │     │     │     ├──[✅]--(32c1)
+│     │     │     │     ├──[✅]--(32d1)
+│     │     │     │     ├──[✅]--(32e1)
+│     │     │     │     ├──[✅]--(33a1)
+│     │     │     │     ├──[✅]--(33b1)
+│     │     │     │     ├──[✅]--(33d1)
+│     │     │     │     └──[✅]--(33e1)
+│     │     │     ├──[✅]--(m4)
+│     │     │     │     ├──[✅]--(41a1)
+│     │     │     │     ├──[✅]--(41a2)
+│     │     │     │     ├──[✅]--(41b1)
+│     │     │     │     ├──[✅]--(41b2)
+│     │     │     │     ├──[✅]--(41c1)
+│     │     │     │     ├──[✅]--(41c2)
+│     │     │     │     ├──[✅]--(41d1)
+│     │     │     │     ├──[✅]--(41e1)
+│     │     │     │     ├──[✅]--(41e1app)
+│     │     │     │     ├──[✅]--(42a1)
+│     │     │     │     ├──[✅]--(42a2)
+│     │     │     │     ├──[✅]--(42b1)
+│     │     │     │     ├──[✅]--(42b2)
+│     │     │     │     ├──[✅]--(42c1)
+│     │     │     │     ├──[✅]--(42c2)
+│     │     │     │     ├──[✅]--(42d1)
+│     │     │     │     ├──[✅]--(42d2)
+│     │     │     │     ├──[✅]--(42e1)
+│     │     │     │     ├──[✅]--(43a1)
+│     │     │     │     ├──[✅]--(43a2)
+│     │     │     │     ├──[✅]--(43b1)
+│     │     │     │     ├──[✅]--(43b2)
+│     │     │     │     ├──[✅]--(43c1)
+│     │     │     │     ├──[✅]--(43c2)
+│     │     │     │     ├──[✅]--(43d1)
+│     │     │     │     ├──[✅]--(43d2)
+│     │     │     │     └──[✅]--(43e1)
+│     │     │     ├──[✅]--(m5)
+│     │     │     │     ├──[✅]--(51a1)
+│     │     │     │     ├──[✅]--(51b1)
+│     │     │     │     ├──[✅]--(51c1)
+│     │     │     │     ├──[✅]--(51d1)
+│     │     │     │     ├──[✅]--(51d2)
+│     │     │     │     ├──[✅]--(51e1)
+│     │     │     │     ├──[✅]--(52b1)
+│     │     │     │     ├──[✅]--(52c1)
+│     │     │     │     ├──[✅]--(52c2)
+│     │     │     │     ├──[✅]--(52d1)
+│     │     │     │     ├──[✅]--(53a1)
+│     │     │     │     ├──[✅]--(53b1)
+│     │     │     │     ├──[✅]--(53c1)
+│     │     │     │     └──[✅]--(53d1)
+│     │     │     ├──[✅]--(m6)
+│     │     │     │     ├──[✅]--(61a1)
+│     │     │     │     ├──[✅]--(61b1)
+│     │     │     │     ├──[✅]--(61c1)
+│     │     │     │     ├──[✅]--(62a1)
+│     │     │     │     ├──[✅]--(62b1)
+│     │     │     │     ├──[✅]--(63a1)
+│     │     │     │     ├──[✅]--(63b1)
+│     │     │     │     ├──[✅]--(63c1)
+│     │     │     │     └──[✅]--(63d1)
+│     │     │     ├──[✅]--(m7)
+│     │     │     │     ├──[✅]--(71a1)
+│     │     │     │     ├──[✅]--(71e1)
+│     │     │     │     ├──[✅]--(72a1)
+│     │     │     │     ├──[✅]--(73a1)
+│     │     │     │     └──[✅]--(74a1)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(iterative_sorting)
+│     │     │     │     └──[✅]--(searc✅ng)
+│     │     │     ├──[✅]--(summary)
+│     │     │     │     ├──[✅]--(Node   Express   Knex)
+│     │     │     │     ├──[✅]--(certifications)
+│     │     │     │     ├──[✅]--(cobol)
+│     │     │     │     ├──[✅]--(complete)
+│     │     │     │     ├──[✅]--(general)
+│     │     │     │     ├──[✅]--(interviewing)
+│     │     │     │     ├──[✅]--(testing)
+│     │     │     │     └──[✅]--(typescript)
+│     │     │     └──[✅]--(tlbw)
+│     │     │                              └──[✅]--(client)
+│     │     ├──[✅]--(Mongo-I-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(controllers)
+│     │     │                              ├──[✅]--(models)
+│     │     │                              └──[✅]--(routes)
+│     │     ├──[✅]--(Node-Blog-master)
+│     │     │     ├──[✅]--(api)
+│     │     │     │     ├──[✅]--(post)
+│     │     │     │     ├──[✅]--(tag)
+│     │     │     │     └──[✅]--(user)
+│     │     │     ├──[✅]--(config)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(helpers)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(routers)
+│     │     ├──[✅]--(Precourse-master)
+│     │     │     ├──[✅]--(Lesson1-Git)
+│     │     │     ├──[✅]--(Lesson10-JS-VII)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson11-JS-VIII)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson12-DOM)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson2-HTML-CSS)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson3-CSS-Positioning)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson4-JS-I)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson5-JS-II)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson6-JS-III)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson7-JS-IV)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     ├──[✅]--(Lesson8-JS-V)
+│     │     │     │     └──[✅]--(homework)
+│     │     │     └──[✅]--(Lesson9-JS-VI)
+│     │     │                              └──[✅]--(homework)
+│     │     ├──[✅]--(Python-II-Notes-master)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(Python-master)
+│     │     │     ├──[✅]--(arithmetic_analysis)
+│     │     │     │     └──[✅]--(image_data)
+│     │     │     ├──[✅]--(backtracking)
+│     │     │     ├──[✅]--(bit_manipulation)
+│     │     │     ├──[✅]--(blockchain)
+│     │     │     ├──[✅]--(boolean_algebra)
+│     │     │     ├──[✅]--(cellular_automata)
+│     │     │     ├──[✅]--(ciphers)
+│     │     │     ├──[✅]--(compression)
+│     │     │     │     └──[✅]--(image_data)
+│     │     │     ├──[✅]--(computer_vision)
+│     │     │     ├──[✅]--(conversions)
+│     │     │     ├──[✅]--(data_structures)
+│     │     │     │     ├──[✅]--(binary_tree)
+│     │     │     │     ├──[✅]--(disjoint_set)
+│     │     │     │     ├──[✅]--(has✅ng)
+│     │     │     │     ├──[✅]--(heap)
+│     │     │     │     ├──[✅]--(linked_list)
+│     │     │     │     ├──[✅]--(queue)
+│     │     │     │     ├──[✅]--(stacks)
+│     │     │     │     └──[✅]--(trie)
+│     │     │     ├──[✅]--(digital_image_processing)
+│     │     │     │     ├──[✅]--(dithering)
+│     │     │     │     ├──[✅]--(edge_detection)
+│     │     │     │     ├──[✅]--(filters)
+│     │     │     │     ├──[✅]--(✅stogram_equalization)
+│     │     │     │     ├──[✅]--(image_data)
+│     │     │     │     ├──[✅]--(resize)
+│     │     │     │     └──[✅]--(rotation)
+│     │     │     ├──[✅]--(divide_and_conquer)
+│     │     │     ├──[✅]--(dynamic_programming)
+│     │     │     ├──[✅]--(electronics)
+│     │     │     ├──[✅]--(file_transfer)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(fuzzy_logic)
+│     │     │     ├──[✅]--(genetic_algorithm)
+│     │     │     ├──[✅]--(geodesy)
+│     │     │     ├──[✅]--(grap✅cs)
+│     │     │     ├──[✅]--(graphs)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(hashes)
+│     │     │     ├──[✅]--(knapsack)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(linear_algebra)
+│     │     │     │     └──[✅]--(src)
+│     │     │     ├──[✅]--(mac✅ne_learning)
+│     │     │     │     ├──[✅]--(forecasting)
+│     │     │     │     └──[✅]--(lstm)
+│     │     │     ├──[✅]--(maths)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(series)
+│     │     │     ├──[✅]--(matrix)
+│     │     │     │     └──[✅]--(tests)
+│     │     │     ├──[✅]--(networking_flow)
+│     │     │     ├──[✅]--(neural_network)
+│     │     │     ├──[✅]--(other)
+│     │     │     ├──[✅]--(project_euler)
+│     │     │     │     ├──[✅]--(problem_001)
+│     │     │     │     ├──[✅]--(problem_002)
+│     │     │     │     ├──[✅]--(problem_003)
+│     │     │     │     ├──[✅]--(problem_004)
+│     │     │     │     ├──[✅]--(problem_005)
+│     │     │     │     ├──[✅]--(problem_006)
+│     │     │     │     ├──[✅]--(problem_007)
+│     │     │     │     ├──[✅]--(problem_008)
+│     │     │     │     ├──[✅]--(problem_009)
+│     │     │     │     ├──[✅]--(problem_010)
+│     │     │     │     ├──[✅]--(problem_011)
+│     │     │     │     ├──[✅]--(problem_012)
+│     │     │     │     ├──[✅]--(problem_013)
+│     │     │     │     ├──[✅]--(problem_014)
+│     │     │     │     ├──[✅]--(problem_015)
+│     │     │     │     ├──[✅]--(problem_016)
+│     │     │     │     ├──[✅]--(problem_017)
+│     │     │     │     ├──[✅]--(problem_018)
+│     │     │     │     ├──[✅]--(problem_019)
+│     │     │     │     ├──[✅]--(problem_020)
+│     │     │     │     ├──[✅]--(problem_021)
+│     │     │     │     ├──[✅]--(problem_022)
+│     │     │     │     ├──[✅]--(problem_023)
+│     │     │     │     ├──[✅]--(problem_024)
+│     │     │     │     ├──[✅]--(problem_025)
+│     │     │     │     ├──[✅]--(problem_026)
+│     │     │     │     ├──[✅]--(problem_027)
+│     │     │     │     ├──[✅]--(problem_028)
+│     │     │     │     ├──[✅]--(problem_029)
+│     │     │     │     ├──[✅]--(problem_030)
+│     │     │     │     ├──[✅]--(problem_031)
+│     │     │     │     ├──[✅]--(problem_032)
+│     │     │     │     ├──[✅]--(problem_033)
+│     │     │     │     ├──[✅]--(problem_034)
+│     │     │     │     ├──[✅]--(problem_035)
+│     │     │     │     ├──[✅]--(problem_036)
+│     │     │     │     ├──[✅]--(problem_037)
+│     │     │     │     ├──[✅]--(problem_038)
+│     │     │     │     ├──[✅]--(problem_039)
+│     │     │     │     ├──[✅]--(problem_040)
+│     │     │     │     ├──[✅]--(problem_041)
+│     │     │     │     ├──[✅]--(problem_042)
+│     │     │     │     ├──[✅]--(problem_043)
+│     │     │     │     ├──[✅]--(problem_044)
+│     │     │     │     ├──[✅]--(problem_045)
+│     │     │     │     ├──[✅]--(problem_046)
+│     │     │     │     ├──[✅]--(problem_047)
+│     │     │     │     ├──[✅]--(problem_048)
+│     │     │     │     ├──[✅]--(problem_049)
+│     │     │     │     ├──[✅]--(problem_050)
+│     │     │     │     ├──[✅]--(problem_051)
+│     │     │     │     ├──[✅]--(problem_052)
+│     │     │     │     ├──[✅]--(problem_053)
+│     │     │     │     ├──[✅]--(problem_054)
+│     │     │     │     ├──[✅]--(problem_055)
+│     │     │     │     ├──[✅]--(problem_056)
+│     │     │     │     ├──[✅]--(problem_057)
+│     │     │     │     ├──[✅]--(problem_058)
+│     │     │     │     ├──[✅]--(problem_059)
+│     │     │     │     ├──[✅]--(problem_062)
+│     │     │     │     ├──[✅]--(problem_063)
+│     │     │     │     ├──[✅]--(problem_064)
+│     │     │     │     ├──[✅]--(problem_065)
+│     │     │     │     ├──[✅]--(problem_067)
+│     │     │     │     ├──[✅]--(problem_069)
+│     │     │     │     ├──[✅]--(problem_070)
+│     │     │     │     ├──[✅]--(problem_071)
+│     │     │     │     ├──[✅]--(problem_072)
+│     │     │     │     ├──[✅]--(problem_074)
+│     │     │     │     ├──[✅]--(problem_075)
+│     │     │     │     ├──[✅]--(problem_076)
+│     │     │     │     ├──[✅]--(problem_077)
+│     │     │     │     ├──[✅]--(problem_080)
+│     │     │     │     ├──[✅]--(problem_081)
+│     │     │     │     ├──[✅]--(problem_085)
+│     │     │     │     ├──[✅]--(problem_086)
+│     │     │     │     ├──[✅]--(problem_087)
+│     │     │     │     ├──[✅]--(problem_089)
+│     │     │     │     ├──[✅]--(problem_091)
+│     │     │     │     ├──[✅]--(problem_097)
+│     │     │     │     ├──[✅]--(problem_099)
+│     │     │     │     ├──[✅]--(problem_101)
+│     │     │     │     ├──[✅]--(problem_102)
+│     │     │     │     ├──[✅]--(problem_107)
+│     │     │     │     ├──[✅]--(problem_112)
+│     │     │     │     ├──[✅]--(problem_113)
+│     │     │     │     ├──[✅]--(problem_119)
+│     │     │     │     ├──[✅]--(problem_120)
+│     │     │     │     ├──[✅]--(problem_123)
+│     │     │     │     ├──[✅]--(problem_125)
+│     │     │     │     ├──[✅]--(problem_129)
+│     │     │     │     ├──[✅]--(problem_135)
+│     │     │     │     ├──[✅]--(problem_173)
+│     │     │     │     ├──[✅]--(problem_174)
+│     │     │     │     ├──[✅]--(problem_180)
+│     │     │     │     ├──[✅]--(problem_188)
+│     │     │     │     ├──[✅]--(problem_191)
+│     │     │     │     ├──[✅]--(problem_203)
+│     │     │     │     ├──[✅]--(problem_206)
+│     │     │     │     ├──[✅]--(problem_207)
+│     │     │     │     ├──[✅]--(problem_234)
+│     │     │     │     ├──[✅]--(problem_301)
+│     │     │     │     └──[✅]--(problem_551)
+│     │     │     ├──[✅]--(quantum)
+│     │     │     ├──[✅]--(scheduling)
+│     │     │     ├──[✅]--(scripts)
+│     │     │     ├──[✅]--(searches)
+│     │     │     ├──[✅]--(sorts)
+│     │     │     ├──[✅]--(strings)
+│     │     │     ├──[✅]--(traversals)
+│     │     │     └──[✅]--(web_programming)
+│     │     ├──[✅]--(React-Todo-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(Relational-Databases-master)
+│     │     │     └──[✅]--(solutions)
+│     │     ├──[✅]--(Server-Testing-master)
+│     │     ├──[✅]--(Sorting-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(iterative_sorting)
+│     │     │                              ├──[✅]--(recursive_sorting)
+│     │     │                              └──[✅]--(searc✅ng)
+│     │     ├──[✅]--(Sprint-Challenge--Graphs-master)
+│     │     │     ├──[✅]--(img)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(Sprint-Challenge--JavaScript-master)
+│     │     │     ├──[✅]--(challenges)
+│     │     │     ├──[✅]--(src)
+│     │     │     └──[✅]--(tests)
+│     │     ├──[✅]--(Sprint-Challenge-Node-Express-master)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(helpers)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(express)
+│     │     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(routes)
+│     │     ├──[✅]--(Sprint-Challenge-RDBMS-master)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(routes)
+│     │     ├──[✅]--(Static-Pages-master)
+│     │     ├──[✅]--(W✅teboard-Pairing-master)
+│     │     │     ├──[✅]--(BSTFromArray)
+│     │     │     ├──[✅]--(BalancedBinaryTree)
+│     │     │     ├──[✅]--(BalancedBrackets)
+│     │     │     ├──[✅]--(BitcoinTrading)
+│     │     │     ├──[✅]--(ClimbingStairs)
+│     │     │     ├──[✅]--(CountingVotes)
+│     │     │     ├──[✅]--(DepthFirstSearch)
+│     │     │     ├──[✅]--(FindRotationPoint)
+│     │     │     ├──[✅]--(IntegerPairs)
+│     │     │     ├──[✅]--(KthToLastNode)
+│     │     │     ├──[✅]--(LargestContiguousSum)
+│     │     │     ├──[✅]--(LargestStack)
+│     │     │     ├──[✅]--(LinkedListPalindrome)
+│     │     │     ├──[✅]--(MatrixSpiralCopy)
+│     │     │     ├──[✅]--(MergingTwoPackages)
+│     │     │     ├──[✅]--(MinHeap)
+│     │     │     ├──[✅]--(MinJumps)
+│     │     │     ├──[✅]--(NthFibonacci)
+│     │     │     ├──[✅]--(OneWayFlight)
+│     │     │     ├──[✅]--(ProductOfAllOtherNumbers)
+│     │     │     ├──[✅]--(QueueWithTwoStacks)
+│     │     │     ├──[✅]--(ReverseLinkedList)
+│     │     │     ├──[✅]--(RingBuffer)
+│     │     │     ├──[✅]--(RobotPaths)
+│     │     │     ├──[✅]--(RockPaperScissors)
+│     │     │     ├──[✅]--(RotateImage)
+│     │     │     ├──[✅]--(SetOfStacks)
+│     │     │     ├──[✅]--(SortStack)
+│     │     │     ├──[✅]--(SortTopScores)
+│     │     │     ├──[✅]--(TemperatureTracker)
+│     │     │     ├──[✅]--(TimePlanner)
+│     │     │     └──[✅]--(ValidateBinaryTree)
+│     │     ├──[✅]--(_DS-Python)
+│     │     │     ├──[✅]--(Algorithms-I-Notes-master)
+│     │     │     │     └──[✅]--(practice_algs)
+│     │     │     └──[✅]--(Algorithms-master)
+│     │     │                              ├──[✅]--(climbing_stairs)
+│     │     │                              ├──[✅]--(knapsack)
+│     │     │                              ├──[✅]--(making_change)
+│     │     │                              ├──[✅]--(recipe_batches)
+│     │     │                              ├──[✅]--(rock_paper_scissors)
+│     │     │                              └──[✅]--(stock_prices)
+│     │     ├──[✅]--(_Individual-Projects)
+│     │     │     ├──[✅]--(Advanced-Form-Management-Guided-master)
+│     │     │     │     └──[✅]--(app)
+│     │     │     ├──[✅]--(Bootstrap-I-master)
+│     │     │     │     ├──[✅]--(_example-resume)
+│     │     │     │     ├──[✅]--(css)
+│     │     │     │     ├──[✅]--(img)
+│     │     │     │     ├──[✅]--(js)
+│     │     │     │     └──[✅]--(less)
+│     │     │     ├──[✅]--(Components-BEM-master)
+│     │     │     │     ├──[✅]--(components)
+│     │     │     │     └──[✅]--(markups)
+│     │     │     ├──[✅]--(Components-Constructors-master)
+│     │     │     │     ├──[✅]--(components)
+│     │     │     │     └──[✅]--(markups)
+│     │     │     ├──[✅]--(Computer-Arc✅tecture-Notes-master)
+│     │     │     │     ├──[✅]--(lectureI)
+│     │     │     │     ├──[✅]--(lectureII)
+│     │     │     │     ├──[✅]--(lectureIII)
+│     │     │     │     └──[✅]--(lectureIV)
+│     │     │     ├──[✅]--(Course_and_Book_Notes-master)
+│     │     │     │     ├──[✅]--(Algorithm   Design   Manual)
+│     │     │     │     ├──[✅]--(Computer_Science_Distilled)
+│     │     │     │     ├──[✅]--(Lambda_Notes)
+│     │     │     │     ├──[✅]--(Programming_Foundations)
+│     │     │     │     ├──[✅]--(The_C_Programming_Language)
+│     │     │     │     ├──[✅]--(T✅nk   Like   a   Programmer)
+│     │     │     │     └──[✅]--(YoutubeVideos)
+│     │     │     ├──[✅]--(JavaScript-I-master)
+│     │     │     │     └──[✅]--(assignments)
+│     │     │     ├──[✅]--(JavaScript-II-master)
+│     │     │     │     └──[✅]--(assignments)
+│     │     │     ├──[✅]--(JavaScript-III-master)
+│     │     │     │     └──[✅]--(assignments)
+│     │     │     └──[✅]--(JavaScript-IV-master)
+│     │     │                              └──[✅]--(assignments)
+│     │     ├──[✅]--(_MOST-USEFUL)
+│     │     │     └──[✅]--(Boilerplate-master)
+│     │     │                              ├──[✅]--(Apollo)
+│     │     │                              ├──[✅]--(Express-MongoDB)
+│     │     │                              ├──[✅]--(React-Redux)
+│     │     │                              └──[✅]--(TypeGraphQL)
+│     │     ├──[✅]--(_misc)
+│     │     │     └──[✅]--(Blockchain-Notes-master)
+│     │     │                              └──[✅]--(communication_gp)
+│     │     ├──[✅]--(data_struct_and_algo-master)
+│     │     │     └──[✅]--(logs)
+│     │     ├──[✅]--(dev-portfolio-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(components)
+│     │     │     │     ├──[✅]--(global-scss)
+│     │     │     │     └──[✅]--(views)
+│     │     │     └──[✅]--(tests_setup)
+│     │     │                              └──[✅]--(__mocks__)
+│     │     ├──[✅]--(feelscollective-master)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(fonts)
+│     │     │     │     ├──[✅]--(icomoon)
+│     │     │     │     └──[✅]--(open-iconic)
+│     │     │     ├──[✅]--(images)
+│     │     │     ├──[✅]--(js)
+│     │     │     └──[✅]--(scss)
+│     │     ├──[✅]--(five-master)
+│     │     │     └──[✅]--(FiveFeed)
+│     │     │                              ├──[✅]--(lambda)
+│     │     │                              ├──[✅]--(lambda-src)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(homepage-master)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(fonts)
+│     │     │     ├──[✅]--(images)
+│     │     │     └──[✅]--(js)
+│     │     │                              ├──[✅]--(backstretch)
+│     │     │                              ├──[✅]--(bootstrap)
+│     │     │                              ├──[✅]--(easing)
+│     │     │                              ├──[✅]--(magnific-popup)
+│     │     │                              ├──[✅]--(owl-carousel)
+│     │     │                              ├──[✅]--(uitotop)
+│     │     │                              └──[✅]--(wow)
+│     │     ├──[✅]--(lambda-demo-project-master)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(lambda-lecture-notes-main)
+│     │     │     ├──[✅]--(3-1-advanced-react)
+│     │     │     │     ├──[✅]--(images)
+│     │     │     │     └──[✅]--(pdf)
+│     │     │     ├──[✅]--(3-2-advanced-state-mangement)
+│     │     │     │     └──[✅]--(images)
+│     │     │     └──[✅]--(3-3-advanced-web-applications)
+│     │     │                              └──[✅]--(images)
+│     │     ├──[✅]--(portfolio-main)
+│     │     │     ├──[✅]--(components)
+│     │     │     ├──[✅]--(pages)
+│     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(static)
+│     │     │     ├──[✅]--(scripts)
+│     │     │     ├──[✅]--(styles)
+│     │     │     └──[✅]--(utils)
+│     │     ├──[✅]--(react-carousel-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(assets)
+│     │     ├──[✅]--(react-design-patterns-and-best-practices-master)
+│     │     │     ├──[✅]--(chapter-03)
+│     │     │     │     └──[✅]--(reusable-components)
+│     │     │     ├──[✅]--(chapter-04)
+│     │     │     │     ├──[✅]--(container-presentational)
+│     │     │     │     └──[✅]--(✅gher-order-components)
+│     │     │     ├──[✅]--(chapter-05)
+│     │     │     │     ├──[✅]--(data-fetc✅ng)
+│     │     │     │     ├──[✅]--(data-flow)
+│     │     │     │     └──[✅]--(react-refetch)
+│     │     │     ├──[✅]--(chapter-06)
+│     │     │     │     ├──[✅]--(controlled-components)
+│     │     │     │     ├──[✅]--(css-transition-group)
+│     │     │     │     ├──[✅]--(event-switch)
+│     │     │     │     ├──[✅]--(json-schema)
+│     │     │     │     ├──[✅]--(react-motion)
+│     │     │     │     ├──[✅]--(refs-dom)
+│     │     │     │     ├──[✅]--(refs-instance)
+│     │     │     │     ├──[✅]--(svg)
+│     │     │     │     └──[✅]--(uncontrolled-components)
+│     │     │     ├──[✅]--(chapter-07)
+│     │     │     │     ├──[✅]--(css-modules)
+│     │     │     │     ├──[✅]--(inline-styles)
+│     │     │     │     ├──[✅]--(radium)
+│     │     │     │     └──[✅]--(styled-components)
+│     │     │     ├──[✅]--(chapter-08)
+│     │     │     │     ├──[✅]--(data-fetc✅ng)
+│     │     │     │     ├──[✅]--(next)
+│     │     │     │     └──[✅]--(server-side-rendering)
+│     │     │     ├──[✅]--(chapter-09)
+│     │     │     │     ├──[✅]--(constants-props)
+│     │     │     │     ├──[✅]--(creating-functions)
+│     │     │     │     ├──[✅]--(good-design)
+│     │     │     │     └──[✅]--(keys)
+│     │     │     ├──[✅]--(chapter-10)
+│     │     │     │     ├──[✅]--(enzyme)
+│     │     │     │     ├──[✅]--(✅gher-order-components)
+│     │     │     │     ├──[✅]--(jest)
+│     │     │     │     ├──[✅]--(mocha)
+│     │     │     │     ├──[✅]--(page-object)
+│     │     │     │     └──[✅]--(real-world)
+│     │     │     └──[✅]--(chapter-11)
+│     │     │                              ├──[✅]--(index-as-key)
+│     │     │                              ├──[✅]--(initializing-state)
+│     │     │                              └──[✅]--(mutating-state)
+│     │     ├──[✅]--(sql-lab-master)
+│     │     │     └──[✅]--(img)
+│     │     └──[✅]--(web-guided-project-HTTP-main)
+│     │                              ├──[✅]--(client)
+│     │                              │     └──[✅]--(src)
+│     │                              └──[✅]--(server)
+│     ├──[✅]--(screenshot-preview)
+│     │     ├──[✅]--(examples)
+│     │     └──[✅]--(src)
+│     ├──[✅]--(web-dev-utils)
+│     │     ├──[✅]--(GIT-HTML-PREVIEW-TOOL)
+│     │     │     └──[✅]--(GIT-HTML-PREVIEW-TOOL-master)
+│     │     ├──[✅]--(Markdown-Templates)
+│     │     │     └──[✅]--(Markdown-Templates-master)
+│     │     │                              └──[✅]--(images)
+│     │     ├──[✅]--(TexTools)
+│     │     │     └──[✅]--(TexTools-master)
+│     │     │                              ├──[✅]--(backup-stable-build)
+│     │     │                              ├──[✅]--(css)
+│     │     │                              ├──[✅]--(js)
+│     │     │                              └──[✅]--(sandbox)
+│     │     ├──[✅]--(bootstrap-4.3.1-dist)
+│     │     │     ├──[✅]--(css)
+│     │     │     └──[✅]--(js)
+│     │     └──[✅]--(personal-utilities)
+│     │                              ├──[✅]--(Auto-table-Of-Contents)
+│     │                              ├──[✅]--(copy-2-clip)
+│     │                              ├──[✅]--(css)
+│     │                              ├──[✅]--(extract-css)
+│     │                              │     ├──[✅]--(css)
+│     │                              │     ├──[✅]--(img)
+│     │                              │     └──[✅]--(js)
+│     │                              ├──[✅]--(js)
+│     │                              └──[✅]--(prism)
+│     └──[✅]--(world-clock)
+├──[✅]--(8-site-documentation)
+├──[✅]--(LambdaSchool)
+│     ├──[✅]--(31d1)
+│     ├──[✅]--(Administration)
+│     │     ├──[✅]--(Tech   Skills   Day   badges)
+│     │     │     └──[✅]--(Tech   Skills   Day   badges)
+│     │     ├──[✅]--(certs)
+│     │     ├──[✅]--(marketing)
+│     │     ├──[✅]--(studying)
+│     │     └──[✅]--(zoom)
+│     ├──[✅]--(Front-End-master)
+│     │     └──[✅]--(Front-End-master)
+│     │                              └──[✅]--(client)
+│     │                                                ├──[✅]--(public)
+│     │                                                └──[✅]--(src)
+│     ├──[✅]--(JavaScript30)
+│     │     ├──[✅]--(01)
+│     │     │     └──[✅]--(sounds)
+│     │     ├──[✅]--(02)
+│     │     ├──[✅]--(03)
+│     │     ├──[✅]--(04)
+│     │     ├──[✅]--(05)
+│     │     ├──[✅]--(06)
+│     │     ├──[✅]--(07)
+│     │     ├──[✅]--(08)
+│     │     ├──[✅]--(09)
+│     │     ├──[✅]--(10)
+│     │     ├──[✅]--(11)
+│     │     ├──[✅]--(12)
+│     │     ├──[✅]--(13)
+│     │     ├──[✅]--(14)
+│     │     ├──[✅]--(15)
+│     │     ├──[✅]--(16)
+│     │     ├──[✅]--(17)
+│     │     ├──[✅]--(18)
+│     │     ├──[✅]--(19)
+│     │     ├──[✅]--(20)
+│     │     ├──[✅]--(21)
+│     │     ├──[✅]--(22)
+│     │     ├──[✅]--(23)
+│     │     ├──[✅]--(24)
+│     │     ├──[✅]--(25)
+│     │     ├──[✅]--(26)
+│     │     ├──[✅]--(27)
+│     │     ├──[✅]--(28)
+│     │     ├──[✅]--(29)
+│     │     ├──[✅]--(30)
+│     │     └──[✅]--(JavaScript30-master)
+│     │                              └──[✅]--(JavaScript30-master)
+│     │                                                ├──[✅]--(01   -   JavaScript   Drum   Kit)
+│     │                                                ├──[✅]--(02   -   JS   and   CSS   Clock)
+│     │                                                ├──[✅]--(03   -   CSS   Variables)
+│     │                                                ├──[✅]--(04   -   Array   Cardio   Day   1)
+│     │                                                ├──[✅]--(05   -   Flex   Panel   Gallery)
+│     │                                                ├──[✅]--(06   -   Type   Ahead)
+│     │                                                ├──[✅]--(07   -   Array   Cardio   Day   2)
+│     │                                                ├──[✅]--(08   -   Fun   with   HTML5   Canvas)
+│     │                                                ├──[✅]--(09   -   Dev   Tools   Domination)
+│     │                                                ├──[✅]--(10   -   Hold   S✅ft   and   Check   Checkboxes)
+│     │                                                ├──[✅]--(11   -   Custom   Video   Player)
+│     │                                                ├──[✅]--(12   -   Key   Sequence   Detection)
+│     │                                                ├──[✅]--(13   -   Slide   in   on   Scroll)
+│     │                                                ├──[✅]--(14   -   JavaScript   References   VS   Copying)
+│     │                                                ├──[✅]--(15   -   LocalStorage)
+│     │                                                ├──[✅]--(16   -   Mouse   Move   Shadow)
+│     │                                                ├──[✅]--(17   -   Sort   Without   Articles)
+│     │                                                ├──[✅]--(18   -   Adding   Up   Times   with   Reduce)
+│     │                                                ├──[✅]--(19   -   Webcam   Fun)
+│     │                                                ├──[✅]--(20   -   Speech   Detection)
+│     │                                                ├──[✅]--(21   -   Geolocation)
+│     │                                                ├──[✅]--(22   -   Follow   Along   Link   ✅ghlighter)
+│     │                                                ├──[✅]--(23   -   Speech   Synthesis)
+│     │                                                ├──[✅]--(24   -   Sticky   Nav)
+│     │                                                ├──[✅]--(25   -   Event   Capture,   Propagation,   Bubbling   and   Once)
+│     │                                                ├──[✅]--(26   -   Stripe   Follow   Along   Nav)
+│     │                                                ├──[✅]--(27   -   Click   and   Drag)
+│     │                                                ├──[✅]--(28   -   Video   Speed   Controller)
+│     │                                                ├──[✅]--(29   -   Countdown   Timer)
+│     │                                                └──[✅]--(30   -   Whack   A   Mole)
+│     ├──[✅]--(aa-score)
+│     │     ├──[✅]--(public)
+│     │     └──[✅]--(src)
+│     ├──[✅]--(bw1-tl)
+│     │     ├──[✅]--(BackEnd-master)
+│     │     │     └──[✅]--(BackEnd-master)
+│     │     │                              ├──[✅]--(admin)
+│     │     │                              ├──[✅]--(api)
+│     │     │                              ├──[✅]--(auth)
+│     │     │                              ├──[✅]--(database)
+│     │     │                              ├──[✅]--(middleware)
+│     │     │                              ├──[✅]--(todos)
+│     │     │                              └──[✅]--(volunteer)
+│     │     ├──[✅]--(admin)
+│     │     ├──[✅]--(api)
+│     │     ├──[✅]--(auth)
+│     │     ├──[✅]--(database)
+│     │     │     ├──[✅]--(migrations)
+│     │     │     └──[✅]--(seeds)
+│     │     ├──[✅]--(middleware)
+│     │     ├──[✅]--(todos)
+│     │     └──[✅]--(volunteer)
+│     ├──[✅]--(css)
+│     ├──[✅]--(evoingram.github.io)
+│     ├──[✅]--(labs)
+│     │     ├──[✅]--(backend)
+│     │     ├──[✅]--(frontend)
+│     │     ├──[✅]--(last   journal   entry)
+│     │     └──[✅]--(video-to-next-group)
+│     ├──[✅]--(m1)
+│     │     ├──[✅]--(11b1)
+│     │     │     ├──[✅]--(Git-Flow-Practice)
+│     │     │     ├──[✅]--(Git-for-Web-Development-Project-master)
+│     │     │     │     └──[✅]--(Git-for-Web-Development-Project-master)
+│     │     │     ├──[✅]--(Web26Git)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     ├──[✅]--(great-idea)
+│     │     │     │     ├──[✅]--(css)
+│     │     │     │     └──[✅]--(img)
+│     │     │     └──[✅]--(great-idea-website)
+│     │     │                              ├──[✅]--(css)
+│     │     │                              └──[✅]--(img)
+│     │     ├──[✅]--(11c1)
+│     │     │     ├──[✅]--(User-Interface)
+│     │     │     ├──[✅]--(User-Interface-master)
+│     │     │     │     └──[✅]--(User-Interface-master)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     └──[✅]--(great-idea-website)
+│     │     │                              ├──[✅]--(css)
+│     │     │                              └──[✅]--(img)
+│     │     ├──[✅]--(11d1)
+│     │     │     ├──[✅]--(UI-III-Flexbox)
+│     │     │     ├──[✅]--(UI-III-Flexbox-master)
+│     │     │     │     └──[✅]--(UI-III-Flexbox-master)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     └──[✅]--(great-idea)
+│     │     │                              ├──[✅]--(css)
+│     │     │                              └──[✅]--(img)
+│     │     ├──[✅]--(12a1)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     ├──[✅]--(img)
+│     │     │     ├──[✅]--(responsive-web-design-I)
+│     │     │     └──[✅]--(responsive-web-design-I-master)
+│     │     │                              └──[✅]--(responsive-web-design-I-master)
+│     │     ├──[✅]--(12b1)
+│     │     │     ├──[✅]--(dimension)
+│     │     │     │     ├──[✅]--(assets)
+│     │     │     │     └──[✅]--(html5up-dimension)
+│     │     │     ├──[✅]--(portfolio-website-master)
+│     │     │     │     └──[✅]--(portfolio-website-master)
+│     │     │     └──[✅]--(solidstate)
+│     │     │                              └──[✅]--(assets)
+│     │     ├──[✅]--(12c1)
+│     │     │     ├──[✅]--(Preprocessing-I-master)
+│     │     │     │     └──[✅]--(Preprocessing-I-master)
+│     │     │     ├──[✅]--(css)
+│     │     │     └──[✅]--(less)
+│     │     ├──[✅]--(12d1)
+│     │     │     ├──[✅]--(Preprocessing-II-master)
+│     │     │     │     └──[✅]--(Preprocessing-II-master)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     ├──[✅]--(img)
+│     │     │     └──[✅]--(less)
+│     │     ├──[✅]--(13a1)
+│     │     │     └──[✅]--(assignments)
+│     │     ├──[✅]--(13b1)
+│     │     │     └──[✅]--(assignments)
+│     │     ├──[✅]--(13c1)
+│     │     │     └──[✅]--(assignments)
+│     │     ├──[✅]--(13d1)
+│     │     │     ├──[✅]--(new)
+│     │     │     │     └──[✅]--(test)
+│     │     │     └──[✅]--(old)
+│     │     │                              └──[✅]--(assignments)
+│     │     ├──[✅]--(13e1)
+│     │     │     ├──[✅]--(Sprint-Challenge--JavaScript-master)
+│     │     │     │     └──[✅]--(Sprint-Challenge--JavaScript-master)
+│     │     │     └──[✅]--(challenges)
+│     │     ├──[✅]--(14a1)
+│     │     │     └──[✅]--(Marketing-page)
+│     │     ├──[✅]--(SC-ACSS)
+│     │     └──[✅]--(Sprint-Challenge--Advanced-CSS)
+│     ├──[✅]--(m2)
+│     │     ├──[✅]--(21a1)
+│     │     │     ├──[✅]--(css)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     ├──[✅]--(img)
+│     │     │     ├──[✅]--(js)
+│     │     │     └──[✅]--(stretch-assignment)
+│     │     │                              └──[✅]--(digital_timer)
+│     │     ├──[✅]--(21b1)
+│     │     ├──[✅]--(21c1)
+│     │     │     ├──[✅]--(Article)
+│     │     │     ├──[✅]--(Header)
+│     │     │     ├──[✅]--(LESS)
+│     │     │     ├──[✅]--(Menu)
+│     │     │     ├──[✅]--(assets)
+│     │     │     └──[✅]--(css)
+│     │     ├──[✅]--(21d1)
+│     │     │     ├──[✅]--(GitHubCard)
+│     │     │     └──[✅]--(assets)
+│     │     ├──[✅]--(21e1)
+│     │     │     ├──[✅]--(CSS)
+│     │     │     ├──[✅]--(LESS)
+│     │     │     ├──[✅]--(assets)
+│     │     │     │     └──[✅]--(carousel)
+│     │     │     └──[✅]--(components)
+│     │     │                              ├──[✅]--(Cards)
+│     │     │                              ├──[✅]--(Carousel)
+│     │     │                              ├──[✅]--(Header)
+│     │     │                              ├──[✅]--(Tabs)
+│     │     │                              └──[✅]--(TopBar)
+│     │     ├──[✅]--(22a1)
+│     │     │     ├──[✅]--(public)
+│     │     │     ├──[✅]--(react-american-football-scoreboard-master)
+│     │     │     │     └──[✅]--(react-american-football-scoreboard-master)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(22b1)
+│     │     │     ├──[✅]--(design-files)
+│     │     │     ├──[✅]--(lambda-calculator-master)
+│     │     │     │     └──[✅]--(lambda-calculator-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(Img)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(22c1)
+│     │     │     ├──[✅]--(public)
+│     │     │     ├──[✅]--(reactstrap-project)
+│     │     │     │     ├──[✅]--(public)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(22e1)
+│     │     │     └──[✅]--(starwars)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(23a1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(23a2)
+│     │     │     └──[✅]--(images)
+│     │     ├──[✅]--(23b1)
+│     │     │     └──[✅]--(client)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(23c1)
+│     │     │     ├──[✅]--(public)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     └──[✅]--(CustomHooks)
+│     │     │     └──[✅]--(team-builder)
+│     │     ├──[✅]--(23d1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(CustomHooks)
+│     │     ├──[✅]--(23d2)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(23e1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     └──[✅]--(24a1)
+│     │                              ├──[✅]--(public)
+│     │                              │     └──[✅]--(img)
+│     │                              └──[✅]--(src)
+│     │                                                └──[✅]--(components)
+│     ├──[✅]--(m3)
+│     │     ├──[✅]--(31a1)
+│     │     │     ├──[✅]--(React-Todo-master)
+│     │     │     │     └──[✅]--(React-Todo-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(31a2)
+│     │     │     ├──[✅]--(React-Sorting-Hat-master)
+│     │     │     │     └──[✅]--(React-Sorting-Hat-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(31b1)
+│     │     │     ├──[✅]--(React-Github-User-Card-master)
+│     │     │     │     └──[✅]--(React-Github-User-Card-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(31c1)
+│     │     │     ├──[✅]--(dark-mode-master)
+│     │     │     │     └──[✅]--(dark-mode-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              └──[✅]--(hooks)
+│     │     ├──[✅]--(31d1)
+│     │     │     ├──[✅]--(Web-Application-Testing-master)
+│     │     │     │     └──[✅]--(Web-Application-Testing-master)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              └──[✅]--(hooks)
+│     │     ├──[✅]--(31e1)
+│     │     │     ├──[✅]--(Sprint-Challenge-Advanced-React-master)
+│     │     │     │     └──[✅]--(Sprint-Challenge-Advanced-React-master)
+│     │     │     └──[✅]--(client)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(32a1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              ├──[✅]--(contexts)
+│     │     │                              └──[✅]--(sass)
+│     │     ├──[✅]--(32b1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              └──[✅]--(reducers)
+│     │     ├──[✅]--(32c1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(actions)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              └──[✅]--(reducers)
+│     │     ├──[✅]--(32d1)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(actions)
+│     │     │                              ├──[✅]--(components)
+│     │     │                              ├──[✅]--(fonts)
+│     │     │                              ├──[✅]--(img)
+│     │     │                              └──[✅]--(reducers)
+│     │     ├──[✅]--(32e1)
+│     │     │     ├──[✅]--(Sprint-Challenge-State-Management-Smurfs-master)
+│     │     │     │     └──[✅]--(Sprint-Challenge-State-Management-Smurfs-master)
+│     │     │     └──[✅]--(smurfs)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(33a1)
+│     │     │     ├──[✅]--(public)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(controls)
+│     │     │     │     ├──[✅]--(dashboard)
+│     │     │     │     └──[✅]--(display)
+│     │     │     └──[✅]--(webtesting-iii-challenge-master)
+│     │     │                              └──[✅]--(webtesting-iii-challenge-master)
+│     │     ├──[✅]--(33b1)
+│     │     │     ├──[✅]--(Auth-Friends-master)
+│     │     │     │     └──[✅]--(Auth-Friends-master)
+│     │     │     └──[✅]--(friends)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(33d1)
+│     │     │     ├──[✅]--(HTTP-Movies-Assignment-master)
+│     │     │     │     └──[✅]--(HTTP-Movies-Assignment-master)
+│     │     │     └──[✅]--(client)
+│     │     │                              ├──[✅]--(public)
+│     │     │                              └──[✅]--(src)
+│     │     └──[✅]--(33e1)
+│     │                              ├──[✅]--(client)
+│     │                              │     ├──[✅]--(public)
+│     │                              │     └──[✅]--(src)
+│     │                              └──[✅]--(react-bubbles-master)
+│     │                                                └──[✅]--(react-bubbles-master)
+│     ├──[✅]--(m4)
+│     │     ├──[✅]--(41a1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(webapi-i-guided-master)
+│     │     │                              └──[✅]--(webapi-i-guided-master)
+│     │     ├──[✅]--(41a2)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(node-api1-project-master)
+│     │     │                              └──[✅]--(node-api1-project-master)
+│     │     ├──[✅]--(41b1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(hubs)
+│     │     │     └──[✅]--(noderouting)
+│     │     │                              └──[✅]--(noderouting)
+│     │     ├──[✅]--(41b2)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(webapi-ii-challenge-master)
+│     │     │                              └──[✅]--(webapi-ii-challenge-master)
+│     │     ├──[✅]--(41c1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(hubs)
+│     │     │     ├──[✅]--(messages)
+│     │     │     ├──[✅]--(middleware)
+│     │     │     │     └──[✅]--(middleware)
+│     │     │     └──[✅]--(webapi-iii-guided-master)
+│     │     │                              └──[✅]--(webapi-iii-guided-master)
+│     │     ├──[✅]--(41c2)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(posts)
+│     │     │     ├──[✅]--(users)
+│     │     │     └──[✅]--(webapi-iii-challenge-master)
+│     │     │                              └──[✅]--(webapi-iii-challenge-master)
+│     │     ├──[✅]--(41d1)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     └──[✅]--(webapi-iv-guided-master)
+│     │     │                              └──[✅]--(webapi-iv-guided-master)
+│     │     ├──[✅]--(41e1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(helpers)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-api-challenge-master)
+│     │     │     │     └──[✅]--(node-api-challenge-master)
+│     │     │     └──[✅]--(routers)
+│     │     ├──[✅]--(41e1app)
+│     │     │     ├──[✅]--(public)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(components)
+│     │     ├──[✅]--(42a1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(dbintro)
+│     │     │     │     └──[✅]--(dbintro)
+│     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(node-db1-guided-master)
+│     │     │     │     └──[✅]--(node-db1-guided-master)
+│     │     │     └──[✅]--(posts)
+│     │     ├──[✅]--(42a2)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-db1-project-master)
+│     │     │     │     └──[✅]--(node-db1-project-master)
+│     │     │     └──[✅]--(routers)
+│     │     ├──[✅]--(42b1)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(data)
+│     │     │     ├──[✅]--(fruits)
+│     │     │     └──[✅]--(node-db2-guided-master)
+│     │     │                              └──[✅]--(node-db2-guided-master)
+│     │     ├──[✅]--(42b2)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-db2-project-master)
+│     │     │     │     └──[✅]--(node-db2-project-master)
+│     │     │     └──[✅]--(routers)
+│     │     ├──[✅]--(42c1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-db3-guided-master)
+│     │     │     │     └──[✅]--(node-db3-guided-master)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(42c2)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-db3-project-master)
+│     │     │     │     └──[✅]--(node-db3-project-master)
+│     │     │     └──[✅]--(schemes)
+│     │     ├──[✅]--(42d1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(node-db4-guided-master)
+│     │     │                              └──[✅]--(node-db4-guided-master)
+│     │     ├──[✅]--(42d2)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-db4-project-master)
+│     │     │     │     └──[✅]--(node-db4-project-master)
+│     │     │     └──[✅]--(recipes)
+│     │     ├──[✅]--(42e1)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     └──[✅]--(projects)
+│     │     ├──[✅]--(43a1)
+│     │     │     ├──[✅]--(__MACOSX)
+│     │     │     │     └──[✅]--(aut✅ntro)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(auth)
+│     │     │     ├──[✅]--(aut✅ntro)
+│     │     │     │     └──[✅]--(aut✅ntro)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(node-auth1-guided-master)
+│     │     │     │     └──[✅]--(node-auth1-guided-master)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(43a2)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(auth)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(node-auth1-project-master)
+│     │     │     │     └──[✅]--(node-auth1-project-master)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(43b1)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(auth)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(node-auth2-guided-master)
+│     │     │     │     └──[✅]--(node-auth2-guided-master)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(43b2)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(auth)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(node-auth1-project-master)
+│     │     │     │     └──[✅]--(node-auth1-project-master)
+│     │     │     ├──[✅]--(sessions)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(43c1)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(auth)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(jwts)
+│     │     │     │     └──[✅]--(jwts)
+│     │     │     ├──[✅]--(node-auth3-guided-master)
+│     │     │     │     └──[✅]--(node-auth3-guided-master)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(43c2)
+│     │     │     ├──[✅]--(__MACOSX)
+│     │     │     │     └──[✅]--(sessions)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(auth)
+│     │     │     ├──[✅]--(config)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     └──[✅]--(migrations)
+│     │     │     ├──[✅]--(node-auth3-project-master)
+│     │     │     │     └──[✅]--(node-auth3-project-master)
+│     │     │     ├──[✅]--(sessions)
+│     │     │     │     └──[✅]--(sessions)
+│     │     │     └──[✅]--(users)
+│     │     ├──[✅]--(43d1)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(data)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(hobbits)
+│     │     │     └──[✅]--(node-server-testing-guided-master)
+│     │     │                              └──[✅]--(node-server-testing-guided-master)
+│     │     ├──[✅]--(43d1a)
+│     │     │     └──[✅]--(ls)
+│     │     ├──[✅]--(43d2)
+│     │     │     ├──[✅]--(api)
+│     │     │     ├──[✅]--(cohorts)
+│     │     │     ├──[✅]--(database)
+│     │     │     │     ├──[✅]--(migrations)
+│     │     │     │     └──[✅]--(seeds)
+│     │     │     ├──[✅]--(node-server-testing-challenge-master)
+│     │     │     │     └──[✅]--(node-server-testing-challenge-master)
+│     │     │     └──[✅]--(students)
+│     │     └──[✅]--(43e1)
+│     │                              ├──[✅]--(43e1)
+│     │                              │     ├──[✅]--(public)
+│     │                              │     └──[✅]--(src)
+│     │                              ├──[✅]--(Sprint-Challenge-Authentication-master)
+│     │                              │     └──[✅]--(Sprint-Challenge-Authentication-master)
+│     │                              ├──[✅]--(api)
+│     │                              ├──[✅]--(auth)
+│     │                              ├──[✅]--(database)
+│     │                              │     └──[✅]--(migrations)
+│     │                              └──[✅]--(jokes)
+│     ├──[✅]--(m5)
+│     │     ├──[✅]--(51a1)
+│     │     │     ├──[✅]--(java-SnackBar-master)
+│     │     │     │     └──[✅]--(java-SnackBar-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(employeeApp)
+│     │     ├──[✅]--(51b1)
+│     │     │     ├──[✅]--(java-WordCount-master)
+│     │     │     │     └──[✅]--(java-WordCount-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(collections)
+│     │     ├──[✅]--(51c1)
+│     │     │     ├──[✅]--(java-AnimalKingdom-master)
+│     │     │     │     └──[✅]--(java-AnimalKingdom-master)
+│     │     │     └──[✅]--(transportation)
+│     │     │                              └──[✅]--(src)
+│     │     ├──[✅]--(51d1)
+│     │     │     ├──[✅]--(bin)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(main)
+│     │     │                              └──[✅]--(test)
+│     │     ├──[✅]--(51d2)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(main)
+│     │     │     │     └──[✅]--(test)
+│     │     │     └──[✅]--(target)
+│     │     │                              └──[✅]--(classes)
+│     │     ├──[✅]--(51e1)
+│     │     │     ├──[✅]--(Sprint-Challenge--Java-Fundamentals-piggybank-master)
+│     │     │     │     └──[✅]--(Sprint-Challenge--Java-Fundamentals-piggybank-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(main)
+│     │     │                              └──[✅]--(test)
+│     │     ├──[✅]--(52b1)
+│     │     │     ├──[✅]--(assets)
+│     │     │     └──[✅]--(java-sql-master)
+│     │     │                              └──[✅]--(java-sql-master)
+│     │     ├──[✅]--(52c1)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(main)
+│     │     │                              └──[✅]--(test)
+│     │     ├──[✅]--(52c2)
+│     │     │     ├──[✅]--(java-orders-master)
+│     │     │     │     └──[✅]--(java-orders-master)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(main)
+│     │     │                              └──[✅]--(test)
+│     │     ├──[✅]--(52d1)
+│     │     │     └──[✅]--(oauth)
+│     │     │                              ├──[✅]--(oauth2)
+│     │     │                              └──[✅]--(oauth2   -   initial)
+│     │     ├──[✅]--(53a1)
+│     │     │     ├──[✅]--(oauth2ExceptionLogging-final)
+│     │     │     │     └──[✅]--(src)
+│     │     │     ├──[✅]--(src)
+│     │     │     │     ├──[✅]--(main)
+│     │     │     │     └──[✅]--(test)
+│     │     │     └──[✅]--(target)
+│     │     │                              └──[✅]--(classes)
+│     │     ├──[✅]--(53b1)
+│     │     │     ├──[✅]--(clientrestaurants)
+│     │     │     │     └──[✅]--(src)
+│     │     │     ├──[✅]--(restaurants-initial)
+│     │     │     │     ├──[✅]--(src)
+│     │     │     │     └──[✅]--(target)
+│     │     │     └──[✅]--(restaurants-pagesswagger)
+│     │     │                              ├──[✅]--(src)
+│     │     │                              └──[✅]--(target)
+│     │     ├──[✅]--(53c1)
+│     │     │     ├──[✅]--(restaurants-initial)
+│     │     │     │     └──[✅]--(src)
+│     │     │     └──[✅]--(restaurants-testing)
+│     │     │                              └──[✅]--(src)
+│     │     └──[✅]--(53d1)
+│     │                              ├──[✅]--(JS-FrontEnd-by-jheinz1999)
+│     │                              │     ├──[✅]--(public)
+│     │                              │     └──[✅]--(src)
+│     │                              └──[✅]--(StartHere)
+│     │                                                └──[✅]--(src)
+│     ├──[✅]--(m6)
+│     │     ├──[✅]--(61a1)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(61b1)
+│     │     │     ├──[✅]--(examples)
+│     │     │     └──[✅]--(src)
+│     │     ├──[✅]--(61c1)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(cityreader)
+│     │     │                              ├──[✅]--(comp)
+│     │     │                              └──[✅]--(oop)
+│     │     ├──[✅]--(62a1)
+│     │     │     ├──[✅]--(avl_tree)
+│     │     │     ├──[✅]--(benchmarks)
+│     │     │     ├──[✅]--(binary_search_tree)
+│     │     │     ├──[✅]--(doubly_linked_list)
+│     │     │     ├──[✅]--(heap)
+│     │     │     ├──[✅]--(lru_cache)
+│     │     │     ├──[✅]--(queue)
+│     │     │     ├──[✅]--(queue_and_stack)
+│     │     │     ├──[✅]--(singly_linked_list)
+│     │     │     └──[✅]--(stack)
+│     │     ├──[✅]--(62b1)
+│     │     │     ├──[✅]--(names)
+│     │     │     ├──[✅]--(reverse)
+│     │     │     └──[✅]--(ring_buffer)
+│     │     ├──[✅]--(63a1)
+│     │     │     └──[✅]--(src)
+│     │     │                              ├──[✅]--(iterative_sorting)
+│     │     │                              └──[✅]--(searc✅ng)
+│     │     ├──[✅]--(63b1)
+│     │     │     └──[✅]--(src)
+│     │     │                              └──[✅]--(recursive_sorting)
+│     │     ├──[✅]--(63c1)
+│     │     │     ├──[✅]--(eating_cookies)
+│     │     │     ├──[✅]--(knapsack)
+│     │     │     │     └──[✅]--(data)
+│     │     │     ├──[✅]--(making_change)
+│     │     │     ├──[✅]--(moving_zeroes)
+│     │     │     ├──[✅]--(product_of_all_other_numbers)
+│     │     │     ├──[✅]--(recipe_batches)
+│     │     │     ├──[✅]--(rock_paper_scissors)
+│     │     │     ├──[✅]--(single_number)
+│     │     │     ├──[✅]--(sliding_window_max)
+│     │     │     │     └──[✅]--(data)
+│     │     │     └──[✅]--(stock_prices)
+│     │     └──[✅]--(63d1)
+│     │                              ├──[✅]--(Short-Answer)
+│     │                              ├──[✅]--(recursive_count_th)
+│     │                              └──[✅]--(robot_sort)
+│     ├──[✅]--(m7)
+│     │     ├──[✅]--(71a1)
+│     │     │     ├──[✅]--(applications)
+│     │     │     │     ├──[✅]--(crack_caesar)
+│     │     │     │     ├──[✅]--(expensive_seq)
+│     │     │     │     ├──[✅]--(✅sto)
+│     │     │     │     ├──[✅]--(lookup_table)
+│     │     │     │     ├──[✅]--(markov)
+│     │     │     │     ├──[✅]--(no_dups)
+│     │     │     │     ├──[✅]--(sumdiff)
+│     │     │     │     └──[✅]--(word_count)
+│     │     │     └──[✅]--(hashtable)
+│     │     ├──[✅]--(71e1)
+│     │     │     └──[✅]--(hashtables)
+│     │     │                              ├──[✅]--(ex1)
+│     │     │                              ├──[✅]--(ex2)
+│     │     │                              ├──[✅]--(ex3)
+│     │     │                              ├──[✅]--(ex4)
+│     │     │                              └──[✅]--(ex5)
+│     │     ├──[✅]--(72a1)
+│     │     │     ├──[✅]--(objectives)
+│     │     │     │     ├──[✅]--(breadth-first-search)
+│     │     │     │     ├──[✅]--(connected-components)
+│     │     │     │     ├──[✅]--(depth-first-search)
+│     │     │     │     ├──[✅]--(graph-intro)
+│     │     │     │     ├──[✅]--(graph-representations)
+│     │     │     │     └──[✅]--(randomness)
+│     │     │     └──[✅]--(projects)
+│     │     │                              ├──[✅]--(adventure)
+│     │     │                              ├──[✅]--(ancestor)
+│     │     │                              ├──[✅]--(graph)
+│     │     │                              └──[✅]--(social)
+│     │     ├──[✅]--(73a1)
+│     │     │     ├──[✅]--(asm)
+│     │     │     └──[✅]--(ls8)
+│     │     │                              └──[✅]--(examples)
+│     │     └──[✅]--(74a1)
+│     ├──[✅]--(src)
+│     │     ├──[✅]--(iterative_sorting)
+│     │     └──[✅]--(searc✅ng)
+│     ├──[✅]--(summary)
+│     │     ├──[✅]--(Node   Express   Knex)
+│     │     │     └──[✅]--(Create   Back   End   Guide)
+│     │     ├──[✅]--(certifications)
+│     │     │     ├──[✅]--(IBM   zOS)
+│     │     │     └──[✅]--(Oracle   Autonomous   DB)
+│     │     │                              ├──[✅]--(1   Overview)
+│     │     │                              ├──[✅]--(2   Provisioning   and   Connectivity)
+│     │     │                              ├──[✅]--(3   Migration   and   Data   Loding   into   Autonomous   DB)
+│     │     │                              ├──[✅]--(4   Migrating   and   Data   Loading)
+│     │     │                              ├──[✅]--(5   Monitoring   Autonomous   DB)
+│     │     │                              └──[✅]--(6   Tools   Reporting   Analytics)
+│     │     ├──[✅]--(cobol)
+│     │     │     ├──[✅]--(COBOL   Programming   Course_files)
+│     │     │     ├──[✅]--(COBOL   Programming   Exercises_files)
+│     │     │     └──[✅]--(COBOL   example   programs_files)
+│     │     ├──[✅]--(complete)
+│     │     │     ├──[✅]--(Decks)
+│     │     │     └──[✅]--(notes-books)
+│     │     ├──[✅]--(general)
+│     │     ├──[✅]--(interviewing)
+│     │     ├──[✅]--(testing)
+│     │     └──[✅]--(typescript)
+│     └──[✅]--(tlbw)
+│                              └──[✅]--(client)
+│                                                ├──[✅]--(public)
+│                                                └──[✅]--(src)
+│                                                                  ├──[✅]--(components)
+│                                                                  └──[✅]--(imgs)
+├──[✅]--(WEEKS)
+│     ├──[✅]--(wk1)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     │     ├──[✅]--(Farm   to   Table_files)
+│     │     │     │     ├──[✅]--(Quiz_Git_files)
+│     │     │     │     ├──[✅]--(closures_files)
+│     │     │     │     ├──[✅]--(func-scope_files)
+│     │     │     │     └──[✅]--(git-quiz_files)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     │     ├──[✅]--(flexbox-explained_files)
+│     │     │     │     └──[✅]--(notes_files)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     │     ├──[✅]--(User_Interface_I_HTML_Markup)
+│     │     │     │     └──[✅]--(User_Interface_I__Project_2_-_Sweet_Eats_Bakery)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     │     └──[✅]--(web-module-project-intro-css)
+│     │     │     ├──[✅]--(d4)
+│     │     │     │     ├──[✅]--(portfolio)
+│     │     │     │     └──[✅]--(refactor-d3-proj-w-flex)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(agenda_files)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk10)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk11)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk12)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk14)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk15)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk16)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk17)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk18)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk19)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk2)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     │     └──[✅]--(HTML-CSS-Responsive-Practice)
+│     │     │     ├──[✅]--(d2)
+│     │     │     │     ├──[✅]--(Slice   vs   Splice_files)
+│     │     │     │     ├──[✅]--(best-practice)
+│     │     │     │     └──[✅]--(git-flow)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     │     └──[✅]--(Responsive-Design)
+│     │     │     ├──[✅]--(d2)
+│     │     │     │     ├──[✅]--(__tests__)
+│     │     │     │     ├──[✅]--(backup)
+│     │     │     │     └──[✅]--(notes)
+│     │     │     ├──[✅]--(d3)
+│     │     │     │     └──[✅]--(__tests__)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk20)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk3)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk4)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk5)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk6)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk7)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     ├──[✅]--(wk8)
+│     │     ├──[✅]--(0-notes)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(1-projects)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(2-resources)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     ├──[✅]--(3-misc)
+│     │     │     ├──[✅]--(d1)
+│     │     │     ├──[✅]--(d2)
+│     │     │     ├──[✅]--(d3)
+│     │     │     ├──[✅]--(d4)
+│     │     │     ├──[✅]--(d5)
+│     │     │     └──[✅]--(other)
+│     │     └──[✅]--(4-test-prep)
+│     │                              └──[✅]--(Study-Guides)
+│     └──[✅]--(wk9)
+│                              ├──[✅]--(0-notes)
+│                              │     ├──[✅]--(d1)
+│                              │     ├──[✅]--(d2)
+│                              │     ├──[✅]--(d3)
+│                              │     ├──[✅]--(d4)
+│                              │     ├──[✅]--(d5)
+│                              │     └──[✅]--(other)
+│                              ├──[✅]--(1-projects)
+│                              │     ├──[✅]--(d1)
+│                              │     ├──[✅]--(d2)
+│                              │     ├──[✅]--(d3)
+│                              │     ├──[✅]--(d4)
+│                              │     ├──[✅]--(d5)
+│                              │     └──[✅]--(other)
+│                              ├──[✅]--(2-resources)
+│                              │     ├──[✅]--(d1)
+│                              │     ├──[✅]--(d2)
+│                              │     ├──[✅]--(d3)
+│                              │     ├──[✅]--(d4)
+│                              │     ├──[✅]--(d5)
+│                              │     └──[✅]--(other)
+│                              ├──[✅]--(3-misc)
+│                              │     ├──[✅]--(d1)
+│                              │     ├──[✅]--(d2)
+│                              │     ├──[✅]--(d3)
+│                              │     ├──[✅]--(d4)
+│                              │     ├──[✅]--(d5)
+│                              │     └──[✅]--(other)
+│                              └──[✅]--(4-test-prep)
+│                                                └──[✅]--(Study-Guides)
+├──[✅]--(css)
+├──[✅]--(js)
+└──[✅]--(media-gifs-images)
 
-4660 directories)
+4861   directories
+
 
 ```
 
