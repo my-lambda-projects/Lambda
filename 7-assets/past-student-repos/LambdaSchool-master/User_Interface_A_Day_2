@@ -1,0 +1,85 @@
+######################################
+Creating Layouts using display: inline-block;
+######################################
+
+0. always ad border: 5px solid red;
+0a. add box-sizing: border-box; 
+1. display: inline-block;
+2. vertical-align: top;
+3. *USE <div></div> to separate rows  **EVERYTHING is its own <section></section>
+4. Difference between Margin & Padding **Inspect Element Box-Model ***Everything is a box
+
+Padding is pixels from the edge of a BORDER-box
+Margin is pixels from the edge of the screen-space
+
+
+5. Positions relative to parents (inheritance) 
+6. T R B L (position padding/margin)
+7. always ad border: 5px solid red;
+
+8. BOX MODEL
+
+Innermost = Width x Height (px)    //around the content
+Padding = T R B L (px)             //within the box
+Border = px                        //box border
+Margin = T R B L                   // 0 0 0 500px (500px FROM THE LEFT)
+
+9. Display: none vs visibility: hidden; 
+display: block; (takes up the WHOLE SCREEN; default)
+display: inline; (takes up minimal space; wraps around content)
+display: inline-block;  (still respect width and height, but doesn't go to end of screen - no left/right) 
+
+10. Web Page Layout: starts with display: inline-block; 
+
+######################
+Reset CSS
+######################
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
