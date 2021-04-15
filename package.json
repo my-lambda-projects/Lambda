@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bgoonz/Lambda-W1#readme",
   "dependencies": {
+    "@algolia/netlify-plugin-crawler": "^1.0.6",
     "pageres": "^6.2.1"
   }
 }

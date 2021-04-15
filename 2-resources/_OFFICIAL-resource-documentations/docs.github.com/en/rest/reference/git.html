@@ -1,0 +1,3512 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/rest/reference/git by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:44 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Git database - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="">
+  
+  
+    <meta name="keywords" content="api">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/rest/reference/git"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/rest/reference/git"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/rest/reference/git"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/rest/reference/git"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/rest/reference/git"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/rest/reference/git"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="9xiLwB6B-IqyZl5HDYFkBXbbpfFCFbQGQN5s">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="REST API" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/rest" class="pl-4 pr-5 pb-1 f4">REST API</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Overview</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api" class="pl-4 pr-5 py-1">Resources in the REST API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/media-types" class="pl-4 pr-5 py-1">Media types</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/other-authentication-methods" class="pl-4 pr-5 py-1">Other authentication methods</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/troubleshooting" class="pl-4 pr-5 py-1">Troubleshooting</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/api-previews" class="pl-4 pr-5 py-1">API previews</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/libraries" class="pl-4 pr-5 py-1">Libraries</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/openapi-description" class="pl-4 pr-5 py-1">OpenAPI description</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps" class="pl-4 pr-5 py-1 pb-2">Endpoints available for GitHub Apps</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/reference" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Reference</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/actions" class="pl-4 pr-5 py-1">Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/activity" class="pl-4 pr-5 py-1">Activity</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/apps" class="pl-4 pr-5 py-1">Apps</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/billing" class="pl-4 pr-5 py-1">Billing</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/checks" class="pl-4 pr-5 py-1">Checks</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/codes-of-conduct" class="pl-4 pr-5 py-1">Codes of conduct</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/code-scanning" class="pl-4 pr-5 py-1">Code scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/emojis" class="pl-4 pr-5 py-1">Emojis</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/enterprise-admin" class="pl-4 pr-5 py-1">GitHub Enterprise administration</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/gists" class="pl-4 pr-5 py-1">Gists</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article active is-current-page">
+          <a href="https://docs.github.com/en/rest/reference/git" class="pl-4 pr-5 py-1">Git database</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/gitignore" class="pl-4 pr-5 py-1">Gitignore</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/interactions" class="pl-4 pr-5 py-1">Interactions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/issues" class="pl-4 pr-5 py-1">Issues</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/licenses" class="pl-4 pr-5 py-1">Licenses</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/markdown" class="pl-4 pr-5 py-1">Markdown</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/meta" class="pl-4 pr-5 py-1">Meta</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/migrations" class="pl-4 pr-5 py-1">Migrations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/orgs" class="pl-4 pr-5 py-1">Organizations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/packages" class="pl-4 pr-5 py-1">Packages</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/projects" class="pl-4 pr-5 py-1">Projects</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/pulls" class="pl-4 pr-5 py-1">Pulls</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/rate-limit" class="pl-4 pr-5 py-1">Rate limit</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/reactions" class="pl-4 pr-5 py-1">Reactions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/repos" class="pl-4 pr-5 py-1">Repositories</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/scim" class="pl-4 pr-5 py-1">SCIM</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/search" class="pl-4 pr-5 py-1">Search</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/secret-scanning" class="pl-4 pr-5 py-1">Secret scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/teams" class="pl-4 pr-5 py-1">Teams</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/users" class="pl-4 pr-5 py-1">Users</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/permissions-required-for-github-apps" class="pl-4 pr-5 py-1 pb-2">Permissions required for GitHub Apps</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/guides" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Guides</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api" class="pl-4 pr-5 py-1">Getting started with the REST API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/basics-of-authentication" class="pl-4 pr-5 py-1">Basics of authentication</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/discovering-resources-for-a-user" class="pl-4 pr-5 py-1">Discovering resources for a user</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/delivering-deployments" class="pl-4 pr-5 py-1">Delivering deployments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/rendering-data-as-graphs" class="pl-4 pr-5 py-1">Rendering data as graphs</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/working-with-comments" class="pl-4 pr-5 py-1">Working with comments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/traversing-with-pagination" class="pl-4 pr-5 py-1">Traversing with pagination</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/building-a-ci-server" class="pl-4 pr-5 py-1">Building a CI server</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/best-practices-for-integrators" class="pl-4 pr-5 py-1">Best practices for integrators</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-git-database-api" class="pl-4 pr-5 py-1">Getting started with the Git Database API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-checks-api" class="pl-4 pr-5 py-1 pb-2">Getting started with the Checks API</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    REST API
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/rest/reference/git"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/rest/reference/git"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/rest/reference/git"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/rest/reference/git"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/rest/reference/git"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/rest/reference/git"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: REST API" href="https://docs.github.com/en/rest" class="d-inline-block ">
+        REST API
+      </a>
+    
+  
+    
+      <a title="category: Reference" href="https://docs.github.com/en/rest/reference" class="d-inline-block ">
+        Reference
+      </a>
+    
+  
+    
+      <a title="article: Git database" href="https://docs.github.com/en/rest/reference/git" class="d-inline-block text-gray-light">
+        Git database
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/rest/reference/git"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/rest/reference/git"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Git database</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"></div>
+      
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#blobs">Blobs</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#custom-media-types-for-blobs">Custom media types for blobs</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#create-a-blob">Create a blob</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#get-a-blob">Get a blob</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#commits">Commits</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#create-a-commit">Create a commit</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#get-a-commit">Get a commit</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#references">References</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#list-matching-references">List matching references</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#get-a-reference">Get a reference</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#create-a-reference">Create a reference</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#update-a-reference">Update a reference</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#delete-a-reference">Delete a reference</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#tags">Tags</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#create-a-tag-object">Create a tag object</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#get-a-tag">Get a tag</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#trees">Trees</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#create-a-tree">Create a tree</a>
+    </li>
+          
+          <li class="ml-3  mb-2 lh-condensed">
+      <a href="#get-a-tree">Get a tree</a>
+    </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <p>The Git Database API gives you access to read and write raw Git objects to your Git database on GitHub and to list and update your references (branch heads and tags). For more information about using the Git Database API, see &quot;<a href="https://docs.github.com/en/rest/guides/getting-started-with-the-git-database-api">Getting started with the Git data API</a>.&quot;</p>
+<h2 id="blobs"><a href="#blobs">Blobs</a></h2>
+<p>A Git blob (binary large object) is the object type used to store the contents of each file in a repository. The file&apos;s SHA-1 hash is computed and stored in the blob object. These endpoints allow you to read and write <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects">blob objects</a>
+to your Git database on GitHub. Blobs leverage <a href="#custom-media-types">these custom media types</a>. You can read more about the use of media types in the API <a href="https://docs.github.com/en/rest/overview/media-types">here</a>.</p>
+<h3 id="custom-media-types-for-blobs"><a href="#custom-media-types-for-blobs">Custom media types for blobs</a></h3>
+<p>These are the supported media types for blobs.</p>
+<pre><code>application/json
+application/vnd.github.VERSION.raw
+</code></pre>
+<p>For more information, see &quot;<a href="https://docs.github.com/en/rest/overview/media-types">Media types</a>.&quot;</p>
+  <div>
+  <div>
+    <h3 id="create-a-blob" class="pt-3">
+      <a href="#create-a-blob">Create a blob</a>
+    </h3>
+    
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/blobs</code></pre>
+  <div>
+    
+      <h4 id="create-a-blob--parameters">
+        <a href="#create-a-blob--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+          <tr>
+            <td><code>content</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The new blob&apos;s content.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>encoding</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>The encoding used for <code>content</code>. Currently, <code>&quot;utf-8&quot;</code> and <code>&quot;base64&quot;</code> are supported.</p>
+              
+              Default: <code>utf-8</code>              
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="create-a-blob--code-samples">
+        <a href="#create-a-blob--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X POST \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/blobs \
+  -d &apos;{&quot;content&quot;:&quot;content&quot;}&apos;</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;POST /repos/{owner}/{repo}/git/blobs&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">content</span>: <span class="hljs-string">&apos;content&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 201 Created</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15&quot;</span>,
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15&quot;</span>
+}
+</code></pre></div>
+    
+      <h4>Forbidden</h4>
+      <pre><code>Status: 403 Forbidden</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Conflict</h4>
+      <pre><code>Status: 409 Conflict</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="get-a-blob" class="pt-3">
+      <a href="#get-a-blob">Get a blob</a>
+    </h3>
+    <p>The <code>content</code> in the response will always be Base64 encoded.</p>
+<p><em>Note</em>: This API supports blobs up to 100 megabytes in size.</p>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/blobs/{file_sha}</code></pre>
+  <div>
+    
+      <h4 id="get-a-blob--parameters">
+        <a href="#get-a-blob--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>file_sha</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="get-a-blob--code-samples">
+        <a href="#get-a-blob--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/blobs/FILE_SHA</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;GET /repos/{owner}/{repo}/git/blobs/{file_sha}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">file_sha</span>: <span class="hljs-string">&apos;file_sha&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;content&quot;</span>: <span class="hljs-string">&quot;Q29udGVudCBvZiB0aGUgYmxvYg==&quot;</span>,
+  <span class="hljs-attr">&quot;encoding&quot;</span>: <span class="hljs-string">&quot;base64&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15&quot;</span>,
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15&quot;</span>,
+  <span class="hljs-attr">&quot;size&quot;</span>: <span class="hljs-number">19</span>,
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;Q29udGVudCBvZiB0aGUgYmxvYg==&quot;</span>
+}
+</code></pre></div>
+    
+      <h4>Forbidden</h4>
+      <pre><code>Status: 403 Forbidden</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+<h2 id="commits"><a href="#commits">Commits</a></h2>
+<p>A Git commit is a snapshot of the hierarchy (<a href="https://docs.github.com/en/rest/reference/git#trees">Git tree</a>) and the contents of the files (<a href="https://docs.github.com/en/rest/reference/git#blobs">Git blob</a>) in a Git repository.
+These endpoints allow you to read and write <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects">commit objects</a>
+to your Git database on GitHub.</p>
+  <div>
+  <div>
+    <h3 id="create-a-commit" class="pt-3">
+      <a href="#create-a-commit">Create a commit</a>
+    </h3>
+    <p>Creates a new Git <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects">commit object</a>.</p>
+<p><strong>Signature verification object</strong></p>
+<p>The response will include a <code>verification</code> object that describes the result of verifying the commit&apos;s signature. The following fields are included in the <code>verification</code> object:</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr></tbody></table>
+<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>
+<table><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The &quot;signing&quot; flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on her/his account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user&apos;s account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/commits</code></pre>
+  <div>
+    
+      <h4 id="create-a-commit--parameters">
+        <a href="#create-a-commit--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+          <tr>
+            <td><code>message</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The commit message</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>tree</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The SHA of the tree object this commit points to</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>parents</code></td>
+            <td class="opacity-70">array of strings</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>The SHAs of the commits that were the parents of this commit. If omitted or empty, the commit will be written as a root commit. For a single parent, an array of one SHA should be provided; for a merge commit, an array of more than one should be provided.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>author</code></td>
+            <td class="opacity-70">object</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>Information about the author of the commit. By default, the <code>author</code> will be the authenticated user and the current date. See the <code>author</code> and <code>committer</code> object below for details.</p>
+              
+            </td>
+          </tr>
+          
+          <tr style="border: none;">
+            <td colspan="4" class="has-nested-table">
+            
+            <details>
+            <summary class="text-gray"><h4 id="author-object">Properties of the <code>author</code> object</h4></summary>
+            <table>
+              <tbody>
+                
+                  <tr>
+                    <td class="opacity-60"><code>name</code> (string)</td>
+                    <td class="opacity-60"><p><strong>Required</strong>. The name of the author (or committer) of the commit</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>email</code> (string)</td>
+                    <td class="opacity-60"><p><strong>Required</strong>. The email of the author (or committer) of the commit</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>date</code> (string)</td>
+                    <td class="opacity-60"><p>Indicates when this commit was authored (or committed). This is a timestamp in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+            
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>committer</code></td>
+            <td class="opacity-70">object</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>Information about the person who is making the commit. By default, <code>committer</code> will use the information set in <code>author</code>. See the <code>author</code> and <code>committer</code> object below for details.</p>
+              
+            </td>
+          </tr>
+          
+          <tr style="border: none;">
+            <td colspan="4" class="has-nested-table">
+            
+            <details>
+            <summary class="text-gray"><h4 id="committer-object">Properties of the <code>committer</code> object</h4></summary>
+            <table>
+              <tbody>
+                
+                  <tr>
+                    <td class="opacity-60"><code>name</code> (string)</td>
+                    <td class="opacity-60"><p>The name of the author (or committer) of the commit</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>email</code> (string)</td>
+                    <td class="opacity-60"><p>The email of the author (or committer) of the commit</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>date</code> (string)</td>
+                    <td class="opacity-60"><p>Indicates when this commit was authored (or committed). This is a timestamp in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+            
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>signature</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>The <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP signature</a> of the commit. GitHub adds the signature to the <code>gpgsig</code> header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database. To pass a <code>signature</code> parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to <a href="https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work">use the command line</a> to create signed commits.</p>
+              
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="create-a-commit--code-samples">
+        <a href="#create-a-commit--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X POST \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/commits \
+  -d &apos;{&quot;message&quot;:&quot;message&quot;,&quot;tree&quot;:&quot;tree&quot;}&apos;</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;POST /repos/{owner}/{repo}/git/commits&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">message</span>: <span class="hljs-string">&apos;message&apos;</span>,
+  <span class="hljs-attr">tree</span>: <span class="hljs-string">&apos;tree&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 201 Created</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>,
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDY6Q29tbWl0NzYzODQxN2RiNmQ1OWYzYzQzMWQzZTFmMjYxY2M2MzcxNTU2ODRjZA==&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>,
+  <span class="hljs-attr">&quot;author&quot;</span>: {
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-11-07T22:01:45Z&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Monalisa Octocat&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;octocat@github.com&quot;</span>
+  },
+  <span class="hljs-attr">&quot;committer&quot;</span>: {
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-11-07T22:01:45Z&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Monalisa Octocat&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;octocat@github.com&quot;</span>
+  },
+  <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;my commit message&quot;</span>,
+  <span class="hljs-attr">&quot;tree&quot;</span>: {
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/trees/827efc6d56897b048c772eb4087f854f46256132&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;827efc6d56897b048c772eb4087f854f46256132&quot;</span>
+  },
+  <span class="hljs-attr">&quot;parents&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/7d1b31e74ee336d15cbd21741bc88a537ed063a0&quot;</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;7d1b31e74ee336d15cbd21741bc88a537ed063a0&quot;</span>,
+      <span class="hljs-attr">&quot;html_url&quot;</span>: <span class="hljs-string">&quot;https://github.com/octocat/Hello-World/commit/7d1b31e74ee336d15cbd21741bc88a537ed063a0&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;verification&quot;</span>: {
+    <span class="hljs-attr">&quot;verified&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;reason&quot;</span>: <span class="hljs-string">&quot;unsigned&quot;</span>,
+    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-literal">null</span>
+  },
+  <span class="hljs-attr">&quot;html_url&quot;</span>: <span class="hljs-string">&quot;https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>
+}
+</code></pre></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="get-a-commit" class="pt-3">
+      <a href="#get-a-commit">Get a commit</a>
+    </h3>
+    <p>Gets a Git <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects">commit object</a>.</p>
+<p><strong>Signature verification object</strong></p>
+<p>The response will include a <code>verification</code> object that describes the result of verifying the commit&apos;s signature. The following fields are included in the <code>verification</code> object:</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr></tbody></table>
+<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>
+<table><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The &quot;signing&quot; flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on her/his account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user&apos;s account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/commits/{commit_sha}</code></pre>
+  <div>
+    
+      <h4 id="get-a-commit--parameters">
+        <a href="#get-a-commit--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>commit_sha</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"><p>commit_sha parameter</p></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="get-a-commit--code-samples">
+        <a href="#get-a-commit--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/commits/COMMIT_SHA</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;GET /repos/{owner}/{repo}/git/commits/{commit_sha}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">commit_sha</span>: <span class="hljs-string">&apos;commit_sha&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>,
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>,
+  <span class="hljs-attr">&quot;html_url&quot;</span>: <span class="hljs-string">&quot;https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>,
+  <span class="hljs-attr">&quot;author&quot;</span>: {
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-11-07T22:01:45Z&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Monalisa Octocat&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;octocat@github.com&quot;</span>
+  },
+  <span class="hljs-attr">&quot;committer&quot;</span>: {
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-11-07T22:01:45Z&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Monalisa Octocat&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;octocat@github.com&quot;</span>
+  },
+  <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;added readme, because im a good github citizen&quot;</span>,
+  <span class="hljs-attr">&quot;tree&quot;</span>: {
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/trees/691272480426f78a0138979dd3ce63b77f706feb&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;691272480426f78a0138979dd3ce63b77f706feb&quot;</span>
+  },
+  <span class="hljs-attr">&quot;parents&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/1acc419d4d6a9ce985db7be48c6349a0475975b5&quot;</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;1acc419d4d6a9ce985db7be48c6349a0475975b5&quot;</span>,
+      <span class="hljs-attr">&quot;html_url&quot;</span>: <span class="hljs-string">&quot;https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;verification&quot;</span>: {
+    <span class="hljs-attr">&quot;verified&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;reason&quot;</span>: <span class="hljs-string">&quot;unsigned&quot;</span>,
+    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-literal">null</span>
+  }
+}
+</code></pre></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+<h2 id="references"><a href="#references">References</a></h2>
+<p>A Git reference (<code>git ref</code>) is just a file that contains a Git commit SHA-1 hash.
+When referring to a Git commit, you can use the Git reference, which is an
+easy-to-remember name, rather than the hash. The Git reference can be rewritten
+to point to a new commit. A branch is just a Git reference that stores the new Git
+commit hash. These endpoints allow you to read and write <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-References">references</a>
+to your Git database on GitHub.</p>
+  <div>
+  <div>
+    <h3 id="list-matching-references" class="pt-3">
+      <a href="#list-matching-references">List matching references</a>
+    </h3>
+    <p>Returns an array of references from your Git database that match the supplied name. The <code>:ref</code> in the URL must be formatted as <code>heads/&lt;branch name&gt;</code> for branches and <code>tags/&lt;tag name&gt;</code> for tags. If the <code>:ref</code> doesn&apos;t exist in the repository, but existing refs start with <code>:ref</code>, they will be returned as an array.</p>
+<p>When you use this endpoint without providing a <code>:ref</code>, it will return an array of all the references from your Git database, including notes and stashes if they exist on the server. Anything in the namespace is returned, not just <code>heads</code> and <code>tags</code>.</p>
+<p><strong>Note:</strong> You need to explicitly <a href="https://docs.github.com/rest/reference/pulls#get-a-pull-request">request a pull request</a> to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see &quot;<a href="https://docs.github.com/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests">Checking mergeability of pull requests</a>&quot;.</p>
+<p>If you request matching references for a branch named <code>feature</code> but the branch <code>feature</code> doesn&apos;t exist, the response can still include other matching head refs that start with the word <code>feature</code>, such as <code>featureA</code> and <code>featureB</code>.</p>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/matching-refs/{ref}</code></pre>
+  <div>
+    
+      <h4 id="list-matching-references--parameters">
+        <a href="#list-matching-references--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>ref</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"><p>ref parameter</p></td>
+            </tr>
+          
+            <tr>
+              <td><code>per_page</code></td>
+              <td class="opacity-70">integer</td>
+              <td class="opacity-70">query</td>
+              <td class="opacity-70"><p>Results per page (max 100).</p></td>
+            </tr>
+          
+            <tr>
+              <td><code>page</code></td>
+              <td class="opacity-70">integer</td>
+              <td class="opacity-70">query</td>
+              <td class="opacity-70"><p>Page number of the results to fetch.</p></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="list-matching-references--code-samples">
+        <a href="#list-matching-references--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/matching-refs/REF</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;GET /repos/{owner}/{repo}/git/matching-refs/{ref}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">ref</span>: <span class="hljs-string">&apos;ref&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">[
+  {
+    <span class="hljs-attr">&quot;ref&quot;</span>: <span class="hljs-string">&quot;refs/heads/feature-a&quot;</span>,
+    <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWE=&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-a&quot;</span>,
+    <span class="hljs-attr">&quot;object&quot;</span>: {
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>
+    }
+  },
+  {
+    <span class="hljs-attr">&quot;ref&quot;</span>: <span class="hljs-string">&quot;refs/heads/feature-b&quot;</span>,
+    <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWI=&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-b&quot;</span>,
+    <span class="hljs-attr">&quot;object&quot;</span>: {
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac&quot;</span>
+    }
+  }
+]
+</code></pre></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="get-a-reference" class="pt-3">
+      <a href="#get-a-reference">Get a reference</a>
+    </h3>
+    <p>Returns a single reference from your Git database. The <code>:ref</code> in the URL must be formatted as <code>heads/&lt;branch name&gt;</code> for branches and <code>tags/&lt;tag name&gt;</code> for tags. If the <code>:ref</code> doesn&apos;t match an existing ref, a <code>404</code> is returned.</p>
+<p><strong>Note:</strong> You need to explicitly <a href="https://docs.github.com/rest/reference/pulls#get-a-pull-request">request a pull request</a> to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see &quot;<a href="https://docs.github.com/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests">Checking mergeability of pull requests</a>&quot;.</p>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/ref/{ref}</code></pre>
+  <div>
+    
+      <h4 id="get-a-reference--parameters">
+        <a href="#get-a-reference--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>ref</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"><p>ref parameter</p></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="get-a-reference--code-samples">
+        <a href="#get-a-reference--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/ref/REF</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;GET /repos/{owner}/{repo}/git/ref/{ref}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">ref</span>: <span class="hljs-string">&apos;ref&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;ref&quot;</span>: <span class="hljs-string">&quot;refs/heads/featureA&quot;</span>,
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA&quot;</span>,
+  <span class="hljs-attr">&quot;object&quot;</span>: {
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>
+  }
+}
+</code></pre></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="create-a-reference" class="pt-3">
+      <a href="#create-a-reference">Create a reference</a>
+    </h3>
+    <p>Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.</p>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/refs</code></pre>
+  <div>
+    
+      <h4 id="create-a-reference--parameters">
+        <a href="#create-a-reference--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+          <tr>
+            <td><code>ref</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The name of the fully qualified reference (ie: <code>refs/heads/master</code>). If it doesn&apos;t start with &apos;refs&apos; and have at least two slashes, it will be rejected.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>sha</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The SHA1 value for this reference.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>key</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>undefined</p>
+              
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="create-a-reference--code-samples">
+        <a href="#create-a-reference--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X POST \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/refs \
+  -d &apos;{&quot;ref&quot;:&quot;ref&quot;,&quot;sha&quot;:&quot;sha&quot;}&apos;</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;POST /repos/{owner}/{repo}/git/refs&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">ref</span>: <span class="hljs-string">&apos;ref&apos;</span>,
+  <span class="hljs-attr">sha</span>: <span class="hljs-string">&apos;sha&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 201 Created</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;ref&quot;</span>: <span class="hljs-string">&quot;refs/heads/featureA&quot;</span>,
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA&quot;</span>,
+  <span class="hljs-attr">&quot;object&quot;</span>: {
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>
+  }
+}
+</code></pre></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="update-a-reference" class="pt-3">
+      <a href="#update-a-reference">Update a reference</a>
+    </h3>
+    
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/git/refs/{ref}</code></pre>
+  <div>
+    
+      <h4 id="update-a-reference--parameters">
+        <a href="#update-a-reference--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>ref</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"><p>ref parameter</p></td>
+            </tr>
+          
+          
+          <tr>
+            <td><code>sha</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The SHA1 value to set this reference to</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>force</code></td>
+            <td class="opacity-70">boolean</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>Indicates whether to force the update or to make sure the update is a fast-forward update. Leaving this out or setting it to <code>false</code> will make sure you&apos;re not overwriting work.</p>
+              
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="update-a-reference--code-samples">
+        <a href="#update-a-reference--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X PATCH \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/refs/REF \
+  -d &apos;{&quot;sha&quot;:&quot;sha&quot;}&apos;</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;PATCH /repos/{owner}/{repo}/git/refs/{ref}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">ref</span>: <span class="hljs-string">&apos;ref&apos;</span>,
+  <span class="hljs-attr">sha</span>: <span class="hljs-string">&apos;sha&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;ref&quot;</span>: <span class="hljs-string">&quot;refs/heads/featureA&quot;</span>,
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA&quot;</span>,
+  <span class="hljs-attr">&quot;object&quot;</span>: {
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd&quot;</span>
+  }
+}
+</code></pre></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="delete-a-reference" class="pt-3">
+      <a href="#delete-a-reference">Delete a reference</a>
+    </h3>
+    
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/git/refs/{ref}</code></pre>
+  <div>
+    
+      <h4 id="delete-a-reference--parameters">
+        <a href="#delete-a-reference--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>ref</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"><p>ref parameter</p></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="delete-a-reference--code-samples">
+        <a href="#delete-a-reference--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X DELETE \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/refs/REF</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;DELETE /repos/{owner}/{repo}/git/refs/{ref}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">ref</span>: <span class="hljs-string">&apos;ref&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 204 No Content</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+<h2 id="tags"><a href="#tags">Tags</a></h2>
+<p>A Git tag is similar to a <a href="https://docs.github.com/en/rest/reference/git#refs">Git reference</a>, but the Git commit that it points to never changes. Git tags are helpful when you want to point to specific releases. These endpoints allow you to read and write <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags">tag objects</a> to your Git database on GitHub. The Git tags API only supports <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags">annotated tag objects</a>, not lightweight tags.</p>
+  <div>
+  <div>
+    <h3 id="create-a-tag-object" class="pt-3">
+      <a href="#create-a-tag-object">Create a tag object</a>
+    </h3>
+    <p>Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then <a href="https://docs.github.com/rest/reference/git#create-a-reference">create</a> the <code>refs/tags/[tag]</code> reference. If you want to create a lightweight tag, you only have to <a href="https://docs.github.com/rest/reference/git#create-a-reference">create</a> the tag reference - this call would be unnecessary.</p>
+<p><strong>Signature verification object</strong></p>
+<p>The response will include a <code>verification</code> object that describes the result of verifying the commit&apos;s signature. The following fields are included in the <code>verification</code> object:</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr></tbody></table>
+<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>
+<table><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The &quot;signing&quot; flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on her/his account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user&apos;s account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/tags</code></pre>
+  <div>
+    
+      <h4 id="create-a-tag-object--parameters">
+        <a href="#create-a-tag-object--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+          <tr>
+            <td><code>tag</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The tag&apos;s name. This is typically a version (e.g., &quot;v0.0.1&quot;).</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>message</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The tag message.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>object</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The SHA of the git object this is tagging.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>type</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. The type of the object we&apos;re tagging. Normally this is a <code>commit</code> but it can also be a <code>tree</code> or a <code>blob</code>.</p>
+              
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>tagger</code></td>
+            <td class="opacity-70">object</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>An object with information about the individual creating the tag.</p>
+              
+            </td>
+          </tr>
+          
+          <tr style="border: none;">
+            <td colspan="4" class="has-nested-table">
+            
+            <details>
+            <summary class="text-gray"><h4 id="tagger-object">Properties of the <code>tagger</code> object</h4></summary>
+            <table>
+              <tbody>
+                
+                  <tr>
+                    <td class="opacity-60"><code>name</code> (string)</td>
+                    <td class="opacity-60"><p><strong>Required</strong>. The name of the author of the tag</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>email</code> (string)</td>
+                    <td class="opacity-60"><p><strong>Required</strong>. The email of the author of the tag</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>date</code> (string)</td>
+                    <td class="opacity-60"><p>When this object was tagged. This is a timestamp in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+            
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="create-a-tag-object--code-samples">
+        <a href="#create-a-tag-object--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X POST \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/tags \
+  -d &apos;{&quot;tag&quot;:&quot;tag&quot;,&quot;message&quot;:&quot;message&quot;,&quot;object&quot;:&quot;object&quot;,&quot;type&quot;:&quot;type&quot;}&apos;</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;POST /repos/{owner}/{repo}/git/tags&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">tag</span>: <span class="hljs-string">&apos;tag&apos;</span>,
+  <span class="hljs-attr">message</span>: <span class="hljs-string">&apos;message&apos;</span>,
+  <span class="hljs-attr">object</span>: <span class="hljs-string">&apos;object&apos;</span>,
+  <span class="hljs-attr">type</span>: <span class="hljs-string">&apos;type&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 201 Created</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw==&quot;</span>,
+  <span class="hljs-attr">&quot;tag&quot;</span>: <span class="hljs-string">&quot;v0.0.1&quot;</span>,
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;940bd336248efae0f9ee5bc7b2d5c985887b16ac&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac&quot;</span>,
+  <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;initial version&quot;</span>,
+  <span class="hljs-attr">&quot;tagger&quot;</span>: {
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Monalisa Octocat&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;octocat@github.com&quot;</span>,
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-11-07T22:01:45Z&quot;</span>
+  },
+  <span class="hljs-attr">&quot;object&quot;</span>: {
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c&quot;</span>
+  },
+  <span class="hljs-attr">&quot;verification&quot;</span>: {
+    <span class="hljs-attr">&quot;verified&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;reason&quot;</span>: <span class="hljs-string">&quot;unsigned&quot;</span>,
+    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-literal">null</span>
+  }
+}
+</code></pre></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="get-a-tag" class="pt-3">
+      <a href="#get-a-tag">Get a tag</a>
+    </h3>
+    <p><strong>Signature verification object</strong></p>
+<p>The response will include a <code>verification</code> object that describes the result of verifying the commit&apos;s signature. The following fields are included in the <code>verification</code> object:</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr></tbody></table>
+<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>
+<table><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The &quot;signing&quot; flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on her/his account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user&apos;s account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/tags/{tag_sha}</code></pre>
+  <div>
+    
+      <h4 id="get-a-tag--parameters">
+        <a href="#get-a-tag--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>tag_sha</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="get-a-tag--code-samples">
+        <a href="#get-a-tag--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/tags/TAG_SHA</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;GET /repos/{owner}/{repo}/git/tags/{tag_sha}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">tag_sha</span>: <span class="hljs-string">&apos;tag_sha&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw==&quot;</span>,
+  <span class="hljs-attr">&quot;tag&quot;</span>: <span class="hljs-string">&quot;v0.0.1&quot;</span>,
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;940bd336248efae0f9ee5bc7b2d5c985887b16ac&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac&quot;</span>,
+  <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;initial version&quot;</span>,
+  <span class="hljs-attr">&quot;tagger&quot;</span>: {
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Monalisa Octocat&quot;</span>,
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;octocat@github.com&quot;</span>,
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2014-11-07T22:01:45Z&quot;</span>
+  },
+  <span class="hljs-attr">&quot;object&quot;</span>: {
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;commit&quot;</span>,
+    <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c&quot;</span>,
+    <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c&quot;</span>
+  },
+  <span class="hljs-attr">&quot;verification&quot;</span>: {
+    <span class="hljs-attr">&quot;verified&quot;</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">&quot;reason&quot;</span>: <span class="hljs-string">&quot;unsigned&quot;</span>,
+    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-literal">null</span>
+  }
+}
+</code></pre></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+<h2 id="trees"><a href="#trees">Trees</a></h2>
+<p>A Git tree object creates the hierarchy between files in a Git repository. You can use the Git tree object to create the relationship between directories and the files they contain. These endpoints allow you to read and write <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects">tree objects</a> to your Git database on GitHub.</p>
+  <div>
+  <div>
+    <h3 id="create-a-tree" class="pt-3">
+      <a href="#create-a-tree">Create a tree</a>
+    </h3>
+    <p>The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.</p>
+<p>If you use this endpoint to add, delete, or modify the file contents in a tree, you will need to commit the tree and then update a branch to point to the commit. For more information see &quot;<a href="https://docs.github.com/rest/reference/git#create-a-commit">Create a commit</a>&quot; and &quot;<a href="https://docs.github.com/rest/reference/git#update-a-reference">Update a reference</a>.&quot;</p>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/trees</code></pre>
+  <div>
+    
+      <h4 id="create-a-tree--parameters">
+        <a href="#create-a-tree--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+          
+          <tr>
+            <td><code>tree</code></td>
+            <td class="opacity-70">array of objects</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p><strong>Required</strong>. Objects (of <code>path</code>, <code>mode</code>, <code>type</code>, and <code>sha</code>) specifying a tree structure.</p>
+              
+            </td>
+          </tr>
+          
+          <tr style="border: none;">
+            <td colspan="4" class="has-nested-table">
+            
+            <details>
+            <summary class="text-gray"><h4 id="tree-items">Properties of the <code>tree</code> items</h4></summary>
+            <table>
+              <tbody>
+                
+                  <tr>
+                    <td class="opacity-60"><code>path</code> (string)</td>
+                    <td class="opacity-60"><p>The file referenced in the tree.</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>mode</code> (string)</td>
+                    <td class="opacity-60"><p>The file mode; one of <code>100644</code> for file (blob), <code>100755</code> for executable (blob), <code>040000</code> for subdirectory (tree), <code>160000</code> for submodule (commit), or <code>120000</code> for a blob that specifies the path of a symlink.</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>type</code> (string)</td>
+                    <td class="opacity-60"><p>Either <code>blob</code>, <code>tree</code>, or <code>commit</code>.</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>sha</code> (string or null)</td>
+                    <td class="opacity-60"><p>The SHA1 checksum ID of the object in the tree. Also called <code>tree.sha</code>. If the value is <code>null</code> then the file will be deleted.  </p>
+<p><strong>Note:</strong> Use either <code>tree.sha</code> or <code>content</code> to specify the contents of the entry. Using both <code>tree.sha</code> and <code>content</code> will return an error.</p></td>
+                  </tr>
+                
+                  <tr>
+                    <td class="opacity-60"><code>content</code> (string)</td>
+                    <td class="opacity-60"><p>The content you want this file to have. GitHub will write this blob out and use that SHA for this entry. Use either this, or <code>tree.sha</code>.  </p>
+<p><strong>Note:</strong> Use either <code>tree.sha</code> or <code>content</code> to specify the contents of the entry. Using both <code>tree.sha</code> and <code>content</code> will return an error.</p></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+            
+            </td>
+          </tr>
+          
+          
+          <tr>
+            <td><code>base_tree</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">body</td>
+            <td class="opacity-70">
+              <p>The SHA1 of an existing Git tree object which will be used as the base for the new tree. If provided, a new Git tree object will be created from entries in the Git tree object pointed to by <code>base_tree</code> and entries defined in the <code>tree</code> parameter. Entries defined in the <code>tree</code> parameter will overwrite items from <code>base_tree</code> with the same <code>path</code>. If you&apos;re creating new changes on a branch, then normally you&apos;d set <code>base_tree</code> to the SHA1 of the Git tree object of the current latest commit on the branch you&apos;re working on.
+If not provided, GitHub will create a new Git tree object from only the entries defined in the <code>tree</code> parameter. If you create a new commit pointing to such a tree, then all files which were a part of the parent commit&apos;s tree and were not defined in the <code>tree</code> parameter will be listed as deleted by the new commit.</p>
+              
+            </td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="create-a-tree--code-samples">
+        <a href="#create-a-tree--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -X POST \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/trees \
+  -d &apos;{&quot;tree&quot;:[{&quot;path&quot;:&quot;path&quot;,&quot;mode&quot;:&quot;mode&quot;,&quot;type&quot;:&quot;type&quot;,&quot;sha&quot;:&quot;sha&quot;,&quot;content&quot;:&quot;content&quot;}]}&apos;</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;POST /repos/{owner}/{repo}/git/trees&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">tree</span>: [
+    {
+      <span class="hljs-attr">path</span>: <span class="hljs-string">&apos;path&apos;</span>,
+      <span class="hljs-attr">mode</span>: <span class="hljs-string">&apos;mode&apos;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&apos;type&apos;</span>,
+      <span class="hljs-attr">sha</span>: <span class="hljs-string">&apos;sha&apos;</span>,
+      <span class="hljs-attr">content</span>: <span class="hljs-string">&apos;content&apos;</span>
+    }
+  ]
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Response</h4>
+      <pre><code>Status: 201 Created</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;cd8274d15fa3ae2ab983129fb037999f264ba9a7&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/trees/cd8274d15fa3ae2ab983129fb037999f264ba9a7&quot;</span>,
+  <span class="hljs-attr">&quot;tree&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;file.rb&quot;</span>,
+      <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;100644&quot;</span>,
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;blob&quot;</span>,
+      <span class="hljs-attr">&quot;size&quot;</span>: <span class="hljs-number">132</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/blobs/7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;truncated&quot;</span>: <span class="hljs-literal">true</span>
+}
+</code></pre></div>
+    
+      <h4>Forbidden</h4>
+      <pre><code>Status: 403 Forbidden</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="get-a-tree" class="pt-3">
+      <a href="#get-a-tree">Get a tree</a>
+    </h3>
+    <p>Returns a single tree using the SHA1 value for that tree.</p>
+<p>If <code>truncated</code> is <code>true</code> in the response then the number of items in the <code>tree</code> array exceeded our maximum limit. If you need to fetch more items, use the non-recursive method of fetching trees, and fetch one sub-tree at a time.</p>
+  </div>
+  <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/trees/{tree_sha}</code></pre>
+  <div>
+    
+      <h4 id="get-a-tree--parameters">
+        <a href="#get-a-tree--parameters">Parameters</a>
+      </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>In</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                
+                
+              </p>
+            </td>
+          </tr>
+          
+            <tr>
+              <td><code>owner</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>repo</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>tree_sha</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">path</td>
+              <td class="opacity-70"></td>
+            </tr>
+          
+            <tr>
+              <td><code>recursive</code></td>
+              <td class="opacity-70">string</td>
+              <td class="opacity-70">query</td>
+              <td class="opacity-70"><p>Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in <code>:tree_sha</code>. For example, setting <code>recursive</code> to any of the following will enable returning objects or subtrees: <code>0</code>, <code>1</code>, <code>&quot;true&quot;</code>, and <code>&quot;false&quot;</code>. Omit this parameter to prevent recursively returning objects or subtrees.</p></td>
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    
+    
+      <h4 id="get-a-tree--code-samples">
+        <a href="#get-a-tree--code-samples">Code samples</a>
+      </h4>
+      
+        
+          <h5>
+            
+              Shell
+            
+          </h5>
+          <pre><code class="hljs language-shell">curl \
+  -H &quot;Accept: application/vnd.github.v3+json&quot; \
+  https://api.github.com/repos/octocat/hello-world/git/trees/TREE_SHA</code></pre>
+        
+      
+        
+          <h5>
+            
+              JavaScript (<a href="https://github.com/octokit/core.js#readme">@octokit/core.js</a>)
+            
+          </h5>
+          <pre><code class="hljs language-javascript"><span class="hljs-keyword">await</span> octokit.request(<span class="hljs-string">&apos;GET /repos/{owner}/{repo}/git/trees/{tree_sha}&apos;</span>, {
+  <span class="hljs-attr">owner</span>: <span class="hljs-string">&apos;octocat&apos;</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">&apos;hello-world&apos;</span>,
+  <span class="hljs-attr">tree_sha</span>: <span class="hljs-string">&apos;tree_sha&apos;</span>
+})
+</code></pre>
+        
+      
+    
+    
+      <h4>Default response</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;9fb037999f264ba9a7fc6274d15fa3ae2ab98312&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/trees/9fb037999f264ba9a7fc6274d15fa3ae2ab98312&quot;</span>,
+  <span class="hljs-attr">&quot;tree&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;file.rb&quot;</span>,
+      <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;100644&quot;</span>,
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;blob&quot;</span>,
+      <span class="hljs-attr">&quot;size&quot;</span>: <span class="hljs-number">30</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;44b4fc6d56897b048c772eb4087f854f46256132&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;subdir&quot;</span>,
+      <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;040000&quot;</span>,
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;tree&quot;</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;f484d249c660418515fb01c2b9662073663c242e&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/blobs/f484d249c660418515fb01c2b9662073663c242e&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;exec_file&quot;</span>,
+      <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;100755&quot;</span>,
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;blob&quot;</span>,
+      <span class="hljs-attr">&quot;size&quot;</span>: <span class="hljs-number">75</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;45b983be36b73c0788dc9cbcb76cbb80fc7bb057&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/blobs/45b983be36b73c0788dc9cbcb76cbb80fc7bb057&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;truncated&quot;</span>: <span class="hljs-literal">false</span>
+}
+</code></pre></div>
+    
+      <h4>Response recursively retrieving a tree</h4>
+      <pre><code>Status: 200 OK</code></pre>
+      <div class="height-constrained-code-block"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;fc6274d15fa3ae2ab983129fb037999f264ba9a7&quot;</span>,
+  <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/trees/fc6274d15fa3ae2ab983129fb037999f264ba9a7&quot;</span>,
+  <span class="hljs-attr">&quot;tree&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;path&quot;</span>: <span class="hljs-string">&quot;subdir/file.txt&quot;</span>,
+      <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;100644&quot;</span>,
+      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;blob&quot;</span>,
+      <span class="hljs-attr">&quot;size&quot;</span>: <span class="hljs-number">132</span>,
+      <span class="hljs-attr">&quot;sha&quot;</span>: <span class="hljs-string">&quot;7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b&quot;</span>,
+      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://api.github.com/repos/octocat/Hello-World/git/7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;truncated&quot;</span>: <span class="hljs-literal">false</span>
+}
+</code></pre></div>
+    
+      <h4>Resource not found</h4>
+      <pre><code>Status: 404 Not Found</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+      <h4>Validation failed</h4>
+      <pre><code>Status: 422 Unprocessable Entity</code></pre>
+      <div class="height-constrained-code-block"></div>
+    
+    
+      <h4>Notes</h4>
+      <ul class="mt-2">
+        
+          <li><a href="https://docs.github.com/en/developers/apps">Works with GitHub Apps</a></li>
+        
+        
+      </ul>
+    
+    
+  </div>
+  <hr>
+</div>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/rest/reference/git.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/rest/reference/git by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:44 GMT -->
+</html>

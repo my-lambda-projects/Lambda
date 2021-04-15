@@ -1,0 +1,67 @@
+// counting down from any number
+
+function countDown(start) {
+  let s = start;
+  for (i = s; i >= 0; i--){
+    console.log(i);
+  }
+}
+
+countDown(100);
+
+// repeat logs a phrase x number of times
+
+function repeat(phrase, x) {
+  for (i = 1; i < x+1; i++){
+    console.log(phrase);
+  }
+}
+
+repeat("I'm cooking", 5);
+
+// getHTMLTag takes in a tag name 
+// and returns the opening and closing tag
+
+function getHTMLTag(tagName) {
+  let name = tagName;
+  return `<${name}></${name}>`;
+}
+
+getHTMLTag("span");
+
+
+// getHeaderTag takes in header text and a header size 
+// and returns the opening and closing H tag with the text inside
+
+function getHeaderTag(text, size){
+  return `<h${size}>${text}</h${size}>`;
+}
+
+getHeaderTag('Kobe Bryant Rookie Card', 1);
+
+
+
+// logMultiples takes in two numbers 
+// and logs any number between 1 and 100 that is a multiple of x or y
+
+function logMultiples(x,y) {
+  for (i = 1; i < 100; i++){
+    if (i*x <= 100 && i*y <= 100){
+      console.log(i*x);
+      console.log(i*y);
+    }
+  }
+}
+
+logMultiples(20,25);
+
+
+// reverseWords takes in a string and reverses every word in the phrase
+// it returns the reversed version of the string
+
+function reverseWords(phrase) {
+  let newphrase = phrase.split("").reverse().join("");
+  return newphrase;
+}
+
+reverseWords("rookie card");

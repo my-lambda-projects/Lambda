@@ -1,0 +1,1801 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/rest/overview/resources-in-the-rest-api by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:35 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Resources in the REST API - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="Learn how to navigate the resources provided by the GitHub API.">
+  
+  
+    <meta name="keywords" content="api">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/rest/overview/resources-in-the-rest-api"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/rest/overview/resources-in-the-rest-api"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/rest/overview/resources-in-the-rest-api"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/rest/overview/resources-in-the-rest-api"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/rest/overview/resources-in-the-rest-api"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="tyZy2nXE-iNUxRP48MVZX8n9NiGuah6KDaaw">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="REST API" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/rest" class="pl-4 pr-5 pb-1 f4">REST API</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Overview</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article active is-current-page">
+          <a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api" class="pl-4 pr-5 py-1">Resources in the REST API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/media-types" class="pl-4 pr-5 py-1">Media types</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/other-authentication-methods" class="pl-4 pr-5 py-1">Other authentication methods</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/troubleshooting" class="pl-4 pr-5 py-1">Troubleshooting</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/api-previews" class="pl-4 pr-5 py-1">API previews</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/libraries" class="pl-4 pr-5 py-1">Libraries</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/openapi-description" class="pl-4 pr-5 py-1">OpenAPI description</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps" class="pl-4 pr-5 py-1 pb-2">Endpoints available for GitHub Apps</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/reference" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Reference</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/actions" class="pl-4 pr-5 py-1">Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/activity" class="pl-4 pr-5 py-1">Activity</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/apps" class="pl-4 pr-5 py-1">Apps</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/billing" class="pl-4 pr-5 py-1">Billing</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/checks" class="pl-4 pr-5 py-1">Checks</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/codes-of-conduct" class="pl-4 pr-5 py-1">Codes of conduct</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/code-scanning" class="pl-4 pr-5 py-1">Code scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/emojis" class="pl-4 pr-5 py-1">Emojis</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/enterprise-admin" class="pl-4 pr-5 py-1">GitHub Enterprise administration</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/gists" class="pl-4 pr-5 py-1">Gists</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/git" class="pl-4 pr-5 py-1">Git database</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/gitignore" class="pl-4 pr-5 py-1">Gitignore</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/interactions" class="pl-4 pr-5 py-1">Interactions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/issues" class="pl-4 pr-5 py-1">Issues</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/licenses" class="pl-4 pr-5 py-1">Licenses</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/markdown" class="pl-4 pr-5 py-1">Markdown</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/meta" class="pl-4 pr-5 py-1">Meta</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/migrations" class="pl-4 pr-5 py-1">Migrations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/orgs" class="pl-4 pr-5 py-1">Organizations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/packages" class="pl-4 pr-5 py-1">Packages</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/projects" class="pl-4 pr-5 py-1">Projects</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/pulls" class="pl-4 pr-5 py-1">Pulls</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/rate-limit" class="pl-4 pr-5 py-1">Rate limit</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/reactions" class="pl-4 pr-5 py-1">Reactions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/repos" class="pl-4 pr-5 py-1">Repositories</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/scim" class="pl-4 pr-5 py-1">SCIM</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/search" class="pl-4 pr-5 py-1">Search</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/secret-scanning" class="pl-4 pr-5 py-1">Secret scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/teams" class="pl-4 pr-5 py-1">Teams</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/users" class="pl-4 pr-5 py-1">Users</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/permissions-required-for-github-apps" class="pl-4 pr-5 py-1 pb-2">Permissions required for GitHub Apps</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/guides" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Guides</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api" class="pl-4 pr-5 py-1">Getting started with the REST API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/basics-of-authentication" class="pl-4 pr-5 py-1">Basics of authentication</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/discovering-resources-for-a-user" class="pl-4 pr-5 py-1">Discovering resources for a user</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/delivering-deployments" class="pl-4 pr-5 py-1">Delivering deployments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/rendering-data-as-graphs" class="pl-4 pr-5 py-1">Rendering data as graphs</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/working-with-comments" class="pl-4 pr-5 py-1">Working with comments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/traversing-with-pagination" class="pl-4 pr-5 py-1">Traversing with pagination</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/building-a-ci-server" class="pl-4 pr-5 py-1">Building a CI server</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/best-practices-for-integrators" class="pl-4 pr-5 py-1">Best practices for integrators</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-git-database-api" class="pl-4 pr-5 py-1">Getting started with the Git Database API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-checks-api" class="pl-4 pr-5 py-1 pb-2">Getting started with the Checks API</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    REST API
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/rest/overview/resources-in-the-rest-api"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/rest/overview/resources-in-the-rest-api"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/rest/overview/resources-in-the-rest-api"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/rest/overview/resources-in-the-rest-api"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: REST API" href="https://docs.github.com/en/rest" class="d-inline-block ">
+        REST API
+      </a>
+    
+  
+    
+      <a title="category: Overview" href="https://docs.github.com/en/rest/overview" class="d-inline-block ">
+        Overview
+      </a>
+    
+  
+    
+      <a title="article: Resources in the REST API" href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api" class="d-inline-block text-gray-light">
+        Resources in the REST API
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/rest/overview/resources-in-the-rest-api"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Resources in the REST API</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"><p>Learn how to navigate the resources provided by the GitHub API.</p></div>
+      
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#current-version">Current version</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#schema">Schema</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#authentication">Authentication</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#parameters">Parameters</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#root-endpoint">Root endpoint</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#graphql-global-node-ids">GraphQL global node IDs</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#client-errors">Client errors</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#http-redirects">HTTP redirects</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#http-verbs">HTTP verbs</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#hypermedia">Hypermedia</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#pagination">Pagination</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#rate-limiting">Rate limiting</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#user-agent-required">User agent required</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#conditional-requests">Conditional requests</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#cross-origin-resource-sharing">Cross origin resource sharing</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#json-p-callbacks">JSON-P callbacks</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#timezones">Timezones</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <p>This describes the resources that make up the official GitHub REST API. If you have any problems or requests, please contact <a href="https://support.github.com/contact">GitHub Support</a> or <a href="https://premium.githubsupport.com/">GitHub Premium Support</a>.</p>
+<h3 id="current-version"><a href="#current-version">Current version</a></h3>
+<p>By default, all requests to <code>https://api.github.com</code> receive the <strong>v3</strong> <a href="https://docs.github.com/en/developers/overview/about-githubs-apis">version</a> of the REST API.
+We encourage you to <a href="https://docs.github.com/en/rest/overview/media-types#request-specific-version">explicitly request this version via the <code>Accept</code> header</a>.</p>
+<pre><code>Accept: application/vnd.github.v3+json
+</code></pre>
+<p>For information about GitHub&apos;s GraphQL API, see the <a href="https://docs.github.com/en/graphql">v4 documentation</a>. For information about migrating to GraphQL, see &quot;<a href="https://docs.github.com/en/graphql/guides/migrating-from-rest-to-graphql">Migrating from REST</a>.&quot;</p>
+<h3 id="schema"><a href="#schema">Schema</a></h3>
+<p>All API access is over HTTPS, and accessed from <code>https://api.github.com</code>.  All data is
+sent and received as JSON.</p>
+<pre><code class="hljs language-shell">$ curl -I https://api.github.com/users/octocat/orgs
+
+&gt; HTTP/1.1 200 OK
+&gt; Server: nginx
+&gt; Date: Fri, 12 Oct 2012 23:33:14 GMT
+&gt; Content-Type: application/json; charset=utf-8
+&gt; Status: 200 OK
+&gt; ETag: &quot;a00049ba79152d03380c34652f2cb612&quot;
+&gt; X-GitHub-Media-Type: github.v3
+&gt; X-RateLimit-Limit: 5000
+&gt; X-RateLimit-Remaining: 4987
+&gt; X-RateLimit-Reset: 1350085394
+&gt; Content-Length: 5
+&gt; Cache-Control: max-age=0, private, must-revalidate
+&gt; X-Content-Type-Options: nosniff</code></pre>
+<p>Blank fields are included as <code>null</code> instead of being omitted.</p>
+<p>All timestamps return in ISO 8601 format:</p>
+<pre><code>YYYY-MM-DDTHH:MM:SSZ
+</code></pre>
+<p>For more information about timezones in timestamps, see <a href="#timezones">this section</a>.</p>
+<h4 id="summary-representations"><a href="#summary-representations">Summary representations</a></h4>
+<p>When you fetch a list of resources, the response includes a <em>subset</em> of the
+attributes for that resource. This is the &quot;summary&quot; representation of the
+resource. (Some attributes are computationally expensive for the API to provide.
+For performance reasons, the summary representation excludes those attributes.
+To obtain those attributes, fetch the &quot;detailed&quot; representation.)</p>
+<p><strong>Example</strong>: When you get a list of repositories, you get the summary
+representation of each repository. Here, we fetch the list of repositories owned
+by the <a href="https://github.com/octokit">octokit</a> organization:</p>
+<pre><code>GET /orgs/octokit/repos
+</code></pre>
+<h4 id="detailed-representations"><a href="#detailed-representations">Detailed representations</a></h4>
+<p>When you fetch an individual resource, the response typically includes <em>all</em>
+attributes for that resource. This is the &quot;detailed&quot; representation of the
+resource. (Note that authorization sometimes influences the amount of detail
+included in the representation.)</p>
+<p><strong>Example</strong>: When you get an individual repository, you get the detailed
+representation of the repository. Here, we fetch the
+<a href="https://github.com/octokit/octokit.rb">octokit/octokit.rb</a> repository:</p>
+<pre><code>GET /repos/octokit/octokit.rb
+</code></pre>
+<p>The documentation provides an example response for each API method. The example
+response illustrates all attributes that are returned by that method.</p>
+<h3 id="authentication"><a href="#authentication">Authentication</a></h3>
+<p> There are two ways to authenticate through GitHub REST API. Requests that require authentication will return <code>404 Not Found</code>, instead of <code>403 Forbidden</code>, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.</p>
+<h4 id="basic-authentication"><a href="#basic-authentication">Basic authentication</a></h4>
+<pre><code class="hljs language-shell">$ curl -u &quot;username&quot; https://api.github.com</code></pre>
+<h4 id="oauth2-token-sent-in-a-header"><a href="#oauth2-token-sent-in-a-header">OAuth2 token (sent in a header)</a></h4>
+<pre><code class="hljs language-shell">$ curl -H &quot;Authorization: token <em>OAUTH-TOKEN</em>&quot; https://api.github.com</code></pre>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p>Note: GitHub recommends sending OAuth tokens using the Authorization header.</p>
+</div>
+<p>Read <a href="https://docs.github.com/en/apps/building-oauth-apps">more about OAuth2</a>.  Note that OAuth2 tokens can be acquired using the <a href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps#web-application-flow">web application flow</a> for production applications.</p>
+<h4 id="oauth2-keysecret"><a href="#oauth2-keysecret">OAuth2 key/secret</a></h4>
+<div class="extended-markdown warning border rounded-1 mb-4 p-3 border-red bg-red-light f5">
+<p><strong>Deprecation Notice:</strong> GitHub will discontinue authentication to the API using query parameters. Authenticating to the API should be done with <a href="https://docs.github.com/en/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens">HTTP basic authentication</a>. Using query parameters to authenticate to the API will no longer work on May 5, 2021.   For more information, including scheduled brownouts, see the <a href="https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/">blog post</a>.</p>
+</div>
+<pre><code class="hljs language-shell">curl -u my_client_id:my_client_secret &apos;https://api.github.com/user/repos&apos;</code></pre>
+<p>Using your <code>client_id</code> and <code>client_secret</code> does <em>not</em> authenticate as a user, it will only identify your OAuth application to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don&apos;t leak your OAuth application&apos;s client secret to your users.</p>
+<p>You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return <code>401 Unauthorized</code>. For more information, see &quot;<a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/enabling-private-mode">Enabling private mode</a>&quot;.</p>
+<p>Read <a href="#increasing-the-unauthenticated-rate-limit-for-oauth-applications">more about unauthenticated rate limiting</a>.</p>
+<h4 id="failed-login-limit"><a href="#failed-login-limit">Failed login limit</a></h4>
+<p>Authenticating with invalid credentials will return <code>401 Unauthorized</code>:</p>
+<pre><code class="hljs language-shell">$ curl -I https://api.github.com -u foo:bar
+&gt; HTTP/1.1 401 Unauthorized
+
+&gt; {
+&gt;   &quot;message&quot;: &quot;Bad credentials&quot;,
+&gt;   &quot;documentation_url&quot;: &quot;https://docs.github.com/rest&quot;
+&gt; }</code></pre>
+<p>After detecting several requests with invalid credentials within a short period,
+the API will temporarily reject all authentication attempts for that user
+(including ones with valid credentials) with <code>403 Forbidden</code>:</p>
+<pre><code class="hljs language-shell">$ curl -i https://api.github.com -u 
+-u <em>valid_username</em>:<em>valid_token</em> 
+&gt; HTTP/1.1 403 Forbidden
+&gt; {
+&gt;   &quot;message&quot;: &quot;Maximum number of login attempts exceeded. Please try again later.&quot;,
+&gt;   &quot;documentation_url&quot;: &quot;https://docs.github.com/rest&quot;
+&gt; }</code></pre>
+<h3 id="parameters"><a href="#parameters">Parameters</a></h3>
+<p>Many API methods take optional parameters. For <code>GET</code> requests, any parameters not
+specified as a segment in the path can be passed as an HTTP query string
+parameter:</p>
+<pre><code class="hljs language-shell">$ curl -i &quot;https://api.github.com/repos/vmg/redcarpet/issues?state=closed&quot;</code></pre>
+<p>In this example, the &apos;vmg&apos; and &apos;redcarpet&apos; values are provided for the <code>:owner</code>
+and <code>:repo</code> parameters in the path while <code>:state</code> is passed in the query
+string.</p>
+<p>For <code>POST</code>, <code>PATCH</code>, <code>PUT</code>, and <code>DELETE</code> requests, parameters not included in the URL should be encoded as JSON
+with a Content-Type of &apos;application/json&apos;:</p>
+<pre><code class="hljs language-shell">$ curl -i -u username -d &apos;{&quot;scopes&quot;:[&quot;repo_deployment&quot;]}&apos; https://api.github.com/authorizations</code></pre>
+<h3 id="root-endpoint"><a href="#root-endpoint">Root endpoint</a></h3>
+<p>You can issue a <code>GET</code> request to the root endpoint to get all the endpoint categories that the REST API supports:</p>
+<pre><code class="hljs language-shell">$ curl 
+-u <em>username</em>:<em>token</em> https://api.github.com</code></pre>
+<h3 id="graphql-global-node-ids"><a href="#graphql-global-node-ids">GraphQL global node IDs</a></h3>
+<p>See the guide on &quot;<a href="https://docs.github.com/en/graphql/guides/using-global-node-ids">Using Global Node IDs</a>&quot; for detailed information about how to find <code>node_id</code>s via the REST API and use them in GraphQL operations.</p>
+<h3 id="client-errors"><a href="#client-errors">Client errors</a></h3>
+<p>There are three possible types of client errors on API calls that
+receive request bodies:</p>
+<ol>
+<li>
+<p>Sending invalid JSON will result in a <code>400 Bad Request</code> response.</p>
+<pre><code>HTTP/1.1 400 Bad Request
+Content-Length: 35
+
+{&quot;message&quot;:&quot;Problems parsing JSON&quot;}
+</code></pre>
+</li>
+<li>
+<p>Sending the wrong type of JSON values will result in a <code>400 Bad Request</code> response.</p>
+<pre><code> HTTP/1.1 400 Bad Request
+ Content-Length: 40
+
+ {&quot;message&quot;:&quot;Body should be a JSON object&quot;}
+</code></pre>
+</li>
+<li>
+<p>Sending invalid fields will result in a <code>422 Unprocessable Entity</code>
+response.</p>
+<pre><code> HTTP/1.1 422 Unprocessable Entity
+ Content-Length: 149
+
+ {
+   &quot;message&quot;: &quot;Validation Failed&quot;,
+   &quot;errors&quot;: [
+     {
+       &quot;resource&quot;: &quot;Issue&quot;,
+       &quot;field&quot;: &quot;title&quot;,
+       &quot;code&quot;: &quot;missing_field&quot;
+     }
+   ]
+ }
+</code></pre>
+</li>
+</ol>
+<p>All error objects have resource and field properties so that your client
+can tell what the problem is.  There&apos;s also an error code to let you
+know what is wrong with the field.  These are the possible validation error
+codes:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Error code name</th><th>Description</th></tr></thead><tbody><tr><td><code>missing</code></td><td>A resource does not exist.</td></tr><tr><td><code>missing_field</code></td><td>A required field on a resource has not been set.</td></tr><tr><td><code>invalid</code></td><td>The formatting of a field is invalid.  Review the documentation for more specific information.</td></tr><tr><td><code>already_exists</code></td><td>Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).</td></tr><tr><td><code>unprocessable</code></td><td>The inputs provided were invalid.</td></tr></tbody></table>
+<p>Resources may also send custom validation errors (where <code>code</code> is <code>custom</code>). Custom errors will always have a <code>message</code> field describing the error, and most errors will also include a <code>documentation_url</code> field pointing to some content that might help you resolve the error.</p>
+<h3 id="http-redirects"><a href="#http-redirects">HTTP redirects</a></h3>
+<p>API v3 uses HTTP redirection where appropriate. Clients should assume that any
+request may result in a redirection. Receiving an HTTP redirection is <em>not</em> an
+error and clients should follow that redirect. Redirect responses will have a
+<code>Location</code> header field which contains the URI of the resource to which the
+client should repeat the requests.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Status Code</th><th>Description</th></tr></thead><tbody><tr><td><code>301</code></td><td>Permanent redirection. The URI you used to make the request has been superseded by the one specified in the <code>Location</code> header field. This and all future requests to this resource should be directed to the new URI.</td></tr><tr><td><code>302</code>, <code>307</code></td><td>Temporary redirection. The request should be repeated verbatim to the URI specified in the <code>Location</code> header field but clients should continue to use the original URI for future requests.</td></tr></tbody></table>
+<p>Other redirection status codes may be used in accordance with the HTTP 1.1 spec.</p>
+<h3 id="http-verbs"><a href="#http-verbs">HTTP verbs</a></h3>
+<p>Where possible, API v3 strives to use appropriate HTTP verbs for each
+action.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Verb</th><th>Description</th></tr></thead><tbody><tr><td><code>HEAD</code></td><td>Can be issued against any resource to get just the HTTP header info.</td></tr><tr><td><code>GET</code></td><td>Used for retrieving resources.</td></tr><tr><td><code>POST</code></td><td>Used for creating resources.</td></tr><tr><td><code>PATCH</code></td><td>Used for updating resources with partial JSON data. For instance, an Issue resource has <code>title</code> and <code>body</code> attributes. A <code>PATCH</code> request may accept one or more of the attributes to update the resource.</td></tr><tr><td><code>PUT</code></td><td>Used for replacing resources or collections. For <code>PUT</code> requests with no <code>body</code> attribute, be sure to set the <code>Content-Length</code> header to zero.</td></tr><tr><td><code>DELETE</code></td><td>Used for deleting resources.</td></tr></tbody></table>
+<h3 id="hypermedia"><a href="#hypermedia">Hypermedia</a></h3>
+<p>All resources may have one or more <code>*_url</code> properties linking to other
+resources.  These are meant to provide explicit URLs so that proper API clients
+don&apos;t need to construct URLs on their own.  It is highly recommended that API
+clients use these.  Doing so will make future upgrades of the API easier for
+developers.  All URLs are expected to be proper <a href="http://tools.ietf.org/html/rfc6570">RFC 6570</a> URI templates.</p>
+<p>You can then expand these templates using something like the <a href="https://github.com/hannesg/uri_template">uri_template</a>
+gem:</p>
+<pre><code>&gt;&gt; tmpl = URITemplate.new(&apos;/notifications{?since,all,participating}&apos;)
+&gt;&gt; tmpl.expand
+=&gt; &quot;/notifications&quot;
+
+&gt;&gt; tmpl.expand :all =&gt; 1
+=&gt; &quot;/notifications?all=1&quot;
+
+&gt;&gt; tmpl.expand :all =&gt; 1, :participating =&gt; 1
+=&gt; &quot;/notifications?all=1&amp;participating=1&quot;
+</code></pre>
+<h3 id="pagination"><a href="#pagination">Pagination</a></h3>
+<p>Requests that return multiple items will be paginated to 30 items by
+default.  You can specify further pages with the <code>page</code> parameter. For some
+resources, you can also set a custom page size up to 100 with the <code>per_page</code> parameter.
+Note that for technical reasons not all endpoints respect the <code>per_page</code> parameter,
+see <a href="https://docs.github.com/en/rest/reference/activity#events">events</a> for example.</p>
+<pre><code class="hljs language-shell">$ curl &apos;https://api.github.com/user/repos?page=2&amp;per_page=100&apos;</code></pre>
+<p>Note that page numbering is 1-based and that omitting the <code>page</code>
+parameter will return the first page.</p>
+<p>Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
+With cursor-based pagination, there is no fixed concept of &quot;pages&quot; in the result set, so you can&apos;t navigate to a specific page.
+Instead, you can traverse the results by using the <code>before</code> or <code>after</code> parameters.</p>
+<p>For more information on pagination, check out our guide on <a href="https://docs.github.com/en/guides/traversing-with-pagination">Traversing with Pagination</a>.</p>
+<h4 id="link-header"><a href="#link-header">Link header</a></h4>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> It&apos;s important to form calls with Link header values instead of constructing your own URLs.</p>
+</div>
+<p>The <a href="http://tools.ietf.org/html/rfc5988">Link header</a> includes pagination information. For example:</p>
+<pre><code>Link: &lt;https://api.github.com/user/repos?page=3&amp;per_page=100&gt;; rel=&quot;next&quot;,
+  &lt;https://api.github.com/user/repos?page=50&amp;per_page=100&gt;; rel=&quot;last&quot;
+</code></pre>
+<p><em>The example includes a line break for readability.</em></p>
+<p>Or, if the endpoint uses cursor-based pagination:</p>
+<pre><code>Link: &lt;https://api.github.com/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&amp;before=&gt;; rel=&quot;next&quot;,
+</code></pre>
+<p>This <code>Link</code> response header contains one or more <a href="https://docs.github.com/en/rest#hypermedia">Hypermedia</a> link relations, some of which may require expansion as <a href="http://tools.ietf.org/html/rfc6570">URI templates</a>.</p>
+<p>The possible <code>rel</code> values are:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><code>next</code></td><td>The link relation for the immediate next page of results.</td></tr><tr><td><code>last</code></td><td>The link relation for the last page of results.</td></tr><tr><td><code>first</code></td><td>The link relation for the first page of results.</td></tr><tr><td><code>prev</code></td><td>The link relation for the immediate previous page of results.</td></tr></tbody></table>
+<h3 id="rate-limiting"><a href="#rate-limiting">Rate limiting</a></h3>
+<p>For API requests using Basic Authentication or OAuth, you can make up to 5,000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether <a href="#basic-authentication">Basic Authentication</a> or <a href="#oauth2-token-sent-in-a-header">an OAuth token</a> was used. This means that all OAuth applications authorized by a user share the same quota of 5,000 requests per hour when they authenticate with different tokens owned by the same user.</p>
+<p>For users that belong to a GitHub Enterprise Cloud account, requests made using an OAuth token to resources owned by the same GitHub Enterprise Cloud account have an increased limit of 15,000 requests per hour.</p>
+<p>When using the built-in <code>GITHUB_TOKEN</code> in GitHub Actions, the rate limit is 1,000 requests per hour per repository. For organizations that belong to a GitHub Enterprise Cloud account, this limit is 15,000 requests per hour per repository.</p>
+<p>For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.</p>
+<p>Note that <a href="https://docs.github.com/en/rest/reference/search#rate-limit">the Search API has custom rate limit rules</a>.</p>
+<p>The returned HTTP headers of any API request show your current rate limit status:</p>
+<pre><code class="hljs language-shell">$ curl -I https://api.github.com/users/octocat
+&gt; HTTP/1.1 200 OK
+&gt; Date: Mon, 01 Jul 2013 17:27:06 GMT
+&gt; Status: 200 OK
+&gt; X-RateLimit-Limit: 60
+&gt; X-RateLimit-Remaining: 56
+&gt; X-RateLimit-Reset: 1372700873</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Header Name</th><th>Description</th></tr></thead><tbody><tr><td><code>X-RateLimit-Limit</code></td><td>The maximum number of requests you&apos;re permitted to make per hour.</td></tr><tr><td><code>X-RateLimit-Remaining</code></td><td>The number of requests remaining in the current rate limit window.</td></tr><tr><td><code>X-RateLimit-Reset</code></td><td>The time at which the current rate limit window resets in <a href="http://en.wikipedia.org/wiki/Unix_time">UTC epoch seconds</a>.</td></tr></tbody></table>
+<p>If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.</p>
+<pre><code class="hljs language-javascript"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1372700873</span> * <span class="hljs-number">1000</span>)
+<span class="hljs-comment">// =&gt; Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)</span>
+</code></pre>
+<p>If you exceed the rate limit, an error response returns:</p>
+<pre><code class="hljs language-shell">&gt; HTTP/1.1 403 Forbidden
+&gt; Date: Tue, 20 Aug 2013 14:50:41 GMT
+&gt; Status: 403 Forbidden
+&gt; X-RateLimit-Limit: 60
+&gt; X-RateLimit-Remaining: 0
+&gt; X-RateLimit-Reset: 1377013266
+
+&gt; {
+&gt;    &quot;message&quot;: &quot;API rate limit exceeded for xxx.xxx.xxx.xxx. (But here&apos;s the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)&quot;,
+&gt;    &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting&quot;
+&gt; }</code></pre>
+<p>You can <a href="https://docs.github.com/en/rest/reference/rate-limit">check your rate limit status</a> without incurring an API hit.</p>
+<h4 id="increasing-the-unauthenticated-rate-limit-for-oauth-applications"><a href="#increasing-the-unauthenticated-rate-limit-for-oauth-applications">Increasing the unauthenticated rate limit for OAuth applications</a></h4>
+<p>If your OAuth application needs to make unauthenticated calls with a higher rate limit, you can pass your app&apos;s client ID and secret before the endpoint route.</p>
+<pre><code class="hljs language-shell">$ curl -u my_client_id:my_client_secret https://api.github.com/user/repos
+&gt; HTTP/1.1 200 OK
+&gt; Date: Mon, 01 Jul 2013 17:27:06 GMT
+&gt; Status: 200 OK
+&gt; X-RateLimit-Limit: 5000
+&gt; X-RateLimit-Remaining: 4966
+&gt; X-RateLimit-Reset: 1372700873</code></pre>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> Never share your client secret with anyone or include it in client-side browser code. Use the method shown here only for server-to-server calls.</p>
+</div>
+<h4 id="staying-within-the-rate-limit"><a href="#staying-within-the-rate-limit">Staying within the rate limit</a></h4>
+<p>If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using <a href="#conditional-requests">conditional requests</a>.</p>
+<h4 id="abuse-rate-limits"><a href="#abuse-rate-limits">Abuse rate limits</a></h4>
+<p>In order to provide quality service on GitHub, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in abuse rate limiting.</p>
+<p>Abuse rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you&apos;re acting as a good API citizen, check out our <a href="https://docs.github.com/en/guides/best-practices-for-integrators">Best Practices guidelines</a>.</p>
+<p>If your application triggers this rate limit, you&apos;ll receive an informative response:</p>
+<pre><code class="hljs language-shell">&gt; HTTP/1.1 403 Forbidden
+&gt; Content-Type: application/json; charset=utf-8
+&gt; Connection: close
+
+&gt; {
+&gt;   &quot;message&quot;: &quot;You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.&quot;,
+&gt;   &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/overview/resources-in-the-rest-api#abuse-rate-limits&quot;
+&gt; }</code></pre>
+<h3 id="user-agent-required"><a href="#user-agent-required">User agent required</a></h3>
+<p>All API requests MUST include a valid <code>User-Agent</code> header. Requests with no <code>User-Agent</code>
+header will be rejected. We request that you use your GitHub username, or the name of your
+application, for the <code>User-Agent</code> header value. This allows us to contact you if there are problems.</p>
+<p>Here&apos;s an example:</p>
+<pre><code class="hljs language-shell">User-Agent: Awesome-Octocat-App</code></pre>
+<p>cURL sends a valid <code>User-Agent</code> header by default. If you provide an invalid <code>User-Agent</code> header via cURL (or via an alternative client), you will receive a <code>403 Forbidden</code> response:</p>
+<pre><code class="hljs language-shell">$ curl -IH &apos;User-Agent: &apos; https://api.github.com/meta
+&gt; HTTP/1.0 403 Forbidden
+&gt; Connection: close
+&gt; Content-Type: text/html
+
+&gt; Request forbidden by administrative rules.
+&gt; Please make sure your request has a User-Agent header.
+&gt; Check  for other possible causes.</code></pre>
+<h3 id="conditional-requests"><a href="#conditional-requests">Conditional requests</a></h3>
+<p>Most responses return an <code>ETag</code> header. Many responses also return a <code>Last-Modified</code> header. You can use the values
+of these headers to make subsequent requests to those resources using the
+<code>If-None-Match</code> and <code>If-Modified-Since</code> headers, respectively. If the resource
+has not changed, the server will return a <code>304 Not Modified</code>.</p>
+<div class="extended-markdown tip border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note</strong>: Making a conditional request and receiving a 304 response does not
+count against your <a href="#rate-limiting">Rate Limit</a>, so we encourage you to use it
+whenever possible.</p>
+</div>
+<pre><code class="hljs language-shell">$ curl -I https://api.github.com/user
+&gt; HTTP/1.1 200 OK
+&gt; Cache-Control: private, max-age=60
+&gt; ETag: &quot;644b5b0155e6404a9cc4bd9d8b1ae730&quot;
+&gt; Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
+&gt; Status: 200 OK
+&gt; Vary: Accept, Authorization, Cookie
+&gt; X-RateLimit-Limit: 5000
+&gt; X-RateLimit-Remaining: 4996
+&gt; X-RateLimit-Reset: 1372700873
+
+$ curl -I https://api.github.com/user -H &apos;If-None-Match: &quot;644b5b0155e6404a9cc4bd9d8b1ae730&quot;&apos;
+&gt; HTTP/1.1 304 Not Modified
+&gt; Cache-Control: private, max-age=60
+&gt; ETag: &quot;644b5b0155e6404a9cc4bd9d8b1ae730&quot;
+&gt; Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
+&gt; Status: 304 Not Modified
+&gt; Vary: Accept, Authorization, Cookie
+&gt; X-RateLimit-Limit: 5000
+&gt; X-RateLimit-Remaining: 4996
+&gt; X-RateLimit-Reset: 1372700873
+
+$ curl -I https://api.github.com/user -H &quot;If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT&quot;
+&gt; HTTP/1.1 304 Not Modified
+&gt; Cache-Control: private, max-age=60
+&gt; Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
+&gt; Status: 304 Not Modified
+&gt; Vary: Accept, Authorization, Cookie
+&gt; X-RateLimit-Limit: 5000
+&gt; X-RateLimit-Remaining: 4996
+&gt; X-RateLimit-Reset: 1372700873</code></pre>
+<h3 id="cross-origin-resource-sharing"><a href="#cross-origin-resource-sharing">Cross origin resource sharing</a></h3>
+<p>The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
+any origin.
+You can read the <a href="http://www.w3.org/TR/cors/">CORS W3C Recommendation</a>, or
+<a href="https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki">this intro</a> from the
+HTML 5 Security Guide.</p>
+<p>Here&apos;s a sample request sent from a browser hitting
+<code>http://example.com</code>:</p>
+<pre><code class="hljs language-shell">$ curl -I https://api.github.com -H &quot;Origin: http://example.com&quot;
+HTTP/1.1 302 Found
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval</code></pre>
+<p>This is what the CORS preflight request looks like:</p>
+<pre><code class="hljs language-shell">$ curl -I https://api.github.com -H &quot;Origin: http://example.com&quot; -X OPTIONS
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
+Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Max-Age: 86400</code></pre>
+<h3 id="json-p-callbacks"><a href="#json-p-callbacks">JSON-P callbacks</a></h3>
+<p>You can send a <code>?callback</code> parameter to any GET call to have the results
+wrapped in a JSON function.  This is typically used when browsers want
+to embed GitHub content in web pages by getting around cross domain
+issues.  The response includes the same data output as the regular API,
+plus the relevant HTTP Header information.</p>
+<pre><code class="hljs language-shell">$ curl https://api.github.com?callback=foo
+
+&gt; /**/foo({
+&gt;   &quot;meta&quot;: {
+&gt;     &quot;status&quot;: 200,
+&gt;     &quot;X-RateLimit-Limit&quot;: &quot;5000&quot;,
+&gt;     &quot;X-RateLimit-Remaining&quot;: &quot;4966&quot;,
+&gt;     &quot;X-RateLimit-Reset&quot;: &quot;1372700873&quot;,
+&gt;     &quot;Link&quot;: [ // pagination headers and other links
+&gt;       [&quot;https://api.github.com?page=2&quot;, {&quot;rel&quot;: &quot;next&quot;}]
+&gt;     ]
+&gt;   },
+&gt;   &quot;data&quot;: {
+&gt;     // the data
+&gt;   }
+&gt; })</code></pre>
+<p>You can write a JavaScript handler to process the callback. Here&apos;s a minimal example you can try out:</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function foo(response) {
+  var meta = response.meta;
+  var data = response.data;
+  console.log(meta);
+  console.log(data);
+}
+
+var script = document.createElement(&apos;script&apos;);
+script.src = &apos;https://api.github.com?callback=foo&apos;;
+
+document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script);
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;p&gt;Open up your browser&apos;s console.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>All of the headers are the same String value as the HTTP Headers with one
+notable exception: Link.  Link headers are pre-parsed for you and come
+through as an array of <code>[url, options]</code> tuples.</p>
+<p>A link that looks like this:</p>
+<pre><code>Link: &lt;url1&gt;; rel=&quot;next&quot;, &lt;url2&gt;; rel=&quot;foo&quot;; bar=&quot;baz&quot;
+</code></pre>
+<p>... will look like this in the Callback output:</p>
+<pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;Link&quot;</span>: [
+    [
+      <span class="hljs-string">&quot;url1&quot;</span>,
+      {
+        <span class="hljs-attr">&quot;rel&quot;</span>: <span class="hljs-string">&quot;next&quot;</span>
+      }
+    ],
+    [
+      <span class="hljs-string">&quot;url2&quot;</span>,
+      {
+        <span class="hljs-attr">&quot;rel&quot;</span>: <span class="hljs-string">&quot;foo&quot;</span>,
+        <span class="hljs-attr">&quot;bar&quot;</span>: <span class="hljs-string">&quot;baz&quot;</span>
+      }
+    ]
+  ]
+}
+</code></pre>
+<h3 id="timezones"><a href="#timezones">Timezones</a></h3>
+<p>Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for API calls.</p>
+<ul>
+<li><a href="#explicitly-providing-an-iso-8601-timestamp-with-timezone-information">Explicitly providing an ISO 8601 timestamp with timezone information</a></li>
+<li><a href="#using-the-time-zone-header">Using the <code>Time-Zone</code> header</a></li>
+<li><a href="#using-the-last-known-timezone-for-the-user">Using the last known timezone for the user</a></li>
+<li><a href="#defaulting-to-utc-without-other-timezone-information">Defaulting to UTC without other timezone information</a></li>
+</ul>
+<h4 id="explicitly-providing-an-iso-8601-timestamp-with-timezone-information"><a href="#explicitly-providing-an-iso-8601-timestamp-with-timezone-information">Explicitly providing an ISO 8601 timestamp with timezone information</a></h4>
+<p>For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the <a href="https://docs.github.com/en/rest/reference/git#commits">Commits API</a>.</p>
+<p>These timestamps look something like <code>2014-02-27T15:05:06+01:00</code>. Also see <a href="https://docs.github.com/en/rest/reference/git#example-input">this example</a> for how these timestamps can be specified.</p>
+<h4 id="using-the-time-zone-header"><a href="#using-the-time-zone-header">Using the <code>Time-Zone</code> header</a></h4>
+<p>It is possible to supply a <code>Time-Zone</code> header which defines a timezone according to the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">list of names from the Olson database</a>.</p>
+<pre><code class="hljs language-shell">$ curl -H &quot;Time-Zone: Europe/Amsterdam&quot; -X POST https://api.github.com/repos/github/linguist/contents/new_file.md</code></pre>
+<p>This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the <a href="https://docs.github.com/en/rest/reference/repos#contents">Contents API</a> generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.</p>
+<h4 id="using-the-last-known-timezone-for-the-user"><a href="#using-the-last-known-timezone-for-the-user">Using the last known timezone for the user</a></h4>
+<p>If no <code>Time-Zone</code> header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the GitHub website.</p>
+<h4 id="defaulting-to-utc-without-other-timezone-information"><a href="#defaulting-to-utc-without-other-timezone-information">Defaulting to UTC without other timezone information</a></h4>
+<p>If the steps above don&apos;t result in any information, we use UTC as the timezone to create the git commit.</p>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/rest/overview/resources-in-the-rest-api.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/rest/overview/resources-in-the-rest-api by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:35 GMT -->
+</html>
