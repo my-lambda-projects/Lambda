@@ -269,14 +269,14 @@ So far we have learned about 6 different data types:
 
 **Immutabiity**
 
-![pic of nums](./mem2.png)
+![pic of nums](https://github.com/bgoonz/Lambda/blob/master/WEEKS/wk2/0-notes/d4/mem2.png)
 
 - When we reassign primitives we simply have our variable point elsewhere in memory.
 - In a nutshell, **immutability** cannot change values in memory, but only reassign where our variables are pointing to.
 
 **Mutabulity**
 
-![img of mut](mem.png)
+![img of mut](https://github.com/bgoonz/Lambda/blob/master/WEEKS/wk2/0-notes/d4/mem.png)
 
 - If we change either cat1 or cat2, our computer memory will change because they are both pointing at the same memory location.
 
