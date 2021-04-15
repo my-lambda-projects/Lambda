@@ -1,0 +1,122 @@
+
+html, body, div, span, applet, object, iframe,  
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,  
+a, abbr, acronym, address, big, cite, code,  
+del, dfn, em, img, ins, kbd, q, s, samp,  
+small, strike, strong, sub, sup, tt, var,  
+b, u, i, center,  
+dl, dt, dd, ol, ul, li,  
+fieldset, form, label, legend,  
+table, caption, tbody, tfoot, thead, tr, th, td,  
+article, aside, canvas, details, embed,  
+figure, figcaption, footer, header, hgroup,  
+menu, nav, output, ruby, section, summary,  
+time, mark, audio, video {  
+margin: 0;  
+padding: 0;  
+/* border: 0;   */
+font-size: 100%;  
+font: inherit;  
+vertical-align: baseline;  
+}
+*{
+    box-sizing:border-box;
+    /* border: 1px solid grey; */
+    max-width:100%;
+}
+
+/*general styles*/
+html{
+    font-size:62.5%;
+}
+
+body{
+    font-size:1.6rem;
+    font-family: 'Roboto Mono', monospace;
+    line-height:1.5;
+}
+h1{
+    font-family: 'Chelsea Market', cursive;
+    font-size:5rem;
+}
+section{
+    padding:4% 0;
+    width:90%;
+    margin:0 auto;
+}
+/*header section styles*/
+nav{
+    padding:2% 0;
+}
+nav a{
+    display:inline-block;
+    padding:1% 0;
+    width:10%;
+    border-radius:10px;
+    text-align:center;
+    color:#fff;
+
+}
+.orange{
+    background-color:#FF764E;
+    margin-left:10%;
+}
+.blue{
+    background-color:#5ED3EB;
+    margin:0 24%;
+}
+.yellow{
+    background-color:#FFCD69;
+    margin-right:10%;
+}
+/*title section styles*/
+.left, .right{
+   display:inline-block;
+}
+.left{
+    width:30%;
+}
+.image{
+
+
+  border-radius:50%;
+}
+.right{
+    width:55%;
+    margin-left:5%;
+    text-align:center;
+    line-height:3;
+}
+
+/*main section styles*/
+.main{
+    background-color:#DDB9A3;
+    color:#fff;
+}
+.main p{
+    width:90%;
+    margin:0 auto;
+}
+
+/*info section styles*/
+.info div{
+    width:30%;
+    margin:0 auto;
+    text-align:center;
+}
+.info div.first{
+    margin-bottom:5%;
+}
+/*hero image styles*/
+.hero-image{
+    background-image:url('https://www.yourtownmonthly.com/wp-content/uploads/2019/08/Daycation-Yosemite.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center top;
+    height:50vh;
+    width:100%;
+}
+
+footer{
+    background-color:#F9E7DC;
+}

@@ -1,0 +1,2376 @@
+<html>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML_PATTERNS</title>
+    <style>
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li>ol:first-child,
+      li>ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul>li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        text-indent: -1.7em;
+      }
+
+      ul.to-do-list>li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle>li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul>li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol>li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol>li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle>li>details {
+        padding-left: 1.7em;
+      }
+
+      .toggle>li>details>summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p>.user {
+        opacity: 0.5;
+      }
+
+      td>.user,
+      td>time {
+        white-space: nowrap;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code>code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+          "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+
+      .code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      }
+
+      .serif {
+        font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti
+TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif;
+
+      }
+
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+
+      .pdf .sans {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial,
+          sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK
+KR';
+
+      }
+
+      .pdf .code {
+        font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto
+Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR';
+
+      }
+
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti
+TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans
+CJK SC', 'Noto Sans CJK KR';
+
+      }
+
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono
+CJK SC', 'Noto Sans Mono CJK KR';
+
+      }
+
+      .highlight-default {}
+
+      .highlight-gray {
+        color: rgb(155, 154, 151);
+      }
+
+      .highlight-brown {
+        color: rgb(100, 71, 58);
+      }
+
+      .highlight-orange {
+        color: rgb(217, 115, 13);
+      }
+
+      .highlight-yellow {
+        color: rgb(223, 171, 1);
+      }
+
+      .highlight-teal {
+        color: rgb(15, 123, 108);
+      }
+
+      .highlight-blue {
+        color: rgb(11, 110, 153);
+      }
+
+      .highlight-purple {
+        color: rgb(105, 64, 165);
+      }
+
+      .highlight-pink {
+        color: rgb(173, 26, 114);
+      }
+
+      .highlight-red {
+        color: rgb(224, 62, 62);
+      }
+
+      .highlight-gray_background {
+        background: rgb(235, 236, 237);
+      }
+
+      .highlight-brown_background {
+        background: rgb(233, 229, 227);
+      }
+
+      .highlight-orange_background {
+        background: rgb(250, 235, 221);
+      }
+
+      .highlight-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+
+      .highlight-teal_background {
+        background: rgb(221, 237, 234);
+      }
+
+      .highlight-blue_background {
+        background: rgb(221, 235, 241);
+      }
+
+      .highlight-purple_background {
+        background: rgb(234, 228, 242);
+      }
+
+      .highlight-pink_background {
+        background: rgb(244, 223, 235);
+      }
+
+      .highlight-red_background {
+        background: rgb(251, 228, 228);
+      }
+
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+
+      .block-color-gray {
+        color: rgba(55, 53, 47, 0.6);
+        fill: rgba(55, 53, 47, 0.6);
+      }
+
+      .block-color-brown {
+        color: rgb(100, 71, 58);
+        fill: rgb(100, 71, 58);
+      }
+
+      .block-color-orange {
+        color: rgb(217, 115, 13);
+        fill: rgb(217, 115, 13);
+      }
+
+      .block-color-yellow {
+        color: rgb(223, 171, 1);
+        fill: rgb(223, 171, 1);
+      }
+
+      .block-color-teal {
+        color: rgb(15, 123, 108);
+        fill: rgb(15, 123, 108);
+      }
+
+      .block-color-blue {
+        color: rgb(11, 110, 153);
+        fill: rgb(11, 110, 153);
+      }
+
+      .block-color-purple {
+        color: rgb(105, 64, 165);
+        fill: rgb(105, 64, 165);
+      }
+
+      .block-color-pink {
+        color: rgb(173, 26, 114);
+        fill: rgb(173, 26, 114);
+      }
+
+      .block-color-red {
+        color: rgb(224, 62, 62);
+        fill: rgb(224, 62, 62);
+      }
+
+      .block-color-gray_background {
+        background: rgb(235, 236, 237);
+      }
+
+      .block-color-brown_background {
+        background: rgb(233, 229, 227);
+      }
+
+      .block-color-orange_background {
+        background: rgb(250, 235, 221);
+      }
+
+      .block-color-yellow_background {
+        background: rgb(251, 243, 219);
+      }
+
+      .block-color-teal_background {
+        background: rgb(221, 237, 234);
+      }
+
+      .block-color-blue_background {
+        background: rgb(221, 235, 241);
+      }
+
+      .block-color-purple_background {
+        background: rgb(234, 228, 242);
+      }
+
+      .block-color-pink_background {
+        background: rgb(244, 223, 235);
+      }
+
+      .block-color-red_background {
+        background: rgb(251, 228, 228);
+      }
+
+      .select-value-color-default {
+        background-color: rgba(206, 205, 202, 0.5);
+      }
+
+      .select-value-color-gray {
+        background-color: rgba(155, 154, 151, 0.4);
+      }
+
+      .select-value-color-brown {
+        background-color: rgba(140, 46, 0, 0.2);
+      }
+
+      .select-value-color-orange {
+        background-color: rgba(245, 93, 0, 0.2);
+      }
+
+      .select-value-color-yellow {
+        background-color: rgba(233, 168, 0, 0.2);
+      }
+
+      .select-value-color-green {
+        background-color: rgba(0, 135, 107, 0.2);
+      }
+
+      .select-value-color-blue {
+        background-color: rgba(0, 120, 223, 0.2);
+      }
+
+      .select-value-color-purple {
+        background-color: rgba(103, 36, 222, 0.2);
+      }
+
+      .select-value-color-pink {
+        background-color: rgba(221, 0, 129, 0.2);
+      }
+
+      .select-value-color-red {
+        background-color: rgba(255, 0, 26, 0.2);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.2;
+      }
+
+      p,
+      ul,
+      h1 {
+        margin: 0 0 1rem 0;
+      }
+
+      .box {
+        width: 1200px;
+        box-shadow:
+          0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+          0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+          0 12.5px 10px rgba(0, 0, 0, 0.06),
+          0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+          0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+          0 100px 80px rgba(0, 0, 0, 0.12);
+
+        scrollbar-shadow-color: gold;
+
+        min-height: 200px;
+        width: 50vw;
+        margin: 100px auto;
+        background: whitesmoke;
+        border-radius: 10px;
+      }
+
+      a.link {
+        background-color: rgb(76, 0, 255);
+        box-shadow: 0 5px 0 darkred;
+        color: white;
+        padding: 1em 1.5em;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      a:hover.link {
+        background-color: #ce0606;
+      }
+
+
+      a:active .link {
+        box-shadow: none;
+        top: 5px;
+      }
+
+
+      table {
+        zoom: 0.4;
+        overflow: scroll;
+      }
+
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #333;
+        background: none;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.4;
+        -moz-tab-size: 8;
+        -o-tab-size: 8;
+        tab-size: 8;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+
+      /* Code blocks */
+      pre[class*="language-"] {
+        padding: .8em;
+        overflow: auto;
+        /* border: 1px solid #ddd; */
+        border-radius: 3px;
+        /* background: #fff; */
+        background: #f5f5f5;
+      }
+
+      /* Inline code */
+      :not(pre)>code[class*="language-"] {
+        padding: .1em;
+        border-radius: .3em;
+        white-space: normal;
+        background: #f5f5f5;
+      }
+
+      .token.comment,
+      .token.blockquote {
+        color: #969896;
+      }
+
+      .token.cdata {
+        color: #183691;
+      }
+
+      .token.doctype,
+      .token.punctuation,
+      .token.variable,
+      .token.macro.property {
+        color: #333;
+      }
+
+      .token.operator,
+      .token.important,
+      .token.keyword,
+      .token.rule,
+      .token.builtin {
+        color: #a71d5d;
+      }
+
+      .token.string,
+      .token.url,
+      .token.regex,
+      .token.attr-value {
+        color: #183691;
+      }
+
+      .token.property,
+      .token.number,
+      .token.boolean,
+      .token.entity,
+      .token.atrule,
+      .token.constant,
+      .token.symbol,
+      .token.command,
+      .token.code {
+        color: #0086b3;
+      }
+
+      .token.tag,
+      .token.selector,
+      .token.prolog {
+        color: #63a35c;
+      }
+
+      .token.function,
+      .token.namespace,
+      .token.pseudo-element,
+      .token.class,
+      .token.class-name,
+      .token.pseudo-class,
+      .token.id,
+      .token.url-reference .token.variable,
+      .token.attr-name {
+        color: #795da3;
+      }
+
+      .token.entity {
+        cursor: help;
+      }
+
+      .token.title,
+      .token.title .token.punctuation {
+        font-weight: bold;
+        color: #1d3e81;
+      }
+
+      .token.list {
+        color: #ed6a43;
+      }
+
+      .token.inserted {
+        background-color: #eaffea;
+        color: #55a532;
+      }
+
+      .token.deleted {
+        background-color: #ffecec;
+        color: #bd2c00;
+      }
+
+      .token.bold {
+        font-weight: bold;
+      }
+
+      .token.italic {
+        font-style: italic;
+      }
+
+      /* JSON */
+      .language-json .token.property {
+        color: #183691;
+      }
+
+      .language-markup .token.tag .token.punctuation {
+        color: #333;
+      }
+
+      /* CSS */
+      code.language-css,
+      .language-css .token.function {
+        color: #0086b3;
+      }
+
+      /* YAML */
+      .language-yaml .token.atrule {
+        color: #63a35c;
+      }
+
+      code.language-yaml {
+        color: #183691;
+      }
+
+      /* Ruby */
+      .language-ruby .token.function {
+        color: #333;
+      }
+
+      /* Markdown */
+      .language-markdown .token.url {
+        color: #795da3;
+      }
+
+      /* Makefile */
+      .language-makefile .token.symbol {
+        color: #795da3;
+      }
+
+      .language-makefile .token.variable {
+        color: #183691;
+      }
+
+      .language-makefile .token.builtin {
+        color: #0086b3;
+      }
+
+      /* Bash */
+      .language-bash .token.keyword {
+        color: #0086b3;
+      }
+
+      /* highlight */
+      pre[data-line] {
+        position: relative;
+        padding: 1em 0 1em 3em;
+      }
+
+      pre[data-line] .line-highlight-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+      }
+
+      pre[data-line] .line-highlight {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: inherit 0;
+        margin-top: 1em;
+        background: hsla(24, 20%, 50%, .08);
+        background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+        pointer-events: none;
+        line-height: inherit;
+        white-space: pre;
+      }
+
+      pre[data-line] .line-highlight:before,
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-start);
+        position: absolute;
+        top: .4em;
+        left: .6em;
+        min-width: 1em;
+        padding: 0 .5em;
+        background-color: hsla(24, 20%, 50%, .4);
+        color: hsl(24, 20%, 95%);
+        font: bold 65%/1.5 sans-serif;
+        text-align: center;
+        vertical-align: .3em;
+        border-radius: 999px;
+        text-shadow: none;
+        box-shadow: 0 1px white;
+      }
+
+      pre[data-line] .line-highlight[data-end]:after {
+        content: attr(data-end);
+        top: auto;
+        bottom: .4em;
+      }
+
+      html body {
+        zoom: 1.4;
+        font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        overflow: scroll;
+        box-sizing: border-box;
+        word-wrap: break-word
+      }
+
+      html body>:first-child {
+        margin-top: 0
+      }
+
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 16px;
+        color: #000
+      }
+
+      html body h1 {
+        font-size: 2.25em;
+        font-weight: 300;
+        padding-bottom: .1em
+      }
+
+      html body h2 {
+        font-size: 1.75em;
+        font-weight: 400;
+        padding-bottom: 1em
+      }
+
+      html body h3 {
+        font-size: 1.5em;
+        font-weight: 500
+      }
+
+      html body h4 {
+        font-size: 1.25em;
+        font-weight: 600
+      }
+
+      html body h5 {
+        font-size: 1.1em;
+        font-weight: 600
+      }
+
+      html body h6 {
+        font-size: 1em;
+        font-weight: 600
+      }
+
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5 {
+        font-weight: 600
+      }
+
+      html body h5 {
+        font-size: 1em
+      }
+
+      html body h6 {
+        color: #5c5c5c
+      }
+
+      html body strong {
+        color: #000
+      }
+
+      html body del {
+        color: #5c5c5c
+      }
+
+      html body a:not([href]) {
+        color: inherit;
+        text-decoration: none
+      }
+
+      html body a {
+        color: #08c;
+        text-decoration: none
+      }
+
+      html body a:hover {
+        color: #00a3f5;
+        text-decoration: none
+      }
+
+      html body img {
+        max-width: 100%
+      }
+
+      html body>p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        word-wrap: break-word
+      }
+
+      html body>ul,
+      html body>ol {
+        margin-bottom: 16px
+      }
+
+      html body ul,
+      html body ol {
+        padding-left: 1em
+      }
+
+      html body ul.no-list,
+      html body ol.no-list {
+        padding: 0;
+        list-style-type: none
+      }
+
+      html body ul ul,
+      html body ul ol,
+      html body ol ol,
+      html body ol ul {
+        margin-top: 0;
+        margin-bottom: 0
+      }
+
+      html body li {
+        margin-bottom: 0
+      }
+
+      html body li.task-list-item {
+        list-style: none
+      }
+
+      html body li>p {
+        margin-top: 0;
+        margin-bottom: 0
+      }
+
+      html body .task-list-item-checkbox {
+        margin: 0 .2em .25em -1.8em;
+        vertical-align: middle
+      }
+
+      html body .task-list-item-checkbox:hover {
+        cursor: pointer
+      }
+
+      html body blockquote {
+        margin: 16px 0;
+        font-size: inherit;
+        padding: 0 15px;
+        color: #5c5c5c;
+        background-color: #f0f0f0;
+        border-left: 4px solid #d6d6d6
+      }
+
+      html body blockquote>:first-child {
+        margin-top: 0
+      }
+
+      html body blockquote>:last-child {
+        margin-bottom: 0
+      }
+
+      html body hr {
+        height: 4px;
+        margin: 32px 0;
+        background-color: #d6d6d6;
+        border: 0 none
+      }
+
+      html body table {
+        margin: 10px 0 15px 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: normal;
+        word-break: keep-all
+      }
+
+      html body table th {
+        font-weight: bold;
+        color: #000
+      }
+
+      html body table td,
+      html body table th {
+        border: 1px solid #d6d6d6;
+        padding: 6px 13px
+      }
+
+      html body dl {
+        padding: 0
+      }
+
+      html body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: bold
+      }
+
+      html body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px
+      }
+
+      html body code {
+        font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+        font-size: .85em !important;
+        color: #000;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+        padding: .2em 0
+      }
+
+      html body code::before,
+      html body code::after {
+        letter-spacing: -0.2em;
+        content: "\00a0"
+      }
+
+      html body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: .85em !important;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0
+      }
+
+      html body .highlight {
+        margin-bottom: 16px
+      }
+
+      html body .highlight pre,
+      html body pre {
+        padding: 1em;
+        overflow: auto;
+        font-size: .85em !important;
+        line-height: 1.45;
+        border: #d6d6d6;
+        border-radius: 3px
+      }
+
+      html body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal
+      }
+
+      html body pre code,
+      html body pre tt {
+        display: inline;
+        max-width: initial;
+        padding: 0;
+        margin: 0;
+        overflow: initial;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0
+      }
+
+      html body pre code:before,
+      html body pre tt:before,
+      html body pre code:after,
+      html body pre tt:after {
+        content: normal
+      }
+
+      html body p,
+      html body blockquote,
+      html body ul,
+      html body ol,
+      html body dl,
+      html body pre {
+        margin-top: 0;
+        margin-bottom: 16px
+      }
+
+      html body kbd {
+        color: #000;
+        border: 1px solid #d6d6d6;
+        border-bottom: 2px solid #c7c7c7;
+        padding: 2px 4px;
+        background-color: #f0f0f0;
+        border-radius: 3px
+      }
+
+      @media print {
+        html body {
+          background-color: #fff
+        }
+
+        html body h1,
+        html body h2,
+        html body h3,
+        html body h4,
+        html body h5,
+        html body h6 {
+          color: #000;
+          page-break-after: avoid
+        }
+
+        html body blockquote {
+          color: #5c5c5c
+        }
+
+        html body pre {
+          page-break-inside: avoid
+        }
+
+        html body table {
+          display: table
+        }
+
+        html body img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%
+        }
+
+        html body pre,
+        html body code {
+          word-wrap: break-word;
+          white-space: pre
+        }
+      }
+
+      .markdown-preview {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box
+      }
+
+      .markdown-preview .pagebreak,
+      .markdown-preview .newpage {
+        page-break-before: always
+      }
+
+      .markdown-preview pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: linenumber
+      }
+
+      .markdown-preview pre.line-numbers>code {
+        position: relative
+      }
+
+      .markdown-preview pre.line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 1em;
+        font-size: 100%;
+        left: 0;
+        width: 3em;
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+      }
+
+      .markdown-preview pre.line-numbers .line-numbers-rows>span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber
+      }
+
+      .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
+        content: counter(linenumber);
+        color: #999;
+        display: block;
+        padding-right: .8em;
+        text-align: right
+      }
+
+      .markdown-preview .mathjax-exps .MathJax_Display {
+        text-align: center !important
+      }
+
+      .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
+        display: none
+      }
+
+      .markdown-preview:not([for="preview"]) .code-chunk .status {
+        display: none
+      }
+
+      .markdown-preview:not([for="preview"]) .code-chunk .output-div {
+        margin-bottom: 16px
+      }
+
+      .scrollbar-style::-webkit-scrollbar {
+        width: 8px
+      }
+
+      .scrollbar-style::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent
+      }
+
+      .scrollbar-style::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode]) {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        overflow: auto
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        position: relative;
+        top: 0
+      }
+
+      @media screen and (min-width:914px) {
+        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+          padding: 2em calc(50% - 457px + 2em)
+        }
+      }
+
+      @media screen and (max-width:914px) {
+        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+          padding: 2em
+        }
+      }
+
+      @media screen and (max-width:450px) {
+        html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+          font-size: 14px !important;
+          padding: 1em
+        }
+      }
+
+      @media print {
+        html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+          display: none
+        }
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        font-size: 28px;
+        cursor: pointer;
+        color: inherit;
+        z-index: 99;
+        width: 32px;
+        text-align: center;
+        opacity: .4
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+        opacity: 1
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        padding: 32px 0 48px 0;
+        font-size: 14px;
+        box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+        box-sizing: border-box;
+        overflow: auto;
+        background-color: inherit
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
+        width: 8px
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, 0.66);
+        border: 4px solid rgba(150, 150, 150, 0.66);
+        background-clip: content-box
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
+        text-decoration: none
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+        padding: 0 1.6em;
+        margin-top: .8em
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
+        margin-bottom: .8em
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+        list-style-type: none
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        left: 300px;
+        width: calc(100% - 300px);
+        padding: 2em calc(50% - 457px - 150px);
+        margin: 0;
+        box-sizing: border-box
+      }
+
+      @media screen and (max-width:1274px) {
+        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+          padding: 2em
+        }
+      }
+
+      @media screen and (max-width:450px) {
+        html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+          width: 100%
+        }
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+        left: 50%;
+        transform: translateX(-50%)
+      }
+
+      html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
+        display: none
+      }
+
+      .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./w1-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-dark.min.css"
+      integrity="sha512-q1aVdaNk3XfEI1WZRDlvbm5n05qUrMcoTGLtc69iHP02/QD44jgb6RTXE8GbGW8AmpUtXgtpLnkf2ZtWzVufEA=="
+      crossorigin="anonymous" />
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"
+      integrity="sha512-KMnxpSoayrFfRyh5p/Cv1QgVnuHtw4X7Vn38aXYt90FUDo5lRxhNLYFNX3Nib8UVJIrTUm3p2b0bt7/9TnqzGA=="
+      crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <article id="970faa9e-370d-4e1d-a480-5a43ee983bf0" class="page sans">
+        <header>
+          <h1 class="page-title">HTML_PATTERNS</h1>
+        </header>
+        <div class="page-body">
+          <p id="2b673aa2-ef0f-4357-a7e4-9d7b7404f590" class="">View project repository on GitHub</p>
+          <p id="f4721783-11fe-441a-a023-97c6b3ecf062" class="">A ribbon banner featuring a silhouette of GitHub&#x27;s
+            logo, the Octocat.</p>
+          <h1 id="e0636744-aefb-4695-86f2-56ae5c1baae3" class="">Accessible HTML Content Patterns</h1>
+          <h2 id="4a8e5b8e-d111-4cbe-9d95-946af68ac5e3" class="">Table of Contents</h2>
+          <ol id="4003f589-b41d-49b2-b493-4551db723b13" class="numbered-list" start="1">
+            <li><a href="about:blank#section-about">About</a></li>
+          </ol>
+          <ol id="3dd4eed7-142d-416a-b38c-c48b0a338671" class="numbered-list" start="2">
+            <li><a href="about:blank#section-headings">Headings</a></li>
+          </ol>
+          <ol id="05c87e1c-d71f-4850-a9f5-d1a618783044" class="numbered-list" start="3">
+            <li><a href="about:blank#section-text-level">Text-level</a>
+              <ol id="2d6e7eff-0a13-4ca5-bb0c-77a7b7ec1b01" class="numbered-list" start="1">
+                <li><a href="about:blank#subsection-content">Content</a></li>
+              </ol>
+              <ol id="5833173c-4e8f-422a-a038-ca9f76a451bb" class="numbered-list" start="2">
+                <li><a href="about:blank#subsection-lists">Lists</a></li>
+              </ol>
+              <ol id="536a08e6-d085-477f-abcc-a83ddbf70bea" class="numbered-list" start="3">
+                <li><a href="about:blank#subsection-links">Links</a></li>
+              </ol>
+              <ol id="3f70e19b-93ee-486d-8ce4-42789e8cde3a" class="numbered-list" start="4">
+                <li><a href="about:blank#subsection-code">Code</a></li>
+              </ol>
+              <ol id="70a60c2f-5509-4a4a-b13e-85e9e27e9c2b" class="numbered-list" start="5">
+                <li><a href="about:blank#subsection-symbols">Symbols</a></li>
+              </ol>
+              <ol id="ef3394a6-1263-4058-b784-99008ac25bef" class="numbered-list" start="6">
+                <li><a href="about:blank#subsection-emoji">Emoji</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol id="5e5696ff-4802-45c2-aa66-6f0e13b3f639" class="numbered-list" start="4">
+            <li><a href="about:blank#section-tables">Tables</a></li>
+          </ol>
+          <ol id="66aa9eec-099f-49bc-bf98-ec3284984137" class="numbered-list" start="5">
+            <li><a href="about:blank#section-interactive">Interactive</a>
+              <ol id="cb83a42d-0e3e-4932-98ef-8a0722f57921" class="numbered-list" start="1">
+                <li><a href="about:blank#subsection-details">Details</a></li>
+              </ol>
+              <ol id="070ea55e-2797-42fa-b6b6-0f494f901a44" class="numbered-list" start="2">
+                <li><a href="about:blank#subsection-dialog">Dialog</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol id="6e6f1541-dc1a-4cac-9008-9aa9e44dbe7c" class="numbered-list" start="6">
+            <li><a href="about:blank#section-embedded">Embedded</a>
+              <ol id="b9dd15f9-ada9-446a-8f7b-e80ff2b18889" class="numbered-list" start="1">
+                <li><a href="about:blank#subsection-image">Image</a></li>
+              </ol>
+              <ol id="b180f8cf-6d10-423b-8d7a-442686591e3c" class="numbered-list" start="2">
+                <li><a href="about:blank#subsection-broken-image">Broken Image</a></li>
+              </ol>
+              <ol id="f2ac84a2-af63-4d27-98de-a8c6570786a3" class="numbered-list" start="3">
+                <li><a href="about:blank#subsection-figure-with-caption">Figure with Caption</a></li>
+              </ol>
+              <ol id="34a96f54-a863-423f-b546-a050aa3f4cad" class="numbered-list" start="4">
+                <li><a href="about:blank#subsection-inline-svg">Inline SVG</a></li>
+              </ol>
+              <ol id="9b007a07-909c-4528-8453-1d0fcb12999b" class="numbered-list" start="5">
+                <li><a href="about:blank#subsection-picture">Picture</a></li>
+              </ol>
+              <ol id="a3e83c47-4c89-423e-9a28-3e44953c235d" class="numbered-list" start="6">
+                <li><a href="about:blank#subsection-image-with-srcset-and-sizes">Image with Srcset and Sizes</a></li>
+              </ol>
+              <ol id="46a01722-07fb-42c1-81f8-0957494fedd2" class="numbered-list" start="7">
+                <li><a href="about:blank#subsection-iframe">Iframe</a></li>
+              </ol>
+              <ol id="3a5c7d4e-adc7-41c2-8197-aa762baa00ee" class="numbered-list" start="8">
+                <li><a href="about:blank#subsection-audio">Audio</a></li>
+              </ol>
+              <ol id="57d81170-26c3-43a0-bed6-67945b1fb7d4" class="numbered-list" start="9">
+                <li><a href="about:blank#subsection-video">Video</a></li>
+              </ol>
+              <ol id="f0db3b0e-bf88-48cd-a01a-6c576474fd8f" class="numbered-list" start="10">
+                <li><a href="about:blank#subsection-object">Object</a></li>
+              </ol>
+              <ol id="accafa09-9917-4a96-8af4-e601c7f871fe" class="numbered-list" start="11">
+                <li><a href="about:blank#subsection-canvas">Canvas</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol id="1de55e57-9e68-42ba-a442-13ed7768907f" class="numbered-list" start="7">
+            <li><a href="about:blank#section-forms">Forms</a>
+              <ol id="3b5aef94-a893-42ea-a4ac-b9c7e9d7ab96" class="numbered-list" start="1">
+                <li><a href="about:blank#subsection-text-input">Text Input</a></li>
+              </ol>
+              <ol id="3422e349-e471-48e3-b899-aaf77d48d3eb" class="numbered-list" start="2">
+                <li><a href="about:blank#subsection-non-text-input">Non-text Input</a></li>
+              </ol>
+              <ol id="8bea2584-ec63-405c-916a-4b5a3f652570" class="numbered-list" start="3">
+                <li><a href="about:blank#subsection-select">Select</a></li>
+              </ol>
+              <ol id="17773407-afaa-4e0c-bb42-faae035e1ef5" class="numbered-list" start="4">
+                <li><a href="about:blank#subsection-checkboxes-and-radios">Checkboxes and Radio Buttons</a></li>
+              </ol>
+              <ol id="93a2a691-e128-4c0e-b373-b173739df51e" class="numbered-list" start="5">
+                <li><a href="about:blank#subsection-buttons">Buttons</a></li>
+              </ol>
+              <ol id="2ea0b9ee-21ae-4278-a294-8728ce3c8ef0" class="numbered-list" start="6">
+                <li><a href="about:blank#subsection-output">Output</a></li>
+              </ol>
+              <ol id="bcff2e27-dc5d-4b72-a0c5-45579d96eacc" class="numbered-list" start="7">
+                <li><a href="about:blank#subsection-lockup">Lockup</a></li>
+              </ol>
+              <ol id="782bff75-0b31-404c-9f87-76cb4233577c" class="numbered-list" start="8">
+                <li><a href="about:blank#subsection-states-and-validation">States and Validation</a></li>
+              </ol>
+              <ol id="ec7c2174-33e4-4d13-9165-0f5cf5ac8ef5" class="numbered-list" start="9">
+                <li><a href="about:blank#subsection-autocomplete">Autocomplete</a></li>
+              </ol>
+            </li>
+          </ol>
+          <ol id="0b4d311f-61a6-4d12-9111-a81c5727e27b" class="numbered-list" start="8">
+            <li><a href="about:blank#section-credit">Credit</a></li>
+          </ol>
+          <hr id="1c0f3ca8-5612-4c45-9f08-e552427f6ae6" />
+          <h2 id="c5af0169-a234-43ea-9134-8924e8662efb" class="">About</h2>
+          <p id="e87cfc0a-feeb-4344-9d91-369e71338c8d" class="">Accessible, semantic markup patterns for HTML content.
+            Uses the full <a href="http://html5doctor.com/element-index/">HTML5 Doctor Element Index</a>, minus the
+            <code>&lt;command&gt;</code> and <code>&lt;menu&gt;</code> tags.</p>
+          <p id="b5d11f27-ec49-423b-a407-d25762a6026a" class="">Reference <a
+              href="http://alistairduggin.co.uk/">Alistair
+              Duggin</a>&#x27;s <a href="http://aduggin.github.io/accessibility-fails/">Accessibility Fails</a> for
+            common
+            markup pattern accessibility mistakes, and <a href="http://pauljadam.com/">Paul J. Adam</a>&#x27;s <a
+              href="http://pauljadam.com/demos/landmarks.html">WAI-ARIA Landmarks Site Navigation Structure Demo</a> for
+            semantic, accessible page landmarks.</p>
+          <hr id="5618ff25-203c-44b5-99fa-a7a5f77a39b0" />
+          <h2 id="200f4798-25b6-4edf-ba09-ee91cdb6ff8e" class="">Headings</h2>
+          <h1 id="680733b4-9c0b-4c95-ba1b-87b3e207198d" class="">First Header h1</h1>
+          <p id="7f1f4d32-6a8e-432b-9461-04da9ce86461" class="">One morning, when Gregor Samsa woke from troubled
+            dreams,
+            he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he
+            lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff
+            sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs,
+            pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.</p>
+          <h2 id="344a5698-241e-4f14-96d7-31302999c1d5" class="">Second header h2</h2>
+          <p id="229783f8-4538-493f-9afe-2ac4b0742edd" class="">&quot;What&#x27;s happened to me?&quot; he thought. It
+            wasn&#x27;t a dream. His room, a proper human room although a little too small, lay peacefully between its
+            four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling
+            salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and
+            housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright,
+            raising a heavy fur muff that covered the whole of her lower arm towards the viewer.</p>
+          <h3 id="bca145a5-f353-4812-b044-f586162ab579" class="">Third header h3</h3>
+          <p id="4f981745-6c16-43f5-8d6d-d93eec75b56e" class="">Gregor then turned to look out the window at the dull
+            weather. Drops of rain could be heard hitting the pane, which made him feel quite sad. &quot;How about if I
+            sleep a little bit longer and forget all this nonsense&quot;, he thought, but that was something he was
+            unable
+            to do because he was used to sleeping on his right, and in his present state couldn&#x27;t get into that
+            position. However hard he threw himself onto his right, he always rolled back to where he was. He must have
+            tried it a hundred times, shut his eyes so that he wouldn&#x27;t have to look at the floundering legs, and
+            only stopped when he began to feel a mild, dull pain there that he had never felt before.</p>
+          <h3 id="949deac1-c2d8-4444-94ec-6248c16df812" class="">Fourth header h4</h3>
+          <p id="126aa0c1-44e3-4d06-8cf4-a0177db985e9" class="">&quot;Oh, God&quot;, he thought, &quot;what a strenuous
+            career it is that I&#x27;ve chosen! Travelling day in and day out. Doing business like this takes much more
+            effort than doing your own business at home, and on top of that there&#x27;s the curse of travelling,
+            worries
+            about making train connections, bad and irregular food, contact with different people all the time so that
+            you
+            can never get to know anyone or become friendly with them. It can all go to Hell!&quot; He felt a slight
+            itch
+            up on his belly; pushed himself slowly up on his back towards the headboard so that he could lift his head
+            better; found where the itch was, and saw that it was covered with lots of little white spots which he
+            didn&#x27;t know what to make of; and when he tried to feel the place with one of his legs he drew it
+            quickly
+            back because as soon as he touched it he was overcome by a cold shudder.</p>
+          <h3 id="135a5f6d-e1cd-447b-8fe3-b681c35bd104" class="">Fifth header h5</h3>
+          <p id="6b7cdb2a-6a53-4e79-b1d3-e71ba82fbef5" class="">He slid back into his former position. &quot;Getting up
+            early all the time&quot;, he thought, &quot;it makes you stupid. You&#x27;ve got to get enough sleep. Other
+            travelling salesmen live a life of luxury. For instance, whenever I go back to the guest house during the
+            morning to copy out the contract, these gentlemen are always still sitting there eating their breakfasts. I
+            ought to just try that with my boss; I&#x27;d get kicked out on the spot. But who knows, maybe that would be
+            the best thing for me.</p>
+          <h3 id="f7c15c54-1894-4597-b419-dffcec12b653" class="">Sixth header h6</h3>
+          <p id="de1f5fad-a266-4355-b2dc-f6a337fe1abd" class="">If I didn&#x27;t have my parents to think about I&#x27;d
+            have given in my notice a long time ago, I&#x27;d have gone up to the boss and told him just what I think,
+            tell him everything I would, let him know just what I feel. He&#x27;d fall right off his desk! And it&#x27;s
+            a
+            funny sort of business to be sitting up there at your desk, talking down at your subordinates from up there,
+            especially when you have to go right up close because the boss is hard of hearing. Well, there&#x27;s still
+            some hope; once I&#x27;ve got the money together to pay off my parents&#x27; debt to him - another five or
+            six
+            years I suppose - that&#x27;s definitely what I&#x27;ll do. That&#x27;s when I&#x27;ll make the big change.
+            First of all though, I&#x27;ve got to get up, my train leaves at five.&quot;</p>
+          <h2 id="9a95f88d-de2a-4ad7-9b62-c1dfdfc67b9d" class="">Subtitles</h2>
+          <h2 id="efe35bc0-a972-4b3e-9b1a-78d810c4991d" class="">TitleSubtitle</h2>
+          <h2 id="3023463d-f8e8-4af8-9032-9e8d9a96c3b3" class="">Title</h2>
+          <p id="0a7efbae-2bd3-40dd-bbd4-e84ece08e28e" class="">Subtitle</p>
+          <h2 id="f4ae6072-aa1e-4ad1-baa3-45997bd39b8f" class="">Title</h2>
+          <p id="04e3c0e0-31ad-4df3-ad65-e58012aeb8f2" class="">Subtitle</p>
+          <h2 id="16b0229a-113f-4d6a-9d8c-df3c4565edea" class="">Notes:</h2>
+          <ul id="cea7d02b-2deb-42f9-bbe8-ca514ba9006d" class="bulleted-list">
+            <li>Ensure that headings create a logical order. Apply CSS classes to control visual presentation (e.g.
+              <code>&lt;h2 class=&quot;type-size-medium color-blue-dark&quot;&gt;Our services&lt;/h2&gt;</code> ).</li>
+          </ul>
+          <ul id="a022309b-c86f-4078-911c-eb5aeb3e601a" class="bulleted-list">
+            <li><code>role=&quot;doc-subtitle&quot;</code> is used to alternate title for the work, but still has
+              limited
+              support.</li>
+          </ul>
+          <hr id="e5726faf-1cd9-4721-a4ee-8088d957a855" />
+          <h2 id="1d9cd263-58e2-4865-b6d0-d6f58b30285b" class="">Text-level</h2>
+          <h3 id="db174e54-f291-4f73-9a8a-d2dce1081263" class="">Content</h3>
+          <p id="3da1ea5d-02a2-4552-a01e-9b5965b0e3ae" class="">And he <em>looked</em> over at <strong>the alarm
+              clock</strong>, ticking on the <em>chest</em> of <strong>drawers</strong>. &quot;God in Heaven!&quot; he
+            <del>thought</del>. It was half past six and the hands were “quietly moving forwards", it was even later
+            than
+            half past, more like quarter to seven. Had the alarm clock not rung? He could see from the <code>bed that it
+              had been set</code> for four o&#x27;clock as it should have been; it certainly must have rung.</p>
+          <blockquote id="ba9ec81d-2364-4024-a0a7-456442fa03c9" class="">&quot;Yes, mother, yes, thank-you, I&#x27;m
+            getting up now.&quot;Gregor Samsa</blockquote>
+          <p id="81867b9d-afe8-477a-8fda-e152987d6c5b" class="">Yes, but was it possible to quietly sleep through that
+            furniture-rattling noise? True, he had not slept peacefully, but <del>probably</del> all the more deeply
+            because of that. What should he do now? The next train went at seven; if he were to catch that he would have
+            to rush like mad and the collection of samples was still not packed, and he did not at all feel particularly
+            fresh and lively.</p>
+          <p id="b197f62a-b9ef-4874-940b-53b48bbf84b9" class="">The French phrase, C&#x27;est le ton qui fait la
+            chanson,
+            might apply here.</p>
+          <h3 id="864d5d09-fe4c-426a-95e8-590acb4b29de" class="">Notes:</h3>
+          <ul id="ccfd444e-2cbf-4bf0-94c1-7cd5b7757bb0" class="bulleted-list">
+            <li><code>&lt;mark&gt;</code>, <code>&lt;ins&gt;</code>, <code>&lt;del&gt;</code>, and
+              <code>&lt;s&gt;</code>
+              elements are not announced by screen readers. Consider <a
+                href="https://developer.paciellogroup.com/blog/2017/12/short-note-on-making-your-mark-more-accessible/">using
+                CSS to indicate their presence</a>.</li>
+          </ul>
+          <ul id="8df462b5-2c32-4f8d-a406-616bfa06e29a" class="bulleted-list">
+            <li>Use the <code>translate</code> attribute to control <a
+                href="https://html.spec.whatwg.org/multipage/dom.html#the-translate-attribute">automatic translation by
+                the browser</a>.</li>
+          </ul>
+          <h3 id="b54595d4-11a0-4614-8889-721fa4cffc01" class="">Links</h3>
+          <p id="09ac97ec-4f0b-48ed-a5b3-06047f5baec4" class="">And even if he did catch the <a
+              href="about:blank#">train</a> he would not avoid his boss&#x27;s anger as the <a
+              href="about:blank#">office
+              assistant</a> would have been there to see the five o&#x27;clock train go, he would have put in his report
+            about <a href="https://twitter.com/twitter">Gregor</a>&#x27;s not being there a long time ago. The office
+            assistant was the boss&#x27;s man, spineless, and with no understanding. What about if he reported sick? But
+            that would be <a href="about:blank#">extremely strained and suspicious as in fifteen years of service Gregor
+              had never once yet been ill</a>. His boss would certainly come round with the doctor from the medical
+            insurance company, accuse his parents of having a lazy son, and accept the doctor&#x27;s recommendation not
+            to
+            make any claim as the doctor believed that no-one was ever ill but that many were workshy. And what&#x27;s
+            more, would he have been entirely wrong in this case? Gregor did in fact, apart from excessive sleepiness
+            after sleeping for so long, feel completely well and even felt much hungrier than usual.</p>
+          <h2 id="7589aeac-acec-43dc-9fc7-222b79e5748f" class="">Block-level link title</h2>
+          <p id="b61959aa-02fa-402c-a2cc-37dc72c36274" class="">He was still hurriedly thinking all this through, unable
+            to decide to get out of the bed, when the clock struck quarter to seven. There was a cautious knock at the
+            door near his head. &quot;Gregor&quot;, somebody called - it was his mother - &quot;it&#x27;s quarter to
+            seven. Didn&#x27;t you want to go somewhere?</p>
+          <h3 id="5d3481fd-ad33-4dd1-a696-732192a31261" class="">Lists</h3>
+          <h3 id="34eddafc-71a7-4294-a5a1-507ba5b75a0d" class="">Unordered List</h3>
+          <ul id="18ff0ea7-9c8f-4379-971f-a2301d2e7681" class="bulleted-list">
+            <li>Apple</li>
+          </ul>
+          <ul id="777f2a44-4a61-48a8-95a3-7d38381b2da6" class="bulleted-list">
+            <li>Apricot</li>
+          </ul>
+          <ul id="511f9ec4-5bf4-49a6-a5c4-c61d94ec606a" class="bulleted-list">
+            <li>Avocado<ul id="c73c95ac-2a84-4469-a1d3-51cf7e7b9f62" class="bulleted-list">
+                <li>Fuerte</li>
+              </ul>
+              <ul id="fb4acbba-b49e-456b-86aa-89e342a10a99" class="bulleted-list">
+                <li>Gwen</li>
+              </ul>
+              <ul id="1f5f3624-b2bc-4ed0-b3f5-cfbecd1838e4" class="bulleted-list">
+                <li>Hass</li>
+              </ul>
+              <ul id="b9abfe18-dfac-4185-9067-27828122c97f" class="bulleted-list">
+                <li>Pinkerton</li>
+              </ul>
+              <ul id="81588175-1fe3-4e3e-bc3b-bdcad31c0fec" class="bulleted-list">
+                <li>Reed</li>
+              </ul>
+            </li>
+          </ul>
+          <ul id="92d7b4c9-b5ae-4f85-ba3f-db6742f93c81" class="bulleted-list">
+            <li>Banana<ol id="3bc6a072-54be-43b7-a3fa-924dc1c03c2d" class="numbered-list" start="1">
+                <li>Cavendish</li>
+              </ol>
+              <ol id="2b12de51-91d7-4375-ab96-1074945e4868" class="numbered-list" start="2">
+                <li>Red Dacca</li>
+              </ol>
+              <ol id="c32a2dd8-8c40-4a4c-87b1-18e312b98f32" class="numbered-list" start="3">
+                <li>Gros Michel</li>
+              </ol>
+              <ol id="972eea46-494f-4d2e-9d5e-d2799de564bb" class="numbered-list" start="4">
+                <li>East African Highland</li>
+              </ol>
+              <ol id="17104210-38cc-45ee-9ac0-dc200609a9e0" class="numbered-list" start="5">
+                <li>Bodles Altafort</li>
+              </ol>
+            </li>
+          </ul>
+          <ul id="59f3ac5d-cae1-4420-a900-ac71f0ce38b2" class="bulleted-list">
+            <li>Bilberry</li>
+          </ul>
+          <ul id="3b3620be-a863-4c83-b885-0181c4d47bae" class="bulleted-list">
+            <li>Blackberry</li>
+          </ul>
+          <ul id="5edd0913-600d-4f79-bd2b-e09e10bd13ba" class="bulleted-list">
+            <li>Blackcurrant</li>
+          </ul>
+          <h3 id="ef296d6e-3de0-4ade-9ec7-f84dd10de306" class="">Notes:</h3>
+          <p id="5ccdba51-45fd-4a61-b655-23eee1cba9ca" class="">VoiceOver will not <a
+              href="https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/">announce unordered
+              lists properly when either the list-style-type is set to none or display is set to inline</a>.</p>
+          <h3 id="13098e62-2908-4026-9f84-f77875e639f3" class="">Ordered List</h3>
+          <ol id="cff39482-528d-41b2-8d0a-aa15efc7224d" class="numbered-list" start="1">
+            <li>Alabama</li>
+          </ol>
+          <ol id="f9ca529b-6870-4a7d-9053-1f629d173e85" class="numbered-list" start="2">
+            <li>Alaska</li>
+          </ol>
+          <ol id="fef01a2e-a7c9-4941-a2b3-20a9f64bbe8d" class="numbered-list" start="3">
+            <li>Arizona<ul id="286b9cc2-cf24-40eb-8c93-ef872763bde3" class="bulleted-list">
+                <li>Phoenix</li>
+              </ul>
+              <ul id="68c10499-8f72-4c4b-a1c3-b5f4b5d4ca46" class="bulleted-list">
+                <li>Tucson</li>
+              </ul>
+              <ul id="5b3d887d-5bf6-4742-9f66-08eddab47106" class="bulleted-list">
+                <li>Mesa</li>
+              </ul>
+              <ul id="48cb94a3-dfc9-43df-b7a6-d688169b9c27" class="bulleted-list">
+                <li>Chandler</li>
+              </ul>
+              <ul id="9e3c7c2f-6ee0-46ca-b25b-642e443d7a63" class="bulleted-list">
+                <li>Glendale</li>
+              </ul>
+            </li>
+          </ol>
+          <ol id="bdbb060c-d9c7-4921-ac42-d7b7583c84c3" class="numbered-list" start="4">
+            <li>Arkansas</li>
+          </ol>
+          <ol id="ee702571-b9c4-4374-a01d-54bff0e664e7" class="numbered-list" start="5">
+            <li>California</li>
+          </ol>
+          <ol id="a220700a-5d22-424e-ab7d-04a667163047" class="numbered-list" start="6">
+            <li>Colorado</li>
+          </ol>
+          <ol id="86c02681-1031-462a-bc0b-5e6500e4b2c0" class="numbered-list" start="7">
+            <li>Connecticut<ol id="790b72b6-b064-43db-979b-06f559e1aad8" class="numbered-list" start="1">
+                <li>Bridgeport</li>
+              </ol>
+              <ol id="00a33fa4-3918-4cff-b7b8-3ff143e4283b" class="numbered-list" start="2">
+                <li>New Haven</li>
+              </ol>
+              <ol id="e20e9b00-7ae4-4afe-b12a-9dc9c1cb6f2e" class="numbered-list" start="3">
+                <li>Hartford</li>
+              </ol>
+              <ol id="b0abe188-c24a-4b37-a873-be84e564704a" class="numbered-list" start="4">
+                <li>Stamford</li>
+              </ol>
+              <ol id="b6aafcfa-2978-4ceb-a268-15b94a94ba77" class="numbered-list" start="5">
+                <li>Waterbury</li>
+              </ol>
+            </li>
+          </ol>
+          <ol id="c53ae37c-11ab-41fe-a2af-533039293f11" class="numbered-list" start="8">
+            <li>Delaware</li>
+          </ol>
+          <ol id="43a46cff-594d-4ffb-9b58-96be015a4024" class="numbered-list" start="9">
+            <li>Florida</li>
+          </ol>
+          <ol id="d61fff2e-b41d-44b1-87e5-b9d5a3167075" class="numbered-list" start="10">
+            <li>Georgia</li>
+          </ol>
+          <h3 id="cab73b37-e5e4-407e-a4cd-0472d5e93d32" class="">Definition List</h3>
+          <p id="08cdf0ca-04b9-4c81-a885-34cb644a72fb" class="">Alternate Character/GlyphA non-standard (sometimes
+            decorative) variation of a character that comes as an extra option with a font file.
+            BaselineThe imaginary line on which most letters and other characters sit.
+            CharacterAn individual symbol of the full character set that makes up a typeface; may take the form of a
+            letter, number, punctuation mark, etc.
+            SerifA short line or stroke attached to or extending from the open ends of a letterform; also refers to the
+            general category of typefaces that have been designed with this feature.
+            Sans-SerifLiterally “without line"; the general category of typefaces (or an individual typeface) designed
+            without serifs.</p>
+          <h3 id="c5f9d1f3-7fee-4cae-a0fd-2c5773ed7d42" class="">Code</h3>
+          <pre id="e0285b9f-a9d9-4a93-ae74-d1efdc230219" class="code code-wrap"><code></code></pre>
+          <pre id="ae7c6b2b-e7e5-4588-8bbe-ae23254f1d81" class="code code-wrap"><code>sudo ipfw pipe 1 config bw 256KByte/s
+sudo ipfw add 1 pipe 1 src-port 3000
+</code></pre>
+          <pre id="2553bceb-d5a2-499c-9676-45c63f8183bb" class="code code-wrap"><code>~/Sites/boilerplate
+❦ ☢ ☭ ☂ ♞
+
+$ ls -gto
+
+total 88
+-rw-r--r-- 1 eric staff  6148 Mar 24 11:50 .DS_Store
+drwxr-xr-x 9 eric staff   306 Mar 24 13:36 .git/
+-rw-rw-r-- 1 eric staff   862 Oct 13 14:38 .gitignore
+-rw-r--r-- 1 eric staff   472 Feb 22 20:58 .htmlhintrc
+-rw-r--r-- 1 eric staff  1068 Mar 24 10:57 LICENSE
+-rw-r--r-- 1 eric staff  4865 Mar 24 13:34 README.md
+-rw-r--r-- 1 eric staff 58601 Mar 24 11:50 index.html
+</code></pre>
+          <h3 id="94744584-0429-4f65-8a30-c8b60d8114d1" class="">Notes:</h3>
+          <p id="733a668d-6429-4996-9aaf-55c3522cf235" class="">Apply <code>translate=&quot;no&quot;</code> to markup
+            that
+            contains code examples to prevent keywords from being automatically translated.</p>
+          <h3 id="07ac2635-2df7-4577-acee-704f89830a51" class="">Symbols</h3>
+          <ul id="dcdafce1-6c69-467e-b66e-4324e0613209" class="bulleted-list">
+            <li>+</li>
+          </ul>
+          <ul id="eaad7f68-7234-446b-a7a3-acf53c17e523" class="bulleted-list">
+            <li>−</li>
+          </ul>
+          <ul id="8e8b0bf2-2854-49ad-a63a-88abf45cb8af" class="bulleted-list">
+            <li>±</li>
+          </ul>
+          <ul id="9a5a0170-5669-4faa-b8c9-67a9a232c913" class="bulleted-list">
+            <li>÷</li>
+          </ul>
+          <ul id="34d89c02-5c90-43e0-b86f-b045c1fde45c" class="bulleted-list">
+            <li>×</li>
+          </ul>
+          <ul id="d9e44335-ef97-47a4-9d0c-fb0b50e72729" class="bulleted-list">
+            <li>&lt;</li>
+          </ul>
+          <ul id="7260aa8b-b6ca-4efd-b172-7564aabe11d3" class="bulleted-list">
+            <li>≤</li>
+          </ul>
+          <ul id="a906da78-6b28-4ede-9ed9-486d89c0b436" class="bulleted-list">
+            <li>&gt;</li>
+          </ul>
+          <ul id="297e8df6-045c-42bd-b14d-a1c33dc3689d" class="bulleted-list">
+            <li>≥</li>
+          </ul>
+          <ul id="47a9dc6c-8142-4772-ba60-f4e0e438acab" class="bulleted-list">
+            <li>=</li>
+          </ul>
+          <ul id="875d6b8d-3789-4f7a-834b-d26616fcb754" class="bulleted-list">
+            <li>≈</li>
+          </ul>
+          <ul id="f2a0c6b8-c21c-4233-a809-e1c39a7b366a" class="bulleted-list">
+            <li>≠</li>
+          </ul>
+          <h3 id="a21f0151-49ba-4077-a3cc-8e964722f2ee" class="">Notes:</h3>
+          <p id="923ff56b-acd2-46d8-8a4e-e13ecfb9b78f" class="">Certain screen readers will not <a
+              href="http://www.deque.com/blog/dont-screen-readers-read-whats-screen-part-1-punctuation-typographic-symbols/">read
+              certain symbols out loud</a>. Use <code>role=&quot;definition&quot;</code> in conjunction with
+            <code>aria-label</code> to ensure the symbol is read. Use this technique with caution and discretion, as it
+            will affect how the symbol is rendered by things like Braille readers.</p>
+          <h3 id="a7ef48b7-0e09-4ec6-afa5-073d8809f93e" class="">Emoji</h3>
+          <ul id="0590b4a2-a404-4962-825c-58969fff0899" class="bulleted-list">
+            <li>😺</li>
+          </ul>
+          <ul id="49a93237-a645-4f89-85fa-fa10792d835d" class="bulleted-list">
+            <li>🎩</li>
+          </ul>
+          <ul id="e40f36ee-4ae2-4df0-9819-63dc7d39a85f" class="bulleted-list">
+            <li>⛄️</li>
+          </ul>
+          <ul id="6aed3bdf-df06-4568-bed2-da7c9c6e7aa1" class="bulleted-list">
+            <li>🍺</li>
+          </ul>
+          <ul id="6dbb1d9c-9efb-4010-bb05-4e0c3689eccf" class="bulleted-list">
+            <li>🍑</li>
+          </ul>
+          <h3 id="d02dd13b-9af5-4597-b783-d2bf96572830" class="">Notes:</h3>
+          <ul id="63685e27-4ab0-4994-b30c-f120614aec88" class="bulleted-list">
+            <li>Certain screen readers will not <a
+                href="http://www.deque.com/blog/dont-screen-readers-read-whats-screen-part-1-punctuation-typographic-symbols/">read
+                certain symbols out loud</a>. Use <code>role=&quot;definition&quot;</code> in conjunction with
+              <code>aria-label</code> to ensure the symbol is read. Use this technique with caution and discretion, as
+              it
+              will affect how the symbol is rendered by things like Braille readers.</li>
+          </ul>
+          <ul id="9025eefb-8249-4d3d-93d6-5b2cd6d23371" class="bulleted-list">
+            <li>Use <code>role=&quot;img&quot;</code> in conjunction with <code>aria-label</code> to <a
+                href="https://tink.uk/accessible-emoji/">expose an emoji as an image in the accessibility tree</a>, with
+              the label providing author intent.</li>
+          </ul>
+          <hr id="49ca2408-cfe2-4071-9ee9-8e8df3a8011c" />
+          <p id="a38c913e-61db-4a73-b7df-48f9f446fd2a" class=""><strong>Tables</strong>
+            Academy Awards for Best Picture Descriptions of the film title, production company(s), and producers for the
+            years 1980-1989.
+            Film</p>
+          <p id="affcea1f-7fd7-4e76-afee-2c5aeadcbd7e" class="">Year</p>
+          <p id="12876c99-cab7-4973-b427-d6ceb71e86d6" class="">Production Company(s)</p>
+          <p id="c1ed9524-19c0-41db-a18b-e55772990075" class="">Producer(s)</p>
+          <p id="1d70f3f2-3b47-4b63-b915-313621bae9f6" class="">Ordinary People</p>
+          <p id="567e9aca-1964-41d4-ada1-f9ee7df42a17" class="">1980</p>
+          <p id="432d5375-88bd-4e6e-87f4-508d5abbf15f" class="">Paramount</p>
+          <p id="c8cc0148-9ed8-4af9-8c14-baa9709e4c24" class="">Ronald L. Schwary</p>
+          <p id="d2d60fb1-fefe-4fbe-9e71-32d5cdbbfac4" class="">Chariots of Fire</p>
+          <p id="08ce2714-d45f-44b9-a4fb-70a1b7b3b229" class="">1981</p>
+          <p id="8188711f-69bf-4976-afcf-5ce7612d9fe7" class="">Enigma Film Productions</p>
+          <p id="8a9be1da-2aed-446c-a74a-c0d572d2d72e" class="">David Puttnam</p>
+          <p id="311a3de3-ac70-40ee-9454-8417cb956807" class="">Gandhi</p>
+          <p id="e1c58810-1271-4b04-a8bf-6f79f8b011b8" class="">1982</p>
+          <p id="685f2d6b-404c-4c86-86c4-c013e1232ae6" class="">Columbia</p>
+          <p id="ece38eb0-c320-4454-9ec4-4eda15c451b3" class="">Richard Attenborough</p>
+          <p id="095b373b-e702-4ccf-bf02-6d41cf942455" class="">Terms of Endearment</p>
+          <p id="87cb0205-d9b3-4205-ae1c-9ca822157518" class="">1983</p>
+          <p id="6e28c27c-f556-4948-b043-85cec07f39d9" class="">Paramount</p>
+          <p id="e5b8ebb8-fd2b-438a-8b58-60ff2915887d" class="">James L. Brooks</p>
+          <p id="80f8b719-be23-41fc-85e4-ea004ab8db15" class="">Amadeus</p>
+          <p id="b1f750ba-0206-4218-8deb-1648a181dc8a" class="">1984</p>
+          <p id="e43520b6-155a-48de-b081-280c97fe2a4b" class="">Orion</p>
+          <p id="1b28bc69-65f4-4547-af53-3097a08eb520" class="">Saul Zaentz</p>
+          <p id="211e9837-4f33-4c01-96b8-ca75d97377aa" class="">Out of Africa</p>
+          <p id="ccaf463d-004d-464e-8a98-75b2924ad29b" class="">1985</p>
+          <p id="e1bc7b51-b67d-4c6b-a8f7-05fcc877d482" class="">Universal, Mirage Enterprises</p>
+          <p id="fdc53893-ad61-44f5-89e3-1672fc45ff7d" class="">Sydney Pollack</p>
+          <p id="f209a9c6-5142-4c07-aaf5-2cf8e037383e" class="">Platoon</p>
+          <p id="fd781b3f-db97-424f-ae82-9e5a1ee214cb" class="">1986</p>
+          <p id="978d464a-27cd-4cbc-9e0a-33be7c8414b1" class="">Orion, Hemdale</p>
+          <p id="c7e9fce9-0eaf-488a-a447-3da49417ed0b" class="">Arnold Kopelson</p>
+          <p id="5b5d9c58-e5f3-430d-b55a-ffd1a1879fbd" class="">The Last Emperor</p>
+          <p id="8ab6fe28-b4ea-4f51-b787-6b1d6cd6bba9" class="">1987</p>
+          <p id="8d16f74f-8f1b-46c7-9307-ca0ffd198aa8" class="">Recorded Picture Company, Yanco Films, TAO Films, AAA,
+            Soprofilms</p>
+          <p id="661b91c2-1cee-462f-8c65-86d9590f19ab" class="">Jeremy Thomas</p>
+          <p id="9634a68f-3c78-4f36-a6de-4aa1fd8fda1f" class="">Rain Man</p>
+          <p id="5f7fd84e-4cd5-4125-b8a8-8d6d9a604ad2" class="">1988</p>
+          <p id="19b06393-8774-47eb-8fec-098402c6dff4" class="">United Artists</p>
+          <p id="4f576a21-b457-4e23-b1e2-d0d1f9c074b7" class="">Mark Johnson</p>
+          <p id="88e3c17c-dda9-4501-81c9-f4d6e03142d8" class="">Driving Miss Daisy</p>
+          <p id="39e925ea-aad2-48e4-bc21-abf7b5dffb4d" class="">1989</p>
+          <p id="dd9a23d9-a2a0-4a70-91e4-489c6f55122c" class="">Warner Bros.</p>
+          <p id="1679e764-d77d-477b-8e98-9301d947b2f7" class="">Richard D. Zanuck, Lili Fini Zanuck</p>
+          <p id="766d5e8c-4ae6-4916-b91f-48ab78d67dea" class="">For the first six ceremonies, the eligibility period
+            spanned two calendar years.</p>
+          <h3 id="db1c5319-1ac9-40a6-8bd7-72a641cd1a43" class="">Notes:</h3>
+          <p id="f47e5d30-f3d7-4438-b393-79f2f73789f0" class="">Use <code>id</code> and <code>header</code> attributes
+            for
+            tables with complicated markup (colspans, row headers, etc.).</p>
+          <hr id="4244e16f-a63e-4122-8680-e5b4b74c9a93" />
+          <h2 id="0d8b78d1-d419-4ee3-82a5-24621e52b0af" class="">Interactive</h2>
+          <h3 id="51f00553-a6a2-4e38-a2b2-35ffe0c83c1c" class="">Details</h3>
+          <p id="995e6ddb-a71d-4930-ab95-2978bea4bd4e" class="">What payment options do you accept?</p>
+          <p id="796b4f15-31bd-49c8-a1d2-1d931374752b" class="">We accept cash, Visa, American Express, money orders,
+            and
+            personal checks.</p>
+          <h3 id="887ea746-d9f6-4a5c-952a-8f7bbe31ad74" class="">Notes:</h3>
+          <p id="638662b1-87d8-4bbf-8e10-21f5bfd3c7aa" class="">The <code>details</code> element is currently not
+            supported by Microsoft Edge or Internet Explorer. These browsers will <a
+              href="https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/">display
+              the content in an opened state</a>, as if the <code>open</code> attribute was applied.</p>
+          <h3 id="7e2bec1d-cad3-419c-bb9a-90d328c1be95" class="">Dialog</h3>
+          <h2 id="7add032d-8477-4727-b9de-c80bbb3e32da" class="">This is a dialog title</h2>
+          <p id="d77046ae-fac0-4502-80fc-ea3071d8756e" class="">This is dialog content.</p>
+          <p id="ea76e69f-d195-4021-b447-80f5881e646f" class="">Close</p>
+          <h3 id="128fd68a-b64d-426e-8c78-76215aa0ab69" class="">Notes:</h3>
+          <p id="7b60ab19-7825-4edb-91b0-46bf07b36698" class="">The <code>dialog</code>&#x27;s interactivity needs to be
+            controlled with JavaScript.</p>
+          <hr id="ea236c6e-e023-4a38-8641-06123c1ec32e" />
+          <h2 id="1ecca036-4c7f-4ba0-b6e0-e776ca8548b2" class="">Embedded</h2>
+          <h3 id="61cc03db-d801-4a76-acc3-6fc213a79f2e" class="">Image</h3>
+          <figure id="f1eebd04-8314-4805-9f6a-4e1262aa70c2" class="image"><a
+              href="http://placehold.it/600x400?text=Image+Example"><img
+                src="http://placehold.it/600x400?text=Image+Example" /></a></figure>
+          <h3 id="b8144605-6ce0-4bc1-a92a-d73b61ca15ec" class="">Broken Image</h3>
+          <figure id="01db79ff-db22-484f-aa17-11884724f4e6" class="image"><a href="nope"><img src="nope" /></a></figure>
+          <h3 id="e4d4a7d1-25a6-462e-a3c9-7bae9fb09e19" class="">Figure with Caption</h3>
+          <figure id="69a3dedb-fec1-4d8e-8295-4eb51094d0ea" class="image"><a
+              href="http://placehold.it/400x250?text=Figure+Example"><img
+                src="http://placehold.it/400x250?text=Figure+Example" /></a></figure>
+          <p id="a00ac456-481c-4431-8e8c-6e41524d7d71" class="">An example figure caption.</p>
+          <h3 id="09ea54c8-4d44-4662-9a9e-ada1001ed141" class="">Inline SVG</h3>
+          <p id="4891271c-71ea-4c09-8ac3-1cd6181e6e98" class="">A crab
+            A solid black illustration of a crab.</p>
+          <p id="84004912-0a8e-446f-9be2-cf0de7966635" class=""><a
+              href="https://thenounproject.com/search/?q=crab&amp;i=583446">Crab by Hea Poh Lin</a></p>
+          <p id="1632b4c7-db51-4259-865f-7d24acbf72fe" class="">from the Noun Project</p>
+          <h3 id="822677b1-107e-484d-b875-53217e66b463" class="">Notes:</h3>
+          <ul id="ade0e5df-facf-4f19-bf3a-8f1c01bab61d" class="bulleted-list">
+            <li>Be sure to provide values for the <code>height</code> and <code>width</code> attributes so SVGs
+              won&#x27;t
+              expand to fill the page if styles don&#x27;t load.</li>
+          </ul>
+          <ul id="b82fe40e-90f9-454e-a943-9d331ea81a8b" class="bulleted-list">
+            <li>Different implementations of SVG have different approaches for being made accessible. Reference these
+              articles by Heather Migliorisi and <a href="https://www.deque.com/blog/creating-accessible-svgs/">Carie
+                Fisher</a>.</li>
+          </ul>
+          <ul id="b3a96762-9b0d-4e3e-8357-0d58b243559c" class="bulleted-list">
+            <li>Add whitespace around the <code>use</code> element in a SVG icon system to <a
+                href="http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-5">prevent a focus bug with
+                Safari
+                10</a>.</li>
+          </ul>
+          <h3 id="ca486975-cb8d-4a56-bfb4-515041a8e62e" class="">Picture</h3>
+          <figure id="80d630f1-8194-472e-a6e9-56e9a02f3f72" class="image"><a
+              href="http://placehold.it/600x400?text=Img+Fallback"><img
+                src="http://placehold.it/600x400?text=Img+Fallback" /></a>
+          </figure>
+          <h3 id="cc0eda05-d27c-48fc-a4db-8711f43f3429" class="">Image with Srcset and Sizes</h3>
+          <figure id="15a58cde-62ee-42a1-879c-1fffc9cea0f5" class="image"><a
+              href="http://placehold.it/600x400?text=Img+Fallback"><img
+                src="http://placehold.it/600x400?text=Img+Fallback" /></a>
+          </figure>
+          <h3 id="a617f119-3ea4-4916-b847-498877c03844" class="">Iframe</h3>
+          <h3 id="2185da41-3c77-4a22-8091-5f2df88c136b" class="">Audio</h3>
+          <p id="20ccd699-3d13-4308-8ef5-12d20e43e8c6" class="">Your browser does not support the</p>
+          <pre id="d8cb98e3-811c-48b1-8418-c779ce922bef" class="code code-wrap"><code>&lt;audio&gt;</code></pre>
+          <p id="7f3053a9-bc5f-4dd9-bafe-eb8e56c3a4ab" class="">element. Please</p>
+          <p id="cfed487f-2b6c-4f56-83ec-4b2e390992df" class=""><a href="http://browsehappy.com/">consider upgrading
+              your
+              browser</a></p>
+          <p id="aff75992-55cc-431d-88af-fdbc02644f1b" class="">or</p>
+          <p id="a680b807-551a-4897-8506-bb0caa2308ba" class=""><a
+              href="http://www.noiseaddicts.com/samples_1w72b820/4353.mp3">download a file</a></p>
+          <p id="4fd70d02-7c24-4546-9fc4-bfd775280b0c" class="">for offline listening.</p>
+          <h3 id="b247cd75-fcf2-4938-aef4-edda3f6c7e7a" class="">Video</h3>
+          <p id="95186312-4772-4fd2-bd50-42ed62ab9190" class="">Your browser does not support the</p>
+          <pre id="d7be7005-089b-41e0-a60a-0b141af5f7f1" class="code code-wrap"><code>&lt;video&gt;</code></pre>
+          <p id="04abbb3a-0fa7-43f8-bfc1-ba909052ddb6" class="">element. Please</p>
+          <p id="cc21a0e4-789d-48fe-897c-89ef05a4d05f" class=""><a href="http://browsehappy.com/">consider upgrading
+              your
+              browser</a></p>
+          <p id="82d3d4c2-85d7-493d-8656-ffe06a480901" class="">or</p>
+          <p id="38bd56c2-1614-442f-ba9f-17e40c9e6fc3" class=""><a
+              href="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4">download a
+              file</a></p>
+          <p id="f6552079-8e93-409a-83e4-95c92ff26a2c" class="">for offline viewing.</p>
+          <h3 id="3b66bbbf-9728-4cc5-b439-9ffd924fee8b" class="">Notes:</h3>
+          <p id="2a9844b9-4c51-4931-95b1-82558e3e4b2e" class="">Accessibility errors concerning the video&#x27;s missing
+            audio description should go away once the <code>&lt;track&gt;</code>&#x27;s source is linked to a valid
+            caption file.</p>
+          <h3 id="ff73a731-3322-48e2-a40e-0f1b08ceace5" class="">Object</h3>
+          <p id="0c2c7676-cc71-4edd-840a-c1952727f3c3" class="">Your browser does not support the</p>
+          <pre id="fa443494-5cd5-4953-96fc-0f0805db8a1b" class="code code-wrap"><code>&lt;object&gt;</code></pre>
+          <p id="7a252f0a-2e98-4b72-a4bc-1caed7efbc16" class="">element. Please</p>
+          <p id="16cec2d6-71b9-4bcf-b40f-21ffc4a744a8" class=""><a href="http://browsehappy.com/">consider upgrading
+              your
+              browser</a></p>
+          <p id="b1ccb651-4d82-4acb-b409-34465dbae44f" class="">or</p>
+          <p id="4ae2a60d-f802-4887-a65f-3839e635e9c7" class=""><a
+              href="https://www.youtube.com/watch?v=pDHzK3Xe7Yw">view
+              the video on YouTube</a></p>
+          <p id="6e7bcccf-36d8-421f-8275-b3df60b4d466" class="">.</p>
+          <h3 id="1649a086-c711-4fc6-9e38-ace940633ce9" class="">Canvas</h3>
+          <p id="6986c653-97e7-48d0-9494-35e72453c36e" class="">Your browser does not support the</p>
+          <pre id="4d282e05-80f3-46d9-8d04-b8f2932f687d" class="code code-wrap"><code>&lt;canvas&gt;</code></pre>
+          <p id="4e39c4f0-7ae7-4332-9133-8453e91661fb" class="">element. Please</p>
+          <p id="21debe2c-2f05-490c-a0a2-d5f609c0837e" class=""><a href="http://browsehappy.com/">consider upgrading
+              your
+              browser</a></p>
+          <p id="917d5d52-3969-442e-abb4-f39f86bc5ccc" class="">.</p>
+          <h3 id="70fa5fee-f928-4d29-9796-1225b731251b" class="">Notes:</h3>
+          <p id="22e46f0d-d0ca-47ec-93f7-2fb3ec205fef" class="">Add <code>role=&quot;presentation&quot;</code> to
+            <code>&lt;track&gt;</code> to <a href="https://twitter.com/stevefaulkner/status/1039470607719694336">mute
+              epeated announcement of graphic role by some screen readers</a>.</p>
+          <hr id="3183163d-3edc-462d-b188-654ff783fca3" />
+          <h2 id="8d1d67bc-a381-4773-944c-2ec2ab3a58c0" class="">Forms</h2>
+          <h3 id="cb91ae17-da12-48e2-a43e-6df49de5d316" class="">Text Input</h3>
+          <p id="c8eec745-3431-40ad-9a4e-6f4290d1a735" class="">Text Text with Placeholder Email Password URL Telephone
+            Number Search Date Datetime-local Month Time Week Datalist Textarea</p>
+          <h3 id="8fa7bdb6-bec0-4e99-8206-115434b99a0d" class="">Notes:</h3>
+          <ul id="81090b25-0b31-426a-8801-0fa6347c2c66" class="bulleted-list">
+            <li>Avoid nesting <code>input</code> elements inside of <code>label</code> elements for better support for
+              <a href="https://www.nuance.com/dragon.html">Dragon Speech Recognition</a>.</li>
+          </ul>
+          <ul id="ab213703-8590-4a93-8349-1211fa199f57" class="bulleted-list">
+            <li>Add <code>autocomplete=&quot;new-password&quot;</code> to <code>&lt;input&gt;</code> elements with a
+              type
+              of <code>password</code> to <a href="https://twitter.com/mmatuzo/status/1189041007117176832">make
+                supporting
+                browsers suggest secure passwords</a>.</li>
+          </ul>
+          <ul id="c31042eb-8bbf-4f90-95a2-e393a760e91d" class="bulleted-list">
+            <li><code>&lt;input type=&quot;number&quot;&gt;</code> has <a
+                href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">numerous
+                issues with Dragon Naturally Speaking and NVDA</a>.</li>
+          </ul>
+          <h3 id="b2b27a01-90c3-453d-b854-1ac4e7223e36" class="">Non-text Input</h3>
+          <p id="f7784be1-1d57-42e5-b9f3-d4b44217e488" class="">Color File Input Range Input</p>
+          <h3 id="c2ae43e8-2480-452e-b370-4d2b50d4e50f" class="">Notes:</h3>
+          <p id="257e97ef-e7b8-486d-bcd9-a0f256df9004" class="">Some pointers on <a
+              href="https://css-tricks.com/sliding-nightmare-understanding-range-input/">styling the range input</a>.
+          </p>
+          <h3 id="3875024d-39f9-4aa2-b9b6-7788d1ea61a0" class="">Select</h3>
+          <p id="7267206b-113b-43ec-b351-451472217bbe" class="">Select Corgis Dachshunds Shiba Inus Select with Optgroup
+            Affenpinscher Afghan Hound Afghan Shepherd Aidi Abyssinian Aegean American Curl American Bobtail Multiple
+            Select Beagle Bernese Mountain Dog Kuvasz Newfoundland Old English Sheepdog Rottweiler Schnauzer</p>
+          <h3 id="f829b56a-1bb6-459a-8596-01331f69efdd" class="">Notes:</h3>
+          <p id="f60b5390-bf6f-472f-a57d-a942f8431b5d" class="">The <code>optgroup</code> element has <a
+              href="https://a11ysupport.io/tests/tech__html__select">mixed support with assistive technology</a>.</p>
+          <h3 id="1ff543a0-cc97-4fea-99d0-063c8e235eac" class="">Checkboxes and Radio Buttons</h3>
+          <p id="c11f1ff4-899b-4d7f-abdd-e6c74f81fb92" class="">Checkbox Checked Checkbox Indeterminate Checkbox
+            Pizza Toppings Ham Pepperoni Mushrooms Olives
+            Radio Button Checked Radio Button
+            Beverage Size Small Medium Large Extra Large</p>
+          <h3 id="e86655d2-59a4-4e7a-b7e1-cad9884516f1" class="">Buttons</h3>
+          <p id="5a254f2f-4bb8-454f-8c67-e5b76f61ae24" class="">Button
+            Primary Button
+            Secondary Button
+            ☎
+            Button with SVG icon
+            Text Button</p>
+          <h3 id="41eafdd5-c6d9-42a6-ae58-46d3d1293934" class="">Notes:</h3>
+          <ul id="1835fd81-06d4-4219-8eac-151cf04d04dc" class="bulleted-list">
+            <li>Add <code>type=&quot;button&quot;</code> to <code>&lt;button&gt;</code> elements placed outside of forms
+              to prevent some browsers from attempting to submit form data.</li>
+          </ul>
+          <ul id="317a8e2c-3b4c-4f04-a0c1-4fb77aef23dc" class="bulleted-list">
+            <li>Add <code>pointer-events: none;</code> to <a
+                href="https://twitter.com/stowball/status/857707052545613824">inline SVG icons placed in buttons</a>.
+            </li>
+          </ul>
+          <ul id="040b8cb6-8a9f-4c36-9123-48352398457c" class="bulleted-list">
+            <li>Add <code>focusable=&quot;false&quot;</code> to SVG inside of a focusable element (links, buttons, etc.)
+              to prevent <a href="https://simplyaccessible.com/article/7-solutions-svgs#acc-heading-4">a bug with
+                Internet
+                Explorer</a>.</li>
+          </ul>
+          <ul id="e004de42-df61-4218-aec8-9d844cb21a5b" class="bulleted-list">
+            <li>Use <code>tabindex=&quot;0&quot;</code> in conjunction with <code>role=&quot;button&quot;</code> to
+              ensure
+              that the text button is focusable. Use <code>cursor: pointer;</code> in the CSS to communicate that it is
+              interactable. Learn more about <a href="https://css-tricks.com/use-button-element/">When To Use The Button
+                Element</a>.</li>
+          </ul>
+          <ul id="64f79a5f-dc74-4127-8ba1-46e7eea9dce2" class="bulleted-list">
+            <li>Use <code>enterkeyhint</code> to manipulate the enter key on a virtual keyboard.</li>
+          </ul>
+          <h3 id="6d5d6f88-3db4-40af-9f55-3607c0e51de7" class="">Output</h3>
+          <p id="65034766-3a39-41bd-9cfd-e1a899c0c94e" class="">Output
+            350 degrees</p>
+          <h3 id="cdb70467-b74c-4281-8e6b-01b0347275b3" class="">Lockup</h3>
+          <p id="673bf430-fce3-4687-8140-1854e1335ec1" class="">Your Name This is what we&#x27;ll use to refer to you if
+            we have to contact you Can we send you periodic messages about your account? I agree</p>
+          <h3 id="53012156-3c96-43c4-adda-c0fa96ea1f4a" class="">Notes:</h3>
+          <p id="1914c61d-f167-4ce5-82e1-0e343eb633bc" class="">Place messaging above the input field so as to not be
+            lost
+            when magnification or focus on mobile occurs.</p>
+          <h3 id="17a4b166-7e24-459a-b6d0-6bf2ce34f26d" class="">States and Validation</h3>
+          <p id="3a69d23e-0910-47fb-8b52-3ed6b494bae6" class=""><strong>Input</strong>
+            Required Readonly Loading Disabled Valid Invalid Warning Search with Autosave Input with Pattern Validation
+            Minlength Maxlength</p>
+          <h3 id="212e253a-b7fd-4387-b5e1-3fe06ffb0aa0" class="">Button States</h3>
+          <p id="f36eb185-6d97-47bd-a58d-c70d519d3dc3" class="">Disabled
+            Loading</p>
+          <h3 id="e2a090db-3f71-47bf-920d-cf93b99ce24f" class="">Notes:</h3>
+          <p id="15cc4761-9eeb-4f32-9dcd-c79f7d9c4079" class="">Use <code>:hover</code>, <code>:focus</code>, and
+            <code>:active</code> selectors to control the other button states. Learn more about <a
+              href="https://css-tricks.com/user-facing-state/">semantically managing state</a> and using <a
+              href="https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23#.b1p96hsrw">Buttons in
+              Design
+              Systems</a>.</p>
+          <h3 id="59afe4da-4141-4155-b97a-eb35220000f0" class="">Autocomplete</h3>
+          <p id="e9bc3ff7-7a2f-4c11-8f24-6a008931c2e2" class="">On (Browser automatically completes) Name (Full name)
+            Honorific Prefix (Mr., Ms., Dr., etc.) Additional Name Family Name Honorific Suffix (Jr., II, etc.) Nickname
+            Autocomplete Email Username New Password Current Password Organization Title Organization Street Address
+            Address Line 1 (Can use address-line1-3) Address Level 4 (Can use address-level4-1) Country Country Name
+            Postal Code CC Name (Full name as given on the payment instrument) CC Given Name CC Additional Name CC
+            Family
+            Name CC Number CC Exp CC Exp Month CC Exp Year CC CSC (Security code) CC Type (Visa, American Express, etc.)
+            Transaction Currency Transaction Amount Language (Valid BCP 47 language tag) Bday Bday-day Bday-month
+            Bday-year Sex (Gender identity; free-form text, no newlines) Autocomplete URL One-time Code Photo</p>
+          <h3 id="201ba64a-94ba-4fab-bb35-d1999ce63e5f" class="">Notes:</h3>
+          <p id="c6eb9569-7168-4065-aeaf-1d668011c7ba" class="">Be sure to reference the <a
+              href="http://spaceninja.com/2015/12/08/falsehoods-programmers-believe/">Falsehoods Programmers Believe</a>
+            collection for creating bulletproof inputs.</p>
+          <hr id="c4efc5c7-13eb-42c4-96ad-a926235d3982" />
+
+      </article>
+    </div>
+    <script>
+      document.write( '<a href="' + document.referrer + '">Go Back</a>' );
+
+    </script>
+
+
+
+  </body>
+
+</html>
