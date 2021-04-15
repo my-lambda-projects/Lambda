@@ -13,3 +13,6 @@
 [submodule "noderouting"]
 	path = 2-resources/_Past-Projects/LambdaSchool-master/m4/41b1/noderouting
 	url = https://github.com/evoingram/LambdaSchool.git
+[submodule "LambdaSchool"]
+	path = LambdaSchool
+	url = https://github.com/evoingram/LambdaSchool.git
