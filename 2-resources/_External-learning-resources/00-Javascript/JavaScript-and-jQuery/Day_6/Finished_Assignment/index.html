@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Improved Battleship Game - repl.it</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link href="index.css" 
+          rel="stylesheet" type="text/css" />
+
+  </head>
+  <body class="text-center top">
+
+    <div class="container d-flex w-100 h-100 p-3 pt-5 mx-auto flex-column">
+      <header class="mb-3">
+        <div>
+          <div id="myslider" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#myslider" data-slide-to="0" class="active"></li>
+              <li data-target="#myslider" data-slide-to="1"></li>
+              <li data-target="#myslider" data-slide-to="2"></li>
+              <li data-target="#myslider" data-slide-to="3"></li>
+              <li data-target="#myslider" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                
+                <div class='img img-clouds d-block w-100 p-4 rounded'>
+                  <div class="card ml-4" style="width:10rem">
+                    <img class="card-img-top" src="https://picsum.photos/900/500/?random">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Checkout the JS
+                      </h5>
+                      <p class="card-text">
+                        
+                      </p>
+                      <button id="see-code-btn"
+                              class="btn btn-primary">Check it out!
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="carousel-item">
+                <div class='img img-cactus d-block w-100 rounded'></div>
+              </div>
+              <div class="carousel-item">
+                <div class='img img-wolf d-block w-100 rounded'></div>
+              </div>
+              <div class="carousel-item">
+                <div class='img img-car d-block w-100 rounded'></div>
+              </div>
+              <div class="carousel-item">
+                <div class="img img-cat"></div>
+              </div>
+            </div>
+            
+            <!-- Controls -->
+            <a class="carousel-control-prev" href="#myslider" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myslider" role="button" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        
+        </div>
+           
+      </header>
+
+
+      <!-- CONTROLS -->
+      <div class="row mt-1">
+        <div class="col">
+          <form>
+            <select 
+              class='form-control form-control-lg' 
+              name='slide-number'>
+                <option value='0'>Slide 1</option>
+                <option value='1'>Slide 2</option>
+                <option value='2'>Slide 3</option>
+                <option value='3'>Slide 4</option>
+            </select>
+          </form>
+        </div>
+      </div>
+      
+      
+      <div>Images from <a href="https://picsum.photos">picsum.photos</a>
+      </div>
+      
+      <div class="row mt-0">
+        <div class="col mt-3">
+          <div id="js-code" class="bg-white">
+            <!-- will put iframe here -->
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+</body>
+  
+</html>

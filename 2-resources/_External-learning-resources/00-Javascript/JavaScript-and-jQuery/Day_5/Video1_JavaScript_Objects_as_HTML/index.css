@@ -1,0 +1,34 @@
+body {
+  padding: 0.625rem;
+  background: #b3e5fc;
+}
+body .container {
+  height: 100%;
+  width: 94%;
+  margin: auto;
+}
+article {
+  max-width: 50rem;
+  width: 100%;
+  padding: 0.625rem;
+  margin: 1rem auto;
+  background: #fefefe;
+}
+
+article header {
+  border-bottom: 1px double #4d5d5d;
+}
+article header .title {
+  padding-bottom: 0;
+}
+
+article header .byline {
+  margin-left: 1rem;
+  margin-bottom: 0;
+  font-family: cursive;
+}
+
+article figure img {
+  max-height: 300px;
+}
+
