@@ -1,0 +1,25 @@
+.Nav {
+	height: 50px;
+	background-color: grey;
+	border-bottom: 1px solid black;
+}
+
+.Nav-title {
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.Nav-items {
+	display: inline-block;
+	padding-left: 20px;
+}
+
+.Nav-item {
+	display: inline;
+	padding-right: 10px;
+}
+
+.Nav-item:hover {
+	cursor: default;
+	color: white;
+}
