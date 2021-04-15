@@ -1,0 +1,17 @@
+.Box__title {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.Box--gray {
+  background-color: gray;
+}
+
+.Box--blue {
+  background-color: blue;
+}
+
+.Box--green {
+  background-color: green;
+}
