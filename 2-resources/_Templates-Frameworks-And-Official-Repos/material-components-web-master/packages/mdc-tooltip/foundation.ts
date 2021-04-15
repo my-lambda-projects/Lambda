@@ -1,0 +1,1056 @@
+/**
+ * @license
+ * Copyright 2020 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+import {AnimationFrame} from '@material/animation/animationframe';
+import {getCorrectPropertyName} from '@material/animation/util';
+import {MDCFoundation} from '@material/base/foundation';
+import {EventType, SpecificEventListener} from '@material/base/types';
+import {KEY, normalizeKey} from '@material/dom/keyboard';
+
+import {MDCTooltipAdapter} from './adapter';
+import {AnchorBoundaryType, attributes, CssClasses, numbers, PositionWithCaret, strings, XPosition, YPosition} from './constants';
+import {ShowTooltipOptions} from './types';
+
+const {
+  RICH,
+  SHOWN,
+  SHOWING,
+  SHOWING_TRANSITION,
+  HIDE,
+  HIDE_TRANSITION,
+  MULTILINE_TOOLTIP
+} = CssClasses;
+
+enum AnimationKeys {
+  POLL_ANCHOR = 'poll_anchor'
+}
+
+// Accessing `window` without a `typeof` check will throw on Node environments.
+const HAS_WINDOW = typeof window !== 'undefined';
+
+export class MDCTooltipFoundation extends MDCFoundation<MDCTooltipAdapter> {
+  static get defaultAdapter(): MDCTooltipAdapter {
+    return {
+      getAttribute: () => null,
+      setAttribute: () => undefined,
+      addClass: () => undefined,
+      hasClass: () => false,
+      removeClass: () => undefined,
+      getComputedStyleProperty: () => '',
+      setStyleProperty: () => undefined,
+      setSurfaceStyleProperty: () => undefined,
+      getViewportWidth: () => 0,
+      getViewportHeight: () => 0,
+      getTooltipSize: () => ({width: 0, height: 0}),
+      getAnchorBoundingRect: () =>
+          ({top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0}),
+      getParentBoundingRect: () =>
+          ({top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0}),
+      getAnchorAttribute: () => null,
+      setAnchorAttribute: () => null,
+      isRTL: () => false,
+      anchorContainsElement: () => false,
+      tooltipContainsElement: () => false,
+      focusAnchorElement: () => undefined,
+      registerEventHandler: () => undefined,
+      deregisterEventHandler: () => undefined,
+      registerAnchorEventHandler: () => undefined,
+      deregisterAnchorEventHandler: () => undefined,
+      registerDocumentEventHandler: () => undefined,
+      deregisterDocumentEventHandler: () => undefined,
+      registerWindowEventHandler: () => undefined,
+      deregisterWindowEventHandler: () => undefined,
+      notifyHidden: () => undefined,
+      getTooltipCaretSize: () => null,
+      setTooltipCaretStyle: () => undefined,
+      clearTooltipCaretStyles: () => undefined,
+    };
+  }
+
+  private interactiveTooltip!: boolean;  // assigned in init()
+  private richTooltip!: boolean;         // assigned in init()
+  private persistentTooltip!: boolean;   // assigned in init()
+  private hasCaret!: boolean;            // assigned in init()
+  private tooltipShown = false;
+  private anchorGap = numbers.BOUNDED_ANCHOR_GAP;
+  private xTooltipPos = XPosition.DETECTED;
+  private yTooltipPos = YPosition.DETECTED;
+  private tooltipPositionWithCaret = PositionWithCaret.DETECTED;
+  // Minimum threshold distance needed between the tooltip and the viewport.
+  private readonly minViewportTooltipThreshold =
+      numbers.MIN_VIEWPORT_TOOLTIP_THRESHOLD;
+  private readonly hideDelayMs = numbers.HIDE_DELAY_MS;
+  private readonly showDelayMs = numbers.SHOW_DELAY_MS;
+
+  private anchorRect: ClientRect|null = null;
+  private parentRect: ClientRect|null = null;
+  private frameId: number|null = null;
+  private hideTimeout: number|null = null;
+  private showTimeout: number|null = null;
+  private readonly animFrame: AnimationFrame;
+  private readonly anchorBlurHandler: SpecificEventListener<'blur'>;
+  private readonly documentClickHandler: SpecificEventListener<'click'>;
+  private readonly documentKeydownHandler: SpecificEventListener<'keydown'>;
+  private readonly richTooltipMouseEnterHandler:
+      SpecificEventListener<'mouseenter'>;
+  private readonly richTooltipMouseLeaveHandler:
+      SpecificEventListener<'mouseleave'>;
+  private readonly richTooltipFocusOutHandler:
+      SpecificEventListener<'focusout'>;
+  private readonly windowScrollHandler: SpecificEventListener<'scroll'>;
+  private readonly windowResizeHandler: SpecificEventListener<'resize'>;
+
+  private readonly addAncestorScrollEventListeners = new Array<() => void>();
+  private readonly removeAncestorScrollEventListeners = new Array<() => void>();
+
+  constructor(adapter?: Partial<MDCTooltipAdapter>) {
+    super({...MDCTooltipFoundation.defaultAdapter, ...adapter});
+    this.animFrame = new AnimationFrame();
+
+    this.anchorBlurHandler = (evt) => {
+      this.handleAnchorBlur(evt);
+    };
+
+    this.documentClickHandler = (evt) => {
+      this.handleDocumentClick(evt);
+    };
+
+    this.documentKeydownHandler = (evt) => {
+      this.handleKeydown(evt);
+    };
+
+    this.richTooltipMouseEnterHandler = () => {
+      this.handleRichTooltipMouseEnter();
+    };
+
+    this.richTooltipMouseLeaveHandler = () => {
+      this.handleRichTooltipMouseLeave();
+    };
+
+    this.richTooltipFocusOutHandler = (evt) => {
+      this.handleRichTooltipFocusOut(evt);
+    };
+
+    this.windowScrollHandler = () => {
+      this.handleWindowChangeEvent();
+    };
+
+    this.windowResizeHandler = () => {
+      this.handleWindowChangeEvent();
+    };
+  }
+
+  init() {
+    this.richTooltip = this.adapter.hasClass(RICH);
+    this.persistentTooltip =
+        this.adapter.getAttribute(attributes.PERSISTENT) === 'true';
+    this.interactiveTooltip =
+        !!this.adapter.getAnchorAttribute(attributes.ARIA_EXPANDED) &&
+        this.adapter.getAnchorAttribute(attributes.ARIA_HASPOPUP) === 'dialog';
+    this.hasCaret = this.richTooltip &&
+        this.adapter.getAttribute(attributes.HAS_CARET) === 'true';
+  }
+
+  isShown() {
+    return this.tooltipShown;
+  }
+
+  isRich() {
+    return this.richTooltip;
+  }
+
+  isPersistent() {
+    return this.persistentTooltip;
+  }
+
+  handleAnchorMouseEnter() {
+    if (this.tooltipShown) {
+      // Covers the instance where a user hovers over the anchor to reveal the
+      // tooltip, and then quickly navigates away and then back to the anchor.
+      // The tooltip should stay visible without animating out and then back in
+      // again.
+      this.show();
+    } else {
+      // clearHideTimeout here since handleAnchorMouseLeave sets a hideTimeout
+      // and that can execute before the showTimeout executes, resulting in hide
+      // being called and the showTimeout set below to be cleared.
+      this.clearHideTimeout();
+      this.showTimeout = setTimeout(() => {
+        this.show();
+      }, this.showDelayMs);
+    }
+  }
+
+  handleAnchorTouchstart() {
+    this.showTimeout = setTimeout(() => {
+      this.show();
+    }, this.showDelayMs);
+    // Prevent a context menu from appearing if user is long-pressing on a
+    // tooltip anchor.
+    this.adapter.registerWindowEventHandler(
+        'contextmenu', this.preventContextMenuOnLongTouch);
+  }
+
+  private preventContextMenuOnLongTouch(evt: MouseEvent) {
+    evt.preventDefault();
+  }
+
+  handleAnchorTouchend() {
+    this.clearShowTimeout();
+
+    // Only remove the 'contextmenu' listener if the tooltip is not shown. When
+    // the tooltip *is* shown, listener is removed in the close method.
+    if (!this.isShown()) {
+      this.adapter.deregisterWindowEventHandler(
+          'contextmenu', this.preventContextMenuOnLongTouch);
+    }
+  }
+
+  handleAnchorFocus(evt: FocusEvent) {
+    // TODO(b/157075286): Need to add some way to distinguish keyboard
+    // navigation focus events from other focus events, and only show the
+    // tooltip on the former of these events.
+    const {relatedTarget} = evt;
+    const tooltipContainsRelatedTarget = relatedTarget instanceof HTMLElement &&
+        this.adapter.tooltipContainsElement(relatedTarget);
+    // Do not show tooltip if the previous focus was on a tooltip element. This
+    // occurs when a rich tooltip is closed and focus is restored to the anchor
+    // or when user tab-navigates back into the anchor from the rich tooltip.
+    if (tooltipContainsRelatedTarget) {
+      return;
+    }
+    this.showTimeout = setTimeout(() => {
+      this.show();
+    }, this.showDelayMs);
+  }
+
+  handleAnchorMouseLeave() {
+    this.clearShowTimeout();
+    this.hideTimeout = setTimeout(() => {
+      this.hide();
+    }, this.hideDelayMs);
+  }
+
+  handleAnchorClick() {
+    if (this.tooltipShown) {
+      this.hide();
+    } else {
+      this.show();
+    }
+  }
+
+  handleDocumentClick(evt: MouseEvent) {
+    const anchorOrTooltipContainsTargetElement =
+        evt.target instanceof HTMLElement &&
+        (this.adapter.anchorContainsElement(evt.target) ||
+         this.adapter.tooltipContainsElement(evt.target));
+    // For persistent rich tooltips, we will not hide if:
+    // - The click target is within the anchor element. Otherwise, both
+    //   the anchor element's click handler and this handler will handle the
+    //   click (due to event propagation), resulting in a shown tooltip
+    //   being immediately hidden if the tooltip was initially hidden.
+    // - The click target is within the tooltip element, since clicks
+    //   on the tooltip do not close the tooltip.
+    if (this.richTooltip && this.persistentTooltip &&
+        anchorOrTooltipContainsTargetElement) {
+      return;
+    }
+    // Hide the tooltip immediately on click.
+    this.hide();
+  }
+
+  handleKeydown(evt: KeyboardEvent) {
+    // Hide the tooltip immediately on ESC key.
+    const key = normalizeKey(evt);
+    if (key === KEY.ESCAPE) {
+      const tooltipContainsActiveElement =
+          document.activeElement instanceof HTMLElement &&
+          this.adapter.tooltipContainsElement(document.activeElement);
+      if (tooltipContainsActiveElement) {
+        this.adapter.focusAnchorElement();
+      }
+      this.hide();
+    }
+  }
+
+  private handleAnchorBlur(evt: FocusEvent) {
+    if (this.richTooltip) {
+      const tooltipContainsRelatedTargetElement =
+          evt.relatedTarget instanceof HTMLElement &&
+          this.adapter.tooltipContainsElement(evt.relatedTarget);
+      // If focus changed to the tooltip element, don't hide the tooltip.
+      if (tooltipContainsRelatedTargetElement) {
+        return;
+      }
+    }
+    // Hide tooltip immediately on focus change.
+    this.hide();
+  }
+
+  private handleRichTooltipMouseEnter() {
+    this.show();
+  }
+
+  private handleRichTooltipMouseLeave() {
+    this.clearShowTimeout();
+    this.hideTimeout = setTimeout(() => {
+      this.hide();
+    }, this.hideDelayMs);
+  }
+
+  private handleRichTooltipFocusOut(evt: FocusEvent) {
+    const anchorOrTooltipContainsRelatedTargetElement =
+        evt.relatedTarget instanceof HTMLElement &&
+        (this.adapter.anchorContainsElement(evt.relatedTarget) ||
+         this.adapter.tooltipContainsElement(evt.relatedTarget));
+    // If the focus is still within the anchor or the tooltip, do not hide the
+    // tooltip.
+    if (anchorOrTooltipContainsRelatedTargetElement) {
+      return;
+    }
+    this.hide();
+  }
+
+  /**
+   * On window resize or scroll, check the anchor position and size and
+   * repostion tooltip if necessary.
+   */
+  private handleWindowChangeEvent() {
+    // Since scroll and resize events can fire at a high rate, we throttle
+    // the potential re-positioning of tooltip component using
+    // requestAnimationFrame.
+    this.animFrame.request(AnimationKeys.POLL_ANCHOR, () => {
+      this.repositionTooltipOnAnchorMove();
+    });
+  }
+
+  show() {
+    this.clearHideTimeout();
+    this.clearShowTimeout();
+
+    if (this.tooltipShown) {
+      return;
+    }
+
+    this.tooltipShown = true;
+    const showTooltipOptions = this.parseShowTooltipOptions();
+    if (!showTooltipOptions.hideFromScreenreader) {
+      this.adapter.setAttribute('aria-hidden', 'false');
+    }
+    if (this.richTooltip) {
+      if (this.interactiveTooltip) {
+        this.adapter.setAnchorAttribute('aria-expanded', 'true');
+      }
+      this.adapter.registerEventHandler(
+          'focusout', this.richTooltipFocusOutHandler);
+      if (!this.persistentTooltip) {
+        this.adapter.registerEventHandler(
+            'mouseenter', this.richTooltipMouseEnterHandler);
+        this.adapter.registerEventHandler(
+            'mouseleave', this.richTooltipMouseLeaveHandler);
+      }
+    }
+    this.adapter.removeClass(HIDE);
+    this.adapter.addClass(SHOWING);
+    if (this.isTooltipMultiline() && !this.richTooltip) {
+      this.adapter.addClass(MULTILINE_TOOLTIP);
+    }
+    this.anchorRect = this.adapter.getAnchorBoundingRect();
+    this.parentRect = this.adapter.getParentBoundingRect();
+    this.richTooltip ? this.positionRichTooltip() : this.positionPlainTooltip();
+
+    // TODO(b/182906431): Position of the tooltip caret should be informed by
+    // the position of the tooltip.
+    if (this.hasCaret) {
+      this.setCaretPositionStyles(this.tooltipPositionWithCaret);
+    }
+
+    this.adapter.registerAnchorEventHandler('blur', this.anchorBlurHandler);
+    this.adapter.registerDocumentEventHandler(
+        'click', this.documentClickHandler);
+    this.adapter.registerDocumentEventHandler(
+        'keydown', this.documentKeydownHandler);
+
+    this.adapter.registerWindowEventHandler('scroll', this.windowScrollHandler);
+    this.adapter.registerWindowEventHandler('resize', this.windowResizeHandler);
+    // Register any additional scroll handlers
+    for (const fn of this.addAncestorScrollEventListeners) {
+      fn();
+    }
+
+    this.frameId = requestAnimationFrame(() => {
+      this.clearAllAnimationClasses();
+      this.adapter.addClass(SHOWN);
+      this.adapter.addClass(SHOWING_TRANSITION);
+    });
+  }
+
+  hide() {
+    this.clearHideTimeout();
+    this.clearShowTimeout();
+
+    if (!this.tooltipShown) {
+      return;
+    }
+
+    if (this.frameId) {
+      cancelAnimationFrame(this.frameId);
+    }
+
+    this.tooltipShown = false;
+    this.adapter.setAttribute('aria-hidden', 'true');
+    this.adapter.deregisterEventHandler(
+        'focusout', this.richTooltipFocusOutHandler);
+    if (this.richTooltip) {
+      if (this.interactiveTooltip) {
+        this.adapter.setAnchorAttribute('aria-expanded', 'false');
+      }
+      if (!this.persistentTooltip) {
+        this.adapter.deregisterEventHandler(
+            'mouseenter', this.richTooltipMouseEnterHandler);
+        this.adapter.deregisterEventHandler(
+            'mouseleave', this.richTooltipMouseLeaveHandler);
+      }
+    }
+    this.clearAllAnimationClasses();
+    this.adapter.addClass(HIDE);
+    this.adapter.addClass(HIDE_TRANSITION);
+    this.adapter.removeClass(SHOWN);
+
+    this.adapter.deregisterAnchorEventHandler('blur', this.anchorBlurHandler);
+    this.adapter.deregisterDocumentEventHandler(
+        'click', this.documentClickHandler);
+    this.adapter.deregisterDocumentEventHandler(
+        'keydown', this.documentKeydownHandler);
+    this.adapter.deregisterWindowEventHandler(
+        'scroll', this.windowScrollHandler);
+    this.adapter.deregisterWindowEventHandler(
+        'resize', this.windowResizeHandler);
+    this.adapter.deregisterWindowEventHandler(
+        'contextmenu', this.preventContextMenuOnLongTouch);
+
+    // Deregister any additional scroll handlers
+    for (const fn of this.removeAncestorScrollEventListeners) {
+      fn();
+    }
+  }
+
+  handleTransitionEnd() {
+    const isHidingTooltip = this.adapter.hasClass(HIDE);
+
+    this.adapter.removeClass(SHOWING);
+    this.adapter.removeClass(SHOWING_TRANSITION);
+    this.adapter.removeClass(HIDE);
+    this.adapter.removeClass(HIDE_TRANSITION);
+
+    // If handleTransitionEnd is called after hiding the tooltip, the tooltip
+    // will have the HIDE class (before calling the adapter removeClass method).
+    // If tooltip is now hidden, send a notification that the animation has
+    // completed and the tooltip is no longer visible.
+    if (isHidingTooltip) {
+      this.adapter.notifyHidden();
+    }
+  }
+
+  private clearAllAnimationClasses() {
+    this.adapter.removeClass(SHOWING_TRANSITION);
+    this.adapter.removeClass(HIDE_TRANSITION);
+  }
+
+  setTooltipPosition(position: {
+    xPos?: XPosition,
+    yPos?: YPosition,
+    withCaretPos?: PositionWithCaret
+  }) {
+    const {xPos, yPos, withCaretPos} = position;
+    if (this.hasCaret && withCaretPos) {
+      this.tooltipPositionWithCaret = withCaretPos;
+      return;
+    }
+
+    if (xPos) {
+      this.xTooltipPos = xPos;
+    }
+
+    if (yPos) {
+      this.yTooltipPos = yPos;
+    }
+  }
+
+  setAnchorBoundaryType(type: AnchorBoundaryType) {
+    if (type === AnchorBoundaryType.UNBOUNDED) {
+      this.anchorGap = numbers.UNBOUNDED_ANCHOR_GAP;
+    } else {
+      this.anchorGap = numbers.BOUNDED_ANCHOR_GAP;
+    }
+  }
+
+  private parseShowTooltipOptions(): ShowTooltipOptions {
+    const hideFromScreenreader =
+        Boolean(this.adapter.getAnchorAttribute('data-tooltip-id'));
+    return {hideFromScreenreader};
+  }
+
+  private isTooltipMultiline() {
+    const tooltipSize = this.adapter.getTooltipSize();
+    return tooltipSize.height > numbers.MIN_HEIGHT &&
+        tooltipSize.width >= numbers.MAX_WIDTH;
+  }
+
+  private positionPlainTooltip() {
+    // A plain tooltip has `fixed` positioning and is placed as an immediate
+    // child of the document body. Its positioning is calculated with respect to
+    // the viewport.
+    const {top, yTransformOrigin, left, xTransformOrigin} =
+        this.calculateTooltipStyles(this.anchorRect);
+
+    const transformProperty =
+        HAS_WINDOW ? getCorrectPropertyName(window, 'transform') : 'transform';
+    this.adapter.setSurfaceStyleProperty(
+        `${transformProperty}-origin`,
+        `${yTransformOrigin} ${xTransformOrigin}`);
+    this.adapter.setStyleProperty('top', `${top}px`);
+    this.adapter.setStyleProperty('left', `${left}px`);
+  }
+
+  private positionRichTooltip() {
+    // TODO(b/177686782): Remove width setting when max-content is used to style
+    // the rich tooltip.
+
+    // getComputedStyleProperty is used instead of getTooltipSize since
+    // getTooltipSize returns the offSetWidth, which includes the border and
+    // padding. What we need is the width of the tooltip without border and
+    // padding.
+    const width = this.adapter.getComputedStyleProperty('width');
+    // When rich tooltips are positioned within their parent containers, the
+    // tooltip width might be shrunk if it collides with the edge of the parent
+    // container. We set the width of the tooltip to prevent this.
+    this.adapter.setStyleProperty('width', width);
+
+    const {top, yTransformOrigin, left, xTransformOrigin} =
+        this.calculateTooltipStyles(this.anchorRect);
+
+    const transformProperty =
+        HAS_WINDOW ? getCorrectPropertyName(window, 'transform') : 'transform';
+    this.adapter.setSurfaceStyleProperty(
+        `${transformProperty}-origin`,
+        `${yTransformOrigin} ${xTransformOrigin}`);
+    // A rich tooltip has `absolute` positioning and is placed as a sibling to
+    // the anchor element. Its positioning is calculated with respect to the
+    // parent element, and so the values need to be adjusted against the parent
+    // element.
+    const leftAdjustment = left - (this.parentRect?.left ?? 0);
+    const topAdjustment = top - (this.parentRect?.top ?? 0);
+    this.adapter.setStyleProperty('top', `${topAdjustment}px`);
+    this.adapter.setStyleProperty('left', `${leftAdjustment}px`);
+  }
+
+  /**
+   * Calculates the position of the tooltip. A tooltip will be placed beneath
+   * the anchor element and aligned either with the 'start'/'end' edge of the
+   * anchor element or the 'center'.
+   *
+   * Tooltip alignment is selected such that the tooltip maintains a threshold
+   * distance away from the viewport (defaulting to 'center' alignment). If the
+   * placement of the anchor prevents this threshold distance from being
+   * maintained, the tooltip is positioned so that it does not collide with the
+   * viewport.
+   *
+   * Users can specify an alignment, however, if this alignment results in the
+   * tooltip colliding with the viewport, this specification is overwritten.
+   */
+  private calculateTooltipStyles(anchorRect: ClientRect|null) {
+    if (!anchorRect) {
+      return {top: 0, left: 0};
+    }
+
+    const tooltipSize = this.adapter.getTooltipSize();
+    const top = this.calculateYTooltipDistance(anchorRect, tooltipSize.height);
+    const left = this.calculateXTooltipDistance(anchorRect, tooltipSize.width);
+
+    return {
+      top: top.distance,
+      yTransformOrigin: top.yTransformOrigin,
+      left: left.distance,
+      xTransformOrigin: left.xTransformOrigin
+    };
+  }
+
+  /**
+   * Calculates the `left` distance for the tooltip.
+   * Returns the distance value and a string indicating the x-axis transform-
+   * origin that should be used when animating the tooltip.
+   */
+  private calculateXTooltipDistance(
+      anchorRect: ClientRect,
+      tooltipWidth: number): ({distance: number, xTransformOrigin: string}) {
+    const isLTR = !this.adapter.isRTL();
+    let startPos, endPos, centerPos: number|undefined;
+    let startTransformOrigin, endTransformOrigin: string;
+    if (this.richTooltip) {
+      startPos = isLTR ? anchorRect.left - tooltipWidth : anchorRect.right;
+      endPos = isLTR ? anchorRect.right : anchorRect.left - tooltipWidth;
+
+      startTransformOrigin = isLTR ? strings.RIGHT : strings.LEFT;
+      endTransformOrigin = isLTR ? strings.LEFT : strings.RIGHT;
+    } else {
+      startPos = isLTR ? anchorRect.left : anchorRect.right - tooltipWidth;
+      endPos = isLTR ? anchorRect.right - tooltipWidth : anchorRect.left;
+      centerPos = anchorRect.left + (anchorRect.width - tooltipWidth) / 2;
+
+      startTransformOrigin = isLTR ? strings.LEFT : strings.RIGHT;
+      endTransformOrigin = isLTR ? strings.RIGHT : strings.LEFT;
+    }
+
+    const positionOptions = this.richTooltip ?
+        this.determineValidPositionOptions(startPos, endPos) :
+        // For plain tooltips, centerPos is defined
+        this.determineValidPositionOptions(centerPos!, startPos, endPos);
+
+    if (this.xTooltipPos === XPosition.START && positionOptions.has(startPos)) {
+      return {distance: startPos, xTransformOrigin: startTransformOrigin};
+    }
+    if (this.xTooltipPos === XPosition.END && positionOptions.has(endPos)) {
+      return {distance: endPos, xTransformOrigin: endTransformOrigin};
+    }
+    if (this.xTooltipPos === XPosition.CENTER &&
+        positionOptions.has(centerPos)) {
+      // This code path is only executed if calculating the distance for plain
+      // tooltips. In this instance, centerPos will always be defined, so we can
+      // safely assert that the returned value is non-null/undefined.
+      return {distance: centerPos!, xTransformOrigin: strings.CENTER};
+    }
+
+    // If no user position is supplied, rich tooltips default to end pos, then
+    // start position. Plain tooltips default to center, start, then end.
+    const possiblePositions = this.richTooltip ?
+        [
+          {distance: endPos, xTransformOrigin: endTransformOrigin},
+          {distance: startPos, xTransformOrigin: startTransformOrigin}
+        ] :
+        [
+          {distance: centerPos!, xTransformOrigin: strings.CENTER},
+          {distance: startPos, xTransformOrigin: startTransformOrigin},
+          {distance: endPos, xTransformOrigin: endTransformOrigin}
+        ];
+
+    const validPosition =
+        possiblePositions.find(({distance}) => positionOptions.has(distance));
+    if (validPosition) {
+      return validPosition;
+    }
+
+    // Indicates that all potential positions would result in the tooltip
+    // colliding with the viewport. This would only occur when the anchor
+    // element itself collides with the viewport, or the viewport is very
+    // narrow. In this case, we allow the tooltip to be mis-aligned from the
+    // anchor element.
+    if (anchorRect.left < 0) {
+      return {
+        distance: this.minViewportTooltipThreshold,
+        xTransformOrigin: strings.LEFT
+      };
+    } else {
+      const viewportWidth = this.adapter.getViewportWidth();
+      const distance =
+          viewportWidth - (tooltipWidth + this.minViewportTooltipThreshold);
+      return {distance, xTransformOrigin: strings.RIGHT};
+    }
+  }
+
+  /**
+   * Given the values for the horizontal alignments of the tooltip, calculates
+   * which of these options would result in the tooltip maintaining the required
+   * threshold distance vs which would result in the tooltip staying within the
+   * viewport.
+   *
+   * A Set of values is returned holding the distances that would honor the
+   * above requirements. Following the logic for determining the tooltip
+   * position, if all alignments violate the threshold, then the returned Set
+   * contains values that keep the tooltip within the viewport.
+   */
+  private determineValidPositionOptions(...positions: number[]) {
+    const posWithinThreshold = new Set();
+    const posWithinViewport = new Set();
+
+    for (const position of positions) {
+      if (this.positionHonorsViewportThreshold(position)) {
+        posWithinThreshold.add(position);
+      } else if (this.positionDoesntCollideWithViewport(position)) {
+        posWithinViewport.add(position);
+      }
+    }
+
+    return posWithinThreshold.size ? posWithinThreshold : posWithinViewport;
+  }
+
+  private positionHonorsViewportThreshold(leftPos: number) {
+    const viewportWidth = this.adapter.getViewportWidth();
+    const tooltipWidth = this.adapter.getTooltipSize().width;
+
+    return leftPos + tooltipWidth <=
+        viewportWidth - this.minViewportTooltipThreshold &&
+        leftPos >= this.minViewportTooltipThreshold;
+  }
+
+  private positionDoesntCollideWithViewport(leftPos: number) {
+    const viewportWidth = this.adapter.getViewportWidth();
+    const tooltipWidth = this.adapter.getTooltipSize().width;
+
+    return leftPos + tooltipWidth <= viewportWidth && leftPos >= 0;
+  }
+
+  /**
+   * Calculates the `top` distance for the tooltip.
+   * Returns the distance value and a string indicating the y-axis transform-
+   * origin that should be used when animating the tooltip.
+   */
+  private calculateYTooltipDistance(
+      anchorRect: ClientRect, tooltipHeight: number) {
+    const belowYPos = anchorRect.bottom + this.anchorGap;
+    const aboveYPos = anchorRect.top - (this.anchorGap + tooltipHeight);
+    const yPositionOptions =
+        this.determineValidYPositionOptions(aboveYPos, belowYPos);
+
+    if (this.yTooltipPos === YPosition.ABOVE &&
+        yPositionOptions.has(aboveYPos)) {
+      return {distance: aboveYPos, yTransformOrigin: strings.BOTTOM};
+    } else if (
+        this.yTooltipPos === YPosition.BELOW &&
+        yPositionOptions.has(belowYPos)) {
+      return {distance: belowYPos, yTransformOrigin: strings.TOP};
+    }
+
+    if (yPositionOptions.has(belowYPos)) {
+      return {distance: belowYPos, yTransformOrigin: strings.TOP};
+    }
+
+    if (yPositionOptions.has(aboveYPos)) {
+      return {distance: aboveYPos, yTransformOrigin: strings.BOTTOM};
+    }
+
+    // Indicates that all potential positions would result in the tooltip
+    // colliding with the viewport. This would only occur when the viewport is
+    // very short.
+    return {distance: belowYPos, yTransformOrigin: strings.TOP};
+  }
+
+  /**
+   * Given the values for above/below alignment of the tooltip, calculates
+   * which of these options would result in the tooltip maintaining the required
+   * threshold distance vs which would result in the tooltip staying within the
+   * viewport.
+   *
+   * A Set of values is returned holding the distances that would honor the
+   * above requirements. Following the logic for determining the tooltip
+   * position, if all possible alignments violate the threshold, then the
+   * returned Set contains values that keep the tooltip within the viewport.
+   */
+  private determineValidYPositionOptions(
+      aboveAnchorPos: number, belowAnchorPos: number) {
+    const posWithinThreshold = new Set();
+    const posWithinViewport = new Set();
+
+    if (this.yPositionHonorsViewportThreshold(aboveAnchorPos)) {
+      posWithinThreshold.add(aboveAnchorPos);
+    } else if (this.yPositionDoesntCollideWithViewport(aboveAnchorPos)) {
+      posWithinViewport.add(aboveAnchorPos);
+    }
+
+    if (this.yPositionHonorsViewportThreshold(belowAnchorPos)) {
+      posWithinThreshold.add(belowAnchorPos);
+    } else if (this.yPositionDoesntCollideWithViewport(belowAnchorPos)) {
+      posWithinViewport.add(belowAnchorPos);
+    }
+
+    return posWithinThreshold.size ? posWithinThreshold : posWithinViewport;
+  }
+
+  private yPositionHonorsViewportThreshold(yPos: number) {
+    const viewportHeight = this.adapter.getViewportHeight();
+    const tooltipHeight = this.adapter.getTooltipSize().height;
+
+    return yPos + tooltipHeight + this.minViewportTooltipThreshold <=
+        viewportHeight &&
+        yPos >= this.minViewportTooltipThreshold;
+  }
+
+  private yPositionDoesntCollideWithViewport(yPos: number) {
+    const viewportHeight = this.adapter.getViewportHeight();
+    const tooltipHeight = this.adapter.getTooltipSize().height;
+
+    return yPos + tooltipHeight <= viewportHeight && yPos >= 0;
+  }
+
+  private repositionTooltipOnAnchorMove() {
+    const newAnchorRect = this.adapter.getAnchorBoundingRect();
+    if (!newAnchorRect || !this.anchorRect) return;
+
+    if (newAnchorRect.top !== this.anchorRect.top ||
+        newAnchorRect.left !== this.anchorRect.left ||
+        newAnchorRect.height !== this.anchorRect.height ||
+        newAnchorRect.width !== this.anchorRect.width) {
+      this.anchorRect = newAnchorRect;
+      this.parentRect = this.adapter.getParentBoundingRect();
+      this.richTooltip ? this.positionRichTooltip() :
+                         this.positionPlainTooltip();
+    }
+  }
+
+  /**
+   * Given a PositionWithCaret, applies the correct styles to the caret element
+   * so that it is positioned properly on the rich tooltip.
+   * Returns the x and y positions of the caret, to be used as the
+   * transform-origin on the tooltip itself for entrance animations.
+   */
+  private setCaretPositionStyles(position: PositionWithCaret) {
+    const values = this.calculateCaretPositionOnTooltip(position);
+    if (!values) {
+      return {yTransformOrigin: 0, xTransformOrigin: 0};
+    }
+    // Prior to setting the caret position styles, clear any previous styles
+    // set. This is necessary as all position options do not use the same
+    // properties (e.g. using 'left' or 'right') and so old style properties
+    // might not get overridden, causing misplaced carets.
+    this.adapter.clearTooltipCaretStyles();
+
+    this.adapter.setTooltipCaretStyle(values.yAlignment, values.yAxisPx);
+    this.adapter.setTooltipCaretStyle(values.xAlignment, values.xAxisPx);
+    this.adapter.setTooltipCaretStyle(
+        'transform', `rotate(${values.rotation})`);
+    this.adapter.setTooltipCaretStyle(
+        'transform-origin', `${values.yAlignment} ${values.xAlignment}`);
+    return {yTransformOrigin: values.yAxisPx, xTransformOrigin: values.xAxisPx};
+  }
+
+  /**
+   * Given a PositionWithCaret, determines the correct styles to position the
+   * caret properly on the rich tooltip.
+   */
+  private calculateCaretPositionOnTooltip(tooltipPos: PositionWithCaret) {
+    const isLTR = !this.adapter.isRTL();
+    const tooltipWidth = this.adapter.getComputedStyleProperty('width');
+    const tooltipHeight = this.adapter.getComputedStyleProperty('height');
+    const caretDimensions = this.adapter.getTooltipCaretSize();
+    if (!tooltipWidth || !tooltipHeight || !caretDimensions) {
+      return;
+    }
+    const caretDiagonal = caretDimensions.width * Math.sqrt(2);
+
+    const midpointWidth = `calc((${tooltipWidth} - ${caretDiagonal}px) / 2)`;
+    const midpointHeight = `calc((${tooltipHeight} - ${caretDiagonal}px) / 2)`;
+    const flushWithEdge = '0';
+    const indentedFromEdge = `${numbers.CARET_INDENTATION}px`;
+    const positiveRot = '45deg';
+    const negativeRot = '-45deg';
+
+    switch (tooltipPos) {
+      case PositionWithCaret.BELOW_CENTER:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: strings.LEFT,
+          yAxisPx: flushWithEdge,
+          xAxisPx: midpointWidth,
+          rotation: negativeRot
+        };
+      case PositionWithCaret.BELOW_END:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: isLTR ? strings.RIGHT : strings.LEFT,
+          yAxisPx: flushWithEdge,
+          xAxisPx: indentedFromEdge,
+          rotation: isLTR ? positiveRot : negativeRot
+        };
+      case PositionWithCaret.BELOW_START:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: isLTR ? strings.LEFT : strings.RIGHT,
+          yAxisPx: flushWithEdge,
+          xAxisPx: indentedFromEdge,
+          rotation: isLTR ? negativeRot : positiveRot
+        };
+
+      case PositionWithCaret.TOP_SIDE_END:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: isLTR ? strings.LEFT : strings.RIGHT,
+          yAxisPx: indentedFromEdge,
+          xAxisPx: flushWithEdge,
+          rotation: isLTR ? positiveRot : negativeRot
+        };
+      case PositionWithCaret.CENTER_SIDE_END:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: isLTR ? strings.LEFT : strings.RIGHT,
+          yAxisPx: midpointHeight,
+          xAxisPx: flushWithEdge,
+          rotation: isLTR ? positiveRot : negativeRot
+        };
+      case PositionWithCaret.BOTTOM_SIDE_END:
+        return {
+          yAlignment: strings.BOTTOM,
+          xAlignment: isLTR ? strings.LEFT : strings.RIGHT,
+          yAxisPx: indentedFromEdge,
+          xAxisPx: flushWithEdge,
+          rotation: isLTR ? negativeRot : positiveRot
+        };
+
+      case PositionWithCaret.TOP_SIDE_START:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: isLTR ? strings.RIGHT : strings.LEFT,
+          yAxisPx: indentedFromEdge,
+          xAxisPx: flushWithEdge,
+          rotation: isLTR ? negativeRot : positiveRot
+        };
+      case PositionWithCaret.CENTER_SIDE_START:
+        return {
+          yAlignment: strings.TOP,
+          xAlignment: isLTR ? strings.RIGHT : strings.LEFT,
+          yAxisPx: midpointHeight,
+          xAxisPx: flushWithEdge,
+          rotation: isLTR ? negativeRot : positiveRot
+        };
+      case PositionWithCaret.BOTTOM_SIDE_START:
+        return {
+          yAlignment: strings.BOTTOM,
+          xAlignment: isLTR ? strings.RIGHT : strings.LEFT,
+          yAxisPx: indentedFromEdge,
+          xAxisPx: flushWithEdge,
+          rotation: isLTR ? positiveRot : negativeRot
+        };
+
+      case PositionWithCaret.ABOVE_CENTER:
+        return {
+          yAlignment: strings.BOTTOM,
+          xAlignment: strings.LEFT,
+          yAxisPx: flushWithEdge,
+          xAxisPx: midpointWidth,
+          rotation: positiveRot
+        };
+      case PositionWithCaret.ABOVE_END:
+        return {
+          yAlignment: strings.BOTTOM,
+          xAlignment: isLTR ? strings.RIGHT : strings.LEFT,
+          yAxisPx: flushWithEdge,
+          xAxisPx: indentedFromEdge,
+          rotation: isLTR ? negativeRot : positiveRot
+        };
+      default:
+      case PositionWithCaret.ABOVE_START:
+        return {
+          yAlignment: strings.BOTTOM,
+          xAlignment: isLTR ? strings.LEFT : strings.RIGHT,
+          yAxisPx: flushWithEdge,
+          xAxisPx: indentedFromEdge,
+          rotation: isLTR ? positiveRot : negativeRot
+        };
+    }
+  }
+
+  private clearShowTimeout() {
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = null;
+    }
+  }
+
+  private clearHideTimeout() {
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
+    }
+  }
+
+  /**
+   * Method that allows user to specify additional elements that should have a
+   * scroll event listener attached to it. This should be used in instances
+   * where the anchor element is placed inside a scrollable container, and will
+   * ensure that the tooltip will stay attached to the anchor on scroll.
+   */
+  attachScrollHandler(
+      addEventListenerFn: <K extends EventType>(
+          event: K, handler: SpecificEventListener<K>) => void) {
+    this.addAncestorScrollEventListeners.push(() => {
+      addEventListenerFn('scroll', this.windowScrollHandler);
+    });
+  }
+
+  /**
+   * Must be used in conjunction with #attachScrollHandler. Removes the scroll
+   * event handler from elements on the page.
+   */
+  removeScrollHandler(
+      removeEventHandlerFn: <K extends EventType>(
+          event: K, handler: SpecificEventListener<K>) => void) {
+    this.removeAncestorScrollEventListeners.push(() => {
+      removeEventHandlerFn('scroll', this.windowScrollHandler);
+    });
+  }
+
+
+  destroy() {
+    if (this.frameId) {
+      cancelAnimationFrame(this.frameId);
+      this.frameId = null;
+    }
+
+    this.clearHideTimeout();
+    this.clearShowTimeout();
+
+    this.adapter.removeClass(SHOWN);
+    this.adapter.removeClass(SHOWING_TRANSITION);
+    this.adapter.removeClass(SHOWING);
+    this.adapter.removeClass(HIDE);
+    this.adapter.removeClass(HIDE_TRANSITION);
+
+    if (this.richTooltip) {
+      this.adapter.deregisterEventHandler(
+          'focusout', this.richTooltipFocusOutHandler);
+      if (!this.persistentTooltip) {
+        this.adapter.deregisterEventHandler(
+            'mouseenter', this.richTooltipMouseEnterHandler);
+        this.adapter.deregisterEventHandler(
+            'mouseleave', this.richTooltipMouseLeaveHandler);
+      }
+    }
+
+    this.adapter.deregisterDocumentEventHandler(
+        'click', this.documentClickHandler);
+    this.adapter.deregisterDocumentEventHandler(
+        'keydown', this.documentKeydownHandler);
+
+    this.adapter.deregisterWindowEventHandler(
+        'scroll', this.windowScrollHandler);
+    this.adapter.deregisterWindowEventHandler(
+        'resize', this.windowResizeHandler);
+    for (const fn of this.removeAncestorScrollEventListeners) {
+      fn();
+    }
+
+    this.animFrame.cancelAll();
+  }
+}
+
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+export default MDCTooltipFoundation;

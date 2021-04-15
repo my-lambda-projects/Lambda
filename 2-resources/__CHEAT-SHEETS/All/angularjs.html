@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1">    <span class="kw">&lt;html</span><span class="ot"> ng-app=</span><span class="st">&quot;nameApp&quot;</span><span class="kw">&gt;</span></a></code></pre>
+    </div>
+    <h3 id="lists-ng-repeat">Lists (ng-repeat)</h3>
+    <div class="sourceCode" id="cb2">
+      <pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1">    <span class="kw">&lt;ul</span><span class="ot"> ng-controller=</span><span class="st">&quot;MyListCtrl&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2">      <span class="kw">&lt;li</span><span class="ot"> ng-repeat=</span><span class="st">&quot;phone in phones&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">        {{phone.name}}</a>
+<a class="sourceLine" id="cb2-4" title="4">      <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="kw">&lt;/ul&gt;</span></a></code></pre>
+    </div>
+    <h3 id="model-ng-model">Model (ng-model)</h3>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1">    <span class="kw">&lt;select</span><span class="ot"> ng-model=</span><span class="st">&quot;orderProp&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">      <span class="kw">&lt;option</span><span class="ot"> value=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>Alphabetical<span class="kw">&lt;/option&gt;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">      <span class="kw">&lt;option</span><span class="ot"> value=</span><span class="st">&quot;age&quot;</span><span class="kw">&gt;</span>Newest<span class="kw">&lt;/option&gt;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="kw">&lt;/select&gt;</span></a></code></pre>
+    </div>
+    <h3 id="defining-a-module">Defining a module</h3>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">    App <span class="op">=</span> <span class="va">angular</span>.<span class="at">module</span>(<span class="st">&#39;myApp&#39;</span><span class="op">,</span> [])<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="va">App</span>.<span class="at">controller</span>(<span class="st">&#39;MyListCtrl&#39;</span><span class="op">,</span> <span class="kw">function</span> ($scope) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">      <span class="va">$scope</span>.<span class="at">phones</span> <span class="op">=</span> [ ... ]<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="op">}</span>)<span class="op">;</span></a></code></pre>
+    </div>
+    <h3 id="controller-with-protection-from-minification">Controller with protection from minification</h3>
+    <div class="sourceCode" id="cb5">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1">   <span class="va"> App</span>.<span class="at">controller</span>(<span class="st">&#39;Name&#39;</span><span class="op">,</span> [</a>
+<a class="sourceLine" id="cb5-2" title="2">      <span class="st">&#39;$scope&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">      <span class="st">&#39;$http&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">      <span class="kw">function</span> ($scope<span class="op">,</span> $http) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    ])<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="va">a</span>.<span class="at">c</span> <span class="st">&#39;name&#39;</span><span class="op">,</span> [</a>
+<a class="sourceLine" id="cb5-9" title="9">      <span class="st">&#39;$scope&#39;</span></a>
+<a class="sourceLine" id="cb5-10" title="10">      <span class="st">&#39;$http&#39;</span></a>
+<a class="sourceLine" id="cb5-11" title="11">      ($scope<span class="op">,</span> $http) <span class="op">-&gt;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">    ]</a></code></pre>
+    </div>
+    <h3 id="service">Service</h3>
+    <div class="sourceCode" id="cb6">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1">   <span class="va"> App</span>.<span class="at">service</span>(<span class="st">&#39;NameService&#39;</span><span class="op">,</span> <span class="kw">function</span>($http)<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">      <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="dt">get</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-4" title="4">          <span class="cf">return</span> <span class="va">$http</span>.<span class="at">get</span>(url)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-6" title="6">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="op">}</span>)<span class="op">;</span></a></code></pre>
+    </div>
+    <p>In controller you call with parameter and will use promises to return data from server.</p>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">   <span class="va"> App</span>.<span class="at">controller</span>(<span class="st">&#39;controllerName&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">function</span>(NameService)<span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">      <span class="va">NameService</span>.<span class="at">get</span>()</a>
+<a class="sourceLine" id="cb7-4" title="4">      .<span class="at">then</span>(<span class="kw">function</span>()<span class="op">{}</span>)</a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="op">}</span>)</a></code></pre>
+    </div>
+    <h3 id="directive">Directive</h3>
+    <div class="sourceCode" id="cb8">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">   <span class="va"> App</span>.<span class="at">directive</span>(<span class="st">&#39;name&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">      <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-3" title="3">        <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;&lt;h1&gt;Hello&lt;/h1&gt;&#39;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="op">}</span>)<span class="op">;</span></a></code></pre>
+    </div>
+    <p>In HTML will use <code>&lt;name&gt;&lt;/name&gt;</code> to render your template
+      <code>&lt;h1&gt;Hello&lt;/h1&gt;</code></p>
+    <h3 id="http">HTTP</h3>
+    <div class="sourceCode" id="cb9">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1">    <span class="va">App</span>.<span class="at">controller</span>(<span class="st">&#39;PhoneListCtrl&#39;</span><span class="op">,</span> <span class="kw">function</span> ($scope<span class="op">,</span> $http) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">        <span class="va">$http</span>.<span class="at">get</span>(<span class="st">&#39;/data.json&#39;</span>).<span class="at">success</span>(<span class="kw">function</span> (data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">            <span class="va">$scope</span>.<span class="at">phones</span> <span class="op">=</span> data<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">        <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="op">}</span>)<span class="op">;</span></a></code></pre>
+    </div>
+    <p>References:</p>
+    <ul>
+      <li>https://github.com/angular/angular-seed</li>
+      <li>https://angularjs.org/</li>
+    </ul>
+  </body>
+
+</html>

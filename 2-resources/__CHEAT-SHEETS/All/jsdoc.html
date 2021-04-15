@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="functions">Functions</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co"> * This is a function.</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> n - A string param</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string} A good string</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co"> * </span><span class="an">@example</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co"> *     foo(&#39;hello&#39;)</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="kw">function</span> <span class="at">foo</span>(n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="cf">return</span> n</a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="op">}</span></a></code></pre></div>
+<p>See: <a href="https://jsdoc.app/index.html" class="uri">https://jsdoc.app/index.html</a></p>
+<h3 id="types">Types</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>@param {string=} n</code></td>
+<td>Optional</td>
+</tr>
+<tr class="even">
+<td><code>@param {string} [n]</code></td>
+<td>Optional</td>
+</tr>
+<tr class="odd">
+<td><code>@param {(string|number)} n</code></td>
+<td>Multiple types</td>
+</tr>
+<tr class="even">
+<td><code>@param {*} n</code></td>
+<td>Any type</td>
+</tr>
+<tr class="odd">
+<td><code>@param {...string} n</code></td>
+<td>Repeatable arguments</td>
+</tr>
+<tr class="even">
+<td><code>@param {string} [n="hi"]</code></td>
+<td>Optional with default</td>
+</tr>
+<tr class="odd">
+<td><code>@param {string[]} n</code></td>
+<td>Array of strings</td>
+</tr>
+<tr class="even">
+<td><code>@return {Promise&lt;string[]&gt;} n</code></td>
+<td>Promise fulfilled by array of strings</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href="https://jsdoc.app/tags-type.html" class="uri">https://jsdoc.app/tags-type.html</a></p>
+<h3 id="variables">Variables</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"> * </span><span class="an">@type</span><span class="co"> {number}</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">var</span> FOO <span class="op">=</span> <span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"> * </span><span class="an">@const</span><span class="co"> {number}</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw">const</span> FOO <span class="op">=</span> <span class="dv">1</span></a></code></pre></div>
+<h3 id="typedef">Typedef</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co"> * A song</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co"> * </span><span class="an">@typedef</span><span class="co"> </span><span class="do">{Object}</span><span class="co"> </span><span class="do">Song</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co"> * </span><span class="an">@property</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> title - The title</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co"> * </span><span class="an">@property</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> artist - The artist</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co"> * </span><span class="an">@property</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> year - The year</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co"> */</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co"> * Plays a song</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{Song}</span><span class="co"> song - The {</span><span class="an">@link</span><span class="co"> </span><span class="cv">Song}</span><span class="co"> to be played</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="kw">function</span> <span class="at">play</span>(song) <span class="op">{}</span></a></code></pre></div>
+<p>See: <a href="https://jsdoc.app/tags-typedef.html" class="uri">https://jsdoc.app/tags-typedef.html</a></p>
+<h3 id="typedef-shorthand">Typedef Shorthand</h3>
+<p>{% raw %}</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co"> * A song</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co"> * </span><span class="an">@typedef</span><span class="co"> </span><span class="do">{{title:</span><span class="co"> </span><span class="do">string,</span><span class="co"> </span><span class="do">artist:</span><span class="co"> </span><span class="do">string,</span><span class="co"> </span><span class="do">year:</span><span class="co"> </span><span class="do">number}}</span><span class="co"> </span><span class="do">Song</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co"> */</span></a></code></pre></div>
+<p>{% endraw %}</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co"> * Plays a song</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{Song}</span><span class="co"> song - The {</span><span class="an">@link</span><span class="co"> </span><span class="cv">Song}</span><span class="co"> to be played</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw">function</span> <span class="at">play</span>(song) <span class="op">{}</span></a></code></pre></div>
+<p>See: <a href="https://jsdoc.app/tags-typedef.html" class="uri">https://jsdoc.app/tags-typedef.html</a></p>
+<h3 id="importing-types">Importing types</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co"> * </span><span class="an">@typedef</span><span class="co"> </span><span class="do">{import(&#39;./Foo&#39;).default}</span><span class="co"> </span><span class="do">Bar</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{Bar}</span><span class="co"> x</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="kw">function</span> <span class="at">test</span>(x) <span class="op">{}</span></a></code></pre></div>
+<p>This syntax is <a href="https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types">TypeScript-specific</a>.</p>
+<h3 id="other-keywords">Other keywords</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co"> * </span><span class="an">@throws</span><span class="co"> </span><span class="cv">{FooException}</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co"> * </span><span class="an">@private</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co"> * </span><span class="an">@deprecated</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="co"> * </span><span class="an">@see</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="co"> * </span><span class="an">@function</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="co"> * </span><span class="an">@class</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="co"> */</span></a></code></pre></div>
+<p>See the full list: <a href="https://jsdoc.app/index.html#block-tags" class="uri">https://jsdoc.app/index.html#block-tags</a></p>
+<h3 id="renaming">Renaming</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="co"> * @alias Foo.bar</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="co"> * @name Foo.bar</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="co"> */</span></a></code></pre></div>
+<p>Prefer <code>alias</code> over <code>name</code>. See: <a href="https://jsdoc.app/tags-alias.html" class="uri">https://jsdoc.app/tags-alias.html</a></p>
+</body></html>

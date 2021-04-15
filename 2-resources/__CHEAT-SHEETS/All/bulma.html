@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="screen-sizes">Screen sizes</h3>
+    <pre><code>         768         1024                1216         1408
+&#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;     &#39;
+&lt;---------^------------^------------------^-------------^-------------&gt;
+  mobile      tablet         desktop         widescreen      fullhd</code></pre>
+    <h3 id="columns">Columns</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">.container</span></a></code></pre>
+    </div>
+    <p>Wrap as many <code>.column</code>‘s' as you like in a <code>.columns</code> wrapper</p>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;columns&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;column&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;column&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;column&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;column&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;column&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">&lt;/div&gt;</span></a></code></pre>
+    </div>
+    <h3 id="modifiers">Modifiers</h3>
+    <p>The following CSS classes affect the <strong>colour</strong>.</p>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">.is-primary</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="fu">.is-link</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="fu">.is-info</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="fu">.is-success</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="fu">.is-warning</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="fu">.is-danger</span></a></code></pre>
+    </div>
+    <p>The following classes modify the <strong>size</strong>.</p>
+    <div class="sourceCode" id="cb5">
+      <pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">.is-small</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="fu">.is-medium</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">.is-large</span></a></code></pre>
+    </div>
+    <p>The following classes modify the <strong>state</strong>.</p>
+    <pre class="scss"><code>.is-outlined
+.is-loading</code></pre>
+    <h3 id="typography-helpers">Typography Helpers</h3>
+    <p>The following classes modify the <strong>font-size</strong></p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Class</th>
+          <th>Font-size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>.is-size-1</code></td>
+          <td>3rem</td>
+        </tr>
+        <tr class="even">
+          <td><code>.is-size-2</code></td>
+          <td>2.5rem</td>
+        </tr>
+        <tr class="odd">
+          <td><code>.is-size-3</code></td>
+          <td>2rem</td>
+        </tr>
+        <tr class="even">
+          <td><code>.is-size-4</code></td>
+          <td>1.5rem</td>
+        </tr>
+        <tr class="odd">
+          <td><code>.is-size-5</code></td>
+          <td>1.25rem</td>
+        </tr>
+        <tr class="even">
+          <td><code>.is-size-6</code></td>
+          <td>1rem</td>
+        </tr>
+        <tr class="odd">
+          <td><code>.is-size-7</code></td>
+          <td>0.75rem</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The following classes <strong>align</strong> the text</p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Class</th>
+          <th>Alignment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>.has-text-centered</code></td>
+          <td>Makes the text <strong>centered</strong></td>
+        </tr>
+        <tr class="even">
+          <td><code>.has-text-justified</code></td>
+          <td>Makes the text <strong>justified</strong></td>
+        </tr>
+        <tr class="odd">
+          <td><code>.has-text-left</code>.</td>
+          <td>Makes the text align to the <strong>left</strong></td>
+        </tr>
+        <tr class="even">
+          <td><code>.has-text-right</code></td>
+          <td>Makes the text align to the <strong>right</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The following classes <strong>transform</strong> the text</p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Class</th>
+          <th>Transformation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>.is-capitalized</code></td>
+          <td>Transforms the <strong>first character</strong> of each word to <strong>uppercase</strong></td>
+        </tr>
+        <tr class="even">
+          <td><code>.is-lowercase</code></td>
+          <td>Transforms <strong>all</strong> characters to <strong>lowercase</strong></td>
+        </tr>
+        <tr class="odd">
+          <td><code>.is-uppercase</code></td>
+          <td>Transforms <strong>all</strong> characters to <strong>uppercase</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="wysiwyg-content">WYSIWYG Content</h3>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="co">&lt;!-- start WYSIWYG contents --&gt;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">&lt;h1&gt;</span>Heading<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="kw">&lt;p&gt;</span>Paragraph<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="kw">&lt;li&gt;</span>Item 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="kw">&lt;li&gt;</span>Item 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="co">&lt;!-- end WYSIWYG contents --&gt;</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="kw">&lt;/div&gt;</span></a></code></pre>
+    </div>
+    <p>To provide default stylings for commonly generated WYSIWYG contents, use the <code>.content</code> class.</p>
+  </body>
+
+</html>

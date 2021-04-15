@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="defining-models">Defining models</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb1-1" title="1">User <span class="kw">=</span> Modella<span class="kw">(</span><span class="st">&#39;User&#39;</span><span class="kw">)</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb2-1" title="1">  <span class="kw">.</span>attr<span class="kw">(</span><span class="st">&#39;name&#39;</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">.</span>attr<span class="kw">(</span><span class="st">&#39;email&#39;</span><span class="kw">,</span> <span class="kw">{</span> required<span class="kw">:</span> <span class="ot">true</span> <span class="kw">})</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="kw">.</span>use<span class="kw">(</span>require<span class="kw">(</span><span class="st">&#39;modella-validators&#39;</span><span class="kw">))</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb3-1" title="1">  <span class="kw">.</span>validator <span class="fu">(u) -&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    u<span class="kw">.</span>error<span class="kw">(</span><span class="st">&#39;username&#39;</span><span class="kw">,</span> <span class="st">&#39;is required&#39;</span><span class="kw">)</span>  <span class="kw">unless</span> u<span class="kw">.</span>has<span class="kw">(</span><span class="st">&#39;username&#39;</span><span class="kw">)</span></a></code></pre></div>
+<h3 id="instances">Instances</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb4-1" title="1">user</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">.</span>name<span class="kw">()</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">.</span>name<span class="kw">(</span><span class="st">&#39;John&#39;</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="kw">.</span>set<span class="kw">(</span>name<span class="kw">:</span> <span class="st">&#39;John&#39;</span><span class="kw">)</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb5-1" title="1">  <span class="kw">.</span>has<span class="kw">(</span><span class="st">&#39;name&#39;</span><span class="kw">)</span>   <span class="co"># → true</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">.</span>isNew<span class="kw">()</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="kw">.</span>isValid<span class="kw">()</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb6-1" title="1">  <span class="kw">.</span>save <span class="fu">(err) -&gt;</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">.</span>remove <span class="fu">(err) -&gt;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="kw">.</span>removed</a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="kw">.</span>model         <span class="co"># === User</span></a></code></pre></div>
+<h2 id="events">Events</h2>
+<h3 id="emitting">Emitting</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb7-1" title="1">Model<span class="kw">.</span>emit<span class="kw">(</span><span class="st">&#39;event&#39;</span><span class="kw">,</span> <span class="kw">[</span>data<span class="kw">...])</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb8-1" title="1">record<span class="kw">.</span>emit<span class="kw">(</span><span class="st">&#39;event&#39;</span><span class="kw">,</span> <span class="kw">[</span>data<span class="kw">...])</span></a></code></pre></div>
+<h3 id="list-of-events">List of events</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb9-1" title="1">user</a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">.</span>on <span class="st">&#39;save&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="kw">.</span>on <span class="st">&#39;create&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="kw">.</span>on <span class="st">&#39;saving&#39;</span><span class="kw">,</span> <span class="fu">(data, done) -&gt;</span> done<span class="kw">()</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb10-1" title="1">  <span class="kw">.</span>on <span class="st">&#39;remove&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="kw">.</span>on <span class="st">&#39;removing&#39;</span><span class="kw">,</span> <span class="fu">(data, done) -&gt;</span> done<span class="kw">()</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb11-1" title="1">  <span class="kw">.</span>on <span class="st">&#39;valid&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="kw">.</span>on <span class="st">&#39;invalid&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb12-1" title="1">  <span class="kw">.</span>on <span class="st">&#39;change&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="kw">.</span>on <span class="st">&#39;change email&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb13-1" title="1">  <span class="kw">.</span>on <span class="st">&#39;initializing&#39;</span><span class="kw">,</span> <span class="fu">(instance, attrs) -&gt;</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="kw">.</span>on <span class="st">&#39;initialize&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb14-1" title="1">  <span class="kw">.</span>on <span class="st">&#39;error&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span> failed to save model</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb15-1" title="1">  <span class="kw">.</span>on <span class="st">&#39;setting&#39;</span><span class="kw">,</span> <span class="fu">(instance, attrs) -&gt;</span>  <span class="co"># on Model#set()</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="kw">.</span>on <span class="st">&#39;attr&#39;</span><span class="kw">,</span> <span class="fu">-&gt;</span> <span class="co"># new attr via Model.attr()</span></a></code></pre></div>
+<h2 id="misc">Misc</h2>
+<h3 id="plugins">Plugins</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb16-1" title="1">MyPlugin <span class="kw">=</span> <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="kw">return</span> <span class="fu">(Model) -&gt;</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4">    Model<span class="kw">.</span>method <span class="kw">=</span> <span class="kw">...</span></a>
+<a class="sourceLine" id="cb16-5" title="5">    Model<span class="kw">.</span>prototype<span class="kw">.</span>method <span class="kw">=</span> <span class="kw">...</span></a>
+<a class="sourceLine" id="cb16-6" title="6">    Model<span class="kw">.</span>attr<span class="kw">(...)</span></a>
+<a class="sourceLine" id="cb16-7" title="7"></a>
+<a class="sourceLine" id="cb16-8" title="8">    Model</a></code></pre></div>
+<p>A plugin is a function that returns a model decorator (ie, a function that takes in a model and returns a model).</p>
+<h3 id="memory">Memory</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb17-1" title="1">User</a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="kw">.</span>all <span class="fu">(err, users) -&gt;</span></a>
+<a class="sourceLine" id="cb17-3" title="3">  <span class="kw">.</span>find id<span class="kw">,</span> <span class="fu">(err, user) -&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb18-1" title="1">  <span class="kw">.</span>remove <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb18-2" title="2">  <span class="kw">.</span>save <span class="fu">-&gt;</span></a>
+<a class="sourceLine" id="cb18-3" title="3">  <span class="kw">.</span>update <span class="fu">-&gt;</span></a></code></pre></div>
+</body></html>

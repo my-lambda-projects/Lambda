@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7]><html class="no-js iem7"  lang="en" dir="ltr"><![endif]-->
+<!--[if lte IE 6]><html class="no-js lt-ie9 lt-ie8 lt-ie7"  lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="no-js lt-ie9 lt-ie8"  lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"  lang="en" dir="ltr"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js"  lang="en" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# schema: http://schema.org/"><!--<![endif]-->
+
+
+<!-- Mirrored from opensource.com/downloads/linux-permissions-cheat-sheet by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Mar 2021 03:48:48 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <!-- Adobe Digital Data integration -->
+  <script type="text/javascript">
+    var digitalData = {};
+  </script>
+    <script id="adobe_dtm" src="../../www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"a03a21ae8a",applicationID:"65779638"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<link href="https://opensource.com/rss.xml" rel="alternate" type="application/rss+xml" title="Opensource.com RSS" />
+<link rel="shortcut icon" href="https://opensource.com/sites/all/themes/opensource/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="description" content="Download this Linux cheat sheet to keep permission commands on hand." />
+<meta name="rating" content="general" />
+<meta name="referrer" content="no-referrer" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="linux-permissions-cheat-sheet.html" />
+<link rel="shortlink" href="https://opensource.com/node/56506" />
+<meta property="og:site_name" content="Opensource.com" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Linux users and permissions cheat sheet" />
+<meta property="og:description" content="[[{&quot;fid&quot;:&quot;455226&quot;,&quot;view_mode&quot;:&quot;teaser&quot;,&quot;fields&quot;:{&quot;alt&quot;:&quot;Linux cheat sheet for permissions and users&quot;,&quot;title&quot;:&quot;Linux permissions commands cheat sheet&quot;,&quot;class&quot;:&quot;media-element file-preview media-wysiwyg-align-right cke_widget_element&quot;,&quot;data-delta&quot;:&quot;1&quot;,&quot;format&quot;:&quot;teaser&quot;,&quot;alignment&quot;:&quot;right&quot;,&quot;field_file_image_alt_text[und][0][value]&quot;:&quot;Linux cheat sheet for permissions and users&quot;,&quot;field_file_image_title_text[und][0][value]&quot;:&quot;Linux permissions commands cheat sheet&quot;,&quot;field_file_image_caption[und][0][value]&quot;:&quot;&quot;,&quot;field_file_image_caption[und][0][format]&quot;:&quot;panopoly_wysiwyg_text&quot;,&quot;field_file_metadata[un" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@opensourceway" />
+<meta name="twitter:title" content="Linux users and permissions cheat sheet" />
+<meta name="twitter:description" content="[[{&quot;fid&quot;:&quot;455226&quot;,&quot;view_mode&quot;:&quot;teaser&quot;,&quot;fields&quot;:{&quot;alt&quot;:&quot;Linux cheat sheet for permissions and users&quot;,&quot;title&quot;:&quot;Linux permissions commands cheat sheet&quot;,&quot;class&quot;:&quot;media-element file-preview media-wysiwyg-align-right cke_widget_element&quot;,&quot;data-delta&quot;:&quot;1&quot;,&quot;format&quot;:&quot;teaser&quot;,&quot;alignment&quot;:&quot;right&quot;,&quot;field_file_image_alt_text[und][0][value]&quot;:&quot;Linux cheat sheet for permissions and users&quot;,&quot;field_file_image_title_text[und][0][value]&quot;:&quot;Linux permissions commands cheat sheet&quot;,&quot;field_file_image_caption[und][0][value]&quot;:&quot;&quot;,&quot;field_file_image_caption[und][0][format]&quot;:&quot;panopoly_wysiwyg_text&quot;,&quot;field_file_metadata[un" />
+  <title>Linux users and permissions cheat sheet | Opensource.com</title>
+
+      <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cleartype" content="on">
+
+  <link type="text/css" rel="stylesheet" href="../sites/default/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/default/files/css/css_ntCz7udh66prM85dlibL5cSl16uR5mFkmPYLsA2b56k.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/default/files/css/css_oEJ_1fn1TOMmdkwHMRXJlrNvdd9-H_Hy2Ftbtid6p-k.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/default/files/css/css_kET9zVh_2KdGj_vCf3Dh802G2Y8bV3-ul1hQmXSwlQA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/default/files/css/css_BRqtvNISSHnd_wBpEelIr145xd7L9bSKvGZhL6iKJw8.css" media="all" />
+<link type="text/css" rel="stylesheet" href="../sites/default/files/css/css_PxsPpITToy8ZnO0bJDA1TEC6bbFpGTfSWr2ZP8LuFYo.css" media="all" />
+  <script src="../sites/all/themes/opensource/js/use-typekit.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script src="../sites/default/files/js/js_bHixdNqIm_fGV7c3IlqVJl-OQXz4T0rdcigI0kCjuGg.js"></script>
+<script src="../sites/default/files/js/js_CwA9uD2kYGc1ubylea-Ul8iN5PWYS40GWBA4ue9Bo4w.js"></script>
+<script src="../sites/default/files/js/js_tBWHhFjU_NjWsmd07Hrx5ScmFu-4-PJD_GwzNMH3UwA.js"></script>
+<script src="../sites/default/files/js/js_hCUKV2mXTwaIhMmsPWVqzTJQVi6NjnYFGKn6CWpNADo.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","../../www.google-analytics.com/analytics.js","ga");ga("create", "UA-33294138-1", {"cookieDomain":".opensource.com"});ga("send", "pageview");</script>
+<script src="../sites/default/files/js/js_rVcPYhZ5_LfvT-dWbCnRngMcccEhwUaw2iNYx0yXj_Q.js"></script>
+<script src="../sites/default/files/js/js_KbByFnBctcQt9juhHXNabaQDr4mJAc1OExQYJ-HcyXk.js"></script>
+<script>
+            var isProd = /^opensource\.com/i.test(window.location.hostname);
+            var GatedFormConfig = {
+              "showAdditionalFields": "",
+              "hideStandardFields": [
+                "First Name",
+                "Last Name",
+                "Work Phone",
+                "Company",
+                "Department",
+                "Job Role"
+              ],
+              "CustomQuestions": [{"label":"Would you like to be subscribed to the Opensource.com newsletter?","options":["Yes","No"]}],
+              "offer_id" : "7013a000002D33LAAS",
+              "language": "en",
+              "NameOrder": "western",
+              "no_css" :  true,
+              "elqFormName" : isProd ? undefined : "dynamicform-integration-sandbox",
+              "FormIntro": "To download this guide, <a href=\"/user/login?destination=node/56506\">Sign-in</a> or enter your email address and country below.",
+              "ThanksText": "Thank you for subscribing.",
+              "ShowThanksButton": true,
+              "leadActivity": "1",
+              "disableVisitorContactLookups": false,
+              "FormCallToAction": "Access Now",
+              "DisableOptIn": true,
+            };
+            (function(window, document, $, undefined) {
+              var formLoaded = function() {
+                var el = document.getElementById("C_EmailAddress");
+                if (!el) return false;
+                var style = window.getComputedStyle(el);
+                return ((style.display !== "none")
+                && (style.visibility !== "hidden"));
+              };
+
+              var customizeForm = function() {
+                $("#C_EmailAddress-form-group label").html("Your email address*");
+
+                $("#C_Country-form-group label").html("Your region*");
+
+                document.getElementById("C_Country")[0].innerHTML = "";
+
+                document.getElementById("UDF_01_Answer")[0].innerHTML = "";
+
+                $("#C_Zip_Postal-form-group label").html("Your Zip/Postal code*");
+              };
+
+              var checkFormLoaded = setInterval(function() {
+              if (formLoaded()) {
+                clearInterval(checkFormLoaded);
+                customizeForm();
+                }
+              }, 250);
+
+              setTimeout(function () {
+                $("#GatedFormContainer form").submit(function() {
+                  if ($("#GatedFormContainer form").valid()) {
+                    // Set Cookie
+                    var date = new Date();
+                    date.setTime(date.getTime()+1800000);
+                    var expires = "; expires="+date.toGMTString();
+                    document.cookie = "Drupal_visitor_gatedemail=osdc-gated-content"+expires+"; path=/";
+                    document.cookie = "rh_gatedemail=true"+expires+"; path=/";
+                    // Reload
+                    window.location.reload(false);
+                    // Scroll to the top
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                  }
+                });
+              }, 5000);
+            })(window, document, jQuery);
+            </script>
+<script src="../../www.redhat.com/forms/scripts/jquery.gatedform.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"opensource","theme_token":"n6p06OvG-3lGIEcDzMMWrMiCRM7e8IV5zkz8wdPVBSo","js":{"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets-spotlight.js":1,"0":1,"1":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.tabs.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"sites\/all\/modules\/contrib\/comment_notify\/comment_notify.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_images\/panopoly-images.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_magic\/panopoly-magic.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/js\/panopoly-accordion.js":1,"profiles\/panopoly\/modules\/contrib\/caption_filter\/js\/caption-filter.js":1,"sites\/all\/modules\/contrib\/loginlogout\/loginlogout.js":1,"profiles\/panopoly\/libraries\/jquery.imagesloaded\/jquery.imagesloaded.min.js":1,"sites\/all\/libraries\/waypoints\/lib\/noframework.waypoints.min.js":1,"sites\/all\/themes\/opensource\/js\/os_waypoints.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"2":1,"file":1,"sites\/all\/themes\/opensource\/js\/addtoany-page.js":1,"sites\/all\/libraries\/superfish\/jquery.hoverIntent.minified.js":1,"sites\/all\/libraries\/superfish\/sftouchscreen.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/libraries\/superfish\/supersubs.js":1,"sites\/all\/modules\/contrib\/superfish\/superfish.js":1,"sites\/all\/themes\/opensource\/js\/script.js":1,"sites\/all\/themes\/opensource\/js\/cookie-banner.js":1,"3":1,"https:\/\/www.redhat.com\/forms\/scripts\/jquery.gatedform.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"sites\/all\/modules\/contrib\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"modules\/comment\/comment.css":1,"profiles\/panopoly\/modules\/contrib\/date\/date_api\/date.css":1,"profiles\/panopoly\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin-navbar.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_core\/css\/panopoly-dropbutton.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_magic\/css\/panopoly-magic.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_magic\/css\/panopoly-modal.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/css\/panopoly-featured.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/css\/panopoly-accordian.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/css\/panopoly-layouts.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets-spotlight.css":1,"modules\/poll\/poll.css":1,"profiles\/panopoly\/modules\/contrib\/radix_layouts\/radix_layouts.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/workflow\/workflow_admin_ui\/workflow_admin_ui.css":1,"profiles\/panopoly\/modules\/contrib\/views\/css\/views.css":1,"profiles\/panopoly\/modules\/contrib\/caption_filter\/caption-filter.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"profiles\/panopoly\/modules\/contrib\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"profiles\/panopoly\/modules\/contrib\/ctools\/css\/ctools.css":1,"public:\/\/geshi\/geshifilter-languages.css":1,"sites\/all\/modules\/contrib\/geshifilter\/geshifilter.css":1,"sites\/all\/modules\/features\/os_common_components\/css\/os_common_components.css":1,"profiles\/panopoly\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/modules\/contrib\/rate\/rate.css":1,"sites\/all\/modules\/features\/os_common_components\/plugins\/layouts\/opensource_article\/opensource-article.css":1,"sites\/all\/themes\/opensource\/css\/gated-content.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/themes\/opensource\/system.menus.css":1,"sites\/all\/themes\/opensource\/system.messages.css":1,"sites\/all\/themes\/opensource\/system.theme.css":1,"sites\/all\/themes\/opensource\/panels.css":1,"sites\/all\/themes\/opensource\/css\/styles.css":1,"sites\/all\/themes\/opensource\/css\/geshifilter.css":1,"sites\/all\/themes\/opensource\/fonts\/css\/fontello.css":1,"sites\/all\/themes\/opensource\/css\/cookie-banner.css":1,"sites\/all\/themes\/opensource\/calendar_multiday.css":1,"sites\/all\/themes\/opensource\/date_views.css":1,"sites\/all\/themes\/opensource\/quicktabs.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_images\/panopoly-images.css":1}},"loginlogout":{"urls":{"\/user\/login":"\/user\/login?destination=node\/56506","\/user":"\/user?destination=node\/56506"}},"CToolsModal":{"modalSize":{"type":"scale","width":".9","height":".9","addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"modalOptions":{"opacity":".55","background-color":"#FFF"},"animationSpeed":"fast","modalTheme":"CToolsModalDialog","throbberTheme":"CToolsModalThrobber"},"panopoly_magic":{"pane_add_preview_mode":"automatic"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackDomainMode":1},"urlIsAjaxTrusted":{"\/downloads\/linux-permissions-cheat-sheet":true},"superfish":{"1":{"id":"1","sf":{"delay":"0","animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":false,"disableHI":false},"plugins":{"touchscreen":{"mode":"window_width","breakpoint":1070},"supposition":true,"bgiframe":false,"supersubs":{"minWidth":"12","maxWidth":"27","extraWidth":1}}}}});</script>
+      <!--[if lt IE 9]>
+    <script src="/sites/all/themes/zen/js/html5-respond.js"></script>
+    <![endif]-->
+  </head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-56506 node-type-gated region-content section-downloads page-panels" >
+      <p id="skip-link">
+      <a href="#main-menu" class="element-invisible element-focusable">Jump to navigation</a>
+    </p>
+      
+<header class="header" id="header" role="banner">
+
+    
+    <div class="header-banner">
+      <div class="header-banner__inner">
+                  <div class="header__name-and-slogan" id="name-and-slogan">
+                          <div class="header__site-name" id="site-name">
+                <a href="https://opensource.com/" title="Home" class="header__site-link" rel="home"><img alt="Opensource.com" src="https://opensource.com/sites/all/themes/opensource/logo.svg" onerror="this.src='../sites/all/themes/opensource/logo.png';this.onerror=null;" /></a>
+                <a href="https://www.redhat.com/en?intcmp=701600000011l7VAAQ" title="Home" class="header__sponsor-link" rel="home"><img alt="RedHat" src="https://opensource.com/sites/all/themes/opensource/images/redhat-logo.svg" onerror="this.src='../sites/all/themes/opensource/images/redhat-logo.png';this.onerror=null;"/></a>
+              </div>
+            
+                      </div>
+                <nav class="desktop-user-links">
+            <div class="header__region region region-header">
+    <div id="block-menu-block-1" class="block block-menu-block first last odd" role="navigation">
+
+      
+  <div class="menu-block-wrapper menu-block-1 menu-name-user-menu parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="menu__item is-leaf first leaf menu-mlid-195"><a href="https://opensource.com/user/login" class="menu__link">Log in</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-1179"><a href="https://opensource.com/user/register" title="Sign Up" class="menu__link">Sign Up</a></li>
+</ul></div>
+
+</div>
+  </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="sf-nav">
+      <div class="sf-nav__inner">
+          <div class="js-mobile-header-buttons region region-navigation-top">
+    <div id="block-os-solr-search-form" class="block block-os-solr-search first odd">
+
+      
+  <form action="https://opensource.com/downloads/linux-permissions-cheat-sheet" method="post" id="os-search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search">
+  <label class="element-invisible" for="edit-search">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="Search opensource.com" type="text" id="edit-search" name="search" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="GO" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-2xhjJRwwFFpaQUcJVMJKqRRhpCeaxVCU3TrOvOH5TW8" />
+<input type="hidden" name="form_id" value="os_search_block_form" />
+</div>
+</div></form>
+</div>
+<div id="block-superfish-1" class="block block-superfish even">
+
+        <h2 class="block__title block-title">Main menu</h2>
+    
+  <ul id="superfish-1" class="menu sf-menu sf-main-menu sf-horizontal sf-style-default sf-total-items-5 sf-parent-items-5 sf-single-items-0"><li id="menu-1906-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-11 sf-parent-children-4 sf-single-children-7 menuparent"><a href="https://opensource.com/" title="" class="sf-depth-1 menuparent">Articles</a><ul><li id="menu-12341-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/containers" title="" class="sf-depth-2">Containers</a></li><li id="menu-12416-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/devops" title="" class="sf-depth-2">DevOps</a></li><li id="menu-12346-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/gaming" title="" class="sf-depth-2">Gaming</a></li><li id="menu-17776-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/government" title="" class="sf-depth-2">Government</a></li><li id="menu-12351-1" class="middle odd sf-item-5 sf-depth-2 sf-total-children-3 sf-parent-children-0 sf-single-children-3 menuparent"><a href="https://opensource.com/tags/hardware" title="" class="sf-depth-2 menuparent">Hardware</a><ul><li id="menu-12376-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/3d-printing" title="" class="sf-depth-3">3D printing</a></li><li id="menu-12386-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/arduino" title="" class="sf-depth-3">Arduino</a></li><li id="menu-12381-1" class="last odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/raspberry-pi" title="" class="sf-depth-3">Raspberry Pi</a></li></ul></li><li id="menu-27341-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/kubernetes" title="" class="sf-depth-2">Kubernetes</a></li><li id="menu-1946-1" class="middle odd sf-item-7 sf-depth-2 sf-total-children-2 sf-parent-children-0 sf-single-children-2 menuparent"><a href="https://opensource.com/tags/law" title="" class="sf-depth-2 menuparent">Law</a><ul><li id="menu-12391-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/licensing" title="" class="sf-depth-3">Licensing</a></li><li id="menu-12396-1" class="last even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/patents" title="" class="sf-depth-3">Patents</a></li></ul></li><li id="menu-12356-1" class="middle even sf-item-8 sf-depth-2 sf-total-children-1 sf-parent-children-0 sf-single-children-1 menuparent"><a href="https://opensource.com/tags/linux" title="" class="sf-depth-2 menuparent">Linux</a><ul><li id="menu-19831-1" class="firstandlast odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/command-line" title="" class="sf-depth-3">Command line</a></li></ul></li><li id="menu-12361-1" class="middle odd sf-item-9 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/openstack" title="" class="sf-depth-2">OpenStack</a></li><li id="menu-12366-1" class="middle even sf-item-10 sf-depth-2 sf-total-children-3 sf-parent-children-0 sf-single-children-3 menuparent"><a href="https://opensource.com/tags/programming" title="" class="sf-depth-2 menuparent">Programming</a><ul><li id="menu-17771-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/go" title="" class="sf-depth-3">Go</a></li><li id="menu-12411-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/javascript" title="" class="sf-depth-3">JavaScript</a></li><li id="menu-12406-1" class="last odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/tags/python" title="" class="sf-depth-3">Python</a></li></ul></li><li id="menu-12371-1" class="last odd sf-item-11 sf-depth-2 sf-no-children"><a href="https://opensource.com/tags/sysadmin" title="" class="sf-depth-2">Sysadmin</a></li></ul></li><li id="menu-1921-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-6 sf-parent-children-3 sf-single-children-3 menuparent"><a href="https://opensource.com/resources" title="" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-19841-1" class="first odd sf-item-1 sf-depth-2 sf-total-children-1 sf-parent-children-0 sf-single-children-1 menuparent"><a href="https://opensource.com/resources/what-open-source" title="" class="sf-depth-2 menuparent">What is open source?</a><ul><li id="menu-1991-1" class="firstandlast odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-source-way" class="sf-depth-3">The open source way</a></li></ul></li><li id="menu-2016-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="https://opensource.com/resources/projects-and-applications" title="" class="sf-depth-2">Projects and applications</a></li><li id="menu-2021-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://opensource.com/resources/organizations" title="" class="sf-depth-2">Organizations</a></li><li id="menu-5556-1" class="middle even sf-item-4 sf-depth-2 sf-total-children-14 sf-parent-children-1 sf-single-children-13 menuparent"><a href="https://opensource.com/resources/cloud" title="" class="sf-depth-2 menuparent">Cloud technology</a><ul><li id="menu-27201-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-ansible" title="" class="sf-depth-3">Ansible</a></li><li id="menu-5576-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/big-data" title="" class="sf-depth-3">Big data</a></li><li id="menu-19861-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/data-science" title="" class="sf-depth-3">Data science</a></li><li id="menu-5566-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-docker" title="" class="sf-depth-3">Docker</a></li><li id="menu-19926-1" class="middle odd sf-item-5 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-is-git" class="sf-depth-3">Git</a></li><li id="menu-5591-1" class="middle even sf-item-6 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/internet-of-things" title="" class="sf-depth-3">Internet of things</a></li><li id="menu-19921-1" class="middle odd sf-item-7 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/java" title="" class="sf-depth-3">Java</a></li><li id="menu-5596-1" class="middle even sf-item-8 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-is-kubernetes" title="" class="sf-depth-3">Kubernetes</a></li><li id="menu-5571-1" class="middle odd sf-item-9 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-are-linux-containers" title="" class="sf-depth-3">Linux containers</a></li><li id="menu-5586-1" class="middle even sf-item-10 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-are-microservices" title="" class="sf-depth-3">Microservices</a></li><li id="menu-5561-1" class="middle odd sf-item-11 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-is-openstack" title="" class="sf-depth-3">OpenStack</a></li><li id="menu-19836-1" class="middle even sf-item-12 sf-depth-3 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="https://opensource.com/resources/python" title="" class="sf-depth-3 menuparent">Python</a><ul><li id="menu-19866-1" class="first odd sf-item-1 sf-depth-4 sf-no-children"><a href="https://opensource.com/resources/python/gui-frameworks" class="sf-depth-4">Python GUI frameworks</a></li><li id="menu-19871-1" class="middle even sf-item-2 sf-depth-4 sf-no-children"><a href="https://opensource.com/resources/python/ides" class="sf-depth-4">Python IDEs</a></li><li id="menu-19881-1" class="middle odd sf-item-3 sf-depth-4 sf-no-children"><a href="https://opensource.com/resources/python/template-libraries" title="" class="sf-depth-4">Python template libraries</a></li><li id="menu-19876-1" class="last even sf-item-4 sf-depth-4 sf-no-children"><a href="https://opensource.com/resources/python/web-scraper-crawler" title="" class="sf-depth-4">Python web scrapers</a></li></ul></li><li id="menu-5581-1" class="middle odd sf-item-13 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/what-is-software-defined-networking" title="" class="sf-depth-3">Software defined networking</a></li><li id="menu-12601-1" class="last even sf-item-14 sf-depth-3 sf-no-children"><a href="https://opensource.com/resources/virtualization" title="" class="sf-depth-3">Virtualization</a></li></ul></li><li id="menu-2036-1" class="middle odd sf-item-5 sf-depth-2 sf-total-children-13 sf-parent-children-0 sf-single-children-13 menuparent"><a href="https://opensource.com/alternatives" title="" class="sf-depth-2 menuparent">Open source alternatives</a><ul><li id="menu-4646-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/adobe-acrobat" class="sf-depth-3">Alternatives to Acrobat</a></li><li id="menu-4656-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/autocad" class="sf-depth-3">Alternatives to AutoCAD</a></li><li id="menu-4636-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/dreamweaver" class="sf-depth-3">Alternatives to Dreamweaver</a></li><li id="menu-5506-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/gmail" class="sf-depth-3">Alternatives to Gmail</a></li><li id="menu-5551-1" class="middle odd sf-item-5 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/matlab" class="sf-depth-3">Alternatives to MATLAB</a></li><li id="menu-5501-1" class="middle even sf-item-6 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/minecraft" class="sf-depth-3">Alternatives to Minecraft</a></li><li id="menu-4651-1" class="middle odd sf-item-7 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/google-photos" class="sf-depth-3">Alternatives to Google Photos</a></li><li id="menu-27351-1" class="middle even sf-item-8 sf-depth-3 sf-no-children"><a href="https://opensource.com/life/12/6/design-without-debt-five-tools-for-designers" title="" class="sf-depth-3">Alternatives to Photoshop</a></li><li id="menu-4661-1" class="middle odd sf-item-9 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/microsoft-publisher" class="sf-depth-3">Alternatives to Publisher</a></li><li id="menu-27371-1" class="middle even sf-item-10 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/skype" class="sf-depth-3">Alternatives to Skype</a></li><li id="menu-5511-1" class="middle odd sf-item-11 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/slack" class="sf-depth-3">Alternatives to Slack</a></li><li id="menu-4641-1" class="middle even sf-item-12 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives/trello" class="sf-depth-3">Alternatives to Trello</a></li><li id="menu-5546-1" class="last odd sf-item-13 sf-depth-3 sf-no-children"><a href="https://opensource.com/alternatives" title="" class="sf-depth-3">More...</a></li></ul></li><li id="menu-19886-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="https://opensource.com/resources/linux" title="" class="sf-depth-2">Linux</a></li></ul></li><li id="menu-19666-1" class="active-trail middle odd sf-item-3 sf-depth-1 sf-total-children-6 sf-parent-children-6 sf-single-children-0 menuparent"><a href="cheat-sheets.html" title="" class="sf-depth-1 menuparent">Downloads</a><ul><li id="menu-19406-1" class="active-trail first odd sf-item-1 sf-depth-2 sf-total-children-29 sf-parent-children-0 sf-single-children-29 menuparent"><a href="cheat-sheets.html" title="" class="sf-depth-2 menuparent">Cheat sheets</a><ul><li id="menu-27711-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="ansible-cheat-sheet.html" class="sf-depth-3">Ansible cheat sheet</a></li><li id="menu-27476-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="ansible-k8s-cheat-sheet.html" class="sf-depth-3">Ansible k8s cheat sheet</a></li><li id="menu-19651-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="cheat-sheet-awk-features.html" class="sf-depth-3">AWK cheat sheet</a></li><li id="menu-27241-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="bash-cheat-sheet.html" class="sf-depth-3">Bash cheat sheet</a></li><li id="menu-18641-1" class="middle odd sf-item-5 sf-depth-3 sf-no-children"><a href="blender-hotkey-cheat-sheet.html" class="sf-depth-3">Blender cheat sheet</a></li><li id="menu-27466-1" class="middle even sf-item-6 sf-depth-3 sf-no-children"><a href="c-programming-cheat-sheet.html" title="" class="sf-depth-3">C cheat sheet</a></li><li id="menu-28246-1" class="middle odd sf-item-7 sf-depth-3 sf-no-children"><a href="curl-command-cheat-sheet.html" title="" class="sf-depth-3">Curl cheat sheet</a></li><li id="menu-27336-1" class="middle even sf-item-8 sf-depth-3 sf-no-children"><a href="emacs-cheat-sheet.html" class="sf-depth-3">Emacs cheat sheet</a></li><li id="menu-27356-1" class="middle odd sf-item-9 sf-depth-3 sf-no-children"><a href="firewall-cheat-sheet.html" class="sf-depth-3">Firewall Cheat Sheet</a></li><li id="menu-18856-1" class="middle even sf-item-10 sf-depth-3 sf-no-children"><a href="freedos-commands-cheat-sheet.html" class="sf-depth-3">FreeDOS cheat sheet</a></li><li id="menu-19721-1" class="middle odd sf-item-11 sf-depth-3 sf-no-children"><a href="https://opensource.com/content/cheat-sheet-gimp" class="sf-depth-3">GIMP cheat sheet</a></li><li id="menu-19696-1" class="middle even sf-item-12 sf-depth-3 sf-no-children"><a href="cheat-sheet-gnome-3.html" class="sf-depth-3">GNOME cheat sheet</a></li><li id="menu-18661-1" class="middle odd sf-item-13 sf-depth-3 sf-no-children"><a href="groff-macros-cheat-sheet.html" class="sf-depth-3">Groff macros cheat sheet</a></li><li id="menu-19731-1" class="middle even sf-item-14 sf-depth-3 sf-no-children"><a href="go-cheat-sheet.html" class="sf-depth-3">Go cheat sheet</a></li><li id="menu-19716-1" class="middle odd sf-item-15 sf-depth-3 sf-no-children"><a href="cheat-sheet-i3-window-manager-keybinding.html" class="sf-depth-3">i3 window manager cheat sheet</a></li><li id="menu-19781-1" class="middle even sf-item-16 sf-depth-3 sf-no-children"><a href="inkscape-cheat-sheet.html" class="sf-depth-3">Inkscape Cheat Sheet</a></li><li id="menu-16886-1" class="middle odd sf-item-17 sf-depth-3 sf-no-children"><a href="https://opensource.com/irc-cheat-sheet" class="sf-depth-3">IRC cheat sheet</a></li><li id="menu-27271-1" class="middle even sf-item-18 sf-depth-3 sf-no-children"><a href="java-cheat-sheet.html" class="sf-depth-3">Java cheat sheet</a></li><li id="menu-27471-1" class="middle odd sf-item-19 sf-depth-3 sf-no-children"><a href="kubectl-cheat-sheet.html" title="" class="sf-depth-3">Kubectl cheat sheet</a></li><li id="menu-27246-1" class="middle even sf-item-20 sf-depth-3 sf-no-children"><a href="linux-common-commands-cheat-sheet.html" class="sf-depth-3">Linux common commands cheat sheet</a></li><li id="menu-27216-1" class="active-trail middle odd sf-item-21 sf-depth-3 sf-no-children"><a href="linux-permissions-cheat-sheet.html" class="sf-depth-3 active">Linux user permissions cheat sheet</a></li><li id="menu-27256-1" class="middle even sf-item-22 sf-depth-3 sf-no-children"><a href="microservices-cheat-sheet.html" class="sf-depth-3">Microservices cheat sheet</a></li><li id="menu-19301-1" class="middle odd sf-item-23 sf-depth-3 sf-no-children"><a href="cheat-sheet-networking.html" class="sf-depth-3">Networking cheat sheet</a></li><li id="menu-18636-1" class="middle even sf-item-24 sf-depth-3 sf-no-children"><a href="pandoc-cheat-sheet.html" class="sf-depth-3">Pandoc cheat sheet</a></li><li id="menu-27261-1" class="middle odd sf-item-25 sf-depth-3 sf-no-children"><a href="pip-cheat-sheet.html" class="sf-depth-3">pip cheat sheet</a></li><li id="menu-19711-1" class="middle even sf-item-26 sf-depth-3 sf-no-children"><a href="cheat-sheet-python-37-beginners.html" class="sf-depth-3">Python 3.7 cheat sheet</a></li><li id="menu-19726-1" class="middle odd sf-item-27 sf-depth-3 sf-no-children"><a href="getting-started-raspberry-pi-cheat-sheet.html" class="sf-depth-3">Raspberry Pi cheat sheet</a></li><li id="menu-19691-1" class="middle even sf-item-28 sf-depth-3 sf-no-children"><a href="cheat-sheet-selinux.html" class="sf-depth-3">SELinux cheat sheet</a></li><li id="menu-18591-1" class="last odd sf-item-29 sf-depth-3 sf-no-children"><a href="advanced-ssh-cheat-sheet.html" class="sf-depth-3">SSH cheat sheet</a></li></ul></li><li id="menu-12466-1" class="middle even sf-item-2 sf-depth-2 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent"><a href="https://opensource.com/yearbook/2017" title="" class="sf-depth-2 menuparent">Open Source Yearbook</a><ul><li id="menu-19681-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/yearbook/2015" title="" class="sf-depth-3">2015</a></li><li id="menu-19676-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/yearbook/2016" title="" class="sf-depth-3">2016</a></li><li id="menu-19671-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/yearbook/2017" title="" class="sf-depth-3">2017</a></li><li id="menu-19786-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="https://opensource.com/yearbook/2018" title="" class="sf-depth-3">2018</a></li><li id="menu-27346-1" class="last odd sf-item-5 sf-depth-3 sf-no-children"><a href="2019-yearbook-special-edition.html" title="" class="sf-depth-3">2019 Special Edition</a></li></ul></li><li id="menu-19906-1" class="middle odd sf-item-3 sf-depth-2 sf-total-children-2 sf-parent-children-0 sf-single-children-2 menuparent"><a href="cheat-sheets.html" title="" class="sf-depth-2 menuparent">Programming guides</a><ul><li id="menu-19891-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="7-essential-pypi-libraries.html" title="" class="sf-depth-3">7 essential PyPI libraries</a></li><li id="menu-27706-1" class="last even sf-item-2 sf-depth-3 sf-no-children"><a href="jupyter-guide.html" class="sf-depth-3">6 surprising ways to use Jupyter</a></li></ul></li><li id="menu-19911-1" class="middle even sf-item-4 sf-depth-2 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent"><a href="cheat-sheets.html" title="" class="sf-depth-2 menuparent">DevOps guides</a><ul><li id="menu-19806-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="devops-transformation.html" class="sf-depth-3">Starting a DevOps transformation</a></li><li id="menu-19776-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="small-scale-scrum.html" class="sf-depth-3">Introduction to Small Scale Scrum</a></li><li id="menu-19771-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="devsecops.html" class="sf-depth-3">Getting started with DevSecOps</a></li><li id="menu-19701-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="devops-monitoring-guide.html" class="sf-depth-3">DevOps monitoring tools guide</a></li><li id="menu-19686-1" class="last odd sf-item-5 sf-depth-3 sf-no-children"><a href="devops-hiring-guide.html" class="sf-depth-3">DevOps hiring guide</a></li></ul></li><li id="menu-19916-1" class="middle odd sf-item-5 sf-depth-2 sf-total-children-2 sf-parent-children-0 sf-single-children-2 menuparent"><a href="cheat-sheets.html" title="" class="sf-depth-2 menuparent">Sysadmin guides</a><ul><li id="menu-19801-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="ansible-quickstart.html" title="" class="sf-depth-3">Ansible Automation for Sysadmins</a></li><li id="menu-19706-1" class="last even sf-item-2 sf-depth-3 sf-no-children"><a href="containers-primer.html" class="sf-depth-3">Containers primer</a></li></ul></li><li id="menu-19901-1" class="last even sf-item-6 sf-depth-2 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="cheat-sheets.html" title="" class="sf-depth-2 menuparent">eBooks</a><ul><li id="menu-19896-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="getting-started-kubernetes-ebook.html" class="sf-depth-3">Getting started with Kubernetes</a></li><li id="menu-27276-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="guide-inter-process-communication-linux.html" class="sf-depth-3">Inter-process communication in Linux</a></li><li id="menu-27321-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="collaboration-tools-ebook.html" class="sf-depth-3">5 open source collaboration tools</a></li><li id="menu-27311-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="organization-tools.html" class="sf-depth-3">6 open source tools for staying organized</a></li><li id="menu-27316-1" class="middle odd sf-item-5 sf-depth-3 sf-no-children"><a href="desktop-tools.html" class="sf-depth-3">7 open source desktop tools</a></li><li id="menu-27366-1" class="middle even sf-item-6 sf-depth-3 sf-no-children"><a href="raspberry-pi-guide.html" class="sf-depth-3">Raspberry Pi: How to get started</a></li><li id="menu-27451-1" class="last odd sf-item-7 sf-depth-3 sf-no-children"><a href="kubernetes-raspberry-pi.html" title="" class="sf-depth-3">Running Kubernetes on your Raspberry Pi</a></li></ul></li></ul></li><li id="menu-4691-1" class="middle even sf-item-4 sf-depth-1 sf-total-children-3 sf-parent-children-2 sf-single-children-1 menuparent"><a href="https://opensource.com/about" class="sf-depth-1 menuparent">About</a><ul><li id="menu-27381-1" class="first odd sf-item-1 sf-depth-2 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="https://opensource.com/about" title="" class="sf-depth-2 menuparent">About Opensource.com</a><ul><li id="menu-12516-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/participate" class="sf-depth-3">Welcome to the Opensource.com community</a></li><li id="menu-1971-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/opensourcecom-team" class="sf-depth-3">Meet the team</a></li><li id="menu-27386-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/user/register" title="" class="sf-depth-3">Create an account</a></li><li id="menu-12526-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="https://opensource.com/rules-comments-and-discussions" class="sf-depth-3">Rules for comments and discussions</a></li><li id="menu-12531-1" class="middle odd sf-item-5 sf-depth-3 sf-no-children"><a href="https://opensource.com/correspondent-program" class="sf-depth-3">Correspondent Program</a></li><li id="menu-27391-1" class="last even sf-item-6 sf-depth-3 sf-no-children"><a href="https://opensource.com/faq" class="sf-depth-3">Frequently Asked Questions</a></li></ul></li><li id="menu-17761-1" class="middle even sf-item-2 sf-depth-2 sf-total-children-2 sf-parent-children-0 sf-single-children-2 menuparent"><a href="https://opensource.com/how-submit-article" title="" class="sf-depth-2 menuparent">Contribute to Opensource.com</a><ul><li id="menu-2041-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/submission-style-guide" title="" class="sf-depth-3">Opensource.com style guide</a></li><li id="menu-12586-1" class="last even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/article/20/1/write-for-us" class="sf-depth-3">Writing topics</a></li></ul></li><li id="menu-2001-1" class="last odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://opensource.com/contact" title="" class="sf-depth-2">Contact us</a></li></ul></li><li id="menu-2136-1" class="last odd sf-item-5 sf-depth-1 sf-total-children-3 sf-parent-children-2 sf-single-children-1 menuparent"><a href="https://opensource.com/open-organization" title="" class="sf-depth-1 menuparent">Open Organization</a><ul><li id="menu-27251-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="https://opensource.com/open-organization/start" title="" class="sf-depth-2">Get started</a></li><li id="menu-15051-1" class="middle even sf-item-2 sf-depth-2 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="https://opensource.com/open-organization/resources/book-series" title="" class="sf-depth-2 menuparent">Book series</a><ul><li id="menu-16906-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/field-guide" title="" class="sf-depth-3">Field Guide</a></li><li id="menu-16891-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/leaders-manual" class="sf-depth-3">Leaders Manual</a></li><li id="menu-16896-1" class="middle odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/culture-change" title="" class="sf-depth-3">Guide to IT Culture Change</a></li><li id="menu-19856-1" class="middle even sf-item-4 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/educators-guide" class="sf-depth-3">Guide for Educators</a></li><li id="menu-17796-1" class="middle odd sf-item-5 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/workbook" title="" class="sf-depth-3">Workbook</a></li><li id="menu-18656-1" class="last even sf-item-6 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/organize-innovation" class="sf-depth-3">Organize for Innovation</a></li></ul></li><li id="menu-2146-1" class="last odd sf-item-3 sf-depth-2 sf-total-children-3 sf-parent-children-0 sf-single-children-3 menuparent"><a href="https://opensource.com/open-organization/resources" title="" class="sf-depth-2 menuparent">Resources</a><ul><li id="menu-12471-1" class="first odd sf-item-1 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/open-org-definition" title="What is an open organization?" class="sf-depth-3">What is an open organization?</a></li><li id="menu-15056-1" class="middle even sf-item-2 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/open-org-maturity-model" title="" class="sf-depth-3">How open is your organization?</a></li><li id="menu-12421-1" class="last odd sf-item-3 sf-depth-3 sf-no-children"><a href="https://opensource.com/open-organization/resources/open-decision-framework" title="" class="sf-depth-3">What is an open decision?</a></li></ul></li></ul></li></ul>
+</div>
+<div id="block-system-user-menu" class="block block-system block-menu odd" role="navigation">
+
+      
+  <ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/user/login" class="menu__link">Log in</a></li>
+<li class="menu__item is-leaf last leaf"><a href="https://opensource.com/user/register" title="Sign Up" class="menu__link">Sign Up</a></li>
+</ul>
+</div>
+<div id="block-menu-block-2" class="block block-menu-block last even" role="navigation">
+
+      
+  <div class="menu-block-wrapper menu-block-2 menu-name-menu-social-links parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="menu__item is-leaf first leaf menu-mlid-13171"><a href="http://twitter.com/opensourceway" title="twitter" class="menu__link">Twitter</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-13176"><a href="https://www.facebook.com/opensourceway" title="facebook" class="menu__link">Facebook</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-13166"><a href="https://opensource.com/feed" title="feed" class="menu__link">Feed</a></li>
+</ul></div>
+
+</div>
+  </div>
+
+        <div class="mobile--menu-region">
+            <div class="region region-navigation">
+    <div id="block-system-main-menu" class="block block-system block-menu first last odd" role="navigation">
+
+        <h2 class="block__title block-title">Main menu</h2>
+    
+  <ul class="menu"><li class="menu__item is-expanded first expanded"><a href="https://opensource.com/" title="" class="menu__link">Articles</a><ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/tags/containers" title="" class="menu__link">Containers</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/devops" title="" class="menu__link">DevOps</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/gaming" title="" class="menu__link">Gaming</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/government" title="" class="menu__link">Government</a></li>
+<li class="menu__item is-expanded expanded"><a href="https://opensource.com/tags/hardware" title="" class="menu__link">Hardware</a><ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/tags/3d-printing" title="" class="menu__link">3D printing</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/arduino" title="" class="menu__link">Arduino</a></li>
+<li class="menu__item is-leaf last leaf"><a href="https://opensource.com/tags/raspberry-pi" title="" class="menu__link">Raspberry Pi</a></li>
+</ul></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/kubernetes" title="" class="menu__link">Kubernetes</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="https://opensource.com/tags/law" title="" class="menu__link">Law</a></li>
+<li class="menu__item is-expanded expanded"><a href="https://opensource.com/tags/linux" title="" class="menu__link">Linux</a><ul class="menu"><li class="menu__item is-leaf first last leaf"><a href="https://opensource.com/tags/command-line" title="" class="menu__link">Command line</a></li>
+</ul></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/openstack" title="" class="menu__link">OpenStack</a></li>
+<li class="menu__item is-expanded expanded"><a href="https://opensource.com/tags/programming" title="" class="menu__link">Programming</a><ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/tags/go" title="" class="menu__link">Go</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/tags/javascript" title="" class="menu__link">JavaScript</a></li>
+<li class="menu__item is-leaf last leaf"><a href="https://opensource.com/tags/python" title="" class="menu__link">Python</a></li>
+</ul></li>
+<li class="menu__item is-collapsed last collapsed"><a href="https://opensource.com/tags/sysadmin" title="" class="menu__link">Sysadmin</a></li>
+</ul></li>
+<li class="menu__item is-expanded expanded"><a href="https://opensource.com/resources" title="" class="menu__link">Resources</a><ul class="menu"><li class="menu__item is-collapsed first collapsed"><a href="https://opensource.com/resources/what-open-source" title="" class="menu__link">What is open source?</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/resources/projects-and-applications" title="" class="menu__link">Projects and applications</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/resources/organizations" title="" class="menu__link">Organizations</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="https://opensource.com/resources/cloud" title="" class="menu__link">Cloud technology</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="https://opensource.com/alternatives" title="" class="menu__link">Open source alternatives</a></li>
+<li class="menu__item is-leaf last leaf"><a href="https://opensource.com/resources/linux" title="" class="menu__link">Linux</a></li>
+</ul></li>
+<li class="menu__item is-expanded is-active-trail expanded active-trail"><a href="cheat-sheets.html" title="" class="menu__link is-active-trail active-trail">Downloads</a><ul class="menu"><li class="menu__item is-expanded is-active-trail first expanded active-trail"><a href="cheat-sheets.html" title="" class="menu__link is-active-trail active-trail">Cheat sheets</a><ul class="menu"><li class="menu__item is-leaf first leaf"><a href="ansible-cheat-sheet.html" class="menu__link">Ansible cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="ansible-k8s-cheat-sheet.html" class="menu__link">Ansible k8s cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="cheat-sheet-awk-features.html" class="menu__link">AWK cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="bash-cheat-sheet.html" class="menu__link">Bash cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="blender-hotkey-cheat-sheet.html" class="menu__link">Blender cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="c-programming-cheat-sheet.html" title="" class="menu__link">C cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="curl-command-cheat-sheet.html" title="" class="menu__link">Curl cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="emacs-cheat-sheet.html" class="menu__link">Emacs cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="firewall-cheat-sheet.html" class="menu__link">Firewall Cheat Sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="freedos-commands-cheat-sheet.html" class="menu__link">FreeDOS cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/content/cheat-sheet-gimp" class="menu__link">GIMP cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="cheat-sheet-gnome-3.html" class="menu__link">GNOME cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="groff-macros-cheat-sheet.html" class="menu__link">Groff macros cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="go-cheat-sheet.html" class="menu__link">Go cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="cheat-sheet-i3-window-manager-keybinding.html" class="menu__link">i3 window manager cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="inkscape-cheat-sheet.html" class="menu__link">Inkscape Cheat Sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/irc-cheat-sheet" class="menu__link">IRC cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="java-cheat-sheet.html" class="menu__link">Java cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="kubectl-cheat-sheet.html" title="" class="menu__link">Kubectl cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="linux-common-commands-cheat-sheet.html" class="menu__link">Linux common commands cheat sheet</a></li>
+<li class="menu__item is-leaf is-active-trail leaf active-trail"><a href="linux-permissions-cheat-sheet.html" class="menu__link is-active-trail active-trail active">Linux user permissions cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="microservices-cheat-sheet.html" class="menu__link">Microservices cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="cheat-sheet-networking.html" class="menu__link">Networking cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="pandoc-cheat-sheet.html" class="menu__link">Pandoc cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="pip-cheat-sheet.html" class="menu__link">pip cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="cheat-sheet-python-37-beginners.html" class="menu__link">Python 3.7 cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="getting-started-raspberry-pi-cheat-sheet.html" class="menu__link">Raspberry Pi cheat sheet</a></li>
+<li class="menu__item is-leaf leaf"><a href="cheat-sheet-selinux.html" class="menu__link">SELinux cheat sheet</a></li>
+<li class="menu__item is-leaf last leaf"><a href="advanced-ssh-cheat-sheet.html" class="menu__link">SSH cheat sheet</a></li>
+</ul></li>
+<li class="menu__item is-collapsed collapsed"><a href="https://opensource.com/yearbook/2017" title="" class="menu__link">Open Source Yearbook</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="cheat-sheets.html" title="" class="menu__link">Programming guides</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="cheat-sheets.html" title="" class="menu__link">DevOps guides</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="cheat-sheets.html" title="" class="menu__link">Sysadmin guides</a></li>
+<li class="menu__item is-collapsed last collapsed"><a href="cheat-sheets.html" title="" class="menu__link">eBooks</a></li>
+</ul></li>
+<li class="menu__item is-collapsed collapsed"><a href="https://opensource.com/about" class="menu__link">About</a></li>
+<li class="menu__item is-expanded last expanded"><a href="https://opensource.com/open-organization" title="" class="menu__link">Open Organization</a><ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/open-organization/start" title="" class="menu__link">Get started</a></li>
+<li class="menu__item is-collapsed collapsed"><a href="https://opensource.com/open-organization/resources/book-series" title="" class="menu__link">Book series</a></li>
+<li class="menu__item is-expanded last expanded"><a href="https://opensource.com/open-organization/resources" title="" class="menu__link">Resources</a><ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/open-organization/resources/open-org-definition" title="What is an open organization?" class="menu__link">What is an open organization?</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/open-organization/resources/open-org-maturity-model" title="" class="menu__link">How open is your organization?</a></li>
+<li class="menu__item is-leaf last leaf"><a href="https://opensource.com/open-organization/resources/open-decision-framework" title="" class="menu__link">What is an open decision?</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+  </div>
+        </div>
+      </div>
+    </div>
+
+</header>
+
+<div id="page">
+
+      <div id="main">
+        <div class="pre-content">
+                                                </div>
+        <div id="content" class="column" role="main">
+                              <a id="main-content"></a>
+                                        
+
+
+
+<div class="panel-display os-article clearfix  " >
+
+      <div class="os-article__top">
+      <div class="os-article__top-inner">
+        <div class="panel-pane pane-custom pane-1 pane-page-title pane-page-title--custom-placement"  >
+  
+      
+  
+  <h1 class="page__title--custom-placement">Linux users and permissions cheat sheet</h1>
+
+  
+  </div>
+<div class="panel-pane pane-entity-field pane-node-field-article-subhead"  >
+  
+      
+  
+  <div class="field field-name-field-article-subhead field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <h2>Download this Linux cheat sheet to keep user permission commands on hand.</h2>
+      </div>
+</div>
+
+  
+  </div>
+      </div>
+    </div>
+  
+  
+  
+  
+      <div class="os-article__middle">
+      <div class="panel-pane pane-entity-view pane-node"  >
+  
+      
+  
+  <article class="node-56506 node node-gated view-mode-full clearfix" about="/downloads/linux-permissions-cheat-sheet" typeof="sioc:Item foaf:Document">
+
+      <header>
+                  <span property="dc:title" content="Linux users and permissions cheat sheet" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      
+          </header>
+  
+  <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p></p><div class="media media-element-container media-teaser media-wysiwyg-align-right"><div id="file-455226" class="file file-image file-image-jpeg">
+
+        <h2 class="element-invisible"><a href="https://opensource.com/file/455226">cheat_sheet_linux_permissions.jpg</a></h2>
+    
+  
+  <div class="content">
+    <img alt="Linux cheat sheet for permissions and users" title="Linux permissions commands cheat sheet" class="media-element file-teaser medium" data-delta="1" typeof="foaf:Image" src="../sites/default/files/styles/medium/public/cheat_sheet_linux_permissionsb85a.jpg?itok=Gn9TwUyn" width="170" height="220" /></div>
+
+  
+</div>
+</div>This Linux cheat sheet contains examples and commands to help you complete tasks related to permissions and users. Learn how to do the following tasks: 
+
+<ul><li>Add users</li>
+	<li>Delete users</li>
+	<li>Show history</li>
+	<li>Set permissions</li>
+</ul><p>To download this cheat sheet, <a href="https://opensource.com/user/login?destination=node/56506">log in</a> or enter your email address and country below.</p>
+</div></div></div><div class="field field-name-field-gated-content field-type-file field-label-hidden"><div class="field-items"><div class="field-item even"><div id="GatedFormContainer" class="gated-form"></div>
+<div id="Loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+</div></div></div><span property="dc:title" content="Linux users and permissions cheat sheet" class="rdf-meta element-hidden"></span>
+  
+  
+</article>
+
+  
+  </div>
+    </div>
+  
+  
+  
+</div>
+                  </div>
+
+
+        
+        
+      </div>
+
+      
+        <div class="region region-footer-nav">
+    <div id="block-bean-social-media" class="block block-bean first odd">
+
+      
+  <div class="entity entity-bean bean-generic-block clearfix" about="/block/social-media" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><span>Find us:</span> 
+</p>
+<ul>
+<li><a class="footer-twitter" href="https://twitter.com/OpenSourceWay" title="Twitter">Twitter</a></li>
+<li><a class="footer-facebook" href="https://www.facebook.com/opensourceway" title="Facebook">Facebook</a></li>
+<li><a class="footer-youtube" href="http://www.youtube.com/opensourceway" title="Youtube">Youtube</a></li>
+<li><a class="footer-mastodon" href="https://fosstodon.org/@osdc" title="">Mastodon</a></li>
+<li><a class="footer-feed" href="https://opensource.com/feed" title="RSS">RSS</a></li>
+</ul>
+</div></div></div>  </div>
+</div>
+
+</div>
+<div id="block-menu-menu-footer" class="block block-menu last even" role="navigation">
+
+        <h2 class="block__title block-title">Footer</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf first leaf"><a href="https://opensource.com/privacy-policy" class="menu__link">Privacy Policy</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/legal" class="menu__link">Terms of Use</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/contact" class="menu__link">Contact</a></li>
+<li class="menu__item is-leaf leaf"><a href="https://opensource.com/opensourcecom-team" title="" class="menu__link">Meet the Team</a></li>
+<li class="menu__item is-leaf last leaf"><a href="http://opensource.org/" title="" class="menu__link">Visit opensource.org</a></li>
+</ul>
+</div>
+  </div>
+
+        <footer id="footer" class="region region-footer">
+    <div id="block-bean-copyrigt-block" class="block block-bean first odd">
+
+      
+  <div class="entity entity-bean bean-generic-block clearfix" about="/block/copyrigt-block" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>For more discussion on open source and the role of the CIO in the enterprise, join us at <a href="https://enterprisersproject.com/">The EnterprisersProject.com</a>.</p>
+
+<p>The opinions expressed on this website are those of each author, not of the author's employer or of Red Hat.</p>
+
+<p>Opensource.com aspires to publish all content under a <a href="http://creativecommons.org/licenses/">Creative Commons license</a> but may not be able to do so in all cases. You are responsible for ensuring that you have the necessary permission to reuse any work on this site. Red Hat and the Red Hat logo are trademarks of Red Hat, Inc., registered in the United States and other countries.</p>
+
+<p>Copyright ©2021 Red Hat, Inc.</p>
+</div></div></div>  </div>
+</div>
+
+</div>
+<div id="block-bean-footer-logo" class="block block-bean last even">
+
+      
+  <div class="entity entity-bean bean-generic-block clearfix" about="/block/footer-logo" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><img src="https://opensource.com/sites/all/themes/opensource/images/footer_logo.svg" /></p>
+</div></div></div>  </div>
+</div>
+
+</div>
+  </footer>
+
+    </div>
+
+    
+      <div class="region region-os-social">
+    <div id="block-os-social-os-social-share" class="block block-os-social first last odd">
+
+      
+  <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" data-a2a-url="linux-permissions-cheat-sheet.html">
+  <a class="a2a_button_twitter a2a_counter"></a>
+  <a class="a2a_button_facebook a2a_counter"></a>
+  <a class="a2a_button_linkedin a2a_counter"></a>
+  <a class="a2a_button_reddit a2a_counter"></a>
+  <a class="a2a_button_email a2a_counter"></a>
+  <a class="a2a_button_mastodon a2a_counter"></a>
+  <!--a class="a2a_dd" href="https://www.addtoany.com/share"></a-->
+  </div><div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_default_style">
+  <a class="a2a_button_twitter a2a_counter"></a>
+  <a class="a2a_button_facebook a2a_counter"></a>
+  <a class="a2a_button_linkedin a2a_counter"></a>
+  <a class="a2a_button_reddit a2a_counter"></a>
+  <a class="a2a_button_email a2a_counter"></a>
+  <a class="a2a_button_mastodon a2a_counter"></a>
+  <!--a class="a2a_dd" href="https://www.addtoany.com/share"></a-->
+  </div>
+</div>
+  </div>
+    <div class="region region-page-bottom">
+    <!-- begin Google Remarketing --><img height="1" width="1" style="border-style:none;display:block;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/990030321/?value=0&amp;label=rxV4CN_35QQQ8dOK2AM&amp;guid=ON&amp;script=0" onerror="this.src='../sites/all/themes/opensource/images/1x1.png';this.onerror=null" /><!-- end Google Remarketing -->  </div>
+<script src="../sites/default/files/js/js_29qYXJz8NLGg8Aomg-RZPjJcj9yEdEst1BMZ9gZbs-4.js"></script>
+<script>if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {_satellite.pageBottom();}</script>
+<script>var a2a_config = a2a_config || {};
+              a2a_config.callbacks = a2a_config.callbacks || [];
+a2a_config.templates = {
+    twitter: "Linux users and permissions cheat sheet https://red.ht/2OUQOxX via @opensourceway by @hilgspritch"
+};</script>
+  <!-- This was a triumph! I'm making a note here, huge success. -->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"a03a21ae8a","applicationID":"65779638","transactionName":"ZlNTbUBQDxZUWxJRVl8ZcFpGWA4LGkgHX1xuW1BXU1YEF2pWCVxcbkBYXEVuEQRSXQ==","queueTime":0,"applicationTime":302,"atts":"ShRQGwhKHBg=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+
+<!-- Mirrored from opensource.com/downloads/linux-permissions-cheat-sheet by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Mar 2021 03:48:49 GMT -->
+</html>

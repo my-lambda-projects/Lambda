@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="properties-to-avoid">Properties to avoid</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>position</code></td>
+<td>(Outlook, Gmail, Yahoo)</td>
+</tr>
+<tr class="even">
+<td><code>display</code></td>
+<td>(Outlook, Gmail)</td>
+</tr>
+<tr class="odd">
+<td><code>float</code></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>height</code></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="even">
+<td><code>width</code> <em>in p/div</em></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="odd">
+<td><code>padding</code> <em>in p/div</em></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="even">
+<td><code>background</code></td>
+<td>(Outlook, Gmail)</td>
+</tr>
+<tr class="odd">
+<td><code>min-width</code></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="even">
+<td><code>max-width</code></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>opacity</code></td>
+<td>(Outlook, Gmail, Yahoo)</td>
+</tr>
+<tr class="odd">
+<td><code>box-shadow</code></td>
+<td>(Outlook, Gmail, Yahoo)</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>rgba()</code></td>
+<td>(Outlook)</td>
+</tr>
+<tr class="even">
+<td><code>data-uri</code></td>
+<td>(all webmail)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="selectors-to-avoid">Selectors to avoid</h3>
+<div class="line-block"><code>E[attr]</code> | (Outlook, Gmail) |<br />
+<code>E:nth-child(n)</code> | (Outlook, Gmail) |<br />
+<code>::before</code> <em>and</em> <code>::after</code> | (Outlook, Yahoo, Gmail) |<br />
+<code>E F</code> | (Gmail) |<br />
+<code>E + F</code>, <code>E &gt; F</code> <em>etc</em> | (Outlook, Gmail) |</div>
+<p>Inline your CSS as much as possible.</p>
+<h3 id="basic-layout">Basic layout</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;table</span><span class="ot"> cellpadding=</span><span class="st">&quot;0&quot;</span><span class="ot"> cellspacing=</span><span class="st">&quot;0&quot;</span><span class="ot"> role=</span><span class="st">&quot;presentation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;td</span><span class="ot"> width=</span><span class="st">&quot;auto&quot;</span><span class="kw">&gt;&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;td</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> background=</span><span class="st">&quot;#ffffff&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">      ···</a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="kw">&lt;td</span><span class="ot"> width=</span><span class="st">&quot;auto&quot;</span><span class="kw">&gt;&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
+<h3 id="responsive">Responsive</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;style&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="im">@media</span> <span class="kw">only</span> <span class="dv">screen</span> <span class="kw">and</span> (<span class="kw">max-device-width</span>: <span class="dv">480</span><span class="dt">px</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3">&lt;/style&gt;</a></code></pre></div>
+<p><code>&lt;style&gt;</code> is supported in the head and body by everything except Gmail. Only use them for responsive styles.</p>
+<h2 id="references">References</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://www.campaignmonitor.com/css/">CSS support matrix</a> <em>campaignmonitor.com</em></li>
+</ul>
+</body></html>

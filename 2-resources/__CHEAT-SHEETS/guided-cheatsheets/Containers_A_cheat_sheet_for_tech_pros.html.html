@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="containers-a-cheat-sheet-for-tech-pros">Containers: A cheat sheet for tech pros</h1>
+  <blockquote>
+    <p>Containers make it easier for IT admins to deploy and update apps and services. Here's an overview of what tech
+      pros need to know about containers.</p>
+  </blockquote>
+  <p>Containers make it easier for IT admins to deploy and update apps and services. Here's an overview of what tech
+    pros need to know about containers.</p>
+  <p><img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/10/05/d7cf1c8c-bd8a-48ba-83b7-4ab851b65f4b/thumbnail/768x432/31a37df7015703fc57bdc32c8e32e8e3/20171002asaytop3containersdan.jpg" />
+  </p>
+  <p>Containers have revolutionized the way many people view IT and the deployment of apps and services. But what
+    exactly are containers?</p>
+  <p>Containers are self-contained apps and services that IT admins can easily deploy and update. In many instances and
+    applications, containers make things easier and more reliable and secure. Containers are also part of the backbone
+    of Kubernetes. In fact, without containers, there'd be no Kubernetes.</p>
+  <p>This primer is a quick way to get up to speed on containers. We'll update this “living” guide periodically when
+    news and methods pertaining to containers are released.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/downloads/kubernetes-security-guide-free-pdf/"><strong>Kubernetes
+        security guide (free PDF)</strong></a> <strong>(TechRepublic)</strong></p>
+  <h2 id="executive-summary">Executive summary</h2>
+  <ul>
+    <li><strong>What are containers?</strong> Containers are self-contained apps and services that encapsulate all
+      dependencies in order to make them easily deployable and updatable.</li>
+    <li><strong>Why do containers matter?</strong> Containers make it much easier for administrators to roll out apps
+      and services either to individual servers, a cluster of  and to effectively maintain them.</li>
+    <li><strong>Who do containers affect?</strong> Containers affect IT pros, end users, and business owners.</li>
+    <li><strong>When are containers happening?</strong> The foundation of containers came about in the 1970s with UNIX
+      chroot and have been evolving ever since.</li>
+    <li><strong>How do I start using containers?</strong> You can start by familiarizing yourself with virtual machines
+      (VMs), <a href="https://www.techrepublic.com/article/docker-the-smart-persons-guide/">Docker</a>, and <a
+        href="https://www.techrepublic.com/article/kubernetes-the-smart-persons-guide/">Kubernetes</a>.</li>
+  </ul>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic's smart
+        person's guides and cheat sheets</a><br />
+    </strong></p>
+  <h2 id="what-are-containers">What are containers?</h2>
+  <p>In the simplest terms, containers are self-contained applications, packaged with their dependencies, that IT can
+    easily deploy and update.</p>
+  <p>Similar to VMs, containers remove the hardware dependency from the equation. Containers are easily distributed via
+    a virtual platform, and they're a way your company can save money, considering you now have the ability to roll out
+    multiple applications and services that do not have their own hardware requirements.</p>
+  <p>Containers are also a great means for deploying and scaling websites. Imagine your basic website (served on a VM)
+    allows you to easily add web-based applications and/or services to expand your offerings; these applications and/or
+    services could be added without requiring their dependencies to be met by the hosting computer. With this in place,
+    you no longer have to worry that installing a new application will interfere with either the host computer or the
+    host VM, as the container is a self-contained application.</p>
+  <p>Sometimes people are confused about the differences between VMs and containers. Containers are not VMs, and Docker
+    is not a container. The hierarchy looks something like this:</p>
+  <p>Hardware &gt; host OS &gt; VM &gt; Docker &gt; container</p>
+  <p>A container is served up by software (such as Docker), which exists on a VM (such as those run on <a
+      href="https://www.virtualbox.org/wiki/VirtualBox">VirtualBox</a>, <a href="http://www.vmware.com/">VMware</a> or,
+    on a much larger scale, <a
+      href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">AWS</a>) that is run on a
+    host OS (such as <a href="https://www.ubuntu.com/">Ubuntu Linux</a>) running on adequate hardware. Containers can
+    also be deployed on Kubernetes clusters, which make it much easier to manage them at scale.</p>
+  <p>When you consider making containers part of your business plan, a local Docker installation isn't the only game in
+    town. Other services to consider are:</p>
+  <ul>
+    <li><a
+        href="https://azure.microsoft.com/en-us/services/container-service/?wt.mc_id=AID559320_SEM_YkqQQq8F&amp;gclid=Cj0KEQiAuonGBRCaotXoycysvIMBEiQAcxV0nPUpK5FaldtqV9hYXkIBv2jcSYpbP4r-_v7zGdk1fMwaAvh18P8HAQ">Azure
+        Container Service</a></li>
+    <li><a
+        href="https://aws.amazon.com/docker/?sc_channel=PS&amp;sc_campaign=acquisition_US&amp;sc_publisher=google&amp;sc_medium=docker_nb&amp;sc_content=docker_container_bmm&amp;sc_detail=%2Bcontainers%20%2Bdocker&amp;sc_category=docker&amp;sc_segment=88859584842&amp;sc_matchtype=b&amp;sc_country=US&amp;s_kwcid=AL!4422!3!88859584842!b!!g!!%2Bcontainers%20%2Bdocker&amp;ef_id=WERZdwAAASvc0W9k:20170310213513:s">AWS
+        Docker Services</a></li>
+    <li><a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/Container.html">Apache Tomcat
+        Containers</a></li>
+    <li><a href="https://kubernetes.io/docs/getting-started-guides/windows/">Kubernetes</a></li>
+    <li><a href="https://www.ubuntu.com/containers/lxd">LXD Containers</a></li>
+    <li><a href="https://coreos.com/rkt/">rkt</a></li>
+  </ul>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/security-concerns-hampering-adoption-of-containers-and-kubernetes/">Security
+        concerns hampering adoption of containers and Kubernetes</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/containers-the-pros-and-the-cons-of-these-vm-alternatives/">Containers:
+        The pros and the cons of these VM alternatives</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/container-adoption-is-on-the-rise-how-can-security-keep-up/">Container
+        adoption is on the rise: How can security keep up?</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/why-your-traditional-virtualization-vendor-cant-help-you-with-containers/">Why
+        your traditional virtualization vendor can't help you with containers</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/aws-introduces-bottlerocket-a-rust-language-oriented-linux-for-containers/">AWS
+          introduces Bottlerocket: A Rust language-oriented Linux for containers</a> (ZDNet)</p>
+    </li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/devops-the-smart-persons-guide/">DevOps: A cheat sheet</a>
+        (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="why-do-containers-matter">Why do containers matter?</h2>
+  <p>The importance of containers starts at the server level. Imagine that everything you run on your server is done so
+    efficiently that each running app and service doesn't compete for precious host resources or directly affect the
+    running of the host machine. That is where the benefit of containers begins. Because of the isolated nature of
+    containers, an administrator doesn't have to concern herself with each app or service interfering or affecting one
+    another.</p>
+  <p>Certain members of the corporate food chain will be more interested in containers' cost effectiveness. Removing the
+    cost of hardware from the equation, let's see how much creating an environment for running containers would cost.
+    Remember, we have our host OS, our VM platform, and the software by which we will deploy the containers. Let's break
+    it down with real-world solutions (understanding there are other options available for each).</p>
+  <ul>
+    <li><strong>Host OS:</strong> Ubuntu Linux. Free.</li>
+    <li><strong>VM platform:</strong> VirtualBox. Free.</li>
+    <li><strong>Deployment software:</strong> Docker. Free</li>
+  </ul>
+  <p>You could have a completed software stack, ready for the deployment of your containers, for free. If you opt to use
+    <a href="http://www.vmware.com/">VMware</a> as your VM platform, there will be an associated cost. If you're looking
+    at a much larger deployment, there could be the added cost of a hosting service, such as <a
+      href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Azure</a> or <a
+      href="https://aws.amazon.com/">AWS</a>. But for small- to mid-sized businesses, container technology can be had on
+    the cheap. Of course, if you add Kubernetes into the mix, there's a significant learning curve involved.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.zdnet.com/article/clouds-need-containers-and-containers-as-a-service-smooth-the-way/">Clouds
+        need containers, and Containers-as-a-Service smooths the way</a> (ZDNet)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/windows-10-containers-are-the-future-and-heres-what-you-need-to-know/">Windows
+          10: Containers are the future, and here's what you need to know</a> (TechRepublic)</p>
+    </li>
+    <li><a href="https://www.techrepublic.com/article/why-kubernetes-could-be-crowned-king-of-container-management/">Why
+        Kubernetes could be crowned king of container management</a> (TechRepublic)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/microservices-a-cheat-sheet/">Microservices: A cheat sheet</a>
+        (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="who-do-containers-affect">Who do containers affect?</h2>
+  <p>Containers affect IT pros (in their ease of use), end users (in their remarkable scope of service and reliability),
+    and business owners (because they can save precious IT budget).</p>
+  <p>More specifically, any business looking to grow its web presence by offering more and better services, or any
+    company looking to empower its employees with Software as a Service, will be affected by containers. When companies
+    have the ability to quickly roll out new applications or updates to existing applications, clients and end users
+    also gain serious benefits.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/consider-this-operational-challenge-before-implementing-containers/">Consider
+        this operational challenge before implementing containers</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-install-docker-on-fedora-25/">How to install Docker on
+        Fedora 25</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-install-docker-on-ubuntu-16-04/">How to install Docker on
+        Ubuntu 16.04</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/3-hybrid-cloud-alternatives-to-aws-cloudformation/">3 hybrid cloud
+        alternatives to AWS CloudFormation</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/digital-transformation-the-red-hat-way/">Digital transformation,
+        the Red Hat way</a> (TechRepublic Premium)</li>
+    <li><a
+        href="http://www.zdnet.com/article/container-usage-in-production-increases-96-over-past-year-significant-financial-investment-in/">Docker
+        rocker: container technology usage doubles; serious money follows</a> (ZDNet)</li>
+  </ul>
+  <h2 id="when-are-containers-happening">When are containers happening?</h2>
+  <p>Containers have been in play for quite some time and will only continue to grow in scope, scale, and importance. If
+    your company is not already using this incredibly flexible and extensible technology, you are behind the curve.
+    According to <a
+      href="https://www.gartner.com/account/signin?method=initialize&amp;TARGET=http%253A%252F%252Fwww.gartner.com%252Fdocument%252F3955920%253Fref%253DTrackDBDailyEmail%2526refval%253D1565014105683%2526utm_source%253DGartnerTrack%2526utm_medium%253Demail%2526utm_campaign%253DTrackDashboard%2526utm_content%253DTSDaily">Gartner</a>,
+    by 2023, more than 70% of global organizations will be running more than two containerized applications in
+    production, up from less than 20% in 2019.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="http://www.zdnet.com/article/cisco-launches-validated-designs-under-docker-container-partnership/">Cisco
+        launches validated designs under Docker container partnership</a> (ZDNet)</li>
+    <li><a href="http://www.zdnet.com/article/many-enterprises-not-ready-for-microservices-tsunami/">Many enterprises
+        not ready for ‘microservices tsunami'</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/hpe-to-deliver-its-docker-ready-server-to-speed-container-adoption-in-the-enterprise/">HPE
+        to deliver its Docker Ready Server to speed container adoption in the enterprise</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/why-the-container-community-is-wrong-to-whine-about-docker/">Why
+        the container community is wrong to whine about Docker</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/containers-rock-the-enterprise-81-look-to-increase-use-of-data-centers-hottest-tech/">Containers
+        rock the enterprise: 81% look to increase use of data center's hottest tech</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="how-do-i-start-using-containers">How do I start using containers?</h2>
+  <p>If you're interested in using containers, the first thing you must do is familiarize yourself with a tool such as
+    Docker. In order to do that, you'll want to have a fundamental understanding of Linux and how to write container
+    manifests in JSON. You'll also want to familiarize yourself with Kubernetes, as you'll have a much easier time
+    scaling your container deployments with that container management platform. Without understanding the foundational
+    tools, you won't be able to make use of what will probably be one of the most important pieces of your company's
+    technology puzzle moving forward.</p>
+  <p>Once you have those technologies under your belt, you will be able to easily get Docker up and running in order to
+    start deploying your containers.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/how-to-encrypt-virtualbox-vms/">How to encrypt VirtualBox VMs</a>
+      (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-install-phpvirtualbox-for-cloud-based-virtualbox-management/">How
+        to install phpVirtualBox for cloud-based VirtualBox management</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-install-virtualmin-for-a-web-based-virtualbox-dashboard/">How
+        to install Virtualmin for a web-based VirtualBox dashboard</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-add-new-drives-to-a-virtualbox-virtual-machine/">How to add
+        new drives to a VirtualBox virtual machine</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-create-multiple-nat-networks-in-virtualbox/">How to create
+        multiple NAT Networks in VirtualBox</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-use-snapshots-in-virtualbox/">How to use snapshots in
+        VirtualBox</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-run-virtualbox-virtual-machines-from-the-command-line/">How
+        to run VirtualBox virtual machines from the command line</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-improve-virtualbox-guest-performance-in-five-steps/">How to
+        improve VirtualBox guest performance in five steps</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-share-folders-between-guest-and-host-in-virtualbox/">How to
+        share folders between guest and host in VirtualBox</a> (TechRepublic)</li>
+  </ul>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="data-center-trends-newsletter">Data Center Trends Newsletter</h3>
+  <p>DevOps, virtualization, the hybrid cloud, storage, and operational efficiency are just some of the data center
+    topics we'll highlight. Delivered Mondays and Wednesdays</p>
+  <p>Sign up today</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/03/14/2d105fa6-2626-400f-951e-4c195b700e93/resize/770x/5dc5acae2c1f4ddd3760986de166a908/codedc.jpg"
+      alt="codedc.jpg" />
+    <figcaption>codedc.jpg</figcaption>
+  </figure>
+  <p>Image: iStockphoto/Wavebreak Media LTD</p>
+  <p><a href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

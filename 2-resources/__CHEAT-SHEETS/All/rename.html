@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="installation">Installation</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">brew</span> install rename</a></code></pre></div>
+<p>See: <a href="http://plasmasturm.org/code/rename/" class="uri">http://plasmasturm.org/code/rename/</a></p>
+<h3 id="regex-substitution">Regex substitution</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">rename</span> <span class="st">&#39;s/hello/world/&#39;</span> *.txt</a></code></pre></div>
+<p>Rename <code>hello.txt</code> to <code>world.txt</code> and so on in <code>*.txt</code>.</p>
+<h3 id="replace-extension">Replace extension</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">rename</span> -s .png .jpg.png *.png</a></code></pre></div>
+<p>Replace <code>.png</code> with <code>.jpg.png</code> in <code>*.png</code>.</p>
+<h3 id="options">Options</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-n</code></td>
+<td>Simulation</td>
+</tr>
+<tr class="even">
+<td><code>-l</code></td>
+<td>Symlink instead of rename</td>
+</tr>
+<tr class="odd">
+<td><code>-i</code></td>
+<td>Interactive</td>
+</tr>
+</tbody>
+</table>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="http://plasmasturm.org/code/rename/">Rename website</a> <em>(plasmasturm.org)</em></li>
+</ul>
+</body></html>

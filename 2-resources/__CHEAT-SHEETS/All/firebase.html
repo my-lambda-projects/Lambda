@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="authenticating">Authenticating</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">FB <span class="op">=</span> <span class="kw">new</span> <span class="at">Firebase</span>(<span class="st">&#39;https://xxx.firebase.io&#39;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">FB</span>.<span class="at">auth</span>(TOKEN<span class="op">,</span> (err<span class="op">,</span> result) <span class="kw">=&gt;</span> <span class="op">{</span> ···<span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">FB</span>.<span class="at">authAnonymously</span>(···)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">FB</span>.<span class="at">authWithPassword</span>(···)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">FB</span>.<span class="at">authWithOAuthPopup</span>(···)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">FB</span>.<span class="at">authWithOAuthToken</span>(···)</a></code></pre></div>
+<h3 id="using">Using</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">Users <span class="op">=</span> <span class="va">FB</span>.<span class="at">child</span>(<span class="st">&#39;users&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Create</span></a>
+<a class="sourceLine" id="cb4-2" title="2">user <span class="op">=</span> <span class="va">Users</span>.<span class="at">push</span>(first<span class="op">:</span> <span class="st">&quot;Frank&quot;</span><span class="op">,</span> last<span class="op">:</span> <span class="st">&quot;Sinatra&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// Retrieve</span></a>
+<a class="sourceLine" id="cb5-2" title="2">user <span class="op">=</span> <span class="va">Users</span>.<span class="at">child</span>(<span class="st">&#39;alan&#39;</span>)  <span class="co">// gets `users/alan`</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// Update</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="va">user</span>.<span class="at">set</span>(first<span class="op">:</span> <span class="st">&quot;Miles&quot;</span><span class="op">,</span> last<span class="op">:</span> <span class="st">&quot;Davis&quot;</span>)</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="va">user</span>.<span class="at">update</span>(first<span class="op">:</span> <span class="st">&quot;Miles&quot;</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="va">user</span>.<span class="at">setWithPriority</span>(<span class="op">{</span> ··· <span class="op">},</span> priority)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// Destroy</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="va">user</span>.<span class="at">remove</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// Getting</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">user</span>.<span class="at">name</span>()  <span class="co">// primary id</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="va">user</span>.<span class="at">once</span>(<span class="st">&#39;value&#39;</span><span class="op">,</span> (snap) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="va">snap</span>.<span class="at">name</span>()  <span class="co">// primary id</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="va">snap</span>.<span class="at">val</span>()   <span class="co">// value</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="op">},</span> (err) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-8" title="8">  ···</a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// traversal</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="va">user</span>.<span class="at">parent</span>()</a></code></pre></div>
+<h3 id="querying">Querying</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb10-1" title="1">Users <span class="kw">=</span> FB<span class="kw">.</span>child<span class="kw">(</span><span class="st">&#39;users&#39;</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb10-2" title="2">Users</a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="kw">.</span>startAt<span class="kw">(</span><span class="dv">1000</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="kw">.</span>limit<span class="kw">(</span><span class="dv">50</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb10-5" title="5">  <span class="kw">.</span>equalTo<span class="kw">(</span>priority<span class="kw">,</span> <span class="kw">[</span>name<span class="kw">])</span></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="kw">.</span>on <span class="st">&#39;child_added&#39;</span><span class="kw">,</span> <span class="fu">(snap) -&gt;</span> ···</a></code></pre></div>
+<h3 id="lists">Lists</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode coffeescript"><code class="sourceCode coffee"><a class="sourceLine" id="cb11-1" title="1">Posts <span class="kw">=</span> FB<span class="kw">.</span>child<span class="kw">(</span><span class="st">&#39;posts&#39;</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb11-2" title="2">post <span class="kw">=</span> Posts<span class="kw">.</span>push<span class="kw">({</span> title<span class="kw">:</span> <span class="st">&quot;How to do things&quot;</span><span class="kw">,</span> author<span class="kw">:</span> <span class="st">&quot;alan&quot;</span> <span class="kw">})</span></a></code></pre></div>
+<h2 id="references">References</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://www.firebase.com/docs/web/api/" class="uri">https://www.firebase.com/docs/web/api/</a></li>
+<li><a href="https://www.firebase.com/docs/web/recipes.html" class="uri">https://www.firebase.com/docs/web/recipes.html</a></li>
+</ul>
+</body></html>

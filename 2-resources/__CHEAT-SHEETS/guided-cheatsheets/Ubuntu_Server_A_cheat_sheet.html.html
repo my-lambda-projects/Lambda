@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="ubuntu-server-a-cheat-sheet">Ubuntu Server: A cheat sheet</h1>
+  <blockquote>
+    <p>Ubuntu Server is more popular than ever, thanks to containers and the cloud. This resource guide about Ubuntu
+      Server covers why the platform matters, how to use it, and more.</p>
+  </blockquote>
+  <p>Ubuntu Server is more popular than ever, thanks to containers and the cloud. This resource guide about Ubuntu
+    Server covers why the platform matters, how to use it, and more.</p>
+  <p><img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/03/22/2cab0259-e53c-474a-b6e0-7f03fcd135ff/thumbnail/768x432/31e551f8b21521498666d79d105697ff/ubuntuhero.jpg" />
+  </p>
+  <p><a href="https://www.ubuntu.com/download/server">Ubuntu Server</a> is an open source platform that does more than
+    you might think. With its ability to serve as an internal company server or to scale all the way up and out to meet
+    enterprise-level needs, this operating system can do it all.</p>
+  <p>This cheat sheet is an easy way to get up to speed on Ubuntu Server. We'll update this guide periodically when news
+    and updates about Ubuntu Server are released.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/downloads/tools-and-tips-for-creating-data-backups-on-linux-servers/"><strong>Tools
+        and tips for creating data backups on Linux servers</strong></a> <strong>(TechRepublic Premium)</strong></p>
+  <h2 id="executive-summary">Executive summary</h2>
+  <ul>
+    <li><strong>What is Ubuntu Server?</strong> Ubuntu Server is a server operating system, developed by <a
+        href="https://www.canonical.com/">Canonical</a> and open source programmers around the world, that works with
+      nearly any hardware or virtualization platform. It can serve up websites, file shares, and <a
+        href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">containers</a>, as well as
+      expand your company offerings with an incredible cloud presence.</li>
+    <li>
+      <p><strong>Why does Ubuntu Server matter?</strong> Back in 2015, it was reported that <a
+          href="http://www.zdnet.com/article/ubuntu-linux-continues-to-rule-the-cloud/">Ubuntu was twice as prevalent on
+          Amazon Cloud services</a> as all other operating systems combined. Ubuntu Server doesn't just work well in the
+        cloud, it rules the cloud. For small- to mid-size businesses looking for a cost-effective server solution,
+        Ubuntu should be your first stop.</p>
+    </li>
+    <li>
+      <p><strong>Who does Ubuntu Server affect?</strong> <a
+          href="https://w3techs.com/technologies/details/os-linux/all/all">Linux powers 37% of global websites</a>, and
+        of that percentage, 35.9% is Ubuntu (with <a href="https://www.redhat.com/en">Red Hat</a> at a mere 3.4%); this
+        indicates there's a fairly high likelihood that a site you use is powered by Ubuntu Server. In fact, even
+        Microsoft uses Ubuntu Server images in its <a
+          href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Azure</a> platform.</p>
+    </li>
+    <li>
+      <p><strong>When was Ubuntu Server released?</strong> Ubuntu Server was first released October 20, 2004, and it has
+        been steadily improving and spreading its reach ever since.</p>
+    </li>
+    <li>
+      <p><strong>How do I start using Ubuntu Server?</strong> Download a copy of the latest release, burn it onto a disk
+        or create a bootable USB drive, insert the bootable media into your server, and install.</p>
+    </li>
+  </ul>
+  <p><strong>SEE:</strong> <a href="https://www.techrepublic.com/topic/smart-persons-guides/"><strong>All of
+        TechRepublic's cheat sheets and smart person's guides</strong></a></p>
+  <h2 id="what-is-ubuntu-server">What is Ubuntu Server?</h2>
+  <p>Ubuntu Server is a server operating system developed by Canonical that runs on all major architectures: x86,
+    x86-64, ARM v7, ARM64, POWER8, and IBM System z mainframes via LinuxONE. Ubuntu is a server platform that anyone can
+    use for the following and much more:</p>
+  <ul>
+    <li>Websites</li>
+    <li>
+      <p>FTP</p>
+    </li>
+    <li>
+      <p>Email server</p>
+    </li>
+    <li>
+      <p>File and print server</p>
+    </li>
+    <li>
+      <p>Development platform</p>
+    </li>
+    <li>
+      <p>Container deployment</p>
+    </li>
+    <li>
+      <p>Cloud services</p>
+    </li>
+    <li>
+      <p>Database server</p>
+    </li>
+  </ul>
+  <p>Ubuntu Server has these minimum requirements:</p>
+  <ul>
+    <li><strong>RAM:</strong> 512MB</li>
+    <li>
+      <p><strong>CPU:</strong> 1 GHz</p>
+    </li>
+    <li>
+      <p><strong>Storage:</strong> 1 GB disk space (1.75 GB for all features to be installed)</p>
+    </li>
+  </ul>
+  <p>One benefit that makes Ubuntu Server so appealing is it's cost effective. Anyone can download a copy of the latest
+    version of Ubuntu Server and deploy it on as many machines as necessary-at zero cost (minus hardware and time).</p>
+  <p>The latest release includes important upgrades to the platform. Ubuntu Server now supports ZFS (a file system with
+    built-in snapshot capabilities) and includes the first production release of <a
+      href="https://help.ubuntu.com/lts/serverguide/DPDK.html">Data Plane Development Kit</a> (DPDK), which is a set of
+    libraries and drivers for fast packet processing.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/pro-tips-ubuntu-20-04-free-pdf/"><strong>Pro tips:
+        Ubuntu 20.04</strong></a> <strong>(TechRepublic download)</strong></p>
+  <p>If you run a small company and you're looking for an easy to deploy file server or web server, Ubuntu Server could
+    handle that and so much more. If you're an enterprise-level company looking to scale out an <a
+      href="https://www.openstack.org/">OpenStack Cloud</a>, a massive render farm, or a <a
+      href="http://hadoop.apache.org/">Hadoop</a> cluster, Ubuntu has you covered. And for those who are looking to work
+    with Ubuntu as a guest on a virtual environment, Ubuntu Server has been certified for <a
+      href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">AWS</a>, <a
+      href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft Azure</a>, <a
+      href="https://www.joyent.com/">Joyent</a>, <a href="https://www.ibm.com/cloud-computing/">IBM</a>, and <a
+      href="https://www.hpe.com/us/en/solutions/cloud.html">HPE Cloud</a>.</p>
+  <p>Just because Ubuntu Server is open source (and free to download), businesses need not worry about a lack of
+    support; thanks to Canonical, you can purchase <a
+      href="https://www.ubuntu.com/support/plans-and-pricing">enterprise-grade support</a> for the platform. Available
+    support plans include:</p>
+  <ul>
+    <li><strong>Ubuntu Advantage for virtual servers:</strong> From $250 per year</li>
+    <li><strong>Ubuntu Advantage for servers:</strong> From $150 per year</li>
+    <li><strong>Ubuntu Advantage for clouds:</strong> Standard $750 per year, Advanced $1,500 per year, Managed $15 per
+      day/per node</li>
+  </ul>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/resource-library/downloads/9-must-do-tips-to-secure-ubuntu-server/">9
+        must-do tips to secure Ubuntu Server</a> (TechRepublic Premium)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/how-to-upgrade-to-ubuntu-20-04/">How to upgrade to Ubuntu
+          20.04</a> (TechRepublic)</p>
+    </li>
+    <li><a href="https://www.techrepublic.com/article/the-exciting-new-features-found-in-ubuntu-20-04/">Ubuntu 20.04:
+        The most exciting new features</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/containers-the-smart-persons-guide/">Containers: A cheat sheet for
+        tech pros</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-prevent-ubuntu-from-overwriting-etcresolv-conf/">How to
+        prevent Ubuntu from overwriting /etc/resolv.conf</a> (TechRepublic)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/how-to-install-microsofts-procmon-on-ubuntu-server-18-04/">How to
+          install Microsoft's Procmon on Ubuntu Server 18.04</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="why-does-ubuntu-server-matter">Why does Ubuntu Server matter?</h2>
+  <p>Over the last few years, the cloud has become a central point of focus for IT and users, and that shift has been a
+    major boon to Canonical and Ubuntu. Ever since Infrastructure as a Service (<a
+      href="https://www.techrepublic.com/resource-library/whitepapers/iaas-research-the-state-of-iaas-in-the-enterprise-2017/">IaaS</a>)
+    has taken off, Ubuntu has become one of the biggest players in running these services from the cloud. <a
+      href="https://www.forbes.com/sites/janakirammsv/2016/01/12/10-reasons-why-ubuntu-is-killing-it-in-the-cloud/#18c12241ae50">Ubuntu
+      has become the first choice</a> for administrators and <a
+      href="https://www.techrepublic.com/article/devops-the-smart-persons-guide/">DevOps</a> engineers looking to deploy
+    OpenStack.</p>
+  <p>And then there's <a href="https://www.techrepublic.com/article/docker-the-smart-persons-guide/">Docker</a>, one of
+    the most popular container deployment platforms on the market. Ubuntu Server makes setting up Docker incredibly
+    easy-so much so that nearly any level IT pro can make deploying containers a reality. Containers can go a long way
+    to helping you expand your company offerings to staff, clients, and customers.</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/downloads/how-mark-shuttleworth-became-the-first-african-in-space-and-launched-a-software-revolution-pdf-download/"><strong>Download-How
+        Mark Shuttleworth became the first African in space and launched a software revolution</strong></a>
+    <strong>(TechRepublic)</strong></p>
+  <p>Another advantage Ubuntu Server has over many platforms in its class is the new(ish) snap package feature. Snap
+    packages are universal packages that contain all necessary dependencies and can be installed with a simple command
+    (such as <em>sudo snap install nextcloud</em>). Snaps can also be easily updated with a single command (<em>sudo
+      snap refresh</em>), so there are fewer administrative tasks.</p>
+  <p>If the Ubuntu Server features aren't enough to sell you, read these stats:</p>
+  <ul>
+    <li>In 2015, there were over <a href="https://insights.ubuntu.com/2016/04/07/ubuntu-is-everywhere/">20 million
+        launches of Ubuntu via public/private clouds and bare metal</a>.</li>
+    <li>
+      <p>In November 2015, over 2 million Ubuntu images were launched.</p>
+    </li>
+    <li>
+      <p>There are currently <a href="https://insights.ubuntu.com/2016/04/07/ubuntu-is-everywhere/">over 60 million
+          Ubuntu images launched by Docker users</a>.</p>
+    </li>
+  </ul>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/where-would-we-be-without-ubuntu/">Where would we be without
+        Ubuntu?</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-install-wordpress-with-docker/">How to install WordPress
+        with Docker</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-install-and-use-lets-encrypt-on-a-ubuntu-server-for-ssl-security/">How
+        to install and use Let's Encrypt on a Ubuntu Server for SSL security</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/how-to-install-the-chef-server-and-chef-client-on-ubuntu-20-04/">How
+          to install the Chef Server and Chef Client on Ubuntu 20.04</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/how-to-install-the-rudder-system-audit-platform-on-ubuntu-20-04/">How
+          to install the Rudder system audit platform on Ubuntu 20.04</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/how-to-configure-email-alerts-for-ubuntu-auto-updates/">How to
+          configure email alerts for Ubuntu auto updates</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="who-does-ubuntu-server-affect">Who does Ubuntu Server affect?</h2>
+  <p>Ubuntu Server affects everyone from IT pros, developers, CFOs, and end users.</p>
+  <p>Let's consider one element of Ubuntu Server: the cloud. Gartner has predicted that <a
+      href="http://www.gartner.com/newsroom/id/3384720">by 2020 the cloud will consume nearly $1 trillion in IT
+      spending</a>. That's massive. Now, think about this:</p>
+  <ul>
+    <li><a href="https://www.ubuntu.com/cloud/openstack">OpenStack is the world's leading cloud computing platform</a>;
+      and</li>
+    <li>Ubuntu Server is the world's most popular operating system for OpenStack.</li>
+  </ul>
+  <p>The conclusion to draw is that Ubuntu Server is not only ruling the cloud, but it will continue to be a major force
+    to lead IT to that $1T mark.</p>
+  <p>If your business has yet to deploy Ubuntu Server, be patient-it will. As companies and users become more dependent
+    on the cloud, Ubuntu Server will become even more necessary. Fortunately for IT pros, the platform makes rolling out
+    containers and clouds incredibly simple.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/a-case-for-and-against-upgrading-ubuntu-to-kernel-5-8-and-how-to-do-it/">Upgrading
+          Ubuntu to Linux kernel 5.8: A case for and against it</a> (TechRepublic)</p>
+    </li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-install-openstack-on-a-single-ubuntu-server-virtual-machine/">How
+        to install OpenStack on a single Ubuntu Server virtual machine</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-configure-ubuntu-linux-server-as-a-domain-controller-with-samba-tool/">How
+        to configure Ubuntu Linux server as a Domain Controller with samba-tool</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-troubleshoot-an-ethernet-interface-ubuntu-server-with-ethtool/">How
+        to troubleshoot an ethernet interface on a Ubuntu Server with ethtool</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/how-to-simplify-debian-ubuntu-system-updates-with-ucaresystem/">How
+          to simplify your Debian/Ubuntu system updates with uCareSystem</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="when-was-ubuntu-server-released">When was Ubuntu Server released?</h2>
+  <p>Ubuntu Server made its first appearance with the release of Ubuntu 6.06 (Dapper Drake) on June 1, 2010. As with
+    every release since, Ubuntu images can be downloaded for either a desktop or a server platform.</p>
+  <p>The server release uses the same repositories as the desktop, so since inception, there has been a continuity
+    between the editions. Ubuntu Server has always released sans GUI; due to the sharing of repositories, it is possible
+    to install a graphical environment.</p>
+  <p>Ubuntu Server has come a long way since its humble beginnings. When Ubuntu Server was initially released, it was
+    widely considered an option for mail, FTP, and web servers. Now, the sky's the limit.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="http://www.zdnet.com/article/docker-launches-enterprise-edition-courts-broader-corporate-adoption/">Docker
+        launches Enterprise Edition, courts broader corporate adoption</a> (ZDNet)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/how-to-install-the-graylog-system-log-manager-on-ubuntu-server-20-04/">How
+          to install the Graylog system log manager on Ubuntu Server 20.04</a> (TechRepublic)</p>
+    </li>
+    <li><a href="https://www.techrepublic.com/article/how-to-make-apache-more-secure-by-hiding-directory-folders/">How
+        to make Apache more secure by hiding directory folders</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/how-to-back-up-mysql-databases-from-the-command-line-with-linux/">How
+        to back up MySQL databases from the command line in Linux</a> (TechRepublic)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/how-to-install-and-enable-memcached-on-ubuntu-and-centos/">How to
+          install and enable memcached on Ubuntu and CentOS</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="what-are-ubuntu-servers-competitors">What are Ubuntu Server's competitors?</h2>
+  <p>The competition on the server platform is fierce, with open source and proprietary solutions available. The primary
+    competition for market share is:</p>
+  <ul>
+    <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Linux</a></li>
+    <li>
+      <p><a href="https://www.suse.com/">SUSE</a></p>
+    </li>
+    <li>
+      <p><a href="https://www.centos.org/">CentOS</a></p>
+    </li>
+    <li>
+      <p><a href="https://getfedora.org/en/server/">Fedora Server</a></p>
+    </li>
+    <li>
+      <p><a href="https://www.microsoft.com/en-us/cloud-platform/windows-server">Windows Server</a></p>
+    </li>
+  </ul>
+  <p>Of the above offerings, only CentOS and Fedora Server are free.</p>
+  <h2 id="how-do-i-start-using-ubuntu-server">How do I start using Ubuntu Server?</h2>
+  <p>If you're going to install Ubuntu Server on bare metal (or by way of a virtual host, such as <a
+      href="https://www.virtualbox.org/wiki/VirtualBox">VirtualBox</a> or <a href="http://www.vmware.com/">VMware</a>),
+    you need to <a href="https://www.ubuntu.com/download/server">download a Ubuntu Server ISO image</a> and either burn
+    that image onto a CD/DVD or create a bootable USB flash drive. Insert the media in the target hardware and boot up.
+    The installation of the operating system is as easy as any other OS, if not easier.</p>
+  <p>If a cloud deployment is your route of choice, you'll want to log into your deployment dashboard (such as the <a
+      href="https://console.aws.amazon.com/ec2/v2/home?region=us-west-2#">Amazon EC2 Console</a>) and walk through that
+    cloud service's deployment process.</p>
+  <p>No matter which path you take, starting out with Ubuntu Server is fairly painless. Out of the box, you will be
+    working from the command line, so get up to speed with tools such as apt-get.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/how-to-install-ansible-on-ubuntu/">How to install the Ansible
+        server management system on Ubuntu</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/how-to-install-the-sonarqube-code-quality-analyzer-on-ubuntu-server-20-04/">How
+          to install the SonarQube code quality analyzer on Ubuntu Server 20.04</a> (TechRepublic)</p>
+    </li>
+    <li><a href="https://www.techrepublic.com/article/how-to-free-disk-space-on-linux-systems/">How to free disk space
+        on Linux systems</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-encrypt-virtualbox-vms/">How to encrypt VirtualBox VMs</a>
+      (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-automate-database-backup-with-backupninja/">How to automate
+        database backups with backupninja</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/how-to-change-the-linux-io-scheduler-to-fit-your-needs/">How to
+        change the Linux I/O scheduler to fit your needs</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/5-data-center-ready-linux-distributions/">5 data center-ready
+        Linux distributions</a> (TechRepublic)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/raspberry-pi-zero-wireless-hands-on/">Raspberry Pi Zero W:
+          Hands-on with the $10 board</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="open-source-weekly-newsletter">Open Source Weekly Newsletter</h3>
+  <p>You don't want to miss our tips, tutorials, and commentary on the Linux OS and open source applications. Delivered
+    Tuesdays</p>
+  <p>Sign up today</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/03/22/2cab0259-e53c-474a-b6e0-7f03fcd135ff/resize/770x/7e462de544c2df9b5d7214d5dedf2727/ubuntuhero.jpg"
+      alt="ubuntuhero.jpg" />
+    <figcaption>ubuntuhero.jpg</figcaption>
+  </figure>
+  <p>Image: Jack Wallen</p>
+  <p><a href="https://www.techrepublic.com/article/ubuntu-server-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

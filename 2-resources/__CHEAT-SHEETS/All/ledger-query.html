@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="query-characters">Query characters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Query</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>@payee</code></td>
+<td>Payee</td>
+</tr>
+<tr class="even">
+<td><code>%tag</code></td>
+<td>Tag</td>
+</tr>
+<tr class="odd">
+<td><code>=note</code></td>
+<td>Note</td>
+</tr>
+<tr class="even">
+<td><code>#code</code></td>
+<td>Code</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>TERM and TERM</code></td>
+<td>Boolean and</td>
+</tr>
+<tr class="odd">
+<td><code>TERM or TERM</code></td>
+<td>Boolean or</td>
+</tr>
+<tr class="even">
+<td><code>not TERM</code></td>
+<td>Boolean not</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">ledger</span> r @taco</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">ledger</span> r comment =~ /landline/</a></code></pre></div>
+<h2 id="references">References</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="http://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions" class="uri">http://ledger-cli.org/3.0/doc/ledger3.html#Complex-expressions</a></li>
+</ul>
+</body></html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="basics">Basics</h2>
+<h3 id="exporting-keys">Exporting keys</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">gpg</span> -o key.gpg --export <span class="op">&lt;</span>KEY ID<span class="op">&gt;</span></a></code></pre></div>
+<p><strong>Export key in ASCII:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">gpg</span> -o key.asc --armor --export <span class="op">&lt;</span>KEY ID<span class="op">&gt;</span></a></code></pre></div>
+<p><strong>Note:</strong> Omitting the <code>-o|--output</code> option will print the key to <code>stdout</code>.</p>
+<h3 id="importing-keys">Importing keys</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">gpg</span> --import key.gpg</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">gpg</span> --import key.asc</a></code></pre></div>
+<p>Only merge updates for keys already in key-ring:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">gpg</span> --import key.asc --merge-options merge-only</a></code></pre></div>
+<h3 id="managing-your-keyring">Managing your keyring</h3>
+<p>Generate a new key: {: .-setup}</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">gpg</span> --gen-key</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co"># or, generate a new key with dialogs for all options</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="ex">gpg</span> --full-gen-key</a></code></pre></div>
+<p>List public keys:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">gpg</span> -k</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">gpg</span> --list-keys</a></code></pre></div>
+<p>List secret keys:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">gpg</span> -K</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="ex">gpg</span> --list-secret-keys</a></code></pre></div>
+<h3 id="using-a-keyserver">Using a keyserver</h3>
+<p>Import keys from keyserver: {: .-setup}</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">gpg</span> --receive-keys <span class="op">&lt;</span>KEY IDS<span class="op">&gt;</span></a></code></pre></div>
+<p>Upload keys to keyserver:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">gpg</span> --send-keys <span class="op">&lt;</span>KEY IDS<span class="op">&gt;</span></a></code></pre></div>
+<p>Request updates from keyserver for keys already in your keyring:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">gpg</span> --refresh-keys</a></code></pre></div>
+<p>Search keys from keyserver:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="ex">gpg</span> --search-keys <span class="st">&quot;&lt;SEARCH STRING&gt;&quot;</span></a></code></pre></div>
+<p>Override keyserver from <code>~/.gnupg/gpg.conf</code></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="ex">gpg</span> --keyserver <span class="op">&lt;</span>URL<span class="op">&gt;</span> ...</a></code></pre></div>
+<h3 id="trusting-a-key">Trusting a key</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"><span class="ex">gpg</span> --edit-key <span class="op">&lt;</span>KEY ID<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="co"># In the interactive prompt:</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="ex">gpg</span><span class="op">&gt;</span> sign</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="ex">gpg</span><span class="op">&gt;</span> save</a></code></pre></div>
+<p><strong>NOTE:</strong> You can use the owner's email or name (or part thereof) instead of the key ID for <code>--edit-key</code></p>
+<h2 id="encrypting">Encrypting</h2>
+<p>{: .-two-column}</p>
+<h3 id="public-key-encryption">Public key encryption</h3>
+<p>This will produce an encrypted file, <code>secret.txt.gpg</code>, that can only be decrypted by the recipient:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">gpg</span> -e -o secret.txt.gpg -r <span class="op">&lt;</span>RECIPIENT<span class="op">&gt;</span> secret.txt</a></code></pre></div>
+<p>For <code>&lt;RECIPIENT&gt;</code> you can use their key ID, their email, or their name (or part thereof).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="ex">gpg</span> -e -r <span class="op">&lt;</span>KEY ID<span class="op">&gt;</span> ...</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="ex">gpg</span> -e -r <span class="st">&quot;Bez&quot;</span> ...</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="ex">gpg</span> -e -r <span class="st">&quot;bezalelhermoso@gmail.com&quot;</span> ...</a></code></pre></div>
+<p>Specifying multiple recipients</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"><span class="ex">gpg</span> -e -r <span class="op">&lt;</span>RECIPIENT<span class="op">&gt;</span> -r <span class="op">&lt;</span>ANOTHER RECIPIENT<span class="op">&gt;</span> ... secret.txt</a></code></pre></div>
+<p><strong>NOTE</strong>: Omitting <code>-o|--output</code> will produce an encrypted file named <code>&lt;ORIGINAL FILENAME&gt;.gpg</code> by default.</p>
+<h3 id="symmetric-encryption">Symmetric encryption</h3>
+<p>Encrypt file using a shared key. You will be prompted for a passphrase.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" title="1"><span class="ex">gpg</span> --symmetric secret.txt</a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="co"># or</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="ex">gpg</span> -c secret.txt</a></code></pre></div>
+<h2 id="decrypting">Decrypting</h2>
+<p>{: .-one-column}</p>
+<h3 id="decrypting-a-file">Decrypting a file</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"><span class="ex">gpg</span> -d -o secret.txt secret.txt.gpg</a></code></pre></div>
+<p>If the file is encrypted via symmetric encryption, you will be prompted for the passphrase.</p>
+<p><strong>NOTE</strong>: Omitting <code>-o|--output</code> will print the unencrypted contents to <code>stdout</code></p>
+<h2 id="signing-verifying">Signing &amp; Verifying</h2>
+<p>{: .-two-column}</p>
+<h3 id="signing">Signing</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" title="1"><span class="ex">gpg</span> -o signed-file.txt.gpg -s file.txt</a></code></pre></div>
+<p>This can be used during encryption to also sign encrypted files:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" title="1"><span class="ex">gpg</span> -s -o secret.txt.gpg \</a>
+<a class="sourceLine" id="cb20-2" title="2">  -r <span class="op">&lt;</span>RECIPIENT<span class="op">&gt;</span> secret.txt</a></code></pre></div>
+<h3 id="verifying-a-signature">Verifying a signature</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" title="1"><span class="ex">gpg</span> --verify file.txt.gpg</a></code></pre></div>
+<h3 id="viewing-content-of-signed-file">Viewing content of signed file</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" title="1"><span class="ex">gpg</span> -d signed-file.txt.gpg</a></code></pre></div>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<p>{: .-two-column}</p>
+<h3 id="components">Components</h3>
+<p>List all components: {: .-setup}</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" title="1"><span class="ex">gpgconf</span> --list-components</a></code></pre></div>
+<p>Kill a component:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb24-1" title="1"><span class="ex">gpgconf</span> --kill <span class="op">&lt;</span>COMPONENT<span class="op">&gt;</span> <span class="co"># i.e. gpgconf --kill dirmngr</span></a></code></pre></div>
+<p>Kill all components:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb25-1" title="1"><span class="ex">gpgconf</span> --kill all</a></code></pre></div>
+<h3 id="parsing-keyring-data">Parsing keyring data</h3>
+<p>Use <code>--with-colons</code> to produce an output that can easily be parsed i.e. with <code>awk</code>, <code>grep</code>. Fields are colon-separated.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb26-1" title="1"><span class="ex">gpg</span> -k --with-colons</a></code></pre></div>
+<p>Field Quick Reference:</p>
+<div class="line-block">Field # | Description |<br />
+1 | Record type |<br />
+2 | Validity |<br />
+3 | Key length in bits |<br />
+4 | Public key algorithm |<br />
+5 | Key ID |<br />
+6 | Creation date |<br />
+7 | Expiry date |<br />
+8 | Certificate S/N, UID hash, trust signature info |<br />
+9 | Ownertrust |<br />
+10 | User ID |<br />
+11 | Signature class |<br />
+12 | Key capabilities |<br />
+13 | Issuer fingerprint |<br />
+14 | Flag field |<br />
+15 | S/N of token |<br />
+16 | Hash algorithm |<br />
+17 | Curve name |<br />
+18 | Compliance flags |<br />
+19 | Last update timestamp |<br />
+20 | Origin |</div>
+<p>See <a href="https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS">GnuPG Details</a> for more details.</p>
+</body></html>

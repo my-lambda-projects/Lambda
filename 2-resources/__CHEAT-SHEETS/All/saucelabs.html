@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="getting-started">Getting started</h3>
+<p>Sign up for opensauce: {: .-setup}</p>
+<ul>
+<li>http://saucelabs.com/opensauce</li>
+</ul>
+<p>Install <a href="https://npmjs.com/package/zuul">zuul</a>:</p>
+<pre><code>npm i -g zuul</code></pre>
+<p>Configure zuul:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># ~/.zuulrc</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">sauce_username:</span><span class="at"> me</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="fu">sauce_key:</span><span class="at"> abc12348-e3e2-...</span></a></code></pre></div>
+<p>Add <code>.zuul.yml</code> to your project:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># .zuul.yml</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="fu">ui:</span><span class="at"> mocha-bdd</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="fu">browsers:</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="kw">-</span> <span class="fu">name:</span><span class="at"> chrome</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="fu">version:</span><span class="at"> latest</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="kw">-</span> <span class="fu">name:</span><span class="at"> ie</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="fu">version:</span><span class="at"> 6..latest</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="kw">-</span> <span class="fu">name:</span><span class="at"> firefox</span></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="fu">version:</span><span class="at"> latest</span></a></code></pre></div>
+<p>Try to run tests:</p>
+<pre><code>zuul test/test.js
+zuul --local test/test.js</code></pre>
+</body></html>

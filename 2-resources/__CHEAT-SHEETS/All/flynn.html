@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="general-workflow">General workflow</h3>
+<ul>
+<li>Start a flynn cluster (on amazon or vagrant)</li>
+<li><code>flynn cluster add</code> to add that cluster</li>
+<li><code>flynn create NAME</code> in your app</li>
+<li><code>git push flynn master</code> to deploy</li>
+</ul>
+<h3 id="creating-a-cluster-aws">Creating a cluster (AWS)</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">flynn</span> install  <span class="co"># (provisions AWS EC2 stuff)</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">flynn</span> key add  <span class="co"># (adds your pubkey to AWS)</span></a></code></pre></div>
+<h4 id="what-it-does">What it does</h4>
+<ul>
+<li>This creates <code>XXXX.flynnhub.com</code></li>
+<li>Dashboard in <code>dashboard.XXXX.flynnhub.com</code></li>
+<li>Use <code>flynn -a dashboard env get LOGIN_TOKEN</code> to get login token</li>
+<li>Apps live in <code>APP.XXXX.flynnhub.com</code></li>
+</ul>
+<h3 id="using-a-flynn-cluster">Using a flynn cluster</h3>
+<p>Managed in <code>~/.flynnrc</code>: {: .-setup}</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">flynn</span> cluster</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">flynn</span> cluster add [-g githost] [-p pin] NAME URL KEY</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">flynn</span> cluster remove NAME</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ex">flynn</span> cluster default NAME <span class="co"># use this current</span></a></code></pre></div>
+<h3 id="setting-up-a-new-app">Setting up a new app</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">cd</span> ~/project</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">flynn</span> create example <span class="co"># adds the `flynn` remote</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ex">flynn</span> route <span class="co"># prints http routes</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="fu">git</span> push flynn master</a></code></pre></div>
+<h2 id="commands">Commands</h2>
+<h3 id="environment-vars">Environment vars</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">flynn</span> env</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">flynn</span> env set FOO=bar BAZ=foobar</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="ex">flynn</span> env unset FOO</a></code></pre></div>
+<h3 id="scale">Scale</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">flynn</span> ps</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">flynn</span> scale web=3</a></code></pre></div>
+<h3 id="logs">Logs</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">flynn</span> log</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="ex">flynn</span> log flynn-d55c7a...</a></code></pre></div>
+<h3 id="running-commands">Running commands</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">flynn</span> run rake db:migrate</a></code></pre></div>
+<h3 id="manage-routes">Manage routes</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">flynn</span> route</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">flynn</span> route add http example.com</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co"># then make a CNAME from example.com to myapp.xxxx.flynnhub.com</span></a></code></pre></div>
+<h3 id="more">More</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">flynn</span> ps</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="ex">flynn</span> kill <span class="op">&lt;</span>job<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="ex">flynn</span> meta</a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="ex">flynn</span> meta set foo=baz</a></code></pre></div>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="https://flynn.io/">Flynn website</a> <em>(flynn.io)</em></li>
+</ul>
+</body></html>

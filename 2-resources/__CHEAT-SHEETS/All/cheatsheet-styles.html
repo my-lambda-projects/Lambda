@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h2 id="intro">Intro</h2>
+    <h2 id="variants">Variants</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="h2-sections">H2 sections</h3>
+    <div class="line-block"><code>-one-column</code> | |<br />
+      <code>-two-column</code> | <em>(default)</em>|<br />
+      <code>-three-column</code> | |<br />
+      <code>-left-reference</code> | 3 columns<br><em>(short first column)</em> |<br />
+      <code>-no-hide</code> | Don't hide H2 |</div>
+    <p>See: <a href="#two-columns">H2 sections</a></p>
+    <h3 id="h3-sections">H3 sections</h3>
+    <div class="line-block"><code>-prime</code> | Highlight |</div>
+    <p>See: <a href="#h3-sections-1">H3 sections</a></p>
+    <h3 id="tables">Tables</h3>
+    <div class="line-block"><code>-bold-first</code> | Bold first column |<br />
+      <code>-headers</code> | Show headers |<br />
+      <code>-left-align</code> | Don't right align last column |<br />
+      <code>-mute-em</code> | Lower opacity for italics |<br />
+      <code>-no-wrap</code> | Don't wrap text |<br />
+      <code>-shortcuts</code> | Shortcut keys |</div>
+    <p>See: <a href="#tables-1">Tables</a></p>
+    <h3 id="code">Code</h3>
+    <div class="line-block"><code>-box-chars</code> | Less line height<br><em>for box drawing chars</em> |<br />
+      <code>-setup</code> | Gray background |<br />
+      <code>-wrap</code> | Enables line-wrapping |</div>
+    <p>See: <a href="#code-1">Code</a></p>
+    <h3 id="paragraphs">Paragraphs</h3>
+    <div class="line-block"><code>-setup</code> | Gray background |<br />
+      <code>-crosslink</code> | Has arrow on the link |</div>
+    <p>{: .-gray}</p>
+    <p>See: <a href="#paragraphs-1">Paragraphs</a></p>
+    <h3 id="lists">Lists</h3>
+    <div class="line-block"><code>-also-see</code> | Lighter background |<br />
+      <code>-four-column</code> | |<br />
+      <code>-six-column</code> | |</div>
+    <p>See: <a href="#lists-1">Lists</a></p>
+    <h3 id="adding-variants">Adding variants</h3>
+    <p>{: .-prime}</p>
+    <pre><code>## Section
+{: .-two-column}</code></pre>
+    <p>Devhints uses Kramdown, and supports adding classes via Kramdown's syntax.</p>
+    <h2 id="h3-sections-1">H3 sections</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="supported">Supported</h3>
+    <p>Each section can have the following children:</p>
+    <h4 id="white">White</h4>
+    <ul>
+      <li><code>pre</code></li>
+      <li><code>ul</code></li>
+      <li><code>table</code></li>
+    </ul>
+    <h4 id="gray">Gray</h4>
+    <ul>
+      <li><code>p</code></li>
+      <li><code>h4</code></li>
+    </ul>
+    <h3 id="prime-section">Prime section</h3>
+    <p>{: .-prime}</p>
+    <p>This is a section with <code>{: .-prime}</code>. Notice the fancy highlight! Great for “getting started" kind of
+      snippets.</p>
+    <h3 id="h3-section">H3 section</h3>
+    <p>Every box is an H3 section. The box will encompass everything inside the body of the H3.</p>
+    <p>This is a basic section with paragraphs in it.</p>
+    <h2 id="code-1">Code</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="basic-code">Basic code</h3>
+    <div class="sourceCode" id="cb2">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">here</span>.<span class="at">is</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="va">some</span>.<span class="at">code</span>()</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">here</span>.<span class="va">is</span>.<span class="va">some</span>.<span class="at">more</span>()</a></code></pre>
+    </div>
+    <p>Code blocks can be placed one after the other.</p>
+    <p>See: <a href="/">Cheatsheets</a></p>
+    <h3 id="code-with-headings">Code with headings</h3>
+    <h4 id="index.js">index.js</h4>
+    <p>{: .-file}</p>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">here</span>.<span class="at">is</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="va">some</span>.<span class="at">code</span>()</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <h4 id="other.js">other.js</h4>
+    <p>{: .-file}</p>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">here</span>.<span class="va">is</span>.<span class="va">some</span>.<span class="at">more</span>()</a></code></pre>
+    </div>
+    <p>Code blocks can have headings.</p>
+    <h3 id="highlighted-lines">Highlighted lines</h3>
+    <div class="sourceCode" id="cb6">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">app</span>.<span class="at">start</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">const</span> port <span class="op">=</span> <span class="va">app</span>.<span class="va">server</span>.<span class="at">port</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="va">console</span>.<span class="at">log</span>(<span class="vs">`Started at </span><span class="sc">${</span>port<span class="sc">}</span><span class="vs">`</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“3"}</p>
+    <p>Add <code>{: data-line="3"}</code> to add line highlights.</p>
+    <h3 id="multiple-highlights">Multiple highlights</h3>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">app</span>.<span class="at">start</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">const</span> port <span class="op">=</span> <span class="va">app</span>.<span class="va">server</span>.<span class="at">port</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="va">console</span>.<span class="at">log</span>(<span class="vs">`Started at </span><span class="sc">${</span>port<span class="sc">}</span><span class="vs">`</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“2,3"}</p>
+    <p>Add <code>{: data-line="2,3"}</code> to add multiple line highlights.</p>
+    <h3 id="setup-blocks">Setup blocks</h3>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="im">import</span> React <span class="im">from</span> <span class="st">&#39;react&#39;</span></a></code></pre>
+    </div>
+    <p>{: .-setup}</p>
+    <div class="sourceCode" id="cb9">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span> Hello <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="at">render</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="cf">return</span> <span class="op">&lt;</span>span<span class="op">&gt;</span>Hello&lt;/span<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>Add <code>{: .-setup}</code> to a <code>pre</code> or <code>table</code> or <code>ul</code>.</p>
+    <h3 id="long-lines">Long lines</h3>
+    <div class="sourceCode" id="cb10">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">createNode</span>(nodeName<span class="op">:</span> string<span class="op">,</span> options<span class="op">:</span> <span class="op">{</span> <span class="dt">key</span><span class="op">:</span> string <span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">return</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">}</span></a></code></pre>
+    </div>
+    <p>Long lines will have scrollbars.</p>
+    <h3 id="line-wrapping">Line wrapping</h3>
+    <div class="sourceCode" id="cb11">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="op">&lt;</span>script<span class="op">&gt;</span>(<span class="kw">function</span>(d<span class="op">,</span>s)<span class="op">{</span><span class="cf">if</span>(<span class="va">window</span>.<span class="at">Promise</span><span class="op">&amp;&amp;</span>[].<span class="at">includes</span><span class="op">&amp;&amp;</span><span class="va">Object</span>.<span class="at">assign</span><span class="op">&amp;&amp;</span><span class="va">window</span>.<span class="at">Map</span>)<span class="cf">return</span><span class="op">;</span><span class="kw">var</span> js<span class="op">,</span>sc<span class="op">=</span><span class="va">d</span>.<span class="at">getElementsByTagName</span>(s)[<span class="dv">0</span>]<span class="op">;</span>js<span class="op">=</span><span class="va">d</span>.<span class="at">createElement</span>(s)<span class="op">;</span><span class="va">js</span>.<span class="at">src</span><span class="op">=</span><span class="st">&#39;https://cdn.polyfill.io/v2/polyfill.min.js&#39;</span><span class="op">;</span><span class="va">sc</span>.<span class="va">parentNode</span>.<span class="at">insertBefore</span>(js<span class="op">,</span> sc)<span class="op">;}</span>(document<span class="op">,</span><span class="st">&#39;script&#39;</span>))&lt;/script<span class="op">&gt;</span></a></code></pre>
+    </div>
+    <p>{: .-wrap}</p>
+    <p>Add <code>-wrap</code> to wrap long lines.</p>
+    <h2 id="lists-1">Lists</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="lists-2">Lists</h3>
+    <ul>
+      <li>This is</li>
+      <li>a list</li>
+      <li>with a few items</li>
+    </ul>
+    <p>Here's an extra paragraph after the list.</p>
+    <h3 id="lists-with-headings">Lists with headings</h3>
+    <h4 id="part-1">Part 1</h4>
+    <ul>
+      <li><code>createElement()</code></li>
+      <li><code>componentDidMount()</code></li>
+      <li><code>componentWillUnmount()</code></li>
+    </ul>
+    <h4 id="part-2">Part 2</h4>
+    <ul>
+      <li><code>shouldComponentUpdate()</code></li>
+      <li><code>componentWillReceiveProps()</code></li>
+    </ul>
+    <p>Here's an extra paragraph after the list.</p>
+    <h2 id="list-columns">List columns</h2>
+    <p>{: .-one-column}</p>
+    <h3 id="six-columns">Six columns</h3>
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+      <li>Five</li>
+      <li>Six</li>
+      <li>Seven</li>
+      <li>Eight</li>
+      <li>Nine</li>
+      <li>Ten</li>
+      <li>Eleven {: .-six-column}</li>
+    </ul>
+    <p>Add <code>{: .-six-column}</code> to make large lists.</p>
+    <h3 id="four-columns">Four columns</h3>
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+      <li>Five</li>
+      <li>Six</li>
+      <li>Seven</li>
+      <li>Eight</li>
+      <li>Nine</li>
+      <li>Ten</li>
+      <li>Eleven {: .-four-column}</li>
+    </ul>
+    <p>Add <code>{: .-four-column}</code> to make large lists.</p>
+    <h3 id="also-see">Also see</h3>
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+      <li>Five</li>
+      <li>Six</li>
+      <li>Seven</li>
+      <li>Eight</li>
+      <li>Nine</li>
+      <li>Ten {: .-also-see}</li>
+    </ul>
+    <p>Add <code>{: .-also-see}</code>.</p>
+    <h2 id="paragraphs-1">Paragraphs</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="basic-paragraphs">Basic paragraphs</h3>
+    <p>This is a basic section with paragraphs in it. When paragraphs are the first elements in an H3 section's body,
+      they appear as white.</p>
+    <h3 id="basic-paragraphs-1">Basic paragraphs</h3>
+    <pre><code>···</code></pre>
+    <p>When paragraphs appear after <code>pre</code>/<code>table</code>/<code>ul</code>, they appear with a gray
+      background.</p>
+    <h3 id="preludes">Preludes</h3>
+    <p>Here's a prelude paragraph. Add <code>{: .-setup}</code> to make paragraphs appear with a gray background. {:
+      .-setup}</p>
+    <pre><code>···</code></pre>
+    <h3 id="crosslink">Crosslink</h3>
+    <p>Add <code>{: .-crosslink}</code> to make big loud external links:</p>
+    <pre><code>···</code></pre>
+    <p><a href="/">Home</a> {: .-crosslink}</p>
+    <h2 id="tables-1">Tables</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="basic-table">Basic table</h3>
+    <h4 id="date">Date</h4>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Example</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>%m/%d/%Y</code></td>
+          <td><code>06/05/2013</code></td>
+        </tr>
+        <tr class="even">
+          <td><code>%A, %B %e, %Y</code></td>
+          <td><code>Sunday, June 5, 2013</code></td>
+        </tr>
+        <tr class="odd">
+          <td><code>%b %e %a</code></td>
+          <td><code>Jun 5 Sun</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <h4 id="time">Time</h4>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Example</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>%H:%M</code></td>
+          <td><code>23:05</code></td>
+        </tr>
+        <tr class="even">
+          <td><code>%I:%M %p</code></td>
+          <td><code>11:05 PM</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>This is a basic table with h4's.</p>
+    <h3 id="shortcuts">Shortcuts</h3>
+    <div class="line-block"><code>V</code> | Vector |<br />
+      <code>P</code> | Pencil |<br />
+      <code>T</code> | Text |<br />
+      <code>L</code> | Line |<br />
+      <code>R</code> | Rectangle |<br />
+      <code>O</code> | Oval |<br />
+      <code>U</code> | Rounded |</div>
+    <p>{: .-shortcuts}</p>
+    <p>Add <code>{: .-shortcuts}</code> to tables.</p>
+    <h3 id="with-headers">With headers</h3>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Prefix</th>
+          <th>Example</th>
+          <th>What</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>//</code></td>
+          <td><code>//hr[@class='edge']</code></td>
+          <td>Anywhere</td>
+        </tr>
+        <tr class="even">
+          <td><code>./</code></td>
+          <td><code>./a</code></td>
+          <td>Relative</td>
+        </tr>
+        <tr class="odd">
+          <td><code>/</code></td>
+          <td><code>/html/body/div</code></td>
+          <td>Root</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>{: .-headers}</p>
+    <p>Add <code>{: .-headers}</code> to add headers.</p>
+    <h2 id="two-columns">Two columns</h2>
+    <h3 id="one">One</h3>
+    <pre><code>···</code></pre>
+    <h3 id="two">Two</h3>
+    <pre><code>···</code></pre>
+    <h2 id="left-reference">Left reference</h2>
+    <p>{: .-left-reference}</p>
+    <h3 id="one-1">One</h3>
+    <pre><code>···
+···
+···
+···
+···
+···
+···
+···</code></pre>
+    <h3 id="two-1">Two</h3>
+    <pre><code>···</code></pre>
+    <h3 id="three">Three</h3>
+    <pre><code>···</code></pre>
+    <h2 id="one-column">One column</h2>
+    <p>{: .-one-column}</p>
+    <h3 id="one-2">One</h3>
+    <pre><code>···</code></pre>
+  </body>
+
+</html>

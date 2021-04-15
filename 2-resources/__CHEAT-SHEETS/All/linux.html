@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="mounting-a-ram-drive">Mounting a RAM drive</h3>
+<pre><code>$ mount -t tmpfs -o size=5G,nr_inodes=5k,mode=700 tmpfs /tmp</code></pre>
+<h3 id="visudo">Visudo</h3>
+<pre><code>sudo visudo
+
+username ALL=(ALL) NOPASSWD:/sbin/restart whatever</code></pre>
+<h3 id="display-the-amount-of-available-disk-space">Display the amount of available disk space</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">df</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="fu">df</span> -h   <span class="co"># human-readable format</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="fu">df</span> -a   <span class="co"># all filesystems</span></a></code></pre></div>
+<h3 id="display-disk-usage">Display disk usage</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">du</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="fu">du</span> -hsx * <span class="kw">|</span> <span class="fu">sort</span> -rh <span class="kw">|</span> <span class="fu">head</span> -10    <span class="co"># largest 10 folders</span></a></code></pre></div>
+<h3 id="answer-yes-in-a-bash-script">Answer yes in a bash script</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">yes</span> <span class="kw">|</span> <span class="ex">/your/command</span></a></code></pre></div>
+</body></html>
