@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Checks if the target value exists in a JSON object.</p>
+<ul>
+<li>Check if <code>keys</code> is non-empty and use <code>Array.prototype.every()</code> to sequentially check its keys to internal depth of the object, <code>obj</code>.</li>
+<li>Use <code>Object.prototype.hasOwnProperty()</code> to check if <code>obj</code> does not have the current key or is not an object, stop propagation and return <code>false</code>.</li>
+<li>Otherwise assign the key's value to <code>obj</code> to use on the next iteration.</li>
+<li>Return <code>false</code> beforehand if given key list is empty.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> hasKey <span class="op">=</span> (obj<span class="op">,</span> keys) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="va">keys</span>.<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="va">keys</span>.<span class="at">every</span>(key <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">      <span class="cf">if</span> (<span class="kw">typeof</span> obj <span class="op">!==</span> <span class="st">&#39;object&#39;</span> <span class="op">||</span> <span class="op">!</span><span class="va">obj</span>.<span class="at">hasOwnProperty</span>(key)) <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">      obj <span class="op">=</span> obj[key]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> obj <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">b</span><span class="op">:</span> <span class="op">{</span> <span class="dt">c</span><span class="op">:</span> <span class="dv">4</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="st">&#39;b.d&#39;</span><span class="op">:</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;a&#39;</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;b&#39;</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="st">&#39;c&#39;</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;b.d&#39;</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;d&#39;</span>])<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;c&#39;</span>])<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="at">hasKey</span>(obj<span class="op">,</span> [<span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="st">&#39;f&#39;</span>])<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>
+</body></html>
