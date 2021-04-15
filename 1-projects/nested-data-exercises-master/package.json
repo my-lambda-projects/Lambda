@@ -1,0 +1,40 @@
+{
+  "name": "nested-data-exercises",
+  "version": "1.0.2",
+  "description": "practice array & data-structure skills here!",
+  "main": "index.js",
+  "homepage": "https://codesandbox.io/s/github/justsml/nested-data-exercises?previewwindow=tests",
+  "repository": {
+    "url": "git@github.com:justsml/nested-data-exercises.git",
+    "type": "git"
+  },
+  "scripts": {
+    "start": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
+    "build": "npx browserify ./data/people-export.js -o ./data/fixtures-bundle.js",
+    "pretest": "NODE_OPTIONS=--no-warnings npm install > /dev/null",
+    "test": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
+    "test:watch": "./node_modules/.bin/mocha --growl --reporter=list --bail --watch './test'"
+  },
+  "keywords": [
+    "object",
+    "array",
+    "traversal",
+    "exercises",
+    "workout"
+  ],
+  "author": "Dan Levy",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.1.4",
+    "mocha-junit-reporter": "^1.23.1",
+    "mocha-multi-reporters": "^1.1.7",
+    "test": "^0.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "growl": "^1.10.5",
+    "lite-server": "^2.5.3"
+  }
+}
