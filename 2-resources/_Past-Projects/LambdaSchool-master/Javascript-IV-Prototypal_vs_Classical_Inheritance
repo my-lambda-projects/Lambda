@@ -1,0 +1,112 @@
+/*
+  === GameObject ===
+  * createdAt
+  * dimensions
+  * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
+*/
+
+
+/*
+  === CharacterStats ===
+  * hp      done
+  * name    done
+  * takeDamage() // prototype method -> returns the string '<object name> took damage.'       
+  * should inherit destroy() from GameObject's prototype                                      
+*/
+
+
+/*
+  === Humanoid ===
+  * faction      done
+  * weapons      done
+  * language      done
+  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'       
+  * should inherit destroy() from GameObject through CharacterStats       
+  * should inherit takeDamage() from CharacterStats                       
+*/
+
+
+/*
+  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
+  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
+  * Instances of CharacterStats should have all of the same properties as GameObject.
+*/
+
+
+//=================================================Prototypal Inheritance =================================================//
+
+
+function GameObject (gameAttributes) {
+  this.createdAt = gameAttributes.createdAt;
+  this.dimensions = gameAttributes.dimensions;
+}
+
+GameObject.prototype.destroy = function() {
+  return `${this.name} was removed from the game.`
+}
+
+function CharacterStats(charAttributes) {
+  this.hp = charAttributes.hp;
+  this.name = charAttributes.name;
+  GameObject.call(this, charAttributes);
+}
+
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
+CharacterStats.prototype.takeDamage = function() {
+  return `${this.name} took damage.`
+}
+
+function Humanoid(humanAttributes) {
+  CharacterStats.call(this, humanAttributes);
+  this.faction = humanAttributes.faction;
+  this.weapons = humanAttributes.weapons;
+  this.language = humanAttributes.language;
+}
+
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+Humanoid.prototype.greet = function() {
+  return `${this.name} offers a greeting in ${this.language}.`
+}
+
+//=================================================Classical Inheritance =================================================//
+
+
+class GameObject {
+  constructor(gameAttribute) {
+    this.createdAt = gameAttribute.createdAt;
+    this.dimensions = gameAttribute.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
+}
+
+
+class CharacterStats extends GameObject {
+  constructor(charAttribute) {
+    super(charAttribute)  
+    this.hp = charAttribute.hp;
+    this.name = charAttribute.name;
+  }
+
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+
+class Humanoid extends CharacterStats {
+  constructor(humanAttribute) {
+    super(humanAttribute)
+    this.faction = humanAttribute.faction;
+    this.weapons = humanAttribute.weapons;
+    this.language = humanAttribute.language;
+  }
+
+  greet(){
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+

@@ -1,0 +1,15 @@
+# Dependency directory
+node_modules
+
+# Production bundle
+build
+
+# Optional npm cache directory
+.npm
+
+# Logs and stuff
+logs
+*.log
+npm-debug.log*
+coverage
+*.swp
