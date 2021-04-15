@@ -22,7 +22,7 @@
 <p>{: .-setup}</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">wrap <span class="op">=</span> <span class="at">shallow</span>(<span class="op">&lt;</span>MyComponent /<span class="op">&gt;</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">wrap <span class="op">=</span> <span class="at">mount</span>(<span class="op">&lt;</span>MyComponent /<span class="op">&gt;</span>)</a></code></pre></div>
-<p>Shallow wrapping doesn’t descend down to sub-components. A full mount also mounts sub-components.</p>
+<p>Shallow wrapping doesn't descend down to sub-components. A full mount also mounts sub-components.</p>
 <p>See: <a href="http://airbnb.io/enzyme/docs/api/shallow.html">Shallow rendering</a>, <a href="http://airbnb.io/enzyme/docs/api/mount.html">Full rendering</a></p>
 <h3 id="debugging">Debugging</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="va">wrap</span>.<span class="at">debug</span>())</a></code></pre></div>
@@ -60,7 +60,7 @@
 <p><code>containsMatchingElement()</code> is probably the most useful assertion in Jest.</p>
 <h3 id="snapshots">Snapshots</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="at">expect</span>(wrap).<span class="at">toMatchSnapshot</span>()</a></code></pre></div>
-<p>Be sure you’ve set up enzyme-to-json for snapshots (see <a href="#installing">Installing</a> below).</p>
+<p>Be sure you've set up enzyme-to-json for snapshots (see <a href="#installing">Installing</a> below).</p>
 <h3 id="traversions">Traversions</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="at">expect</span>(</a>
 <a class="sourceLine" id="cb12-2" title="2">  <span class="va">wrap</span>.<span class="at">find</span>(<span class="st">&#39;button&#39;</span>).<span class="at">text</span>()</a>
@@ -89,7 +89,7 @@
 <a class="sourceLine" id="cb17-3" title="3">    <span class="st">&quot;test/setup.js&quot;</span></a>
 <a class="sourceLine" id="cb17-4" title="4">  ]</a>
 <a class="sourceLine" id="cb17-5" title="5"><span class="op">}</span></a></code></pre></div>
-<p>This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme’s installation instructions.</p>
+<p>This configures Enzyme for React v16, and Jest to automatically configure Enzyme for you. There are other adapters in Enzyme's installation instructions.</p>
 <p>See: <a href="http://airbnb.io/enzyme/#installation">Installation</a></p>
 <h3 id="jest-snapshots">Jest snapshots</h3>
 <pre><code>npm install --save-dev enzyme-to-json</code></pre>

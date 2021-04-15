@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,gCAAQ;AACR,QAAQ,CAAR,4KAAQ;AACR,QAAQ,CAAR,8DAAQ;AACR,QAAQ,CAAR,iBAAQ",
+    "sources": [
+        "mdc-layout-grid.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-layout-grid.import.css"
+}

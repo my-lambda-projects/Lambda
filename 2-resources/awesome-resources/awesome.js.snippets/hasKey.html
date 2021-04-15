@@ -17,7 +17,7 @@
 <ul>
 <li>Check if <code>keys</code> is non-empty and use <code>Array.prototype.every()</code> to sequentially check its keys to internal depth of the object, <code>obj</code>.</li>
 <li>Use <code>Object.prototype.hasOwnProperty()</code> to check if <code>obj</code> does not have the current key or is not an object, stop propagation and return <code>false</code>.</li>
-<li>Otherwise assign the key’s value to <code>obj</code> to use on the next iteration.</li>
+<li>Otherwise assign the key's value to <code>obj</code> to use on the next iteration.</li>
 <li>Return <code>false</code> beforehand if given key list is empty.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> hasKey <span class="op">=</span> (obj<span class="op">,</span> keys) <span class="kw">=&gt;</span> <span class="op">{</span></a>

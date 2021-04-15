@@ -92,8 +92,8 @@ add_index :accounts, [:branch_id, :party_id], :unique =&gt; true
 add_index :accounts, [:branch_id, :party_id], :unique =&gt; true, :name =&gt; &quot;by_branch_party&quot;
 
 # Length
-add_index :accounts, :name, :name =&gt; ‘by_name’, :length =&gt; 10
-add_index :accounts, [:name, :surname], :name =&gt; ‘by_name_surname’,
+add_index :accounts, :name, :name =&gt; ‘by_name', :length =&gt; 10
+add_index :accounts, [:name, :surname], :name =&gt; ‘by_name_surname',
   :length =&gt; {
     :name =&gt; 10,
     :surname =&gt; 15

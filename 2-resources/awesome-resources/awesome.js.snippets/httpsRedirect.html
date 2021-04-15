@@ -13,12 +13,12 @@
 
 </head>
 <body>;
-<p>Redirects the page to HTTPS if it’s currently in HTTP.</p>
+<p>Redirects the page to HTTPS if it's currently in HTTP.</p>
 <ul>
 <li>Use <code>location.protocol</code> to get the protocol currently being used.</li>
-<li>If it’s not HTTPS, use <code>location.replace()</code> to replace the existing page with the HTTPS version of the page.</li>
+<li>If it's not HTTPS, use <code>location.replace()</code> to replace the existing page with the HTTPS version of the page.</li>
 <li>Use <code>location.href</code> to get the full address, split it with <code>String.prototype.split()</code> and remove the protocol part of the URL.</li>
-<li>Note that pressing the back button doesn’t take it back to the HTTP page as its replaced in the history.</li>
+<li>Note that pressing the back button doesn't take it back to the HTTP page as its replaced in the history.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> httpsRedirect <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (<span class="va">location</span>.<span class="at">protocol</span> <span class="op">!==</span> <span class="st">&#39;https:&#39;</span>)</a>

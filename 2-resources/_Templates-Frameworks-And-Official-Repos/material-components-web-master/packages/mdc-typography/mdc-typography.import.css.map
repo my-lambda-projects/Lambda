@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,+BAAQ;AACR,QAAQ,CAAR,mIAAQ;AACR,QAAQ,CAAR,2DAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,+BAAQ;AACR,QAAQ,CAAR,gBAAQ",
+    "sources": [
+        "mdc-typography.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-typography.import.css"
+}

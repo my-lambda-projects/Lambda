@@ -516,7 +516,7 @@
                   W3C Candidate Recommendation</a> as of October 2017) aims at providing a more efficient way to lay
                 out, align and distribute space among items in a container, even when their size is unknown and/or
                 dynamic (thus the word “flex").</p>
-              <p>The main idea behind the flex layout is to give the container the ability to alter its items’
+              <p>The main idea behind the flex layout is to give the container the ability to alter its items'
                 width/height (and order) to best fill the available space (mostly to accommodate to all kind of display
                 devices and screen sizes). A flex container expands items to fill available free space or shrinks them
                 to prevent overflow.</p>
@@ -557,8 +557,8 @@
                   <code>flex-direction</code> property (see below).</li>
                 <li><strong>main-start | main-end</strong> - The flex items are placed within the container starting
                   from main-start and going to main-end.</li>
-                <li><strong>main size</strong> - A flex item’s width or height, whichever is in the main dimension, is
-                  the item’s main size. The flex item’s main size property is either the ‘width’ or ‘height’ property,
+                <li><strong>main size</strong> - A flex item's width or height, whichever is in the main dimension, is
+                  the item's main size. The flex item's main size property is either the ‘width' or ‘height' property,
                   whichever is in the main dimension.</li>
                 <li><strong>cross axis</strong> - The axis perpendicular to the main axis is called the cross axis. Its
                   direction depends on the main axis direction.</li>
@@ -566,7 +566,7 @@
                   container starting on the cross-start side of the flex container and going toward the cross-end side.
                 </li>
                 <li><strong>cross size</strong> - The width or height of a flex item, whichever is in the cross
-                  dimension, is the item’s cross size. The cross size property is whichever of ‘width’ or ‘height’ that
+                  dimension, is the item's cross size. The cross size property is whichever of ‘width' or ‘height' that
                   is in the cross dimension.</li>
               </ul>
             </details>
@@ -676,7 +676,7 @@
                             </path>
                           </svg></a>flex-flow</h4>
                       <p>This is a shorthand for the <code>flex-direction</code> and <code>flex-wrap</code> properties,
-                        which together define the flex container’s main and cross axes. The default value is <code>row
+                        which together define the flex container's main and cross axes. The default value is <code>row
                           nowrap</code>.</p>
                       <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line=""
                         data-initialized="true" data-gclp-id="3"><code markup="tt" class=" language-css"><span class="token selector"><span class="token class">.container</span></span> <span class="token punctuation">{</span>
@@ -712,15 +712,15 @@
                           direction.</li>
                         <li><code>end</code>: items are packed toward the end of the <code>writing-mode</code>
                           direction.</li>
-                        <li><code>left</code>: items are packed toward left edge of the container, unless that doesn’t
+                        <li><code>left</code>: items are packed toward left edge of the container, unless that doesn't
                           make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
-                        <li><code>right</code>: items are packed toward right edge of the container, unless that doesn’t
+                        <li><code>right</code>: items are packed toward right edge of the container, unless that doesn't
                           make sense with the <code>flex-direction</code>, then it behaves like <code>end</code>.</li>
                         <li><code>center</code>: items are centered along the line</li>
                         <li><code>space-between</code>: items are evenly distributed in the line; first item is on the
                           start line, last item on the end line</li>
                         <li><code>space-around</code>: items are evenly distributed in the line with equal space around
-                          them. Note that visually the spaces aren’t equal, since all the items have equal space on both
+                          them. Note that visually the spaces aren't equal, since all the items have equal space on both
                           sides. The first item will have one unit of space against the container edge, but two units of
                           space between the next item because that next item has its own spacing that applies.</li>
                         <li><code>space-evenly</code>: items are distributed so that the spacing between any two items
@@ -728,14 +728,14 @@
                       </ul>
                       <p>Note that that browser support for these values is nuanced. For example,
                         <code>space-between</code> never got support from some versions of Edge, and
-                        start/end/left/right aren’t in Chrome yet. MDN <a
+                        start/end/left/right aren't in Chrome yet. MDN <a
                           href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">has detailed
                           charts</a>. The safest values are <code>flex-start</code>, <code>flex-end</code>, and
                         <code>center</code>.</p>
                       <p>There are also two additional keywords you can pair with these values: <code>safe</code> and
                         <code>unsafe</code>. Using <code>safe</code> ensures that however you do this type of
-                        positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in
-                        such a way the content can’t be scrolled too (called “data loss").</p>
+                        positioning, you can't push an element such that it renders off-screen (e.g. off the top) in
+                        such a way the content can't be scrolled too (called “data loss").</p>
                     </div>
                   </div>
                   <div class="wp-block-group">
@@ -788,7 +788,7 @@
                       <figure class="wp-block-image is-resized"><img src="./flexbox-explained_files/align-content.svg"
                           alt="examples of the align-content property where a group of items cluster at the top or bottom, or stretch out to fill the space, or have spacing."
                           width="350"></figure>
-                      <p><br>This aligns a flex container’s lines within when there is extra space in the cross-axis,
+                      <p><br>This aligns a flex container's lines within when there is extra space in the cross-axis,
                         similar to how <code>justify-content</code> aligns individual items within the main-axis.</p>
                       <p class="explanation"><strong>Note:</strong> This property only takes effect on multi-line
                         flexible containers, where <code>flex-flow</code> is set to either <code>wrap</code> or
@@ -909,15 +909,15 @@
                       <p>This defines the default size of an element before the remaining space is distributed. It can
                         be a length (e.g. 20%, 5rem, etc.) or a keyword. The <code>auto</code> keyword means “look at my
                         width or height property" (which was temporarily done by the <code>main-size</code> keyword
-                        until deprecated). The <code>content</code> keyword means “size it based on the item’s content"
-                        - this keyword isn’t well supported yet, so it’s hard to test and harder to know what its
+                        until deprecated). The <code>content</code> keyword means “size it based on the item's content"
+                        - this keyword isn't well supported yet, so it's hard to test and harder to know what its
                         brethren <code>max-content</code>, <code>min-content</code>, and <code>fit-content</code> do.
                       </p>
                       <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line=""
                         data-initialized="true" data-gclp-id="10"><code markup="tt" class=" language-css"><span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
   <span class="token property">flex-basis</span><span class="token punctuation">:</span>  | auto<span class="token punctuation">;</span> <span class="token comment">/* default auto */</span>
 <span class="token punctuation">}</span></code></pre>
-                      <p>If set to <code>0</code>, the extra space around content isn’t factored in. If set to
+                      <p>If set to <code>0</code>, the extra space around content isn't factored in. If set to
                         <code>auto</code>, the extra space is distributed based on its <code>flex-grow</code> value. <a
                           href="https://www.w3.org/TR/css3-flexbox/images/rel-vs-abs-flex.svg">See this graphic.</a></p>
                     </div>
@@ -934,7 +934,7 @@
                       <p>This is the shorthand for <code>flex-grow,</code> <code>flex-shrink</code> and
                         <code>flex-basis</code> combined. The second and third parameters (<code>flex-shrink</code> and
                         <code>flex-basis</code>) are optional. The default is <code>0 1 auto</code>, but if you set it
-                        with a single number value, it’s like <code> 1 0</code>.</p>
+                        with a single number value, it's like <code> 1 0</code>.</p>
                       <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line=""
                         data-initialized="true" data-gclp-id="11"><code markup="tt" class=" language-css"><span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
   <span class="token property">flex</span><span class="token punctuation">:</span> none | [ &lt;<span class="token string">'flex-grow'</span>&gt; &lt;<span class="token string">'flex-shrink'</span>&gt;? || &lt;<span class="token string">'flex-basis'</span>&gt; ]
@@ -980,7 +980,7 @@
                       </path>
                     </svg></a>Prefixing Flexbox</h3>
               </summary>
-              <p>Flexbox requires some vendor prefixing to support the most browsers possible. It doesn’t just include
+              <p>Flexbox requires some vendor prefixing to support the most browsers possible. It doesn't just include
                 prepending properties with the vendor prefix, but there are actually entirely different property and
                 value names. This is because the Flexbox spec has changed over time, creating an <a
                   href="https://css-tricks.com/old-flexbox-and-new-flexbox/">“old", “tweener", and “new"</a> versions.
@@ -988,7 +988,7 @@
               <p>Perhaps the best way to handle this is to write in the new (and final) syntax and run your CSS through
                 <a href="https://css-tricks.com/autoprefixer/">Autoprefixer</a>, which handles the fallbacks very well.
               </p>
-              <p>Alternatively, here’s a Sass <code>@mixin</code> to help with some of the prefixing, which also gives
+              <p>Alternatively, here's a Sass <code>@mixin</code> to help with some of the prefixing, which also gives
                 you an idea of what kind of things need to be done:</p>
               <pre rel="SCSS" class=" language-scss" data-line="" data-initialized="true"><code markup="tt" class=" language-scss"><span class="token keyword">@mixin</span> <span class="token function">flexbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
@@ -1033,8 +1033,8 @@
                       </path>
                     </svg></a>Examples</h3>
               </summary>
-              <p>Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It
-                couldn’t be any simpler if you use flexbox.</p>
+              <p>Let's start with a very very simple example, solving an almost daily problem: perfect centering. It
+                couldn't be any simpler if you use flexbox.</p>
               <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line="" data-initialized="true"><code markup="tt" class=" language-css"><span class="token selector"><span class="token class">.parent</span></span> <span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
   <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token comment">/* Or whatever */</span>
@@ -1047,7 +1047,7 @@
 <span class="token punctuation">}</span></code></pre>
               <p>This relies on the fact a margin set to <code>auto</code> in a flex container absorb extra space. So
                 setting a vertical margin of <code>auto</code> will make the item perfectly centered in both axes.</p>
-              <p>Now let’s use some more properties. Consider a list of 6 items, all with fixed dimensions, but can be
+              <p>Now let's use some more properties. Consider a list of 6 items, all with fixed dimensions, but can be
                 auto-sized. We want them to be evenly distributed on the horizontal axis so that when we resize the
                 browser, everything scales nicely, and without media queries.</p>
               <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line="" data-initialized="true"><code markup="tt" class=" language-css"><span class="token selector"><span class="token class">.flex-container</span></span> <span class="token punctuation">{</span>
@@ -1074,7 +1074,7 @@
                   style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe>
                 <div class="win-size-grip" style="touch-action: none;"></div>
               </div>
-              <p>Let’s try something else. Imagine we have a right-aligned navigation element on the very top of our
+              <p>Let's try something else. Imagine we have a right-aligned navigation element on the very top of our
                 website, but we want it to be centered on medium-sized screens and single-columned on small devices.
                 Easy enough.</p>
               <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line="" data-initialized="true"><code markup="tt" class=" language-css"><span class="token comment">/* Large */</span>
@@ -1107,7 +1107,7 @@
                   style="width: 100%; overflow: hidden; height: 100%;">CodePen Embed Fallback</iframe>
                 <div class="win-size-grip" style="touch-action: none;"></div>
               </div>
-              <p>Let’s try something even better by playing with flex items flexibility! What about a mobile-first
+              <p>Let's try something even better by playing with flex items flexibility! What about a mobile-first
                 3-columns layout with full-width header and footer. And independent from source order.</p>
               <pre rel="CSS" class="wp-block-csstricks-code-block  language-css" data-line="" data-initialized="true"><code markup="tt" class=" language-css"><span class="token selector"><span class="token class">.wrapper</span></span> <span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
@@ -1487,9 +1487,9 @@
                       </path>
                     </svg></a>Bugs</h3>
               </summary>
-              <p>Flexbox is certainly not without its bugs. The best collection of them I’ve seen is Philip Walton and
-                Greg Whitworth’s <a href="https://github.com/philipwalton/flexbugs">Flexbugs</a>. It’s an open-source
-                place to track all of them, so I think it’s best to just link to that.</p>
+              <p>Flexbox is certainly not without its bugs. The best collection of them I've seen is Philip Walton and
+                Greg Whitworth's <a href="https://github.com/philipwalton/flexbugs">Flexbugs</a>. It's an open-source
+                place to track all of them, so I think it's best to just link to that.</p>
             </details>
             <div id="flexbox-examples" class="wp-block-group collapsible-section">
               <div class="wp-block-group__inner-container">
@@ -1861,7 +1861,7 @@
                         </path>
                       </svg></a>
                     <a href="https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/">
-                      Quick! What’s the Difference Between Flexbox and Grid? </a>
+                      Quick! What's the Difference Between Flexbox and Grid? </a>
                   </h3>
                   <div class="tags">
                     <a href="https://css-tricks.com/tag/flexbox/" rel="tag">flexbox</a> <a
@@ -1978,7 +1978,7 @@
                         </path>
                       </svg></a>
                     <a href="https://css-tricks.com/dont-overthink-flexbox-grids/">
-                      Don’t Overthink It (Flexbox) Grids </a>
+                      Don't Overthink It (Flexbox) Grids </a>
                   </h3>
                   <div class="tags">
                     <a href="https://css-tricks.com/tag/flexbox/" rel="tag">flexbox</a> <a
@@ -2263,7 +2263,7 @@
                           datetime="2013-04-08T12:19:41-07:00">April 8, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Yay. Less javascript and more CSS. What’s not to like? Great info, as always!</p>
+                      <p>Yay. Less javascript and more CSS. What's not to like? Great info, as always!</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -2313,7 +2313,7 @@
     .grid__col { padding-left: 20px;}
 </code></pre>
                           <p>Look at <a href="http://inuitcss.com/" rel="nofollow ugc">http://inuitcss.com</a> for how
-                            it’s done with inline-block elements, which allows you to apply vertical alignment to
+                            it's done with inline-block elements, which allows you to apply vertical alignment to
                             columns, too.</p>
                         </div>
                         <div class="comment-actions">
@@ -2351,14 +2351,14 @@
                               datetime="2014-08-02T17:26:11-07:00">August 2, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>@mystrdat You’re correct, it has nothing to do with flexbox. Using :not selectors, however,
+                          <p>@mystrdat You're correct, it has nothing to do with flexbox. Using :not selectors, however,
                             will be unscalable, and you will lose IE8 support (less of an issue now).</p>
                           <p>If I have a grid with 8 items, each occupying 25% of the width, that technique fails, since
                             the 4th item will not sit flush with the container edges.</p>
                           <p>If I have a grid with 4 items, 25% width on desktop, and then 50% width on mobile, that
                             technique fails again, for the above reason. How about managing 3rds, 5ths, 6ths, 12fths,
                             etc., and when columns change to use different widths across viewports?</p>
-                          <p>I wouldn’t call negative margins rubbish. Perhaps not ideal, but they solve a complex
+                          <p>I wouldn't call negative margins rubbish. Perhaps not ideal, but they solve a complex
                             problem elegantly. <a
                               href="http://tympanus.net/codrops/2013/02/04/creating-nestable-dynamic-grids/"
                               rel="nofollow ugc">http://tympanus.net/codrops/2013/02/04/creating-nestable-dynamic-grids/</a>
@@ -2380,7 +2380,7 @@
                               datetime="2014-08-24T10:32:28-07:00">August 24, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>@Alex .. actually, it’s alot simpler. Just use</p>
+                          <p>@Alex .. actually, it's alot simpler. Just use</p>
                           <pre data-initialized="true"><code>justify-content: space-between;
 </code></pre>
                           <p>More <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content"
@@ -2493,7 +2493,7 @@
                           </p>
                           <p><a href="https://codepen.io/AndyMaleh/pen/xGNPrX/"
                               rel="nofollow ugc">https://codepen.io/AndyMaleh/pen/xGNPrX/</a></p>
-                          <p>Though to be honest, I don’t like that I had to use fillers for the Flexbox implementation
+                          <p>Though to be honest, I don't like that I had to use fillers for the Flexbox implementation
                             to ensure the last row is spaced evenly.</p>
                           <p>It would be mighty nice if they offer Flexbox row selectors for multi-row wrap flows.</p>
                           <p>Here is an alternative implementation with display inline-block:</p>
@@ -2593,8 +2593,8 @@
                               datetime="2016-03-25T12:34:39-07:00">March 25, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Well, it’s bad on many levels. Too verbose, hard to manage, it already creates “frameworks"
-                            around it, just to make it manageable. 25 years ago we already had tools, WYSIWIG IDE’s and
+                          <p>Well, it's bad on many levels. Too verbose, hard to manage, it already creates “frameworks"
+                            around it, just to make it manageable. 25 years ago we already had tools, WYSIWIG IDE's and
                             ways to define UI and “responsive" views… For geeze sake, can we come back to roots and come
                             up with simple and effective markup language with UI tools and plain resizing rules for view
                             elements!?</p>
@@ -2620,7 +2620,7 @@
                             <code>&lt;flex-basis&gt;</code> are optional is slightly misleading because it implies that
                             <code>&lt;flex-grow&gt;</code> (the 1st parameter) is never optional. The truth is,
                             <code>&lt;flex-grow&gt;</code> is optional as long as <code>&lt;flex-basis&gt;</code> is
-                            present (and obviously when the value is <code>none</code>). It’s only required when
+                            present (and obviously when the value is <code>none</code>). It's only required when
                             <code>&lt;flex-shrink&gt;</code> is present.</p>
                         </div>
                         <div class="comment-actions">
@@ -2660,7 +2660,7 @@
                         </div>
                         <div class="comment-content">
                           <p>@Yazin<br>
-                            That’s not correct. Space-between would spread all items in the last row across the whole
+                            That's not correct. Space-between would spread all items in the last row across the whole
                             width which is not what Alex wanted.</p>
                         </div>
                         <div class="comment-actions">
@@ -2701,7 +2701,7 @@
                               datetime="2016-12-23T07:47:53-08:00">December 23, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Wow, its so cool , can’t wait to try it out</p>
+                          <p>Wow, its so cool , can't wait to try it out</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -2723,7 +2723,7 @@
                     <div class="comment-content">
                       <p>Hey Chris,</p>
                       <p>Thank you so much for the comprehensive write up.</p>
-                      <p>I just updated Firefox to v20 on a mac and now all of the flex-box demos aren’t working.
+                      <p>I just updated Firefox to v20 on a mac and now all of the flex-box demos aren't working.
                         Everything still looks great in Chrome.</p>
                       <p>Anyone else having this problem?</p>
                     </div>
@@ -2822,7 +2822,7 @@
                           datetime="2013-04-13T06:06:55-07:00">April 13, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>The only thing I don’t understand is why the use of prefixes is needed if the syntax doesn’t
+                      <p>The only thing I don't understand is why the use of prefixes is needed if the syntax doesn't
                         differ from the recommendation.</p>
                       <p>I think what would be enough is (using the above example):</p>
                       <pre data-initialized="true"><code>.wrapper {
@@ -2844,7 +2844,7 @@
 }</code></pre>
                       <p>At the moment this is not supported, but I think it should be because everything that was left
                         out here had the recommended syntax. The prefixes still should be available if needed, but it
-                        shouldn’t be necessary.</p>
+                        shouldn't be necessary.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -2885,15 +2885,15 @@
                               datetime="2014-10-23T14:02:19-07:00">October 23, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Vendor prefixes aren’t just about syntax differences. They (arguably much more importantly)
+                          <p>Vendor prefixes aren't just about syntax differences. They (arguably much more importantly)
                             separate out <em>implementation</em> differences. What would happen if we just had one
                             unprefixed word for a feature, and the syntax of its attributes was consistent across
-                            browsers, but the rendering behavior was different? Then you’d have to do ugly browser
+                            browsers, but the rendering behavior was different? Then you'd have to do ugly browser
                             sniffing and serve different files to the client conditionally, like we did back in the dark
                             ages of IE6.</p>
                           <p>Once everyone has a correct implementation, <em>then</em> the prefixes can be dropped.
-                            Otherwise, the most popular browser’s implementation of the feature becomes the de facto
-                            standard even if it’s the most broken (again, IE6)</p>
+                            Otherwise, the most popular browser's implementation of the feature becomes the de facto
+                            standard even if it's the most broken (again, IE6)</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -2916,7 +2916,7 @@
                       <p>Regarding the example with the 6 items of fixed dimensions to be evenly distributed - using
                         the<br>
                         justify-content: space-around; rule:</p>
-                      <p>I’d really like to use this, however it’s not doing exactly what I want. Let’s say there’s only
+                      <p>I'd really like to use this, however it's not doing exactly what I want. Let's say there's only
                         room for 4 of the items on the first row, the remaining 2 will be evenly spaced on the second
                         row. (ughh)</p>
                       <p>Is there any way for items on the last row to be placed/aligned underneath the elements from
@@ -3015,7 +3015,7 @@
                     </div>
                     <div class="comment-content">
                       <p>@Daniel<br>
-                        Sorry, I misunderstood your question. For a dynamic number of items, this won’t work without JS
+                        Sorry, I misunderstood your question. For a dynamic number of items, this won't work without JS
                         or php.<br>
                         This is indeed a thing that could be added.<br>
                         Something like align-items:main-axis /cross-axis could be a great addition.</p>
@@ -3040,11 +3040,11 @@
                           datetime="2013-06-14T14:50:42-07:00">June 14, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Works beautifully in Chrome and Safari, but I’m on FireFox (v21) and it’s not working well at
-                        all. It doesn’t allow the paragraphs to break. It’s like it’s treating the display:flex as
-                        display:inline-flex. The only way I’ve been able to get around this is to change the
-                        about:config of Firefox to multiline, but visitors won’t have that set by default.</p>
-                      <p>Has anyone had any luck with this? Currently I’m using flexbox for webkit and equalize.js for
+                      <p>Works beautifully in Chrome and Safari, but I'm on FireFox (v21) and it's not working well at
+                        all. It doesn't allow the paragraphs to break. It's like it's treating the display:flex as
+                        display:inline-flex. The only way I've been able to get around this is to change the
+                        about:config of Firefox to multiline, but visitors won't have that set by default.</p>
+                      <p>Has anyone had any luck with this? Currently I'm using flexbox for webkit and equalize.js for
                         other browsers.</p>
                     </div>
                     <div class="comment-actions">
@@ -3067,7 +3067,7 @@
                               datetime="2013-06-14T17:33:20-07:00">June 14, 2013</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>I think that’s because flexbox isn’t fully supported by firefox until v22. That’s why I’m
+                          <p>I think that's because flexbox isn't fully supported by firefox until v22. That's why I'm
                             running the v22 beta at the moment. You can always use the display:box untill ff22 is
                             released.</p>
                         </div>
@@ -3089,7 +3089,7 @@
                           datetime="2013-06-23T21:29:40-07:00">June 23, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Am I crazy enough if I use this in production? I have a really awkward situation and I can’t
+                      <p>Am I crazy enough if I use this in production? I have a really awkward situation and I can't
                         use display: table. It messes up with the fluidity of the images.</p>
                     </div>
                     <div class="comment-actions">
@@ -3112,15 +3112,15 @@
                               datetime="2014-04-07T10:28:48-07:00">April 7, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>You can use flexbox in production pretty well as long as you’re using a sound way to detect
+                          <p>You can use flexbox in production pretty well as long as you're using a sound way to detect
                             less-than-ideal support for flex-wrap w/ modernizer and use a ratio-based grid system like
                             Singularitygs as a fallback.</p>
                           <p>An example: <a href="http://sassmeister.com/gist/9781525"
                               rel="nofollow ugc">http://sassmeister.com/gist/9781525</a> (toggle the flexbox and .noflex
                             option.</p>
-                          <p>It’s a sound strategy to the extent you can use flexbox first towards planning for the
+                          <p>It's a sound strategy to the extent you can use flexbox first towards planning for the
                             layout and quickly create the fallback with a ratio-based grid system.</p>
-                          <p>As long as you’re considerate enough to have a style guide that documents documenting how a
+                          <p>As long as you're considerate enough to have a style guide that documents documenting how a
                             particular component ought to look if it in facts differs from both, you should be fine.</p>
                         </div>
                         <div class="comment-actions">
@@ -3186,10 +3186,10 @@
                           datetime="2013-07-10T08:01:37-07:00">July 10, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>In your second Codepen example (with the blue navigation bar), I couldn’t figure out why the
-                        flow-direction: column doesn’t seem to kick in at the smallest screen width. I played around
+                      <p>In your second Codepen example (with the blue navigation bar), I couldn't figure out why the
+                        flow-direction: column doesn't seem to kick in at the smallest screen width. I played around
                         with a few values and found that explicitly adding some height to the ul.navigation made the
-                        li’s stack vertically. Is there a better way around this without requiring a hard-coded height?
+                        li's stack vertically. Is there a better way around this without requiring a hard-coded height?
                       </p>
                     </div>
                     <div class="comment-actions">
@@ -3212,7 +3212,7 @@
                               datetime="2014-05-02T07:57:22-07:00">May 2, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>That’s because the code for max 600 width is missing a flex-flow: column wrap; if you are
+                          <p>That's because the code for max 600 width is missing a flex-flow: column wrap; if you are
                             using firefox. It only contains one for web-kit. Once I added that in, it does it nicely in
                             my FF.</p>
                         </div>
@@ -3256,16 +3256,16 @@
                           datetime="2013-07-13T09:02:06-07:00">July 13, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Something weird is going on in the first example’s pen (<a
+                      <p>Something weird is going on in the first example's pen (<a
                           href="https://codepen.io/HugoGiraudel/pen/LklCv"
                           rel="nofollow ugc">http://codepen.io/HugoGiraudel/pen/LklCv</a>). I tried recreating it on
-                        CodePen and noticed it wasn’t working, even when I copied and pasted! Then I tried recreating it
-                        locally, copied and pasted, and again it didn’t work. So then I took to the Chrome DevTools to
+                        CodePen and noticed it wasn't working, even when I copied and pasted! Then I tried recreating it
+                        locally, copied and pasted, and again it didn't work. So then I took to the Chrome DevTools to
                         take a look at what was going on and it looks like even though the pen uses the rule
                         <code>justify-content: space-around;</code>, what is actually rendered on the page is
                         <code>-webkit-justify-content: space-around;</code>. Turns out prefix-free was turned on in the
                         CodePen config for the Scss panel.</p>
-                      <p><strong>Even if this was CodePen’s prefix-free doing the work for me, mixing vendor prefixed
+                      <p><strong>Even if this was CodePen's prefix-free doing the work for me, mixing vendor prefixed
                           rules and non-prefixed rules that the preprocessor transforms should be a no-no.</strong></p>
                     </div>
                     <div class="comment-actions">
@@ -3288,7 +3288,7 @@
                           datetime="2013-07-22T05:44:27-07:00">July 22, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Thanl you for the mixin’ Chris</p>
+                      <p>Thanl you for the mixin' Chris</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -3310,11 +3310,11 @@
                           datetime="2013-07-24T08:49:10-07:00">July 24, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Nice post Chris. I like how thorough and detailed you are. Too bad we don’t use SASS, we rely
-                        almost solely on LESS. We would love to use Flexbox for clients, but it doesn’t seem to play
+                      <p>Nice post Chris. I like how thorough and detailed you are. Too bad we don't use SASS, we rely
+                        almost solely on LESS. We would love to use Flexbox for clients, but it doesn't seem to play
                         nicely cross browser. I checked this page in FF22 and IE10 and it was a mess.</p>
                       <p>Do you, or anyone else, know of any good JS polyfills or plugins or solutions to get this to
-                        play cross-browser nicely? Otherwise, how long (in your opinion) until we can ‘realistically’
+                        play cross-browser nicely? Otherwise, how long (in your opinion) until we can ‘realistically'
                         use this without a lot of cross browser headaches?</p>
                     </div>
                     <div class="comment-actions">
@@ -3338,8 +3338,8 @@
                     </div>
                     <div class="comment-content">
                       <p>Great post Chris. I think that flexbox capability to order items will be usefull in RWD.</p>
-                      <p>I’ve got only a question. When you define main-axis you say that its direction depends on the
-                        justify-content property, but isn’t the flex-direction property that defines if flex items are
+                      <p>I've got only a question. When you define main-axis you say that its direction depends on the
+                        justify-content property, but isn't the flex-direction property that defines if flex items are
                         layed out as a row or as a column? Am I misunderstanding something?</p>
                     </div>
                     <div class="comment-actions">
@@ -3365,10 +3365,10 @@
                         <div class="comment-content">
                           <blockquote>
                             <p>When you define main-axis you say that its direction depends on the justify-content
-                              property, but isn’t the flex-direction property that defines if flex items are layed out
+                              property, but isn't the flex-direction property that defines if flex items are layed out
                               as a row or as a column?</p>
                           </blockquote>
-                          <p>You’re correct, that was wrong in the article and is fixed now.</p>
+                          <p>You're correct, that was wrong in the article and is fixed now.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -3416,7 +3416,7 @@
                             frustrated with the syntax. I just found this Sass helper <a
                               href="https://raw.github.com/timhettler/compass-flexbox/master/extensions/compass-flexbox/stylesheets/_flexbox.scss"
                               rel="nofollow ugc">https://raw.github.com/timhettler/compass-flexbox/master/extensions/compass-flexbox/stylesheets/_flexbox.scss</a>,
-                            which is working really well so far. I’m hoping to launch my new site in the next 2 weeks
+                            which is working really well so far. I'm hoping to launch my new site in the next 2 weeks
                             using flexbox for everything except IE 8/9.</p>
                         </div>
                         <div class="comment-actions">
@@ -3435,7 +3435,7 @@
                               datetime="2014-02-18T17:51:30-08:00">February 18, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>I would like to find one too, but older browsers just make it a big pain… I’d rather use
+                          <p>I would like to find one too, but older browsers just make it a big pain… I'd rather use
                             floats to keep the headache away and less code.</p>
                           <p>Just yesterday I was checking my browsers support and I saw that flex is now un-prefixed in
                             these versions, but unfortunately not everybody has updated browser versions.</p>
@@ -3544,9 +3544,9 @@
                           datetime="2013-09-06T02:48:43-07:00">September 6, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Firefox 22+ has unprefixed Flexbox, but, unfortunately, it still doesn’t support flex-wrap
+                      <p>Firefox 22+ has unprefixed Flexbox, but, unfortunately, it still doesn't support flex-wrap
                         property (and hence flex-flow shorthand). So the wonderful example with 3-column layout reducing
-                        to 1 column on narrow screen in Firefox looks really messy. But it’s possible to create its
+                        to 1 column on narrow screen in Firefox looks really messy. But it's possible to create its
                         simplified analog that works in both Chromium-based browsers and Firefox 23+: <a
                           href="https://codepen.io/anon/pen/pEIKu"
                           rel="nofollow ugc">http://codepen.io/anon/pen/pEIKu</a></p>
@@ -3623,7 +3623,7 @@
                             multi-line flexboxes currently. As a workaround, you can use nested flexboxes in combination
                             with media queries, as in <a
                               href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#comment-537354"
-                              rel="nofollow">my comment</a> above (it’s not so flexible as true multi-line flexboxes,
+                              rel="nofollow">my comment</a> above (it's not so flexible as true multi-line flexboxes,
                             but still better than nothing) or use graceful degradation to old techniques like
                             inline-blocks.</p>
                         </div>
@@ -3645,7 +3645,7 @@
                           datetime="2013-09-20T10:02:00-07:00">September 20, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I’ve found that, in Chrome 29, <code>&lt;input /&gt;</code> and <code>&lt;label&gt;</code> do
+                      <p>I've found that, in Chrome 29, <code>&lt;input /&gt;</code> and <code>&lt;label&gt;</code> do
                         not respect <code>order</code>. Anyone else observed this, or have an idea as to why?</p>
                     </div>
                     <div class="comment-actions">
@@ -3717,7 +3717,7 @@
                           datetime="2013-10-21T06:45:30-07:00">October 21, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I find myself doing a Mr. Burns “excellent", as I’m pretty excited about <code>align-items:
+                      <p>I find myself doing a Mr. Burns “excellent", as I'm pretty excited about <code>align-items:
                           stretch</code></p>
                     </div>
                     <div class="comment-actions">
@@ -3777,11 +3777,11 @@
                       <p>I really like this post. It got me started with my project.</p>
                       <p>i had a problem with firefox like other users here but came over it by wrapping the
                         columns/rows in more container like a user suggested.</p>
-                      <p>I have another problem though. This time it’s with IE11. If you look at your example of the
+                      <p>I have another problem though. This time it's with IE11. If you look at your example of the
                         menu, you will see that on the smallest width the menus are not shown in columns and stays as
                         rows.</p>
                       <p>On my side I had a different problem with IE: the columns were showing but the items in them
-                        had no height! So everything collapses for no reason. Of course it’s fine in Chrome and Firefox
+                        had no height! So everything collapses for no reason. Of course it's fine in Chrome and Firefox
                         (25)</p>
                     </div>
                     <div class="comment-actions">
@@ -3804,7 +3804,7 @@
                           datetime="2013-11-27T11:57:14-08:00">November 27, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>There is a typo with the portion on flex grow. It doesn’t inhibit understanding the content,
+                      <p>There is a typo with the portion on flex grow. It doesn't inhibit understanding the content,
                         but it would be nice if you fix it.</p>
                     </div>
                     <div class="comment-actions">
@@ -3850,7 +3850,7 @@
                           datetime="2013-12-08T13:45:34-08:00">December 8, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Am I the only one that thinks this ‘article’ should be in the “article" section?</p>
+                      <p>Am I the only one that thinks this ‘article' should be in the “article" section?</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -3872,7 +3872,7 @@
                           datetime="2013-12-12T17:42:12-08:00">December 12, 2013</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Chris, I couldn’t vertically align some content in print media, do you know where I could find
+                      <p>Chris, I couldn't vertically align some content in print media, do you know where I could find
                         more information about this kind of support?</p>
                       <p>My test looks something like this,</p>
                       <p>CSS:</p>
@@ -4033,7 +4033,7 @@ article:last-child {
                     </div>
                     <div class="comment-content">
                       <p>Nice tutorial. Has anything changed this this tutorial was published?<br>
-                        Also it doesn’t work for me in IE10.</p>
+                        Also it doesn't work for me in IE10.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -4057,7 +4057,7 @@ article:last-child {
                         </div>
                         <div class="comment-content">
                           <p>IE 10 has <a href="https://css-tricks.com/old-flexbox-and-new-flexbox/" rel="nofollow">the
-                              tweener syntax</a>, so make sure you’re prefixing for that. Autoprefixer does a great job
+                              tweener syntax</a>, so make sure you're prefixing for that. Autoprefixer does a great job
                             of writing in the latest syntax and handling the fallbacks.</p>
                         </div>
                         <div class="comment-actions">
@@ -4251,11 +4251,11 @@ article:last-child {
                           datetime="2014-02-10T05:44:51-08:00">February 10, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I messed with this a bit today. I’m interested but a bit confused at the same time. If I code
+                      <p>I messed with this a bit today. I'm interested but a bit confused at the same time. If I code
                         it (literally copy it) from what you have here to CodePen it runs as yours did. If, however, I
                         try that on JSFiddle ( where I normally mess around ) the colors come out in a straight line
-                        only. Also, if I load the entire page via jQuery, as I’ve been doing lately, the same result…
-                        Instead of the framed environment you’re getting I received flat little lines. I’ve even tried
+                        only. Also, if I load the entire page via jQuery, as I've been doing lately, the same result…
+                        Instead of the framed environment you're getting I received flat little lines. I've even tried
                         injecting the CSS into the Header before building the page via jQuery with much the same result.
                         Seems that this only works without jQuery and for whatever reason only on CodePen.</p>
                     </div>
@@ -4304,12 +4304,12 @@ article:last-child {
                               datetime="2014-02-13T20:04:28-08:00">February 13, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>The draggable bar isn’t going to happen with just CSS, flexbox or no, save for some super
+                          <p>The draggable bar isn't going to happen with just CSS, flexbox or no, save for some super
                             crazy hack using a <a href="https://css-tricks.com/tricky-textarea-pulltab/"
                               rel="nofollow">resizeable textarea</a> or something. On CodePen we use jQuery UI
                             draggable, but there are others out there. Flexbox does make the situation easier though.
                             One time I redid the whole CodePen editor layout in Flexbox for fun and it was way easier,
-                            but of course I can’t find it now. Basically if the flex items have flex: 1; they will fill
+                            but of course I can't find it now. Basically if the flex items have flex: 1; they will fill
                             the area, so you just resize one of them to a specific height (or width) and the other will
                             fill the remaining space. So no math.</p>
                         </div>
@@ -4330,7 +4330,7 @@ article:last-child {
                         </div>
                         <div class="comment-content">
                           <p>Do you know of any working examples of jQuery UI Draggable for a horizontal split pane?
-                            I’ve been messing with it for a couple of days now and can’t seem to figure it out.</p>
+                            I've been messing with it for a couple of days now and can't seem to figure it out.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -4351,12 +4351,12 @@ article:last-child {
                     </div>
                     <div class="comment-content">
                       <p>Hi Chris,<br>
-                        I’m trying to make a div which its width auto grow with its contents.<br>
+                        I'm trying to make a div which its width auto grow with its contents.<br>
                         Using this:</p>
                       <pre data-initialized="true"><code>display: inline-flex;
 flex-flow: column wrap;
 </code></pre>
-                      <p>There seems a bug that with the container’s main size, please see this pen<br>
+                      <p>There seems a bug that with the container's main size, please see this pen<br>
                         <a href="https://codepen.io/Gimm/full/KAcnu"
                           title="wrong main size when flex-driection is column" rel="nofollow">wrong main size when
                           flex-driection is column</a></p>
@@ -4424,7 +4424,7 @@ flex-flow: column wrap;
                           datetime="2014-02-27T18:25:46-08:00">February 27, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I found this article confusing. I’m a frontend developer and still couldn’t understand a single
+                      <p>I found this article confusing. I'm a frontend developer and still couldn't understand a single
                         term that was used to explain what I was looking at.</p>
                     </div>
                     <div class="comment-actions">
@@ -4447,7 +4447,7 @@ flex-flow: column wrap;
                               datetime="2014-02-28T02:42:54-08:00">February 28, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Thats weird, I’m an amature and I could read it with ease.</p>
+                          <p>Thats weird, I'm an amature and I could read it with ease.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -4468,10 +4468,10 @@ flex-flow: column wrap;
                     </div>
                     <div class="comment-content">
                       <p>Well played. Thanks Chris.</p>
-                      <p>This will certainly be a great tool to have once it’s better supported. For now it seems to me
-                        it’s best to lean on js, or just stick to a design / layout that can be manufactured with
+                      <p>This will certainly be a great tool to have once it's better supported. For now it seems to me
+                        it's best to lean on js, or just stick to a design / layout that can be manufactured with
                         less-buggy (if you will) off the shelf parts.</p>
-                      <p>If design doesn’t consider manufacturing then that’s not design. That’s art. There’s a
+                      <p>If design doesn't consider manufacturing then that's not design. That's art. There's a
                         difference.</p>
                     </div>
                     <div class="comment-actions">
@@ -4571,7 +4571,7 @@ flex-flow: column wrap;
                         </div>
                         <div class="comment-content">
                           <p>Evert, I just ran into that same issue! I was beating my head against it for a good hour
-                            until I discovered that IE11 doesn’t like max-width on flex items.</p>
+                            until I discovered that IE11 doesn't like max-width on flex items.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -4692,7 +4692,7 @@ flex-flow: column wrap;
                     </div>
                     <div class="comment-content">
                       <p>Things I noticed using flexbox that are a real pain:</p>
-                      <p>Using margin: 0 auto; on the flex-container shrinks the container (and it’s containing
+                      <p>Using margin: 0 auto; on the flex-container shrinks the container (and it's containing
                         flex-items) to the minimum width. It is no longer flexible/fluid.<br>
                         Because of this, any fluid, centered layout must use justify-content: center/ or space-between.
                         But then the layout becomes “infinite" (you can make the screen wider and wider and the boxes
@@ -4756,8 +4756,8 @@ flex-flow: column wrap;
                           -webkit-flex-direction: column;<br>
                           -ms-flex-direction: column;<br>
                           flex-direction: column;</code></p>
-                      <p>…if you use row wrap, it doesn’t wrap and just puts everything side-by-side. Also, very
-                        important. Make sure the child elements of the parent flex container don’t have <code>display:
+                      <p>…if you use row wrap, it doesn't wrap and just puts everything side-by-side. Also, very
+                        important. Make sure the child elements of the parent flex container don't have <code>display:
                           inline;</code> applied to them. It breaks it for some reason. I hope this helps someone!</p>
                     </div>
                     <div class="comment-actions">
@@ -4781,7 +4781,7 @@ flex-flow: column wrap;
                         </div>
                         <div class="comment-content">
                           <p>One last important thing to remember if you have to support blackberry 7+…make sure all
-                            child elements have <code>float:none</code> applied to them…if floats are applied, they’ll
+                            child elements have <code>float:none</code> applied to them…if floats are applied, they'll
                             just not appear. I hope this helps!</p>
                         </div>
                         <div class="comment-actions">
@@ -4820,7 +4820,7 @@ flex-flow: column wrap;
                           datetime="2014-04-10T12:18:55-07:00">April 10, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>In the first line of the SASS mixin, shouldn’t <code>@mixin flexbox()</code> be just
+                      <p>In the first line of the SASS mixin, shouldn't <code>@mixin flexbox()</code> be just
                         <code>@mixin flexbox</code>?</p>
                     </div>
                     <div class="comment-actions">
@@ -4919,7 +4919,7 @@ box-lines
                               datetime="2014-04-16T10:38:09-07:00">April 16, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Those are deprecated properties. I feel like it’s best at this point (at least in terms of
+                          <p>Those are deprecated properties. I feel like it's best at this point (at least in terms of
                             this guide) to focus on the current properties. Also best in practice to let a tool like
                             Autoprefixer deal with inserting those older properties for you when needed.</p>
                         </div>
@@ -4965,7 +4965,7 @@ box-lines
                           datetime="2014-04-21T08:52:43-07:00">April 21, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>This is a great article. I’d love to see the pens using the flex wrap updated with “flex-flow:
+                      <p>This is a great article. I'd love to see the pens using the flex wrap updated with “flex-flow:
                         row wrap;" added un-prefixed so they work in Firefox 29! But still a very good and informative
                         article.</p>
                     </div>
@@ -5012,8 +5012,8 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Is there a way to specify a minimum for inter-elements spacing when using <code>flex-wrap:
-                          wrap;</code>? The only way I’ve currently found forces me to add a padding to the container
-                        which isn’t ideal.</p>
+                          wrap;</code>? The only way I've currently found forces me to add a padding to the container
+                        which isn't ideal.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -5057,7 +5057,7 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Please forgive my newbie ignorance.</p>
-                      <p>I’m thinking that I would experiment with a background color of the site, then the container
+                      <p>I'm thinking that I would experiment with a background color of the site, then the container
                         would be another color (centered) and then the flex items yet another color.</p>
                       <p>I get how to center the flex items themselves, but how would you center the container itself?
                         And is that something one would even want to do?</p>
@@ -5105,7 +5105,7 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Hi Chris! Very nice article! But the last example “mobile-first 3-columns layout with
-                        full-width header and footer" in my 34.0.1847.131 chrome didn’t make the two sidebars half of
+                        full-width header and footer" in my 34.0.1847.131 chrome didn't make the two sidebars half of
                         the size of the main content.<br>
                         I had to write:<br>
                         @media all and (min-width: 800px) {<br>
@@ -5182,7 +5182,7 @@ box-lines
                           datetime="2014-05-12T21:08:31-07:00">May 12, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Great work on the updated format! The guide was crazy informative before but now it’s also a
+                      <p>Great work on the updated format! The guide was crazy informative before but now it's also a
                         great cheat sheet when needed. Thanks!</p>
                     </div>
                     <div class="comment-actions">
@@ -5206,7 +5206,7 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Great guide, nice update! Has always been very useful.</p>
-                      <p>One thing I’ve noticed missing (here and almost every other flexbox guide) is how to do
+                      <p>One thing I've noticed missing (here and almost every other flexbox guide) is how to do
                         flex-grow and flex-shrink in IE10.</p>
                       <p>flex-grow<br>
                         <code>-ms-flex-positive:;</code></p>
@@ -5235,7 +5235,7 @@ box-lines
                         </div>
                         <div class="comment-content">
                           <p>@Ry, good point. I happen to use Autoprefixer, which added this IE-specific property name
-                            in for me. I wouldn’t have known otherwise.</p>
+                            in for me. I wouldn't have known otherwise.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -5256,7 +5256,7 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>I love all that can be done with the flex box model, now only if all the browser could support
-                        it the same way! How does the flexbos fall on browsers that don’t support the CSS3?</p>
+                        it the same way! How does the flexbos fall on browsers that don't support the CSS3?</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -5279,7 +5279,7 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Thanks so much for updating this post — by far the easiest-to-understand guide to flexbox ever
-                        written. You deserve at least a six-pack of Rolling Rock for this one, Chris — if that’s still
+                        written. You deserve at least a six-pack of Rolling Rock for this one, Chris — if that's still
                         your brew of choice that is :-)</p>
                     </div>
                     <div class="comment-actions">
@@ -5303,10 +5303,10 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Hi,</p>
-                      <p>I was hoping someone might be able to help me out (I’m pretty new to all of the programming
+                      <p>I was hoping someone might be able to help me out (I'm pretty new to all of the programming
                         stuff).</p>
                       <p>I created a flex box and arranhed the items in it in a column layout. I then did
-                        ‘justify-content:center’, but the elements stay on the left-hand-side of the screen, even though
+                        ‘justify-content:center', but the elements stay on the left-hand-side of the screen, even though
                         the width of the container is 100%. Is there an easy way to center everything in a container box
                         when arranging elements as columns? Hope this makes sense.</p>
                       <p>Cheers,</p>
@@ -5332,7 +5332,7 @@ box-lines
                               datetime="2014-05-15T04:21:50-07:00">May 15, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Hi Stephen, I believe that justify-content isn’t to be used for this purpose. If you flow
+                          <p>Hi Stephen, I believe that justify-content isn't to be used for this purpose. If you flow
                             the elements by column (vertically), the justify-content: center will really display the
                             elements in the center bit of the flex box vertically, i,e, some space at the top, then your
                             elements, then some space at the bottom. What you wanted is for each element to center align
@@ -5357,8 +5357,8 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Hi Jay,</p>
-                      <p>Thanks for getting back to me so quickly. Ah yes, I guess because I didn’t set a height on the
-                        flexbox, I didn’t see how the elements were centering vertically.</p>
+                      <p>Thanks for getting back to me so quickly. Ah yes, I guess because I didn't set a height on the
+                        flexbox, I didn't see how the elements were centering vertically.</p>
                       <p>Thanks,</p>
                       <p>Steve.</p>
                     </div>
@@ -5406,7 +5406,7 @@ box-lines
                     <div class="comment-content">
                       <p>Does Compass support flex box? I see that they have what seems to be the old version of flex
                         box in the documentation. But then on codepen.io, when you include compass you are able to use
-                        the other directives. Like @include display-flex? I’m unable to get this working locally
+                        the other directives. Like @include display-flex? I'm unable to get this working locally
                         however. Ideas?</p>
                     </div>
                     <div class="comment-actions">
@@ -5451,7 +5451,7 @@ box-lines
                           datetime="2014-05-28T07:50:28-07:00">May 28, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Oh, sorry i forgot i’m using the latest version of Firefox and Chrome!</p>
+                      <p>Oh, sorry i forgot i'm using the latest version of Firefox and Chrome!</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -5519,9 +5519,9 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Testing flexbox in Safari now.</p>
-                      <p>What works in all other browsers, either doesn’t work in Safari, or doesn’t work correctly.<br>
+                      <p>What works in all other browsers, either doesn't work in Safari, or doesn't work correctly.<br>
                         Really frustrating…</p>
-                      <p>The demos here don’t work correctly either (especially the last one).</p>
+                      <p>The demos here don't work correctly either (especially the last one).</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -5638,7 +5638,7 @@ box-lines
                     <div class="comment-content">
                       <p>How do you all know what works in which browser version? Where is flexbox standing now for
                         support?</p>
-                      <p>I just learned about flexbox yesterday so now I’m all anxious to learn more. I’m a little
+                      <p>I just learned about flexbox yesterday so now I'm all anxious to learn more. I'm a little
                         hesitant because of browser version support.</p>
                     </div>
                     <div class="comment-actions">
@@ -5682,9 +5682,9 @@ box-lines
                           datetime="2014-07-16T12:55:16-07:00">July 16, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Hi, I was wondering if anyone could help me out with a flexbox problem. I’ve set a container
+                      <p>Hi, I was wondering if anyone could help me out with a flexbox problem. I've set a container
                         width to 100% and put six div items with width of 20% in it. I was expecting to see five divs
-                        evenly space and the sixth div directly underneath the others, one line down (I’m using
+                        evenly space and the sixth div directly underneath the others, one line down (I'm using
                         row-wrap). This kinda works, but there is a big gap between the five divs across the top of the
                         page and the sixth div below them. I need to know how to get rid of the gap. Here is the
                         Codepen:<br>
@@ -5715,7 +5715,7 @@ box-lines
                               datetime="2014-07-16T13:24:34-07:00">July 16, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>try align-content: flex-start; on the container. I’m not too sure if it will help for your
+                          <p>try align-content: flex-start; on the container. I'm not too sure if it will help for your
                             purpose, but with your demo it works.<br>
                             Also, I would rather set flex: 1 1 20%; on each sub item instead of specifying the width
                             (again, it depends on what you want to do).</p>
@@ -5762,12 +5762,12 @@ box-lines
                       <p>Hi there,</p>
                       <p>Thanks for both of the tips; the first one works well and solves the problem I was having.</p>
                       <p>If you have time, I was hoping you might be able to elaborate on the second one a little. In
-                        all honesty, I’m not really sure how the code is being interpreted. I understand that giving
+                        all honesty, I'm not really sure how the code is being interpreted. I understand that giving
                         everything a flex size of 1 gives everything an equal amount of space, but is the 20% overriding
-                        everything the first 1? I’ve played around with the second 1 in the code you provided, but it
-                        doesn’t seem to do anything. Oh, and the purple box now fills the entire width of the screen,
+                        everything the first 1? I've played around with the second 1 in the code you provided, but it
+                        doesn't seem to do anything. Oh, and the purple box now fills the entire width of the screen,
                         which looks good, but is it the first 1 doing that since it is clearly taking up more than 20%
-                        of the container now? Anyhow, don’t mean to be lazy; I can look this stuff up tomorrow. Time for
+                        of the container now? Anyhow, don't mean to be lazy; I can look this stuff up tomorrow. Time for
                         bed in the UK though.</p>
                       <p>Cheers again,</p>
                       <p>Steve.</p>
@@ -5843,9 +5843,9 @@ box-lines
                       <p>Safari 5.7.1<br>
                         Works only this:<br>
                         <code>display: -webkit-box;</code></p>
-                      <p>And that’s it. Nothing else can make work :-(<br>
-                        I’ve read that this version of Safari is (old), but how it should to looks like?<br>
-                        Can’t handle it…</p>
+                      <p>And that's it. Nothing else can make work :-(<br>
+                        I've read that this version of Safari is (old), but how it should to looks like?<br>
+                        Can't handle it…</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -5895,7 +5895,7 @@ box-lines
                       <p>Hi!</p>
                       <p>This guide is wonderful, seriously, guy who did this deserve a BIG nice glass of GOOD beer.</p>
                       <p>But I have issue:<br>
-                        I made a website, where container’s div is flex and direction is column.<br>
+                        I made a website, where container's div is flex and direction is column.<br>
                         Inside this container I have 3 divs. I want last one (footer) to be always at the bottom of this
                         page.<br>
                         Is this possible to do? I know it is of course ;) but I want to use only flex-box model.</p>
@@ -6056,8 +6056,8 @@ box-lines
                           datetime="2014-08-02T09:33:45-07:00">August 2, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Great post man. I’ve been wanting to learn more about flexbox ever since one of the guys on my
-                        team showed it to me. This is the best resource I’ve found so far.</p>
+                      <p>Great post man. I've been wanting to learn more about flexbox ever since one of the guys on my
+                        team showed it to me. This is the best resource I've found so far.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -6182,9 +6182,9 @@ box-lines
                           datetime="2014-08-22T01:51:05-07:00">August 22, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I’ve been experimenting with <code>flex-wrap</code> recently, and found that Safari doesn’t
+                      <p>I've been experimenting with <code>flex-wrap</code> recently, and found that Safari doesn't
                         support it (on desktop or mobile), although it claims to, ie. <code>Modernizr.flexwrap</code> is
-                        true. I’ve <a href="https://github.com/Modernizr/Modernizr/issues/1414" rel="nofollow">filed a
+                        true. I've <a href="https://github.com/Modernizr/Modernizr/issues/1414" rel="nofollow">filed a
                           bug report with Modernizr</a> for this. Wanted to spread the word, since there seems to be
                         some confusion around this property flying around in the wake of Firefox previously not having
                         supported it.</p>
@@ -6209,13 +6209,13 @@ box-lines
                               datetime="2014-09-08T18:37:50-07:00">September 8, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>it seems many properties aren’t supported by safari: <a
+                          <p>it seems many properties aren't supported by safari: <a
                               href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes"
                               rel="nofollow ugc">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes</a><br>
-                            something as important and necessary as wrap makes it a no-go for me (but i’m a new-b)<br>
+                            something as important and necessary as wrap makes it a no-go for me (but i'm a new-b)<br>
                             plus i think that, as great as it is [and CC knows how much i love him], combining old and
                             new is still another hack that flex box was supposed to eliminate<br>
-                            and i ain’t got time for that!</p>
+                            and i ain't got time for that!</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -6235,9 +6235,9 @@ box-lines
                           datetime="2014-08-26T07:48:26-07:00">August 26, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>This article is one of the ones I’ve read countless times right now. I’m near the state knowing
+                      <p>This article is one of the ones I've read countless times right now. I'm near the state knowing
                         it inside out ^_________^<br>
-                        Great post! It’s a reference.</p>
+                        Great post! It's a reference.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -6260,7 +6260,7 @@ box-lines
                     </div>
                     <div class="comment-content">
                       <p>Hi,<br>
-                        I’m trying to build simple layout. Could anyone help me with this? I was wroten some code
+                        I'm trying to build simple layout. Could anyone help me with this? I was wroten some code
                         reading article.<br>
                         Want to have this:</p>
                       <p><a href="https://imageshack.com/i/exCE1dbBj" title="Blocks" rel="nofollow">Try to open this (i
@@ -6416,7 +6416,7 @@ ul class="flex-container"
                           datetime="2014-10-01T13:51:01-07:00">October 1, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Frickin’ love this update! Sad to think we’re still another few years out from implementing
+                      <p>Frickin' love this update! Sad to think we're still another few years out from implementing
                         this without fallback support. :(</p>
                     </div>
                     <div class="comment-actions">
@@ -6549,7 +6549,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Hi</p>
                       <p>Can someone point me to a tutorial or demo of using iframe within a flexbox container. I have
-                        tried and it is failing to keep aspect ration and the usual padding trick doesn’t seem to work.
+                        tried and it is failing to keep aspect ration and the usual padding trick doesn't seem to work.
                         Alternatively is there an easy solution you could give me here.</p>
                       <p>Many thanks</p>
                       <p>Richard C</p>
@@ -6599,7 +6599,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>After reading your great article on how to use flex-box, I came across this <a
                           href="https://jakearchibald.com/2014/dont-use-flexbox-for-page-layout/"
-                          title="dont&#39; use flexbox for overall layout" rel="nofollow">article</a> that says don’t
+                          title="dont&#39; use flexbox for overall layout" rel="nofollow">article</a> that says don't
                         use flex-box for overall page layout.</p>
                       <p>Any comments on how valid the above article is. If it is valid is there are work around to
                         still using flex-box for page layout without the performace hit?</p>
@@ -6625,7 +6625,7 @@ ul class="flex-container"
                           datetime="2014-10-21T16:14:02-07:00">October 21, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I kind of agree with the article. Both Flexbox and Grid layout have their pro’s and cons. The
+                      <p>I kind of agree with the article. Both Flexbox and Grid layout have their pro's and cons. The
                         flexbox is more suitable for dynamic content (think about displaying a random amount of images
                         of a random size), where the grid layout is preferable for known content areas. Both can adjust
                         for the screensize, but are optimized for different applications.</p>
@@ -6650,9 +6650,9 @@ ul class="flex-container"
                           datetime="2014-10-22T18:59:47-07:00">October 22, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>The mobile-first 3-columns layout doesn’t work when adding a paragraph to the asides. I’ve
+                      <p>The mobile-first 3-columns layout doesn't work when adding a paragraph to the asides. I've
                         noticed that any example, where flexbox is used for the entire layout, leaves out content inside
-                        these boxes. Doesn’t seem like flexbox is useful for layouts without a lot of hacking.</p>
+                        these boxes. Doesn't seem like flexbox is useful for layouts without a lot of hacking.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -6674,8 +6674,8 @@ ul class="flex-container"
                           datetime="2014-11-02T04:09:43-08:00">November 2, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>the initial value of ‘flex-basis’ is ‘main-size’, and if omitted in the shorthand property
-                        ‘flex’, it’s value is ‘0%’.<br>
+                      <p>the initial value of ‘flex-basis' is ‘main-size', and if omitted in the shorthand property
+                        ‘flex', it's value is ‘0%'.<br>
                         <a href="https://www.w3.org/TR/css-flexbox-1/#propdef-flex-basis"
                           rel="nofollow">http://www.w3.org/TR/css-flexbox-1/#propdef-flex-basis</a></p>
                     </div>
@@ -6719,7 +6719,7 @@ ul class="flex-container"
                         <div class="comment-content">
                           <p>The specification says <code>flex: auto</code> is <code>flex: 1 1 main-size</code>, to be
                             distinguished from <code>flex: 1 1 auto</code>. Currently only Firefox 34+ support
-                            ‘main-size’.<br>
+                            ‘main-size'.<br>
                             <a href="https://developer.mozilla.org/en-US/docs/CSS/flex-basis"
                               rel="nofollow">https://developer.mozilla.org/en-US/docs/CSS/flex-basis</a></p>
                         </div>
@@ -6739,7 +6739,7 @@ ul class="flex-container"
                               datetime="2014-11-04T01:06:57-08:00">November 4, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>This is currently under discussion, like it says in the big red box there. We’re actively
+                          <p>This is currently under discussion, like it says in the big red box there. We're actively
                             looking for feedback on that issue at the moment, so please let us know if any!</p>
                         </div>
                         <div class="comment-actions">
@@ -6761,12 +6761,12 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>This is a pretty good quick guide. Just a couple things I noticed from a skim:</p>
-                      <p>It’s not very clear how ‘order’ actually works. ‘order: 3’ doesn’t mean “put it at the third
-                        position", it means “put it after any items with ‘order’ less than 3 and before any items with
-                        ‘order’ greater than 3".<br>
-                        We (the Flexbox spec editors) strongly recommend not using the longhands of ‘flex’ unless you
-                        really, really want to cascade in flex settings from some other style rule, so I’d suggest
-                        somehow discouraging the use of ‘flex-grow/shrink/basis’ here (or, preferably, leaving it out/in
+                      <p>It's not very clear how ‘order' actually works. ‘order: 3' doesn't mean “put it at the third
+                        position", it means “put it after any items with ‘order' less than 3 and before any items with
+                        ‘order' greater than 3".<br>
+                        We (the Flexbox spec editors) strongly recommend not using the longhands of ‘flex' unless you
+                        really, really want to cascade in flex settings from some other style rule, so I'd suggest
+                        somehow discouraging the use of ‘flex-grow/shrink/basis' here (or, preferably, leaving it out/in
                         an advanced section). The shorthand resets things in appropriate ways, and will therefore result
                         in fewer cascading errors. Please use the shorthand!</p>
                     </div>
@@ -6832,7 +6832,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>There is currently a crippling bug in Firefox that makes any non-trivial implementation of flex
-                        unfeasible. Nesting a few flex’d containers causes Firefox to become unresponsive. <a
+                        unfeasible. Nesting a few flex'd containers causes Firefox to become unresponsive. <a
                           href="https://bugzilla.mozilla.org/show_bug.cgi?id=1082780"
                           rel="nofollow ugc">https://bugzilla.mozilla.org/show_bug.cgi?id=1082780</a></p>
                     </div>
@@ -6856,7 +6856,7 @@ ul class="flex-container"
                               datetime="2014-12-05T08:39:43-08:00">December 5, 2014</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Loads of bugs with it on ipad too, so it’s pretty much unusable currently</p>
+                          <p>Loads of bugs with it on ipad too, so it's pretty much unusable currently</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -6903,9 +6903,9 @@ ul class="flex-container"
                           datetime="2014-11-20T06:33:47-08:00">November 20, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Hi, I’m looking for the way to do a fullscreen menu for my website with flex, with a header on
-                        the top and the rest of the space with only 6 big responsive buttons. I’ve tried many things and
-                        I’ve check many websites. I would apreciate any help. Thanks in advance.</p>
+                      <p>Hi, I'm looking for the way to do a fullscreen menu for my website with flex, with a header on
+                        the top and the rest of the space with only 6 big responsive buttons. I've tried many things and
+                        I've check many websites. I would apreciate any help. Thanks in advance.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -6927,7 +6927,7 @@ ul class="flex-container"
                           datetime="2014-11-20T14:13:44-08:00">November 20, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>This is one of the best code tutorials I’ve ever seen. Kudos for taking the time to make this
+                      <p>This is one of the best code tutorials I've ever seen. Kudos for taking the time to make this
                         super intuitive.</p>
                     </div>
                     <div class="comment-actions">
@@ -6950,8 +6950,8 @@ ul class="flex-container"
                           datetime="2014-11-26T06:59:44-08:00">November 26, 2014</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>This is going to be an amazing feature right now. Unfortunately it still seems to be in it’s
-                        revolutionary infancy and I don’t think my employer would be happy if I tried to implement this
+                      <p>This is going to be an amazing feature right now. Unfortunately it still seems to be in it's
+                        revolutionary infancy and I don't think my employer would be happy if I tried to implement this
                         on our sites.</p>
                     </div>
                     <div class="comment-actions">
@@ -7059,7 +7059,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Thanks Chris! I made a flexbox ruleset config thingy / cheat sheet for quick copy &amp; paste,
-                        based on your article. I’ve been using it a lot for my own projects, might be useful for others
+                        based on your article. I've been using it a lot for my own projects, might be useful for others
                         too. <a href="http://apps.workflower.fi/css-cheats/?name=flexbox"
                           rel="nofollow ugc">http://apps.workflower.fi/css-cheats/?name=flexbox</a> (also on github if
                         anyone cares to fork/improve/whatever <a href="https://github.com/sakamies/css-cheats"
@@ -7134,7 +7134,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Your first example at this link (<a href="https://codepen.io/HugoGiraudel/pen/LklCv"
                           rel="nofollow ugc">http://codepen.io/HugoGiraudel/pen/LklCv</a>) does not work in IE 11. IE
-                        doesn’t seem to like -webkit-flex-flow. Adding flex-wrap:wrap; flex-direction: row; or just
+                        doesn't seem to like -webkit-flex-flow. Adding flex-wrap:wrap; flex-direction: row; or just
                         flex-flow: row wrap; works though.</p>
                     </div>
                     <div class="comment-actions">
@@ -7207,10 +7207,10 @@ ul class="flex-container"
                               datetime="2015-01-24T13:14:49-08:00">January 24, 2015</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>For starters, you don’t need floats. That is the whole point of Flexboxes. So you don’t
+                          <p>For starters, you don't need floats. That is the whole point of Flexboxes. So you don't
                             have to use floats. Try getting rid of the float declarations and playing around some more….
                           </p>
-                          <p>Also, keep in mind that every set of flex items needs a flex container. It’s not ridiculous
+                          <p>Also, keep in mind that every set of flex items needs a flex container. It's not ridiculous
                             to see something like:</p>
                           <pre data-initialized="true"><code>&lt;div class="flex-container"&gt;
     &lt;div class="flex-item"&gt;
@@ -7404,11 +7404,11 @@ ul class="flex-container"
                           datetime="2015-02-04T14:10:02-08:00">February 4, 2015</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I’ve taken the navigation layout above and put it in the header of the header, aside, main,
+                      <p>I've taken the navigation layout above and put it in the header of the header, aside, main,
                         aside, footer, layout.</p>
                       <p>What I want to do is fix the navigation/header and have it the width of the page with the other
                         elements remain in their position below the header.</p>
-                      <p>Here’s my pen:</p>
+                      <p>Here's my pen:</p>
                       <p><iframe id="cp_embed_dPVEJd" src="./flexbox-explained_files/dPVEJd.html" scrolling="no"
                           frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe"
                           style="width: 100%; overflow: hidden;"></iframe></p>
@@ -7456,7 +7456,7 @@ ul class="flex-container"
                           datetime="2015-02-13T12:02:09-08:00">February 13, 2015</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>It’s great that you have given the html, css and result, but I used yours exactly and it is
+                      <p>It's great that you have given the html, css and result, but I used yours exactly and it is
                         fine on my laptop, but on my Android phone the header, main, aside1, aside2 and footer are all
                         on the same line (both portrait and landscape). I find a difference between resizing my laptop
                         monitor and actually viewing it on other devices.</p>
@@ -7502,13 +7502,13 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Hi everyone,</p>
-                      <p>I’ve been working on this layout which I managed to work perfectly in modern Firefox &amp; IE
-                        browsers, but it’s not working as expected in chrome and safari (which leads me to believe I’m
+                      <p>I've been working on this layout which I managed to work perfectly in modern Firefox &amp; IE
+                        browsers, but it's not working as expected in chrome and safari (which leads me to believe I'm
                         not implementing the flex box correctly).</p>
-                      <p>Any advice would be greatly appreciated….I’ve tried all manner of logic including flex box
-                        within a flex box to make this work….perhaps it’s a limitation of the way flex box is being
+                      <p>Any advice would be greatly appreciated….I've tried all manner of logic including flex box
+                        within a flex box to make this work….perhaps it's a limitation of the way flex box is being
                         implemented in webkit browsers or vice versa.</p>
-                      <p>I’ve posted the html file here: <a href="http://www.datagnosis.com/test_layout.html"
+                      <p>I've posted the html file here: <a href="http://www.datagnosis.com/test_layout.html"
                           rel="nofollow ugc">http://www.datagnosis.com/test_layout.html</a></p>
                       <p>In Safari and Chrome, the contents do not fit perfectly in the browser window, and the footer
                         div tag is not visible at all.</p>
@@ -7568,7 +7568,7 @@ ul class="flex-container"
                       <p>After looking a little closer at the numbers it was applying, the first thing I noticed was
                         that the flex-grow/flex-shrink is a ratio of these values amongst all children in that flexbox
                         for that specific property. The grow and shrink values have nothing to do with each other.</p>
-                      <p>As in the example given above, the ratio would be 2:1 for Item X’s width to the flex-basis
+                      <p>As in the example given above, the ratio would be 2:1 for Item X's width to the flex-basis
                         value. But the piece that was eluding me, and causing the actual width values to not follow this
                         ratio, is that <strong>the ratio is based on the amount that the containers have grown
                           <em>past</em> the basis width (or <em>under</em> the base width for flex-shrink.)</strong></p>
@@ -7577,10 +7577,10 @@ ul class="flex-container"
                       <p>Now, if you are not setting the flex-basis property manually, then the default will be “0%" and
                         the ratio is closer to being what you would think, but there is still a minimum width on these
                         elements that is factored into the ratio calculation as described above.</p>
-                      <p>Hopefully, because flexbox is being used, the ratio won’t need to be exactly correct and the
-                        layout will still look and work great. That’s the whole point of flexbox, right?</p>
+                      <p>Hopefully, because flexbox is being used, the ratio won't need to be exactly correct and the
+                        layout will still look and work great. That's the whole point of flexbox, right?</p>
                       <p>I just wanted to share this extra information with those who like to understand where the
-                        numbers are coming from when it doesn’t come out as you may have thought at first.</p>
+                        numbers are coming from when it doesn't come out as you may have thought at first.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -7602,7 +7602,7 @@ ul class="flex-container"
                               datetime="2016-01-12T11:49:29-08:00">January 12, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>I’m having this problem and it’s sooo confusing!</p>
+                          <p>I'm having this problem and it's sooo confusing!</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -7625,7 +7625,7 @@ ul class="flex-container"
                       <p>Warning! Description of justify-content / align-items is incorrect. Behavior of the last two
                         changes depending of flex-direction. Article says it should be independent. “This defines the
                         alignment along the main axis." No! If flex-direction = column, that will align items along the
-                        cross axis. To align items along main axis you’ll need to change align-items instead.</p>
+                        cross axis. To align items along main axis you'll need to change align-items instead.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -7648,7 +7648,7 @@ ul class="flex-container"
                               datetime="2015-03-20T08:06:37-07:00">March 20, 2015</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>When you change the flex direction, you’re changing the main axis. That’s how I think about
+                          <p>When you change the flex direction, you're changing the main axis. That's how I think about
                             it anyway. Flex-direction:</p>
                           <blockquote>
                             <p>
@@ -7674,10 +7674,10 @@ ul class="flex-container"
                           datetime="2015-03-22T01:59:33-07:00">March 22, 2015</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Here, “Let’s try something else. Imagine we have a right-aligned navigation on the very top of
+                      <p>Here, “Let's try something else. Imagine we have a right-aligned navigation on the very top of
                         our website, but we want it to be centered on medium-sized screens and single-columned on small
                         devices. Easy enough."<br>
-                        The navigation don’t works in Chome 41.0.2272.101 m</p>
+                        The navigation don't works in Chome 41.0.2272.101 m</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -7729,7 +7729,7 @@ ul class="flex-container"
   flex: 0 1 auto;
 }
 </code></pre>
-                      <p>Can you help me understand why this is or isn’t bad.</p>
+                      <p>Can you help me understand why this is or isn't bad.</p>
                       <p>Thanks</p>
                     </div>
                     <div class="comment-actions">
@@ -7752,7 +7752,7 @@ ul class="flex-container"
                               datetime="2015-04-15T21:53:10-07:00">April 15, 2015</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>It’s not really ‘bad’ per say, it’s just cross-browser for IE. It’s ugly code, most people
+                          <p>It's not really ‘bad' per say, it's just cross-browser for IE. It's ugly code, most people
                             use a post CSS processor like Autoprefixer.</p>
                         </div>
                         <div class="comment-actions">
@@ -7773,12 +7773,12 @@ ul class="flex-container"
                           datetime="2015-03-27T11:00:55-07:00">March 27, 2015</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I’m new to flexbox and certainly don’t want to spread my noob confusion, but I noticed a couple
+                      <p>I'm new to flexbox and certainly don't want to spread my noob confusion, but I noticed a couple
                         things:<br>
                         * Regarding this image - <a href="https://www.w3.org/TR/css3-flexbox/images/rel-vs-abs-flex.svg"
                           rel="nofollow ugc">http://www.w3.org/TR/css3-flexbox/images/rel-vs-abs-flex.svg</a>. Initially
-                        I thought this was super helpful. However, when I looked at where it’s used in the w3 spec, it
-                        doesn’t actually talk about using “auto" as a value for flex-basis at all (just a value for the
+                        I thought this was super helpful. However, when I looked at where it's used in the w3 spec, it
+                        doesn't actually talk about using “auto" as a value for flex-basis at all (just a value for the
                         “flex" shorthand), it just has it in the image for some reason - <a
                           href="https://www.w3.org/TR/css3-flexbox/#flex-property"
                           rel="nofollow ugc">http://www.w3.org/TR/css3-flexbox/#flex-property</a><br>
@@ -7814,7 +7814,7 @@ ul class="flex-container"
                         <div class="comment-content">
                           <p>I just do this most of the time:</p>
                           <p>flex: 0 0 auto; or flex: 0 0 25%; or flex: 0 0 10em;</p>
-                          <p>I think it’s easier just to use the shorthand property, and have a play with the values.
+                          <p>I think it's easier just to use the shorthand property, and have a play with the values.
                           </p>
                         </div>
                         <div class="comment-actions">
@@ -7833,11 +7833,11 @@ ul class="flex-container"
                               datetime="2015-10-01T16:39:34-07:00">October 1, 2015</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Originally ‘auto’ meant ‘content’ or natural size. Now auto means look at the height/width
-                            property and a new value of ‘content’ has been added. Chrome is still treating ‘auto’ like
-                            ‘content’. Firefox and IE are not.</p>
-                          <p>So ‘auto’ is only useful if you have a height or width set, which is pretty useless because
-                            you could just use that value as the ‘flex-basis’.</p>
+                          <p>Originally ‘auto' meant ‘content' or natural size. Now auto means look at the height/width
+                            property and a new value of ‘content' has been added. Chrome is still treating ‘auto' like
+                            ‘content'. Firefox and IE are not.</p>
+                          <p>So ‘auto' is only useful if you have a height or width set, which is pretty useless because
+                            you could just use that value as the ‘flex-basis'.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -7912,7 +7912,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>What bothers me, is if you use either flex-direction: row; or flex-direction: column; It
                         dictates what property you use to center objects horizontally.</p>
-                      <p>Maybe I don’t just understand the logic.</p>
+                      <p>Maybe I don't just understand the logic.</p>
                       <p><iframe id="cp_embed_aOoGVz" src="./flexbox-explained_files/aOoGVz.html" scrolling="no"
                           frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe"
                           style="width: 100%; overflow: hidden;"></iframe></p>
@@ -7965,13 +7965,13 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Another great article!<br>
                         Using this page as a guide and reference, I created a web-app based log in template that looks
-                        like a phone-app. It’s mostly just an exercise in column layout for flex; it helped me gain a
+                        like a phone-app. It's mostly just an exercise in column layout for flex; it helped me gain a
                         much greater understanding of flex properties and I thought someone else might care to poke at
                         it to help learn.<br>
-                        Here’s the result: <a href="https://jsfiddle.net/Serk0413/y6ugdxgx/10/embedded/result/"
+                        Here's the result: <a href="https://jsfiddle.net/Serk0413/y6ugdxgx/10/embedded/result/"
                           rel="nofollow ugc">https://jsfiddle.net/Serk0413/y6ugdxgx/10/embedded/result/</a> (complete w/
                         “hamburger" nav)<br>
-                        Here’s the fiddle (sorry, no pen): <a href="https://jsfiddle.net/Serk0413/y6ugdxgx/"
+                        Here's the fiddle (sorry, no pen): <a href="https://jsfiddle.net/Serk0413/y6ugdxgx/"
                           rel="nofollow ugc">https://jsfiddle.net/Serk0413/y6ugdxgx/</a><br>
                         It uses a full mix of css flex props including a flex column w/ nested rows and nested
                         <em>traditional</em> css (no floats!)</p>
@@ -7997,7 +7997,7 @@ ul class="flex-container"
                               datetime="2015-10-18T21:47:35-07:00">October 18, 2015</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Thanks for posting. Very interesting. I’m using the hamburger from your fiddle. Is there a
+                          <p>Thanks for posting. Very interesting. I'm using the hamburger from your fiddle. Is there a
                             particular attribution you would like?</p>
                         </div>
                         <div class="comment-actions">
@@ -8098,9 +8098,9 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Total noob when it comes to flexbox, but I was wondering something. Is it possible to have, in
                         a list comprised of multiple rows, the first row “space-around," and the other rows after left
-                        align? In my list of items I’m not really a fan of if one or two items are wrapped to the next
+                        align? In my list of items I'm not really a fan of if one or two items are wrapped to the next
                         row, they “space-around" and end up in the middle, it kind of makes you lose track if you are
-                        going down the list (make sense?). It’s no biggie, just was wondering if there was a way to
+                        going down the list (make sense?). It's no biggie, just was wondering if there was a way to
                         specify the last row or something. Great tutorial btw! Thanks in advance.</p>
                     </div>
                     <div class="comment-actions">
@@ -8124,7 +8124,7 @@ ul class="flex-container"
                         </div>
                         <div class="comment-content">
                           <p>Please post your code and link to it.<br>
-                            Here’s a very basic flexbox example; see if it helps. Feel free to fork, re-post and
+                            Here's a very basic flexbox example; see if it helps. Feel free to fork, re-post and
                             question.</p>
                           <p><iframe id="cp_embed_LVpoGK" src="./flexbox-explained_files/LVpoGK.html" scrolling="no"
                               frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe"
@@ -8152,8 +8152,8 @@ ul class="flex-container"
                         specifying the third parameter (<code>-webkit-flex-basis</code>), Safari will compute the value
                         <code>0px</code> and wrapping via <code>-webkit-flex-wrap</code> is not going to work. In order
                         for Safari to wrap via flexbox <code>-webkit-flex-basis</code> must be <code>auto</code> (which
-                        is Safaris default value). So, if you use the shorthand and don’t want an initial size for your
-                        flex-item, set the third (or the second parameter if you leave out shrink) to ‘auto’ (f. e.
+                        is Safaris default value). So, if you use the shorthand and don't want an initial size for your
+                        flex-item, set the third (or the second parameter if you leave out shrink) to ‘auto' (f. e.
                         <code>-webkit-flex: 1 auto;</code> or <code>-webkit-flex: 1 0 auto;</code>).</p>
                       <p>You can check this behaviour this codepen: <a href="https://codepen.io/mdix/pen/pJNrmM"
                           rel="nofollow ugc">http://codepen.io/mdix/pen/pJNrmM</a></p>
@@ -8252,7 +8252,7 @@ ul class="flex-container"
                       <p>@Alex: maybe a bit late, but this is my solution and it works pretty well.<br>
                         Create a number of extra blocks, the same size as your other blocks but with height=0, to fill
                         up at least 1 line of your screen (or any screen). Because height=0 you will not see them, but
-                        they still take up space in the x-direction. Since you could fill up 1 full line you don’t see
+                        they still take up space in the x-direction. Since you could fill up 1 full line you don't see
                         the odd alignment on the last line even when it is there. The alignment you see is on the last
                         but one line. See the solution on <a href="https://jsfiddle.net/h0Lww6mk/3/"
                           rel="nofollow ugc">https://jsfiddle.net/h0Lww6mk/3/</a></p>
@@ -8277,14 +8277,14 @@ ul class="flex-container"
                           datetime="2015-07-25T10:25:01-07:00">July 25, 2015</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>It’s worth noting is that Internet Explorer struggles when you used mixed units. I often use
+                      <p>It's worth noting is that Internet Explorer struggles when you used mixed units. I often use
                         flexbox with margins and calc, so I might use something like:</p>
                       <pre class=" language-css" data-initialized="true"><code class=" language-css"><span class="token selector"><span class="token class">.menu-item</span></span> <span class="token punctuation">{</span> 
   <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token unit">%</span> <span class="token operator">-</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span>
 </code></pre>
-                      <p>This works fine with Safari, Firefox and Chrome, but not Internet Explorer. I guess it’s a
-                        rounding error, and it won’t affect all resolutions, but a combination of screen width and
+                      <p>This works fine with Safari, Firefox and Chrome, but not Internet Explorer. I guess it's a
+                        rounding error, and it won't affect all resolutions, but a combination of screen width and
                         element width might sometimes mean you only get two columns on a line instead of three. To get
                         around this, I use:</p>
                       <pre class=" language-css" data-initialized="true"><code class=" language-css"><span class="token atrule"><span class="token rule">@media</span> all and <span class="token punctuation">(</span><span class="token property">-ms-high-contrast</span><span class="token punctuation">:</span> none<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token property">-ms-high-contrast</span><span class="token punctuation">:</span> active<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
@@ -8296,8 +8296,8 @@ ul class="flex-container"
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-                      <p>This takes account of the percentage difference in the margins. It’s doesn’t look quite as
-                        clean as in the other browsers, but it does solve the problem and it isn’t too convoluted.</p>
+                      <p>This takes account of the percentage difference in the margins. It's doesn't look quite as
+                        clean as in the other browsers, but it does solve the problem and it isn't too convoluted.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -8321,7 +8321,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Having just referenced this post for the 100th time in the last two months, I feel obligated to
-                        say that this thing is incredibly useful. I’m grateful you posted it.</p>
+                        say that this thing is incredibly useful. I'm grateful you posted it.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -8395,10 +8395,10 @@ ul class="flex-container"
                           datetime="2015-09-12T04:36:41-07:00">September 12, 2015</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Thank you for the tutorial. I followed it whilst updating something I did for a friend’s
-                        project before, but have come into difficulties. The three elements (the twitter widget’s
-                        container, the cbox’s container and the ccentre’s content) I was trying to update to use flex
-                        like in the tutorial, but it’s not worked. It looks like the ccentre might be the cause. Any
+                      <p>Thank you for the tutorial. I followed it whilst updating something I did for a friend's
+                        project before, but have come into difficulties. The three elements (the twitter widget's
+                        container, the cbox's container and the ccentre's content) I was trying to update to use flex
+                        like in the tutorial, but it's not worked. It looks like the ccentre might be the cause. Any
                         ideas? Here it is on Codepen: <a href="https://codepen.io/seasalt/pen/GppzmG"
                           rel="nofollow ugc">http://codepen.io/seasalt/pen/GppzmG</a></p>
                     </div>
@@ -8425,7 +8425,7 @@ ul class="flex-container"
                       <p>Hello. I have stumbled upon this interesting <a
                           href="https://stackoverflow.com/questions/32572347/left-aligned-and-centered-grid-with-flexbox"
                           rel="nofollow">StackOverflow question</a> re <code>justify-content: flex-start</code> and
-                        <code>margin: auto</code> on a container. I don’t know the answer and I wonder if there is any
+                        <code>margin: auto</code> on a container. I don't know the answer and I wonder if there is any
                         solution to this.</p>
                     </div>
                     <div class="comment-actions">
@@ -8472,7 +8472,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Chris, can you give us an example of what are small-scale layouts and large scale layouts? I
-                        don’t completely understand the Note about the best use for Flexbox vs. Grid.</p>
+                        don't completely understand the Note about the best use for Flexbox vs. Grid.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -8641,8 +8641,8 @@ ul class="flex-container"
                           datetime="2016-01-05T14:42:32-08:00">January 5, 2016</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I figured out that <code>align-content</code> is only for the cross axis. In this case, that’s
-                        vertical space. I don’t think there’s a way to do what I’m trying to do with flexbox.</p>
+                      <p>I figured out that <code>align-content</code> is only for the cross axis. In this case, that's
+                        vertical space. I don't think there's a way to do what I'm trying to do with flexbox.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -8716,7 +8716,7 @@ ul class="flex-container"
                     </div>
 
                     <div class="comment-content">
-                      <p>Yay, let’s make CSS even more complicated! W3 crams more and more stuff into HTML and CSS, but
+                      <p>Yay, let's make CSS even more complicated! W3 crams more and more stuff into HTML and CSS, but
                         forgets that people want to settle and work with it and not study new tags/definitions each day.
                       </p>
                     </div>
@@ -8746,7 +8746,7 @@ ul class="flex-container"
                             specification. Therefore these new tags were added to simplify web structure/layout, rather
                             than to complicate it.</p>
                           <p>Take for instance flexbox. Before it was very hard to make a dynamically scaling website.
-                            Using just percentages to scale the sections just didn’t cut it. One improvement was the
+                            Using just percentages to scale the sections just didn't cut it. One improvement was the
                             introduction of the calc() function that could use percentages and static units together,
                             but even with that it was still hard to read code. Flexbox was a great addition that is very
                             easy to use once you read this article.</p>
@@ -8769,27 +8769,27 @@ ul class="flex-container"
                               datetime="2016-01-06T17:19:15-08:00">January 6, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>The reason that I enjoy working with the web is that it’s always growing. There’s always
+                          <p>The reason that I enjoy working with the web is that it's always growing. There's always
                             something more to learn.</p>
                           <p>The same is true for any technology or even life in general, really. Without new features
                             and new capabilities, we atrophy and fail to realize our full potential.</p>
                           <p>I suspect that relatively few people want to <em>settle</em> for what we have now and just
                             work with that.</p>
-                          <p>The W3C isn’t a single person who has neglected you, or any of us. It’s an organization,
+                          <p>The W3C isn't a single person who has neglected you, or any of us. It's an organization,
                             and a democracy, guided by the people and companies that invented the web and continue to
-                            use to everyone’s benefit.</p>
+                            use to everyone's benefit.</p>
                           <p>It should probably be noted that the W3C documents recommendations, not requirements.
-                            Everything’s optional.</p>
-                          <p>You many have been moved by PPK’s article: <a
+                            Everything's optional.</p>
+                          <p>You many have been moved by PPK's article: <a
                               href="http://www.quirksmode.org/blog/archives/2015/07/stop_pushing_th.html"
                               rel="nofollow">Stop pushing the web forward</a></p>
                           <p>I found this counterpoint by Bruce Lawson enlightening: <a
                               href="https://dev.opera.com/articles/on-a-moratorium-on-new-browser-features/"
-                              rel="nofollow">On PPK’s moratorium on new browser features</a></p>
-                          <p>Both of those articles, and more linked to at the end of Bruce Lawson’s article, were
+                              rel="nofollow">On PPK's moratorium on new browser features</a></p>
+                          <p>Both of those articles, and more linked to at the end of Bruce Lawson's article, were
                             written by people much smarter than me.</p>
                           <p>I hat to say it, but the frustration expressed by PPK and many others strikes me as very
-                            similar to my daughter’s frustration with going to school. After all, she already has TV,
+                            similar to my daughter's frustration with going to school. After all, she already has TV,
                             YouTube, and all the toys she needs at home :)</p>
                         </div>
                         <div class="comment-actions">
@@ -8838,7 +8838,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>in the first example there is missing the non prefixed <code>flex-flow: row wrap;</code> so
-                        right now it’s only working in chrome</p>
+                        right now it's only working in chrome</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -8885,7 +8885,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Hello,</p>
                       <p>I want to put a link on images wich are in a contener flexbox. before putting the link, flexbox
-                        work, but after putting the link, it doesn’t. WHY? I suppose it’s a problem with my html? Can
+                        work, but after putting the link, it doesn't. WHY? I suppose it's a problem with my html? Can
                         somebody can give me an exemple about how to do?<br>
                         thank you so much!</p>
                       <p>here is my html code</p>
@@ -8924,13 +8924,13 @@ ul class="flex-container"
                               datetime="2016-02-02T14:32:59-08:00">February 2, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>@Louisa You didn’t include your CSS code, so it’s impossible to tell what’s wrong. I put
+                          <p>@Louisa You didn't include your CSS code, so it's impossible to tell what's wrong. I put
                             your HTML into a Pen and set <code>#page1conteneur { display: flex; }</code>and it works
                             fine.</p>
                           <p>If you want help, you need to post your CSS code as well. Better yet, post your question
                             and all related code to a site like <a href="https://stackoverflow.com/"
-                              rel="nofollow">Stack Overflow</a> that’s designed for questions and answers</p>
-                          <p>Here’s my example. I replaced the images with images from <a href="http://lorempixel.com/"
+                              rel="nofollow">Stack Overflow</a> that's designed for questions and answers</p>
+                          <p>Here's my example. I replaced the images with images from <a href="http://lorempixel.com/"
                               rel="nofollow">LoremPixel</a> just to give me something to look at. …</p>
                           <p>(Editor: this demo started 404ing, it must have been deleted.)</p>
                         </div>
@@ -8956,7 +8956,7 @@ ul class="flex-container"
                         <a href="https://caniuse.com/#feat=flexbox"
                           rel="nofollow ugc">http://caniuse.com/#feat=flexbox</a></p>
                       <p>According to css-tricks, iOS support for flexbox is 7.0.1+ .</p>
-                      <p>I just got a defect ticket for iOS7 where flex doesn’t work. So, is the above table wrong?</p>
+                      <p>I just got a defect ticket for iOS7 where flex doesn't work. So, is the above table wrong?</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -9056,7 +9056,7 @@ ul class="flex-container"
                         see this in action here: <a href="https://codepen.io/anon/pen/BjXbrw"
                           rel="nofollow ugc">http://codepen.io/anon/pen/BjXbrw</a><br>
                         No matter what I try, I will either lose vertical centering of the heading or the second child
-                        won’t align. What am I doing wrong here?<br>
+                        won't align. What am I doing wrong here?<br>
                         Thanks!</p>
                     </div>
                     <div class="comment-actions">
@@ -9149,7 +9149,7 @@ ul class="flex-container"
                       <p>Sometimes I smile when reading these articles (and this one is just fine BTW) but I remember
                         back to the dark ages when one could code a fairly decent web page on a single sheet of paper
                         whereas now, it takes endless articles to even understand the coding and then one ends up with
-                        megabytes of code … and it’s still just one page but a lot “prettier" (and requires up to 1000X
+                        megabytes of code … and it's still just one page but a lot “prettier" (and requires up to 1000X
                         the bandwidth and server storage LOL). And we call it progress. </p>
                     </div>
                     <div class="comment-actions">
@@ -9192,8 +9192,8 @@ ul class="flex-container"
                               datetime="2016-05-04T08:01:28-07:00">May 4, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>If it takes you “megabytes" of code to make a page, you’re either doing something very
-                            wrong or you’ve got much more than “just a page", such as a very complex system of scripts
+                          <p>If it takes you “megabytes" of code to make a page, you're either doing something very
+                            wrong or you've got much more than “just a page", such as a very complex system of scripts
                             or similar.</p>
                         </div>
                         <div class="comment-actions">
@@ -9241,7 +9241,7 @@ ul class="flex-container"
                         <code>&lt;flex-basis&gt;</code> are optional is slightly misleading because it implies that
                         <code>&lt;flex-grow&gt;</code> (the 1st parameter) is never optional. The truth is,
                         <code>&lt;flex-grow&gt;</code> is optional as long as <code>&lt;flex-basis&gt;</code> is present
-                        (and obviously when the value is none). It’s only required when <code>&lt;flex-shrink&gt;</code>
+                        (and obviously when the value is none). It's only required when <code>&lt;flex-shrink&gt;</code>
                         is present.</p>
                     </div>
                     <div class="comment-actions">
@@ -9265,9 +9265,9 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>This is an awesome post. It has helped me several times.<br>
-                        I am having one issue that I cannot figure out. I can’t get a single line of text to vertically
-                        center within an element. It seems so simple, and yet I’ve wasted hours without any luck.<br>
-                        Would anyone be willing to comment on this Codepen? Resize the width below 900px and you’ll see
+                        I am having one issue that I cannot figure out. I can't get a single line of text to vertically
+                        center within an element. It seems so simple, and yet I've wasted hours without any luck.<br>
+                        Would anyone be willing to comment on this Codepen? Resize the width below 900px and you'll see
                         what happens.<br>
                         <iframe id="cp_embed_mPGQdq" src="./flexbox-explained_files/mPGQdq.html" scrolling="no"
                           frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe"
@@ -9316,7 +9316,7 @@ ul class="flex-container"
                           <p>If you add “display: flex; align-items: center; height: 100%" to your .bullet-content
                             class, you should be OK.<br>
                             The height: 100% is needed to stretch your</p>
-                          <p> element to the li-height (could’ve done that with flexbox too of course).</p>
+                          <p> element to the li-height (could've done that with flexbox too of course).</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -9381,7 +9381,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>I just started to learn HTML &amp; CSS. Thank you for the information you have put together. I
-                        wish there was more ‘Complete Guides’ like this out there. This is just brilliant.</p>
+                        wish there was more ‘Complete Guides' like this out there. This is just brilliant.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -9558,8 +9558,8 @@ ul class="flex-container"
                       <p><iframe id="cp_embed_mEQjWQ" src="./flexbox-explained_files/mEQjWQ.html" scrolling="no"
                           frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe"
                           style="width: 100%; overflow: hidden;"></iframe></p>
-                      <p>How can I get the content to align to the bottom of the element when it’s inside a nested
-                        flexbox? <code>align-items</code> nor <code>justify-content</code> don’t appear to work in this
+                      <p>How can I get the content to align to the bottom of the element when it's inside a nested
+                        flexbox? <code>align-items</code> nor <code>justify-content</code> don't appear to work in this
                         case.</p>
                     </div>
                     <div class="comment-actions">
@@ -9582,9 +9582,9 @@ ul class="flex-container"
                           datetime="2016-08-22T05:14:28-07:00">August 22, 2016</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I’m not clear on whether I would still need prefixing on any flex code as of this writing in
-                        August 2016. If the answer is “depends on what browser support you need", I really wouldn’t know
-                        or couldn’t predict exactly who might visit my commercial site.</p>
+                      <p>I'm not clear on whether I would still need prefixing on any flex code as of this writing in
+                        August 2016. If the answer is “depends on what browser support you need", I really wouldn't know
+                        or couldn't predict exactly who might visit my commercial site.</p>
                       <p>Should prefix code be inserted as a safeguard, OR is it deleterious to add vendor flex prefix
                         code if said vendor has provided full flex compliance in more recent browser versions?</p>
                       <p>Bottom line: is it just a good idea to add vendor prefixing for flex at this stage of the game
@@ -9633,7 +9633,7 @@ ul class="flex-container"
                           datetime="2016-08-26T04:13:50-07:00">August 26, 2016</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I just want to say thank you. As I’ve been getting up to speed with css over the past year or
+                      <p>I just want to say thank you. As I've been getting up to speed with css over the past year or
                         so, I have referenced this page a thousand times. It has been just so helpful. I had to write
                         and give you a well-earned “thank you". Great work. Much appreciated. Thank you.</p>
                       <p>Don</p>
@@ -9658,7 +9658,7 @@ ul class="flex-container"
                               datetime="2016-09-02T15:36:31-07:00">September 2, 2016</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>Agreed! This was easy to understand and extremely helpful for a new project we’re working
+                          <p>Agreed! This was easy to understand and extremely helpful for a new project we're working
                             on.</p>
                         </div>
                         <div class="comment-actions">
@@ -9757,7 +9757,7 @@ ul class="flex-container"
                       <p>Nice one, I have a question tho, with this new knowledge I wanted to try my skills on some kind
                         of framework. I uploaded everything to “http://tesserakt.pro/demo/repsonse". But why do the two
                         col-1 at the top not have the same width as the col-2? They should add up and make 50% width?
-                        right? They don’t I guess it has something to do with the flex-shrink and flex-grow but I’m not
+                        right? They don't I guess it has something to do with the flex-shrink and flex-grow but I'm not
                         sure.</p>
                     </div>
                     <div class="comment-actions">
@@ -9803,7 +9803,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Is it possible to have a max-width on the container and then center that container? As soon as
-                        I changed my container to flex, ‘margin: 0 auto’ no longer works to center the container.</p>
+                        I changed my container to flex, ‘margin: 0 auto' no longer works to center the container.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -10039,7 +10039,7 @@ ul class="flex-container"
                           href="https://codepen.io/localnepal/pen/vyXPmy"
                           rel="nofollow ugc">http://codepen.io/localnepal/pen/vyXPmy</a><br>
                         So, the image dimensions in box1 change in the display as I enter new text in box3, even though
-                        it’s not more text than was there previously.</p>
+                        it's not more text than was there previously.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -10065,7 +10065,7 @@ ul class="flex-container"
                         indentation, as for paragraphs.</p>
                       <p>Use case: a bunch of thumbnails with dates underneath, one flexbox filled for each month, say.
                         When scrolling quickly, it would be nice to see the new months at the left margin, and
-                        “continuation" lines indented. I’ve been doing this with floats and weird margins, but don’t see
+                        “continuation" lines indented. I've been doing this with floats and weird margins, but don't see
                         how to convert it to flexbox.</p>
                     </div>
                     <div class="comment-actions">
@@ -10146,7 +10146,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>@Christian<br>
                         Hi, I am not a code pro, but even I could see, that your code is like scrambled eggs. You
-                        shouldn’t copy/paste code into your code, when you don’t know were and what. I think you should
+                        shouldn't copy/paste code into your code, when you don't know were and what. I think you should
                         start a new with a clean HTML and keep it much simpler.</p>
                     </div>
                     <div class="comment-actions">
@@ -10170,7 +10170,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Hey, I just wanted to say that this was my most-visited reference page of 2016. You display
-                        things that work. That’s really all there is to it. Thanks!</p>
+                        things that work. That's really all there is to it. Thanks!</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -10302,7 +10302,7 @@ ul class="flex-container"
                           datetime="2017-02-10T17:09:04-08:00">February 10, 2017</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Don’t push print and walk away… It’ll print ALL of the comments! Heads up!</p>
+                      <p>Don't push print and walk away… It'll print ALL of the comments! Heads up!</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -10325,13 +10325,13 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Why is flex-direction row by default?</p>
-                      <p>We typically read digital content vertically so it doesn’t make sense to me why row would have
+                      <p>We typically read digital content vertically so it doesn't make sense to me why row would have
                         higher priority over column.</p>
-                      <p>Even React Native has flexDirection set to ‘row’ by default so I’m not the only one who thinks
+                      <p>Even React Native has flexDirection set to ‘row' by default so I'm not the only one who thinks
                         column should be the default value of flex-direction.</p>
                       <p>This makes styling web and RN problematic because in order to have the same developer
-                        experience, you either have to set the flex-drection of divs to ‘column’, or set the
-                        flexDirections of Views to ‘row’.</p>
+                        experience, you either have to set the flex-drection of divs to ‘column', or set the
+                        flexDirections of Views to ‘row'.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -10353,7 +10353,7 @@ ul class="flex-container"
                           datetime="2017-02-23T13:24:23-08:00">February 23, 2017</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>This is the best Flexbox tutorial I’ve read. Thank you for the great work. The figures really
+                      <p>This is the best Flexbox tutorial I've read. Thank you for the great work. The figures really
                         make things much easier. It would be even better if there is a real webpage example built with
                         Flexbox, like a more complete version than the last example, so that we can see how Flexbox is
                         used in real life.</p>
@@ -10378,7 +10378,7 @@ ul class="flex-container"
                           datetime="2017-06-02T07:55:11-07:00">June 2, 2017</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>this is an incredibly useful guide. i’ve wrapped it up in a codepen: <a
+                      <p>this is an incredibly useful guide. i've wrapped it up in a codepen: <a
                           href="https://codepen.io/vlrprbttst/pen/gRYVMO"
                           rel="nofollow ugc">https://codepen.io/vlrprbttst/pen/gRYVMO</a></p>
                     </div>
@@ -10452,7 +10452,7 @@ ul class="flex-container"
                       <p>Hey Chris,</p>
                       <p>Thanks for all of the great information, it really helped me to understand flexbox. Whilst I
                         was learning, I put together an open source flexbox grid that uses a traditional 12 column
-                        approach, which I find helps to apply flexbox’s attributes easier. It’s called Eixample, and you
+                        approach, which I find helps to apply flexbox's attributes easier. It's called Eixample, and you
                         can check it out at: <a href="https://github.com/mobilejazz/Eixample"
                           rel="nofollow ugc">https://github.com/mobilejazz/Eixample</a></p>
                       <p>Thanks once again for the great info,</p>
@@ -10526,7 +10526,7 @@ ul class="flex-container"
                       <p>@Alex and @AndyMaleh (Three years later and based only on the picture Alex showed us) Yeah you
                         can do a “Perfect" (why perfect though?) product grid with only flex, you just need to justify
                         your content to flex-start and be careful with your margins… also you will need to apply margin
-                        to the title too (please look at alex’ picture, it’s clear that margin is applied to everything
+                        to the title too (please look at alex' picture, it's clear that margin is applied to everything
                         there).</p>
                       <p>Here you have my version of a <a href="https://codepen.io/seiryoku/pen/pdjYKY"
                           rel="nofollow">“Perfect" product grid (responsive)</a></p>
@@ -10552,12 +10552,12 @@ ul class="flex-container"
                           datetime="2017-12-06T14:18:22-08:00">December 6, 2017</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Very interesting article. I have a few questions I’d really appreciate if you could answer.
-                        I’ve been out of front end development for a few years exploring culinary arts but decided to
+                      <p>Very interesting article. I have a few questions I'd really appreciate if you could answer.
+                        I've been out of front end development for a few years exploring culinary arts but decided to
                         get back into design and front end dev.</p>
-                      <p>So I’ve pretty much only dabbled in responsive design when it was rather new. So right now I am
+                      <p>So I've pretty much only dabbled in responsive design when it was rather new. So right now I am
                         trying to figure out where to get started and what technologies are safe to use. Can I trust
-                        pretty much full browser support for flexbox’s “new" syntax without worrying about all the
+                        pretty much full browser support for flexbox's “new" syntax without worrying about all the
                         fallbacks?</p>
                       <p>And what about CSS grid, safe for production with fallbacks? That being said, why would I even
                         bother creating the layout twice and bloat my code if fallbacks for layout are required?</p>
@@ -10615,13 +10615,13 @@ ul class="flex-container"
                             The Flexbox spec forbids <code>:first-letter</code> from applying within flex containers,
                             see the <a href="https://www.w3.org/TR/css-flexbox-1/#flex-containers" rel="nofollow">“Flex
                               Containers"</a> section. This is because <code>:first-letter</code> and
-                            <code>:first-line</code> are very tricky to implement, and there didn’t seem to be a strong
+                            <code>:first-line</code> are very tricky to implement, and there didn't seem to be a strong
                             enough reason to make them work.</p>
-                          <p>You should be able to apply <code>:first-letter</code> directly to a flex item that’s
+                          <p>You should be able to apply <code>:first-letter</code> directly to a flex item that's
                             <code>display: block</code>, though.</p>
-                          <p>If that’s not good enough, <a href="https://github.com/w3c/csswg-drafts/issues"
-                              rel="nofollow">file an issue against the CSSWG</a> with an explanation of what you’re
-                            trying to do and why this needs to work; the restriction can be lifted if there’s a good
+                          <p>If that's not good enough, <a href="https://github.com/w3c/csswg-drafts/issues"
+                              rel="nofollow">file an issue against the CSSWG</a> with an explanation of what you're
+                            trying to do and why this needs to work; the restriction can be lifted if there's a good
                             reason for it to work. (That said, implementation of <code>:first-letter</code> and
                             <code>:first-line</code> is rather painful in the layout engines, so even if the restriction
                             is lifted in the spec, it might be awhile before anyone is willing to implement it.)</p>
@@ -10644,7 +10644,7 @@ ul class="flex-container"
                           datetime="2017-12-18T16:52:30-08:00">December 18, 2017</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Thank you so much for this. Can’t tell you how many times I’ve used this fantastic reference.
+                      <p>Thank you so much for this. Can't tell you how many times I've used this fantastic reference.
                       </p>
                     </div>
                     <div class="comment-actions">
@@ -10667,7 +10667,7 @@ ul class="flex-container"
                           datetime="2017-12-23T07:35:30-08:00">December 23, 2017</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Hi! i’m SeonghoonBaek, i’m frontend developer in Korea :)<br>
+                      <p>Hi! i'm SeonghoonBaek, i'm frontend developer in Korea :)<br>
                         Can i post this article in my blog? i wanna translate in Korean this article because this
                         article would help many frontend developers in Korea :) and my colleagues</p>
                     </div>
@@ -10721,7 +10721,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>I really loved this article Chris, it has really opened my eyes as to the extent and coolness
-                        of flexbox-I’m really sold.</p>
+                        of flexbox-I'm really sold.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -10860,7 +10860,7 @@ ul class="flex-container"
                               datetime="2019-02-25T13:32:07-08:00">February 25, 2019</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>flex-shrink refers to how much an element will “give up itself" when there isn’t enough
+                          <p>flex-shrink refers to how much an element will “give up itself" when there isn't enough
                             room. Using the example below, item1 will take up 3 times less space than item2 if the
                             parent div is less than the width of both <code>flex-basis</code>‘s (600px).</p>
                           <p>Example:</p>
@@ -10892,7 +10892,7 @@ ul class="flex-container"
                         </div>
                         <div class="comment-content">
                           <p>Andrew: Those two statements appear to contradict each other. Based on the first statement
-                            (which matches my understanding), item1 wouldn’t “take up" 3 times less space, but would
+                            (which matches my understanding), item1 wouldn't “take up" 3 times less space, but would
                             “give up" three times as much space — in other words, would shrink at 3x the rate of item2.
                           </p>
                           <p>So if the available width were 500px, instead of both being reduced by an even 50px, item1
@@ -10971,7 +10971,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Why is it that when I resize the browser window displaying flexbox elements (on this page, for
                         example) the page position after resizing is different than what I was looking at before?</p>
-                      <p>For example, if I’m looking at this comment field and resize the window, I can no longer see
+                      <p>For example, if I'm looking at this comment field and resize the window, I can no longer see
                         the comment field? Is that something that can be fixed in flexbox?</p>
                     </div>
                     <div class="comment-actions">
@@ -10994,13 +10994,13 @@ ul class="flex-container"
                           datetime="2018-05-10T23:47:33-07:00">May 10, 2018</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Ola.. I’m curious about using <code>margin: auto;</code> on children vs the slightly more
+                      <p>Ola.. I'm curious about using <code>margin: auto;</code> on children vs the slightly more
                         verbose <code>justify-content: space-around; align-items: center;</code> on the parent. I was
                         playing around with this on Codepen (<a href="https://codepen.io/ZaLiTHkA/pen/VxxZER"
                           rel="nofollow">see this here thing</a>) and I noticed that I could achieve the same layout
                         using either route.</p>
-                      <p>I’ve been bitten by “100 ways to do X" from JS too many times, where each one has it’s own
-                        special quirks.. So now I’m sceptical, which of these two options would be the safest, both for
+                      <p>I've been bitten by “100 ways to do X" from JS too many times, where each one has it's own
+                        special quirks.. So now I'm sceptical, which of these two options would be the safest, both for
                         use right now and for other projects going forward?</p>
                     </div>
                     <div class="comment-actions">
@@ -11025,7 +11025,7 @@ ul class="flex-container"
                     <div class="comment-content">
                       <p>Hello, Mr Coyier.</p>
                       <p>I have a flex of images and it was bothering me that, if there were fewer images in the last
-                        row, they’d be stretched to fill the available space (which was logical because of
+                        row, they'd be stretched to fill the available space (which was logical because of
                         <code>flex-grow:1</code>).</p>
                       <p>At <a
                           href="https://stackoverflow.com/questions/34928565/properly-sizing-and-aligning-the-flex-items-on-the-last-row?noredirect=1"
@@ -11064,8 +11064,8 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Any good reason not to have a rule for " * {display: flex;}"? As I use flex-layout more
-                        exclusively, I’m wondering how applicable it would be to make Flex the default display for all
-                        elements and change any that don’t need it.</p>
+                        exclusively, I'm wondering how applicable it would be to make Flex the default display for all
+                        elements and change any that don't need it.</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -11110,14 +11110,14 @@ ul class="flex-container"
                           datetime="2018-06-13T02:41:13-07:00">June 13, 2018</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>In the <code>align-items</code> section, it’s written:</p>
+                      <p>In the <code>align-items</code> section, it's written:</p>
                       <blockquote>
                         <p>
                           <code>stretch (default)</code>: stretch to fill the container <code>(still respect
                             min-width/max-width)</code>
                         </p>
                       </blockquote>
-                      <p>But isn’t it supposed to be <code>min-height/max-height</code> or maybe include both height and
+                      <p>But isn't it supposed to be <code>min-height/max-height</code> or maybe include both height and
                         width since it depends on <code>flex-direction</code>?</p>
                     </div>
                     <div class="comment-actions">
@@ -11194,7 +11194,7 @@ ul class="flex-container"
                           datetime="2018-10-09T14:14:41-07:00">October 9, 2018</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Chris, 2 things (related of course). 1st I didn’t see mention of place-content (short-hand for
+                      <p>Chris, 2 things (related of course). 1st I didn't see mention of place-content (short-hand for
                         align-content &amp; justify-content per mozzilla - <a
                           href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content"
                           rel="nofollow ugc">https://developer.mozilla.org/en-US/docs/Web/CSS/place-content</a>). Now of
@@ -11204,10 +11204,10 @@ ul class="flex-container"
                           href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content"
                           rel="nofollow ugc">https://developer.mozilla.org/en-US/docs/Web/CSS/align-content</a>), and
                         appears to apply to align-content, justify-content, and align-items, nothing is marked as
-                        ‘default’, but they do list a keyword ‘normal’ and says “The items are packed in their default
+                        ‘default', but they do list a keyword ‘normal' and says “The items are packed in their default
                         position as if no justify-content value was set." This would lead me to believe (though it is
-                        not explicitly stated) that ‘normal’ is the new ‘default’ as opposed to the ‘defaults’ you
-                        listed ‘stretch’ &amp; ‘flex-start" (which for all I know is the same as “normal")</p>
+                        not explicitly stated) that ‘normal' is the new ‘default' as opposed to the ‘defaults' you
+                        listed ‘stretch' &amp; ‘flex-start" (which for all I know is the same as “normal")</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -11230,10 +11230,10 @@ ul class="flex-container"
                         </div>
                         <div class="comment-content">
                           <p>Oops, I guess you can disregard the 2nd part of the preceding comment. I just read the
-                            working draft and while ‘normal’ is the “default", the behavior of normal varies based on
+                            working draft and while ‘normal' is the “default", the behavior of normal varies based on
                             context, which in most cases is as you describes. Still could add place-content to this
                             article though. :) Would be nice if mozilla included a bit of explanation re: normal &amp;
-                            context leading to ‘stretch’ and ‘flex-start’ behaviors.</p>
+                            context leading to ‘stretch' and ‘flex-start' behaviors.</p>
                         </div>
                         <div class="comment-actions">
                           <div class="reply">
@@ -11463,8 +11463,8 @@ ul class="flex-container"
                           datetime="2019-03-06T09:19:33-08:00">March 6, 2019</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Hey max! It’s possible that the parent container (.casfakjds) needs to be given a height. For
-                        example, here’s a container that takes up the full vertical space of the viewport using the same
+                      <p>Hey max! It's possible that the parent container (.casfakjds) needs to be given a height. For
+                        example, here's a container that takes up the full vertical space of the viewport using the same
                         CSS in your example: <a href="https://codepen.io/geoffgraham/pen/WmRXaz"
                           rel="nofollow ugc">https://codepen.io/geoffgraham/pen/WmRXaz</a></p>
                     </div>
@@ -11488,7 +11488,7 @@ ul class="flex-container"
                           datetime="2019-03-06T09:29:06-08:00">March 6, 2019</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Great guide. This is my default go-to guide when I’m working with flexbox.<br>
+                      <p>Great guide. This is my default go-to guide when I'm working with flexbox.<br>
                         Thank you for putting in the effort. Very well explained, very well designed.</p>
                     </div>
                     <div class="comment-actions">
@@ -11511,7 +11511,7 @@ ul class="flex-container"
                           datetime="2019-03-13T09:24:04-07:00">March 13, 2019</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>The <code>gap</code> property and it’s long-hand friends <code>row-gap</code> &amp;
+                      <p>The <code>gap</code> property and it's long-hand friends <code>row-gap</code> &amp;
                         <code>column-gap</code> can be used to set the spacing between justified flex children. Unlike
                         <code>margin</code>, this supports collapsing.</p>
                       <p><a href="https://github.com/w3c/csswg-drafts/issues/1696"
@@ -11560,7 +11560,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>Wonderful post @Chris coyer…can you plzz make a post of ‘how to read css specification for
-                        beginners’ . I find it difficult to understand .</p>
+                        beginners' . I find it difficult to understand .</p>
                     </div>
                     <div class="comment-actions">
                       <div class="reply">
@@ -11605,7 +11605,7 @@ ul class="flex-container"
                               datetime="2019-04-22T06:26:13-07:00">April 22, 2019</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>That property doesn’t apply to flexbox. <a
+                          <p>That property doesn't apply to flexbox. <a
                               href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items"
                               rel="nofollow">MDN</a>:</p>
                           <blockquote>
@@ -11630,7 +11630,7 @@ ul class="flex-container"
                               datetime="2019-05-01T00:38:00-07:00">May 1, 2019</time></div>
                         </div>
                         <div class="comment-content">
-                          <p>I think that fact that justify-items doesn’t apply to flexbox layouts should be included in
+                          <p>I think that fact that justify-items doesn't apply to flexbox layouts should be included in
                             this article as well :)</p>
                         </div>
                         <div class="comment-actions">
@@ -11675,7 +11675,7 @@ ul class="flex-container"
                     </div>
                     <div class="comment-content">
                       <p>I see the article has been updated. What about this sentence: “The content keyword means “size
-                        it based on the item’s content" - this keyword isn’t well supported yet, so it’s hard to test
+                        it based on the item's content" - this keyword isn't well supported yet, so it's hard to test
                         and harder to know what its brethren max-content, min-content, and fit-content do."</p>
                       <p>Is this still the case??</p>
                     </div>
@@ -11781,8 +11781,8 @@ ul class="flex-container"
                         because if .item1 is the only element in the container, I want it to behave as if the container
                         has justify-content: center instead.</p>
                       <p>Requirement: So in other words, if the total height of my child elements is more than the
-                        parent container height, I want the ‘flex-start’ behavior but if the total height of child
-                        elements is less than the parent container height, then I want the ‘center’ behavior of the flex
+                        parent container height, I want the ‘flex-start' behavior but if the total height of child
+                        elements is less than the parent container height, then I want the ‘center' behavior of the flex
                         box.</p>
                       <p>The values of space-between, space-around, space-evenly for justify-conten might work fine when
                         the .container height is larger than the total height of the children, but in my example when
@@ -11814,8 +11814,8 @@ ul class="flex-container"
                           datetime="2019-12-06T08:44:14-08:00">December 6, 2019</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>Hi Chris - thanks for publishing this tutorial - it’s my go to when I’ve need a flexbox
-                        refresher! I’ve recently built an open-source tool for exploring flex-box which I’m hoping you
+                      <p>Hi Chris - thanks for publishing this tutorial - it's my go to when I've need a flexbox
+                        refresher! I've recently built an open-source tool for exploring flex-box which I'm hoping you
                         and your readers will find useful <a href="https://app.peterrcook.com/flexplorer/"
                           rel="nofollow ugc">https://app.peterrcook.com/flexplorer/</a> Thanks again for CSS-Tricks and
                         Codepen :)</p>
@@ -11840,7 +11840,7 @@ ul class="flex-container"
                           datetime="2020-01-04T12:36:22-08:00">January 4, 2020</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>I don’t understand what it means "right to left in ltr; left to right in rtl". Please explain
+                      <p>I don't understand what it means "right to left in ltr; left to right in rtl". Please explain
                         one more time.</p>
                     </div>
                     <div class="comment-actions">
@@ -11887,9 +11887,9 @@ ul class="flex-container"
                       <p>Re Flex property:<br>
                         “It is recommended that you use this shorthand property rather than set the individual
                         properties. The shorthand sets the other values intelligently."</p>
-                      <p>I don’t know if I necessarily agree with that; for instance, if I define ‘flex: 30%;’ on 3 of 3
+                      <p>I don't know if I necessarily agree with that; for instance, if I define ‘flex: 30%;' on 3 of 3
                         flex-items, the flex-grow and flex-shrink values are both set to 1, and my flex-items grow to
-                        1/3 i.o. 30% as desired. ‘flex-basis: 30%;’ works a lot better for me in this case.</p>
+                        1/3 i.o. 30% as desired. ‘flex-basis: 30%;' works a lot better for me in this case.</p>
                       <p>So, in the interest of total control, I still prefer to use the separate properties i.o. the
                         shorthand.</p>
                     </div>
@@ -12081,14 +12081,14 @@ ul class="flex-container"
                       <p>I reference this guide often but I wish it was actually the “complete" guide. I still run into
                         flexbox issue all the time and I have yet to find a definitive guide.</p>
                       <p>In particular I often want to make a full window UI for a single page app. As such I want to
-                        have various nested panes where the content expands to fit the pane but doesn’t overflow it
+                        have various nested panes where the content expands to fit the pane but doesn't overflow it
                         (overflow: auto).</p>
                       <p>What I find though is that regardless of project I always and without fail, fail to get it work
-                        and it’s just random guessing which particular element needs a ‘min-height: 0’ or a ‘height:
-                        100%’ or some other thing. It doesn’t help that Safari acts differently than Firefox and Chrome
+                        and it's just random guessing which particular element needs a ‘min-height: 0' or a ‘height:
+                        100%' or some other thing. It doesn't help that Safari acts differently than Firefox and Chrome
                         so if I manage to get it to work on FF+Chrome I then have to go over and fight safari and hope I
-                        don’t break FF+Chrome. I’ve spent the last 24 working hours fighting and losing this battle and
-                        no “complete" guide covers what the actual rules are that make things work. There’s just lots of
+                        don't break FF+Chrome. I've spent the last 24 working hours fighting and losing this battle and
+                        no “complete" guide covers what the actual rules are that make things work. There's just lots of
                         searching and then guessing which random answer on the internet might be the correct answer.</p>
                     </div>
                     <div class="comment-actions">
@@ -12118,7 +12118,7 @@ ul class="flex-container"
                       <p>Is this CSS Property part of Flex Layouts ?<br>
                         - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self"
                           rel="nofollow ugc">https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self</a></p>
-                      <p>If yes, It’ll be added on this article ?</p>
+                      <p>If yes, It'll be added on this article ?</p>
                       <p>Thanks in advance for your reply :)</p>
                     </div>
                     <div class="comment-actions">
@@ -12182,16 +12182,16 @@ ul class="flex-container"
                           datetime="2021-02-18T14:30:32-08:00">February 18, 2021</time></div>
                     </div>
                     <div class="comment-content">
-                      <p>First of all, thank you for this post —&nbsp;I reference it often -&nbsp;but I’ve hit a snag
-                        and haven’t been able to find a solution. I am building a site for an artist. Some of his work
+                      <p>First of all, thank you for this post —&nbsp;I reference it often -&nbsp;but I've hit a snag
+                        and haven't been able to find a solution. I am building a site for an artist. Some of his work
                         is horizontal and some is vertical. I am creating a page for each piece where the top “landing
                         area" is meant to fill the page and hold a heading/subhead, the artwork and some navigation (if
                         the user scrolls down, there is more info about the piece, how to purchase, etc.)…</p>
                       <p>It works pretty well for horizontal pieces, but verticals are REALLY screwing me up. The
-                        artwork’s wrapper div doesn’t scale down and everything winds up giant and/or overflowing. I’ve
-                        read your articles about flex-shrink and flex-grow, but I can’t seem to figure it out. Please
+                        artwork's wrapper div doesn't scale down and everything winds up giant and/or overflowing. I've
+                        read your articles about flex-shrink and flex-grow, but I can't seem to figure it out. Please
                         help if you can!</p>
-                      <p>I’ve created a mockup for the desired effect …&nbsp;located here: <a
+                      <p>I've created a mockup for the desired effect …&nbsp;located here: <a
                           href="https://www.dropbox.com/s/xdeltebgmzz23wy/flexbox-question.jpg?dl=0"
                           rel="nofollow ugc">https://www.dropbox.com/s/xdeltebgmzz23wy/flexbox-question.jpg?dl=0</a></p>
                     </div>

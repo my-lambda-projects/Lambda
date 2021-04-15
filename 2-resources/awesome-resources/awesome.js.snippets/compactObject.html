@@ -18,7 +18,7 @@
 <li>Use recursion.</li>
 <li>Initialize the iterable data, using <code>Array.isArray()</code>, <code>Array.prototype.filter()</code> and <code>Boolean</code> for arrays in order to avoid sparse arrays.</li>
 <li>Use <code>Object.keys()</code> and <code>Array.prototype.reduce()</code> to iterate over each key with an appropriate initial value.</li>
-<li>Use <code>Boolean</code> to determine the truthiness of each key’s value and add it to the accumulator if it’s truthy.</li>
+<li>Use <code>Boolean</code> to determine the truthiness of each key's value and add it to the accumulator if it's truthy.</li>
 <li>Use <code>typeof</code> to determine if a given value is an <code>object</code> and call the function again to deeply compact it.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> compactObject <span class="op">=</span> val <span class="kw">=&gt;</span> <span class="op">{</span></a>

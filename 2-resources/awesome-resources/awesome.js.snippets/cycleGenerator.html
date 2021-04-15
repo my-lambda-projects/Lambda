@@ -16,7 +16,7 @@
 <p>Creates a generator, looping over the given array indefinitely.</p>
 <ul>
 <li>Use a non-terminating <code>while</code> loop, that will <code>yield</code> a value every time <code>Generator.prototype.next()</code> is called.</li>
-<li>Use the module operator (<code>%</code>) with <code>Array.prototype.length</code> to get the next value’s index and increment the counter after each <code>yield</code> statement.</li>
+<li>Use the module operator (<code>%</code>) with <code>Array.prototype.length</code> to get the next value's index and increment the counter after each <code>yield</code> statement.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> cycleGenerator <span class="op">=</span> <span class="kw">function</span><span class="op">*</span> (arr) <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>

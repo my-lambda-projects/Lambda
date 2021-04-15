@@ -27,7 +27,7 @@
 <a class="sourceLine" id="cb2-2" title="2">  <span class="kw">const</span> result <span class="op">=</span> n <span class="op">*</span> n</a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a></code></pre></div>
 <p>{: data-line=“2”}</p>
-<p><code>result</code> is inferred to be a number because <code>number * number</code> will result in a number. There’s no need to give it annotations.</p>
+<p><code>result</code> is inferred to be a number because <code>number * number</code> will result in a number. There's no need to give it annotations.</p>
 <h3 id="type-aliases">Type aliases</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">type Person <span class="op">=</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb3-2" title="2">  <span class="dt">name</span><span class="op">:</span> string<span class="op">,</span></a>
@@ -44,7 +44,7 @@
 <p>This is the typical way to define the shape of complex objects.</p>
 <h3 id="variables">Variables</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> count<span class="op">:</span> number <span class="op">=</span> <span class="dv">200</span></a></code></pre></div>
-<p>You typically don’t need to do this, function args are often enough.</p>
+<p>You typically don't need to do this, function args are often enough.</p>
 <p>See: <a href="https://flow.org/en/docs/types/variables/">Variable types</a></p>
 <h3 id="importing-and-exporting">Importing and exporting</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="im">import</span> type <span class="op">{</span> Person <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./types&#39;</span></a></code></pre></div>

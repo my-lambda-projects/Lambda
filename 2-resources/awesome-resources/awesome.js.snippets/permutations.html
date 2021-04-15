@@ -13,13 +13,13 @@
 
 </head>
 <body>;
-<p>Generates all permutations of an array’s elements (contains duplicates).</p>
+<p>Generates all permutations of an array's elements (contains duplicates).</p>
 <ul>
 <li>Use recursion.</li>
 <li>For each element in the given array, create all the partial permutations for the rest of its elements.</li>
 <li>Use <code>Array.prototype.map()</code> to combine the element with each partial permutation, then <code>Array.prototype.reduce()</code> to combine all permutations in one array.</li>
 <li>Base cases are for <code>Array.prototype.length</code> equal to <code>2</code> or <code>1</code>.</li>
-<li>⚠️ <strong>WARNING</strong>: This function’s execution time increases exponentially with each array element. Anything more than 8 to 10 entries may cause your browser to hang as it tries to solve all the different combinations.</li>
+<li>⚠️ <strong>WARNING</strong>: This function's execution time increases exponentially with each array element. Anything more than 8 to 10 entries may cause your browser to hang as it tries to solve all the different combinations.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> permutations <span class="op">=</span> arr <span class="kw">=&gt;</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (<span class="va">arr</span>.<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">2</span>) <span class="cf">return</span> <span class="va">arr</span>.<span class="at">length</span> <span class="op">===</span> <span class="dv">2</span> <span class="op">?</span> [arr<span class="op">,</span> [arr[<span class="dv">1</span>]<span class="op">,</span> arr[<span class="dv">0</span>]]] : arr<span class="op">;</span></a>

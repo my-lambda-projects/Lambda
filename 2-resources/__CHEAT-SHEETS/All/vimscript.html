@@ -24,7 +24,7 @@ echo &quot;Hello, &quot; . name</code></pre>
 endfunction
 
 imap &lt;Tab&gt; &lt;C-R&gt;=SuperTab()&lt;CR&gt;</code></pre>
-<p><a href="http://www.vimbits.com/bits/46">Here</a>’s another example with <a href="#functions">functions</a>, <a href="#variables">variables</a> and <a href="#mapping">mapping</a>.</p>
+<p><a href="http://www.vimbits.com/bits/46">Here</a>'s another example with <a href="#functions">functions</a>, <a href="#variables">variables</a> and <a href="#mapping">mapping</a>.</p>
 <h2 id="variables">Variables</h2>
 <h3 id="defining">Defining</h3>
 <p>{: .-prime}</p>
@@ -197,7 +197,7 @@ if name == &#39;John&#39;      &quot; depends on :set ignorecase
 <h3 id="identity-operators">Identity operators</h3>
 <pre class="vim"><code>a is b
 a isnot b</code></pre>
-<p>Checks if it’s the same instance object.</p>
+<p>Checks if it's the same instance object.</p>
 <h3 id="regexp-matches">Regexp matches</h3>
 <pre class="vim"><code>&quot;hello&quot; =~ &#39;xx*&#39;
 &quot;hello&quot; !~ &#39;xx*&#39;
@@ -313,7 +313,7 @@ execute &quot;e &quot; . fnameescape(filename)</code></pre>
 normal! G   &quot; skips key mappings
 
 execute &quot;normal! gg/foo\&lt;cr&gt;dd&quot;</code></pre>
-<p>Use <code>:normal</code> to execute keystrokes as if you’re typing them in normal mode. Combine with <code>:execute</code> for special keystrokes. See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/29.html">Running keystrokes</a></p>
+<p>Use <code>:normal</code> to execute keystrokes as if you're typing them in normal mode. Combine with <code>:execute</code> for special keystrokes. See: <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/29.html">Running keystrokes</a></p>
 <h3 id="getting-filenames">Getting filenames</h3>
 <pre class="vim"><code>echo expand(&quot;%&quot;)      &quot; path/file.txt
 echo expand(&quot;%:t&quot;)    &quot; file.txt

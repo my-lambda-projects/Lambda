@@ -252,7 +252,7 @@
 <a class="sourceLine" id="cb22-5" title="5"><span class="kw">end</span></a>
 <a class="sourceLine" id="cb22-6" title="6"></a>
 <a class="sourceLine" id="cb22-7" title="7"><span class="dt">Foo</span>.new.foo  <span class="co">#=&gt; 99</span></a></code></pre></div>
-<p>Actually, Goby’s module can be even <strong>instantiated</strong> via “<code>new</code>” like “<code>Foo.new</code>”.</p>
+<p>Actually, Goby's module can be even <strong>instantiated</strong> via “<code>new</code>” like “<code>Foo.new</code>”.</p>
 <h3 id="class-definition-and-inheritance">Class definition and inheritance</h3>
 <div class="sourceCode" id="cb23"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">class</span> <span class="dt">Foo</span>       <span class="co"># class definition</span></a>
 <a class="sourceLine" id="cb23-2" title="2">  <span class="kw">def</span> bar</a>
@@ -324,7 +324,7 @@
 <h3 id="symbol-literal">Symbol literal</h3>
 <div class="sourceCode" id="cb30"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb30-1" title="1"><span class="st">:symbol</span>           <span class="co"># equivalent to &quot;symbol&quot;</span></a>
 <a class="sourceLine" id="cb30-2" title="2">{ <span class="st">symbol: &quot;value&quot;</span> }</a></code></pre></div>
-<p>Goby’s symbol (using <code>:</code>) is always <code>String</code> class.</p>
+<p>Goby's symbol (using <code>:</code>) is always <code>String</code> class.</p>
 <h3 id="numeric-literal">Numeric literal</h3>
 <div class="sourceCode" id="cb31"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb31-1" title="1">year   =  <span class="dv">2018</span>   <span class="co"># Integer</span></a>
 <a class="sourceLine" id="cb31-2" title="2">offset = <span class="dv">-42</span>     <span class="co"># Integer</span></a>
@@ -336,7 +336,7 @@
 <h3 id="hash-literal">Hash literal</h3>
 <div class="sourceCode" id="cb33"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb33-1" title="1">h = { <span class="st">key: &quot;value&quot;</span>, <span class="st">key2: &quot;value2&quot;</span> }</a>
 <a class="sourceLine" id="cb33-2" title="2">h[<span class="st">:key2</span>]   <span class="co">#=&gt; value2</span></a></code></pre></div>
-<p>Hash literal’s keys should always be <strong>symbol literals</strong>.</p>
+<p>Hash literal's keys should always be <strong>symbol literals</strong>.</p>
 <h3 id="range-literal">Range literal</h3>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb34-1" title="1">(<span class="dv">1</span>..<span class="dv">10</span>).each <span class="kw">do</span> |x|    <span class="co"># &#39;..&#39; represents a range</span></a>
 <a class="sourceLine" id="cb34-2" title="2">  puts x*x</a>
@@ -530,7 +530,7 @@
 <a class="sourceLine" id="cb51-15" title="15"><span class="dt">Foo</span>.new.bar b  <span class="co">#=&gt; 3</span></a></code></pre></div>
 <h2 id="native-class-primary">Native class (Primary)</h2>
 <p>{: .-three-column}</p>
-<p>Goby’s most “native” classes cannot instantiate with <code>new</code> in principle.</p>
+<p>Goby's most “native” classes cannot instantiate with <code>new</code> in principle.</p>
 <h3 id="object"><code>Object</code></h3>
 <div class="sourceCode" id="cb52"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb52-1" title="1"><span class="dt">Bar</span>.ancestors</a>
 <a class="sourceLine" id="cb52-2" title="2"><span class="co">#» [Bar, Foo, Object]</span></a>
@@ -543,7 +543,7 @@
 </ul>
 <h3 id="class"><code>Class</code></h3>
 <div class="sourceCode" id="cb53"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb53-1" title="1"><span class="dt">String</span>.ancestors      <span class="co">#=&gt; [String, Object]</span></a></code></pre></div>
-<p><code>Class</code> and <code>Object</code>can actually be regarded as the same and you don’t need to distinguish them in almost all the cases.</p>
+<p><code>Class</code> and <code>Object</code>can actually be regarded as the same and you don't need to distinguish them in almost all the cases.</p>
 <ul>
 <li><strong><code>Class.methods</code></strong>: <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>ancestors</code>, <code>attr_accessor</code>, <code>attr_reader</code>, <code>attr_writer</code>, <code>extend</code>, <code>include</code>, <code>name</code>, <code>new</code>, <code>superclass</code>, <code>!</code>, <code>!=</code>, <code>==</code>, <code>block_given?</code>, <code>class</code>, <code>exit</code>, <code>instance_eval</code>, <code>instance_variable_get</code>, <code>instance_variable_set</code>, <code>is_a?</code>, <code>methods</code>, <code>nil?</code>, <code>object_id</code>, <code>puts</code>, <code>raise</code>, <code>require</code>, <code>require_relative</code>, <code>send</code>, <code>singleton_class</code>, <code>sleep</code>, <code>thread</code>, <code>to_s</code></li>
 </ul>
@@ -621,7 +621,7 @@
 <h3 id="float"><code>Float</code></h3>
 <div class="sourceCode" id="cb60"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb60-1" title="1"><span class="fl">1.1</span> + <span class="fl">1.1</span>   <span class="co"># =&gt; -2.2</span></a>
 <a class="sourceLine" id="cb60-2" title="2"><span class="fl">2.1</span> * <span class="dv">-2</span>.<span class="dv">1</span>  <span class="co"># =&gt; -4.41</span></a></code></pre></div>
-<p>Float literals like <code>3.14</code> or <code>-273.15</code>. <code>Float</code> class is based on Golang’s <code>float64</code> type.</p>
+<p>Float literals like <code>3.14</code> or <code>-273.15</code>. <code>Float</code> class is based on Golang's <code>float64</code> type.</p>
 <ul>
 <li><strong><code>Float.methods</code></strong>: the same as <code>Class.methods</code></li>
 <li><strong><code>3.14.methods</code></strong>: <code>!=</code>, <code>%</code>, <code>*</code>, <code>**</code>, <code>+</code>, <code>-</code>, <code>/</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&lt;=&gt;</code>, <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>new</code>, <code>ptr</code>, <code>to_d</code>, <code>to_i</code>
@@ -643,7 +643,7 @@
 <a class="sourceLine" id="cb61-11" title="11"></a>
 <a class="sourceLine" id="cb61-12" title="12">(<span class="st">&#39;16.1&#39;</span>.to_d  + <span class="st">&quot;1.1&quot;</span>.to_d).to_s <span class="co">#=&gt; 17.2</span></a>
 <a class="sourceLine" id="cb61-13" title="13">(<span class="st">&#39;16.1&#39;</span>.to_f  + <span class="st">&quot;1.1&quot;</span>.to_f).to_s <span class="co">#=&gt; 17.200000000000003</span></a></code></pre></div>
-<p>Experimental: the size is arbitrary and internally a fraction from Golang’s <code>big.Rat</code> type. Decimal literal is TBD for now and you can get <code>Decimal</code> number via <code>to_d</code> method from <code>Integer</code>/<code>Float</code>/<code>String</code>.</p>
+<p>Experimental: the size is arbitrary and internally a fraction from Golang's <code>big.Rat</code> type. Decimal literal is TBD for now and you can get <code>Decimal</code> number via <code>to_d</code> method from <code>Integer</code>/<code>Float</code>/<code>String</code>.</p>
 <ul>
 <li><strong><code>Decimal.methods</code></strong>: the same as <code>Class.methods</code></li>
 <li><strong><code>(1.1).to_d.methods</code></strong>: <code>!=</code>, <code>*</code>, <code>**</code>, <code>+</code>, <code>-</code>, <code>/</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&lt;=&gt;</code>, <code>==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>denominator</code>, <code>fraction</code>, <code>inverse</code>
@@ -808,7 +808,7 @@
 <h3 id="method"><code>Method</code></h3>
 <p>(A special dummy class that just holds methods defined by Goby code.)</p>
 <h3 id="diggable"><code>Diggable</code></h3>
-<p>Provides <code>#dig</code> method. Currently. <code>Array</code> and <code>Hash</code> classes’ instance can be <code>Diggable</code>.</p>
+<p>Provides <code>#dig</code> method. Currently. <code>Array</code> and <code>Hash</code> classes' instance can be <code>Diggable</code>.</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb72-1" title="1">[<span class="dv">1</span>, <span class="dv">2</span>].dig(<span class="dv">0</span>, <span class="dv">1</span>)  <span class="co">#=&gt; TypeError: Expect target to be Diggable, got Integer</span></a></code></pre></div>
 <h2 id="testing-framework">Testing framework</h2>
 <h3 id="spec"><code>Spec</code></h3>
@@ -850,10 +850,10 @@
 <a class="sourceLine" id="cb77-3" title="3"></a>
 <a class="sourceLine" id="cb77-4" title="4">» <span class="st">&quot;moji&quot;</span>.class.ancestors</a>
 <a class="sourceLine" id="cb77-5" title="5"><span class="co">#» [String, Object]</span></a></code></pre></div>
-<h3 id="showing-singleton-classes-ancestors">Showing singleton classes’ ancestors</h3>
+<h3 id="showing-singleton-classes-ancestors">Showing singleton classes' ancestors</h3>
 <div class="sourceCode" id="cb78"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb78-1" title="1">» <span class="st">&quot;moji&quot;</span>.class.singleton_class.ancestors</a>
 <a class="sourceLine" id="cb78-2" title="2"><span class="co">#» [#&lt;Class:String&gt;, #&lt;Class:Object&gt;, Class, Object]</span></a></code></pre></div>
-<h3 id="showing-objects-id">Showing object’s id</h3>
+<h3 id="showing-objects-id">Showing object's id</h3>
 <div class="sourceCode" id="cb79"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb79-1" title="1">» <span class="st">&quot;moji&quot;</span>.object_id</a>
 <a class="sourceLine" id="cb79-2" title="2"><span class="co">#» 842352977920</span></a></code></pre></div>
 <h3 id="to_json"><code>#to_json</code></h3>
@@ -908,7 +908,7 @@
 <ul>
 <li>Tab cannot be used for indentation.</li>
 </ul></li>
-<li>For more, follow <a href="https://github.com/bbatsov/ruby-style-guide">RuboCop’s style guide</a> in principle.</li>
+<li>For more, follow <a href="https://github.com/bbatsov/ruby-style-guide">RuboCop's style guide</a> in principle.</li>
 </ul>
 <h3 id="document-notation">Document notation</h3>
 <ul>
@@ -917,7 +917,7 @@
 <li><code>Module.module_method</code></li>
 </ul>
 <h3 id="syntax-highlighting">Syntax highlighting</h3>
-<p>Ready for Vim and Sublime text. You can also use Ruby’s syntax highlighting so far.</p>
+<p>Ready for Vim and Sublime text. You can also use Ruby's syntax highlighting so far.</p>
 <h2 id="references">References</h2>
 <h3 id="official">Official</h3>
 <ul>
@@ -930,7 +930,7 @@
 <li><a href="https://interpreterbook.com/">Write an Interpreter in Go</a></li>
 <li><a href="https://www.coursera.org/learn/nand2tetris2/home/welcome">Nand2Tetris II</a></li>
 <li><a href="http://patshaughnessy.net/ruby-under-a-microscope">Ruby under a microscope</a></li>
-<li><a href="http://www.atdot.net/yarv/insnstbl.html">YARV’s instruction table</a></li>
+<li><a href="http://www.atdot.net/yarv/insnstbl.html">YARV's instruction table</a></li>
 </ul>
 <h3 id="jp-resource">JP resource</h3>
 <ul>

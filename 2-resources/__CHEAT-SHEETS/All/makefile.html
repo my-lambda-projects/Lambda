@@ -14,7 +14,7 @@
 <a class="sourceLine" id="cb1-2" title="2"><span class="dt">compressor </span><span class="ch">:=</span><span class="st"> </span><span class="ch">$(</span><span class="dt">uglify</span><span class="ch">)</span><span class="st">   # immediate assignment</span></a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="dt">prefix </span><span class="ch">?=</span><span class="st"> /usr/local      # safe assignment</span></a>
 <a class="sourceLine" id="cb1-4" title="4"><span class="dt">hello </span><span class="ch">+=</span><span class="st"> world            # append</span></a></code></pre></div>
-<p><code>=</code> expressions are only evaluated when they’re being used.</p>
+<p><code>=</code> expressions are only evaluated when they're being used.</p>
 <h2 id="magic-variables">Magic variables</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode makefile"><code class="sourceCode makefile"><a class="sourceLine" id="cb2-1" title="1"><span class="dv">out.o:</span><span class="dt"> src.c src.h</span></a>
 <a class="sourceLine" id="cb2-2" title="2">  <span class="ch">$@</span>   <span class="co"># &quot;out.o&quot; (target)</span></a>
@@ -45,11 +45,11 @@
 </tr>
 <tr class="even">
 <td><code>@</code></td>
-<td>Don’t print command</td>
+<td>Don't print command</td>
 </tr>
 <tr class="odd">
 <td><code>+</code></td>
-<td>Run even if Make is in ‘don’t execute’ mode</td>
+<td>Run even if Make is in ‘don't execute' mode</td>
 </tr>
 </tbody>
 </table>
@@ -97,7 +97,7 @@
 <a class="sourceLine" id="cb11-2" title="2">  <span class="ch">$(</span><span class="dt">MAKE</span><span class="ch">)</span> deploy2</a></code></pre></div>
 <h2 id="further-reading">Further reading</h2>
 <ul>
-<li><a href="https://gist.github.com/isaacs/62a2d1825d04437c6f08">isaacs’s Makefile</a></li>
+<li><a href="https://gist.github.com/isaacs/62a2d1825d04437c6f08">isaacs's Makefile</a></li>
 <li><a href="https://tech.davis-hansson.com/p/make/">Your Makefiles are wrong</a></li>
 <li><a href="https://www.gnu.org/software/make/manual/html_node/index.html">Manual</a></li>
 </ul>

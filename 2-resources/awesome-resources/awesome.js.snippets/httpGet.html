@@ -18,7 +18,7 @@
 <li>Use the <code>XMLHttpRequest</code> web API to make a <code>GET</code> request to the given <code>url</code>.</li>
 <li>Handle the <code>onload</code> event, by calling the given <code>callback</code> the <code>responseText</code>.</li>
 <li>Handle the <code>onerror</code> event, by running the provided <code>err</code> function.</li>
-<li>Omit the third argument, <code>err</code>, to log errors to the console’s <code>error</code> stream by default.</li>
+<li>Omit the third argument, <code>err</code>, to log errors to the console's <code>error</code> stream by default.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> httpGet <span class="op">=</span> (url<span class="op">,</span> callback<span class="op">,</span> err <span class="op">=</span> <span class="va">console</span>.<span class="at">error</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> request <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a>

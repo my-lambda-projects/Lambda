@@ -15,7 +15,7 @@
 <body>;
 <p>Creates an array of key-value pair arrays from an object.</p>
 <ul>
-<li>Use <code>Object.keys()</code> and <code>Array.prototype.map()</code> to iterate over the object’s keys and produce an array with key-value pairs.</li>
+<li>Use <code>Object.keys()</code> and <code>Array.prototype.map()</code> to iterate over the object's keys and produce an array with key-value pairs.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> objectToEntries <span class="op">=</span> obj <span class="kw">=&gt;</span> <span class="va">Object</span>.<span class="at">keys</span>(obj).<span class="at">map</span>(k <span class="kw">=&gt;</span> [k<span class="op">,</span> obj[k]])<span class="op">;</span></a></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">objectToEntries</span>(<span class="op">{</span> <span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="dv">2</span> <span class="op">}</span>)<span class="op">;</span> <span class="co">// [ [&#39;a&#39;, 1], [&#39;b&#39;, 2] ]</span></a></code></pre></div>

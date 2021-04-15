@@ -16,7 +16,7 @@
 <p>Renders the given DOM tree in the specified DOM element.</p>
 <ul>
 <li>Destructure the first argument into <code>type</code> and <code>props</code>, using <code>type</code> to determine if the given element is a text element.</li>
-<li>Based on the element’s <code>type</code>, use either <code>Document.createTextNode()</code> or <code>Document.createElement()</code> to create the DOM element.</li>
+<li>Based on the element's <code>type</code>, use either <code>Document.createTextNode()</code> or <code>Document.createElement()</code> to create the DOM element.</li>
 <li>Use <code>Object.keys()</code> to add attributes to the DOM element and setting event listeners, as necessary.</li>
 <li>Use recursion to render <code>props.children</code>, if any.</li>
 <li>Finally, use <code>Node.appendChild()</code> to append the DOM element to the specified <code>container</code>.</li>

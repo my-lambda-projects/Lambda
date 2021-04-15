@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,qCAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,iCAAQ;AACR,QAAQ,CAAR,8CAAQ;AACR,QAAQ,CAAR,iEAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,kBAAQ",
+    "sources": [
+        "mdc-touch-target.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-touch-target.import.css"
+}

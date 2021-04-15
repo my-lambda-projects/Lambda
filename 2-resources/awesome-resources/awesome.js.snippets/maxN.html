@@ -18,7 +18,7 @@
 <li>Use <code>Array.prototype.sort()</code> combined with the spread operator (<code>...</code>) to create a shallow clone of the array and sort it in descending order.</li>
 <li>Use <code>Array.prototype.slice()</code> to get the specified number of elements.</li>
 <li>Omit the second argument, <code>n</code>, to get a one-element array.</li>
-<li>If <code>n</code> is greater than or equal to the provided array’s length, then return the original array (sorted in descending order).</li>
+<li>If <code>n</code> is greater than or equal to the provided array's length, then return the original array (sorted in descending order).</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> maxN <span class="op">=</span> (arr<span class="op">,</span> n <span class="op">=</span> <span class="dv">1</span>) <span class="kw">=&gt;</span> [...<span class="at">arr</span>].<span class="at">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> b <span class="op">-</span> a).<span class="at">slice</span>(<span class="dv">0</span><span class="op">,</span> n)<span class="op">;</span></a></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">maxN</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span> <span class="co">// [3]</span></a>

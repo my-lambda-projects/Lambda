@@ -54,7 +54,7 @@
       <pre
         class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">users.joins(<span class="st">:photos</span>).merge(<span class="dt">Photo</span>.where(<span class="st">published: </span><span class="dv">true</span>))</a></code></pre>
     </div>
-    <p>If the simpler version doesn’t help and you want to add more SQL statements to it:</p>
+    <p>If the simpler version doesn't help and you want to add more SQL statements to it:</p>
     <div class="sourceCode" id="cb8">
       <pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">users.join(</a>
 <a class="sourceLine" id="cb8-2" title="2">   users.join(photos, <span class="dt">Arel</span>::<span class="dt">Nodes</span>::<span class="dt">OuterJoin</span>)</a>

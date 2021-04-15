@@ -63,7 +63,7 @@
 <p>Stores are just like objects.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">var</span> TodoStore <span class="op">=</span> <span class="op">{</span> <span class="dt">list</span><span class="op">:</span> [] <span class="op">};</span></a></code></pre></div>
 <h3 id="events">Events</h3>
-<p>Sometimes they’re eventemitters, too. Usually it’s used to emit <code>change</code> events for views to pick up.</p>
+<p>Sometimes they're eventemitters, too. Usually it's used to emit <code>change</code> events for views to pick up.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> TodoStore <span class="op">=</span> <span class="at">assign</span>(<span class="op">{},</span> <span class="va">EventEmitter</span>.<span class="at">prototype</span><span class="op">,</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb5-2" title="2">  ...</a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span>)<span class="op">;</span></a>
@@ -114,7 +114,7 @@
 <a class="sourceLine" id="cb9-16" title="16">  </a>
 <a class="sourceLine" id="cb9-17" title="17"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
 <h3 id="listen-to-stores">Listen to Stores</h3>
-<p>Or to Stores’s <code>change</code> events.</p>
+<p>Or to Stores's <code>change</code> events.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="op">{</span></a>
 <a class="sourceLine" id="cb10-2" title="2">  <span class="at">componentDidMount</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb10-3" title="3">    <span class="va">TodoStore</span>.<span class="at">on</span>(<span class="st">&#39;change&#39;</span><span class="op">,</span> <span class="kw">this</span>.<span class="at">onChange</span>)<span class="op">;</span></a>

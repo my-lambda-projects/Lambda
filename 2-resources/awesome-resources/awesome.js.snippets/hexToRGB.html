@@ -16,7 +16,7 @@
 <p>Converts a color code to an <code>rgb()</code> or <code>rgba()</code> string if alpha value is provided.</p>
 <ul>
 <li>Use bitwise right-shift operator and mask bits with <code>&amp;</code> (and) operator to convert a hexadecimal color code (with or without prefixed with <code>#</code>) to a string with the RGB values.</li>
-<li>If it’s 3-digit color code, first convert to 6-digit version.</li>
+<li>If it's 3-digit color code, first convert to 6-digit version.</li>
 <li>If an alpha value is provided alongside 6-digit hex, give <code>rgba()</code> string in return.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> hexToRGB <span class="op">=</span> hex <span class="kw">=&gt;</span> <span class="op">{</span></a>
