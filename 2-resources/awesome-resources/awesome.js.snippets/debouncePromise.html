@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Creates a debounced function that returns a promise, but delays invoking the provided function until at least <code>ms</code> milliseconds have elapsed since the last time it was invoked. All promises returned during this time will return the same data.</p>
+<ul>
+<li>Each time the debounced function is invoked, clear the current pending timeout with <code>clearTimeout()</code> and use <code>setTimeout()</code> to create a new timeout that delays invoking the function until at least <code>ms</code> milliseconds has elapsed.</li>
+<li>Use <code>Function.prototype.apply()</code> to apply the <code>this</code> context to the function and provide the necessary arguments.</li>
+<li>Create a new <code>Promise</code> and add its <code>resolve</code> and <code>reject</code> callbacks to the <code>pending</code> promises stack.</li>
+<li>When <code>setTimeout</code> is called, copy the current stack (as it can change between the provided function call and its resolution), clear it and call the provided function.</li>
+<li>When the provided function resolves/rejects, resolve/reject all promises in the stack (copied when the function was called) with the returned data.</li>
+<li>Omit the second argument, <code>ms</code>, to set the timeout at a default of <code>0</code> ms.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> debouncePromise <span class="op">=</span> (fn<span class="op">,</span> ms <span class="op">=</span> <span class="dv">0</span>) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> timeoutId<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">const</span> pending <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">return</span> (...<span class="at">args</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="kw">new</span> <span class="at">Promise</span>((res<span class="op">,</span> rej) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">      <span class="at">clearTimeout</span>(timeoutId)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">      timeoutId <span class="op">=</span> <span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">        <span class="kw">const</span> currentPending <span class="op">=</span> [...<span class="at">pending</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">        <span class="va">pending</span>.<span class="at">length</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="va">Promise</span>.<span class="at">resolve</span>(<span class="va">fn</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> args)).<span class="at">then</span>(</a>
+<a class="sourceLine" id="cb1-11" title="11">          data <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-12" title="12">            <span class="va">currentPending</span>.<span class="at">forEach</span>((<span class="op">{</span> resolve <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="at">resolve</span>(data))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">          <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-14" title="14">          error <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-15" title="15">            <span class="va">currentPending</span>.<span class="at">forEach</span>((<span class="op">{</span> reject <span class="op">}</span>) <span class="kw">=&gt;</span> <span class="at">reject</span>(error))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">          <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-17" title="17">        )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-18" title="18">      <span class="op">},</span> ms)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">      <span class="va">pending</span>.<span class="at">push</span>(<span class="op">{</span> <span class="dt">resolve</span><span class="op">:</span> res<span class="op">,</span> <span class="dt">reject</span><span class="op">:</span> rej <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-20" title="20">    <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> fn <span class="op">=</span> arg <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="at">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">setTimeout</span>(resolve<span class="op">,</span> <span class="dv">1000</span><span class="op">,</span> [<span class="st">&#39;resolved&#39;</span><span class="op">,</span> arg])<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">const</span> debounced <span class="op">=</span> <span class="at">debouncePromise</span>(fn<span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="at">debounced</span>(<span class="st">&#39;foo&#39;</span>).<span class="at">then</span>(<span class="va">console</span>.<span class="at">log</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="at">debounced</span>(<span class="st">&#39;bar&#39;</span>).<span class="at">then</span>(<span class="va">console</span>.<span class="at">log</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">// Will log [&#39;resolved&#39;, &#39;bar&#39;] both times</span></a></code></pre></div>
+</body></html>
