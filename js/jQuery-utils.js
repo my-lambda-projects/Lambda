@@ -1,5 +1,6 @@
 {
-  /* <script language="javascript" type="text/javascript"> */ }
+  /* <script language="javascript" type="text/javascript"> */
+}
 $( function () {
   $( 'a' ).click( function () {
     var originalSize = $( 'p' ).css( 'font-size' ); // get the font size 
