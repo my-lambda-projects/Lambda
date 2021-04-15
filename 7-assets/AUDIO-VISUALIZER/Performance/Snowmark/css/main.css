@@ -11,26 +11,26 @@
    ========================================================================== */
 
 body {
-    background-color: #222;
+  background-color: #222;
 }
 
 #renderer {
-	background-color: #112;
-	border: 2px solid #fff;
+  background-color: #112;
+  border: 2px solid #fff;
 }
 
 .counter {
-    background: #ccc;
-	width: 68px;
-	position: absolute;
-	background-color:rgba(0,10,50,0.85);
-	padding: 6px;
-	
-	top:50px;
-	
-	color:#0ff;
-	font-family: Arial;
-	font-size: 24px;
-	text-align: right;
-	font-weight: bold;
+  background: #ccc;
+  width: 68px;
+  position: absolute;
+  background-color: rgba(0, 10, 50, 0.85);
+  padding: 6px;
+
+  top: 50px;
+
+  color: #0ff;
+  font-family: Arial;
+  font-size: 24px;
+  text-align: right;
+  font-weight: bold;
 }

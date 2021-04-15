@@ -1,4 +1,4 @@
-const Pageres = require( 'pageres' );
+import Pageres from 'pageres';
 
 ( async () => {
   await new Pageres( {

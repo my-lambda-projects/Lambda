@@ -28,7 +28,7 @@ ctx.Particle.prototype.step = function( i ) {
 };
 
 ctx.Particle.prototype.draw = function( i ) {
-  ctx.ctx.fillStyle = ctx.ctx.strokeStyle = 'hsla(' + ( ctx.tick + ( this.life * 120 ) ) + ', 100%, 60%, ' + this.life + ')';
+  ctx.ctx.fillStyle = ctx.ctx.strokeStyle = `hsla(${ctx.tick + ( this.life * 120 )}, 100%, 60%, ${this.life})`;
   ctx.ctx.beginPath();
   if( ctx.particles[ i - 1 ] ) {
     ctx.ctx.moveTo( this.x, this.y );
@@ -40,11 +40,11 @@ ctx.Particle.prototype.draw = function( i ) {
   ctx.ctx.arc( this.x, this.y, Math.max( 0.001, this.life * this.radius ), 0, ctx.TWO_PI );
   ctx.ctx.fill();
   
-  var size = Math.random() * 1.25;
+  const size = Math.random() * 1.25;
   ctx.ctx.fillRect( ~~( this.x + ( ( Math.random() - 0.5 ) * 35 ) * this.life ), ~~( this.y + ( ( Math.random() - 0.5 ) * 35 ) * this.life ), size, size );
 }
 
-ctx.step = function() {
+ctx.step = () => {
   ctx.particles.push( new ctx.Particle({
     x: ctx.width / 2 + Math.cos( ctx.tick / 20 ) * ctx.min / 2,
     y: ctx.height / 2 + Math.sin( ctx.tick / 20 ) * ctx.min / 2,
@@ -53,7 +53,7 @@ ctx.step = function() {
     accel: 0.01
   }));
   
-  ctx.particles.forEach( function( elem, index ) {
+  ctx.particles.forEach( (elem, index) => {
     elem.step( index );
   });
   
@@ -61,23 +61,23 @@ ctx.step = function() {
   ctx.globalAngle += ctx.PI / 6;
 };
 
-ctx.draw = function() {
+ctx.draw = () => {
   ctx.ctx.clearRect( 0, 0, ctx.width, ctx.height );
   
-  ctx.particles.forEach( function( elem, index ) {
+  ctx.particles.forEach( (elem, index) => {
     elem.draw( index );
   });
 };
 
-ctx.init = function() {
+ctx.init = () => {
   ctx.ctxas = document.createElement( 'ctxas' );
   ctx.ctx = ctx.ctxas.getContext( '2d' );
   ctx.width = 300;
   ctx.height = 300;
   ctx.ctxas.width = ctx.width * window.devicePixelRatio;
   ctx.ctxas.height = ctx.height * window.devicePixelRatio;
-  ctx.ctxas.style.width = ctx.width + 'px';
-  ctx.ctxas.style.height = ctx.height + 'px';
+  ctx.ctxas.style.width = `${ctx.width}px`;
+  ctx.ctxas.style.height = `${ctx.height}px`;
   ctx.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
   ctx.min = ctx.width * 0.5;
   ctx.particles = [];
@@ -91,7 +91,7 @@ ctx.init = function() {
   ctx.loop();
 };
 
-ctx.loop = function() {
+ctx.loop = () => {
   requestAnimationFrame( ctx.loop );
   ctx.step();
   ctx.draw();
