@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":111,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Imageflow</title>
+<meta name="description" content="High-performance image manipulation for web servers. Includes imageflow_server, imageflow_tool, and libimageflow">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/imazen/imageflow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "imazen/imageflow",
+  "description": "High-performance image manipulation for web servers. Includes imageflow_server, imageflow_tool, and libimageflow",
+  "url": "https://awesomeopensource.com/project/imazen/imageflow",
+  "sku": "project/imazen/imageflow",
+  "mpn": "project/imazen/imageflow",
+  "image": "https://github.com/imazen.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "imazen/imageflow",
+    "logo": "https://github.com/imazen.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "3429"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="h7R5x6u6CIu57/PZ+5wq3OhCZ/21rtamLb/6EviO7x0R53udDQfmYN08bqBvmUnIp0VRTeusP7xmdZNMRBiI2A==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/imazen/imageflow","location":"/project/imazen/imageflow","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/imazen/imageflow","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-abc109e1-50a2-43e5-bdd0-179acc5e74ff"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Imageflow</div><div class="aos_project_metadata_description">High-performance image manipulation for web servers. Includes imageflow_server, imageflow_tool, and libimageflow</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">3,429</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">agpl-3.0</span><span><div class="aos_project_metadata_header"><a href="https://docs.imageflow.io/" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://docs.imageflow.io/" target="_blank">https://docs.imageflow.io/</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/imazen/imageflow" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/imazen/imageflow" target="_blank">https://github.com/imazen/imageflow</a></span><div class="aos_project_metadata_header"><a href="https://github.com/imazen/imageflow/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/imazen/imageflow/issues" target="_blank">22</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">10 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/rust"><div style="display:block;text-decoration:none;padding-bottom:10px">rust<span> (<!-- -->4,163<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tool"><div style="display:block;text-decoration:none;padding-bottom:10px">tool<span> (<!-- -->382<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/image-manipulation"><div style="display:block;text-decoration:none;padding-bottom:10px">image-manipulation<span> (<!-- -->89<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/image-compression"><div style="display:block;text-decoration:none;padding-bottom:10px">image-compression<span> (<!-- -->46<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/imagemagick"><div style="display:block;text-decoration:none;padding-bottom:10px">imagemagick<span> (<!-- -->45<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/lib"><div style="display:block;text-decoration:none;padding-bottom:10px">lib<span> (<!-- -->23<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h2>
+<a id="-optimal-images-at-incredible-speeds" class="anchor" href="#-optimal-images-at-incredible-speeds" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.imageflow.io/images/imageflow.svg" target="_blank" rel="nofollow"><img src="https://www.imageflow.io/images/imageflow.svg" alt="imageflow" style="max-width:100%;"></a> optimal images at incredible speeds</h2>
+<p><a href="https://github.com/imazen/imageflow/actions?query=workflow%3ATest" rel="nofollow"><img src="https://github.com/imazen/imageflow/workflows/Test/badge.svg?branch=main" alt="tests" style="max-width:100%;"></a>  <a href="#flaws"><img src="https://img.shields.io/badge/state-release%E2%80%93candidate-yellow.svg" alt="state: release candidate" style="max-width:100%;"></a></p>
+<p><a href="https://hub.docker.com/r/imazen/imageflow_tool/" rel="nofollow"><img src="https://img.shields.io/docker/pulls/imazen/imageflow_tool.svg" alt="Docker Pulls" style="max-width:100%;"></a>
+<a href="https://hub.docker.com/r/imazen/imageflow_server_unsecured/" rel="nofollow"><img src="https://img.shields.io/docker/pulls/imazen/imageflow_server_unsecured.svg" alt="Docker Pulls" style="max-width:100%;"></a>
+<a href="https://github.com/imazen/imageflow/releases" rel="nofollow"><img src="https://img.shields.io/badge/-download%20binaries%20for%20windows,%20mac,%20or%20linux-green.svg" alt="view releases" style="max-width:100%;"></a> <a href="https://imageresizing.net/pricing" rel="nofollow"><img src="https://img.shields.io/badge/license-Choose%20AGPLv3%20or%20Commercial-green.svg" alt="license: Choose AGPLv3 or Commercial" style="max-width:100%;"></a></p>
+<p><a href="https://github.com/imazen/imageflow/releases" rel="nofollow">Download</a> blazing fast and <a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=imagemagick" rel="nofollow">safer</a> tools for a modern image workflow.</p>
+<ul>
+<li>
+<strong>imageflow_tool</strong> is a command-line tool for experimenting, running batch jobs,
+or when you want process isolation. Up to 17x faster than ImageMagick. Also produces smaller files at higher quality.</li>
+<li>
+<strong>imageflow_server</strong> can run JSON jobs or manipulate images in-flight (e.g.<code>/bucket/img.jpg?w=200</code>) for direct use from
+HTML. Source images can reside in blob storage, on another server, or on the filesystem. However, for production use, we recommend using <a href="https://github.com/imazen/imageflow-dotnet-server" rel="nofollow">Imageflow.NET Server</a>, which is far more feature-rich and doesn't need a reverse proxy in front for security.</li>
+<li>
+<strong>libimageflow</strong> is for direct (in-process) use from <em>your</em> programming language. See our <a href="https://github.com/imazen/imageflow-node" rel="nofollow"><strong>Node bindings</strong></a>,  <a href="https://github.com/imazen/imageflow-go" rel="nofollow"><strong>Go bindings</strong></a>, <a href="https://github.com/Dealermade/imageflow-scala" rel="nofollow"><strong>Scala bindings</strong></a>, <a href="https://github.com/naps62/imageflow_ex" rel="nofollow"><strong>Elixir bindings</strong></a>, or  <a href="https://github.com/imazen/imageflow-dotnet" rel="nofollow"><strong>.NET bindings</strong></a>. If we don't already have bindings for your language, consider spending a day to add them. Imageflow has a simple
+C-compatible ABI, of which only 4 methods are needed to implement bindings.</li>
+</ul>
+<p><strong><a href="https://github.com/imazen/imageflow/issues/new" rel="nofollow">Open an issue</a> to have us write example code for your use case. We believe in feedback-driven design, and streamlining real-world usage is the fastest way to a great product.</strong></p>
+<p><a href="https://docs.imageflow.io/querystring/introduction.html" rel="nofollow">Querystring API Documentation</a></p>
+<p><a href="https://docs.imageflow.io/json/introduction.html" rel="nofollow">JSON API Documentation</a></p>
+<p>libimageflow, imageflow_tool, and imageflow_server are available as
+<a href="https://github.com/imazen/imageflow/releases" rel="nofollow">self-contained binaries</a> for Windows, Ubuntu, and Mac. We also offer <a href="https://hub.docker.com/r/imazen/imageflow_tool/" rel="nofollow">Docker images</a> for Linux (where glibc and OpenSSL are required).</p>
+<p><a href="https://www.kickstarter.com/projects/njones/imageflow-respect-the-pixels-a-secure-alt-to-image/posts/1616122" rel="nofollow">We thank our backers on Kickstarter</a>
+and <a href="https://imageresizing.net" rel="nofollow">the many supporters of ImageResizer</a> for making this project a reality.
+Visit <a href="https://imageresizing.net/pricing" rel="nofollow">Imageresizing.net</a> if you need an AGPLv3 exception for commercial use.</p>
+<h2>
+<a id="start-with-imageflow_tool-recommended" class="anchor" href="#start-with-imageflow_tool-recommended" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start with imageflow_tool (recommended)</h2>
+<p><code>imageflow_tool examples --generate</code> - creates an <em>examples</em> directory with JSON jobs and invocation scripts.</p>
+<p>You can use command strings that are compatible with <a href="https://imageresizing.net/docs/basics" rel="nofollow">ImageResizer 4 querystrings</a>:</p>
+<p><code>imageflow_tool v1/querystring --in source.jpg --out thumb.jpg --command "width=50&amp;height=50&amp;mode=crop&amp;format=jpg"</code></p>
+<p>Or submit a JSON job file. JSON jobs can have multiple inputs and outputs, and can represent any kind of operation graph.</p>
+<p>The following generates multiple sizes of an image from an example job file:</p>
+<pre><code>imageflow_tool v1/build --json examples/export_4_sizes/export_4_sizes.json
+        --in waterhouse.jpg
+        --out 1 waterhouse_w1600.jpg
+              2 waterhouse_w1200.jpg
+              3 waterhouse_w800.jpg
+              4 waterhouse_w400.jpg
+        --response operation_result.json
+</code></pre>
+<p>By default, imageflow_tool prints a JSON response to stdout. You write this to disk with <code>--response</code>.</p>
+<p><code>--debug-package</code> will create a .zip file to reproduce problematic behavior with both <code>v1/build</code> and <code>v1/querystring</code>. Please submit bug reports; we try to make it easy.</p>
+<h2>
+<a id="using-imageflow_server-for-dynamic-imaging" class="anchor" href="#using-imageflow_server-for-dynamic-imaging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using imageflow_server for dynamic imaging</h2>
+<p><code>imageflow_server start --demo</code></p>
+<p>Now you can edit images from HTML... and use srcset without headache.</p>
+<pre><code>&lt;img src="http://localhost:39876/demo_images/u3.jpg?w=300" /&gt;
+
+&lt;img src="" srcset="    http://localhost:39876/demo_images/u3.jpg?w=300 300w
+                        http://localhost:39876/demo_images/u3.jpg?w=800 800w
+                        http://localhost:39876/demo_images/u3.jpg?w=1600 1600w" /&gt;
+
+</code></pre>
+<p><a href="https://www.imageflow.io/images/imageflow-responsive.svg" target="_blank" rel="nofollow"><img src="https://www.imageflow.io/images/imageflow-responsive.svg" alt="" style="max-width:100%;"></a> <a href="https://www.imageflow.io/images/edit-url.gif" target="_blank" rel="nofollow"><img src="https://www.imageflow.io/images/edit-url.gif" alt="" style="max-width:100%;"></a></p>
+<h3>
+<a id="beyond-the-demo" class="anchor" href="#beyond-the-demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beyond the demo</h3>
+<p>You'll want to mount various image source locations to prefixes. The <code>--mount</code> command parses a colon (<code>:</code>) delimited list of arguments. The first is the prefix you'll use in the URL (like <code>http://localhost:39876/prefix/</code>. The second is the engine name. Remaining arguments are sent to the engine.</p>
+<h4>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<ul>
+<li><code>--mount "/img/:ir4_local:C:\inetpub\wwwroot\images"</code></li>
+<li>
+<code>--mount "/proxyimg/:ir4_http:https:://myotherserver.com/imagefolder/"</code> (note the double escaping of the colon)</li>
+<li><code>--mount "/cachedstaticproxy/:permacache_proxy:https:://othersite.com"</code></li>
+<li><code>--mount "/githubproxy/:permacache_proxy_guess_content_types:https:://raw.github.com/because/it/doesnt/support/content/types"</code></li>
+<li><code>--mount "/static/":static:./assets"</code></li>
+</ul>
+<p><a href="https://www.imageflow.io/images/imageflow-server-advanced.svg" target="_blank" rel="nofollow"><img src="https://www.imageflow.io/images/imageflow-server-advanced.svg" alt="" style="max-width:100%;"></a></p>
+<h2>
+<a id="using-libimageflow-from-your-language" class="anchor" href="#using-libimageflow-from-your-language" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using libimageflow from your language</h2>
+<p><a href="https://www.imageflow.io/images/libimageflow-direct.svg" target="_blank" rel="nofollow"><img src="https://www.imageflow.io/images/libimageflow-direct.svg" alt="" style="max-width:100%;"></a></p>
+<ul>
+<li>.NET Standard bindings can be found at <a href="https://github.com/imazen/imageflow-dotnet" rel="nofollow">https://github.com/imazen/imageflow-dotnet</a>
+</li>
+<li>Node bindings available  at <a href="https://github.com/imazen/imageflow-node" rel="nofollow">https://github.com/imazen/imageflow-node</a>
+</li>
+<li>Ruby - Basic bindings can be found in <a href="https://github.com/imazen/imageflow/tree/main/bindings/ruby" rel="nofollow">bindings/ruby/</a>
+</li>
+<li>C and C++ interface is stable - use <a href="https://github.com/imazen/imageflow/blob/main/bindings/headers/imageflow_default.h" rel="nofollow">bindings/headers/imageflow_default.h</a> or one of the many alternate conventions provided with each release.</li>
+<li>Rust - Imageflow is written in Rust, so you can use the <code>imageflow_core</code> crate.</li>
+<li>other languages - Use an <a href="https://en.wikipedia.org/wiki/Foreign_function_interface" rel="nofollow">FFI</a> binding-generation tool for your language, and feed it whichever <a href="https://github.com/imazen/imageflow/tree/main/bindings/headers" rel="nofollow">header file it likes best</a>.</li>
+</ul>
+<p>You also may find that <code>imageflow_tool</code> is quite fast enough for your needs.</p>
+<h3>
+<a id="crates-within-this-project" class="anchor" href="#crates-within-this-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crates within this project</h3>
+<ul>
+<li>imageflow_abi - The stable API of libimageflow/imageflow.dll.
+Headers for libimageflow are located in <code>bindings/headers</code>
+</li>
+<li>imageflow_tool - The command-line tool</li>
+<li>imageflow_server - The HTTP server</li>
+<li>c_components - A rust crate containing C source</li>
+<li>c_components/tests - Tests for the C components</li>
+<li>imageflow_types - Shared types used by most crates, with JSON serialization</li>
+<li>imageflow_helpers - Common helper functions and utilities</li>
+<li>imageflow_riapi - RIAPI and ImageResizer4 compatibility parsing/layout</li>
+<li>imageflow_core - The main library and execution engine</li>
+</ul>
+<h3>
+<a id="known-flaws-and-missing-features-as-of-may-2020" class="anchor" href="#known-flaws-and-missing-features-as-of-may-2020" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known flaws and missing features (as of May 2020)</h3>
+<h4>
+<a id="flaws" class="anchor" href="#flaws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Flaws</h4>
+<ul>
+<li>[ ] imageflow_server doesn't expose the JSON API yet.</li>
+<li>[ ] No fuzz testing or third-party auditing yet.</li>
+</ul>
+<h4>
+<a id="missing-features" class="anchor" href="#missing-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Missing features</h4>
+<ul>
+<li>[ ] Blurring.</li>
+</ul>
+<h4>
+<a id="delayed-features" class="anchor" href="#delayed-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Delayed features</h4>
+<ul>
+<li>[ ] Job cost prediction (delayed - no interest from community)</li>
+</ul>
+<h1>
+<a id="building-from-source-without-docker" class="anchor" href="#building-from-source-without-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building from Source without Docker</h1>
+<p>You'll need more than just Rust to compile Imageflow, as it has a couple C dependencies.</p>
+<ol>
+<li><strong>Install platform-specific prerequisites (find the right section below).</strong></li>
+<li>Clone and cd into this repository
+E.g., <code>git clone <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="395e504d795e504d514c5b175a5654">[email&#160;protected]</a>:imazen/imageflow.git &amp;&amp; cd imageflow</code>)</li>
+</ol>
+<p>If you are using <code>bash</code> on any platform, you should be able to use <code>build.sh</code></p>
+<ul>
+<li>
+<code>./build.sh clean</code> - to clean</li>
+<li>
+<code>./build.sh test</code> - run all tests</li>
+<li>
+<code>./build.sh debug</code> - generate slow debug binaries</li>
+<li>
+<code>./build.sh release</code> - generate release binaries</li>
+<li>
+<code>./build.sh install</code> - install release binaries to <code>/usr/local</code> (must run `./build.sh release first)</li>
+<li>
+<code>./build.sh uninstall</code> - uninstall release binaries</li>
+</ul>
+<p><code>build.sh</code> places binaries in the <code>./artifacts/ directory</code></p>
+<p>If you are on Windows, only run build commands in the window created by <code>win_enter_env.bat</code>.</p>
+<p>You can also build using <code>cargo</code> directly, although this will place binaries in <code>./target/release</code> instead.
+* <code>cargo test --all</code> to test Imageflow in debug (slooow) mode
+* <code>cargo build --package imageflow_abi --release</code> to compile <code>libimageflow/imageflow.dll</code>
+* <code>cargo build --package imageflow_tool --release</code> to compile <code>imageflow_tool(.exe)</code>
+* <code>cargo build --package imageflow_server --release</code> to compile <code>imageflow_server(.exe)</code>
+* <code>cargo build --all --release</code> to compile everything in release mode
+* <code>cargo doc --no-deps --all --release</code> to generate documentation.</p>
+<h2>
+<a id="building-from-source-with-docker" class="anchor" href="#building-from-source-with-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building from Source with Docker</h2>
+<p>If you want to replicate the Imageflow CI environment:</p>
+<ol>
+<li><a href="https://docs.docker.com/install/" rel="nofollow">Install Docker</a></li>
+<li>Run from a bash session (<a href="https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly" rel="nofollow">Docker + Windows WSL</a>, macOS, or linux)</li>
+<li>
+<pre lang="bash" class="highlight-bash">git clone <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97f0fee3d7f0fee3ffe2f5b9f4f8fa">[email&#160;protected]</a>:imazen/imageflow.git
+<span class="nb">cd </span>imageflow
+./build_via_docker.sh debug
+</pre>
+</li>
+</ol>
+<p>This will create caches within <code>~/.docker_imageflow_caches</code> specific to the docker image used. Instances will be ephemeral; the only state will be in the caches.</p>
+<p>The <a href="https://github.com/imazen/imageflow/tree/main/docker" rel="nofollow">official Dockerfiles</a> are also a great place to get more detailed environment setup steps, as we don't list steps for setting up:</p>
+<ul>
+<li>Valgrind (common versions break openssl; you may need to build from source)</li>
+<li>Code coverage</li>
+<li>Bindings.</li>
+</ul>
+<h2>
+<a id="linux-pre-requisites" class="anchor" href="#linux-pre-requisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux Pre-requisites</h2>
+<p>(tested on Ubuntu 16.04 and 18.04.)</p>
+<pre lang="bash" class="highlight-bash"><span class="c">#Install Rust 1.41+ by running</span>
+<span class="sb">`</span>curl https://sh.rustup.rs <span class="nt">-sSf</span> | sh <span class="nt">-s</span> <span class="nt">--</span> <span class="nt">-y</span> <span class="nt">--default-toolchain</span> stable<span class="sb">`</span>
+<span class="c">#Ensure build tools are installed (git, curl, wget, gcc, g++, nasm, pkg-config, openssl, ca-certificates)</span>
+<span class="sb">`</span><span class="nb">sudo </span>apt-get <span class="nb">install </span>git wget curl build-essential pkg-config libssl-dev libpng-dev nasm <span class="sb">`</span>
+</pre>
+<h2>
+<a id="mac-os-pre-requisites" class="anchor" href="#mac-os-pre-requisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac OS Pre-requisites</h2>
+<ol>
+<li>Install <a href="http://railsapps.github.io/xcode-command-line-tools.html" rel="nofollow">XCode Command-Line Tools</a> if you haven't already</li>
+<li>Install <a href="https://brew.sh/" rel="nofollow">Homebrew</a> if you haven't already.</li>
+<li>Install nasm, pkg-config, and wget
+<code>brew install nasm pkg-config wget</code>
+</li>
+<li>Install <a href="https://www.rust-lang.org/en-US/install.html" rel="nofollow">Rust</a>
+</li>
+</ol>
+<h2>
+<a id="windows-wsl-ubuntu-bionic-subsystem-pre-requisites" class="anchor" href="#windows-wsl-ubuntu-bionic-subsystem-pre-requisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows WSL (Ubuntu Bionic Subsystem) Pre-requisites</h2>
+<ol>
+<li>Install <a href="https://www.microsoft.com/store/productId/9N9TNGVNDL3Q" rel="nofollow">Ubuntu 18.04 from the Windows Store</a>
+</li>
+<li>Run Ubuntu 18.04 and create your username/password</li>
+<li>
+<code>sudo apt-get update</code> to update available packages.</li>
+<li>Install Rust 1.28+ by running
+<code>curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable</code>
+</li>
+<li>Ensure build tools are installed (git, curl, wget, gcc, g++, nasm, pkg-config, openssl, ca-certificates)
+<code>sudo apt-get install git wget curl build-essential pkg-config libssl-dev libpng-dev nasm</code>
+</li>
+<li>(optional) To use a graphical text editor, you'll need to download imageflow to a "Windows" directory, then map it to a location in Ubuntu.
+For example, if you cloned imageflow to Documents/imageflow, you would run:
+<code>ln -s /mnt/c/Users/[YourWindowsUserName]/Documents/imageflow ~/win_imageflow</code>
+</li>
+<li>Close and re-open Ubuntu</li>
+</ol>
+<h2>
+<a id="windows-10-pre-requisites" class="anchor" href="#windows-10-pre-requisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows 10 Pre-requisites</h2>
+<ol>
+<li>Install Visual Studio 2017 Build Tools (<a href="https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&amp;rel=15" rel="nofollow">separately</a> or as a VS component)</li>
+<li>Install <a href="https://git-scm.com/download/win" rel="nofollow">Git 64-bit</a>.</li>
+<li>
+<code>Run As Administrator</code> the <a href="https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/win64/nasm-2.14.02-installer-x64.exe" rel="nofollow">NASM 64-bit</a> installer - it will not prompt.</li>
+<li>Install <a href="https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe" rel="nofollow">Rust 64-bit</a> if you want 64-bit Imageflow or <a href="https://static.rust-lang.org/rustup/dist/i686-pc-windows-msvc/rustup-init.exe" rel="nofollow">Rust 32-bit</a> if you don't.
+Install toolchain <code>stable</code> as the default, and confirm adding it to <code>PATH</code>.</li>
+<li>Open the command line and switch to this repository's root directory</li>
+<li>Edit <code>ci/wintools/SETUP_PATH.bat</code> to ensure that rust/cargo, nasm, git, and Git/mingw64/bin are all in <code>%PATH%</code>.</li>
+<li>Run <code>win_enter_env.bat</code> to start a sub-shell (edit it if you want a 32-bit build)</li>
+<li>All build commands should be run in the sub-shell. Run <code>cmd.exe /c "ci\wintools\win_verify_tools.bat"</code> to check tools are present.</li>
+</ol>
+<h2>
+<a id="how-does-one-learn-image-processing-for-the-web" class="anchor" href="#how-does-one-learn-image-processing-for-the-web" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How does one learn image processing for the web?</h2>
+<p>First, <a href="http://shop.oreilly.com/product/0636920039730.do" rel="nofollow">read High Performance Images</a> for context.</p>
+<p>There are not many great textbooks on the subject. Here are some from my personal bookshelf. Between them (and Wikipedia) I was able to put together about 60% of the knowledge I needed; the rest I found by reading the source code to <a href="https://github.com/lilith/imaging-wiki?files=1" rel="nofollow">many popular image processing libraries</a>.</p>
+<p>I would start by reading <a href="http://www.amazon.com/gp/product/1848001940?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Principles of Digital Image Processing: Core Algorithms</a> front-to-back, then <a href="http://www.amazon.com/gp/product/0818689447?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Digital Image Warping</a>.  Wikipedia is also a useful reference, although the relevant pages are not linked or categorized together - use specific search terms, like <a href="https://en.wikipedia.org/wiki/Bilinear_interpolation" rel="nofollow">"bilinear interpolation"</a> and <a href="https://en.wikipedia.org/wiki/Lab_color_space" rel="nofollow">"Lab color space"</a>.</p>
+<ul>
+<li><a href="http://www.amazon.com/gp/product/0818689447?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Digital Image Warping</a></li>
+<li><a href="http://www.amazon.com/gp/product/0201848406?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Computer Graphics: Principles and Practice in C (2nd Edition)</a></li>
+<li><a href="http://www.amazon.com/gp/product/1848001908?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Principles of Digital Image Processing: Fundamental Techniques</a></li>
+<li><a href="http://www.amazon.com/gp/product/1848001940?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Principles of Digital Image Processing: Core Algorithms</a></li>
+<li><a href="http://www.amazon.com/gp/product/1848829183?psc=1&amp;redirect=true&amp;ref_=oh_aui_search_detailpage" rel="nofollow">Principles of Digital Image Processing: Advanced Methods</a></li>
+</ul>
+<p>I have found the source code for OpenCV, LibGD, FreeImage, Libvips, Pixman, Cairo, ImageMagick, stb_image, Skia, and FrameWave is very useful for understanding real-world implementations and considerations. Most textbooks assume an infinite plane, ignore off-by-one errors, floating-point limitations, color space accuracy, and operational symmetry within a bounded region. I cannot recommend any textbook  as an accurate reference, only as a conceptual starting point. <a href="https://github.com/imazen/Graphics-vNext/blob/master/aware.md" rel="nofollow">I made some notes regarding issues to be aware of when creating an imaging library</a>.</p>
+<p>Also, keep in mind that computer vision is very different from image creation. In computer vision, resampling accuracy matters very little, for example. But in image creation, you are serving images to photographers, people with far keener visual perception than the average developer. The images produced will be rendered side-by-side with other CSS and images, and the least significant bit of inaccuracy is quite visible. You are competing with Lightroom; with offline tools that produce visually perfect results. End-user software will be discarded if photographers feel it is corrupting their work.</p>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120ba18988ce738',m:'8fd0e0e1182cc8568c8c26adf28dc79ff0e8b947-1610725559-1800-AXnUeNCzxES9IrekdSmNzr9ahdPihJmFY8IC9kGvkZ4icP1E8JwIirnb3OpeNGwTVcCwok1+zqYvisAYtVAM9EpbqS+e3LtkrmLNW8+KyAUdB5Q083vOQDDuQl2Opw3yUdLo+uXNoScLIj2AHjep86c=',s:[0x765e374e37,0xc58dfa45b6],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="rust"/> <!-- -->rust<!-- --> (<!-- -->4,163<!-- -->) </div><div><input type="checkbox" name="topics" value="tool"/> <!-- -->tool<!-- --> (<!-- -->382<!-- -->) </div><div><input type="checkbox" name="topics" value="image-manipulation"/> <!-- -->image-manipulation<!-- --> (<!-- -->89<!-- -->) </div><div><input type="checkbox" name="topics" value="image-compression"/> <!-- -->image-compression<!-- --> (<!-- -->46<!-- -->) </div><div><input type="checkbox" name="topics" value="imagemagick"/> <!-- -->imagemagick<!-- --> (<!-- -->45<!-- -->) </div><div><input type="checkbox" name="topics" value="lib"/> <!-- -->lib<!-- --> (<!-- -->23<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Imageflow<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/imazen" target="_blank">Imazen</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/imazen" target="_blank">Imazen</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-abc109e1-50a2-43e5-bdd0-179acc5e74ff">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"image-compression","count":46},{"id":null,"name":"imagemagick","count":45},{"id":null,"name":"image-manipulation","count":89},{"id":null,"name":"lib","count":23},{"id":null,"name":"rust","count":4163},{"id":null,"name":"tool","count":382}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/imazen/imageflow","projects":[],"project":{"id":111596,"created_at":"2018-08-21T02:07:13.036Z","updated_at":"2021-01-11T12:12:55.883Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch2\u003e\n\u003ca id=\"-optimal-images-at-incredible-speeds\" class=\"anchor\" href=\"#-optimal-images-at-incredible-speeds\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://www.imageflow.io/images/imageflow.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://www.imageflow.io/images/imageflow.svg\" alt=\"imageflow\" style=\"max-width:100%;\"\u003e\u003c/a\u003e optimal images at incredible speeds\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/imazen/imageflow/actions?query=workflow%3ATest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/imazen/imageflow/workflows/Test/badge.svg?branch=main\" alt=\"tests\" style=\"max-width:100%;\"\u003e\u003c/a\u003e  \u003ca href=\"#flaws\"\u003e\u003cimg src=\"https://img.shields.io/badge/state-release%E2%80%93candidate-yellow.svg\" alt=\"state: release candidate\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://hub.docker.com/r/imazen/imageflow_tool/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/docker/pulls/imazen/imageflow_tool.svg\" alt=\"Docker Pulls\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://hub.docker.com/r/imazen/imageflow_server_unsecured/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/docker/pulls/imazen/imageflow_server_unsecured.svg\" alt=\"Docker Pulls\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/imazen/imageflow/releases\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/-download%20binaries%20for%20windows,%20mac,%20or%20linux-green.svg\" alt=\"view releases\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://imageresizing.net/pricing\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/license-Choose%20AGPLv3%20or%20Commercial-green.svg\" alt=\"license: Choose AGPLv3 or Commercial\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/imazen/imageflow/releases\" rel=\"nofollow\"\u003eDownload\u003c/a\u003e blazing fast and \u003ca href=\"https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=imagemagick\" rel=\"nofollow\"\u003esafer\u003c/a\u003e tools for a modern image workflow.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eimageflow_tool\u003c/strong\u003e is a command-line tool for experimenting, running batch jobs,\nor when you want process isolation. Up to 17x faster than ImageMagick. Also produces smaller files at higher quality.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eimageflow_server\u003c/strong\u003e can run JSON jobs or manipulate images in-flight (e.g.\u003ccode\u003e/bucket/img.jpg?w=200\u003c/code\u003e) for direct use from\nHTML. Source images can reside in blob storage, on another server, or on the filesystem. However, for production use, we recommend using \u003ca href=\"https://github.com/imazen/imageflow-dotnet-server\" rel=\"nofollow\"\u003eImageflow.NET Server\u003c/a\u003e, which is far more feature-rich and doesn't need a reverse proxy in front for security.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003elibimageflow\u003c/strong\u003e is for direct (in-process) use from \u003cem\u003eyour\u003c/em\u003e programming language. See our \u003ca href=\"https://github.com/imazen/imageflow-node\" rel=\"nofollow\"\u003e\u003cstrong\u003eNode bindings\u003c/strong\u003e\u003c/a\u003e,  \u003ca href=\"https://github.com/imazen/imageflow-go\" rel=\"nofollow\"\u003e\u003cstrong\u003eGo bindings\u003c/strong\u003e\u003c/a\u003e, \u003ca href=\"https://github.com/Dealermade/imageflow-scala\" rel=\"nofollow\"\u003e\u003cstrong\u003eScala bindings\u003c/strong\u003e\u003c/a\u003e, \u003ca href=\"https://github.com/naps62/imageflow_ex\" rel=\"nofollow\"\u003e\u003cstrong\u003eElixir bindings\u003c/strong\u003e\u003c/a\u003e, or  \u003ca href=\"https://github.com/imazen/imageflow-dotnet\" rel=\"nofollow\"\u003e\u003cstrong\u003e.NET bindings\u003c/strong\u003e\u003c/a\u003e. If we don't already have bindings for your language, consider spending a day to add them. Imageflow has a simple\nC-compatible ABI, of which only 4 methods are needed to implement bindings.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/imazen/imageflow/issues/new\" rel=\"nofollow\"\u003eOpen an issue\u003c/a\u003e to have us write example code for your use case. We believe in feedback-driven design, and streamlining real-world usage is the fastest way to a great product.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://docs.imageflow.io/querystring/introduction.html\" rel=\"nofollow\"\u003eQuerystring API Documentation\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://docs.imageflow.io/json/introduction.html\" rel=\"nofollow\"\u003eJSON API Documentation\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003elibimageflow, imageflow_tool, and imageflow_server are available as\n\u003ca href=\"https://github.com/imazen/imageflow/releases\" rel=\"nofollow\"\u003eself-contained binaries\u003c/a\u003e for Windows, Ubuntu, and Mac. We also offer \u003ca href=\"https://hub.docker.com/r/imazen/imageflow_tool/\" rel=\"nofollow\"\u003eDocker images\u003c/a\u003e for Linux (where glibc and OpenSSL are required).\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://www.kickstarter.com/projects/njones/imageflow-respect-the-pixels-a-secure-alt-to-image/posts/1616122\" rel=\"nofollow\"\u003eWe thank our backers on Kickstarter\u003c/a\u003e\nand \u003ca href=\"https://imageresizing.net\" rel=\"nofollow\"\u003ethe many supporters of ImageResizer\u003c/a\u003e for making this project a reality.\nVisit \u003ca href=\"https://imageresizing.net/pricing\" rel=\"nofollow\"\u003eImageresizing.net\u003c/a\u003e if you need an AGPLv3 exception for commercial use.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"start-with-imageflow_tool-recommended\" class=\"anchor\" href=\"#start-with-imageflow_tool-recommended\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStart with imageflow_tool (recommended)\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eimageflow_tool examples --generate\u003c/code\u003e - creates an \u003cem\u003eexamples\u003c/em\u003e directory with JSON jobs and invocation scripts.\u003c/p\u003e\n\u003cp\u003eYou can use command strings that are compatible with \u003ca href=\"https://imageresizing.net/docs/basics\" rel=\"nofollow\"\u003eImageResizer 4 querystrings\u003c/a\u003e:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eimageflow_tool v1/querystring --in source.jpg --out thumb.jpg --command \"width=50\u0026amp;height=50\u0026amp;mode=crop\u0026amp;format=jpg\"\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eOr submit a JSON job file. JSON jobs can have multiple inputs and outputs, and can represent any kind of operation graph.\u003c/p\u003e\n\u003cp\u003eThe following generates multiple sizes of an image from an example job file:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimageflow_tool v1/build --json examples/export_4_sizes/export_4_sizes.json\n        --in waterhouse.jpg\n        --out 1 waterhouse_w1600.jpg\n              2 waterhouse_w1200.jpg\n              3 waterhouse_w800.jpg\n              4 waterhouse_w400.jpg\n        --response operation_result.json\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBy default, imageflow_tool prints a JSON response to stdout. You write this to disk with \u003ccode\u003e--response\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e--debug-package\u003c/code\u003e will create a .zip file to reproduce problematic behavior with both \u003ccode\u003ev1/build\u003c/code\u003e and \u003ccode\u003ev1/querystring\u003c/code\u003e. Please submit bug reports; we try to make it easy.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"using-imageflow_server-for-dynamic-imaging\" class=\"anchor\" href=\"#using-imageflow_server-for-dynamic-imaging\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing imageflow_server for dynamic imaging\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eimageflow_server start --demo\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eNow you can edit images from HTML... and use srcset without headache.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;img src=\"http://localhost:39876/demo_images/u3.jpg?w=300\" /\u0026gt;\n\n\u0026lt;img src=\"\" srcset=\"    http://localhost:39876/demo_images/u3.jpg?w=300 300w\n                        http://localhost:39876/demo_images/u3.jpg?w=800 800w\n                        http://localhost:39876/demo_images/u3.jpg?w=1600 1600w\" /\u0026gt;\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://www.imageflow.io/images/imageflow-responsive.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://www.imageflow.io/images/imageflow-responsive.svg\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://www.imageflow.io/images/edit-url.gif\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://www.imageflow.io/images/edit-url.gif\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"beyond-the-demo\" class=\"anchor\" href=\"#beyond-the-demo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBeyond the demo\u003c/h3\u003e\n\u003cp\u003eYou'll want to mount various image source locations to prefixes. The \u003ccode\u003e--mount\u003c/code\u003e command parses a colon (\u003ccode\u003e:\u003c/code\u003e) delimited list of arguments. The first is the prefix you'll use in the URL (like \u003ccode\u003ehttp://localhost:39876/prefix/\u003c/code\u003e. The second is the engine name. Remaining arguments are sent to the engine.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"examples\" class=\"anchor\" href=\"#examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExamples\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e--mount \"/img/:ir4_local:C:\\inetpub\\wwwroot\\images\"\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e--mount \"/proxyimg/:ir4_http:https:://myotherserver.com/imagefolder/\"\u003c/code\u003e (note the double escaping of the colon)\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e--mount \"/cachedstaticproxy/:permacache_proxy:https:://othersite.com\"\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e--mount \"/githubproxy/:permacache_proxy_guess_content_types:https:://raw.github.com/because/it/doesnt/support/content/types\"\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e--mount \"/static/\":static:./assets\"\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"https://www.imageflow.io/images/imageflow-server-advanced.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://www.imageflow.io/images/imageflow-server-advanced.svg\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"using-libimageflow-from-your-language\" class=\"anchor\" href=\"#using-libimageflow-from-your-language\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing libimageflow from your language\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://www.imageflow.io/images/libimageflow-direct.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://www.imageflow.io/images/libimageflow-direct.svg\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e.NET Standard bindings can be found at \u003ca href=\"https://github.com/imazen/imageflow-dotnet\" rel=\"nofollow\"\u003ehttps://github.com/imazen/imageflow-dotnet\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eNode bindings available  at \u003ca href=\"https://github.com/imazen/imageflow-node\" rel=\"nofollow\"\u003ehttps://github.com/imazen/imageflow-node\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eRuby - Basic bindings can be found in \u003ca href=\"https://github.com/imazen/imageflow/tree/main/bindings/ruby\" rel=\"nofollow\"\u003ebindings/ruby/\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eC and C++ interface is stable - use \u003ca href=\"https://github.com/imazen/imageflow/blob/main/bindings/headers/imageflow_default.h\" rel=\"nofollow\"\u003ebindings/headers/imageflow_default.h\u003c/a\u003e or one of the many alternate conventions provided with each release.\u003c/li\u003e\n\u003cli\u003eRust - Imageflow is written in Rust, so you can use the \u003ccode\u003eimageflow_core\u003c/code\u003e crate.\u003c/li\u003e\n\u003cli\u003eother languages - Use an \u003ca href=\"https://en.wikipedia.org/wiki/Foreign_function_interface\" rel=\"nofollow\"\u003eFFI\u003c/a\u003e binding-generation tool for your language, and feed it whichever \u003ca href=\"https://github.com/imazen/imageflow/tree/main/bindings/headers\" rel=\"nofollow\"\u003eheader file it likes best\u003c/a\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eYou also may find that \u003ccode\u003eimageflow_tool\u003c/code\u003e is quite fast enough for your needs.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"crates-within-this-project\" class=\"anchor\" href=\"#crates-within-this-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCrates within this project\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eimageflow_abi - The stable API of libimageflow/imageflow.dll.\nHeaders for libimageflow are located in \u003ccode\u003ebindings/headers\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eimageflow_tool - The command-line tool\u003c/li\u003e\n\u003cli\u003eimageflow_server - The HTTP server\u003c/li\u003e\n\u003cli\u003ec_components - A rust crate containing C source\u003c/li\u003e\n\u003cli\u003ec_components/tests - Tests for the C components\u003c/li\u003e\n\u003cli\u003eimageflow_types - Shared types used by most crates, with JSON serialization\u003c/li\u003e\n\u003cli\u003eimageflow_helpers - Common helper functions and utilities\u003c/li\u003e\n\u003cli\u003eimageflow_riapi - RIAPI and ImageResizer4 compatibility parsing/layout\u003c/li\u003e\n\u003cli\u003eimageflow_core - The main library and execution engine\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"known-flaws-and-missing-features-as-of-may-2020\" class=\"anchor\" href=\"#known-flaws-and-missing-features-as-of-may-2020\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eKnown flaws and missing features (as of May 2020)\u003c/h3\u003e\n\u003ch4\u003e\n\u003ca id=\"flaws\" class=\"anchor\" href=\"#flaws\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFlaws\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e[ ] imageflow_server doesn't expose the JSON API yet.\u003c/li\u003e\n\u003cli\u003e[ ] No fuzz testing or third-party auditing yet.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"missing-features\" class=\"anchor\" href=\"#missing-features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMissing features\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e[ ] Blurring.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"delayed-features\" class=\"anchor\" href=\"#delayed-features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDelayed features\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e[ ] Job cost prediction (delayed - no interest from community)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"building-from-source-without-docker\" class=\"anchor\" href=\"#building-from-source-without-docker\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding from Source without Docker\u003c/h1\u003e\n\u003cp\u003eYou'll need more than just Rust to compile Imageflow, as it has a couple C dependencies.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eInstall platform-specific prerequisites (find the right section below).\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eClone and cd into this repository\nE.g., \u003ccode\u003egit clone git@github.com:imazen/imageflow.git \u0026amp;\u0026amp; cd imageflow\u003c/code\u003e)\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eIf you are using \u003ccode\u003ebash\u003c/code\u003e on any platform, you should be able to use \u003ccode\u003ebuild.sh\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e./build.sh clean\u003c/code\u003e - to clean\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e./build.sh test\u003c/code\u003e - run all tests\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e./build.sh debug\u003c/code\u003e - generate slow debug binaries\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e./build.sh release\u003c/code\u003e - generate release binaries\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e./build.sh install\u003c/code\u003e - install release binaries to \u003ccode\u003e/usr/local\u003c/code\u003e (must run `./build.sh release first)\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e./build.sh uninstall\u003c/code\u003e - uninstall release binaries\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003ebuild.sh\u003c/code\u003e places binaries in the \u003ccode\u003e./artifacts/ directory\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eIf you are on Windows, only run build commands in the window created by \u003ccode\u003ewin_enter_env.bat\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eYou can also build using \u003ccode\u003ecargo\u003c/code\u003e directly, although this will place binaries in \u003ccode\u003e./target/release\u003c/code\u003e instead.\n* \u003ccode\u003ecargo test --all\u003c/code\u003e to test Imageflow in debug (slooow) mode\n* \u003ccode\u003ecargo build --package imageflow_abi --release\u003c/code\u003e to compile \u003ccode\u003elibimageflow/imageflow.dll\u003c/code\u003e\n* \u003ccode\u003ecargo build --package imageflow_tool --release\u003c/code\u003e to compile \u003ccode\u003eimageflow_tool(.exe)\u003c/code\u003e\n* \u003ccode\u003ecargo build --package imageflow_server --release\u003c/code\u003e to compile \u003ccode\u003eimageflow_server(.exe)\u003c/code\u003e\n* \u003ccode\u003ecargo build --all --release\u003c/code\u003e to compile everything in release mode\n* \u003ccode\u003ecargo doc --no-deps --all --release\u003c/code\u003e to generate documentation.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"building-from-source-with-docker\" class=\"anchor\" href=\"#building-from-source-with-docker\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding from Source with Docker\u003c/h2\u003e\n\u003cp\u003eIf you want to replicate the Imageflow CI environment:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"https://docs.docker.com/install/\" rel=\"nofollow\"\u003eInstall Docker\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eRun from a bash session (\u003ca href=\"https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly\" rel=\"nofollow\"\u003eDocker + Windows WSL\u003c/a\u003e, macOS, or linux)\u003c/li\u003e\n\u003cli\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003egit clone git@github.com:imazen/imageflow.git\n\u003cspan class=\"nb\"\u003ecd \u003c/span\u003eimageflow\n./build_via_docker.sh debug\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThis will create caches within \u003ccode\u003e~/.docker_imageflow_caches\u003c/code\u003e specific to the docker image used. Instances will be ephemeral; the only state will be in the caches.\u003c/p\u003e\n\u003cp\u003eThe \u003ca href=\"https://github.com/imazen/imageflow/tree/main/docker\" rel=\"nofollow\"\u003eofficial Dockerfiles\u003c/a\u003e are also a great place to get more detailed environment setup steps, as we don't list steps for setting up:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eValgrind (common versions break openssl; you may need to build from source)\u003c/li\u003e\n\u003cli\u003eCode coverage\u003c/li\u003e\n\u003cli\u003eBindings.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"linux-pre-requisites\" class=\"anchor\" href=\"#linux-pre-requisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLinux Pre-requisites\u003c/h2\u003e\n\u003cp\u003e(tested on Ubuntu 16.04 and 18.04.)\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e#Install Rust 1.41+ by running\u003c/span\u003e\n\u003cspan class=\"sb\"\u003e`\u003c/span\u003ecurl https://sh.rustup.rs \u003cspan class=\"nt\"\u003e-sSf\u003c/span\u003e | sh \u003cspan class=\"nt\"\u003e-s\u003c/span\u003e \u003cspan class=\"nt\"\u003e--\u003c/span\u003e \u003cspan class=\"nt\"\u003e-y\u003c/span\u003e \u003cspan class=\"nt\"\u003e--default-toolchain\u003c/span\u003e stable\u003cspan class=\"sb\"\u003e`\u003c/span\u003e\n\u003cspan class=\"c\"\u003e#Ensure build tools are installed (git, curl, wget, gcc, g++, nasm, pkg-config, openssl, ca-certificates)\u003c/span\u003e\n\u003cspan class=\"sb\"\u003e`\u003c/span\u003e\u003cspan class=\"nb\"\u003esudo \u003c/span\u003eapt-get \u003cspan class=\"nb\"\u003einstall \u003c/span\u003egit wget curl build-essential pkg-config libssl-dev libpng-dev nasm \u003cspan class=\"sb\"\u003e`\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"mac-os-pre-requisites\" class=\"anchor\" href=\"#mac-os-pre-requisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMac OS Pre-requisites\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eInstall \u003ca href=\"http://railsapps.github.io/xcode-command-line-tools.html\" rel=\"nofollow\"\u003eXCode Command-Line Tools\u003c/a\u003e if you haven't already\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"https://brew.sh/\" rel=\"nofollow\"\u003eHomebrew\u003c/a\u003e if you haven't already.\u003c/li\u003e\n\u003cli\u003eInstall nasm, pkg-config, and wget\n\u003ccode\u003ebrew install nasm pkg-config wget\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"https://www.rust-lang.org/en-US/install.html\" rel=\"nofollow\"\u003eRust\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"windows-wsl-ubuntu-bionic-subsystem-pre-requisites\" class=\"anchor\" href=\"#windows-wsl-ubuntu-bionic-subsystem-pre-requisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWindows WSL (Ubuntu Bionic Subsystem) Pre-requisites\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eInstall \u003ca href=\"https://www.microsoft.com/store/productId/9N9TNGVNDL3Q\" rel=\"nofollow\"\u003eUbuntu 18.04 from the Windows Store\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eRun Ubuntu 18.04 and create your username/password\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003esudo apt-get update\u003c/code\u003e to update available packages.\u003c/li\u003e\n\u003cli\u003eInstall Rust 1.28+ by running\n\u003ccode\u003ecurl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eEnsure build tools are installed (git, curl, wget, gcc, g++, nasm, pkg-config, openssl, ca-certificates)\n\u003ccode\u003esudo apt-get install git wget curl build-essential pkg-config libssl-dev libpng-dev nasm\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e(optional) To use a graphical text editor, you'll need to download imageflow to a \"Windows\" directory, then map it to a location in Ubuntu.\nFor example, if you cloned imageflow to Documents/imageflow, you would run:\n\u003ccode\u003eln -s /mnt/c/Users/[YourWindowsUserName]/Documents/imageflow ~/win_imageflow\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eClose and re-open Ubuntu\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"windows-10-pre-requisites\" class=\"anchor\" href=\"#windows-10-pre-requisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWindows 10 Pre-requisites\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eInstall Visual Studio 2017 Build Tools (\u003ca href=\"https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools\u0026amp;rel=15\" rel=\"nofollow\"\u003eseparately\u003c/a\u003e or as a VS component)\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"https://git-scm.com/download/win\" rel=\"nofollow\"\u003eGit 64-bit\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eRun As Administrator\u003c/code\u003e the \u003ca href=\"https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/win64/nasm-2.14.02-installer-x64.exe\" rel=\"nofollow\"\u003eNASM 64-bit\u003c/a\u003e installer - it will not prompt.\u003c/li\u003e\n\u003cli\u003eInstall \u003ca href=\"https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe\" rel=\"nofollow\"\u003eRust 64-bit\u003c/a\u003e if you want 64-bit Imageflow or \u003ca href=\"https://static.rust-lang.org/rustup/dist/i686-pc-windows-msvc/rustup-init.exe\" rel=\"nofollow\"\u003eRust 32-bit\u003c/a\u003e if you don't.\nInstall toolchain \u003ccode\u003estable\u003c/code\u003e as the default, and confirm adding it to \u003ccode\u003ePATH\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eOpen the command line and switch to this repository's root directory\u003c/li\u003e\n\u003cli\u003eEdit \u003ccode\u003eci/wintools/SETUP_PATH.bat\u003c/code\u003e to ensure that rust/cargo, nasm, git, and Git/mingw64/bin are all in \u003ccode\u003e%PATH%\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eRun \u003ccode\u003ewin_enter_env.bat\u003c/code\u003e to start a sub-shell (edit it if you want a 32-bit build)\u003c/li\u003e\n\u003cli\u003eAll build commands should be run in the sub-shell. Run \u003ccode\u003ecmd.exe /c \"ci\\wintools\\win_verify_tools.bat\"\u003c/code\u003e to check tools are present.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"how-does-one-learn-image-processing-for-the-web\" class=\"anchor\" href=\"#how-does-one-learn-image-processing-for-the-web\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow does one learn image processing for the web?\u003c/h2\u003e\n\u003cp\u003eFirst, \u003ca href=\"http://shop.oreilly.com/product/0636920039730.do\" rel=\"nofollow\"\u003eread High Performance Images\u003c/a\u003e for context.\u003c/p\u003e\n\u003cp\u003eThere are not many great textbooks on the subject. Here are some from my personal bookshelf. Between them (and Wikipedia) I was able to put together about 60% of the knowledge I needed; the rest I found by reading the source code to \u003ca href=\"https://github.com/lilith/imaging-wiki?files=1\" rel=\"nofollow\"\u003emany popular image processing libraries\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eI would start by reading \u003ca href=\"http://www.amazon.com/gp/product/1848001940?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003ePrinciples of Digital Image Processing: Core Algorithms\u003c/a\u003e front-to-back, then \u003ca href=\"http://www.amazon.com/gp/product/0818689447?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003eDigital Image Warping\u003c/a\u003e.  Wikipedia is also a useful reference, although the relevant pages are not linked or categorized together - use specific search terms, like \u003ca href=\"https://en.wikipedia.org/wiki/Bilinear_interpolation\" rel=\"nofollow\"\u003e\"bilinear interpolation\"\u003c/a\u003e and \u003ca href=\"https://en.wikipedia.org/wiki/Lab_color_space\" rel=\"nofollow\"\u003e\"Lab color space\"\u003c/a\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"http://www.amazon.com/gp/product/0818689447?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003eDigital Image Warping\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.amazon.com/gp/product/0201848406?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003eComputer Graphics: Principles and Practice in C (2nd Edition)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.amazon.com/gp/product/1848001908?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003ePrinciples of Digital Image Processing: Fundamental Techniques\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.amazon.com/gp/product/1848001940?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003ePrinciples of Digital Image Processing: Core Algorithms\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.amazon.com/gp/product/1848829183?psc=1\u0026amp;redirect=true\u0026amp;ref_=oh_aui_search_detailpage\" rel=\"nofollow\"\u003ePrinciples of Digital Image Processing: Advanced Methods\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eI have found the source code for OpenCV, LibGD, FreeImage, Libvips, Pixman, Cairo, ImageMagick, stb_image, Skia, and FrameWave is very useful for understanding real-world implementations and considerations. Most textbooks assume an infinite plane, ignore off-by-one errors, floating-point limitations, color space accuracy, and operational symmetry within a bounded region. I cannot recommend any textbook  as an accurate reference, only as a conceptual starting point. \u003ca href=\"https://github.com/imazen/Graphics-vNext/blob/master/aware.md\" rel=\"nofollow\"\u003eI made some notes regarding issues to be aware of when creating an imaging library\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAlso, keep in mind that computer vision is very different from image creation. In computer vision, resampling accuracy matters very little, for example. But in image creation, you are serving images to photographers, people with far keener visual perception than the average developer. The images produced will be rendered side-by-side with other CSS and images, and the least significant bit of inaccuracy is quite visible. You are competing with Lightroom; with offline tools that produce visually perfect results. End-user software will be discarded if photographers feel it is corrupting their work.\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":26368422,"name":"imageflow","owner_login":"imazen","description":"High-performance image manipulation for web servers. Includes imageflow_server, imageflow_tool, and libimageflow","pushed_at":"2021-01-06T21:27:22.000Z","stargazers_count":3429,"open_issues_count":22,"has_downloads":true,"archived":false,"license_key":"agpl-3.0","homepage":"https://docs.imageflow.io/","private":false,"project_created_at":"2014-11-08T17:33:32.000Z","project_updated_at":"2021-01-10T01:08:55.000Z","language":"Rust","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>
