@@ -18,7 +18,7 @@
 <li>Use <code>Math.ceil()</code> and <code>Array.prototype.length</code> to get the size of each chunk.</li>
 <li>Use <code>Array.from()</code> to create a new array of size <code>n</code>.</li>
 <li>Use <code>Array.prototype.slice()</code> to map each element of the new array to a chunk the length of <code>size</code>.</li>
-<li>If the original array can’t be split evenly, the final chunk will contain the remaining elements.</li>
+<li>If the original array can't be split evenly, the final chunk will contain the remaining elements.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> chunkIntoN <span class="op">=</span> (arr<span class="op">,</span> n) <span class="kw">=&gt;</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> size <span class="op">=</span> <span class="va">Math</span>.<span class="at">ceil</span>(<span class="va">arr</span>.<span class="at">length</span> / n)<span class="op">;</span></a>

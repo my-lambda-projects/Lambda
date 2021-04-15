@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAuBA,QAAQ,CAAR,UAAQ",
+    "sources": [
+        "mdc-elevation.scss"
+    ],
+    "names": [],
+    "file": "mdc-elevation.css"
+}

@@ -13,14 +13,14 @@
 <p>{: .-three-column}</p>
 <h3 id="installing-via-npm">Installing via NPM</h3>
 <pre><code>npm install --save parsleyjs</code></pre>
-<p><a href="https://www.npmjs.com/package/parsleyjs">parsleyjs</a> is the Parsley form validator. (‘parsley’ is a different package)</p>
+<p><a href="https://www.npmjs.com/package/parsleyjs">parsleyjs</a> is the Parsley form validator. (‘parsley' is a different package)</p>
 <h3 id="enabling">Enabling</h3>
 <h4 id="via-html">via HTML</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;form</span><span class="ot"> data-parsley-validate</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="co">&lt;!-- ✗ not preferred --&gt;</span></a></code></pre></div>
 <h4 id="via-javascript">via JavaScript</h4>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">$</span>(<span class="st">&#39;#form&#39;</span>).<span class="at">parsley</span>(<span class="co">/* options */</span>)</a></code></pre></div>
-<p>It’s preferable to explicitly call <code>$.fn.parsley()</code>.</p>
+<p>It's preferable to explicitly call <code>$.fn.parsley()</code>.</p>
 <h3 id="api">API</h3>
 <h4 id="form">Form</h4>
 <div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">$</span>(<span class="st">&#39;#myform&#39;</span>).<span class="at">parsley</span>()</a>
@@ -87,7 +87,7 @@
 <a class="sourceLine" id="cb21-2" title="2">  uiEnabled<span class="op">:</span> <span class="kw">true</span></a></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1"><span class="co">// Key events threshold before validation</span></a>
 <a class="sourceLine" id="cb22-2" title="2">  validationThreshold<span class="op">:</span> <span class="dv">3</span></a></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1"><span class="co">// Focused field on form validation error. ‘first’|’last’|’none’</span></a>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1"><span class="co">// Focused field on form validation error. ‘first'|'last'|'none'</span></a>
 <a class="sourceLine" id="cb23-2" title="2">  focus<span class="op">:</span> <span class="st">&#39;first&#39;</span></a></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1"><span class="co">// $.Event() that will trigger validation. eg: keyup, change…</span></a>
 <a class="sourceLine" id="cb24-2" title="2">  trigger<span class="op">:</span> <span class="kw">false</span></a></code></pre></div>
@@ -103,7 +103,7 @@
 <a class="sourceLine" id="cb27-2" title="2"><span class="co">// Could also be (and given directly from DOM) a valid</span></a>
 <a class="sourceLine" id="cb27-3" title="3"><span class="co">// selector like &#39;#div&#39;</span></a>
 <a class="sourceLine" id="cb27-4" title="4">  errorsContainer<span class="op">:</span> <span class="kw">function</span> (ParsleyField) <span class="op">{}</span></a></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="co">// ul elem that would receive errors’ list</span></a>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="co">// ul elem that would receive errors' list</span></a>
 <a class="sourceLine" id="cb28-2" title="2">  errorsWrapper<span class="op">:</span> <span class="st">&#39;&lt;ul class=&quot;parsley-errors-list&quot;&gt;&lt;/ul&gt;&#39;</span></a></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1"><span class="co">// li elem that would receive error message</span></a>
 <a class="sourceLine" id="cb29-2" title="2">  errorTemplate<span class="op">:</span> <span class="st">&#39;&lt;li&gt;&lt;/li&gt;&#39;</span></a></code></pre></div>

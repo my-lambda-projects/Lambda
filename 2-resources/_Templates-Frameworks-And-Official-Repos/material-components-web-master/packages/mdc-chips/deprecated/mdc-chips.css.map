@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAsBA,IAAI,CAAJ,2CAAI;AACJ,IAAI,CAAJ,iBAAI;AACJ,IAAI,CAAJ,yBAAI",
+    "sources": [
+        "mdc-chips.scss"
+    ],
+    "names": [],
+    "file": "mdc-chips.css"
+}

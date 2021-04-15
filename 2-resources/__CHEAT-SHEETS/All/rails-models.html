@@ -304,7 +304,7 @@
 <a class="sourceLine" id="cb67-4" title="4">    <span class="st">&#39;display&#39;</span> =&gt; <span class="st">&#39;large&#39;</span></a>
 <a class="sourceLine" id="cb67-5" title="5">  }</a>
 <a class="sourceLine" id="cb67-6" title="6">)</a></code></pre></div>
-<p>You can also specify a class option as the second parameter that’ll raise an exception if a serialized object is retrieved as a descendant of a class not in the hierarchy.</p>
+<p>You can also specify a class option as the second parameter that'll raise an exception if a serialized object is retrieved as a descendant of a class not in the hierarchy.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb68-1" title="1"><span class="co"># Only Hash allowed!</span></a>
 <a class="sourceLine" id="cb68-2" title="2"><span class="kw">class</span> <span class="dt">User</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
 <a class="sourceLine" id="cb68-3" title="3">  serialize <span class="st">:preferences</span>, <span class="dt">Hash</span></a>

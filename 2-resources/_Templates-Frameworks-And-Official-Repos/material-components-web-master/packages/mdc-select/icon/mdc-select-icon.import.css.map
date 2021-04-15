@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,sCAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,2BAAQ;AACR,QAAQ,CAAR,oIAAQ;AACR,QAAQ,CAAR,oDAAQ;AACR,QAAQ,CAAR,uCAAQ;AACR,QAAQ,CAAR,wBAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,iBAAQ",
+    "sources": [
+        "mdc-select-icon.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-select-icon.import.css"
+}

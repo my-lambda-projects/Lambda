@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/* some common styles for the XML pages */
+
+
+div.eg {
+    color: #000;
+    background-color: #ffffef;
+    border: 1px solid #dee7de;
+}
+
+div.codeblock {
+    padding: 0;
+    margin-left: 2em;
+    line-height: 14pt;
+}
+

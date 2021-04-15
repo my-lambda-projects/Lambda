@@ -31,7 +31,7 @@
 <a class="sourceLine" id="cb1-15" title="15"><span class="op">}</span></a></code></pre></div>
 <h4 id="html">HTML</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;my-component</span><span class="ot"> name=</span><span class="st">&#39;Groot&#39;</span> <span class="kw">/&gt;</span></a></code></pre></div>
-<p>That’s the same example in the <a href="https://github.com/ionic-team/stencil">Readme</a>, that’s as simple as you can get! Just use <code>&lt;my-component&gt;</code> like you would use any other HTML tag.</p>
+<p>That's the same example in the <a href="https://github.com/ionic-team/stencil">Readme</a>, that's as simple as you can get! Just use <code>&lt;my-component&gt;</code> like you would use any other HTML tag.</p>
 <h3 id="dom-events">DOM events</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="im">export</span> <span class="kw">class</span> MyComponent <span class="op">{</span></a>
 <a class="sourceLine" id="cb3-2" title="2">  <span class="at">render</span> () <span class="op">{</span></a>
@@ -69,7 +69,7 @@
 <a class="sourceLine" id="cb5-6" title="6">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb5-7" title="7"><span class="op">}</span></a></code></pre></div>
 <p>{: data-line=“4,5”}</p>
-<p>Just do assignments. You can’t do mutations though, see next section.</p>
+<p>Just do assignments. You can't do mutations though, see next section.</p>
 <p>See: <a href="https://stenciljs.com/docs/decorators#managing-component-state">Managing component state</a></p>
 <h3 id="updating-arrays-and-objects">Updating arrays and objects</h3>
 <h4 id="bad">✗ Bad</h4>
@@ -78,7 +78,7 @@
 <h4 id="ok">✓ OK</h4>
 <div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">this</span>.<span class="at">names</span> <span class="op">=</span> [ ...<span class="va">this</span>.<span class="at">names</span><span class="op">,</span> <span class="st">&#39;Larry&#39;</span> ]</a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="kw">this</span>.<span class="at">options</span> <span class="op">=</span> <span class="op">{</span> ...<span class="va">this</span>.<span class="at">options</span><span class="op">,</span> <span class="dt">show</span><span class="op">:</span> <span class="kw">true</span> <span class="op">}</span></a></code></pre></div>
-<p>Mutable operations such as <code>push()</code> won’t work. You’ll need to assign a new copy.</p>
+<p>Mutable operations such as <code>push()</code> won't work. You'll need to assign a new copy.</p>
 <p>See: <a href="https://stenciljs.com/docs/reactive-data/#updating-arrays">Updating arrays</a></p>
 <h2 id="slots">Slots</h2>
 <h3 id="using-slot">Using slot</h3>

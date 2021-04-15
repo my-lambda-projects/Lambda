@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,qCAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,kDAAQ;AACR,QAAQ,CAAR,uCAAQ;AACR,QAAQ,CAAR,6BAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,gCAAQ;AACR,QAAQ,CAAR,iBAAQ",
+    "sources": [
+        "mdc-line-ripple.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-line-ripple.import.css"
+}

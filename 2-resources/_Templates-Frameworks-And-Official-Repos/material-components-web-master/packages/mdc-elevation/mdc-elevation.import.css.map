@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,qCAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,kDAAQ;AACR,QAAQ,CAAR,8BAAQ;AACR,QAAQ,CAAR,uCAAQ;AACR,QAAQ,CAAR,gMAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,0CAAQ;AACR,QAAQ,CAAR,8BAAQ;AACR,QAAQ,CAAR,eAAQ",
+    "sources": [
+        "mdc-elevation.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-elevation.import.css"
+}

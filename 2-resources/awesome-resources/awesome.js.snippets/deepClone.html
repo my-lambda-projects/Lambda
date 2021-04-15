@@ -19,7 +19,7 @@
 <li>Check if the passed object is <code>null</code> and, if so, return <code>null</code>.</li>
 <li>Use <code>Object.assign()</code> and an empty object (<code>{}</code>) to create a shallow clone of the original.</li>
 <li>Use <code>Object.keys()</code> and <code>Array.prototype.forEach()</code> to determine which key-value pairs need to be deep cloned.</li>
-<li>If the object is an <code>Array</code>, set the <code>clone</code>’s <code>length</code> to that of the original and use <code>Array.from(clone)</code> to create a clone.</li>
+<li>If the object is an <code>Array</code>, set the <code>clone</code>'s <code>length</code> to that of the original and use <code>Array.from(clone)</code> to create a clone.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> deepClone <span class="op">=</span> obj <span class="kw">=&gt;</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (obj <span class="op">===</span> <span class="kw">null</span>) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></a>

@@ -15,7 +15,7 @@
 <body>;
 <p>Replaces the names of multiple object keys with the values provided.</p>
 <ul>
-<li>Use <code>Object.keys()</code> in combination with <code>Array.prototype.reduce()</code> and the spread operator (<code>...</code>) to get the object’s keys and rename them according to <code>keysMap</code>.</li>
+<li>Use <code>Object.keys()</code> in combination with <code>Array.prototype.reduce()</code> and the spread operator (<code>...</code>) to get the object's keys and rename them according to <code>keysMap</code>.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> renameKeys <span class="op">=</span> (keysMap<span class="op">,</span> obj) <span class="kw">=&gt;</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="va">Object</span>.<span class="at">keys</span>(obj).<span class="at">reduce</span>(</a>
