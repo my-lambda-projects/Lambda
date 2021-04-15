@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Encodes a set of form elements as an <code>object</code>.</p>
+<ul>
+<li>Use the <code>FormData</code> constructor to convert the HTML <code>form</code> to <code>FormData</code> and <code>Array.from()</code> to convert to an array.</li>
+<li>Collect the object from the array using <code>Array.prototype.reduce()</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> formToObject <span class="op">=</span> form <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">Array</span>.<span class="at">from</span>(<span class="kw">new</span> <span class="at">FormData</span>(form)).<span class="at">reduce</span>(</a>
+<a class="sourceLine" id="cb1-3" title="3">    (acc<span class="op">,</span> [key<span class="op">,</span> value]) <span class="kw">=&gt;</span> (<span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">      ...<span class="at">acc</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">      [key]<span class="op">:</span> value</a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="op">}</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="op">{}</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  )<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">formToObject</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;#form&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">// { email: &#39;test@email.com&#39;, name: &#39;Test Name&#39; }</span></a></code></pre></div>
+</body></html>
