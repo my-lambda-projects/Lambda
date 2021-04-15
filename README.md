@@ -4,6 +4,17 @@
 ![demo](./frames.gif)
 # Lambda Resources Website)
 
+
+
+#### Loading Gif:
+
+![loading](./giphy.gif)
+
+
+
+
+
+
 ```
 
 [01;34m.)
