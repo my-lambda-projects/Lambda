@@ -1,0 +1,28 @@
+{
+  "name": "web-module-challenge-arrays",
+  "version": "1.0.0",
+  "description": "## Arrays",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --verbose --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/web-module-challenge-arrays.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/web-module-challenge-arrays/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/web-module-challenge-arrays#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-jest": "^26.3.0",
+    "eslint": "^7.10.0",
+    "jest": "^26.4.2"
+  }
+}

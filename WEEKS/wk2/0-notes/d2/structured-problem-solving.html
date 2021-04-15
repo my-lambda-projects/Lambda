@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+
+           <meta name="keywords"
+        content="instanceof,  Static,  finally,  arguments,  public,  Do,  else,  Const,  Function,  class*,  return,  let*,  Catch,  Eval,  For,  if,  This,  try,  Break,  debugger,  Yield,  extends*,  enum*,  Continue,  export*,  null,  switch,  private,  New,  throw,  while,  Case,  await*,  Delete,  super*,  default,  Void,  Var,  protected,  Package,  Interface,  False,  typeof,  implements,  With,  import*,  True,  Applications, Artificial Intelligence, Based, Business Development, CASE Tools, Circuit, Client-Server, Code Development, Computer Architecture, Computer Engineering, Computer Graphics, Computer Hardware, Computer Interface, Computer Modeling, Computer Operating Systems, Computer Programming Languages, Computer Science, Computer Simulation/Modeling, Computer Software, Computer Storage & Retrieval, Computer Systems Analysis, Computer Theory, Computer Vision, Computer/Data/Network Security, Cybernetics, Data, Database, Design, Digital Computers/Computing, Discrete Mathematics, End-User, Ethics/Values in Science and, Technology, Expert Systems, Files, Functional, Global, GUI, Hardware, Information Technology (IT), Installation, Internet, Java, Local Area Network (LAN), Management Information Systems, (MIS), Microsoft Certified Systems, Engineer (MCSE), Modifications, Network, Online, Parallel Algorithms, Parallel Programming, Pattern recognition, PCs, Performance, Peripherals, Printers, Program Management, Program Verification, Project, Real Time, Relational Database, Reports, Scripts, Software, Software Engineering, SQL, Structured Design, System Design, System Performance, System Requirements, Technology, Test, Tools, Topologies, Troubleshoot, Wide Area Network (WAN), Windows, Tape Drive, Technical Specifications, Terminals, Upgrade, VSAM, Workstation, UNIX, User Manual, Analytical Thinking, Attention to Detail, Dependability, Initiative, Achievement/Effort, Adaptability/Flexibility, Independence, Integrity, Persistence, Cooperation,javascript, spidermonkey, angularjs, js node, js, underscore js, for each javascript, foreach javascript, javascript foreach, for loop javascript, javascript for loop, javascript map, javascript maps, map javascript, javascript array, installing node js, javascript substring, express js, javascript replace, functional javascript, javascript function, javascript online, extjs, download javascript, javascript download, javascript is, what is javascript, javascript reduce, javascript settimeout, settimeout javascript, javascript promise, javascript filter, javascript typeof, javascript object, javascript slice, javascript splice, splice javascript, javascript date, learn javascript, learn js, javascript snake, indexof javascript, javascript indexof, javascript split, javascript switch, split javascript, javascript regex, java vs javascript, javascript class, web develop,web project,network development,web developing,net development,site development,website development,rdf,paracelsus,jit,browse,dew,twist,attic,hit,shame,forum,site,update,farm,network,java,reactive framework,react model,react template,act model,react context,linux,binary,start,root,method,kernel,boot,startup,grok,init,bootloader,kludge,lifters,bootable,initialisation,innovation,purpose,aim,blueprint,pattern,plan,conception,project,intent,figure,intention,projecting,architectural,contrive,invention,planing,designing,aiming,patterning,excogitation,blueprinting,question,discussion,conversation,talk,conference,audience,meeting,consultation,interviewee,audition,interrogation,debrief,reporter,told,conversations,talkee,auditionee,questionee,spectrum,business,stock,range,asset,remit,array,suite,catalog,investment,pipeline,securities,fund,lineup,holdings,twitter,wordpress,blogger,code,website,open,tweet,pok,vlog,blogging,webpage,vlogger,carnet,vlogging,hiroshi,wecode,weblog,python encoder, python encoding, python encryption, python cryptography, python encode">
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/index.min.js">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath@0.6.5/css/texmath.css">
+<link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/vscode-texmath.css">
+
+</head>
+<body class="markdown-body">
+<p data-line="0" class="code-line">Top of Form</p>
+<p data-line="2" class="code-line"><strong>How to approach JS coding problems?</strong></p>
+<a for="toc-anchor" id="1.-understand-and-analyze-the-problem"></a><h1 id="1-understand-and-analyze-the-problem-1" data-line="4" class="code-line">1. Understand and Analyze the Problem</h1>
+<p data-line="6" class="code-line">Read the problem, start thinking about it and if possible write the things that are given and the things that you need to find out on a piece of paper.</p>
+<ul>
+<li data-line="8" class="code-line"><strong>Ask yourself:</strong></li>
+</ul>
+<p data-line="10" class="code-line">—Are you able to understand the question fully?<br>
+ — Would you be able to explain the question to a layman?<br>
+ — What and how many inputs are required?<br>
+ — What would be the output for those inputs<br>
+ — Can you separate out some modules or parts from the problem?<br>
+ — Do you have enough information? If not, try understanding the question again.</p>
+<a for="toc-anchor" id=""></a><h1 id="2" data-line="17" class="code-line"></h1>
+<a for="toc-anchor" id="2.-go-through-the-sample-inputs-and-examples-thoroughly%3A"></a><h1 id="2-go-through-the-sample-inputs-and-examples-thoroughly-1" data-line="18" class="code-line">2. Go through the sample inputs and examples thoroughly:</h1>
+<p data-line="20" class="code-line">Going through some sample inputs and coming up with more examples sure helps you a lot to understand the problem well, and moreover, it gives you a clear way to how many cases your code should handle, and what all can be the possible output or output range.</p>
+<ul>
+<li data-line="22" class="code-line"><strong>Here's what I would suggest,</strong></li>
+</ul>
+<p data-line="24" class="code-line">—Take very simple examples and find the output<br>
+ — Take more complex and bigger inputs to see what will be the output, how many use cases do we want</p>
+<ul>
+<li data-line="27" class="code-line"><strong>Then, &quot;Time to handle the edge cases&quot;</strong></li>
+</ul>
+<p data-line="29" class="code-line">—Try out the problem with no input, what should be the output now<br>
+ — Try out the problem with invalid input, what should be the output now</p>
+<a for="toc-anchor" id="3.-break-down-the-problem%3A"></a><h1 id="3-break-down-the-problem-1" data-line="32" class="code-line">3. Break down the problem:</h1>
+<p data-line="34" class="code-line">This step is really very helpful when the problem at hand is very big. In such cases, I recommend the following:</p>
+<p data-line="36" class="code-line"><img src="RackMultipart20201025-4-14orxdn_html_2b63d31968aaf775.png" alt="" class="loading" id="image-hash-568552613"></p>
+<p data-line="38" class="code-line">—Try to make a flow chart the problem<br>
+ — Divide the problem into different modules or sub-problems<br>
+ — Try to make independent functions for each sub-problem<br>
+ — Connect those sub-problems by calling them in the required order, or as necessary (Probably one function would be calling another)</p>
+<a for="toc-anchor" id=""></a><h1 id="3" data-line="43" class="code-line"></h1>
+<a for="toc-anchor" id="4.-start-solving%2Fcoding%3A"></a><h1 id="4-start-solvingcoding-1" data-line="45" class="code-line">4. Start solving/coding:</h1>
+<p data-line="47" class="code-line">Now that you've analyzed the problem it's time to actually write the code. If you can't solve the problem fully at once, try writing code for a simpler sub part, as you solve the problem, gradually you keep figuring out the problem in more detail, and you start getting new ideas.</p>
+<p data-line="49" class="code-line"><strong>Just keep in mind 3 things, and you'll surely figure out the path</strong></p>
+<p data-line="51" class="code-line">— <img src="RackMultipart20201025-4-14orxdn_html_ceac7f0ca6949c9c.png" alt="" class="loading" id="image-hash-1164316570">The point where you started<br>
+ — Where are you right now?<br>
+ — What is your destination?</p>
+<a for="toc-anchor" id="5.-look-back-and-learn-more"></a><h1 id="5-look-back-and-learn-more-1" data-line="55" class="code-line">5. Look Back and Learn More</h1>
+<p data-line="57" class="code-line">Now, this is the most important part! Once you are done, look back whether the code can be improved, is there any other way to solve the given problem?</p>
+<p data-line="59" class="code-line"><u>Champions don't rest on their success!!</u></p>
+<p data-line="61" class="code-line"><strong>Here are some Considerations/ questions you should ask yourself:</strong></p>
+<p data-line="63" class="code-line">/*</p>
+<p data-line="65" class="code-line">1.) Look at what you're given (func parameters) and what you're being asked for (return or print)...</p>
+<pre data-line="67" class="code-line"><code>if return what type...
+
+if it is reference type what primatives or references does it contain?
+
+do we need to initialize empty variable at beginning of func? ...
+
+if problem says print...console.log(what are we printing?)
+</code></pre>
+<p data-line="75" class="code-line">1.5) Look at the test cases provided!!!</p>
+<pre data-line="77" class="code-line"><code> what are the arguments that correspond to each of the parameters in your function decleration and what is done to them to produce desired output?
+</code></pre>
+<p data-line="79" class="code-line">2.) Is our code conditional ?</p>
+<pre data-line="81" class="code-line"><code> (look for the key words if,either,both, in problem)
+</code></pre>
+<p data-line="83" class="code-line">2.5) If it is conditional....</p>
+<pre data-line="85" class="code-line"><code> how many possible test cases and what are they?...
+</code></pre>
+<p data-line="87" class="code-line">3.) Do we need to (loop) itterate?<br>
+<img src="cffee.png" alt="" class="loading" id="image-hash-84084853"><br>
+(are we going to need to iterate through a string or array?)</p>
+<pre data-line="91" class="code-line"><code> If we are looping is it through an entire string or object...
+
+ up to a counter?
+
+ if we are counting... what is start point? end point? increment?
+
+ looping conditionally?
+
+ &amp;#39;!!!!Are we asked to do a repetative task ?!!!
+</code></pre>
+<p data-line="101" class="code-line">4.) If we are looping...</p>
+<p data-line="103" class="code-line">do we need a variable to represent the current element?..(normally need this when itterat ing through a string or array)</p>
+<pre data-line="105" class="code-line"><code>Are we just looping to print through a range of numbers (perhaps on a condition?)..Are we  looping to compare the largest smallest value or take a cumulative sum(initial value zero  bc 0+anything=anything) or product (initial value is 1 bc 1\* anything=anything)
+</code></pre>
+<p data-line="107" class="code-line">5.) think about what needs to happen from input to output in the context of each array/string method you have learned...</p>
+<pre data-line="109" class="code-line"><code>are there any tricks that will make it easier? i.e. make a copy of array using .slice().
+</code></pre>
+<p data-line="111" class="code-line">instead of initializing an empty array up top.</p>
+<pre data-line="113" class="code-line"><code>What parameters do our methods take(GO TO MDN DONT BE LAZY)?
+
+What do our methods return?
+</code></pre>
+<p data-line="117" class="code-line">*/</p>
+<p data-line="119" class="code-line">//Advice: take your first test case argument and !!!comment what happens to it on !!every!! line of your code!!!!!</p>
+<p data-line="121" class="code-line">//once your code seems to be working double check every single test case!!!!!!!!!!!!!</p>
+<p data-line="123" class="code-line">--keywords</p>
+<p data-line="125" class="code-line">--start with const and change to let if you need to reassign</p>
+<a for="toc-anchor" id="summary-of-steps"></a><h1 id="summary-of-steps-1" data-line="127" class="code-line">Summary of Steps</h1>
+<ul>
+<li data-line="129" class="code-line">Analyze and understand the problem</li>
+<li data-line="130" class="code-line">Have a look at sample inputs and use cases</li>
+<li data-line="131" class="code-line">Break down the problem into smaller subparts, or functions, or modules</li>
+<li data-line="132" class="code-line">Start solving/coding</li>
+<li data-line="133" class="code-line">Once you are done, look back whether the code can be improved, is there any other way to solve the given problem,</li>
+</ul>
+
+</body></html>
