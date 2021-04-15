@@ -1,0 +1,152 @@
+
+####### .forEach() written as for-loop
+//when a .forEach() is called on an array, a callback function is invoked with the Item, 
+//where the Index is found, and a copy of the Array 
+
+// array being queried
+const myArr = ['Kobe', 'Jordan', 'Lebron', 'Magic'];
+
+//deconstructing a .forEach() function
+function myForEach(myArr, callback) {
+  for (let i = 0; i < myArr.length; i++) {
+    callback(myArr[i], i, myArr)
+  }
+}
+
+//These two are the same
+console.log(myArr.forEach(console.log));   //.forEach()
+console.log(myForEach(myArr, console.log));   //.myForEach()
+
+#######  .map() written as for-loop
+//deconstructing a .map() function
+
+// array being queried
+const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern State College","email":"ctorry0@macromedia.com"},
+{"id":2,"first_name":"Saundra","university":"The School of the Art Institute of Chicago","email":"swhal1@state.gov"},
+{"id":3,"first_name":"Lambert","university":"Marian College","email":"lparham2@techcrunch.com"},
+{"id":4,"first_name":"Modestine","university":"International Medical & Technological University","email":"mdolder3@symantec.com"}]
+
+
+function cb(element, index, array) {
+  return element.university;            // callback function that maps over objects and grabs the university property
+}
+
+function grabUniversity(arr, callback) {
+let universities = [];
+for (i = 0; i < arr.length; i++) {
+  const returnFromCallback = callback(arr[i], i, arr);
+  universities.push(returnFromCallback);
+}
+return universities;                              //returns new array
+}
+
+console.log(grabUniversity(graduates, cb));           // all universities
+console.log(grabUniversity(graduates, cb).sort());    // all universities sorted
+
+
+
+******* .map() returns a new array, while .forEach() does not
+
+
+########  .filter() written as for-loop
+
+//deconstructing a .filter() function in ES6 way; return all items where index is > 1
+
+function cb(element, index, array) {
+  // return 'Hello ' + WHAT + ' I am located at index: ' + WHERE;
+  if(element.university.includes('Uni')){
+    return element.university;
+  } else {
+    return null;
+  }
+}
+
+function grabUniversity(arr, callback) {
+let universities = [];
+for (i = 0; i < arr.length; i++) {
+  const returnFromCallback = callback(arr[i], i, arr);
+  universities.push(returnFromCallback);
+}
+return universities;
+}
+
+console.log(grabUniversity(graduates, cb))
+
+
+******TAKE AWAY, BOTH .map() and .filter() generate and return new arrays, 
+*****while .forEach() just creates a for-loop on the same array
+
+
+########  .reduce() written as a for-loop
+// deconstructing .reduce()
+
+let numArray = [0, 11, 23, 33, 45];
+
+function myReduce(arr) {
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    counter += arr[i];
+    console.log(counter, arr[i], i, arr);     //optional parameters in a .reduce function SEE BELOW
+  }
+  return counter;
+}
+
+myReduce(numArray);
+
+
+///// how .reduce() works  (parameters: accumulator (counter), currentValue (arr[i]), currentIndex (i), array (arr))
+
+[0, 11, 23, 33, 45].reduce(function(accumulator, currentValue, currentIndex, array) {
+  console.log(accumulator, currentValue, currentIndex, array);
+  return accumulator + currentValue;
+});
+
+// TAKE-AWAY: Reduce doesn't return a new array, it returns the sum of all the values inside the array (optional, can return old array)
+
+
+##################  .sort() written as for-loop(s)
+// Bubble Sort
+
+// sample array
+let months = ['March', 'Jan', 'Feb', 'Dec','APRIL', 1, 30, 4, 21, 'oct', 'topps', 23, 'fleer',45, 'panini'];
+
+// function to separate out numbers from strings
+function takeOutNumber(arr){
+  let newArr = arr.filter(Number);
+  return newArr;
+}
+
+// Bubble Sort
+function myOwnBubbleSort(arr) {
+
+  let numSwapped;
+
+//outer for-loop, iterate through array
+  for (let i = 0; i < arr.length - 1; i++) {
+    numSwapped = false;  //default setting
+    
+    
+    for (let j = 0; j < arr.length - 1; j++) {
+      if(arr[j] > arr[j+1]) {
+        numSwapped = true;
+        
+
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        
+      }
+    } // inner loop
+
+    if(!numSwapped) {
+      return arr;
+    }
+  }   //outer loop
+
+  return arr;
+}
+
+
+takeOutNumber(months);
+
+myOwnBubbleSort(months)
