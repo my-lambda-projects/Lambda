@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Calculates the date after adding the given number of business days.</p>
+<ul>
+<li>Use <code>Array.from()</code> to construct an array with <code>length</code> equal to the <code>count</code> of business days to be added.</li>
+<li>Use <code>Array.prototype.reduce()</code> to iterate over the array, starting from <code>startDate</code> and incrementing, using <code>Date.prototype.getDate()</code> and <code>Date.prototype.setDate()</code>.</li>
+<li>If the current <code>date</code> is on a weekend, update it again by adding either one day or two days to make it a weekday.</li>
+<li><strong>NOTE:</strong> Does not take official holidays into account.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> addWeekDays <span class="op">=</span> (startDate<span class="op">,</span> count) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">Array</span>.<span class="at">from</span>(<span class="op">{</span> <span class="dt">length</span><span class="op">:</span> count <span class="op">}</span>).<span class="at">reduce</span>(date <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    date <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>(<span class="va">date</span>.<span class="at">setDate</span>(<span class="va">date</span>.<span class="at">getDate</span>() <span class="op">+</span> <span class="dv">1</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">if</span> (<span class="va">date</span>.<span class="at">getDay</span>() <span class="op">%</span> <span class="dv">6</span> <span class="op">===</span> <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5">      date <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>(<span class="va">date</span>.<span class="at">setDate</span>(<span class="va">date</span>.<span class="at">getDate</span>() <span class="op">+</span> (<span class="va">date</span>.<span class="at">getDay</span>() / <span class="dv">6</span> <span class="op">+</span> <span class="dv">1</span>)))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="cf">return</span> date<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="op">},</span> startDate)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">addWeekDays</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="st">&#39;Oct 09, 2020&#39;</span>)<span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// &#39;Oct 16, 2020&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">addWeekDays</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="st">&#39;Oct 12, 2020&#39;</span>)<span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// &#39;Oct 19, 2020&#39;</span></a></code></pre></div>
+</body></html>
