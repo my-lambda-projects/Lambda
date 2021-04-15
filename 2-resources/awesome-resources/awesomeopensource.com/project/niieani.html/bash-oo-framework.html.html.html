@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":159,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Bash Oo Framework</title>
+<meta name="description" content="Bash Infinity is a modern boilerplate / framework / standard library for bash">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/niieani/bash-oo-framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "niieani/bash-oo-framework",
+  "description": "Bash Infinity is a modern boilerplate / framework / standard library for bash",
+  "url": "https://awesomeopensource.com/project/niieani/bash-oo-framework",
+  "sku": "project/niieani/bash-oo-framework",
+  "mpn": "project/niieani/bash-oo-framework",
+  "image": "https://github.com/niieani.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "niieani/bash-oo-framework",
+    "logo": "https://github.com/niieani.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "5090"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="rMBBNgEkmuUd1GjnY920tFesU0ts+kq2bkSsxp3cnosUNI+dFY+PD401K5kMBOUzhAV5ws4vVreVN4Of/2kYWA==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/niieani/bash-oo-framework","location":"/project/niieani/bash-oo-framework","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/niieani/bash-oo-framework","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-41430ec9-da27-454a-bdd1-2e387a155807"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Bash <!-- -->Oo <!-- -->Framework</div><div class="aos_project_metadata_description">Bash Infinity is a modern boilerplate / framework / standard library for bash</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">5,090</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="https://invent.life/project/bash-infinity-framework" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://invent.life/project/bash-infinity-framework" target="_blank">https://invent.life/project/bash-infinity-framework</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/niieani/bash-oo-framework" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/niieani/bash-oo-framework" target="_blank">https://github.com/niieani/bash-oo-framework</a></span><div class="aos_project_metadata_header"><a href="https://github.com/niieani/bash-oo-framework/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/niieani/bash-oo-framework/issues" target="_blank">37</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">5 months ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/shell"><div style="display:block;text-decoration:none;padding-bottom:10px">shell<span> (<!-- -->9,677<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/framework"><div style="display:block;text-decoration:none;padding-bottom:10px">framework<span> (<!-- -->1,047<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/testing"><div style="display:block;text-decoration:none;padding-bottom:10px">testing<span> (<!-- -->909<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/boilerplate"><div style="display:block;text-decoration:none;padding-bottom:10px">boilerplate<span> (<!-- -->590<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/bash"><div style="display:block;text-decoration:none;padding-bottom:10px">bash<span> (<!-- -->589<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/functional-programming"><div style="display:block;text-decoration:none;padding-bottom:10px">functional-programming<span> (<!-- -->457<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/logging"><div style="display:block;text-decoration:none;padding-bottom:10px">logging<span> (<!-- -->380<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/error-handling"><div style="display:block;text-decoration:none;padding-bottom:10px">error-handling<span> (<!-- -->93<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/oop"><div style="display:block;text-decoration:none;padding-bottom:10px">oop<span> (<!-- -->67<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/standard-library"><div style="display:block;text-decoration:none;padding-bottom:10px">standard-library<span> (<!-- -->15<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="bash-infinity" class="anchor" href="#bash-infinity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bash Infinity</h1>
+<p><a href="https://travis-ci.com/niieani/bash-oo-framework" rel="nofollow"><img src="https://travis-ci.com/niieani/bash-oo-framework.svg?branch=master" alt="Build Status" style="max-width:100%;"></a>
+<a href="https://cirrus-ci.com/github/niieani/bash-oo-framework" rel="nofollow"><img src="https://api.cirrus-ci.com/github/niieani/bash-oo-framework.svg" alt="Build Status" style="max-width:100%;"></a>
+<a href="https://gitter.im/niieani/bash-oo-framework?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img src="https://badges.gitter.im/niieani/bash-oo-framework.svg" alt="Join the chat at https://gitter.im/niieani/bash-oo-framework" style="max-width:100%;"></a></p>
+<p>Bash Infinity is a standard library and a boilerplate framework for writing tools using <strong>bash</strong>.
+It's modular and lightweight, while managing to implement some concepts from C#, Java or JavaScript into bash.
+The Infinity Framework is also plug &amp; play: include it at the beginning of your existing script to import any of the individual features such as error handling, and start using other features gradually.</p>
+<p>The aim of Bash Infinity is to maximize readability of bash scripts, minimize the amount of code repeat and create a central repository for well-written, and a well-tested standard library for bash.</p>
+<p>Bash Infinity transforms the often obfuscated "bash syntax" to a cleaner, more modern syntax.</p>
+<h1>
+<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disclaimer</h1>
+<p>Some components are more sturdy than others, and as-it-stands the framework lacks good test coverage (we need your help!).</p>
+<p>Due to the above and relatively high code-complexity, we have decided that it will make the most sense to do a rewrite for the next major version 3.0 (see discussion in #45), taking the best parts of the framework, while re-using established tools from bash community.</p>
+<p>At this point, I would <strong>not recommend starting major projects</strong> based on the whole framework. Instead, copy and paste parts you need, ideally those you understand, if you found a particular feature useful.</p>
+<h1>
+<a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility</h1>
+<p>Not all of the modules work with earlier versions of bash, as I test with <strong>bash 4</strong>. However, it should be possible (and relatively easy) to <a href="#porting-to-bash-3">port non-working parts</a> to earlier versions.</p>
+<h1>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick-start</h1>
+<p>Single-file release and dynamic loading is not available for v2.0 yet. To load the framework locally, <a href="#how-to-use">read on</a>.</p>
+<h1>
+<a id="main-modules" class="anchor" href="#main-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Main modules</h1>
+<ul>
+<li>automatic error handling with exceptions and visual stack traces (<code>util/exception</code>)</li>
+<li>named parameters in functions (instead of $1, $2...) (<code>util/namedParameters</code>)</li>
+<li>passing arrays and maps as parameters (<code>util/variable</code>)</li>
+<li>
+<strong>try-catch</strong> implementation (<code>util/tryCatch</code>)</li>
+<li>throwing custom <strong>exceptions</strong> (<code>util/exception</code>)</li>
+<li>
+<strong>import</strong> keyword for clever sourcing of scripts à la <em>require-js</em> (<code>oo-bootstrap</code>)</li>
+<li>handy aliases for <strong>colors</strong> and <strong>powerline</strong> characters to increase readability in the output of your scripts (<code>UI/Color</code>)</li>
+<li>well-formatted, colorful <strong>logging</strong> to <em>stderr</em> or custom delegate functions (<code>util/log</code>)</li>
+<li>
+<strong>unit test</strong> library (<code>util/test</code>)</li>
+<li>standard library for the type system with plenty of useful functions (<code>util/type</code>)</li>
+<li>operational chains for <strong>functional programming</strong> in bash (<code>util/type</code>)</li>
+<li>
+<strong>type system</strong> for object-oriented scripting (<code>util/class</code>)</li>
+</ul>
+<p>All of the features are modular and it's easy to only import the ones you'd like to use, without importing the rest of the framework. For example, the named parameters or the try-catch modules are self-contained in individual files.</p>
+<h1>
+<a id="error-handling-with-exceptions-and-throw" class="anchor" href="#error-handling-with-exceptions-and-throw" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Error handling with exceptions and <code>throw</code>
+</h1>
+<pre><code>import util/exception
+</code></pre>
+<p>One of the highlight features is error handling that should work out of the box. If the script generates an error it will break and display a call stack:</p>
+<p><a href="https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/exception.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/exception.png" alt="example call stack" title="Example Call Stack" style="max-width:100%;"></a></p>
+<p>You may also force an error by <code>throw</code>ing your own Exception:</p>
+<pre lang="bash" class="highlight-bash"><span class="nv">e</span><span class="o">=</span><span class="s2">"The hard disk is not connected properly!"</span> throw
+</pre>
+<p>It's useful for debugging, as you'll also get the call stack if you're not sure where the call is coming from.</p>
+<p><strong>Exceptions</strong> combined with <em>try &amp; catch</em> give you safety without having to run with <strong>-o errexit</strong>.</p>
+<p>If you do something wrong, you'll get a detailed exception backtrace, highlighting the command where it went wrong in the line from the source. The script execution will be halted with the option to continue or break.
+On the other hand if you expect a part of block to fail, you can wrap it in a <code>try</code> block, and handle the error inside a <code>catch</code> block.</p>
+<h1>
+<a id="named-parameters-in-functions" class="anchor" href="#named-parameters-in-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Named parameters in functions</h1>
+<pre><code>import util/namedParameters
+</code></pre>
+<p>In any programing language, it makes sense to use meaningful names for variables for greater readability.
+In case of Bash, that means avoiding using positional arguments in functions.
+Instead of using the unhelpful <code>$1</code>, <code>$2</code> and so on within functions to access the passed in values, you may write:</p>
+<pre lang="bash" class="highlight-bash">testPassingParams<span class="o">()</span> <span class="o">{</span>
+
+    <span class="o">[</span>string] hello
+    <span class="o">[</span>string[4]] anArrayWithFourElements
+    <span class="nv">l</span><span class="o">=</span>2 <span class="o">[</span>string[]] anotherArrayWithTwo
+    <span class="o">[</span>string] anotherSingle
+    <span class="o">[</span>reference] table   <span class="c"># references only work in bash &gt;=4.3</span>
+    <span class="o">[</span>...rest] anArrayOfVariedSize
+
+    <span class="nb">test</span> <span class="s2">"</span><span class="nv">$hello</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="c">#</span>
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">anArrayWithFourElements</span><span class="p">[0]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">anArrayWithFourElements</span><span class="p">[1]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$3</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">anArrayWithFourElements</span><span class="p">[2]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$4</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="c"># etc...</span>
+    <span class="c">#</span>
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">anotherArrayWithTwo</span><span class="p">[0]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$6</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">anotherArrayWithTwo</span><span class="p">[1]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$7</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="c">#</span>
+    <span class="nb">test</span> <span class="s2">"</span><span class="nv">$anotherSingle</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$8</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+    <span class="c">#</span>
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">table</span><span class="p">[test]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"works"</span>
+    table[inside]<span class="o">=</span><span class="s2">"adding a new value"</span>
+    <span class="c">#</span>
+    <span class="c"># I'm using * just in this example:</span>
+    <span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">anArrayOfVariedSize</span><span class="p">[*]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"</span><span class="k">${</span><span class="p">*</span>:10<span class="k">}</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>correct
+<span class="o">}</span>
+
+<span class="nv">fourElements</span><span class="o">=(</span> a1 a2 <span class="s2">"a3 with spaces"</span> a4 <span class="o">)</span>
+<span class="nv">twoElements</span><span class="o">=(</span> b1 b2 <span class="o">)</span>
+
+<span class="nb">declare</span> <span class="nt">-A</span> assocArray
+assocArray[test]<span class="o">=</span><span class="s2">"works"</span>
+
+testPassingParams <span class="s2">"first"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">fourElements</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">twoElements</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span> <span class="s2">"single with spaces"</span> assocArray <span class="s2">"and more... "</span> <span class="s2">"even more..."</span>
+
+<span class="nb">test</span> <span class="s2">"</span><span class="k">${</span><span class="nv">assocArray</span><span class="p">[inside]</span><span class="k">}</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"adding a new value"</span>
+</pre>
+<p>The system will automatically assign:</p>
+<ul>
+<li>
+<strong>$1</strong> to <strong>$hello</strong>
+</li>
+<li>
+<strong>$anArrayWithFourElements</strong> will be an array of params with values from $2 till $5</li>
+<li>
+<strong>$anotherArrayWithTwo</strong> will be an array of params with values from $6 till $7</li>
+<li>
+<strong>$8</strong> to <strong>$anotherSingle</strong>
+</li>
+<li>
+<strong>$table</strong> will be a reference to the variable whose name was passed in as the 9th parameter</li>
+<li>
+<strong>$anArrayOfVariedSize</strong> will be a bash array containing all the following params (from $10 on)</li>
+</ul>
+<p>In other words, not only you can call your parameters by their names (which makes up for a more readable core), you can actually pass arrays easily (and references to variables - this feature needs bash &gt;=4.3 though)! Plus, the mapped variables are all in the local scope.
+This module is pretty light and works in bash 3 and bash 4 (except for references - bash &gt;=4.3) and if you only want to use it separately from this project, get the file /lib/system/02_named_parameters.sh.</p>
+<p>Note: For lengths between 2-10 there are aliases for arrays, such as <code>[string[4]]</code>, if you need anything more, you need to use the syntax <code>l=LENGTH [string[]]</code>, like shown in the above example. Or, make your own aliases :).</p>
+<h1>
+<a id="using-import" class="anchor" href="#using-import" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using <code>import</code>
+</h1>
+<p>After bootstrapping, you may use <code>import</code> to load either the library files or your own files.
+The command will ensure they're only loaded once. You may either use a relative path from the file you're importing, a path relative to the file that first included the framework, or an absolute path. <code>.sh</code> suffix is optional.
+You can also load all the files inside of a directory by simply including the path to that directory instead of the file.</p>
+<h1>
+<a id="using-try--catch" class="anchor" href="#using-try--catch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using <code>try &amp; catch</code>
+</h1>
+<pre lang="bash" class="highlight-bash">import util/tryCatch
+import util/exception <span class="c"># needed only for Exception::PrintException</span>
+</pre>
+<p>Sample usage:</p>
+<pre lang="bash" class="highlight-bash">try <span class="o">{</span>
+    <span class="c"># something...</span>
+    <span class="nb">cp</span> ~/test ~/test2
+    <span class="c"># something more...</span>
+<span class="o">}</span> catch <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"The hard disk is not connected properly!"</span>
+    <span class="nb">echo</span> <span class="s2">"Caught Exception:</span><span class="k">$(</span>UI.Color.Red<span class="k">)</span><span class="s2"> </span><span class="nv">$__BACKTRACE_COMMAND__</span><span class="s2"> </span><span class="k">$(</span>UI.Color.Default<span class="k">)</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="s2">"File: </span><span class="nv">$__BACKTRACE_SOURCE__</span><span class="s2">, Line: </span><span class="nv">$__BACKTRACE_LINE__</span><span class="s2">"</span>
+
+    <span class="c">## printing a caught exception couldn't be simpler, as it's stored in "${__EXCEPTION__[@]}"</span>
+    Exception::PrintException <span class="s2">"</span><span class="k">${</span><span class="nv">__EXCEPTION__</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span>
+<span class="o">}</span>
+</pre>
+<p>If any command fails (i.e. returns anything else than 0) in the <code>try</code> block, the system will automatically start executing the <code>catch</code> block.
+Braces are optional for the <code>try</code> block, but required for <code>catch</code> if it's multiline.</p>
+<p>Note: <code>try</code> is executed in a subshell, therefore you cannot assign any variables inside of it.</p>
+<h1>
+<a id="using-basic-logging-colors-and-powerline-emoji" class="anchor" href="#using-basic-logging-colors-and-powerline-emoji" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using Basic Logging, Colors and Powerline Emoji</h1>
+<pre><code>import util/log
+</code></pre>
+<pre lang="bash" class="highlight-bash"><span class="c"># using colors:</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>UI.Color.Blue<span class="k">)</span><span class="s2">I'm blue...</span><span class="k">$(</span>UI.Color.Default<span class="k">)</span><span class="s2">"</span>
+
+<span class="c"># enable basic logging for this file by declaring a namespace</span>
+namespace myApp
+<span class="c"># make the Log method direct everything in the namespace 'myApp' to the log handler called DEBUG</span>
+Log::AddOutput myApp DEBUG
+
+<span class="c"># now we can write with the DEBUG output set</span>
+Log <span class="s2">"Play me some Jazz, will ya? </span><span class="k">$(</span>UI.Powerline.Saxophone<span class="k">)</span><span class="s2">"</span>
+
+<span class="c"># redirect error messages to STDERR</span>
+Log::AddOutput error STDERR
+<span class="nv">subject</span><span class="o">=</span>error Log <span class="s2">"Something bad happened."</span>
+
+<span class="c"># reset outputs</span>
+Log::ResetAllOutputsAndFilters
+
+<span class="c"># You may also hardcode the use for the StdErr output directly:</span>
+Console::WriteStdErr <span class="s2">"This will be printed to STDERR, no matter what."</span>
+</pre>
+<p>Both the colors and the Powerline characters fallback gracefully on systems that don't support them.
+To see Powerline icons, you'll need to use a powerline-patched font.</p>
+<p>For the list of available colors and emoji's take a look into <a href="https://github.com/niieani/bash-oo-framework/blob/master/lib/UI/Color.sh" rel="nofollow">lib/UI/Color.sh</a>.
+Fork and contribute more!</p>
+<p>See <a href="#advanced-logging">Advanced Logging</a> below to learn more about advanced logging capabilities.</p>
+<h1>
+<a id="passing-arrays-maps-and-objects-as-parameters" class="anchor" href="#passing-arrays-maps-and-objects-as-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passing arrays, maps and objects as parameters</h1>
+<pre><code>import util/variable
+</code></pre>
+<p>The Variable utility offers lossless dumping of arrays and associative array (referred here to as <code>maps</code>) declarations by the use of the <code>@get</code> command.</p>
+<p>Combined with the <code>util/namedParameters</code> module, you can pass in either as individual parameters.</p>
+<p>A more readable way of specifying the will to pass a variable by it's declaration is to simply refer to the variable as <code>$var:yourVariableName</code>.</p>
+<p>In bash &gt;=4.3, which supports references, you may pass by reference. This way any changes done to the variable within the function will affect the variable itself. To pass a variable by reference, use the syntax: <code>$ref:yourVariableName</code>.</p>
+<pre lang="bash" class="highlight-bash">array <span class="nv">someArray</span><span class="o">=(</span> <span class="s1">'one'</span> <span class="s1">'two'</span> <span class="o">)</span>
+<span class="c"># the above is an equivalent of: declare -a someArray=( 'one' 'two' )</span>
+<span class="c"># except this one creates a $var:someArray method handler</span>
+
+passingArraysInput<span class="o">()</span> <span class="o">{</span>
+  <span class="o">[</span>array] passedInArray
+
+  <span class="c"># chained usage, see below for more details:</span>
+  <span class="nv">$var</span>:passedInArray : <span class="se">\</span>
+    <span class="o">{</span> map <span class="s1">'echo "${index} - $(var: item)"'</span> <span class="o">}</span> <span class="se">\</span>
+    <span class="o">{</span> forEach <span class="s1">'var: item toUpper'</span> <span class="o">}</span>
+
+  <span class="nv">$var</span>:passedInArray push <span class="s1">'will work only for references'</span>
+<span class="o">}</span>
+
+<span class="nb">echo</span> <span class="s1">'passing by $var:'</span>
+
+<span class="c">## 2 ways of passing a copy of an array (passing by it's definition)</span>
+passingArraysInput <span class="s2">"</span><span class="k">$(</span>@get someArray<span class="k">)</span><span class="s2">"</span>
+passingArraysInput <span class="nv">$var</span>:someArray
+
+<span class="c">## no changes yet</span>
+<span class="nv">$var</span>:someArray toJSON
+
+<span class="nb">echo
+echo</span> <span class="s1">'passing by $ref:'</span>
+
+<span class="c">## in bash &gt;=4.3, which supports references, you may pass by reference</span>
+<span class="c">## this way any changes done to the variable within the function will affect the variable itself</span>
+passingArraysInput <span class="nv">$ref</span>:someArray
+
+<span class="c">## should show changes</span>
+<span class="nv">$var</span>:someArray toJSON
+</pre>
+<h1>
+<a id="standard-library" class="anchor" href="#standard-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Standard Library</h1>
+<pre><code>import util/type
+</code></pre>
+<p>The framework offers a standard library for the primitive types, such as string or array manipulations to make common tasks simpler and more readable.</p>
+<p>There are three ways to make use of the standard library.</p>
+<h3>
+<a id="1-create-variables-by-their-handle-creating-declaration" class="anchor" href="#1-create-variables-by-their-handle-creating-declaration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Create variables by their handle-creating declaration</h3>
+<p>If you create your variables using the oo-framework's handle-creating declarations, you can execute methods of the standard library by referring to your variable as: <code>$var:yourVariable someMethod someParameter</code>.</p>
+<p>Available handle-creating declarations:</p>
+<ul>
+<li>string</li>
+<li>integer</li>
+<li>array</li>
+<li>map</li>
+<li>boolean</li>
+</ul>
+<p>Since bash doesn't support boolean variables natively, the boolean variable is a special case that always needs to be declared and modified using the handle-creating declaration.</p>
+<p>Example:</p>
+<pre lang="bash" class="highlight-bash"><span class="c"># create a string someString</span>
+string <span class="nv">someString</span><span class="o">=</span><span class="s2">"My 123 Joe is 99 Mark"</span>
+
+<span class="c"># saves all matches and their match groups for the said regex:</span>
+array <span class="nv">matchGroups</span><span class="o">=</span><span class="k">$(</span><span class="nv">$var</span>:someString getMatchGroups <span class="s1">'([0-9]+) [a-zA-Z]+'</span><span class="k">)</span>
+
+<span class="c"># lists all matches in group 1:</span>
+<span class="nv">$var</span>:matchGroups every 2 1
+
+<span class="c">## group 0, match 1</span>
+<span class="nv">$var</span>:someString match <span class="s1">'([0-9]+) [a-zA-Z]+'</span> 0 1
+
+<span class="c"># calls the getter - here it prints the value</span>
+<span class="nv">$var</span>:someString
+</pre>
+<h3>
+<a id="2-invoke-the-methods-with-var" class="anchor" href="#2-invoke-the-methods-with-var" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Invoke the methods with <code>var:</code>
+</h3>
+<p>If you didn't create your variables with their handles, you can also use the method <code>var:</code> to access them.</p>
+<p>Example:</p>
+<pre lang="bash" class="highlight-bash"><span class="c"># create a string someString</span>
+<span class="nb">declare </span><span class="nv">someString</span><span class="o">=</span><span class="s2">"My 123 Joe is 99 Mark"</span>
+
+<span class="c"># saves all matches and their match groups for the said regex:</span>
+<span class="nb">declare</span> <span class="nt">-a</span> <span class="nv">matchGroups</span><span class="o">=</span><span class="k">$(</span>var: someString getMatchGroups <span class="s1">'([0-9]+) [a-zA-Z]+'</span><span class="k">)</span>
+
+<span class="c"># lists all matches in group 1:</span>
+var: matchGroups every 2 1
+
+<span class="c">## group 0, match 1</span>
+var: someString match <span class="s1">'([0-9]+) [a-zA-Z]+'</span> 0 1
+
+<span class="c"># calls the getter - here it prints the value</span>
+var: someString
+</pre>
+<h3>
+<a id="3-pipe-the-variable-declaration-directly-to-the-method" class="anchor" href="#3-pipe-the-variable-declaration-directly-to-the-method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Pipe the variable declaration directly to the method</h3>
+<p>Finally, you can also pipe the variable declarations to the methods you wish to invoke.</p>
+<p>Example:</p>
+<pre lang="bash" class="highlight-bash"><span class="c"># create a string someString</span>
+<span class="nb">declare </span><span class="nv">someString</span><span class="o">=</span><span class="s2">"My 123 Joe is 99 Mark"</span>
+
+<span class="c"># saves all matches and their match groups for the said regex:</span>
+<span class="nb">declare</span> <span class="nt">-a</span> <span class="nv">matchGroups</span><span class="o">=</span><span class="k">$(</span>@get someString | string.getMatchGroups <span class="s1">'([0-9]+) [a-zA-Z]+'</span><span class="k">)</span>
+
+<span class="c"># lists all matches in group 1:</span>
+@get matchGroups | array.every 2 1
+
+<span class="c">## group 0, match 1</span>
+@get someString | string.match <span class="s1">'([0-9]+) [a-zA-Z]+'</span> 0 1
+
+<span class="c"># prints the value</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$someString</span><span class="s2">"</span>
+</pre>
+<h2>
+<a id="adding-to-the-standard-library" class="anchor" href="#adding-to-the-standard-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding to the Standard Library</h2>
+<p>You can add your own, custom methods to the Standard Library by declaring them like:</p>
+<pre lang="bash" class="highlight-bash">string.makeCool<span class="o">()</span> <span class="o">{</span>
+  @resolve:this <span class="c">## this is required is you want to make use of the pipe passing</span>
+  <span class="nb">local </span><span class="nv">outValue</span><span class="o">=</span><span class="s2">"cool value: </span><span class="nv">$this</span><span class="s2">"</span>
+  @return outValue
+<span class="o">}</span>
+
+string <span class="nv">someString</span><span class="o">=</span><span class="s2">"nice"</span>
+<span class="nv">$var</span>:someString makeCool
+<span class="c"># prints "cool value: nice"</span>
+</pre>
+<p>See more info on writing classes below.</p>
+<h1>
+<a id="functionaloperational-chains-with-the-standard-library-and-custom-classes" class="anchor" href="#functionaloperational-chains-with-the-standard-library-and-custom-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functional/operational chains with the Standard Library and custom classes</h1>
+<pre><code>import util/type
+</code></pre>
+<p>The type system in Bash Infinity allows you to chain methods together in a similar fashion one might pipe the output from one command to the other, or chain methods in C#, Java or JavaScript (think JQuery's pseudo-monad style).</p>
+<pre lang="bash" class="highlight-bash"><span class="nb">declare</span> <span class="nt">-a</span> <span class="nv">someArray</span><span class="o">=(</span> <span class="s1">'one'</span> <span class="s1">'two'</span> <span class="o">)</span>
+
+var: someArray : <span class="se">\</span>
+  <span class="o">{</span> map <span class="s1">'echo "${index} - $(var: item)"'</span> <span class="o">}</span> <span class="se">\</span>
+  <span class="o">{</span> forEach <span class="s1">'var: item toUpper'</span> <span class="o">}</span>
+
+<span class="c"># above command will result in a definition of an array:</span>
+<span class="c"># ( '0 - ONE' '1 - TWO' )</span>
+</pre>
+<p>Methods available in the next chain depend on the return type of the previously executed method.</p>
+<h1>
+<a id="writing-your-own-classes" class="anchor" href="#writing-your-own-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing your own classes</h1>
+<p>It's really simple and straight-forward, like with most modern languages.</p>
+<p>Keywords for definition:</p>
+<ul>
+<li>
+<strong>class:YourName()</strong> - defining a class</li>
+</ul>
+<p>Keywords to use inside of the class definition:</p>
+<ul>
+<li>
+<strong>method ClassName.FunctionName()</strong> - Use for defining methods that have access to <em>$this</em>
+</li>
+<li>
+<strong>public SomeType yourProperty</strong> - define public properties (works in all types of classes)</li>
+<li>
+<strong>private SomeType _yourProperty</strong> - as above, but accessible only for internal methods</li>
+<li>
+<strong>$this</strong> - This variable is available inside the methods, used to refer to the current type</li>
+<li>
+<strong>this</strong> - Alias of $var:this, used to invoke methods or get properties of an object</li>
+<li>NOT YET IMPLEMENTED: <strong>extends SomeClass</strong> - inherit from a base class</li>
+</ul>
+<p>After a class has been defined, you need to invoke <code>Type::Initialize NameOfYourType</code> or <code>Type::InitializeStatic NameOfYourStaticType</code> if you want to make your class a singleton.</p>
+<p>Here's an example that shows how to define your own classes:</p>
+<pre lang="bash" class="highlight-bash">import util/namedParameters util/class
+
+class:Human<span class="o">()</span> <span class="o">{</span>
+  public string name
+  public integer height
+  public array eaten
+
+  Human.__getter__<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"I'm a human called </span><span class="k">$(</span>this name<span class="k">)</span><span class="s2">, </span><span class="k">$(</span>this height<span class="k">)</span><span class="s2"> cm tall."</span>
+  <span class="o">}</span>
+
+  Human.Example<span class="o">()</span> <span class="o">{</span>
+    <span class="o">[</span>array]     someArray
+    <span class="o">[</span>integer]   someNumber
+    <span class="o">[</span>...rest]   arrayOfOtherParams
+
+    <span class="nb">echo</span> <span class="s2">"Testing </span><span class="k">$(</span>var: someArray toString<span class="k">)</span><span class="s2"> and </span><span class="nv">$someNumber</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="s2">"Stuff: </span><span class="k">${</span><span class="nv">arrayOfOtherParams</span><span class="p">[*]</span><span class="k">}</span><span class="s2">"</span>
+
+    <span class="c"># returning the first passed in array</span>
+    @return someArray
+  <span class="o">}</span>
+
+  Human.Eat<span class="o">()</span> <span class="o">{</span>
+    <span class="o">[</span>string] food
+
+    this eaten push <span class="s2">"</span><span class="nv">$food</span><span class="s2">"</span>
+
+    <span class="c"># will return a string with the value:</span>
+    @return:value <span class="s2">"</span><span class="k">$(</span>this name<span class="k">)</span><span class="s2"> just ate </span><span class="nv">$food</span><span class="s2">, which is the same as </span><span class="nv">$1</span><span class="s2">"</span>
+  <span class="o">}</span>
+
+  Human.WhatDidHeEat<span class="o">()</span> <span class="o">{</span>
+    this eaten toString
+  <span class="o">}</span>
+
+  <span class="c"># this is a static method, hence the :: in definition</span>
+  Human::PlaySomeJazz<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>UI.Powerline.Saxophone<span class="k">)</span><span class="s2">"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c"># required to initialize the class</span>
+Type::Initialize Human
+
+class:SingletonExample<span class="o">()</span> <span class="o">{</span>
+  private integer YoMamaNumber <span class="o">=</span> 150
+
+  SingletonExample.PrintYoMama<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"Number is: </span><span class="k">$(</span>this YoMamaNumber<span class="k">)</span><span class="s2">!"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c"># required to initialize the static class</span>
+Type::InitializeStatic SingletonExample
+</pre>
+<p>Now you can use both the <code>Human</code> and the <code>SingletonExample</code> classes:</p>
+<pre lang="bash" class="highlight-bash"><span class="c"># create an object called 'Mark' of type Human</span>
+Human Mark
+
+<span class="c"># call the string.= (setter) method</span>
+<span class="nv">$var</span>:Mark name <span class="o">=</span> <span class="s1">'Mark'</span>
+
+<span class="c"># call the integer.= (setter) method</span>
+<span class="nv">$var</span>:Mark height <span class="o">=</span> 180
+
+<span class="c"># adds 'corn' to the Mark.eaten array and echoes the output</span>
+<span class="nv">$var</span>:Mark Eat <span class="s1">'corn'</span>
+
+<span class="c"># adds 'blueberries' to the Mark.eaten array and echoes the uppercased output</span>
+<span class="nv">$var</span>:Mark : <span class="o">{</span> Eat <span class="s1">'blueberries'</span> <span class="o">}</span> <span class="o">{</span> toUpper <span class="o">}</span>
+
+<span class="c"># invoke the getter</span>
+<span class="nv">$var</span>:Mark
+
+<span class="c"># invoke the method on the static instance of SingletonExample</span>
+SingletonExample PrintYoMama
+</pre>
+<h1>
+<a id="writing-unit-tests" class="anchor" href="#writing-unit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing Unit Tests</h1>
+<pre><code>import util/test
+</code></pre>
+<p><a href="https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/unit.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/unit.png" alt="unit tests" title="Unit tests for the framework itself" style="max-width:100%;"></a></p>
+<p>Similarly to <a href="https://github.com/sstephenson/bats" rel="nofollow">Bats</a>, you can use the unit test module to test Bash scripts or any UNIX program.
+Test cases consist of standard shell commands. Like Bats, Infinity Framework uses Bash's errexit (set -e) option when running test cases. Each test is run in a subshell, and is independent from one another. To quote from Bats:</p>
+<blockquote>
+<p>If every command in the test case exits with a 0 status code (success), the test passes. In this way, each line is an assertion of truth.</p>
+</blockquote>
+<p>If you need to do more advanced testing, or need to be able to run your tests on shells other than bash 4, I'd still recommend Bats.</p>
+<p>Example usage:</p>
+<pre lang="bash" class="highlight-bash">it <span class="s1">'should make a number and change its value'</span>
+try
+    integer <span class="nv">aNumber</span><span class="o">=</span>10
+    aNumber <span class="o">=</span> 12
+    <span class="nb">test</span> <span class="o">((</span><span class="nv">$aNumber</span> <span class="o">==</span> 12<span class="o">))</span>
+expectPass
+
+it <span class="s2">"should make basic operations on two arrays"</span>
+try
+    array Letters
+    array Letters2
+
+    <span class="nv">$var</span>:Letters push <span class="s2">"Hello Bobby"</span>
+    <span class="nv">$var</span>:Letters push <span class="s2">"Hello Maria"</span>
+
+    <span class="nv">$var</span>:Letters contains <span class="s2">"Hello Bobby"</span>
+    <span class="nv">$var</span>:Letters contains <span class="s2">"Hello Maria"</span>
+
+    <span class="nv">$var</span>:Letters2 push <span class="s2">"Hello Midori,
+                        Best regards!"</span>
+
+    <span class="nv">$var</span>:Letters2 concatAdd <span class="nv">$var</span>:Letters
+
+    <span class="nv">$var</span>:Letters2 contains <span class="s2">"Hello Bobby"</span>
+expectPass
+</pre>
+<p>Can you believe this is bash?! ;-)</p>
+<h1>
+<a id="advanced-logging" class="anchor" href="#advanced-logging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced Logging</h1>
+<pre><code>import util/log
+</code></pre>
+<p>Here's an example of how to use the power of advanced logging provided by the Infinity Framework.</p>
+<p>In every file you are logging from, you may name the logging scope (namespace).
+If you won't do it, it'll be the filename, minus the extension.
+It's better to name though, as filenames can conflict.
+Thanks to scopes, you can specify exactly what and how you want to log.</p>
+<pre lang="bash" class="highlight-bash">namespace myApp
+
+<span class="c">## ADD OUTPUT OF "myApp" TO DELEGATE STDERR</span>
+Log::AddOutput myApp STDERR
+
+<span class="c">## LET'S TRY LOGGING SOMETHING:</span>
+Log <span class="s2">"logging to stderr"</span>
+</pre>
+<p>The above will simply print "logging to stderr" to STDERR.
+As you saw we used the logger output called "STDERR". It is possible to create and register your own loggers:</p>
+<pre lang="bash" class="highlight-bash"><span class="c">## LET'S MAKE A CUSTOM LOGGER:</span>
+myLoggingDelegate<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"Hurray: </span><span class="nv">$*</span><span class="s2">"</span>
+<span class="o">}</span>
+
+<span class="c">## WE NEED TO REGISTER IT:</span>
+Log::RegisterLogger MYLOGGER myLoggingDelegate
+</pre>
+<p>Now, we can set it up so that it direct only logs from a specific function to the our custom logger output:</p>
+<pre lang="bash" class="highlight-bash"><span class="c">## WE WANT TO DIRECT ALL LOGGING WITHIN FUNCTION myFunction OF myApp TO MYLOGGER</span>
+Log::AddOutput myApp/myFunction MYLOGGER
+
+<span class="c">## LET'S DECLARE THAT FUNCTION:</span>
+myFunction<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"Hey, I am a function!"</span>
+    Log <span class="s2">"logging from myFunction"</span>
+<span class="o">}</span>
+
+<span class="c">## AND RUN:</span>
+myFunction
+</pre>
+<p>The above code should print:</p>
+<pre><code>Hey, I am a function!
+Hurray: logging from myFunction
+</code></pre>
+<p>As you can see, logging automatically redirected the logger from our function from our previously registered STDERR to our more specifically defined MYLOGGER.
+If you wish to keep logging to both loggers, you can disable the specificity filter:</p>
+<pre lang="bash" class="highlight-bash">Log::DisableFilter myApp
+</pre>
+<p>Now if we run the function <code>myFunction</code>:</p>
+<p>The output will be:</p>
+<pre><code>Hey, I am a function!
+Hurray: logging from myFunction
+logging from myFunction
+</code></pre>
+<p>We can be even more specific and redirect messages with specific <em>subjects</em> to other loggers, or mute them altogether:</p>
+<pre lang="bash" class="highlight-bash"><span class="c">## Assuming we're in the same file, let's reset first</span>
+Log::ResetAllOutputsAndFilters
+
+Log::AddOutput myApp/myFunction MYLOGGER
+
+myFunction<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"Hey, I am a function!"</span>
+    Log <span class="s2">"logging from myFunction"</span>
+    <span class="nv">subject</span><span class="o">=</span><span class="s2">"unimportant"</span> Log <span class="s2">"message from myFunction"</span>
+<span class="o">}</span>
+</pre>
+<p>And let's change our custom logger a little, to support the subject:</p>
+<pre lang="bash" class="highlight-bash">myLoggingDelegate<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"Hurray: </span><span class="nv">$subject</span><span class="s2"> </span><span class="nv">$*</span><span class="s2">"</span>
+<span class="o">}</span>
+</pre>
+<p>Now when we run <code>myFunction</code>, we should get:</p>
+<pre><code>Hey, I am a function!
+Hurray:  logging from myFunction
+Hurray: unimportant message from myFunction
+</code></pre>
+<p>To filter (or redirect) messages with subject <code>unimportant</code> within <code>myFunction</code> of <code>myApp</code>'s file:</p>
+<pre lang="bash" class="highlight-bash">Log::AddOutput myApp/myFunction/unimportant VOID
+</pre>
+<p>To filter any messages with subject <code>unimportant</code> within <code>myApp</code>'s file:</p>
+<pre lang="bash" class="highlight-bash">Log::AddOutput myApp/unimportant VOID
+</pre>
+<p>Or any messages with subject <code>unimportant</code> anywhere:</p>
+<pre lang="bash" class="highlight-bash">Log::AddOutput unimportant VOID
+</pre>
+<p>Now, running <code>myFunction</code> will print:</p>
+<pre><code>Hey, I am a function!
+Hurray: logging from myFunction
+</code></pre>
+<h1>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use?</h1>
+<ol>
+<li>
+<p>Clone or download this repository. You'll only need the <strong>/lib/</strong> directory.</p>
+</li>
+<li>
+<p>Make a new script just outside of that directory and at the top place this:</p>
+<pre lang="shell" class="highlight-shell"><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">source</span> <span class="s2">"</span><span class="k">$(</span> <span class="nb">cd</span> <span class="s2">"</span><span class="k">${</span><span class="nv">BASH_SOURCE</span><span class="p">[0]%/*</span><span class="k">}</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span> <span class="k">)</span><span class="s2">/lib/oo-bootstrap.sh"</span>
+</pre>
+</li>
+<li>
+<p>You may of course change the name of the <strong>/lib/</strong> directory to your liking, just change it in the script too.</p>
+</li>
+<li>
+<p>Out-of-box you only get the import functionality.
+If you wish to use more features, such as the typing system, you'll need to import those modules as follows:</p>
+<pre lang="shell" class="highlight-shell"><span class="c"># load the type system</span>
+import util/log util/exception util/tryCatch util/namedParameters
+
+<span class="c"># load the standard library for basic types and type the system</span>
+import util/class
+</pre>
+</li>
+<li>
+<p>To import the unit test library you'll need to <code>import lib/types/util/test</code>.
+The first error inside of the test will make the whole test fail.</p>
+</li>
+<li>
+<p>When using <code>util/exception</code> or <code>util/tryCatch</code> don't use <code>set -o errexit</code> or <code>set -e</code> - it's not necessary, because error handling will be done by the framework itself.</p>
+</li>
+</ol>
+<h1>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h1>
+<p>Feel free to fork, suggest changes or new modules and file a pull request.
+Because of limitations and unnecessary complexity of the current implementation we're currently brainstorming a 3.0 rewrite in #45.</p>
+<p>The things that I'd love to add are:</p>
+<ul>
+<li>unit tests for all important methods</li>
+<li>port to bash 3 (preferably a dynamic port that imports the right file for the right version)</li>
+<li>a web generator for a single file version of the boilerplate (with an option to select modules of your choice)</li>
+<li>more functions for the standard library for primitive types (arrays, maps, strings, integers)</li>
+<li>useful standard classes are very welcome too</li>
+</ul>
+<h1>
+<a id="porting-to-bash-3" class="anchor" href="#porting-to-bash-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Porting to Bash 3</h1>
+<p>The main challenge in porting to <strong>bash 3</strong> lays with creating a polyfill for associative arrays (probably by using every other index for the keys in an array), which are used by the type system. The other challenge would be to remove the global declarations (<code>declare -g</code>).</p>
+<h1>
+<a id="acknowledgments" class="anchor" href="#acknowledgments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgments</h1>
+<p>If a function's been adapted or copied from the web or any other libraries out there, I always mention it in a comment within the code.</p>
+<p>Additionally, in the making of the v1 of Bash Infinity I took some inspiration from object-oriented bash libraries:</p>
+<ul>
+<li><a href="https://github.com/tomas/skull/" rel="nofollow">https://github.com/tomas/skull/</a></li>
+<li><a href="https://github.com/domachine/oobash/" rel="nofollow">https://github.com/domachine/oobash/</a></li>
+<li><a href="https://github.com/metal3d/Baboosh/" rel="nofollow">https://github.com/metal3d/Baboosh/</a></li>
+<li><a href="http://sourceforge.net/p/oobash/" rel="nofollow">http://sourceforge.net/p/oobash/</a></li>
+<li><a href="http://lab.madscience.nl/oo.sh.txt" rel="nofollow">http://lab.madscience.nl/oo.sh.txt</a></li>
+<li><a href="http://unix.stackexchange.com/questions/4495/object-oriented-shell-for-nix" rel="nofollow">http://unix.stackexchange.com/questions/4495/object-oriented-shell-for-nix</a></li>
+<li><a href="http://hipersayanx.blogspot.sk/2012/12/object-oriented-programming-in-bash.html" rel="nofollow">http://hipersayanx.blogspot.sk/2012/12/object-oriented-programming-in-bash.html</a></li>
+</ul>
+<p>More bash goodness:</p>
+<ul>
+<li><a href="http://wiki.bash-hackers.org" rel="nofollow">http://wiki.bash-hackers.org</a></li>
+<li><a href="http://kvz.io/blog/2013/11/21/bash-best-practices/" rel="nofollow">http://kvz.io/blog/2013/11/21/bash-best-practices/</a></li>
+<li><a href="http://www.davidpashley.com/articles/writing-robust-shell-scripts/" rel="nofollow">http://www.davidpashley.com/articles/writing-robust-shell-scripts/</a></li>
+<li><a href="http://qntm.org/bash" rel="nofollow">http://qntm.org/bash</a></li>
+</ul>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b7746d3ce738',m:'9a6346e50c2966671efce63e2c00ac5d7a8c8c0e-1610725451-1800-AcuyiNztGm8kVszsSffojJHyiAp3dggkzvNnSx9M5MS+3LPagNvz7Svm0+4oE7DHIl3SF7ax2MVjKdEJ5Ou2JuNRSWsMTvy2OiwuOuNrwjkN34ZTEid717+UCaSWcSKDVCx4En215BlJs/J9LP1w25m1ewVVR0C1LSU/mqefCLoU',s:[0xe2b938a8a6,0xef8d3f77ac],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="shell"/> <!-- -->shell<!-- --> (<!-- -->9,677<!-- -->) </div><div><input type="checkbox" name="topics" value="framework"/> <!-- -->framework<!-- --> (<!-- -->1,047<!-- -->) </div><div><input type="checkbox" name="topics" value="testing"/> <!-- -->testing<!-- --> (<!-- -->909<!-- -->) </div><div><input type="checkbox" name="topics" value="boilerplate"/> <!-- -->boilerplate<!-- --> (<!-- -->590<!-- -->) </div><div><input type="checkbox" name="topics" value="bash"/> <!-- -->bash<!-- --> (<!-- -->589<!-- -->) </div><div><input type="checkbox" name="topics" value="functional-programming"/> <!-- -->functional-programming<!-- --> (<!-- -->457<!-- -->) </div><div><input type="checkbox" name="topics" value="logging"/> <!-- -->logging<!-- --> (<!-- -->380<!-- -->) </div><div><input type="checkbox" name="topics" value="error-handling"/> <!-- -->error-handling<!-- --> (<!-- -->93<!-- -->) </div><div><input type="checkbox" name="topics" value="oop"/> <!-- -->oop<!-- --> (<!-- -->67<!-- -->) </div><div><input type="checkbox" name="topics" value="standard-library"/> <!-- -->standard-library<!-- --> (<!-- -->15<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Bash <!-- -->Oo <!-- -->Framework<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/niieani" target="_blank">Niieani</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/niieani" target="_blank">Niieani</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-41430ec9-da27-454a-bdd1-2e387a155807">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"bash","count":589},{"id":null,"name":"boilerplate","count":590},{"id":null,"name":"error-handling","count":93},{"id":null,"name":"framework","count":1047},{"id":null,"name":"functional-programming","count":457},{"id":null,"name":"logging","count":380},{"id":null,"name":"oop","count":67},{"id":null,"name":"shell","count":9677},{"id":null,"name":"standard-library","count":15},{"id":null,"name":"testing","count":909}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/niieani/bash-oo-framework","projects":[],"project":{"id":119210,"created_at":"2018-08-21T02:20:32.882Z","updated_at":"2021-01-14T07:16:31.582Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"bash-infinity\" class=\"anchor\" href=\"#bash-infinity\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBash Infinity\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.com/niieani/bash-oo-framework\" rel=\"nofollow\"\u003e\u003cimg src=\"https://travis-ci.com/niieani/bash-oo-framework.svg?branch=master\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://cirrus-ci.com/github/niieani/bash-oo-framework\" rel=\"nofollow\"\u003e\u003cimg src=\"https://api.cirrus-ci.com/github/niieani/bash-oo-framework.svg\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://gitter.im/niieani/bash-oo-framework?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\u0026amp;utm_content=badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badges.gitter.im/niieani/bash-oo-framework.svg\" alt=\"Join the chat at https://gitter.im/niieani/bash-oo-framework\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eBash Infinity is a standard library and a boilerplate framework for writing tools using \u003cstrong\u003ebash\u003c/strong\u003e.\nIt's modular and lightweight, while managing to implement some concepts from C#, Java or JavaScript into bash.\nThe Infinity Framework is also plug \u0026amp; play: include it at the beginning of your existing script to import any of the individual features such as error handling, and start using other features gradually.\u003c/p\u003e\n\u003cp\u003eThe aim of Bash Infinity is to maximize readability of bash scripts, minimize the amount of code repeat and create a central repository for well-written, and a well-tested standard library for bash.\u003c/p\u003e\n\u003cp\u003eBash Infinity transforms the often obfuscated \"bash syntax\" to a cleaner, more modern syntax.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"disclaimer\" class=\"anchor\" href=\"#disclaimer\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDisclaimer\u003c/h1\u003e\n\u003cp\u003eSome components are more sturdy than others, and as-it-stands the framework lacks good test coverage (we need your help!).\u003c/p\u003e\n\u003cp\u003eDue to the above and relatively high code-complexity, we have decided that it will make the most sense to do a rewrite for the next major version 3.0 (see discussion in #45), taking the best parts of the framework, while re-using established tools from bash community.\u003c/p\u003e\n\u003cp\u003eAt this point, I would \u003cstrong\u003enot recommend starting major projects\u003c/strong\u003e based on the whole framework. Instead, copy and paste parts you need, ideally those you understand, if you found a particular feature useful.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"compatibility\" class=\"anchor\" href=\"#compatibility\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCompatibility\u003c/h1\u003e\n\u003cp\u003eNot all of the modules work with earlier versions of bash, as I test with \u003cstrong\u003ebash 4\u003c/strong\u003e. However, it should be possible (and relatively easy) to \u003ca href=\"#porting-to-bash-3\"\u003eport non-working parts\u003c/a\u003e to earlier versions.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"quick-start\" class=\"anchor\" href=\"#quick-start\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuick-start\u003c/h1\u003e\n\u003cp\u003eSingle-file release and dynamic loading is not available for v2.0 yet. To load the framework locally, \u003ca href=\"#how-to-use\"\u003eread on\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"main-modules\" class=\"anchor\" href=\"#main-modules\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMain modules\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003eautomatic error handling with exceptions and visual stack traces (\u003ccode\u003eutil/exception\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003enamed parameters in functions (instead of $1, $2...) (\u003ccode\u003eutil/namedParameters\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003epassing arrays and maps as parameters (\u003ccode\u003eutil/variable\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003etry-catch\u003c/strong\u003e implementation (\u003ccode\u003eutil/tryCatch\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003ethrowing custom \u003cstrong\u003eexceptions\u003c/strong\u003e (\u003ccode\u003eutil/exception\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eimport\u003c/strong\u003e keyword for clever sourcing of scripts à la \u003cem\u003erequire-js\u003c/em\u003e (\u003ccode\u003eoo-bootstrap\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003ehandy aliases for \u003cstrong\u003ecolors\u003c/strong\u003e and \u003cstrong\u003epowerline\u003c/strong\u003e characters to increase readability in the output of your scripts (\u003ccode\u003eUI/Color\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003ewell-formatted, colorful \u003cstrong\u003elogging\u003c/strong\u003e to \u003cem\u003estderr\u003c/em\u003e or custom delegate functions (\u003ccode\u003eutil/log\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eunit test\u003c/strong\u003e library (\u003ccode\u003eutil/test\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003estandard library for the type system with plenty of useful functions (\u003ccode\u003eutil/type\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003eoperational chains for \u003cstrong\u003efunctional programming\u003c/strong\u003e in bash (\u003ccode\u003eutil/type\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003etype system\u003c/strong\u003e for object-oriented scripting (\u003ccode\u003eutil/class\u003c/code\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAll of the features are modular and it's easy to only import the ones you'd like to use, without importing the rest of the framework. For example, the named parameters or the try-catch modules are self-contained in individual files.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"error-handling-with-exceptions-and-throw\" class=\"anchor\" href=\"#error-handling-with-exceptions-and-throw\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eError handling with exceptions and \u003ccode\u003ethrow\u003c/code\u003e\n\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/exception\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOne of the highlight features is error handling that should work out of the box. If the script generates an error it will break and display a call stack:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/exception.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/exception.png\" alt=\"example call stack\" title=\"Example Call Stack\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eYou may also force an error by \u003ccode\u003ethrow\u003c/code\u003eing your own Exception:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"nv\"\u003ee\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"The hard disk is not connected properly!\"\u003c/span\u003e throw\n\u003c/pre\u003e\n\u003cp\u003eIt's useful for debugging, as you'll also get the call stack if you're not sure where the call is coming from.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eExceptions\u003c/strong\u003e combined with \u003cem\u003etry \u0026amp; catch\u003c/em\u003e give you safety without having to run with \u003cstrong\u003e-o errexit\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eIf you do something wrong, you'll get a detailed exception backtrace, highlighting the command where it went wrong in the line from the source. The script execution will be halted with the option to continue or break.\nOn the other hand if you expect a part of block to fail, you can wrap it in a \u003ccode\u003etry\u003c/code\u003e block, and handle the error inside a \u003ccode\u003ecatch\u003c/code\u003e block.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"named-parameters-in-functions\" class=\"anchor\" href=\"#named-parameters-in-functions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eNamed parameters in functions\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/namedParameters\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn any programing language, it makes sense to use meaningful names for variables for greater readability.\nIn case of Bash, that means avoiding using positional arguments in functions.\nInstead of using the unhelpful \u003ccode\u003e$1\u003c/code\u003e, \u003ccode\u003e$2\u003c/code\u003e and so on within functions to access the passed in values, you may write:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003etestPassingParams\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003estring] hello\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003estring[4]] anArrayWithFourElements\n    \u003cspan class=\"nv\"\u003el\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e2 \u003cspan class=\"o\"\u003e[\u003c/span\u003estring[]] anotherArrayWithTwo\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003estring] anotherSingle\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003ereference] table   \u003cspan class=\"c\"\u003e# references only work in bash \u0026gt;=4.3\u003c/span\u003e\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003e...rest] anArrayOfVariedSize\n\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$hello\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$1\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"c\"\u003e#\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eanArrayWithFourElements\u003c/span\u003e\u003cspan class=\"p\"\u003e[0]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$2\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eanArrayWithFourElements\u003c/span\u003e\u003cspan class=\"p\"\u003e[1]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$3\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eanArrayWithFourElements\u003c/span\u003e\u003cspan class=\"p\"\u003e[2]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$4\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"c\"\u003e# etc...\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e#\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eanotherArrayWithTwo\u003c/span\u003e\u003cspan class=\"p\"\u003e[0]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$6\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eanotherArrayWithTwo\u003c/span\u003e\u003cspan class=\"p\"\u003e[1]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$7\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"c\"\u003e#\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$anotherSingle\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$8\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n    \u003cspan class=\"c\"\u003e#\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003etable\u003c/span\u003e\u003cspan class=\"p\"\u003e[test]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"works\"\u003c/span\u003e\n    table[inside]\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"adding a new value\"\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e#\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e# I'm using * just in this example:\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eanArrayOfVariedSize\u003c/span\u003e\u003cspan class=\"p\"\u003e[*]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"p\"\u003e*\u003c/span\u003e:10\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003eecho \u003c/span\u003ecorrect\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"nv\"\u003efourElements\u003c/span\u003e\u003cspan class=\"o\"\u003e=(\u003c/span\u003e a1 a2 \u003cspan class=\"s2\"\u003e\"a3 with spaces\"\u003c/span\u003e a4 \u003cspan class=\"o\"\u003e)\u003c/span\u003e\n\u003cspan class=\"nv\"\u003etwoElements\u003c/span\u003e\u003cspan class=\"o\"\u003e=(\u003c/span\u003e b1 b2 \u003cspan class=\"o\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"nb\"\u003edeclare\u003c/span\u003e \u003cspan class=\"nt\"\u003e-A\u003c/span\u003e assocArray\nassocArray[test]\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"works\"\u003c/span\u003e\n\ntestPassingParams \u003cspan class=\"s2\"\u003e\"first\"\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003efourElements\u003c/span\u003e\u003cspan class=\"p\"\u003e[@]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003etwoElements\u003c/span\u003e\u003cspan class=\"p\"\u003e[@]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"single with spaces\"\u003c/span\u003e assocArray \u003cspan class=\"s2\"\u003e\"and more... \"\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"even more...\"\u003c/span\u003e\n\n\u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eassocArray\u003c/span\u003e\u003cspan class=\"p\"\u003e[inside]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"adding a new value\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eThe system will automatically assign:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003e$1\u003c/strong\u003e to \u003cstrong\u003e$hello\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e$anArrayWithFourElements\u003c/strong\u003e will be an array of params with values from $2 till $5\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e$anotherArrayWithTwo\u003c/strong\u003e will be an array of params with values from $6 till $7\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e$8\u003c/strong\u003e to \u003cstrong\u003e$anotherSingle\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e$table\u003c/strong\u003e will be a reference to the variable whose name was passed in as the 9th parameter\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e$anArrayOfVariedSize\u003c/strong\u003e will be a bash array containing all the following params (from $10 on)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIn other words, not only you can call your parameters by their names (which makes up for a more readable core), you can actually pass arrays easily (and references to variables - this feature needs bash \u0026gt;=4.3 though)! Plus, the mapped variables are all in the local scope.\nThis module is pretty light and works in bash 3 and bash 4 (except for references - bash \u0026gt;=4.3) and if you only want to use it separately from this project, get the file /lib/system/02_named_parameters.sh.\u003c/p\u003e\n\u003cp\u003eNote: For lengths between 2-10 there are aliases for arrays, such as \u003ccode\u003e[string[4]]\u003c/code\u003e, if you need anything more, you need to use the syntax \u003ccode\u003el=LENGTH [string[]]\u003c/code\u003e, like shown in the above example. Or, make your own aliases :).\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"using-import\" class=\"anchor\" href=\"#using-import\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing \u003ccode\u003eimport\u003c/code\u003e\n\u003c/h1\u003e\n\u003cp\u003eAfter bootstrapping, you may use \u003ccode\u003eimport\u003c/code\u003e to load either the library files or your own files.\nThe command will ensure they're only loaded once. You may either use a relative path from the file you're importing, a path relative to the file that first included the framework, or an absolute path. \u003ccode\u003e.sh\u003c/code\u003e suffix is optional.\nYou can also load all the files inside of a directory by simply including the path to that directory instead of the file.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"using-try--catch\" class=\"anchor\" href=\"#using-try--catch\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing \u003ccode\u003etry \u0026amp; catch\u003c/code\u003e\n\u003c/h1\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eimport util/tryCatch\nimport util/exception \u003cspan class=\"c\"\u003e# needed only for Exception::PrintException\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eSample usage:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003etry \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"c\"\u003e# something...\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003ecp\u003c/span\u003e ~/test ~/test2\n    \u003cspan class=\"c\"\u003e# something more...\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e catch \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"The hard disk is not connected properly!\"\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Caught Exception:\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003eUI.Color.Red\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e \u003c/span\u003e\u003cspan class=\"nv\"\u003e$__BACKTRACE_COMMAND__\u003c/span\u003e\u003cspan class=\"s2\"\u003e \u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003eUI.Color.Default\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"File: \u003c/span\u003e\u003cspan class=\"nv\"\u003e$__BACKTRACE_SOURCE__\u003c/span\u003e\u003cspan class=\"s2\"\u003e, Line: \u003c/span\u003e\u003cspan class=\"nv\"\u003e$__BACKTRACE_LINE__\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e## printing a caught exception couldn't be simpler, as it's stored in \"${__EXCEPTION__[@]}\"\u003c/span\u003e\n    Exception::PrintException \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003e__EXCEPTION__\u003c/span\u003e\u003cspan class=\"p\"\u003e[@]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eIf any command fails (i.e. returns anything else than 0) in the \u003ccode\u003etry\u003c/code\u003e block, the system will automatically start executing the \u003ccode\u003ecatch\u003c/code\u003e block.\nBraces are optional for the \u003ccode\u003etry\u003c/code\u003e block, but required for \u003ccode\u003ecatch\u003c/code\u003e if it's multiline.\u003c/p\u003e\n\u003cp\u003eNote: \u003ccode\u003etry\u003c/code\u003e is executed in a subshell, therefore you cannot assign any variables inside of it.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"using-basic-logging-colors-and-powerline-emoji\" class=\"anchor\" href=\"#using-basic-logging-colors-and-powerline-emoji\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing Basic Logging, Colors and Powerline Emoji\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/log\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e# using colors:\u003c/span\u003e\n\u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003eUI.Color.Blue\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003eI'm blue...\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003eUI.Color.Default\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# enable basic logging for this file by declaring a namespace\u003c/span\u003e\nnamespace myApp\n\u003cspan class=\"c\"\u003e# make the Log method direct everything in the namespace 'myApp' to the log handler called DEBUG\u003c/span\u003e\nLog::AddOutput myApp DEBUG\n\n\u003cspan class=\"c\"\u003e# now we can write with the DEBUG output set\u003c/span\u003e\nLog \u003cspan class=\"s2\"\u003e\"Play me some Jazz, will ya? \u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003eUI.Powerline.Saxophone\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# redirect error messages to STDERR\u003c/span\u003e\nLog::AddOutput error STDERR\n\u003cspan class=\"nv\"\u003esubject\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003eerror Log \u003cspan class=\"s2\"\u003e\"Something bad happened.\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# reset outputs\u003c/span\u003e\nLog::ResetAllOutputsAndFilters\n\n\u003cspan class=\"c\"\u003e# You may also hardcode the use for the StdErr output directly:\u003c/span\u003e\nConsole::WriteStdErr \u003cspan class=\"s2\"\u003e\"This will be printed to STDERR, no matter what.\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eBoth the colors and the Powerline characters fallback gracefully on systems that don't support them.\nTo see Powerline icons, you'll need to use a powerline-patched font.\u003c/p\u003e\n\u003cp\u003eFor the list of available colors and emoji's take a look into \u003ca href=\"https://github.com/niieani/bash-oo-framework/blob/master/lib/UI/Color.sh\" rel=\"nofollow\"\u003elib/UI/Color.sh\u003c/a\u003e.\nFork and contribute more!\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"#advanced-logging\"\u003eAdvanced Logging\u003c/a\u003e below to learn more about advanced logging capabilities.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"passing-arrays-maps-and-objects-as-parameters\" class=\"anchor\" href=\"#passing-arrays-maps-and-objects-as-parameters\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePassing arrays, maps and objects as parameters\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/variable\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe Variable utility offers lossless dumping of arrays and associative array (referred here to as \u003ccode\u003emaps\u003c/code\u003e) declarations by the use of the \u003ccode\u003e@get\u003c/code\u003e command.\u003c/p\u003e\n\u003cp\u003eCombined with the \u003ccode\u003eutil/namedParameters\u003c/code\u003e module, you can pass in either as individual parameters.\u003c/p\u003e\n\u003cp\u003eA more readable way of specifying the will to pass a variable by it's declaration is to simply refer to the variable as \u003ccode\u003e$var:yourVariableName\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eIn bash \u0026gt;=4.3, which supports references, you may pass by reference. This way any changes done to the variable within the function will affect the variable itself. To pass a variable by reference, use the syntax: \u003ccode\u003e$ref:yourVariableName\u003c/code\u003e.\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003earray \u003cspan class=\"nv\"\u003esomeArray\u003c/span\u003e\u003cspan class=\"o\"\u003e=(\u003c/span\u003e \u003cspan class=\"s1\"\u003e'one'\u003c/span\u003e \u003cspan class=\"s1\"\u003e'two'\u003c/span\u003e \u003cspan class=\"o\"\u003e)\u003c/span\u003e\n\u003cspan class=\"c\"\u003e# the above is an equivalent of: declare -a someArray=( 'one' 'two' )\u003c/span\u003e\n\u003cspan class=\"c\"\u003e# except this one creates a $var:someArray method handler\u003c/span\u003e\n\npassingArraysInput\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e[\u003c/span\u003earray] passedInArray\n\n  \u003cspan class=\"c\"\u003e# chained usage, see below for more details:\u003c/span\u003e\n  \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:passedInArray : \u003cspan class=\"se\"\u003e\\\u003c/span\u003e\n    \u003cspan class=\"o\"\u003e{\u003c/span\u003e map \u003cspan class=\"s1\"\u003e'echo \"${index} - $(var: item)\"'\u003c/span\u003e \u003cspan class=\"o\"\u003e}\u003c/span\u003e \u003cspan class=\"se\"\u003e\\\u003c/span\u003e\n    \u003cspan class=\"o\"\u003e{\u003c/span\u003e forEach \u003cspan class=\"s1\"\u003e'var: item toUpper'\u003c/span\u003e \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:passedInArray push \u003cspan class=\"s1\"\u003e'will work only for references'\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s1\"\u003e'passing by $var:'\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e## 2 ways of passing a copy of an array (passing by it's definition)\u003c/span\u003e\npassingArraysInput \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003e@get someArray\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\npassingArraysInput \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someArray\n\n\u003cspan class=\"c\"\u003e## no changes yet\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someArray toJSON\n\n\u003cspan class=\"nb\"\u003eecho\necho\u003c/span\u003e \u003cspan class=\"s1\"\u003e'passing by $ref:'\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e## in bash \u0026gt;=4.3, which supports references, you may pass by reference\u003c/span\u003e\n\u003cspan class=\"c\"\u003e## this way any changes done to the variable within the function will affect the variable itself\u003c/span\u003e\npassingArraysInput \u003cspan class=\"nv\"\u003e$ref\u003c/span\u003e:someArray\n\n\u003cspan class=\"c\"\u003e## should show changes\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someArray toJSON\n\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"standard-library\" class=\"anchor\" href=\"#standard-library\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStandard Library\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/type\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe framework offers a standard library for the primitive types, such as string or array manipulations to make common tasks simpler and more readable.\u003c/p\u003e\n\u003cp\u003eThere are three ways to make use of the standard library.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"1-create-variables-by-their-handle-creating-declaration\" class=\"anchor\" href=\"#1-create-variables-by-their-handle-creating-declaration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e1. Create variables by their handle-creating declaration\u003c/h3\u003e\n\u003cp\u003eIf you create your variables using the oo-framework's handle-creating declarations, you can execute methods of the standard library by referring to your variable as: \u003ccode\u003e$var:yourVariable someMethod someParameter\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eAvailable handle-creating declarations:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003estring\u003c/li\u003e\n\u003cli\u003einteger\u003c/li\u003e\n\u003cli\u003earray\u003c/li\u003e\n\u003cli\u003emap\u003c/li\u003e\n\u003cli\u003eboolean\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eSince bash doesn't support boolean variables natively, the boolean variable is a special case that always needs to be declared and modified using the handle-creating declaration.\u003c/p\u003e\n\u003cp\u003eExample:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e# create a string someString\u003c/span\u003e\nstring \u003cspan class=\"nv\"\u003esomeString\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"My 123 Joe is 99 Mark\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# saves all matches and their match groups for the said regex:\u003c/span\u003e\narray \u003cspan class=\"nv\"\u003ematchGroups\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003e\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someString getMatchGroups \u003cspan class=\"s1\"\u003e'([0-9]+) [a-zA-Z]+'\u003c/span\u003e\u003cspan class=\"k\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# lists all matches in group 1:\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:matchGroups every 2 1\n\n\u003cspan class=\"c\"\u003e## group 0, match 1\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someString match \u003cspan class=\"s1\"\u003e'([0-9]+) [a-zA-Z]+'\u003c/span\u003e 0 1\n\n\u003cspan class=\"c\"\u003e# calls the getter - here it prints the value\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someString\n\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"2-invoke-the-methods-with-var\" class=\"anchor\" href=\"#2-invoke-the-methods-with-var\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e2. Invoke the methods with \u003ccode\u003evar:\u003c/code\u003e\n\u003c/h3\u003e\n\u003cp\u003eIf you didn't create your variables with their handles, you can also use the method \u003ccode\u003evar:\u003c/code\u003e to access them.\u003c/p\u003e\n\u003cp\u003eExample:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e# create a string someString\u003c/span\u003e\n\u003cspan class=\"nb\"\u003edeclare \u003c/span\u003e\u003cspan class=\"nv\"\u003esomeString\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"My 123 Joe is 99 Mark\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# saves all matches and their match groups for the said regex:\u003c/span\u003e\n\u003cspan class=\"nb\"\u003edeclare\u003c/span\u003e \u003cspan class=\"nt\"\u003e-a\u003c/span\u003e \u003cspan class=\"nv\"\u003ematchGroups\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003evar: someString getMatchGroups \u003cspan class=\"s1\"\u003e'([0-9]+) [a-zA-Z]+'\u003c/span\u003e\u003cspan class=\"k\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# lists all matches in group 1:\u003c/span\u003e\nvar: matchGroups every 2 1\n\n\u003cspan class=\"c\"\u003e## group 0, match 1\u003c/span\u003e\nvar: someString match \u003cspan class=\"s1\"\u003e'([0-9]+) [a-zA-Z]+'\u003c/span\u003e 0 1\n\n\u003cspan class=\"c\"\u003e# calls the getter - here it prints the value\u003c/span\u003e\nvar: someString\n\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"3-pipe-the-variable-declaration-directly-to-the-method\" class=\"anchor\" href=\"#3-pipe-the-variable-declaration-directly-to-the-method\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3. Pipe the variable declaration directly to the method\u003c/h3\u003e\n\u003cp\u003eFinally, you can also pipe the variable declarations to the methods you wish to invoke.\u003c/p\u003e\n\u003cp\u003eExample:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e# create a string someString\u003c/span\u003e\n\u003cspan class=\"nb\"\u003edeclare \u003c/span\u003e\u003cspan class=\"nv\"\u003esomeString\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"My 123 Joe is 99 Mark\"\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# saves all matches and their match groups for the said regex:\u003c/span\u003e\n\u003cspan class=\"nb\"\u003edeclare\u003c/span\u003e \u003cspan class=\"nt\"\u003e-a\u003c/span\u003e \u003cspan class=\"nv\"\u003ematchGroups\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003e@get someString | string.getMatchGroups \u003cspan class=\"s1\"\u003e'([0-9]+) [a-zA-Z]+'\u003c/span\u003e\u003cspan class=\"k\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# lists all matches in group 1:\u003c/span\u003e\n@get matchGroups | array.every 2 1\n\n\u003cspan class=\"c\"\u003e## group 0, match 1\u003c/span\u003e\n@get someString | string.match \u003cspan class=\"s1\"\u003e'([0-9]+) [a-zA-Z]+'\u003c/span\u003e 0 1\n\n\u003cspan class=\"c\"\u003e# prints the value\u003c/span\u003e\n\u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$someString\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"adding-to-the-standard-library\" class=\"anchor\" href=\"#adding-to-the-standard-library\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdding to the Standard Library\u003c/h2\u003e\n\u003cp\u003eYou can add your own, custom methods to the Standard Library by declaring them like:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003estring.makeCool\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n  @resolve:this \u003cspan class=\"c\"\u003e## this is required is you want to make use of the pipe passing\u003c/span\u003e\n  \u003cspan class=\"nb\"\u003elocal \u003c/span\u003e\u003cspan class=\"nv\"\u003eoutValue\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"cool value: \u003c/span\u003e\u003cspan class=\"nv\"\u003e$this\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n  @return outValue\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\nstring \u003cspan class=\"nv\"\u003esomeString\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"nice\"\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:someString makeCool\n\u003cspan class=\"c\"\u003e# prints \"cool value: nice\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eSee more info on writing classes below.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"functionaloperational-chains-with-the-standard-library-and-custom-classes\" class=\"anchor\" href=\"#functionaloperational-chains-with-the-standard-library-and-custom-classes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFunctional/operational chains with the Standard Library and custom classes\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/type\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe type system in Bash Infinity allows you to chain methods together in a similar fashion one might pipe the output from one command to the other, or chain methods in C#, Java or JavaScript (think JQuery's pseudo-monad style).\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"nb\"\u003edeclare\u003c/span\u003e \u003cspan class=\"nt\"\u003e-a\u003c/span\u003e \u003cspan class=\"nv\"\u003esomeArray\u003c/span\u003e\u003cspan class=\"o\"\u003e=(\u003c/span\u003e \u003cspan class=\"s1\"\u003e'one'\u003c/span\u003e \u003cspan class=\"s1\"\u003e'two'\u003c/span\u003e \u003cspan class=\"o\"\u003e)\u003c/span\u003e\n\nvar: someArray : \u003cspan class=\"se\"\u003e\\\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e{\u003c/span\u003e map \u003cspan class=\"s1\"\u003e'echo \"${index} - $(var: item)\"'\u003c/span\u003e \u003cspan class=\"o\"\u003e}\u003c/span\u003e \u003cspan class=\"se\"\u003e\\\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e{\u003c/span\u003e forEach \u003cspan class=\"s1\"\u003e'var: item toUpper'\u003c/span\u003e \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# above command will result in a definition of an array:\u003c/span\u003e\n\u003cspan class=\"c\"\u003e# ( '0 - ONE' '1 - TWO' )\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eMethods available in the next chain depend on the return type of the previously executed method.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"writing-your-own-classes\" class=\"anchor\" href=\"#writing-your-own-classes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWriting your own classes\u003c/h1\u003e\n\u003cp\u003eIt's really simple and straight-forward, like with most modern languages.\u003c/p\u003e\n\u003cp\u003eKeywords for definition:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eclass:YourName()\u003c/strong\u003e - defining a class\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eKeywords to use inside of the class definition:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003emethod ClassName.FunctionName()\u003c/strong\u003e - Use for defining methods that have access to \u003cem\u003e$this\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003epublic SomeType yourProperty\u003c/strong\u003e - define public properties (works in all types of classes)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eprivate SomeType _yourProperty\u003c/strong\u003e - as above, but accessible only for internal methods\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e$this\u003c/strong\u003e - This variable is available inside the methods, used to refer to the current type\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003ethis\u003c/strong\u003e - Alias of $var:this, used to invoke methods or get properties of an object\u003c/li\u003e\n\u003cli\u003eNOT YET IMPLEMENTED: \u003cstrong\u003eextends SomeClass\u003c/strong\u003e - inherit from a base class\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAfter a class has been defined, you need to invoke \u003ccode\u003eType::Initialize NameOfYourType\u003c/code\u003e or \u003ccode\u003eType::InitializeStatic NameOfYourStaticType\u003c/code\u003e if you want to make your class a singleton.\u003c/p\u003e\n\u003cp\u003eHere's an example that shows how to define your own classes:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eimport util/namedParameters util/class\n\nclass:Human\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n  public string name\n  public integer height\n  public array eaten\n\n  Human.__getter__\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"I'm a human called \u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003ethis name\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e, \u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003ethis height\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e cm tall.\"\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n  Human.Example\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003earray]     someArray\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003einteger]   someNumber\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003e...rest]   arrayOfOtherParams\n\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Testing \u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003evar: someArray toString\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e and \u003c/span\u003e\u003cspan class=\"nv\"\u003e$someNumber\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Stuff: \u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003earrayOfOtherParams\u003c/span\u003e\u003cspan class=\"p\"\u003e[*]\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e# returning the first passed in array\u003c/span\u003e\n    @return someArray\n  \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n  Human.Eat\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"o\"\u003e[\u003c/span\u003estring] food\n\n    this eaten push \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"nv\"\u003e$food\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e# will return a string with the value:\u003c/span\u003e\n    @return:value \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003ethis name\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e just ate \u003c/span\u003e\u003cspan class=\"nv\"\u003e$food\u003c/span\u003e\u003cspan class=\"s2\"\u003e, which is the same as \u003c/span\u003e\u003cspan class=\"nv\"\u003e$1\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n  Human.WhatDidHeEat\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    this eaten toString\n  \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n  \u003cspan class=\"c\"\u003e# this is a static method, hence the :: in definition\u003c/span\u003e\n  Human::PlaySomeJazz\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003eUI.Powerline.Saxophone\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# required to initialize the class\u003c/span\u003e\nType::Initialize Human\n\nclass:SingletonExample\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n  private integer YoMamaNumber \u003cspan class=\"o\"\u003e=\u003c/span\u003e 150\n\n  SingletonExample.PrintYoMama\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Number is: \u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003ethis YoMamaNumber\u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e!\"\u003c/span\u003e\n  \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# required to initialize the static class\u003c/span\u003e\nType::InitializeStatic SingletonExample\n\u003c/pre\u003e\n\u003cp\u003eNow you can use both the \u003ccode\u003eHuman\u003c/code\u003e and the \u003ccode\u003eSingletonExample\u003c/code\u003e classes:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e# create an object called 'Mark' of type Human\u003c/span\u003e\nHuman Mark\n\n\u003cspan class=\"c\"\u003e# call the string.= (setter) method\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Mark name \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s1\"\u003e'Mark'\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# call the integer.= (setter) method\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Mark height \u003cspan class=\"o\"\u003e=\u003c/span\u003e 180\n\n\u003cspan class=\"c\"\u003e# adds 'corn' to the Mark.eaten array and echoes the output\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Mark Eat \u003cspan class=\"s1\"\u003e'corn'\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# adds 'blueberries' to the Mark.eaten array and echoes the uppercased output\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Mark : \u003cspan class=\"o\"\u003e{\u003c/span\u003e Eat \u003cspan class=\"s1\"\u003e'blueberries'\u003c/span\u003e \u003cspan class=\"o\"\u003e}\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e toUpper \u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e# invoke the getter\u003c/span\u003e\n\u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Mark\n\n\u003cspan class=\"c\"\u003e# invoke the method on the static instance of SingletonExample\u003c/span\u003e\nSingletonExample PrintYoMama\n\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"writing-unit-tests\" class=\"anchor\" href=\"#writing-unit-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWriting Unit Tests\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/test\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/unit.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/niieani/bash-oo-framework/master/docs/unit.png\" alt=\"unit tests\" title=\"Unit tests for the framework itself\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eSimilarly to \u003ca href=\"https://github.com/sstephenson/bats\" rel=\"nofollow\"\u003eBats\u003c/a\u003e, you can use the unit test module to test Bash scripts or any UNIX program.\nTest cases consist of standard shell commands. Like Bats, Infinity Framework uses Bash's errexit (set -e) option when running test cases. Each test is run in a subshell, and is independent from one another. To quote from Bats:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eIf every command in the test case exits with a 0 status code (success), the test passes. In this way, each line is an assertion of truth.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eIf you need to do more advanced testing, or need to be able to run your tests on shells other than bash 4, I'd still recommend Bats.\u003c/p\u003e\n\u003cp\u003eExample usage:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eit \u003cspan class=\"s1\"\u003e'should make a number and change its value'\u003c/span\u003e\ntry\n    integer \u003cspan class=\"nv\"\u003eaNumber\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e10\n    aNumber \u003cspan class=\"o\"\u003e=\u003c/span\u003e 12\n    \u003cspan class=\"nb\"\u003etest\u003c/span\u003e \u003cspan class=\"o\"\u003e((\u003c/span\u003e\u003cspan class=\"nv\"\u003e$aNumber\u003c/span\u003e \u003cspan class=\"o\"\u003e==\u003c/span\u003e 12\u003cspan class=\"o\"\u003e))\u003c/span\u003e\nexpectPass\n\nit \u003cspan class=\"s2\"\u003e\"should make basic operations on two arrays\"\u003c/span\u003e\ntry\n    array Letters\n    array Letters2\n\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters push \u003cspan class=\"s2\"\u003e\"Hello Bobby\"\u003c/span\u003e\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters push \u003cspan class=\"s2\"\u003e\"Hello Maria\"\u003c/span\u003e\n\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters contains \u003cspan class=\"s2\"\u003e\"Hello Bobby\"\u003c/span\u003e\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters contains \u003cspan class=\"s2\"\u003e\"Hello Maria\"\u003c/span\u003e\n\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters2 push \u003cspan class=\"s2\"\u003e\"Hello Midori,\n                        Best regards!\"\u003c/span\u003e\n\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters2 concatAdd \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters\n\n    \u003cspan class=\"nv\"\u003e$var\u003c/span\u003e:Letters2 contains \u003cspan class=\"s2\"\u003e\"Hello Bobby\"\u003c/span\u003e\nexpectPass\n\u003c/pre\u003e\n\u003cp\u003eCan you believe this is bash?! ;-)\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"advanced-logging\" class=\"anchor\" href=\"#advanced-logging\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdvanced Logging\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003eimport util/log\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eHere's an example of how to use the power of advanced logging provided by the Infinity Framework.\u003c/p\u003e\n\u003cp\u003eIn every file you are logging from, you may name the logging scope (namespace).\nIf you won't do it, it'll be the filename, minus the extension.\nIt's better to name though, as filenames can conflict.\nThanks to scopes, you can specify exactly what and how you want to log.\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003enamespace myApp\n\n\u003cspan class=\"c\"\u003e## ADD OUTPUT OF \"myApp\" TO DELEGATE STDERR\u003c/span\u003e\nLog::AddOutput myApp STDERR\n\n\u003cspan class=\"c\"\u003e## LET'S TRY LOGGING SOMETHING:\u003c/span\u003e\nLog \u003cspan class=\"s2\"\u003e\"logging to stderr\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eThe above will simply print \"logging to stderr\" to STDERR.\nAs you saw we used the logger output called \"STDERR\". It is possible to create and register your own loggers:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e## LET'S MAKE A CUSTOM LOGGER:\u003c/span\u003e\nmyLoggingDelegate\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Hurray: \u003c/span\u003e\u003cspan class=\"nv\"\u003e$*\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e## WE NEED TO REGISTER IT:\u003c/span\u003e\nLog::RegisterLogger MYLOGGER myLoggingDelegate\n\u003c/pre\u003e\n\u003cp\u003eNow, we can set it up so that it direct only logs from a specific function to the our custom logger output:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e## WE WANT TO DIRECT ALL LOGGING WITHIN FUNCTION myFunction OF myApp TO MYLOGGER\u003c/span\u003e\nLog::AddOutput myApp/myFunction MYLOGGER\n\n\u003cspan class=\"c\"\u003e## LET'S DECLARE THAT FUNCTION:\u003c/span\u003e\nmyFunction\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Hey, I am a function!\"\u003c/span\u003e\n    Log \u003cspan class=\"s2\"\u003e\"logging from myFunction\"\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e## AND RUN:\u003c/span\u003e\nmyFunction\n\u003c/pre\u003e\n\u003cp\u003eThe above code should print:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eHey, I am a function!\nHurray: logging from myFunction\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAs you can see, logging automatically redirected the logger from our function from our previously registered STDERR to our more specifically defined MYLOGGER.\nIf you wish to keep logging to both loggers, you can disable the specificity filter:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eLog::DisableFilter myApp\n\u003c/pre\u003e\n\u003cp\u003eNow if we run the function \u003ccode\u003emyFunction\u003c/code\u003e:\u003c/p\u003e\n\u003cp\u003eThe output will be:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eHey, I am a function!\nHurray: logging from myFunction\nlogging from myFunction\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe can be even more specific and redirect messages with specific \u003cem\u003esubjects\u003c/em\u003e to other loggers, or mute them altogether:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e## Assuming we're in the same file, let's reset first\u003c/span\u003e\nLog::ResetAllOutputsAndFilters\n\nLog::AddOutput myApp/myFunction MYLOGGER\n\nmyFunction\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Hey, I am a function!\"\u003c/span\u003e\n    Log \u003cspan class=\"s2\"\u003e\"logging from myFunction\"\u003c/span\u003e\n    \u003cspan class=\"nv\"\u003esubject\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"unimportant\"\u003c/span\u003e Log \u003cspan class=\"s2\"\u003e\"message from myFunction\"\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eAnd let's change our custom logger a little, to support the subject:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003emyLoggingDelegate\u003cspan class=\"o\"\u003e()\u003c/span\u003e \u003cspan class=\"o\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Hurray: \u003c/span\u003e\u003cspan class=\"nv\"\u003e$subject\u003c/span\u003e\u003cspan class=\"s2\"\u003e \u003c/span\u003e\u003cspan class=\"nv\"\u003e$*\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\n\u003cspan class=\"o\"\u003e}\u003c/span\u003e\n\u003c/pre\u003e\n\u003cp\u003eNow when we run \u003ccode\u003emyFunction\u003c/code\u003e, we should get:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eHey, I am a function!\nHurray:  logging from myFunction\nHurray: unimportant message from myFunction\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo filter (or redirect) messages with subject \u003ccode\u003eunimportant\u003c/code\u003e within \u003ccode\u003emyFunction\u003c/code\u003e of \u003ccode\u003emyApp\u003c/code\u003e's file:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eLog::AddOutput myApp/myFunction/unimportant VOID\n\u003c/pre\u003e\n\u003cp\u003eTo filter any messages with subject \u003ccode\u003eunimportant\u003c/code\u003e within \u003ccode\u003emyApp\u003c/code\u003e's file:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eLog::AddOutput myApp/unimportant VOID\n\u003c/pre\u003e\n\u003cp\u003eOr any messages with subject \u003ccode\u003eunimportant\u003c/code\u003e anywhere:\u003c/p\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003eLog::AddOutput unimportant VOID\n\u003c/pre\u003e\n\u003cp\u003eNow, running \u003ccode\u003emyFunction\u003c/code\u003e will print:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eHey, I am a function!\nHurray: logging from myFunction\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\n\u003ca id=\"how-to-use\" class=\"anchor\" href=\"#how-to-use\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to use?\u003c/h1\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eClone or download this repository. You'll only need the \u003cstrong\u003e/lib/\u003c/strong\u003e directory.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMake a new script just outside of that directory and at the top place this:\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"c\"\u003e#!/usr/bin/env bash\u003c/span\u003e\n\u003cspan class=\"nb\"\u003esource\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e$(\u003c/span\u003e \u003cspan class=\"nb\"\u003ecd\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"\u003c/span\u003e\u003cspan class=\"k\"\u003e${\u003c/span\u003e\u003cspan class=\"nv\"\u003eBASH_SOURCE\u003c/span\u003e\u003cspan class=\"p\"\u003e[0]%/*\u003c/span\u003e\u003cspan class=\"k\"\u003e}\u003c/span\u003e\u003cspan class=\"s2\"\u003e\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003epwd\u003c/span\u003e \u003cspan class=\"k\"\u003e)\u003c/span\u003e\u003cspan class=\"s2\"\u003e/lib/oo-bootstrap.sh\"\u003c/span\u003e\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou may of course change the name of the \u003cstrong\u003e/lib/\u003c/strong\u003e directory to your liking, just change it in the script too.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOut-of-box you only get the import functionality.\nIf you wish to use more features, such as the typing system, you'll need to import those modules as follows:\u003c/p\u003e\n\u003cpre lang=\"shell\" class=\"highlight-shell\"\u003e\u003cspan class=\"c\"\u003e# load the type system\u003c/span\u003e\nimport util/log util/exception util/tryCatch util/namedParameters\n\n\u003cspan class=\"c\"\u003e# load the standard library for basic types and type the system\u003c/span\u003e\nimport util/class\n\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTo import the unit test library you'll need to \u003ccode\u003eimport lib/types/util/test\u003c/code\u003e.\nThe first error inside of the test will make the whole test fail.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWhen using \u003ccode\u003eutil/exception\u003c/code\u003e or \u003ccode\u003eutil/tryCatch\u003c/code\u003e don't use \u003ccode\u003eset -o errexit\u003c/code\u003e or \u003ccode\u003eset -e\u003c/code\u003e - it's not necessary, because error handling will be done by the framework itself.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch1\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h1\u003e\n\u003cp\u003eFeel free to fork, suggest changes or new modules and file a pull request.\nBecause of limitations and unnecessary complexity of the current implementation we're currently brainstorming a 3.0 rewrite in #45.\u003c/p\u003e\n\u003cp\u003eThe things that I'd love to add are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eunit tests for all important methods\u003c/li\u003e\n\u003cli\u003eport to bash 3 (preferably a dynamic port that imports the right file for the right version)\u003c/li\u003e\n\u003cli\u003ea web generator for a single file version of the boilerplate (with an option to select modules of your choice)\u003c/li\u003e\n\u003cli\u003emore functions for the standard library for primitive types (arrays, maps, strings, integers)\u003c/li\u003e\n\u003cli\u003euseful standard classes are very welcome too\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"porting-to-bash-3\" class=\"anchor\" href=\"#porting-to-bash-3\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePorting to Bash 3\u003c/h1\u003e\n\u003cp\u003eThe main challenge in porting to \u003cstrong\u003ebash 3\u003c/strong\u003e lays with creating a polyfill for associative arrays (probably by using every other index for the keys in an array), which are used by the type system. The other challenge would be to remove the global declarations (\u003ccode\u003edeclare -g\u003c/code\u003e).\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"acknowledgments\" class=\"anchor\" href=\"#acknowledgments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h1\u003e\n\u003cp\u003eIf a function's been adapted or copied from the web or any other libraries out there, I always mention it in a comment within the code.\u003c/p\u003e\n\u003cp\u003eAdditionally, in the making of the v1 of Bash Infinity I took some inspiration from object-oriented bash libraries:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/tomas/skull/\" rel=\"nofollow\"\u003ehttps://github.com/tomas/skull/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/domachine/oobash/\" rel=\"nofollow\"\u003ehttps://github.com/domachine/oobash/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/metal3d/Baboosh/\" rel=\"nofollow\"\u003ehttps://github.com/metal3d/Baboosh/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://sourceforge.net/p/oobash/\" rel=\"nofollow\"\u003ehttp://sourceforge.net/p/oobash/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://lab.madscience.nl/oo.sh.txt\" rel=\"nofollow\"\u003ehttp://lab.madscience.nl/oo.sh.txt\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://unix.stackexchange.com/questions/4495/object-oriented-shell-for-nix\" rel=\"nofollow\"\u003ehttp://unix.stackexchange.com/questions/4495/object-oriented-shell-for-nix\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://hipersayanx.blogspot.sk/2012/12/object-oriented-programming-in-bash.html\" rel=\"nofollow\"\u003ehttp://hipersayanx.blogspot.sk/2012/12/object-oriented-programming-in-bash.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eMore bash goodness:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"http://wiki.bash-hackers.org\" rel=\"nofollow\"\u003ehttp://wiki.bash-hackers.org\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://kvz.io/blog/2013/11/21/bash-best-practices/\" rel=\"nofollow\"\u003ehttp://kvz.io/blog/2013/11/21/bash-best-practices/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.davidpashley.com/articles/writing-robust-shell-scripts/\" rel=\"nofollow\"\u003ehttp://www.davidpashley.com/articles/writing-robust-shell-scripts/\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://qntm.org/bash\" rel=\"nofollow\"\u003ehttp://qntm.org/bash\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":28564207,"name":"bash-oo-framework","owner_login":"niieani","description":"Bash Infinity is a modern boilerplate / framework / standard library for bash","pushed_at":"2020-08-01T02:02:23.000Z","stargazers_count":5090,"open_issues_count":37,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"https://invent.life/project/bash-infinity-framework","private":false,"project_created_at":"2014-12-28T14:53:27.000Z","project_updated_at":"2021-01-12T07:33:30.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

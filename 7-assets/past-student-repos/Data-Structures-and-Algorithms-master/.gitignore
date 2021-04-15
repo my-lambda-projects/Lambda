@@ -1,0 +1,5 @@
+.vscode
+__pycache__
+build
+node_modules
+resources

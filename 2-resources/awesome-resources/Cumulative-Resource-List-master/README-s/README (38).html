@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="awesome-wsl---windows-subsystem-for-linux">Awesome WSL - Windows Subsystem for Linux</h1>
+<p><a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome" /></a></p>
+<p>An Awesome collection of Windows Subsystem for Linux (WSL) information, distributions, and tools.</p>
+<p><img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/WSLscreenshot.PNG" height=50% width=50%></p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#using-wsl">Using WSL</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#the-wsl-shell">The WSL Shell</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#programming-on-wsl">Programming on WSL</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#web-development-on-wsl">Web Development on WSL</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#other-wsl-uses">Other WSL Uses</a></li>
+<li><a href="#supported-distributions">Supported WSL Distributions</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#ubuntu">Ubuntu</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#debian">Debian</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#opensuse--suse-enterprise-linux">OpenSUSE / SUSE Enterprise Linux</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#kali-linux">Kali Linux</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#fedora-remix-for-wsl">Fedora Remix for WSL</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#pengwin">Pengwin</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#pengwin-enterprise">Pengwin Enterprise</a> <br></li>
+<li><a href="#unofficial-distributions">Unofficial WSL Distributions</a></li>
+<li><a href="#wsl-tools">WSL Tools</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#x-servers">X Servers</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#terminals">Terminals</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#for-managing-wsl">Managing WSL Installations</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#wsl-utilities">WSL Utilities</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#wsl-specific-development-tools">WSL-Specific Development Tools</a> <br> - <a href="https://github.com/sirredbeard/Awesome-WSL#miscellaneous-tools">Miscellaneous Tools</a></li>
+<li><a href="#books">Books</a></li>
+<li><a href="#additional-resources">Additional WSL Resources</a></li>
+<li><a href="#related-projects">Related Projects</a></li>
+<li><a href="#more-awesome">More Awesome Lists</a></li>
+<li><a href="#thanks">Thanks</a></li>
+<li><a href="#intellectual-property-notices">Intellectual Property Notices</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<h3 id="linux">1. Linux</h3>
+<p>Linux is a <a href="https://github.com/sirredbeard/Awesome-UNIX#frequently-asked-questions">UNIX-like</a> <a href="https://opensource.org/osd">open-source</a> operating system. The core of Linux is a <a href="https://www.howtogeek.com/howto/31632/what-is-the-linux-kernel-and-what-does-it-do">kernel</a> developed by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>. Linux also includes a wide array of applications built on top of the kernel, including <a href="https://www.linux.com/learn/apache-ubuntu-linux-beginners">web servers</a>, <a href="https://gcc.gnu.org">compilers</a>, and <a href="https://wiki.gnome.org/Apps/Geary">e-mail clients</a>, developed and contributed to the Linux ecosystem by a worldwide community of programmers. These applications are then assembled together into Linux <a href="https://en.wikipedia.org/wiki/Linux_distribution">distributions</a> by <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">companies</a>, <a href="https://www.archlinux.org">communities</a>, and <a href="http://www.slackware.com">individuals</a>.</p>
+<h3 id="linux-distributions">2. Linux Distributions</h3>
+<p>Unlike Windows or macOS there are many different Linux distributions, each of which is assembled with different approaches to the software selection and implementation. For example, the goal of the non-profit volunteer <a href="https://www.debian.org/devel/constitution">Debian Project</a> community is to produce a universal free operating system, while the goal of the for-profit SUSE is to provide a <a href="https://www.suse.com">stable enterprise platform</a>. There are also Linux distributions based on other distributions. <a href="https://www.ubuntu.com">Ubuntu</a> is a distribution based on Debian built by the company Canonical. Kali is a distribution based on Debian built with an emphasis on tools for network security testing. You can see the most popular distributions ranked at <a href="https://distrowatch.com">DistroWatch</a>.</p>
+<h3 id="windows">3. Windows</h3>
+<p><a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Windows</a> is a family of proprietary operating systems, all of which are developed, marketed, and sold by Microsoft. Currently Windows 10 is Microsoft's flagship operating system. Windows 10 is available for Intel x86-based and arm64-based PCs. The Windows Subsystem for Linux first shipped in <a href="https://blogs.msdn.microsoft.com/wsl/2016/07/08/bash-on-ubuntu-on-windows-10-anniversary-update/">Windows 10 Anniversary Update</a>, version number 1607, in August 2016. WSL can be enabled for free on all versions of Windows 10 after 1607, including Home, Professional, Enterprise, Server, LTSB, and Education. Originally only available for Intel x86-based PCs, Ubuntu 18.04 for arm64 was made available on the Microsoft store in <a href="https://twitter.com/TheRealHariP/status/994293523514970112">May 2018</a>.</p>
+<h3 id="wsl1">4. WSL1</h3>
+<p>The original WSL is now known as WSL1. WSL1 is a compatibility layer for running Linux binary executables (ELF) natively on Windows 10. No re-compilation or ‘porting' of applications is required. WSL1 provides a Linux-compatible kernel interface developed by Microsoft that allows a user to choose a Linux distribution to install from the Microsoft Store. WSL1 executes unmodified Linux ELF64 binaries by operating a Linux kernel interface on top of the Windows kernel in Windows 10. The WSL1 interface translates Linux system calls from the binaries into Windows system calls and then executes them at native speed. Linux applications run within the Linux distribution which provides the application's dependencies and package management in a container-like environment. WSL provides an interface to mount drives within WSL.</p>
+<h3 id="wsl2">5. WSL2</h3>
+<p>WSL2 was announced at Microsoft Build 2019. WSL2 features a Linux kernel running inside Windows 10 and is built on the core technology of Hyper-V to provide better Linux application support and improved file performance. Transitioning to WSL2 is seamless. WSL2 is still in active development and is only available in <a href="https://insider.windows.com/en-us/getting-started/">Insider builds</a>. These builds are not suitable for production devices and are not recommended for a user's primary machine. Instead, users <a href="https://boxofcables.dev/trying-wsl2-on-hyper-v/">can try WSL2 using Hyper-V</a> or on a secondary machine.</p>
+<ul>
+<li><a href="https://devblogs.microsoft.com/commandline/announcing-wsl-2/">Announcing WSL2</a> - Microsoft blog announcing WSL2</li>
+<li><a href="https://www.youtube.com/watch?v=lwhMThePdIo">The new Windows subsystem for Linux architecture: a deep dive</a> - WSL2 presentation at Microsoft Build 2019</li>
+<li><a href="https://github.com/microsoft/WSL2-Linux-Kernel">WSL2-Linux-Kernel</a> - The source for the Linux kernel used in Windows Subsystem for Linux 2.</li>
+</ul>
+<h3 id="emulation">6. Emulation</h3>
+<p>Windows Subsystem for Linux is not an emulator or virtualizer like <a href="https://www.virtualbox.org">VirtualBox</a>. WSL1 is closer in its approach to <a href="https://www.winehq.org">Wine</a> which is a compatibility layer to run Windows binaries on Linux by re-implementing Windows system and API calls in libraries.</p>
+<h3 id="details">7. Details</h3>
+<p>You want the gritty details? Here they are:</p>
+<ul>
+<li><a href="https://blogs.msdn.microsoft.com/wsl/2016/04/22/windows-subsystem-for-linux-overview/">Windows Subsystem for Linux Overview</a> at MSDN.</li>
+<li><a href="https://blogs.msdn.microsoft.com/wsl/2016/06/15/wsl-file-system-support/">WSL File System Support</a> at MSDN.</li>
+<li><a href="https://blogs.msdn.microsoft.com/wsl/2016/06/08/wsl-system-calls/">WSL System Calls</a> at MSDN.</li>
+<li><a href="https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/">Windows and Ubuntu Interoperability</a> at MSDN.</li>
+<li><a href="https://blogs.msdn.microsoft.com/wsl/2016/11/01/wsl-antivirus-and-firewall-compatibility/">WSL Antivirus and Firewall Compatibility</a> at MSDN.</li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/release-notes">WSL Release Notes</a> from docs.microsoft.com.</li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux Documentation</a> from docs.microsoft.com.</li>
+<li><a href="https://www.youtube.com/watch?v=PP_T_m0UV9E">Windows Subsystem for Linux - Update</a> from Microsoft Developer YouTube channel.</li>
+<li><a href="https://blog.jessfraz.com/post/windows-for-linux-nerds/">Windows for Linux Nerds</a> from Microsoft developer Jessie Frazelle.</li>
+</ul>
+<h3 id="installation">8. Installation</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL1 Installation Guide</a> - Microsoft's official guide for WSL1.</li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-install">WSL2 Installation Guide</a> - Microsoft's official guide for WSL2.</li>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-on-server">Windows Server Installation Guide</a> - Microsoft's official guide for Windows Server.</li>
+<li><a href="https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup">Windows-Subsystem-For-Linux-Setup</a> - A basic guide for how to get setup with the WSL feature that is included with Windows 10. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+</ul>
+<h3 id="use-cases">9. Use Cases</h3>
+<p>WSL is undoubtedly a tool for power-users, developers, and *NIX/Linux geeks who want to run Windows. Most of the things you can do with WSL are going to be related to programming, the console, sysadmin, automation, AI/data science, and other geeky things.</p>
+<h3 id="gui-apps">10. GUI Apps</h3>
+<p>Yes, a <a href="https://github.com/ethanhs/WSL-Programs">suprising number</a> of Linux GUI apps can run on WSL even though this is not officially supported by Microsoft. Running a GUI app on Linux though means running an X server on Windows. This must be downloaded, installed, and running for your GUI app to open from WSL. Otherwise it will complain of not finding a display. X servers for Windows include <a href="https://afflnk.microsoft.com/c/1291904/433017/7593?u=https%3A%2F%2Fwww.microsoft.com%2Fp%2Fx410%2F9nlp712zmn9q">X410</a> 💰 ($5 but very highly recommended), <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a>, <a href="https://www.microsoft.com/store/apps/9NL6KD1H33V3">GWSL</a>, or <a href="https://sourceforge.net/projects/xming/">Xming</a> on Windows 10.</p>
+<h2 id="using-wsl">Using WSL</h2>
+<h4 id="the-wsl-shell">The WSL Shell</h4>
+<ul>
+<li><a href="https://www.howtogeek.com/265900/everything-you-can-do-with-windows-10s-new-bash-shell/">Everything You Can Do With Windows 10's New Bash Shell</a></li>
+<li><a href="http://seankross.com/the-unix-workbench/">The Unix Workbench</a> - A book for anyone to get started with Unix/Linux environments.</li>
+<li><a href="https://github.com/jlevy/the-art-of-command-line">The Art of Command Line</a> - Master the command line in one page. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="http://www.bash.academy">The Bash Academy</a> - The Bash Academy is an initiative to promote the bash shell language and educate people on its use.</li>
+<li><a href="https://github.com/herrbischoff/awesome-command-line-apps">Awesome Command Line Apps</a> <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome" /></a> <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+</ul>
+<h4 id="programming-on-wsl">Programming on WSL</h4>
+<p>Every developer has a unique workflow. Windows and WSL enable developers to carefully customize their setup for their unique workflow. The following are different developers' approaches to creating their development environments using WSL and instructions on how to do the same:</p>
+<ul>
+<li><a href="https://medium.com/@johnwoodruff91/epic-dev-environment-with-wsl-dc81e234ae61">Epic Development Environment Using Windows Subsystem for Linux</a> - One developer's approach to their development environment using WSL1.</li>
+<li><a href="https://dev.to/johnbwoodruff/far-more-epic-development-environment-using-wsl-2-439g">Far More Epic Development Environment using WSL2</a></li>
+<li><a href="https://www.cs.odu.edu/~zeil/FAQs/Public/win10Bash/">Setting Up a Programming Environment via Windows 10 Bash</a> - From the computer science department at Old Dominion University.</li>
+<li><a href="https://github.com/hsab/WSL-config">WSL as a Development Environment</a> - From the computer science department at University of Utah. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows">Using WSL and MobaXterm to Create a Linux Dev Environment on Windows</a> - Another developer's approach using the third-party terminal MobaXterm.</li>
+<li><a href="http://tattoocoder.com/setting-up-my-wsl-environment-azure-cli-docker-and-net/">Setting up my WSL Environment - Azure CLI, Docker and . NET</a></li>
+<li><a href="https://github.com/seapagan/ubuntu-win-bootstrap">ubuntu-win-boostrap</a> - A very simple bootstrap script to install some development basic tools on Debian/Ubuntu on WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/rodtreweek/Castle-Winbuntu">Castle-Winbuntu</a> - Another developer's progress on their development environment using WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://jessicadeen.com/badass-terminal-wsl-macos-and-ubuntu-dotfiles-update/">Badass Terminal</a></li>
+</ul>
+<p>For more about learning programming generally, visit <a href="https://github.com/Michael0x2a/curated-programming-resources/blob/master/resources.md">curated-programming-resources</a>.</p>
+<p>Microsoft makes <a href="https://code.visualstudio.com">free development tools</a> available, publishes programming guides through <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ff381399(v=vs.85).aspx">MSDN</a>, and offers courses through <a href="https://www.edx.org/school/microsoft">edX</a> and <a href="https://mva.microsoft.com">Microsoft Virtual Academy</a>.</p>
+<h4 id="web-development-on-wsl">Web Development on WSL</h4>
+<p>Because WSL allows developers to run a variety of Linux server applications locally on their Windows machine, WSL is uniquely useful for web, cloud, and other server-side development tasks. The following are different developers' approaches to creating their web development environment using WSL and instructions on how to do the same:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JZCPYWrTLTg">We put Linux in your Windows</a> - YouTube talk by Windows kernel team member Sarah Cooley on WSL for Windows.</li>
+<li><a href="https://blog.cloudboost.io/setting-up-windows-for-web-development-28483d245a82">Setting Up Windows for Web Development</a>.</li>
+<li><a href="https://medium.com/@ssharizal/how-to-install-lamp-stack-server-on-windows-subsystem-linux-wsl-windows-10-133419c22473">How to Install LAMP Stack Server on Windows Subsystem Linux</a>.</li>
+</ul>
+<h4 id="other-wsl-uses">Other WSL Uses</h4>
+<ul>
+<li><a href="https://yanivpaz.com/2020-04-13-arduino-wsl1/">Arduino setup checklist</a> - Checklist to connect Arduino board from WSL 1.<br />
+</li>
+<li>Learning <a href="https://www.codecademy.com">programming</a>, <a href="https://www.quora.com/Why-should-computer-science-students-use-the-GNU-Linux-operating-system">computer science</a>, and <a href="https://www.linuxfoundation.org/blog/7-steps-to-start-your-linux-sysadmin-career/">system administration</a> generally.</li>
+<li>Building applications for <a href="https://blogs.technet.microsoft.com/stefan_stranger/2018/03/08/installing-azure-cli-on-debian-gnulinux-for-wsl/">Azure</a>, Microsoft's cloud platform.</li>
+<li>Leveraging the power of the shell and scripting to automate your personal workflow, like OCRing and sorting PDFs into folders using <a href="https://www.pyimagesearch.com/2017/07/10/using-tesseract-ocr-python/">Python</a>.</li>
+<li>Replacing Windows shell <a href="https://github.com/NathanCastle/BootShellCredentialProvider">with Xfce, Gnome, KDE, or i3.</a>.</li>
+<li>Running Linux-based server applications like <a href="https://openfoam.org/download/windows-10/">OpenFOAM</a> and <a href="https://mkaz.blog/wordpress/install-wordpress-on-windows-subsystem-for-linux/">Wordpress</a> locally for testing purposes.</li>
+<li>Managing your companies' CentOS servers using <a href="https://www.jeffgeerling.com/blog/2017/using-ansible-through-windows-10s-subsystem-linux">Ansible</a>.</li>
+<li><a href="https://medium.com/@hoxunn/wslinux-k8s-the-interop-way-2d98e5b88f08">pWSLinux+K8S: The Interop way</a></li>
+<li><a href="https://www.vagrantup.com/docs/other/wsl.html">Vagrant and Windows Subsystem for Linux</a></li>
+</ul>
+<h2 id="supported-distributions">Supported Distributions</h2>
+<h4 id="ubuntu">Ubuntu</h4>
+<p>Ubuntu is a Linux distribution based on Debian that is produced by <a href="https://www.ubuntu.com">Canonical Ltd.</a>. Ubuntu 16.04 and the more recent Ubuntu 18.04 are both available for WSL from the Microsoft Store.</p>
+<ul>
+<li><a href="https://www.microsoft.com/store/productId/9NBLGGH4MSV6">Windows Store Link</a> for Ubuntu 16.04. Supported through April 2021. Very stable but some packages and libraries may be older.</li>
+<li><a href="https://www.microsoft.com/store/productId/9N9TNGVNDL3Q">Windows Store Link</a> for Ubuntu 18.04. Supported through April 2023.</li>
+<li><a href="https://www.microsoft.com/en-gb/p/ubuntu-2004-lts/9n6svws3rx71?activetab=pivot:overviewtab">Windows Store Link</a> for Ubuntu 20.04. Most recent update. Newer packages but more likely to encounter bugs. Supported through April 2025.</li>
+<li><a href="https://help.ubuntu.com/community/InstallingSoftware">Installing Software</a> guide to using apt from Ubuntu.</li>
+<li><a href="https://help.ubuntu.com/lts/serverguide/index.html">Ubuntu Server Guide</a> from Ubuntu.</li>
+<li>Because Ubuntu is based on Debian, many Debian tutorials also apply to Ubuntu.</li>
+</ul>
+<h4 id="debian">Debian</h4>
+<p>Debian is a Linux distribution assembled by volunteers with the community <a href="https://www.debian.org">Debian</a> Project.</p>
+<ul>
+<li><a href="https://www.microsoft.com/store/productId/9MSVKQC78PK6">Windows Store Link</a> for Debian Stretch.</li>
+<li><a href="https://www.debian.org/doc/manuals/debian-reference/">Debian Reference</a> post-installation guide for Debian users with a focus on the command line from Debian.</li>
+<li><a href="https://www.debian.org/doc/manuals/debian-reference/ch02.en.html">Package Management</a> guide to using apt from Debian.</li>
+<li><a href="https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux">WSL Wiki page</a> from Debian.</li>
+</ul>
+<h4 id="opensuse-suse-enterprise-linux">OpenSUSE / SUSE Enterprise Linux</h4>
+<p>OpenSUSE and SUSE Enterprise Linux are Linux distributions produced by <a href="https://www.opensuse.org">SUSE Linux GmbH</a> and other companies. Leap is a community-oriented distribution with recent software. SUSE Enterprise Linux is an enterprise-grade commercial distribution with older tested software.</p>
+<ul>
+<li><a href="https://www.microsoft.com/store/productId/9N1TB6FPVJ8C">Windows Store Link</a> for OpenSUSE Leap 15.</li>
+<li><a href="https://www.microsoft.com/store/productId/9PMW35D7FNLX">Windows Store Link</a> for SUSE Enterprise Linux 15.</li>
+<li><a href="https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/cha.sw_cl.html">Managing Software with Command Line Tools</a> from OpenSUSE.</li>
+<li><a href="https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/book.opensuse.reference.html">OpenSUSE Reference</a>.</li>
+<li><a href="https://www.suse.com/documentation/sles-15/index.html">SUSE Linux Enterprise Documentation</a> from SUSE.</li>
+</ul>
+<h4 id="kali-linux">Kali Linux</h4>
+<p>Kali Linux is a Linux distribution focused on penetration testing based on Debian that is produced by <a href="https://www.kali.org">Offensive Security</a>.</p>
+<ul>
+<li><a href="https://www.microsoft.com/store/productId/9PKR34TNCV07">Windows Store Link</a>.</li>
+<li><a href="https://www.kali.org/kali-linux-documentation/">Kali Linux Official Documentation</a>.</li>
+<li>Because Kali is based on Debian, most Debian and Ubuntu documentation also applies to Kali.</li>
+</ul>
+<h4 id="fedora-remix-for-wsl">Fedora Remix for WSL</h4>
+<p>Fedora Remix for WSL is a Linux distribution derived from the <a href="https://getfedora.org/">Fedora distribution</a>.</p>
+<ul>
+<li><a href="https://www.microsoft.com/store/productId/9N6GDM4K2HNC">Windows Store Link</a> 💰</li>
+<li><a href="https://docs.fedoraproject.org/">Fedora Project Documentation</a></li>
+<li><a href="https://www.whitewaterfoundry.com/fedora-remix-for-wsl/">Fedora Remix for WSL Homepage</a></li>
+<li><a href="https://github.com/WhitewaterFoundry/WSLFedoraRemix">Fedora Remix for WSL GitHub</a> <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+</ul>
+<h4 id="pengwin">Pengwin</h4>
+<p>Pengwin (formerly WLinux) is a Linux distribution based on Debian that is designed for WSL users by independent open source developers at <a href="https://www.whitewaterfoundry.com/">Whitewater Foundry</a>.</p>
+<ul>
+<li><a href="https://afflnk.microsoft.com/c/1291904/433017/7593?u=https%3A%2F%2Fwww.microsoft.com%2Fp%2Fwlinux%2F9nv1gv1pxz6p">Windows Store Link</a> 💰</li>
+<li><a href="https://github.com/WhitewaterFoundry/Pengwin">Pengwin GitHub</a> <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li>Because Pengwin is based on Debian, most Debian and Ubuntu documentation also applies to Pengwin.</li>
+</ul>
+<h4 id="pengwin-enterprise">Pengwin Enterprise</h4>
+<p>Pengwin Enterprise is a custom WSL solution available to enterprise customers from Whitewater Foundry. Pengwin Enterprise supports <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a>, <a href="https://www.centos.org/">CentOS</a>, and <a href="https://www.scientificlinux.org/">Scientific Linux</a>. A demo of Pengwin Enterprise built with <a href="https://www.scientificlinux.org/">Scientific Linux</a> is available on the Microsoft Store.</p>
+<ul>
+<li><a href="https://www.whitewaterfoundry.com/">Pengwin Enterprise Homepage</a></li>
+<li><a href="https://github.com/WhitewaterFoundry/Pengwin-Enterprise">Pengwin Enterprise GitHub</a> <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li>Demo <a href="https://www.microsoft.com/store/productId/9N8LP0X93VCP">Microsoft Store Link</a></li>
+</ul>
+<h2 id="unofficial-distributions">Unofficial Distributions</h2>
+<p>Unofficial distributions must be installed manually or with tools listed below. They are not available in the Windows Store.</p>
+<ul>
+<li><a href="https://github.com/0xbadfca11/miniwsl">miniwsl</a> - A mini Linux distribution for WSL powered by <a href="https://www.busybox.net">busybox</a>. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/yuk7/ArchWSL">ArchWSL</a> - ArchLinux in WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/yuk7/AlpineWSL">AlpineWSL</a> - Alpine in WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://gitlab.com/gbraad/windows-subsystem-for-linux-fedora">windows-subsystem-linux-fedora</a> - Fedora in WSL.</li>
+<li><a href="https://github.com/Biswa96/WSLInstall">WSLInstall</a> - Install any GNU/Linux distribution userspace in Windows Subsystem for Linux (WSL) with compressed RootFS tarballs, Docker containers, or ISO files. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/yuk7/wsldl">wsldl</a> - General purpose WSL installer and launcher. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/RoliSoft/WSL-Distribution-Switcher">WSL-Distribution-Switcher</a> - Scripts to replace the distribution behind WSL with any other Linux distribution published on <a href="https://hub.docker.com/explore/">Docker Hub</a>. Includes alpine, CentOS, Fedora, Clear, and others. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/elrzn/acme-wsl">acme-wsl</a> - Install acme / plan9port on Debian, Ubuntu, or Kali Linux distributions on WSL.</li>
+<li><a href="https://github.com/yuk7/CentWSL">CentWSL</a> - CentOS as a WSL distro. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/yosukes-dev/RHWSL">RHWSL</a> - Red Hat Universal Base Image as a WSL distro. If you have a Red Hat Subscription, you can register and subscribe the system and use it as RHEL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/yosukes-dev/FedoraWSL">FedoraWSL</a> - Fedora as a WSL distro. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/yosukes-dev/AmazonWSL">AmazonWSL</a> - Amazon Linux as a WSL distro. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/ThatWeirdAndrew/GentooWSL">GentooWSL</a> - Gentoo as a WSL distro. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/VPraharsha03/DevuanWSL">DevuanWSL</a> - Devuan Linux as a WSL Distro. Devuan is a Debian variant without the complexities and dependencies of systemd. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/sileshn/ManjaroWSL">ManjaroWSL</a> - Manjaro as a WSL distro based on wsldl. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+</ul>
+<h2 id="wsl-tools">WSL Tools</h2>
+<h4 id="x-servers">X Servers</h4>
+<p>An X server running on Windows is required for running Linux GUI apps on Windows. See <a href="#10-gui-apps">FAQ #10</a>above.</p>
+<ul>
+<li><a href="https://token2shell.com/x410/">X410</a> - X server for Windows 10 on the Microsoft Store. 💰</li>
+<li><a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a> - X server for Windows with hardware acceleration compiled with Visual Studio.</li>
+<li><a href="https://www.microsoft.com/store/apps/9NL6KD1H33V3">GWSL</a> - An X server for Windows 10 with an app launcher, distro manager, shortcut creator, and ssh launcher.</li>
+<li><a href="https://www.netsarang.com/en/xmanager/">Xmanager</a> - X server for Windows from NetSarang. 💰</li>
+<li><a href="https://sourceforge.net/projects/xming/">Xming</a> - An older X server for Windows. Has not been updated since 2016.</li>
+<li><a href="https://x.cygwin.com">Cygwin/X</a> - Cygwin/X is a port of the X Window System to the Cygwin API layer for Windows.</li>
+</ul>
+<h4 id="terminals">Terminals</h4>
+<ul>
+<li><a href="https://github.com/microsoft/terminal">Windows Terminal</a> - The new open-source Windows Terminal. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github_project" /></li>
+<li><a href="https://github.com/mintty/wsltty">wsltty</a> - Mintty as a terminal for WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/goreliu/wsl-terminal">wsl-terminal</a> - A terminal emulator for WSL, based on mintty, fatty and wslbridge. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://eugeny.github.io/terminus/">Terminus</a> - A terminal for a more modern age. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://conemu.github.io">ConEmu</a> - ConEmu aims to be handy, comprehensive, fast and reliable terminal where you may host any console application for the Windows command line, PowerShell, or WSL.</li>
+<li><a href="https://mobaxterm.mobatek.net">MobaXterm</a> - Enhanced terminal for Windows with X11 server, tabbed SSH client, network tools and much more.</li>
+<li><a href="https://github.com/sedwards2009/extraterm">extraterm</a> - Open source project to build a terminal emulator and expand it with new features to support modern workflows. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://hyper.is/">Hyper</a> - A terminal built on web technologies. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://medium.com/@bhupathy/install-terminator-on-windows-with-wsl-2826591d2156">Terminator</a> - Feature-rich tabbed terminal. Requires X server.</li>
+<li><a href="https://github.com/alacritty/alacritty">Alacritty</a> - A terminal emulator with focus on performance and simplicity.</li>
+</ul>
+<h4 id="for-managing-wsl-installations">For Managing WSL Installations</h4>
+<ul>
+<li><a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a> - A full-featured utility for managing WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/patrick330602/wslu">wslu</a> - A collection of utilities for Windows 10 Linux Subsystem, such as enabling sound in WSL and creating your favorite linux GUI application shortcuts on Windows 10. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Wintus/Ansible-WSL">Ansible-WSL</a> - Provision WSL using Ansible. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+</ul>
+<h4 id="wsl-utilities">WSL Utilities</h4>
+<ul>
+<li><a href="https://github.com/andy-5/wslgit">wslgit</a> - Use git installed on WSL from Visual Studio Code on Windows. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/diablodale/pinentry-wsl-ps1">pinentry-wsl-ps1</a> - Store passwords for gpg-agent in Windows Credential Manager <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/int128/wslexec">wslexec</a> - Execute Linux executables as .exe files on Windows. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/watzon/wsl-proxy">wsl-proxy</a> - A collection of ‘proxy' batch files that can be used to route requests to the WSL version of a command. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/laurent22/wslpath">wslpath</a> - Easily convert Windows to WSL path names and vice-versa. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/4U6U57/wsl-open">wsl-open</a> - Open files with xdg-open in WSL from Windows applications. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/sindresorhus/is-wsl">is-wsl for Node</a> - Check if the current process is running inside Windows Subsystem for Linux, useful for scripting. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/julien-h/is-wsl">is_wsl for Python</a> - Check if the current process is running inside Windows Subsystem for Linux, useful for scripting. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Konfekt/wsl-gui-bins">wsl-gui-bins</a> - Start common GUI applications under WSL as under Linux. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Konfekt/xclip-xsel-WSL">xclip-xsel-WSL</a> - Make <code>xclip</code> and <code>xsel</code> in <code>WSL</code> read and write on the Windows instead of the Linux clipboard.</li>
+</ul>
+<p>. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></p>
+<ul>
+<li><a href="//github.com/HanabishiRecca/WslShortcut">WslShortcut</a> - Run WSL commands directly in Windows. Also allows to use WSL <code>git</code>/<code>node</code>/etc. in <strong>Visual Studio Code</strong> or another software. Combines functionality of utilities like <a href="//github.com/andy-5/wslgit"><code>wslgit</code></a>, <a href="//github.com/snooopcatt/wslnodejs"><code>wslnodejs</code></a>, <a href="//github.com/int128/wslexec"><code>wslexec</code></a> etc. with simpler usage. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+</ul>
+<h4 id="wsl-specific-development-tools">WSL-Specific Development Tools</h4>
+<ul>
+<li><a href="https://github.com/rodtreweek/Castle-Winbuntu">wsl-docker-git-setup</a> - Shell script to configure WSL to use docker and docker-compose as well as a git-enabled prompt. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://launchpad.net/~hvr/+archive/ubuntu/ghc-wsl">ghc</a> - A version of the Glasgow Haskell Compiler built and optimized for WSL and hosted in a PPA for Debian and Ubuntu-based WSL distros.</li>
+</ul>
+<h4 id="miscellaneous-tools">Miscellaneous Tools</h4>
+<ul>
+<li><a href="https://github.com/NathanCastle/BootShellCredentialProvider">BootShellCredentialProvider</a> - BSCP lets you boot Windows directly into a Linux desktop experience such as xfce4 using Windows native login and a combination of Xming &amp; WSL upon login. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Xyene/wsl-dotfiles">wsl-dotfiles</a> - Configuration files and scripts for creating an i3-based environment inside WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/therealkenc/EnumWSL">EnumWSL</a> - Enumerates installed WSL packages. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Microsoft/WSL-DistroLauncher">WSL-DistroLauncher</a> - Reference launcher app for developing your own WSL distribution Microsoft Store package. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Biswa96/WSL_Reverse">WSL_Reverse</a> - Reveal hidden COM interface between WSL and Lxss Manager Service. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/rprichard/wslbridge">wslbridge</a> - wslbridge is a Cygwin program that allows connecting to the WSL command-line environment over TCP sockets, as with ssh, but without the overhead of configuring an SSH server. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/Biswa96/WSLInstall">WSLInstall</a> - Install any Linux distribution userspace in WSL with compressed RootFS tarballs (tar.gz) or with Docker containers or with ISO files. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://github.com/neilpa/cmd-colors-solarized">cmd-colors-solarized</a> - This is a solarized color scheme for the Windows command prompt that works in WSL.</li>
+<li><a href="https://github.com/vuori/weasel-pageant">weasel-pageant</a> - An ssh-agent compatible helper for interacting with Pageant from processes running on the Windows Subsystem for Linux.</li>
+<li><a href="https://github.com/BlackReloaded/wsl2-ssh-pageant">wsl2-ssh-pageant</a> - A bridge between Windows Pageant and WSL2.</li>
+<li><a href="https://github.com/buptczq/WinCryptSSHAgent">WinCryptSSHAgent</a> - Using a Yubikey for SSH Authentication on Windows Seamlessly. Supports WSL and WSL2.</li>
+</ul>
+<h2 id="books">Books</h2>
+<ul>
+<li><a href="https://www.amazon.com/Windows-Subsystem-Linux-Tactics-Mindset/dp/1977718094">Windows Subsystem for Linux: Tactics, Mindset and Tips</a></li>
+<li><a href="https://www.apress.com/gp/book/9781484260371">Learn Windows Subsystem for Linux</a> - A Practical Guide for Developers and IT Professionals</li>
+<li><a href="https://www.amazon.co.uk/Windows-Subsystem-Linux-Tricks-Techniques/dp/1800562446/">Windows Subsystem for Linux 2 (WSL 2): Tips, Tricks and Techniques by Stuart Leeks</a></li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li>Microsoft <a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL Official Documentation</a></li>
+<li>Microsoft <a href="https://blogs.msdn.microsoft.com/wsl">WSL Blog</a></li>
+<li>Microsoft <a href="https://blogs.msdn.microsoft.com/commandline/">Console Blog</a></li>
+<li><a href="https://github.com/ethanhs/WSL-Programs">WSL-Programs</a> - A community powered list of programs that work on the Windows Subsystem for Linux. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://www.reddit.com/r/bashonubuntuonwindows/">/r/bashonubuntuonwindows</a> - Reddit subreddit.</li>
+<li><a href="https://irc-source.com/channel/freenode/%23%23windows-wsl">##windows-wsl</a> - IRC channel on Freenode.net.</li>
+<li><a href="https://www.oftc.net">#debian-wsl</a> - IRC channel on OFTC.net.</li>
+<li><a href="https://github.com/Microsoft/WSL">WSL on GitHub</a> - For reporting issues with WSL. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="http://wsl-guide.org/en/latest/">The Windows Subsystem for Linux Guide</a> - Third-party WSL resource.</li>
+<li><a href="https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/category/161892-bash">Microsoft User Voice</a> - Send Microsoft feedback on WSL.</li>
+<li><a href="https://wpdev.uservoice.com/forums/266908-command-prompt-console-windows-subsystem-for-l">Microsoft Developer Feedback</a> - For developers to send Microsoft feeback on WSL.</li>
+<li><a href="https://github.com/ehmicky/portable-node-guide">Portable Node.js guide</a> - Practical guide on how to write portable/cross-platform Node.js code</li>
+<li><a href="https://stackoverflow.com/questions/tagged/wsl">Stack Overflow: WSL</a> - Programming question and answer site.</li>
+</ul>
+<h2 id="related-projects">Related Projects</h2>
+<ul>
+<li><a href="https://www.gnu.org/software/bash/">Bash</a> - Bash is the GNU Project's shell. Bash is the Bourne Again SHell. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh).</li>
+<li><a href="https://cygwin.com">Cygwin</a> - Cygwin is a Unix-like environment and command-line interface for Microsoft Windows.</li>
+<li><a href="https://cmder.net/">Cmder</a> - A very nice console emulator built on ConEmu. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://www.putty.org">PuTTY</a> - PuTTY is an SSH and telnet client, developed originally by Simon Tatham for the Windows platform. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?view=powershell-6">PowerShell</a> - PowerShell is a task automation and configuration management framework from Microsoft, consisting of a command-line shell and associated scripting language.</li>
+<li><a href="https://code.visualstudio.com">Visual Studio Code</a> - Visual Studio Code (“vscode”) is a source code editor developed by Microsoft for Windows, Linux, and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring.</li>
+<li><a href="https://www.visualstudio.com/vs/">Visual Studio 2017</a> - Visual Studio is an IDE from Microsoft. It is used to develop computer programs, as well as web sites, web apps, web services and mobile apps. Visual Studio uses Microsoft software development platforms such as Windows API, Windows Forms, Windows Presentation Foundation, Windows Store, and Microsoft Silverlight.</li>
+<li><a href="https://en.wikipedia.org/wiki/Windows_Services_for_UNIX">Windows Services for UNIX</a> - SFU is a discontinued software package produced by Microsoft which provided a Unix environment on Windows NT and some of its immediate successor operating-systems. <a href="https://technet.microsoft.com/en-us/library/bb496506.aspx">TechNet</a> documentation.</li>
+</ul>
+<h2 id="more-awesome">More Awesome</h2>
+<ul>
+<li><a href="https://github.com/sirredbeard/Awesome-UNIX">Awesome UNIX</a></li>
+<li><a href="https://github.com/Awesome-Windows/Awesome">Awesome Windows</a></li>
+<li><a href="https://github.com/viatsko/awesome-vscode">Awesome VSCode</a></li>
+<li><a href="https://github.com/awesome-lists/awesome-bash">Awesome Bash</a></li>
+<li><a href="https://github.com/alebcay/awesome-shell">Awesome Shell</a></li>
+<li><a href="https://github.com/janikvonrotz/awesome-powershell">Awesome Powershell</a></li>
+<li><a href="https://github.com/aleksandar-todorovic/awesome-linux">Awesome Linux</a></li>
+</ul>
+<p>More <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome" /></a> lists. <img src="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png" alt="github project" /></p>
+<h2 id="thanks">Thanks</h2>
+<ul>
+<li>The Windows 10, WSL, and kernel teams at Microsoft, including but not limited to <a href="https://twitter.com/tara_msft">Tara Raj</a>, <a href="https://twitter.com/richturn_ms">Rich Turner</a>, <a href="https://twitter.com/jessfraz">Jessie Frazelle</a>, <a href="https://github.com/jackchammons">Jack Hammons</a>, <a href="https://github.com/scooley">Sarah Cooley</a>, <a href="https://github.com/benhillis">Ben Hillis</a>, <a href="https://blogs.technet.microsoft.com/askpfeplat/tag/allen-sudbring/">Allen Sudbring</a>, <a href="https://social.technet.microsoft.com/profile/BrandonWilson">Brandon Wilson</a>, <a href="https://twitter.com/gigastarks">John Starks</a>, <a href="https://www.linkedin.com/in/russalex">Russ Alexander</a>, <a href="https://twitter.com/yosefdurr">Yosef Durr</a>, <a href="https://twitter.com/svengroot_ms">Sven Groot</a>, <a href="https://twitter.com/SunilMut">Sunil Muthuswamy</a>, <a href="https://twitter.com/sonipalkesh">Palkesh Soni</a>, <a href="https://twitter.com/gigastarks">John Starks</a>, <a href="https://twitter.com/CraigWilhite">Craig Wilhite</a>.</li>
+<li><a href="https://www.ubuntu.com">Canonical</a>, <a href="https://www.debian.org">Debian</a>, <a href="https://www.suse.com">SUSE</a>, and <a href="https://www.offensive-security.com">Offensive Software</a>.</li>
+<li>The <a href="https://awesome.re">Awesome community</a> on GitHub.</li>
+</ul>
+<h2 id="intellectual-property-notices">Intellectual Property Notices</h2>
+<ul>
+<li>Linux® is a registered trademark of Linus Torvalds in the United States and/or other countries. <a href="https://www.linuxfoundation.org/trademark-usage/">*</a></li>
+<li>Windows®, Windows Server®, Windows 10®, Microsoft®, Microsoft Virtual Academy®, Visual Studio®, Azure®, PowerShell®, and MSDN® are trademarks or registered trademarks of Microsoft Corporation in the United States and/or other countries. <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx">*</a> <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx">**</a></li>
+<li>EdX® is a registered trademark of edX Inc. All Rights Reserved. <a href="https://www.edx.org/trademarks">*</a></li>
+<li>Ubuntu® and Canonical® are registered trademark of Canonical Limited in the United States and/or other countries. <a href="https://www.ubuntu.com/legal/terms-and-policies/intellectual-property-policy">*</a></li>
+<li>SUSE® and SUSE Linux Enterprise® are registered trademarks of SUSE in the United States and/or other countries. <a href="https://www.suse.com/company/legal/">*</a></li>
+<li>Red Hat®, CentOS®, and Red Hat Enterprise Linux® are trademarks or registered trademarks of Red Hat, Inc. in the United States and/or other countries. <a href="https://www.redhat.com/en/about/trademark-guidelines-and-policies">*</a></li>
+<li>UNIX® is a trademark of The Open Group. Use of The Open Group trademarks are authorized by The Open Group Trademark Guidelines as “Editorial or Articles, but not Advertising” and/or permitted by trademark fair use under United States law. <a href="http://www.unix.org/trademark.html">*</a></li>
+<li>Debian® is a registered trademark of Software in the Public Interest, Inc. in the United States and/or other countries. <a href="https://www.debian.org/trademark">*</a></li>
+<li>Kali Linux® and Offensive Security® are registered trademarks of OffSec Services, Ltd. <a href="https://www.offensive-security.com/trademark-policy/">*</a></li>
+<li>Docker® and Docker Hub® are registered trademarks of Docker, Inc. <a href="https://www.docker.com/trademark-guidelines">*</a></li>
+<li>YouTube® is a registered trademark of Google, LLC. <a href="https://www.google.com/permissions/trademark/our-trademarks.html">*</a></li>
+<li>macOS® is a registered trademark of Apple, Inc. <a href="https://www.apple.com/legal/intellectual-property/guidelinesfor3rdparties.html">*</a></li>
+<li>GitHub® and <a href="https://raw.githubusercontent.com/sirredbeard/Awesome-WSL/master/github-icon.png">githublogo</a> are a registered trademarks of GitHub, Inc. <a href="https://help.github.com/articles/github-terms-of-service/">*</a></li>
+<li>Oracle and Oracle Linux are trademarks or registered tracemarks of Oracle, Inc. <a href="https://www.oracle.com/legal/trademarks.html">*</a></li>
+<li>Gentoo® is a trademark of the Gentoo Foundation, Inc. <a href="https://www.gentoo.org/inside-gentoo/foundation/name-logo-guidelines.html">*</a></li>
+</ul>
+<p>All other trademarks mentioned herein are the property of their respective owners and may be registered in the United States and/or other countries.</p>
+<p>The author of this project has no connection with Microsoft, Inc.</p>
+<p>Portions of the descriptions above are from Wikipedia and used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>. Portions of the descriptions above are from <a href="https://github.com/sirredbeard/Awesome-UNIX">Awesome-UNIX</a> and used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>.</p>
+<p>This document is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>.</p>
+</body></html>

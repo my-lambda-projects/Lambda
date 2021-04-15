@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVRh1eWQddSw==","queueTime":2,"applicationTime":79,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>The Top 315 Workflow Open Source Projects</title>
+<meta name="description" content="Browse The Most Popular 315 Workflow Open Source Projects">
+<meta name="robots" content="noindex, follow">
+<link rel="prev" href="https://awesomeopensource.com/projects/workflow">
+<link rel="next" href="https://awesomeopensource.com/projects/workflow?projectPage=3">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="eK2bK2G+kgHdtwLN4KLNKMVYxFxxuRA73L+2AQ6Gb26Qx+aiMaWwpfAl4/pUzB9HQAxHzmf7sg0fsjgGUmlVGQ==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/projects/workflow?projectPage=2","location":"/projects/workflow?projectPage=2","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/projects/workflow","search":"projectPage=2","httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-8ea1ec6d-a732-4371-9d07-ef0b1983cf72"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"><div class="aos_selected_topics_text_container">Combined Topics</div><a href="https://awesomeopensource.com" style="color:black" class="AOS_Pill"><div title="Remove workflow" class="aos_pill_box" id="workflow_pill">workflow<!-- --> <span id="workflow_pillclosebutton" style="background-color:#0366d6;color:#f4e062;width:15px;height:15px;margin-left:5px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:12px">x</span></div></a></div></div><div><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:none;box-shadow:1px 1px 5px lightgray"></div></div></div></div><div class="aos_app_container"><div class="aos_projects_container display_flex margin_bottom_15"><div class="projects_category_explorer_left_column"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div><div class="projects_list_right_column"><h2 style="margin-top:0px;margin-bottom:10px">The Top 315 Workflow Open Source Projects</h2><div style="margin-bottom:10px;display:flex;flex-wrap:wrap"><a href="https://awesomeopensource.com">Categories</a> &gt; <a href="https://awesomeopensource.com/categories/software-development">Software Development</a> &gt; <b>Workflow</b></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/j-easy/easy-flows" rel="canonical" class="aos_no_underline">Easy <!-- -->Flows<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">417</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/j-easy/easy-flows" rel="canonical">The simple, stupid workflow engine for Java</a></div></div><div class="projects_list_ad_slot_1" data-nosnippet="true"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gf-2q-4-u+jk" data-ad-client="ca-pub-1878397330895234" data-ad-slot="4549039979"></ins></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/openwdl/wdl" rel="canonical" class="aos_no_underline">Wdl<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">412</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/openwdl/wdl" rel="canonical">Workflow Description Language - Specification and Implementations</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/peter-evans/create-pull-request" rel="canonical" class="aos_no_underline">Create <!-- -->Pull <!-- -->Request<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">409</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/peter-evans/create-pull-request" rel="canonical">A GitHub action to create a pull request for changes to your repository in the actions workspace</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/symfony/workflow" rel="canonical" class="aos_no_underline">Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">407</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/symfony/workflow" rel="canonical">The Workflow component provides tools for managing a workflow or finite state machine.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/coinbase/geoengineer" rel="canonical" class="aos_no_underline">Geoengineer<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">407</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/coinbase/geoengineer" rel="canonical">DEPRECATED — Infrastructure As Code</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/go-workflow/go-workflow" rel="canonical" class="aos_no_underline">Go <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">406</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/go-workflow/go-workflow" rel="canonical">go版本极简工作流引擎</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/thomashempel/AlfredGoogleTranslateWorkflow" rel="canonical" class="aos_no_underline">Alfredgoogletranslateworkflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">398</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/thomashempel/AlfredGoogleTranslateWorkflow" rel="canonical">A workflow for Alfred that implements translation from any language to any other language that is supported by google</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/PixeyeHQ/actors.unity" rel="canonical" class="aos_no_underline">Actors.unity<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">392</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/PixeyeHQ/actors.unity" rel="canonical">🚀Actors is a framework empowering developers to make better games faster on Unity.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/FilippoBovo/production-data-science" rel="canonical" class="aos_no_underline">Production <!-- -->Data <!-- -->Science<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">379</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/FilippoBovo/production-data-science" rel="canonical">Production Data Science: a workflow for collaborative data science aimed at production</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/automaticmode/active_workflow" rel="canonical" class="aos_no_underline">Active_workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">376</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/automaticmode/active_workflow" rel="canonical">Turn complex requirements to workflows without leaving the comfort of your technology stack.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ctuning/ck" rel="canonical" class="aos_no_underline">Ck<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">374</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ctuning/ck" rel="canonical">Collective Knowledge framework (CK) helps to organize black-box research software as a database of reusable components and micro-services with common APIs, automation actions and extensible meta descriptions. See real-world use cases from Arm, General Motors, ACM, Raspberry Pi foundation and others:</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/onepanelio/core" rel="canonical" class="aos_no_underline">Core<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">373</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/onepanelio/core" rel="canonical">Production scale vision AI platform with fully integrated components for model building, automated labeling, data processing and model training pipelines.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/jordanmerrick/shortcutsdirectory" rel="canonical" class="aos_no_underline">Shortcutsdirectory<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">371</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/jordanmerrick/shortcutsdirectory" rel="canonical">A collection of user-submitted shortcuts for Shortcuts for iOS.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/DrakeW/corgi" rel="canonical" class="aos_no_underline">Corgi<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">364</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/DrakeW/corgi" rel="canonical">Corgi is a command-line workflow manager that helps with your repetitive command usages by organizing them into reusable snippet</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/openkm/document-management-system" rel="canonical" class="aos_no_underline">Document <!-- -->Management <!-- -->System<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">350</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/openkm/document-management-system" rel="canonical">OpenKM is a Open Source Document Management System</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/formapro/pvm" rel="canonical" class="aos_no_underline">Pvm<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">346</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/formapro/pvm" rel="canonical">Build workflows, activities, BPMN like processes, or state machines with PVM.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ksassnowski/venture" rel="canonical" class="aos_no_underline">Venture<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">345</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ksassnowski/venture" rel="canonical">Venture allows you to create and manage complex, async workflows in your Laravel apps.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ovh/utask" rel="canonical" class="aos_no_underline">Utask<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">339</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ovh/utask" rel="canonical">µTask is an automation engine that models and executes business processes declared in yaml. ✏️📋</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/luispedro/jug" rel="canonical" class="aos_no_underline">Jug<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">334</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/luispedro/jug" rel="canonical">Parallel programming with Python</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/deanishe/alfred-stackexchange" rel="canonical" class="aos_no_underline">Alfred <!-- -->Stackexchange<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">329</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/deanishe/alfred-stackexchange" rel="canonical">Search StackOverflow.com from Alfred</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tweag/funflow" rel="canonical" class="aos_no_underline">Funflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">317</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tweag/funflow" rel="canonical">Functional workflows</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/fniephaus/alfred-pocket" rel="canonical" class="aos_no_underline">Alfred <!-- -->Pocket<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">315</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/fniephaus/alfred-pocket" rel="canonical">Manage your Pocket list with Alfred</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/webfactory/ssh-agent" rel="canonical" class="aos_no_underline">Ssh <!-- -->Agent<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">307</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/webfactory/ssh-agent" rel="canonical">GitHub Action to setup `ssh-agent` with a private key</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/madzhuga/rails_workflow" rel="canonical" class="aos_no_underline">Rails_workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">294</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/madzhuga/rails_workflow" rel="canonical">Check Wiki for details</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/knime/knime-core" rel="canonical" class="aos_no_underline">Knime <!-- -->Core<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">292</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/knime/knime-core" rel="canonical">KNIME Analytics Platform</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/preactjs/compressed-size-action" rel="canonical" class="aos_no_underline">Compressed <!-- -->Size <!-- -->Action<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">290</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/preactjs/compressed-size-action" rel="canonical">GitHub Action that adds compressed size changes to your PRs.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pharmbio/sciluigi" rel="canonical" class="aos_no_underline">Sciluigi<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">288</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pharmbio/sciluigi" rel="canonical">A light-weight wrapper library around Spotify&#x27;s Luigi workflow library to make writing scientific workflows more fluent, flexible and modular</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/nikitavoloboev/alfred-my-mind" rel="canonical" class="aos_no_underline">Alfred <!-- -->My <!-- -->Mind<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">283</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/nikitavoloboev/alfred-my-mind" rel="canonical">Alfred workflow to search through my notes and bookmarks</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/nf-core/rnaseq" rel="canonical" class="aos_no_underline">Rnaseq<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">280</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/nf-core/rnaseq" rel="canonical">RNA sequencing analysis pipeline using STAR, RSEM, HISAT2 or Salmon with gene/isoform counts and extensive quality control.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pypa/gh-action-pypi-publish" rel="canonical" class="aos_no_underline">Gh <!-- -->Action <!-- -->Pypi <!-- -->Publish<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">280</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pypa/gh-action-pypi-publish" rel="canonical">GitHub Action, for publishing distribution files to PyPI</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/js-ojus/flow" rel="canonical" class="aos_no_underline">Flow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">274</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/js-ojus/flow" rel="canonical">A tiny open source workflow engine written in Go (golang)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/arvados/arvados" rel="canonical" class="aos_no_underline">Arvados<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">269</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/arvados/arvados" rel="canonical">An open source platform for managing and analyzing biomedical big data</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/danielgerlag/conductor" rel="canonical" class="aos_no_underline">Conductor<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">266</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/danielgerlag/conductor" rel="canonical">Distributed workflow server</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cedalo/streamsheets" rel="canonical" class="aos_no_underline">Streamsheets<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">262</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cedalo/streamsheets" rel="canonical">An open-source tool for processing stream data using a spreadsheet-like interface.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/steedos/steedos-platform" rel="canonical" class="aos_no_underline">Steedos <!-- -->Platform<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">253</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/steedos/steedos-platform" rel="canonical">An open source alternative to salesforce low code development platform. You can easily create intelligent and mobile enterprise applications by clicking the mouse. 华炎魔方低代码、无代码、零代码开发平台</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/badrinathvm/StepperView" rel="canonical" class="aos_no_underline">Stepperview<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">253</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/badrinathvm/StepperView" rel="canonical">SwiftUI iOS component for Step Indications.  </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/camunda/docker-camunda-bpm-platform" rel="canonical" class="aos_no_underline">Docker <!-- -->Camunda <!-- -->Bpm <!-- -->Platform<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">249</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/camunda/docker-camunda-bpm-platform" rel="canonical">Docker images for the camunda BPM platform</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Southpaw-TACTIC/TACTIC" rel="canonical" class="aos_no_underline">Tactic<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">244</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Southpaw-TACTIC/TACTIC" rel="canonical">Open source remote collaboration platform used for configuring and deploying enterprise Workflow solutions.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Jeff2Ma/WeApp-Workflow" rel="canonical" class="aos_no_underline">Weapp <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">242</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Jeff2Ma/WeApp-Workflow" rel="canonical">基于Gulp 的微信小程序前端开发工作流 💯</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/WeBankFinTech/Qualitis" rel="canonical" class="aos_no_underline">Qualitis<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">242</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/WeBankFinTech/Qualitis" rel="canonical">Qualitis is a one-stop data quality management platform that supports quality verification, notification, and management for various datasource. It is used to solve various data quality problems caused by data processing. https://github.com/WeBankFinTech/Qualitis</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/BlueskyClouds/My-Actions" rel="canonical" class="aos_no_underline">My <!-- -->Actions<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">240</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/BlueskyClouds/My-Actions" rel="canonical">爱奇艺会员签到抽奖,腾讯视频会员签到,哔哩哔哩漫画签到,中国电信签到,V2ex签到,哔咔漫画签到,百度贴吧自动签到</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sbusso/Bear-Power-Pack" rel="canonical" class="aos_no_underline">Bear <!-- -->Power <!-- -->Pack<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">238</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sbusso/Bear-Power-Pack" rel="canonical">A collection of workflows enhancing Bear writer app on iOS and Mac.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ovh/celery-director" rel="canonical" class="aos_no_underline">Celery <!-- -->Director<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">236</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ovh/celery-director" rel="canonical">Simple and rapid framework to build workflows with Celery</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cliffordfajardo/cato" rel="canonical" class="aos_no_underline">Cato<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">233</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cliffordfajardo/cato" rel="canonical">Spotlight and alfred app like search in your browser 🔍.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/aiidateam/aiida-core" rel="canonical" class="aos_no_underline">Aiida <!-- -->Core<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">224</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/aiidateam/aiida-core" rel="canonical">The official repository for the AiiDA code</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/frostming/pdm" rel="canonical" class="aos_no_underline">Pdm<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">224</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/frostming/pdm" rel="canonical">A modern Python package manager with PEP 582 support.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/bumped/bumped" rel="canonical" class="aos_no_underline">Bumped<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">219</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/bumped/bumped" rel="canonical">📦 Makes easy release software</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/linkyndy/pallets" rel="canonical" class="aos_no_underline">Pallets<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">213</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/linkyndy/pallets" rel="canonical">Simple and reliable workflow engine, written in Ruby</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/m-reda/pipeline" rel="canonical" class="aos_no_underline">Pipeline<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">211</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/m-reda/pipeline" rel="canonical">Node-based automation server</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/maxplanck-ie/snakepipes" rel="canonical" class="aos_no_underline">Snakepipes<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">209</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/maxplanck-ie/snakepipes" rel="canonical">Customizable workflows based on snakemake and python for the analysis of NGS data</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/WeBankFinTech/Schedulis" rel="canonical" class="aos_no_underline">Schedulis<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">207</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/WeBankFinTech/Schedulis" rel="canonical">Schedulis is a high performance workflow task scheduling system that supports high availability and multi-tenant financial level features, Linkis computing middleware, and has been integrated into data application development portal DataSphere Studio</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Clago/workflow" rel="canonical" class="aos_no_underline">Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">206</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Clago/workflow" rel="canonical">基于laravel的工作流项目</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lesfurets/git-octopus" rel="canonical" class="aos_no_underline">Git <!-- -->Octopus<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">203</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lesfurets/git-octopus" rel="canonical">The continuous merge workflow</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/square/workflow-kotlin" rel="canonical" class="aos_no_underline">Workflow <!-- -->Kotlin<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">203</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/square/workflow-kotlin" rel="canonical">A Swift and Kotlin library for making composable state machines, and UIs driven by those state machines.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/zeebe-io/zeebe-modeler" rel="canonical" class="aos_no_underline">Zeebe <!-- -->Modeler<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">190</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/zeebe-io/zeebe-modeler" rel="canonical">Desktop Application for modeling Zeebe Workflows with BPMN</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ropensci/targets" rel="canonical" class="aos_no_underline">Targets<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">189</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ropensci/targets" rel="canonical">Function-oriented Make-like declarative workflows for R</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/asmeurer/git-workflow" rel="canonical" class="aos_no_underline">Git <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">187</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/asmeurer/git-workflow" rel="canonical">The git workflow for contributing to open source repositories.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/IBM/IBM-Z-zOS" rel="canonical" class="aos_no_underline">Ibm <!-- -->Z <!-- -->Zos<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">187</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/IBM/IBM-Z-zOS" rel="canonical">The helpful and handy location for finding and sharing z/OS files, which are not included in the product.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/plynx-team/plynx" rel="canonical" class="aos_no_underline">Plynx<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">187</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/plynx-team/plynx" rel="canonical">PLynx is a domain agnostic platform for managing reproducible experiments and data-oriented workflows.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/floraison/flor" rel="canonical" class="aos_no_underline">Flor<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">184</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/floraison/flor" rel="canonical">a workflow engine</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ghostiam/vue-blocks" rel="canonical" class="aos_no_underline">Vue <!-- -->Blocks<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">184</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ghostiam/vue-blocks" rel="canonical">Vue2 dataflow graph editor</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ShiftLeftSecurity/sast-scan" rel="canonical" class="aos_no_underline">Sast <!-- -->Scan<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">181</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ShiftLeftSecurity/sast-scan" rel="canonical">Scan is a free &amp; Open Source DevSecOps tool for performing static analysis based security testing of your applications and its dependencies. CI and Git friendly.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/deanishe/alfred-fakeum" rel="canonical" class="aos_no_underline">Alfred <!-- -->Fakeum<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">178</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/deanishe/alfred-fakeum" rel="canonical">Generate fake test data in Alfred</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Mergifyio/mergify-engine" rel="canonical" class="aos_no_underline">Mergify <!-- -->Engine<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">177</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Mergifyio/mergify-engine" rel="canonical">Engine for Mergify</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/phishy/wflow" rel="canonical" class="aos_no_underline">Wflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">175</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/phishy/wflow" rel="canonical">🐆 EXPERIMENTAL -- Runs GitHub Actions workflows locally (local) -- Don&#x27;t run your YAML like a 🐪</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/synrc/bpe" rel="canonical" class="aos_no_underline">Bpe<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">174</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/synrc/bpe" rel="canonical">💠 BPE: Business Process Engine — https://bpe.n2o.dev</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/vitorbritto/workflow-guide" rel="canonical" class="aos_no_underline">Workflow <!-- -->Guide<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">173</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/vitorbritto/workflow-guide" rel="canonical">📓 My workflow context and own code conventions</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/joergen7/cuneiform" rel="canonical" class="aos_no_underline">Cuneiform<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">173</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/joergen7/cuneiform" rel="canonical">Cuneiform distributed programming language</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/micromata/Baumeister" rel="canonical" class="aos_no_underline">Baumeister<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">171</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/micromata/Baumeister" rel="canonical">👷 The aim of this project is to help you to build your things. From Bootstrap themes over static websites to single page applications.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/rails-engine/workflow_core" rel="canonical" class="aos_no_underline">Workflow_core<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">171</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/rails-engine/workflow_core" rel="canonical">[Deprecated, use flor_core instead] A Rails engine which providing essential infrastructure of workflow. It&#x27;s based on Workflow Nets. </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/harshjv/travis-ci-latex-pdf" rel="canonical" class="aos_no_underline">Travis <!-- -->Ci <!-- -->Latex <!-- -->Pdf<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">170</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/harshjv/travis-ci-latex-pdf" rel="canonical">Travis CI and deployment service to build PDF from LaTeX document.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/viant/endly" rel="canonical" class="aos_no_underline">Endly<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">169</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/viant/endly" rel="canonical">End to end functional test and automation framework</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kiegroup/kogito-runtimes" rel="canonical" class="aos_no_underline">Kogito <!-- -->Runtimes<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">168</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kiegroup/kogito-runtimes" rel="canonical">Kogito Runtimes - Kogito is a cloud-native business automation technology for building cloud-ready business applications.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/stevenharman/git_tracker" rel="canonical" class="aos_no_underline">Git_tracker<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">166</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/stevenharman/git_tracker" rel="canonical">Some simple tricks that make working with Pivotal Tracker even better... and easier... um, besier!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/luangjokaj/gopablo" rel="canonical" class="aos_no_underline">Gopablo<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">164</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/luangjokaj/gopablo" rel="canonical">🐺 Static site generator.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/UiPath/Community.Activities" rel="canonical" class="aos_no_underline">Community.activities<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">163</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/UiPath/Community.Activities" rel="canonical">Repository of Windows Workflow Foundation Activities for UiPath Community</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/feflow/git-commit-style-guide" rel="canonical" class="aos_no_underline">Git <!-- -->Commit <!-- -->Style <!-- -->Guide<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">163</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/feflow/git-commit-style-guide" rel="canonical">Make git commit message more readable and useful.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/twbattaglia/RNAseq-workflow" rel="canonical" class="aos_no_underline">Rnaseq <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">161</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/twbattaglia/RNAseq-workflow" rel="canonical">A repository for setting up a RNAseq workflow </a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/reaviz/reaflow" rel="canonical" class="aos_no_underline">Reaflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">159</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/reaviz/reaflow" rel="canonical">🕸 Node-based Visualizations for React</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/edgarjs/alfred-github-repos" rel="canonical" class="aos_no_underline">Alfred <!-- -->Github <!-- -->Repos<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">158</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/edgarjs/alfred-github-repos" rel="canonical">Alfred workflow to easily open Github repositories</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lyrixx/SFLive-Paris2016-Workflow" rel="canonical" class="aos_no_underline">Sflive <!-- -->Paris2016 <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">157</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lyrixx/SFLive-Paris2016-Workflow" rel="canonical">Demo app for the new symfony/workflow component</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/mjbahmani/Machine-Learning-Workflow-with-Python" rel="canonical" class="aos_no_underline">Machine <!-- -->Learning <!-- -->Workflow <!-- -->With <!-- -->Python<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">157</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/mjbahmani/Machine-Learning-Workflow-with-Python" rel="canonical">This is a comprehensive ML techniques with python: Define the Problem- Specify Inputs &amp; Outputs- Data Collection- Exploratory data analysis -Data Preprocessing- Model Design- Training- Evaluation</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/raoul2000/yii2-workflow" rel="canonical" class="aos_no_underline">Yii2 <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">156</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/raoul2000/yii2-workflow" rel="canonical">A simple workflow engine for Yii2</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/yaoguangluo/ETL_Unicorn" rel="canonical" class="aos_no_underline">Etl_unicorn<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">154</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/yaoguangluo/ETL_Unicorn" rel="canonical">数据可视化, 数据挖掘, 数据处理 ETL</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/analysiscenter/batchflow" rel="canonical" class="aos_no_underline">Batchflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">153</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/analysiscenter/batchflow" rel="canonical">BatchFlow helps you conveniently work with random or sequential batches of your data and define data processing and machine learning workflows even for datasets that do not fit into memory.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/eXpandFramework/eXpand" rel="canonical" class="aos_no_underline">Expand<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">152</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/eXpandFramework/eXpand" rel="canonical">DevExpress XAF extension framework. 𝗹𝗶𝗻𝗸𝗲𝗱𝗶𝗻.𝗲𝘅𝗽𝗮𝗻𝗱𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸.𝗰𝗼𝗺, 𝘆𝗼𝘂𝘁𝘂𝗯𝗲.𝗲𝘅𝗽𝗮𝗻𝗱𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸.𝗰𝗼𝗺 and 𝘁𝘄𝗶𝘁𝘁𝗲𝗿 @𝗲𝘅𝗽𝗮𝗻𝗱𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸 and  or simply 𝗦𝘁𝗮𝗿/𝘄𝗮𝘁𝗰𝗵 this repository and get notified from 𝗚𝗶𝘁𝗛𝘂𝗯</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/getrebuild/rebuild" rel="canonical" class="aos_no_underline">Rebuild<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">152</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/getrebuild/rebuild" rel="canonical">Building your business-systems freely! 高度可定制化的企业管理系统 企业中台</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/deanishe/alfred-reddit" rel="canonical" class="aos_no_underline">Alfred <!-- -->Reddit<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">150</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/deanishe/alfred-reddit" rel="canonical">Browse Reddit from Alfred</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/fdaciuk/workflow-reactjs" rel="canonical" class="aos_no_underline">Workflow <!-- -->Reactjs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">150</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/fdaciuk/workflow-reactjs" rel="canonical">My workflow with ReactJS + Webpack 3+</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/vicalloy/django-lb-workflow" rel="canonical" class="aos_no_underline">Django <!-- -->Lb <!-- -->Workflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">145</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/vicalloy/django-lb-workflow" rel="canonical">Reusable workflow library for Django</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/EndBug/add-and-commit" rel="canonical" class="aos_no_underline">Add <!-- -->And <!-- -->Commit<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">145</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/EndBug/add-and-commit" rel="canonical">Add &amp; commit files from a path directly from GitHub Actions</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/JasonEtco/upload-to-release" rel="canonical" class="aos_no_underline">Upload <!-- -->To <!-- -->Release<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">140</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/JasonEtco/upload-to-release" rel="canonical">A GitHub Action that uploads a file to a new release.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/claudewowo/welabx-g6" rel="canonical" class="aos_no_underline">Welabx <!-- -->G6<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">140</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/claudewowo/welabx-g6" rel="canonical">welabx - antv G6</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/imlifengfeng/WorkflowShare" rel="canonical" class="aos_no_underline">Workflowshare<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">137</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/imlifengfeng/WorkflowShare" rel="canonical">Workflow实例分享</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/xhinking/Alfred" rel="canonical" class="aos_no_underline">Alfred<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">135</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/xhinking/Alfred" rel="canonical">My Alfred Theme And Workflow</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lorenzwalthert/precommit" rel="canonical" class="aos_no_underline">Precommit<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">135</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lorenzwalthert/precommit" rel="canonical">pre-commit hooks for R projects</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/grofers/go-codon" rel="canonical" class="aos_no_underline">Go <!-- -->Codon<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">131</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/grofers/go-codon" rel="canonical">Workflow based REST framework code generator</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/akarpov89/MicroFlow" rel="canonical" class="aos_no_underline">Microflow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">127</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/akarpov89/MicroFlow" rel="canonical">Lightweight workflow engine</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/phase2/grunt-drupal-tasks" rel="canonical" class="aos_no_underline">Grunt <!-- -->Drupal <!-- -->Tasks<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">124</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/phase2/grunt-drupal-tasks" rel="canonical">Grunt-based build and testing tasks for Drupal</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/SciLifeLab/Sarek" rel="canonical" class="aos_no_underline">Sarek<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">124</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/SciLifeLab/Sarek" rel="canonical">Detect germline or somatic variants from normal or tumour/normal whole-genome or targeted sequencing</a></div></div><div><div><div class="aos_pagenavigator_container">101<!-- -->-<!-- -->200<!-- --> of <!-- -->315<!-- --> <!-- -->projects</div><div class="aos_pagenavigator_links_container"><div><a href="https://awesomeopensource.com/projects/workflow" title="Previous 100 open source projects">&lt; Previous</a></div><div><a href="https://awesomeopensource.com/projects/workflow?projectPage=3" title="Next 100 open source projects">Next &gt;</a></div></div></div><div class="show_on_phones twenty_px_padding_top"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div></div></div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-8ea1ec6d-a732-4371-9d07-ef0b1983cf72">{"selectedTopics":["workflow"],"currentUrl":"https://awesomeopensource.com/projects/workflow?projectPage=2","projects":[{"id":null,"project_id":91728631,"name":"easy-flows","owner_login":"j-easy","description":"The simple, stupid workflow engine for Java","stargazers_count":417},{"id":null,"project_id":5254429,"name":"wdl","owner_login":"openwdl","description":"Workflow Description Language - Specification and Implementations","stargazers_count":412},{"id":null,"project_id":197176365,"name":"create-pull-request","owner_login":"peter-evans","description":"A GitHub action to create a pull request for changes to your repository in the actions workspace","stargazers_count":409},{"id":null,"project_id":61815898,"name":"workflow","owner_login":"symfony","description":"The Workflow component provides tools for managing a workflow or finite state machine.","stargazers_count":407},{"id":null,"project_id":63974097,"name":"geoengineer","owner_login":"coinbase","description":"DEPRECATED — Infrastructure As Code","stargazers_count":407},{"id":null,"project_id":191507591,"name":"go-workflow","owner_login":"go-workflow","description":"go版本极简工作流引擎","stargazers_count":406},{"id":null,"project_id":9278938,"name":"AlfredGoogleTranslateWorkflow","owner_login":"thomashempel","description":"A workflow for Alfred that implements translation from any language to any other language that is supported by google","stargazers_count":398},{"id":null,"project_id":107817727,"name":"actors.unity","owner_login":"PixeyeHQ","description":"🚀Actors is a framework empowering developers to make better games faster on Unity.","stargazers_count":392},{"id":null,"project_id":106848454,"name":"production-data-science","owner_login":"FilippoBovo","description":"Production Data Science: a workflow for collaborative data science aimed at production","stargazers_count":379},{"id":null,"project_id":185592724,"name":"active_workflow","owner_login":"automaticmode","description":"Turn complex requirements to workflows without leaving the comfort of your technology stack.","stargazers_count":376},{"id":null,"project_id":26230485,"name":"ck","owner_login":"ctuning","description":"Collective Knowledge framework (CK) helps to organize black-box research software as a database of reusable components and micro-services with common APIs, automation actions and extensible meta descriptions. See real-world use cases from Arm, General Motors, ACM, Raspberry Pi foundation and others:","stargazers_count":374},{"id":null,"project_id":211150874,"name":"core","owner_login":"onepanelio","description":"Production scale vision AI platform with fully integrated components for model building, automated labeling, data processing and model training pipelines.","stargazers_count":373},{"id":null,"project_id":102231282,"name":"shortcutsdirectory","owner_login":"jordanmerrick","description":"A collection of user-submitted shortcuts for Shortcuts for iOS.","stargazers_count":371},{"id":null,"project_id":135535614,"name":"corgi","owner_login":"DrakeW","description":"Corgi is a command-line workflow manager that helps with your repetitive command usages by organizing them into reusable snippet","stargazers_count":364},{"id":null,"project_id":63058668,"name":"document-management-system","owner_login":"openkm","description":"OpenKM is a Open Source Document Management System","stargazers_count":350},{"id":null,"project_id":81323223,"name":"pvm","owner_login":"formapro","description":"Build workflows, activities, BPMN like processes, or state machines with PVM.","stargazers_count":346},{"id":null,"project_id":295931854,"name":"venture","owner_login":"ksassnowski","description":"Venture allows you to create and manage complex, async workflows in your Laravel apps.","stargazers_count":345},{"id":null,"project_id":219745882,"name":"utask","owner_login":"ovh","description":"µTask is an automation engine that models and executes business processes declared in yaml. ✏️📋","stargazers_count":339},{"id":null,"project_id":205237,"name":"jug","owner_login":"luispedro","description":"Parallel programming with Python","stargazers_count":334},{"id":null,"project_id":28588977,"name":"alfred-stackexchange","owner_login":"deanishe","description":"Search StackOverflow.com from Alfred","stargazers_count":329},{"id":null,"project_id":105189823,"name":"funflow","owner_login":"tweag","description":"Functional workflows","stargazers_count":317},{"id":null,"project_id":18020692,"name":"alfred-pocket","owner_login":"fniephaus","description":"Manage your Pocket list with Alfred","stargazers_count":315},{"id":null,"project_id":208510314,"name":"ssh-agent","owner_login":"webfactory","description":"GitHub Action to setup `ssh-agent` with a private key","stargazers_count":307},{"id":null,"project_id":30497223,"name":"rails_workflow","owner_login":"madzhuga","description":"Check Wiki for details","stargazers_count":294},{"id":null,"project_id":84253677,"name":"knime-core","owner_login":"knime","description":"KNIME Analytics Platform","stargazers_count":292},{"id":null,"project_id":235609057,"name":"compressed-size-action","owner_login":"preactjs","description":"GitHub Action that adds compressed size changes to your PRs.","stargazers_count":290},{"id":null,"project_id":35960208,"name":"sciluigi","owner_login":"pharmbio","description":"A light-weight wrapper library around Spotify's Luigi workflow library to make writing scientific workflows more fluent, flexible and modular","stargazers_count":288},{"id":null,"project_id":93851254,"name":"alfred-my-mind","owner_login":"nikitavoloboev","description":"Alfred workflow to search through my notes and bookmarks","stargazers_count":283},{"id":null,"project_id":127293091,"name":"rnaseq","owner_login":"nf-core","description":"RNA sequencing analysis pipeline using STAR, RSEM, HISAT2 or Salmon with gene/isoform counts and extensive quality control.","stargazers_count":280},{"id":null,"project_id":178055147,"name":"gh-action-pypi-publish","owner_login":"pypa","description":"GitHub Action, for publishing distribution files to PyPI","stargazers_count":280},{"id":null,"project_id":39291789,"name":"flow","owner_login":"js-ojus","description":"A tiny open source workflow engine written in Go (golang)","stargazers_count":274},{"id":null,"project_id":9359429,"name":"arvados","owner_login":"arvados","description":"An open source platform for managing and analyzing biomedical big data","stargazers_count":269},{"id":null,"project_id":187114977,"name":"conductor","owner_login":"danielgerlag","description":"Distributed workflow server","stargazers_count":266},{"id":null,"project_id":212782392,"name":"streamsheets","owner_login":"cedalo","description":"An open-source tool for processing stream data using a spreadsheet-like interface.","stargazers_count":262},{"id":null,"project_id":173714958,"name":"steedos-platform","owner_login":"steedos","description":"An open source alternative to salesforce low code development platform. You can easily create intelligent and mobile enterprise applications by clicking the mouse. 华炎魔方低代码、无代码、零代码开发平台","stargazers_count":253},{"id":null,"project_id":253174437,"name":"StepperView","owner_login":"badrinathvm","description":"SwiftUI iOS component for Step Indications.  ","stargazers_count":253},{"id":null,"project_id":29275984,"name":"docker-camunda-bpm-platform","owner_login":"camunda","description":"Docker images for the camunda BPM platform","stargazers_count":249},{"id":null,"project_id":12715951,"name":"TACTIC","owner_login":"Southpaw-TACTIC","description":"Open source remote collaboration platform used for configuring and deploying enterprise Workflow solutions.","stargazers_count":244},{"id":null,"project_id":97863290,"name":"WeApp-Workflow","owner_login":"Jeff2Ma","description":"基于Gulp 的微信小程序前端开发工作流 💯","stargazers_count":242},{"id":null,"project_id":223347908,"name":"Qualitis","owner_login":"WeBankFinTech","description":"Qualitis is a one-stop data quality management platform that supports quality verification, notification, and management for various datasource. It is used to solve various data quality problems caused by data processing. https://github.com/WeBankFinTech/Qualitis","stargazers_count":242},{"id":null,"project_id":291409977,"name":"My-Actions","owner_login":"BlueskyClouds","description":"爱奇艺会员签到抽奖,腾讯视频会员签到,哔哩哔哩漫画签到,中国电信签到,V2ex签到,哔咔漫画签到,百度贴吧自动签到","stargazers_count":240},{"id":null,"project_id":135874089,"name":"Bear-Power-Pack","owner_login":"sbusso","description":"A collection of workflows enhancing Bear writer app on iOS and Mac.","stargazers_count":238},{"id":null,"project_id":237214292,"name":"celery-director","owner_login":"ovh","description":"Simple and rapid framework to build workflows with Celery","stargazers_count":236},{"id":null,"project_id":94473333,"name":"cato","owner_login":"cliffordfajardo","description":"Spotlight and alfred app like search in your browser 🔍.","stargazers_count":233},{"id":null,"project_id":77234579,"name":"aiida-core","owner_login":"aiidateam","description":"The official repository for the AiiDA code","stargazers_count":224},{"id":null,"project_id":230369286,"name":"pdm","owner_login":"frostming","description":"A modern Python package manager with PEP 582 support.","stargazers_count":224},{"id":null,"project_id":33836391,"name":"bumped","owner_login":"bumped","description":"📦 Makes easy release software","stargazers_count":219},{"id":null,"project_id":55865304,"name":"pallets","owner_login":"linkyndy","description":"Simple and reliable workflow engine, written in Ruby","stargazers_count":213},{"id":null,"project_id":85202308,"name":"pipeline","owner_login":"m-reda","description":"Node-based automation server","stargazers_count":211},{"id":null,"project_id":54579435,"name":"snakepipes","owner_login":"maxplanck-ie","description":"Customizable workflows based on snakemake and python for the analysis of NGS data","stargazers_count":209},{"id":null,"project_id":261970003,"name":"Schedulis","owner_login":"WeBankFinTech","description":"Schedulis is a high performance workflow task scheduling system that supports high availability and multi-tenant financial level features, Linkis computing middleware, and has been integrated into data application development portal DataSphere Studio","stargazers_count":207},{"id":null,"project_id":90228375,"name":"workflow","owner_login":"Clago","description":"基于laravel的工作流项目","stargazers_count":206},{"id":null,"project_id":20454259,"name":"git-octopus","owner_login":"lesfurets","description":"The continuous merge workflow","stargazers_count":203},{"id":null,"project_id":268864554,"name":"workflow-kotlin","owner_login":"square","description":"A Swift and Kotlin library for making composable state machines, and UIs driven by those state machines.","stargazers_count":203},{"id":null,"project_id":104462247,"name":"zeebe-modeler","owner_login":"zeebe-io","description":"Desktop Application for modeling Zeebe Workflows with BPMN","stargazers_count":190},{"id":null,"project_id":200093430,"name":"targets","owner_login":"ropensci","description":"Function-oriented Make-like declarative workflows for R","stargazers_count":189},{"id":null,"project_id":35835478,"name":"git-workflow","owner_login":"asmeurer","description":"The git workflow for contributing to open source repositories.","stargazers_count":187},{"id":null,"project_id":97468076,"name":"IBM-Z-zOS","owner_login":"IBM","description":"The helpful and handy location for finding and sharing z/OS files, which are not included in the product.","stargazers_count":187},{"id":null,"project_id":111642831,"name":"plynx","owner_login":"plynx-team","description":"PLynx is a domain agnostic platform for managing reproducible experiments and data-oriented workflows.","stargazers_count":187},{"id":null,"project_id":45541335,"name":"flor","owner_login":"floraison","description":"a workflow engine","stargazers_count":184},{"id":null,"project_id":120264328,"name":"vue-blocks","owner_login":"ghostiam","description":"Vue2 dataflow graph editor","stargazers_count":184},{"id":null,"project_id":249516974,"name":"sast-scan","owner_login":"ShiftLeftSecurity","description":"Scan is a free \u0026 Open Source DevSecOps tool for performing static analysis based security testing of your applications and its dependencies. CI and Git friendly.","stargazers_count":181},{"id":null,"project_id":28594779,"name":"alfred-fakeum","owner_login":"deanishe","description":"Generate fake test data in Alfred","stargazers_count":178},{"id":null,"project_id":130068404,"name":"mergify-engine","owner_login":"Mergifyio","description":"Engine for Mergify","stargazers_count":177},{"id":null,"project_id":208506361,"name":"wflow","owner_login":"phishy","description":"🐆 EXPERIMENTAL -- Runs GitHub Actions workflows locally (local) -- Don't run your YAML like a 🐪","stargazers_count":175},{"id":null,"project_id":16749477,"name":"bpe","owner_login":"synrc","description":"💠 BPE: Business Process Engine — https://bpe.n2o.dev","stargazers_count":174},{"id":null,"project_id":18034173,"name":"workflow-guide","owner_login":"vitorbritto","description":"📓 My workflow context and own code conventions","stargazers_count":173},{"id":null,"project_id":19989395,"name":"cuneiform","owner_login":"joergen7","description":"Cuneiform distributed programming language","stargazers_count":173},{"id":null,"project_id":21695253,"name":"Baumeister","owner_login":"micromata","description":"👷 The aim of this project is to help you to build your things. From Bootstrap themes over static websites to single page applications.","stargazers_count":171},{"id":null,"project_id":148215904,"name":"workflow_core","owner_login":"rails-engine","description":"[Deprecated, use flor_core instead] A Rails engine which providing essential infrastructure of workflow. It's based on Workflow Nets. ","stargazers_count":171},{"id":null,"project_id":33204915,"name":"travis-ci-latex-pdf","owner_login":"harshjv","description":"Travis CI and deployment service to build PDF from LaTeX document.","stargazers_count":170},{"id":null,"project_id":101684579,"name":"endly","owner_login":"viant","description":"End to end functional test and automation framework","stargazers_count":169},{"id":null,"project_id":174306645,"name":"kogito-runtimes","owner_login":"kiegroup","description":"Kogito Runtimes - Kogito is a cloud-native business automation technology for building cloud-ready business applications.","stargazers_count":168},{"id":null,"project_id":3782774,"name":"git_tracker","owner_login":"stevenharman","description":"Some simple tricks that make working with Pivotal Tracker even better... and easier... um, besier!","stargazers_count":166},{"id":null,"project_id":202218347,"name":"gopablo","owner_login":"luangjokaj","description":"🐺 Static site generator.","stargazers_count":164},{"id":null,"project_id":56522521,"name":"Community.Activities","owner_login":"UiPath","description":"Repository of Windows Workflow Foundation Activities for UiPath Community","stargazers_count":163},{"id":null,"project_id":83873418,"name":"git-commit-style-guide","owner_login":"feflow","description":"Make git commit message more readable and useful.","stargazers_count":163},{"id":null,"project_id":78684549,"name":"RNAseq-workflow","owner_login":"twbattaglia","description":"A repository for setting up a RNAseq workflow ","stargazers_count":161},{"id":null,"project_id":308024078,"name":"reaflow","owner_login":"reaviz","description":"🕸 Node-based Visualizations for React","stargazers_count":159},{"id":null,"project_id":22242868,"name":"alfred-github-repos","owner_login":"edgarjs","description":"Alfred workflow to easily open Github repositories","stargazers_count":158},{"id":null,"project_id":55361915,"name":"SFLive-Paris2016-Workflow","owner_login":"lyrixx","description":"Demo app for the new symfony/workflow component","stargazers_count":157},{"id":null,"project_id":150697257,"name":"Machine-Learning-Workflow-with-Python","owner_login":"mjbahmani","description":"This is a comprehensive ML techniques with python: Define the Problem- Specify Inputs \u0026 Outputs- Data Collection- Exploratory data analysis -Data Preprocessing- Model Design- Training- Evaluation","stargazers_count":157},{"id":null,"project_id":31281264,"name":"yii2-workflow","owner_login":"raoul2000","description":"A simple workflow engine for Yii2","stargazers_count":156},{"id":null,"project_id":94748977,"name":"ETL_Unicorn","owner_login":"yaoguangluo","description":"数据可视化, 数据挖掘, 数据处理 ETL","stargazers_count":154},{"id":null,"project_id":84835419,"name":"batchflow","owner_login":"analysiscenter","description":"BatchFlow helps you conveniently work with random or sequential batches of your data and define data processing and machine learning workflows even for datasets that do not fit into memory.","stargazers_count":153},{"id":null,"project_id":369627,"name":"eXpand","owner_login":"eXpandFramework","description":"DevExpress XAF extension framework. 𝗹𝗶𝗻𝗸𝗲𝗱𝗶𝗻.𝗲𝘅𝗽𝗮𝗻𝗱𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸.𝗰𝗼𝗺, 𝘆𝗼𝘂𝘁𝘂𝗯𝗲.𝗲𝘅𝗽𝗮𝗻𝗱𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸.𝗰𝗼𝗺 and 𝘁𝘄𝗶𝘁𝘁𝗲𝗿 @𝗲𝘅𝗽𝗮𝗻𝗱𝗳𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸 and  or simply 𝗦𝘁𝗮𝗿/𝘄𝗮𝘁𝗰𝗵 this repository and get notified from 𝗚𝗶𝘁𝗛𝘂𝗯","stargazers_count":152},{"id":null,"project_id":133899600,"name":"rebuild","owner_login":"getrebuild","description":"Building your business-systems freely! 高度可定制化的企业管理系统 企业中台","stargazers_count":152},{"id":null,"project_id":28581252,"name":"alfred-reddit","owner_login":"deanishe","description":"Browse Reddit from Alfred","stargazers_count":150},{"id":null,"project_id":62961828,"name":"workflow-reactjs","owner_login":"fdaciuk","description":"My workflow with ReactJS + Webpack 3+","stargazers_count":150},{"id":null,"project_id":86919849,"name":"django-lb-workflow","owner_login":"vicalloy","description":"Reusable workflow library for Django","stargazers_count":145},{"id":null,"project_id":209101661,"name":"add-and-commit","owner_login":"EndBug","description":"Add \u0026 commit files from a path directly from GitHub Actions","stargazers_count":145},{"id":null,"project_id":160370800,"name":"upload-to-release","owner_login":"JasonEtco","description":"A GitHub Action that uploads a file to a new release.","stargazers_count":140},{"id":null,"project_id":222835070,"name":"welabx-g6","owner_login":"claudewowo","description":"welabx - antv G6","stargazers_count":140},{"id":null,"project_id":86143299,"name":"WorkflowShare","owner_login":"imlifengfeng","description":"Workflow实例分享","stargazers_count":137},{"id":null,"project_id":8873166,"name":"Alfred","owner_login":"xhinking","description":"My Alfred Theme And Workflow","stargazers_count":135},{"id":null,"project_id":186313720,"name":"precommit","owner_login":"lorenzwalthert","description":"pre-commit hooks for R projects","stargazers_count":135},{"id":null,"project_id":88632612,"name":"go-codon","owner_login":"grofers","description":"Workflow based REST framework code generator","stargazers_count":131},{"id":null,"project_id":48477314,"name":"MicroFlow","owner_login":"akarpov89","description":"Lightweight workflow engine","stargazers_count":127},{"id":null,"project_id":24077193,"name":"grunt-drupal-tasks","owner_login":"phase2","description":"Grunt-based build and testing tasks for Drupal","stargazers_count":124},{"id":null,"project_id":54024046,"name":"Sarek","owner_login":"SciLifeLab","description":"Detect germline or somatic variants from normal or tumour/normal whole-genome or targeted sequencing","stargazers_count":124}],"projectPage":2,"totalProjectsCount":315,"categoryTopics":[{"categoryName":"Software Development","topicName":"workflow"}],"pageTitle":"The Top 315 Workflow Open Source Projects","categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}]}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bcb55e04e738',m:'f5f6aa9030992eb69d2e1e5673c5578a4fa3f0a0-1610725666-1800-AVQOl42jqOyN1XXO+O+XjYgX1Y9Rp3V/GqWv9/Fl8hnvvYPm2YVMPRx20lWwkeyD6aVHD2wcT/qEnFWaoSlTq9HjJZzVjGYK+N8RvcAd4c3INlgNtmf/2RJL6V17kIE/T0TPuasKJm/jsnXpQLcjppgilCvbprcnFAyg5B5WEIrF',s:[0xb51910b893,0x1cb62eb50f],}})();</script></body>
+</html>
