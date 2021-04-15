@@ -1,9 +1,8 @@
 # Common settings that generally should always be used with your language specific settings
 
 
-
-.html* linguist-vendored
-
+* linguist-vendored
+*.js linguist-vendored=false
 
 
 # Auto detect text files and perform LF normalization
