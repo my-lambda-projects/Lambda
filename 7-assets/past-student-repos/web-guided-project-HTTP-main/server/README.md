@@ -1,1 +1,0 @@
-# trinkets-api
