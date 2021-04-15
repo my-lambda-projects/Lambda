@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css"></head>
+<body>;
+<div data-align="center">
+<h1>
+👌 <br> Awesome Web Development Resources
+</h1>
+<p><img src="https://badgen.net/github/last-commit/mrmartineau/awesome-web-dev-resources" /></p>
+</div>
+<details>
+<p><summary>Table of contents</summary> <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} --></p>
+<!-- code_chunk_output -->
+<ul>
+<li><a href="#general-resources">General resources</a>
+<ul>
+<li><a href="#finding-and-vetting-npm-packages">📦 Finding and vetting npm packages</a></li>
+</ul></li>
+<li><a href="#css">🎨 CSS</a>
+<ul>
+<li><a href="#css-in-js">CSS-in-JS</a></li>
+</ul></li>
+<li><a href="#javascript">JavaScript</a>
+<ul>
+<li><a href="#useful-js-links">Useful JS links</a></li>
+<li><a href="#framework-agnostic-packages">Framework agnostic packages</a>
+<ul>
+<li><a href="#general-utilities">General utilities</a></li>
+<li><a href="#async">Async</a></li>
+<li><a href="#node">Node</a>
+<ul>
+<li><a href="#logging">Logging</a></li>
+</ul></li>
+<li><a href="#responsive">Responsive</a></li>
+<li><a href="#media-and-images">Media and Images</a>
+<ul>
+<li><a href="#image-services">Image services</a></li>
+</ul></li>
+<li><a href="#date">Date</a></li>
+<li><a href="#scrolling">Scrolling</a></li>
+<li><a href="#carousels">Carousels</a></li>
+<li><a href="#animation">Animation</a></li>
+<li><a href="#web-workers">Web workers</a></li>
+<li><a href="#immutable">Immutable</a></li>
+<li><a href="#typography">Typography</a></li>
+<li><a href="#polyfills">Polyfills</a></li>
+</ul></li>
+<li><a href="#️-react">⚛️ React</a>
+<ul>
+<li><a href="#react-specific-libs">React-specific libs:</a>
+<ul>
+<li><a href="#react-hooks">React Hooks</a></li>
+</ul></li>
+<li><a href="#state-management">State management</a></li>
+<li><a href="#server-rendered-react">Server-rendered React</a></li>
+<li><a href="#static-site-generators">Static site generators</a></li>
+<li><a href="#microservicesserverless">Microservices/Serverless</a></li>
+</ul></li>
+<li><a href="#typescript">TypeScript</a></li>
+</ul></li>
+<li><a href="#command-line-terminal-and-shells">Command Line, Terminal and shells</a>
+<ul>
+<li><a href="#creating-cli-apps">Creating CLI apps</a></li>
+<li><a href="#cli-apps">CLI apps</a></li>
+</ul></li>
+<li><a href="#tooling">Tooling</a>
+<ul>
+<li><a href="#code-bundlers">Code bundlers</a></li>
+<li><a href="#package-management-and-publishing">Package management and publishing</a></li>
+<li><a href="#commit-hooks">Commit hooks</a></li>
+</ul></li>
+<li><a href="#testing">Testing</a>
+<ul>
+<li><a href="#code-formatting-and-linting">Code formatting and linting</a></li>
+<li><a href="#miscellaneous">Miscellaneous</a></li>
+</ul></li>
+<li><a href="#progressive-web-apps">Progressive Web Apps</a></li>
+<li><a href="#code-sandboxes">Code Sandboxes</a></li>
+<li><a href="#apis">APIs</a>
+<ul>
+<li><a href="#graphql">GraphQL</a></li>
+</ul></li>
+<li><a href="#json">JSON</a></li>
+<li><a href="#html">HTML</a></li>
+<li><a href="#svg">SVG</a>
+<ul>
+<li><a href="#icons">Icons</a></li>
+<li><a href="#svgimage-media-compression">SVG/Image Media compression</a></li>
+</ul></li>
+<li><a href="#conversions-and-unicode">Conversions and unicode</a></li>
+<li><a href="#features-and-feature-detection">Features and feature detection</a></li>
+<li><a href="#performance">Performance</a>
+<ul>
+<li><a href="#performance-testing-and-monitoring">Performance testing and monitoring</a></li>
+</ul></li>
+<li><a href="#design">Design</a></li>
+<li><a href="#design-systems-and-documentation">Design Systems and documentation</a></li>
+<li><a href="#accessibility-a11y">Accessibility (A11y)</a>
+<ul>
+<li><a href="#a11y-tools-and-resources">A11y tools and resources:</a>
+<ul>
+<li><a href="#a11y-chrome-extensions">A11y Chrome extensions</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#devops">DevOps</a>
+<ul>
+<li><a href="#continuous-integration">Continuous integration</a></li>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#hosting">Hosting</a></li>
+<li><a href="#domains">Domains</a></li>
+</ul></li>
+<li><a href="#design-1">Design</a>
+<ul>
+<li><a href="#typography-1">Typography</a></li>
+</ul></li>
+<li><a href="#ides-and-text-editors">IDEs and Text Editors</a>
+<ul>
+<li><a href="#vs-code">VS Code</a></li>
+<li><a href="#programming-fonts">Programming fonts</a></li>
+<li><a href="#code-colour-schemes">Code colour schemes</a></li>
+</ul></li>
+<li><a href="#regular-expressions">Regular expressions</a></li>
+<li><a href="#learning-resources">Learning resources</a></li>
+</ul>
+<!-- /code_chunk_output -->
+</details>
+<h1 id="general-resources">General resources</h1>
+<ul>
+<li><a href="http://devdocs.io/">Devdocs.io</a>: Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, C, C++…</li>
+<li><a href="https://devhints.io/">DevHints</a>: cheatsheets for many web technologies</li>
+<li><a href="https://carbon.now.sh/?bg=rgba(171,%20184,%20195,%201)&amp;t=seti&amp;l=auto&amp;ds=true&amp;wc=true&amp;wa=true&amp;pv=32px&amp;ph=32px&amp;ln=false">Carbon</a>: use this to share images of your code in presentations etc</li>
+<li><a href="https://badgen.net/">Badgen</a>: <img src="https://badgen.net/badge/add/flare" /></li>
+<li><a href="https://shields.io/">Shields.io</a>: <img src="https://img.shields.io/badge/add-flare-green.svg?style=flat-square" /> to your documentation/readmes</li>
+<li><a href="https://github.com/k88hudson/git-flight-rules">Git Flight Rules</a>: A guide for astronauts (now, programmers using Git) about what to do when things go wrong.</li>
+<li><a href="https://github.com/luruke/browser-2020">browser-2020</a>: Things you can do with a browser in 2020 ☕️</li>
+</ul>
+<h2 id="finding-and-vetting-npm-packages">📦 Finding and vetting npm packages</h2>
+<ul>
+<li><a href="https://www.pikapkg.com/">pika</a>: A searchable catalog of modern “module” packages on npm</li>
+<li><a href="https://npms.io/">npms</a>: A better and open source search for node packages</li>
+<li><a href="https://github.com/maticzav/emma-cli">emma</a>: 📦 Terminal assistant to find and install node packages</li>
+<li><a href="https://github.com/harksys/npmvet">npmvet</a>: A simple CLI tool for vetting npm package versions</li>
+<li><a href="https://bundlephobia.com/">Bundlephobia</a>: See the “cost” of any npm package</li>
+<li><a href="https://snyk.io">Snyk</a>: Find any security vulnerabilities for any npm package. Search their database here: <code>https://snyk.io/vuln/npm:{package}</code> e.g. https://snyk.io/vuln/npm:react</li>
+<li><a href="https://runpkg.com/">runpkg</a>: Explore, learn about and perform static analysis on npm packages in the browser</li>
+</ul>
+<h1 id="css">🎨 CSS</h1>
+<ul>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS Tricks “Complete Guide to Flexbox”</a></li>
+<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Tricks “Complete Guide to Grid”</a></li>
+<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67">Cubic bezier curve creator</a></li>
+<li><a href="http://matthewlein.com/ceaser/">Ceaser</a>: Cubic bezier curve generator</li>
+<li><a href="https://csstriggers.com/">CSS Triggers</a>: find out what CSS properties trigger Paint/Layout/Composite renders</li>
+<li><a href="https://websemantics.uk/tools/responsive-font-calculator/">Fluid-responsive font-size calculator</a>: To scale typography smoothly across viewport widths.</li>
+<li><a href="http://browserhacks.com/">Browserhacks</a>: Browserhacks is an extensive list of browser specific CSS and JavaScript hacks from all over the interwebs</li>
+<li><a href="https://codepen.io/shshaw/full/gEiDt">Absolute centering</a>: useful techniques for absolute centering in CSS</li>
+<li><a href="https://github.com/hankchizljaw/modern-css-reset">modern-css-reset</a>: A bare-bones CSS reset for modern web development</li>
+<li><a href="https://cssfx.netlify.com/">CSSFX</a>: Beautifully simple click-to-copy CSS effects</li>
+<li><a href="https://www.shapedivider.app/">Shape Divider App</a></li>
+</ul>
+<h2 id="css-in-js">CSS-in-JS</h2>
+<ul>
+<li>CSS-in-JS libraries
+<ul>
+<li><a href="https://styled-components.com">Styled Components</a>: CSS-in-JS for React</li>
+<li><a href="http://emotion.sh/">Emotion</a>: CSS-in-JS library</li>
+<li><a href="https://github.com/callstack/linaria">linaria</a>: Zero-runtime CSS in JS library</li>
+</ul></li>
+<li><a href="https://github.com/mrmartineau/design-system-utils">Design System Utils</a>: Design system framework for modern front-end projects (made by me!)</li>
+<li><a href="https://polished.js.org/">Polished</a>: A lightweight toolset for writing styles in JavaScript</li>
+<li><a href="https://github.com/brunobertolini/styled-by">styled-by</a>: Simple and powerful lib to handle styled props in your components</li>
+<li><a href="https://github.com/smooth-code/xstyled">xstyled</a>: Consistent theme based CSS for styled-components 💅</li>
+<li><a href="https://theme-ui.com">Theme UI</a>: Build consistent, themeable React apps based on constraint-based design principles</li>
+</ul>
+<h1 id="javascript">JavaScript</h1>
+<h2 id="useful-js-links">Useful JS links</h2>
+<ul>
+<li><a href="https://stackoverflow.com/a/34842087/91359">JS module import/export syntax</a></li>
+<li><a href="http://keycode.info/">JavaScript Event KeyCodes</a></li>
+<li><a href="https://tylermcginnis.com/javascript-visualizer/">JavaScript Visualizer</a></li>
+<li><a href="https://doesitmutate.xyz/">Does it mutate?</a></li>
+<li><a href="https://jsperf.com/">jsPerf</a>: JavaScript performance playground</li>
+<li><a href="https://github.com/mbeaudru/modern-js-cheatsheet">modern-js-cheatsheet</a></li>
+<li><a href="https://htmldom.dev/">HTML DOM</a>: Common tasks of managing HTML DOM with vanilla JavaScript</li>
+</ul>
+<h2 id="framework-agnostic-packages">Framework agnostic packages</h2>
+<h3 id="general-utilities">General utilities</h3>
+<ul>
+<li><a href="https://lodash.com">Lodash</a>: A modern JavaScript utility library delivering modularity, performance &amp; extras.</li>
+<li><a href="https://github.com/angus-c/just">Just</a>: A library of dependency-free utilities that do just do one thing (like Lodash but smaller)
+<ul>
+<li>Install each util independently</li>
+<li>Read the <a href="https://github.com/angus-c/just/blob/master/TRADEOFFS.md">tradeoffs document</a> to see if Lodash is better</li>
+</ul></li>
+<li><a href="https://github.com/NickGard/tiny-get">tiny-get</a>: A minimal-weight lodash.get equivalent utility</li>
+<li><a href="https://www.evt.land/">evt</a>: A type safe replacement for node's EventEmitter</li>
+<li><a href="https://github.com/nicbell/liteready">liteready</a>: A lightweight DOM ready.</li>
+<li><a href="https://github.com/jaredhanson/passport">passport</a>: Simple, unobtrusive authentication for Node.js</li>
+<li><a href="https://github.com/desandro/get-size">get-size</a>: Get the size of elements</li>
+<li><a href="https://github.com/appalaszynski/length.js">length.js</a>: Library for length units conversion</li>
+<li><a href="https://github.com/saschageyer/action-outside">action-outside</a>: Invoke a callback function when clicked or tabbed outside one or multiple DOM elements</li>
+<li><a href="https://github.com/bfred-it/select-dom">select-dom</a>: Lightweight <code>querySelector</code>/<code>All</code> wrapper that outputs an Array</li>
+<li><a href="https://github.com/medikoo/memoizee">memoizee</a>: Complete memoize/cache solution for JavaScript</li>
+<li><a href="https://github.com/alexreardon/memoize-one">memoize-one</a>: A memoization library which only remembers the latest invocation</li>
+<li><a href="https://github.com/jonschlinkert/kind-of">kind-of</a>: Get the native JavaScript type of a value, fast.</li>
+<li><a href="https://github.com/felixfbecker/iterare">iterare</a>: Array methods + ES6 Iterators =</li>
+<li><a href="https://github.com/Rich-Harris/eases-jsnext">eases-jsnext</a>: A grab-bag of modular easing equations</li>
+<li><a href="https://github.com/paularmstrong/normalizr">normalizr</a>: Normalizes nested JSON according to a schema</li>
+<li><a href="https://github.com/sindresorhus/lazy-value">lazy-value</a>: Create a lazily evaluated value</li>
+<li><a href="https://github.com/planttheidea/fast-equals">fast-equals</a>: A blazing fast equality comparison, either shallow or deep</li>
+<li><a href="https://github.com/planttheidea/fast-copy">fast-copy</a>: A blazing fast deep object copier</li>
+<li><a href="https://github.com/stipsan/compute-scroll-into-view">compute-scroll-into-view</a>: Utility for calculating what should be scrolled, how it's scrolled is up to you</li>
+<li><a href="https://github.com/lukeed/arr">arr</a>: A collection of tiny, highly performant Array.prototype alternatives</li>
+<li><a href="https://github.com/fuhton/timedstorage">timedstorage</a>: A library for storing and expiring objects in window.localstorage</li>
+<li><a href="https://github.com/stevemao/left-pad">left-pad</a>: String left pad</li>
+<li><a href="https://github.com/tiaanduplessis/dont-go">dont-go</a>: A small client-side library with zero dependencies to change the title and/or favicon of the page when it is inactive</li>
+<li><a href="https://github.com/hybridables/always-done">always-done</a>: Handle completion and errors with elegance! Support for async/await, promises, callbacks, streams and observables. A drop-in replacement for async-done - pass 100% of its tests plus more</li>
+<li><a href="https://github.com/words">words</a>: Linguistic javascript modules</li>
+<li><a href="https://github.com/davidtheclark/no-scroll">no-scroll</a>: Disable scrolling on an element that would otherwise scroll</li>
+<li><a href="https://github.com/catamphetamine/libphonenumber-js">libphonenumber-js</a>: A simpler (and smaller) rewrite of Google Android's libphonenumber library</li>
+<li><a href="https://github.com/text-mask/text-mask">text-mask</a>: Input mask for React, Angular, Ember, Vue, &amp; plain JavaScript</li>
+<li><a href="https://github.com/vtex/msk">msk</a>: Small library to mask strings</li>
+<li><a href="https://github.com/davidtheclark/focus-trap">focus-trap</a>: Trap focus within a DOM node</li>
+<li><a href="https://github.com/jamiebuilds/tinykeys">tinykeys</a>: A tiny (~400 B) &amp; modern library for keybindings</li>
+<li><a href="https://github.com/reasonink/clack">clack</a>: A modern keyboard shortcut library written in Typescript
+<ul>
+<li><a href="https://github.com/reasonink/clack-react">clack-react</a>: React support for <span class="citation" data-cites="reasonink/clack">@reasonink/clack</span></li>
+</ul></li>
+<li><a href="https://github.com/ollieglass/js-humanize">js-humanize</a>: Humanize large numbers</li>
+<li><a href="https://github.com/peterpme/sub-in">sub-in</a>: 🥙 A tiny (115B) find-and-replace utility for strings in Javascript</li>
+<li><a href="https://github.com/zenozeng/color-hash">color-hash</a>: Generate color based on the given string (using HSL color space and BKDRHash)</li>
+<li><a href="https://github.com/zeit/title">title</a>: A service for capitalizing your title properly</li>
+<li><a href="https://github.com/aceakash/string-similarity">string-similarity</a>: Finds degree of similarity between two strings, based on Dice's Coefficient, which is mostly better than Levenshtein distance</li>
+<li><a href="https://github.com/ericelliott/cuid">cuid</a>: Collision-resistant ids optimized for horizontal scaling and performance</li>
+<li><a href="https://github.com/lukeed/obj-str">obj-str</a>: A tiny (96B) library for serializing Object values to Strings. Also serves as a faster &amp; smaller drop-in replacement for the classnames module</li>
+<li><a href="https://github.com/lukeed/clsx">clsx</a>: A tiny (223B) utility for constructing className strings conditionally. Also serves as a faster &amp; smaller drop-in replacement for the classnames module</li>
+<li><a href="https://xstate.js.org/docs">xstate</a>: State machines and statecharts for the modern web</li>
+<li><a href="https://github.com/onury/tasktimer">tasktimer</a>: An accurate timer utility for running periodic tasks on the given interval ticks or dates. (Node and Browser)</li>
+<li><a href="https://github.com/rough-stuff/rough-notation">rough-notation</a>: Create and animate hand-drawn annotations on a web page</li>
+</ul>
+<h3 id="async">Async</h3>
+<ul>
+<li><a href="https://github.com/axios/axios">axios</a>: Promise based HTTP client for the browser and node.js
+<ul>
+<li><a href="https://github.com/softonic/axios-retry">axios-retry</a>: Axios plugin that intercepts failed requests and retries them whenever possible</li>
+</ul></li>
+<li><a href="https://github.com/developit/redaxios">redaxios</a>: The Axios API, as an 800 byte Fetch wrapper</li>
+<li><a href="https://github.com/lquixada/cross-fetch">cross-fetch</a>: Universal WHATWG Fetch API for Node, Browsers and React Native</li>
+<li><a href="https://github.com/asfktz/Awaity.js">awaity</a>: A functional, lightweight alternative to bluebird.js, built with <code>async</code> / <code>await</code> in mind</li>
+<li><a href="https://github.com/muicss/loadjs">loadjs</a>: A tiny async loader / dependency manager for modern browsers (789 bytes)</li>
+<li><a href="https://github.com/scopsy/await-to-js">await-to-js</a>: Async await wrapper for easy error handling without try-catch</li>
+</ul>
+<h3 id="node">Node</h3>
+<ul>
+<li><a href="https://www.fastify.io/">Fastify</a>: Fast and low overhead web framework, for Node.js</li>
+<li><a href="https://expressjs.com">Express</a>
+<ul>
+<li><a href="https://github.com/helmetjs/helmet">helmet</a>: Help secure Express apps with various HTTP headers</li>
+<li><a href="https://github.com/antongolub/reqresnext">reqresnext</a>: Tiny helper for express middleware testing</li>
+<li><a href="https://github.com/krakenjs/lusca">lusca</a>: Application security for express apps</li>
+<li><a href="https://github.com/expressjs/cookie-session">cookie-session</a>: Simple cookie-based session middleware</li>
+</ul></li>
+<li><a href="https://github.com/i0natan/nodebestpractices">nodebestpractices</a>: The largest Node.JS best practices list. Curated from the top ranked articles and always updated</li>
+<li><a href="https://github.com/zeeshanu/dumper.js">dumper.js</a>: A better and pretty variable inspector for your Node.js applications</li>
+<li><a href="https://github.com/gajus/http-terminator">http-terminator</a>: Gracefully terminates HTTP(S) server</li>
+<li><a href="https://github.com/uuidjs/uuid">uuid</a>: Generate RFC-compliant UUIDs in JavaScript</li>
+<li><a href="https://github.com/jshttp/http-errors">http-errors</a>: Create HTTP Errors</li>
+<li><a href="https://github.com/hapijs/boom">boom</a>: HTTP-friendly error objects</li>
+<li><a href="https://github.com/denoland/deno">deno</a>: A secure JavaScript and TypeScript runtime</li>
+<li><a href="https://github.com/micromatch/nanomatch">nanomatch</a>: Fast, minimal glob matcher for node.js. Similar to micromatch, minimatch and multimatch, but without support for extended globs (extglobs), posix brackets or braces, and with complete Bash 4.3 wildcard support: (“*”, “**”, and “?”)</li>
+<li><a href="https://github.com/sindresorhus/yn">yn</a>: Parse yes/no like values</li>
+<li><a href="https://github.com/AvianFlu/ncp">ncp</a>: Asynchronous recursive file copying with Node.js</li>
+</ul>
+<h4 id="logging">Logging</h4>
+<ul>
+<li><a href="https://github.com/pinojs/pino">pino</a>: 🌲 super fast, all natural json logger 🌲</li>
+<li><a href="https://github.com/bevry/caterpillar">caterpillar</a>: Caterpillar is the ultimate logging system for Deno, Node.js, and Web Browsers</li>
+<li><a href="https://github.com/cabinjs/cabin">cabin</a>: Cabin is the best JavaScript and Node.js logging service and logging npm package</li>
+</ul>
+<h3 id="responsive">Responsive</h3>
+<ul>
+<li><a href="https://github.com/pauldijou/responsive-watch">responsive-watch</a>: Watch some media queries and react when they change</li>
+<li><a href="https://github.com/robb0wen/tornis">tornis</a>: Tornis helps you watch and respond to changes in your browser's viewport 🌲</li>
+<li><a href="https://github.com/ryanve/actual">actual</a>: Determine actual CSS media query breakpoints via JavaScript</li>
+</ul>
+<h3 id="media-and-images">Media and Images</h3>
+<ul>
+<li><a href="https://github.com/awcross/images-loaded">images-loaded</a>: Wait for images to load using promises. No dependencies.</li>
+<li><a href="https://github.com/aFarkas/lazysizes">lazysizes</a>: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.</li>
+</ul>
+<h4 id="image-services">Image services</h4>
+<ul>
+<li><a href="https://github.com/lovell/sharp">sharp</a>: High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP and TIFF images. Uses the libvips library.</li>
+<li><a href="https://www.imgix.com/">IMGIX</a>: Real-time image processing and image CDN</li>
+</ul>
+<h3 id="date">Date</h3>
+<ul>
+<li><a href="https://date-fns.org/">date-fns</a>: Modern JavaScript date utility library</li>
+<li><a href="https://github.com/lukeed/tinydate">tinydate</a>: A tiny (337B) reusable date formatter. Extremely fast!</li>
+<li><a href="https://github.com/aweary/tinytime">tinytime</a>: ⏰ A straightforward date and time formatter in &lt;1kb</li>
+</ul>
+<h3 id="scrolling">Scrolling</h3>
+<ul>
+<li><a href="https://github.com/jonataswalker/scroll-watcher">scroll-watcher</a></li>
+<li><a href="https://github.com/dollarshaveclub/scrolldir">scrolldir</a>: Leverage Vertical Scroll Direction with CSS</li>
+</ul>
+<h3 id="carousels">Carousels</h3>
+<ul>
+<li><a href="https://flickity.metafizzy.co/">Flickity</a></li>
+<li><a href="http://idangero.us/swiper/">Swiper</a></li>
+</ul>
+<h3 id="animation">Animation</h3>
+<ul>
+<li><a href="https://github.com/Rich-Harris/ramjet">ramjet</a>: Morph DOM elements from one state to another with smooth animations and transitions</li>
+<li><a href="https://github.com/juliangarnier/anime">anime</a>: JavaScript Animation Engine</li>
+<li><a href="https://greensock.com/">GSAP</a>:the standard for JavaScript HTML5 animation | GreenSock</li>
+<li><a href="https://micku7zu.github.io/vanilla-tilt.js/index.html">Vanilla-tilt.js</a>: A smooth 3D tilt javascript library forked from Tilt.js</li>
+</ul>
+<h3 id="web-workers">Web workers</h3>
+<ul>
+<li><a href="https://github.com/developit/workerize">workerize</a>: Run a module in a Web Worker</li>
+<li><a href="https://github.com/developit/greenlet">greenlet</a>: Move an async function into its own thread. A simplified single-function version of workerize.</li>
+</ul>
+<h3 id="immutable">Immutable</h3>
+<ul>
+<li><a href="https://github.com/mweststrate/immer">immer</a>: Create the next immutable state tree by simply modifying the current tree
+<ul>
+<li><a href="https://github.com/immerjs/use-immer">use-immer</a>: Use immer to drive state with a React hooks</li>
+</ul></li>
+<li><a href="https://github.com/planttheidea/unchanged">unchanged</a>: A tiny, fast, unopinionated handler for updating JS objects and arrays immutably</li>
+<li><a href="https://github.com/rtfeldman/seamless-immutable">seamless-immutable</a>: Immutable data structures for JavaScript which are backwards-compatible with normal JS Arrays and Objectsseamless-immutable`</li>
+<li><a href="https://github.com/jaredpalmer/mutik">mutik</a>: A tiny (495B) immutable state management library based on Immer</li>
+</ul>
+<h3 id="typography">Typography</h3>
+<ul>
+<li><a href="https://github.com/rikschennink/fitty">fitty</a>: Makes text fit perfectly</li>
+</ul>
+<h3 id="polyfills">Polyfills</h3>
+<ul>
+<li><a href="https://github.com/que-etc/resize-observer-polyfill">resize-observer-polyfill</a>:A polyfill for the Resize Observer API</li>
+</ul>
+<h2 id="react">⚛️ React</h2>
+<p><a href="https://reactjs.org">reactjs.org</a></p>
+<ul>
+<li><a href="https://github.com/facebook/create-react-app">create-react-app</a>: Create React apps with no build configuration
+<ul>
+<li><a href="https://github.com/timarney/react-app-rewired">react-app-rewired</a>: Override create-react-app webpack configs without ejecting</li>
+</ul></li>
+<li><a href="https://github.com/vasanthk/react-bits">react-bits</a>: ✨ React patterns, techniques, tips and tricks ✨</li>
+</ul>
+<h3 id="react-specific-libs">React-specific libs:</h3>
+<ul>
+<li><a href="https://github.com/renatorib/react-powerplug">react-powerplug</a>: Renderless Containers</li>
+<li><a href="https://github.com/jaredpalmer/formik">formik</a>: Build forms in React, without the tears 😭</li>
+<li><a href="https://github.com/ReactTraining/react-router">react-router</a>: Declarative routing for React</li>
+<li><a href="https://reach.tech/router">Reach Router</a></li>
+<li><a href="https://react-fns.netlify.com/">react-fns</a>: React Components for common Web APIs</li>
+<li><a href="https://github.com/tajo/react-portal">react-portal</a>: React component for transportation of modals, lightboxes, loading bars… to document.body</li>
+<li><a href="https://github.com/stereobooster/react-ideal-image">react-ideal-image</a>: 🖼️ An Almost Ideal React Image Component</li>
+<li><a href="https://github.com/pedronauck/react-adopt">react-adopt</a>: Compose render props components like a pro</li>
+<li><a href="https://github.com/paypal/downshift">downshift</a></li>
+<li><a href="https://github.com/jamiebuilds/react-loadable">react-loadable</a>: A higher order component for loading components with promises</li>
+<li><a href="https://github.com/tajo/react-portal">react-portal</a>: React component for transportation of modals, lightboxes, loading bars… to document.body</li>
+<li><a href="https://github.com/lingui/js-lingui">js-lingui: 🌍📖</a>: A readable, automated, and optimized (5 kb) internationalization (Intl / i18n) for JavaScript</li>
+<li><a href="https://github.com/u-wave/react-mq">react-mq</a>: Barebones CSS media query component for React, ~560 bytes</li>
+<li><a href="https://github.com/ReactTraining/react-media">react-media</a>: CSS media queries for React. This is SSR compatible as well.</li>
+<li><a href="https://github.com/andrewbranch/merge-props">merge-props</a>: Merges className, style, and event handler props for React elements</li>
+<li><a href="https://github.com/thearnica/react-uid">react-uid</a>: Render-less container for generating UID for a11y, consistent react key, and any other good reason 🦄</li>
+<li><a href="https://github.com/lukeed/clsx">clsx</a>: A tiny (229B) utility for constructing <code>className</code> strings conditionally</li>
+<li><a href="https://www.framer.com/motion/">Framer Motion</a>: An open source React library to power production-ready animations. Design fluid animations for the web, across desktop and mobile</li>
+<li><a href="https://github.com/dequelabs/react-axe">react-axe</a>: Accessibility auditing for React.js applications</li>
+<li><a href="https://github.com/geobde/use-click-away">use-click-away</a>: React hook to detect click or touch events outside an element</li>
+<li><a href="https://github.com/clauderic/react-tiny-virtual-list">react-tiny-virtual-list</a>: A tiny but mighty 3kb list virtualization library, with zero dependencies 💪 Supports variable heights/widths, sticky items, scrolling to index, and more!</li>
+<li><a href="https://github.com/everweij/react-laag">react-laag</a>: Primitives to build things like tooltips, dropdown menu's and popovers in React</li>
+<li><a href="https://github.com/react-dnd/react-dnd">react-dnd</a>: Drag and Drop for React</li>
+</ul>
+<h4 id="react-hooks">React Hooks</h4>
+<ul>
+<li><a href="https://github.com/zeit/swr">swr</a>: React Hooks library for remote data fetching</li>
+<li><a href="https://www.hooks.guide/">Hooks.Guide</a>: Collection of React hooks curated by the community</li>
+<li><a href="https://usehooks.com/">useHooks</a>: Easy to understand React Hook recipes</li>
+<li><a href="https://github.com/beautifulinteractions/beautiful-react-hooks">beautiful-react-hooks</a>: 🔥A collection of beautiful and (hopefully) useful React hooks to speed-up your components and hooks development 🔥</li>
+<li><a href="https://github.com/GoogleChromeLabs/react-adaptive-hooks">react-adaptive-hooks</a>: Deliver experiences best suited to a user's device and network constraints</li>
+</ul>
+<h3 id="state-management">State management</h3>
+<ul>
+<li><a href="https://github.com/react-spring/zustand">zustand</a>: 🐻 Bear necessities for state management in React</li>
+<li><a href="https://github.com/reduxjs/redux">redux</a>: Predictable state container for JavaScript apps
+<ul>
+<li><a href="https://github.com/reduxjs/reselect">reselect</a>: Selector library for Redux</li>
+<li><a href="https://github.com/redux-saga/redux-saga">redux-saga</a>: An alternative side effect model for Redux apps
+<ul>
+<li><a href="https://github.com/afitiskin/redux-saga-routines">redux-saga-routines</a>: Routines for redux-saga</li>
+</ul></li>
+<li><a href="https://github.com/reduxjs/redux-thunk">redux-thunk</a>: Thunk middleware for Redux</li>
+<li><a href="https://github.com/brillout/awesome-redux">awesome-redux</a>: Catalog of Redux Libraries &amp; Learning Material</li>
+</ul></li>
+<li><a href="https://github.com/ForsakenHarmony/parket">parket</a>: A library to manage application state, heavily inspired by mobx-state-tree</li>
+<li><a href="https://github.com/jamiebuilds/unstated">unstated</a>: State so simple, it goes without saying</li>
+<li><a href="https://github.com/zhujinxuan/mergeState">mergeState</a>: How to Stop Worrying and Use Nested Object/Array in React/Redux States</li>
+<li><a href="https://github.com/zerobias/effector">effector</a>: The state manager ☄️</li>
+<li><a href="https://github.com/facebookexperimental/Recoil">Recoil</a>: Recoil is an experimental state management library for React apps. It provides several capabilities that are difficult to achieve with React alone, while being compatible with the newest features of React.</li>
+</ul>
+<h3 id="server-rendered-react">Server-rendered React</h3>
+<ul>
+<li><a href="https://nextjs.org/">Next.js</a> (<a href="https://github.com/zeit/next.js">repo</a>): - Framework for server-rendered or statically-exported React apps
+<ul>
+<li><a href="https://github.com/zeit/next-plugins">next-plugins</a></li>
+</ul></li>
+</ul>
+<h3 id="static-site-generators">Static site generators</h3>
+<ul>
+<li><a href="https://www.gatsbyjs.org/">Gatsby</a>: Blazing fast static site generator for React</li>
+</ul>
+<h3 id="microservicesserverless">Microservices/Serverless</h3>
+<ul>
+<li><a href="https://github.com/zeit/micro">micro</a>
+<ul>
+<li><a href="https://github.com/amio/awesome-micro">awesome-micro</a></li>
+</ul></li>
+</ul>
+<h2 id="typescript">TypeScript</h2>
+<p><a href="https://www.typescriptlang.org/">typescriptlang.org</a></p>
+<ul>
+<li><a href="https://github.com/Microsoft/TypeScript/wiki/What&#39;s-new-in-TypeScript">What's new in TypeScript</a>: Microsoft/TypeScript Wiki</li>
+<li><a href="https://basarat.gitbooks.io/typescript/">TypeScript Deep Dive</a></li>
+<li><a href="https://blog.mariusschulz.com/series/typescript-evolution">TypeScript Evolution</a></li>
+<li><a href="https://transform.now.sh/json-to-ts-interface/">JSON to Typescript Interface</a></li>
+<li><a href="https://github.com/sw-yx/react-typescript-cheatsheet">react-typescript-cheatsheet</a>: a cheatsheet for react users using typescript with react for the first (or nth!) time</li>
+<li><a href="https://github.com/labs42io/clean-code-typescript">clean-code-typescript</a>: Clean Code concepts adapted for TypeScript</li>
+</ul>
+<h1 id="command-line-terminal-and-shells">Command Line, Terminal and shells</h1>
+<p><a href="https://fishshell.com/">Fish shell</a>: The user-friendly command line shell</p>
+<ul>
+<li><a href="https://github.com/mrmartineau/fish">My fish_config</a></li>
+<li><a href="https://github.com/jorgebucaran/awesome-fish">awesome-fish</a>: A curated list of packages, prompts, and resources for the amazing fish shell</li>
+<li><a href="https://starship.rs/">Starship</a>: Cross-Shell Prompt</li>
+<li><a href="https://github.com/IlanCosman/tide">tide</a>: 🌊 A modern prompt manager for the Fish shell</li>
+</ul>
+<h2 id="creating-cli-apps">Creating CLI apps</h2>
+<ul>
+<li><a href="https://github.com/infinitered/gluegun">gluegun</a>: A delightful toolkit for building Node-powered CLIs</li>
+<li><a href="https://github.com/SBoudrias/Inquirer.js">inquirer</a>: A collection of common interactive command line user interfaces</li>
+<li><a href="https://github.com/tj/commander.js">commander</a>: node.js command-line interfaces made easy</li>
+<li><a href="https://github.com/lukeed/sade">sade</a>: Sade is a small but powerful tool for building command-line interface (CLI) applications for Node.js that are fast, responsive, and helpful!</li>
+</ul>
+<h2 id="cli-apps">CLI apps</h2>
+<ul>
+<li><a href="https://hub.github.com/">hub</a>: hub is an extension to command-line git that helps you do everyday GitHub tasks without ever leaving the terminal</li>
+<li><a href="https://github.com/zeit/serve">serve</a>: Static file serving and directory listing</li>
+<li><a href="https://github.com/agarrharr/awesome-cli-apps">awesome-cli-apps</a>: A curated list of command line apps</li>
+<li><a href="https://github.com/SpaceVim/SpaceVim">SpaceVim</a>: A community-driven modular vim distribution - The ultimate vim configuration</li>
+</ul>
+<h1 id="tooling">Tooling</h1>
+<h2 id="code-bundlers">Code bundlers</h2>
+<ul>
+<li><a href="https://github.com/preconstruct/preconstruct">preconstruct</a>: 🎁 Dev and build your code painlessly in monorepos</li>
+<li><a href="https://webpack.js.org/">Webpack</a>: script/asset bundler
+<ul>
+<li><a href="https://github.com/mrmartineau/webpack-recipes">Webpack recipes</a></li>
+<li><a href="https://github.com/nippur72/ifdef-loader">ifdef-loader</a>: Webpack loader for JavaScript/TypeScript conditional compilation</li>
+</ul></li>
+<li><a href="https://parceljs.org/">Parcel</a>: Blazing fast, zero configuration web application bundler</li>
+<li><a href="https://github.com/developit/microbundle">microbundle</a>: Zero-configuration bundler for tiny modules</li>
+<li><a href="https://rollupjs.org/guide/en">rollup.js</a>: Rollup is a module bundler for JavaScript</li>
+<li><a href="https://github.com/zeit/ncc">ncc</a>: Node.js Compiler Collection. Simple CLI for compiling a Node.js module into a single file, together with all its dependencies, gcc-style.</li>
+<li><a href="https://github.com/fastpack/fastpack">fastpack</a>: Pack JS code into a single bundle fast &amp; easy</li>
+</ul>
+<h2 id="package-management-and-publishing">Package management and publishing</h2>
+<ul>
+<li><a href="https://github.com/sindresorhus/np">np</a>: A better <code>npm publish</code></li>
+<li><a href="https://github.com/ai/size-limit">size-limit</a>: Prevent JS libraries bloat. If you accidentally add a massive dependency, Size Limit will throw an error</li>
+<li><a href="https://github.com/siddharthkp/bundlesize">bundlesize</a>: Keep your bundle size in check</li>
+<li><a href="https://github.com/kentcdodds/nps">nps</a>: All the benefits of npm scripts without the cost of a bloated package.json and limits of json</li>
+<li><a href="https://dependabot.com/">Dependabot</a>: Dependabot creates pull requests to keep your dependencies secure and up-to-date</li>
+<li><a href="https://github.com/npm/npm/blob/1fa9169ac9687f0be4156574279a968a48dd2458/doc/misc/npm-config.md">npm-config</a> (docs): More than you probably want to know about npm configuration</li>
+<li><a href="https://github.com/ds300/patch-package">patch-package</a>: Fix broken node modules with no fuss 📦👌</li>
+<li><a href="https://github.com/pahen/madge">madge</a>: Create graphs from your CommonJS, AMD or ES6 module dependencies</li>
+</ul>
+<h2 id="commit-hooks">Commit hooks</h2>
+<ul>
+<li><a href="https://github.com/Arkweid/lefthook">lefthook</a>: Fast and powerful Git hooks manager for any type of projects</li>
+<li><a href="https://github.com/typicode/husky">husky</a>: Git hooks made easy</li>
+<li><a href="https://github.com/okonet/lint-staged">lint-staged: 🚫💩</a>: Run linters on git staged files</li>
+<li><a href="https://github.com/Arkweid/lefthook">lefthook</a>: Fast and powerful Git hooks manager for any type of projects</li>
+</ul>
+<h1 id="testing">Testing</h1>
+<ul>
+<li><a href="https://facebook.github.io/jest/">Jest</a>: Delightful JavaScript Testing
+<ul>
+<li><a href="https://github.com/Raathigesh/majestic">majestic</a>: Zero config UI for Jest</li>
+<li><a href="https://github.com/mattphillips/jest-chain">jest-chain</a>: Chain Jest matchers together to create one powerful assertion 🃏⛓</li>
+<li><a href="https://github.com/jest-community/jest-extended">jest-extended</a>: - Additional Jest matchers 🃏💪</li>
+<li><a href="https://github.com/jest-community/snapshot-diff">snapshot-diff</a>: Diffing snapshot utility for Jest</li>
+<li><a href="https://github.com/hustcc/jest-date-mock">jest-date-mock</a>: 🌗 Mock <code>Date</code> when run unit test cases with jest. Make tests of Date easier</li>
+</ul></li>
+<li><a href="https://cypress.io">Cypress</a>: end-to-end testing
+<ul>
+<li><a href="https://github.com/kentcdodds/cypress-testing-library">cypress-testing-library</a>: 🐅 Simple and complete custom Cypress commands and utilities that encourage good testing practices</li>
+<li><a href="https://github.com/avanslaars/cypress-axe">cypress-axe</a>: Custom commands for Cypress to run a11y checks with axe-core</li>
+<li><a href="https://github.com/bahmutov/start-server-and-test">start-server-and-test</a>: - Starts server, waits for URL, then runs test command; when the tests end, shuts down server</li>
+</ul></li>
+<li><a href="https://github.com/kentcdodds/dom-testing-library">dom-testing-library</a>: 🐙 Simple and complete DOM testing utilities that encourage good testing practices</li>
+<li><a href="https://github.com/testing-library/react-testing-library">react-testing-library 🐐</a>: Simple and complete React DOM testing utilities that encourage good testing practices
+<ul>
+<li><a href="https://react-testing-examples.com/">react-testing-library</a>: React Testing Examples</li>
+<li><a href="https://github.com/testing-library/react-hooks-testing-library">react-hooks-testing-library</a>: 🐏 Simple and complete React hooks testing utilities that encourage good testing practices</li>
+</ul></li>
+<li><a href="https://github.com/chancejs/chancejs">Chance</a>: Random generator helper for JavaScript</li>
+<li><a href="https://github.com/Marak/faker.js">faker.js</a>: generate massive amounts of fake data in Node.js and the browser</li>
+<li><a href="https://github.com/nock/nock">nock</a>: HTTP server mocking and expectations library for Node.js</li>
+<li><a href="http://stryker-mutator.io/">Stryker Mutator</a></li>
+<li><a href="https://github.com/tatyshev/given2">given2</a>: Lazy variable evaluation for Jasmine, Mocha, Jest specs, inspired by Ruby and Rspec 💎</li>
+<li><a href="https://github.com/caderek/benny">benny</a>: A dead simple benchmarking framework for JS/TS libs</li>
+<li><p><a href="https://github.com/bestiejs/benchmark.js">benchmark.js</a>: A benchmarking library. As used on jsPerf.com</p></li>
+<li><p><a href="https://github.com/NoriSte/ui-testing-best-practices">ui-testing-best-practices</a>: The largest UI testing best practices list (lat update: April 2020) (work in progress)</p></li>
+</ul>
+<h2 id="code-formatting-and-linting">Code formatting and linting</h2>
+<ul>
+<li><a href="https://prettier.io/">Prettier</a>
+<ul>
+<li><a href="https://github.com/nrwl/precise-commits">precise-commits</a>: Painlessly apply Prettier by only formatting lines you have modified anyway!</li>
+<li><a href="https://github.com/azz/pretty-quick">pretty-quick</a>: Runs Prettier on your changed files</li>
+</ul></li>
+<li><a href="https://eslint.org">Eslint</a>
+<ul>
+<li><a href="https://github.com/prettier/eslint-plugin-prettier">eslint-plugin-prettier</a>: ESLint plugin for prettier formatting</li>
+<li><a href="https://github.com/prettier/eslint-config-prettier">eslint-config-prettier</a>: Turns off all rules that are unnecessary or might conflict with Prettier</li>
+<li><a href="https://github.com/yannickcr/eslint-plugin-react">eslint-plugin-react</a>: - React specific linting rules for ESLint</li>
+</ul></li>
+</ul>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<ul>
+<li><a href="https://github.com/mysticatea/npm-run-all">npm-run-all</a>: A CLI tool to run multiple npm-scripts in parallel or sequential</li>
+<li><a href="https://github.com/milewski/cross-port-killer">cross-port-killer</a>: Kill the process running on a given TCP port on Windows, Linux and Mac</li>
+<li><a href="https://github.com/tabrindle/envinfo">envinfo</a>: Generate a report about your development environment for debugging and issue reporting</li>
+<li><a href="https://github.com/FiloSottile/mkcert">mkcert</a>: A simple zero-config tool to make locally trusted development certificates with any names you'd like</li>
+</ul>
+<h1 id="progressive-web-apps">Progressive Web Apps</h1>
+<ul>
+<li><a href="https://developers.google.com/web/tools/workbox/">Workbox</a> &amp; (<a href="https://github.com/GoogleChrome/workbox">repo</a>): JavaScript libraries for Progressive Web Apps</li>
+</ul>
+<h1 id="code-sandboxes">Code Sandboxes</h1>
+<ul>
+<li><a href="https://codesandbox.io/">CodeSandbox</a>: CodeSandbox is perfect for React demo apps</li>
+<li><a href="http://codepen.io/">Codepen</a>: Codepen is perfect for non-React front-end demos and prototypes</li>
+<li><a href="http://codeshare.io/">CodeShare</a>: Codeshare is useful for collaborating on a single file if devs are not in the same room</li>
+<li><a href="https://glitch.com/">Glitch</a></li>
+</ul>
+<h1 id="apis">APIs</h1>
+<ul>
+<li><a href="https://www.getpostman.com/">Postman</a>: used to develop, test and monitor APIs</li>
+<li><a href="http://www.mockapi.io/">MockAPI</a>: create a mock API</li>
+<li><a href="https://jsonbin.org/">jsonbin</a>: A personal JSON store as a RESTful service</li>
+<li><a href="http://www.test-cors.org/">test-cors.org</a></li>
+<li><a href="https://reqres.in/">Reqres</a>: A hosted REST-API ready to respond to your AJAX requests</li>
+<li><a href="https://miragejs.com/">Mirage JS</a>: An API mocking library for frontend developers</li>
+<li><a href="https://postwoman.io/">Postwoman</a>: API request builder</li>
+</ul>
+<h2 id="graphql">GraphQL</h2>
+<ul>
+<li><a href="https://www.graphqlbin.com">GraphQL Playground</a></li>
+<li><a href="https://www.apollographql.com/">Apollo GraphQL</a>: Apollo Data Graph Platform— unify APIs, microservices, and databases into a data graph that you can query with GraphQL
+<ul>
+<li><a href="https://www.apollographql.com/docs/react/">Apollo Client (React)</a>: Apollo React GraphQL Docs</li>
+<li><a href="https://github.com/Saeris/graphql-directives">graphql-directives</a>: 🧭 A collection of custom GraphQL Schema Directives for use with Apollo Server</li>
+</ul></li>
+<li><a href="https://github.com/FormidableLabs/urql">urql</a>: The highly customizable and versatile GraphQL client</li>
+<li><a href="https://github.com/APIs-guru/graphql-lodash">graphql-lodash</a>: 🛠 Data manipulation for GraphQL queries with lodash syntax</li>
+</ul>
+<h1 id="json">JSON</h1>
+<ul>
+<li><a href="https://next.json-generator.com/">JSON generator</a>: generate a lot of custom JSON for your app/site</li>
+<li><a href="https://jsoneditoronline.org/">JSON Editor Online</a>: view/edit JSON in a better format</li>
+<li><a href="https://github.com/antonmedv/fx">fx</a>: Command-line tool and terminal JSON viewer 🔥</li>
+</ul>
+<h1 id="html">HTML</h1>
+<ul>
+<li><a href="https://github.com/joshbuchea/HEAD">github.com/joshbuchea/HEAD</a>: the definitive resource for everything that <em>could</em> go in the head of your document</li>
+<li><a href="https://metatags.io/">MetaTags.io</a>: Preview, Edit and Generate</li>
+<li><a href="https://www.heymeta.com/">HEY META</a>: Website Meta Tag Check</li>
+<li><a href="https://richpreview.com/">Rich Link Preview</a></li>
+</ul>
+<h1 id="svg">SVG</h1>
+<ul>
+<li><a href="https://svgontheweb.com/">A Practical Guide to SVGs on the web</a></li>
+<li><a href="https://getwaves.io/">Get Waves</a>: Create SVG waves for your next design</li>
+<li><a href="https://www.blobmaker.app/">Blobmaker</a>: Make organic SVG shapes for your next design</li>
+<li><a href="https://github.com/veltman/flubber">flubber</a>: Tools for smoother shape animations</li>
+<li><a href="http://www.heropatterns.com/">Hero Patterns</a>: Free repeatable SVG background patterns for your web projects</li>
+</ul>
+<h2 id="icons">Icons</h2>
+<ul>
+<li><a href="https://iconsvg.xyz/">ICONSVG</a>: Quick customizable SVG icons for your project</li>
+<li><a href="https://simpleicons.org/">Simple Icons</a></li>
+<li><a href="https://react-icons.github.io/react-icons/#/">React Icons</a></li>
+<li><a href="https://evil-icons.io/">Evil Icons</a></li>
+<li><a href="https://icomoon.io/">Icon Font &amp; SVG Icon Sets ❍ IcoMoon</a></li>
+<li><a href="https://svgporn.com/">SVG PORN</a></li>
+<li><a href="https://feathericons.com/">Feather</a>: Simply beautiful open source icons
+<ul>
+<li><a href="https://github.com/feathericons/react-feather">react-feather</a>: React component for Feather icons</li>
+</ul></li>
+<li><a href="https://systemuicons.com/">System UIcons</a></li>
+</ul>
+<h2 id="svgimage-media-compression">SVG/Image Media compression</h2>
+<ul>
+<li><a href="https://squoosh.app/">Squoosh</a></li>
+<li><a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>: SVGO's Missing GUI</li>
+</ul>
+<h1 id="conversions-and-unicode">Conversions and unicode</h1>
+<ul>
+<li><a href="https://transform.now.sh/">Transform</a>: All important transforms at one place ⭐️⭐️⭐️ this is so useful</li>
+<li><a href="https://svgr.now.sh/">SVGR</a>: The SVG to JSX transformer</li>
+<li><a href="https://svg2jsx.herokuapp.com/">svg2jsx</a></li>
+<li><a href="https://json-to-js.com/">JSON to JavaScript object literal</a></li>
+<li><a href="https://unminify.com/">Unminify JS, CSS and HTML Code</a></li>
+<li><a href="https://encoder.internetwache.org/#tab_uni">Multi-Encoder</a></li>
+<li><a href="https://r12a.github.io/app-conversion/">Unicode code converter</a></li>
+</ul>
+<h1 id="features-and-feature-detection">Features and feature detection</h1>
+<ul>
+<li><a href="https://caniuse.com/">Can I Use…</a>: Browser support tables for modern web technologies (HTML5, CSS3, JavaScript etc)</li>
+<li><a href="http://kangax.github.io/compat-table/es6/">Kangax JavaScript compatibility table</a></li>
+</ul>
+<h1 id="performance">Performance</h1>
+<ul>
+<li><a href="https://bundlephobia.com/">Bundlephobia</a>: find the cost of adding a npm package to your bundle</li>
+</ul>
+<h2 id="performance-testing-and-monitoring">Performance testing and monitoring</h2>
+<ul>
+<li><a href="https://www.webpagetest.org/">WebPageTest</a></li>
+<li><a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a></li>
+<li><a href="https://calibreapp.com/">Calibre</a></li>
+<li><a href="https://webspeedtest.cloudinary.com/">Website Speed Test Image Analysis Tool</a> by Cloudinary</li>
+</ul>
+<h1 id="design">Design</h1>
+<ul>
+<li><a href="https://subtract.design/entry/forms">Subtract Guides</a>: Simple Rules for Designing Web &amp; Mobile Forms</li>
+</ul>
+<h1 id="design-systems-and-documentation">Design Systems and documentation</h1>
+<ul>
+<li><a href="https://storybook.js.org/">Storybook</a>: UI dev environment you'll love to use</li>
+<li><a href="https://github.com/styleguidist/react-styleguidist">react-styleguidist</a>: - Isolated React component development environment with a living style guide</li>
+<li><a href="https://docusaurus.io/">Docusaurus</a>: Easy to Maintain Open Source Documentation Websites</li>
+<li><a href="https://www.docz.site/">Docz</a></li>
+<li><a href="https://github.com/mrmartineau/design-system-utils">design-system-utils</a>: - Design system framework for modern front-end projects</li>
+<li><a href="https://docute.org/">Docute</a>: The fastest way to create a documentation site for your project</li>
+<li><a href="https://github.com/seek-oss/playroom">playroom</a>: Design with JSX, powered by your own component library</li>
+</ul>
+<h1 id="accessibility-a11y">Accessibility (A11y)</h1>
+<p>Accessibility is an extremely important part of any web project. While the SOW, functional spec or user-stories might not directly mention a11y, it is up to each developer to ensure that best efforts are made to make our websites as accessible as possible.</p>
+<h2 id="a11y-tools-and-resources">A11y tools and resources:</h2>
+<ul>
+<li><a href="http://code.viget.com/interactive-wcag/">Interactive WCAG</a>: guidelines - cheatsheet for A, AA &amp; AAA</li>
+<li><a href="https://github.com/brunopulis/awesome-a11y">awesome-a11y</a>: massive list of a11y-related resources &amp; information</li>
+<li><a href="https://tenon.io/">tenon.io</a>: a11y tester</li>
+<li><a href="http://a11yproject.com/checklist.html">a11yproject.com/checklist.html</a>: - a11y checklist</li>
+<li><a href="http://a11yproject.com/">a11yproject.com</a>: a11y resources</li>
+<li><a href="https://www.w3.org/WAI/ER/tools/">w3.org/WAI/ER/tools/</a>: list of a11y tools from the W3C</li>
+<li><a href="https://allyjs.io/index.html">allyjs.io</a>: JavaScript library to help modern web applications with accessibility concerns by making accessibility simpler</li>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html#introduction-fourprincs-head">Four principles of Accessibility</a></li>
+<li><a href="https://w3c.github.io/aria-practices/examples/landmarks/index.html">Aria landmarks example</a></li>
+<li><a href="http://a11y-style-guide.com/style-guide/">A11y Style-guide</a>: markup examples and best practices</li>
+<li><a href="https://inclusive-components.design/">Inclusive Components</a>: A blog trying to be a pattern library. All about designing inclusive web interfaces, piece by piece.</li>
+<li><a href="http://leaverou.github.io/contrast-ratio/">Color contrast checker</a></li>
+<li><a href="https://toolness.github.io/accessible-color-matrix/">Accessible color palette builder</a>: An prototype to help designers build accessible color palettes</li>
+<li><a href="http://heydonworks.com/practical_aria_examples/">Practical ARIA Examples</a></li>
+<li><a href="https://davatron5000.github.io/a11y-nutrition-cards/">Nutrition Cards for Accessible Components A11Y Expectations</a></li>
+<li><a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>: Guidance on how to create websites that meet WCAG</li>
+</ul>
+<h3 id="a11y-chrome-extensions">A11y Chrome extensions</h3>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni">Accessibility Insights for Web</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/color-contrast-analyzer/dagdlcijhfbmgkjokkjicnnfimlebcll">Color Contrast Analyzer</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl">NoCoffee</a>: has options for testing color blindness and other sight-related issues</li>
+</ul>
+<h1 id="devops">DevOps</h1>
+<p><a href="https://httpstatuses.com/">HTTP Status Codes</a></p>
+<h2 id="continuous-integration">Continuous integration</h2>
+<ul>
+<li><a href="https://circleci.com">CircleCI</a>: Paid.</li>
+<li><a href="https://bitrise.com">Bitrise</a>: Paid. For iOS/Android apps</li>
+<li><a href="https://travisci.com">Travis CI</a>: Free for open-source</li>
+</ul>
+<h2 id="docker">Docker</h2>
+<ul>
+<li><a href="https://github.com/goodwithtech/dockle">dockle</a>: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start</li>
+</ul>
+<h2 id="hosting">Hosting</h2>
+<ul>
+<li><a href="https://vercel.com">Vercel</a></li>
+<li><a href="https://netlify.com">Netlify</a></li>
+</ul>
+<h2 id="domains">Domains</h2>
+<ul>
+<li><a href="https://iwantmyname.com/">iwantmyname</a></li>
+</ul>
+<h1 id="design-1">Design</h1>
+<h2 id="typography-1">Typography</h2>
+<ul>
+<li><a href="http://modularscale.com/">Modular Scale</a></li>
+<li><a href="https://codepen.io/getflourish/full/vXqewy/">Adaptive Modular Scale</a></li>
+<li><a href="http://type-scale.com/">Type Scale - A Visual Calculator</a></li>
+</ul>
+<h1 id="ides-and-text-editors">IDEs and Text Editors</h1>
+<h2 id="vs-code">VS Code</h2>
+<ul>
+<li><a href="https://gist.github.com/mrmartineau/28ef03c53275ea468e470532d6d20449">My VS Code extensions</a></li>
+<li><a href="https://gist.github.com/mrmartineau/ea3b428124bc1e31cd46dfa55469d781">My preferences</a></li>
+<li><a href="https://github.com/viatsko/awesome-vscode">awesome-vscode</a>: 🎨 A curated list of delightful VS Code packages and resources</li>
+</ul>
+<h2 id="programming-fonts">Programming fonts</h2>
+<ul>
+<li><a href="https://www.ibm.com/plex/">IBM Plex Mono</a></li>
+<li><a href="https://github.com/iaolo/iA-Fonts">iA-Fonts</a></li>
+<li><a href="http://input.fontbureau.com/">Input: Fonts for Code</a></li>
+<li><a href="https://github.com/tonsky/FiraCode">FiraCode</a></li>
+<li><a href="https://github.com/belluzj/fantasque-sans">fantasque-sans</a></li>
+<li><a href="https://github.com/JetBrains/JetBrainsMono">Jet Brains Mono</a></li>
+</ul>
+<h2 id="code-colour-schemes">Code colour schemes</h2>
+<ul>
+<li><a href="https://monokai.pro/">Monokai Pro</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=teabyii.ayu">Ayu (Mirage)</a></li>
+<li><a href="https://draculatheme.com/visual-studio-code/">Dracula</a>: A dark theme for Visual Studio Code and 50+ apps</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=gerane.Theme-OceanicNext">Oceanic Next Theme</a></li>
+<li><a href="https://github.com/sdras/night-owl-vscode-theme">🌌 Night Owl</a>: A VS Code dark theme for contrast for nighttime coding</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=arcticicestudio.nord-visual-studio-code">Nord</a></li>
+<li><a href="https://vscodethemes.com/">VSCodeThemes</a></li>
+<li><a href="https://github.com/mjswensen/themer">themer</a>: 🎨 themer takes a set of colors and generates themes for your apps (editors, terminals, wallpapers, and more)</li>
+</ul>
+<h1 id="regular-expressions">Regular expressions</h1>
+<ul>
+<li><a href="https://regex101.com/">Regex101</a>: Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript</li>
+</ul>
+<h1 id="learning-resources">Learning resources</h1>
+<ul>
+<li><a href="https://andreasbm.github.io/web-skills/?compact">Web Skills</a>: A visual overview of useful skills to learn as a web developer</li>
+</ul>
+<hr />
+<blockquote>
+<p>If you think there are better alternatives, or that there should be something added to the list, please <a href="https://github.com/mrmartineau/awesome-web-dev-resources/issues/new">create an issue</a> or <a href="https://github.com/mrmartineau/awesome-web-dev-resources/pulls">create a pull request</a></p>
+</blockquote>
+</body></html>
