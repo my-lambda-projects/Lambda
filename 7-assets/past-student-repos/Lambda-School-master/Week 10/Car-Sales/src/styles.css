@@ -1,0 +1,75 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: #333;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  padding: 3em;
+  place-items: center;
+}
+
+.boxes {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 2em;
+  -ms-grid-columns: (minmax(350px, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(350px, 1fr));
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100%;
+}
+
+.box h1 {
+  font-size: 20px;
+  margin: 0 0 1rem 0;
+}
+
+.box .content {
+  padding-top: 1em;
+}
+
+.box ol {
+  margin-left: 0;
+}
+
+.box ol li {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.button {
+  background: hotpink;
+  border: 1px solid transparent;
+  color: white;
+  margin-right: 1em;
+  padding: .25em .75em;
+  -webkit-transition: all .25s ease-in;
+  transition: all .25s ease-in;
+}
+
+.button:hover {
+  background: white;
+  border: 1px solid hotpink;
+  color: #333;
+}
+/*# sourceMappingURL=styles.css.map */

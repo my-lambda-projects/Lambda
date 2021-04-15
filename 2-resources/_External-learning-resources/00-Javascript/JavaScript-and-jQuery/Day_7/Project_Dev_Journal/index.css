@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  body .modal-dialog,
+  body .modal {
+    max-width: 700px;
+    width: 700px;
+  }
+  body .modal {
+    margin-left: calc((100% - 700px)/2);
+  }
+}
+@media (min-width: 1200px) {
+  body .modal-dialog,
+  body .modal  {
+    max-width: 1100px;
+    width: 1100px;
+  }
+  body .modal {
+    margin-left: calc((100% - 1100px)/2);
+  }
+}
