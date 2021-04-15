@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>notes</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./notes_files/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="flex">Flex</h1>
+
+<h1 class="mume-header" id="justify-content-css-tricks">justify-content | CSS-Tricks</h1>
+<iframe height="665" style="width: 100%;" scrolling="no" title="Flexbox 2 Challenge" src="https://codepen.io/bgoonz/embed/BapmRGa?height=265&theme-id=light&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/bgoonz/pen/BapmRGa'>Flexbox 2 Challenge</a> by Bryan C Guner
+  (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+<blockquote>
+<p>The justify-content property is a sub-property of the Flexible Box Layout module. It defines the alignment along the main axis. It helps distribute extra</p>
+</blockquote>
+<p>Take the pain out of building site search with the Algolia hosted API. <strong><a href="https://srv.buysellads.com/ads/long/x/T6A3N7DTTTTTTT66YJJCTTTTTTTVXPSDKTTTTTTTL4MCVYTTTTTTTR7M5VBNBBPUCMZDVIPYC73H6KZZP3ACOW44VQPE">Start free now!</a></strong></p>
+<p>The <code>justify-content</code> property is a sub-property of the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexible Box Layout module</a>.</p>
+<p>It defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.</p>
+<p>The <code>justify-content</code> property accepts five different values:</p>
+<ul>
+<li><code>flex-start</code> (<strong>default</strong>): items are packed toward the start line</li>
+<li><code>flex-end</code>: items are packed toward to end line</li>
+<li><code>center</code>: items are centered along the line</li>
+<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line</li>
+<li><code>space-around</code>: items are evenly distributed in the line with equal space around them</li>
+<li><code>space-evenly</code>: items are distributed so that the spacing between any two adjacent alignment subjects, before the first alignment subject, and after the last alignment subject is the same</li>
+</ul>
+<p>The following figure helps understand what the <code>justify-content</code> property actually does:</p>
+<p><img src="./notes_files/flex-pack.svg" alt="justify-content"></p>
+<h3 class="mume-header" id="syntax">Syntax</h3>
+
+<pre class="language-text">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+
+.flex-item {
+  justify-content: center;
+}
+</pre>
+<h3 class="mume-header" id="demo">Demo</h3>
+
+<p>The following demo shows how flex items behave depending on `justify-content` value:</p>
+<ul>
+<li>The red list is set to <code>flex-start</code></li>
+<li>The yellow is set to <code>flex-end</code></li>
+<li>The blue is set to <code>center</code></li>
+<li>The green is set to <code>space-between</code></li>
+<li>The pink is set to <code>space-around</code></li>
+<li>The light green is set to <code>space-evenly</code></li>
+</ul>
+<h3 class="mume-header" id="related-properties">Related Properties</h3>
+
+<ul>
+<li><a href="https://css-tricks.com/almanac/properties/d/display/">display (flex)</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/f/flex-direction/">flex-direction</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/f/flex-flow/">flex-flow</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/f/flex-wrap/">flex-wrap</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/a/align-items/">align-items</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/a/align-content/">align-content</a></li>
+</ul>
+<h3 class="mume-header" id="other-resources">Other Resources</h3>
+
+<ul>
+<li><a href="https://www.w3.org/TR/css3-flexbox/#justify-content-property">justify-content in the spec</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/CSS/justify-content">justify-content at MDN</a></li>
+<li><a href="https://dev.opera.com/articles/view/advanced-cross-browser-flexbox/#fallbacks">Advanced cross-browser flexbox</a></li>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A guide to Flexbox</a></li>
+<li><a href="https://css-tricks.com/using-flexbox/">Using Flexbox</a></li>
+<li><a href="https://css-tricks.com/old-flexbox-and-new-flexbox/">Old Flexbox and new Flexbox</a></li>
+</ul>
+<p>sections are semantic</p>
+<h1 class="mume-header" id="a-complete-guide-to-flexbox-css-tricks">A Complete Guide to Flexbox | CSS-Tricks</h1>
+
+<blockquote>
+<p>Our comprehensive guide to CSS flexbox layout. This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.</p>
+</blockquote>
+<h3 class="mume-header" id="backgroundflexbox-background"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-background">Background</a></h3>
+
+<p>The <code>Flexbox Layout</code> (Flexible Box) module (<a href="https://www.w3.org/TR/css-flexbox/">a W3C Candidate Recommendation</a> as of October 2017) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").</p>
+<p>The main idea behind the flex layout is to give the container the ability to alter its items' width/height (and order) to best fill the available space (mostly to accommodate to all kind of display devices and screen sizes). A flex container expands items to fill available free space or shrinks them to prevent overflow.</p>
+<p>Most importantly, the flexbox layout is direction-agnostic as opposed to the regular layouts (block which is vertically-based and inline which is horizontally-based). While those work well for pages, they lack flexibility (no pun intended) to support large or complex applications (especially when it comes to orientation changing, resizing, stretching, shrinking, etc.).</p>
+<p><strong>Note:</strong> Flexbox layout is most appropriate to the components of an application, and small-scale layouts, while the <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Grid</a> layout is intended for larger scale layouts.</p>
+<h3 class="mume-header" id="basics-terminologyflexbox-basics"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-basics">Basics &amp; Terminology</a></h3>
+
+<p>Since flexbox is a whole module and not a single property, it involves a lot of things including its whole set of properties. Some of them are meant to be set on the container (parent element, known as "flex container") whereas the others are meant to be set on the children (said "flex items").</p>
+<p>If "regular" layout is based on both block and inline flow directions, the flex layout is based on "flex-flow directions". Please have a look at this figure from the specification, explaining the main idea behind the flex layout.</p>
+<p><img src="./notes_files/00-basic-terminology.svg" alt="A diagram explaining flexbox terminology. The size across the main axis of flexbox is called the main size, the other direction is the cross size. Those sizes have a main start, main end, cross start, and cross end."></p>
+<p>Items will be laid out following either the <code>main axis</code> (from <code>main-start</code> to <code>main-end</code>) or the cross axis (from <code>cross-start</code> to <code>cross-end</code>).</p>
+<ul>
+<li><strong>main axis</strong> - The main axis of a flex container is the primary axis along which flex items are laid out. Beware, it is not necessarily horizontal; it depends on the <code>flex-direction</code> property (see below).</li>
+<li><strong>main-start | main-end</strong> - The flex items are placed within the container starting from main-start and going to main-end.</li>
+<li><strong>main size</strong> - A flex item's width or height, whichever is in the main dimension, is the item's main size. The flex item's main size property is either the 'width' or 'height' property, whichever is in the main dimension.</li>
+<li><strong>cross axis</strong> - The axis perpendicular to the main axis is called the cross axis. Its direction depends on the main axis direction.</li>
+<li><strong>cross-start | cross-end</strong> - Flex lines are filled with items and placed into the container starting on the cross-start side of the flex container and going toward the cross-end side.</li>
+<li><strong>cross size</strong> - The width or height of a flex item, whichever is in the cross dimension, is the item's cross size. The cross size property is whichever of 'width' or 'height' that is in the cross dimension.</li>
+</ul>
+<h4 class="mume-header" id="get-the-poster">Get the poster!</h4>
+
+<p>Reference this guide a lot? Pin a copy up on the office wall.</p>
+<p><a href="file:///C:/NEW_BOOTCAMP/Lambda/CIRRICULUMN/WEEKS/WEEKS/wk1/0-notes/d4/chrome-extension:/cjedbglnccaioiolemnfhjncicchinao/product/css-flexbox-poster"><img src="./notes_files/43150-1.jpg" alt=""></a></p>
+<p><img src="./notes_files/01-container.svg" alt=""></p>
+<h2>Properties for the Parent<br>
+(flex container)</h2>
+<h4 class="mume-header" id="display">display</h4>
+
+<p>This defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.</p>
+<pre class="language-text">.container {
+  display: flex; 
+}
+</pre>
+<p>Note that CSS columns have no effect on a flex container.</p>
+<h4 class="mume-header" id="flex-direction">flex-direction</h4>
+
+<p><img src="./notes_files/flex-direction.svg" alt="the four possible values of flex-direction being shown: top to bottom, bottom to top, right to left, and left to right"></p>
+<p>This establishes the main-axis, thus defining the direction flex items are placed in the flex container. Flexbox is (aside from optional wrapping) a single-direction layout concept. Think of flex items as primarily laying out either in horizontal rows or vertical columns.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.container</span></span> <span class="token punctuation">{</span>
+      <span class="token property">flex-direction</span><span class="token punctuation">:</span> row | row-reverse | column | column-reverse<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><ul>
+<li><code>row</code> (default): left to right in <code>ltr</code>; right to left in <code>rtl</code></li>
+<li><code>row-reverse</code>: right to left in <code>ltr</code>; left to right in <code>rtl</code></li>
+<li><code>column</code>: same as <code>row</code> but top to bottom</li>
+<li><code>column-reverse</code>: same as <code>row-reverse</code> but bottom to top</li>
+</ul>
+<h4 class="mume-header" id="flex-wrap">flex-wrap</h4>
+
+<p><img src="./notes_files/flex-wrap.svg" alt="two rows of boxes, the first wrapping down onto the second"></p>
+<p>By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property.</p>
+<pre class="language-text">.container {
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+</pre>
+<ul>
+<li><code>nowrap</code> (default): all flex items will be on one line</li>
+<li><code>wrap</code>: flex items will wrap onto multiple lines, from top to bottom.</li>
+<li><code>wrap-reverse</code>: flex items will wrap onto multiple lines from bottom to top.</li>
+</ul>
+<p>There are some <a href="https://css-tricks.com/almanac/properties/f/flex-wrap/">visual demos of <code>flex-wrap</code> here</a>.</p>
+<h4 class="mume-header" id="flex-flow">flex-flow</h4>
+
+<p>This is a shorthand for the <code>flex-direction</code> and <code>flex-wrap</code> properties, which together define the flex container's main and cross axes. The default value is <code>row nowrap</code>.</p>
+<pre class="language-text">.container {
+  flex-flow: column wrap;
+}
+</pre>
+<h4 class="mume-header" id="justify-content">justify-content</h4>
+
+<p><img src="./notes_files/justify-content.svg" alt="flex items within a flex container demonstrating the different spacing options"></p>
+<p>This defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.</p>
+<pre class="language-text">.container {
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
+}
+</pre>
+<ul>
+<li><code>flex-start</code> (default): items are packed toward the start of the flex-direction.</li>
+<li><code>flex-end</code>: items are packed toward the end of the flex-direction.</li>
+<li><code>start</code>: items are packed toward the start of the <code>writing-mode</code> direction.</li>
+<li><code>end</code>: items are packed toward the end of the <code>writing-mode</code> direction.</li>
+<li><code>left</code>: items are packed toward left edge of the container, unless that doesn't make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
+<li><code>right</code>: items are packed toward right edge of the container, unless that doesn't make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
+<li><code>center</code>: items are centered along the line</li>
+<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line</li>
+<li><code>space-around</code>: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren't equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies.</li>
+<li><code>space-evenly</code>: items are distributed so that the spacing between any two items (and the space to the edges) is equal.</li>
+</ul>
+<p>Note that that browser support for these values is nuanced. For example, <code>space-between</code> never got support from some versions of Edge, and start/end/left/right aren't in Chrome yet. MDN <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">has detailed charts</a>. The safest values are <code>flex-start</code>, <code>flex-end</code>, and <code>center</code>.</p>
+<p>There are also two additional keywords you can pair with these values: <code>safe</code> and <code>unsafe</code>. Using <code>safe</code> ensures that however you do this type of positioning, you can't push an element such that it renders off-screen (e.g. off the top) in such a way the content can't be scrolled too (called "data loss").</p>
+<h4 class="mume-header" id="align-items">align-items</h4>
+
+<p><img src="./notes_files/align-items.svg" alt="demonstration of differnet alignment options, like all boxes stuck to the top of a flex parent, the bottom, stretched out, or along a baseline"></p>
+<p>This defines the default behavior for how flex items are laid out along the <strong>cross axis</strong> on the current line. Think of it as the <code>justify-content</code> version for the cross-axis (perpendicular to the main-axis).</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.container</span></span> <span class="token punctuation">{</span>
+      <span class="token property">align-items</span><span class="token punctuation">:</span> stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end <span class="token operator">+</span> ... safe | unsafe<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><ul>
+<li><code>stretch</code> (default): stretch to fill the container (still respect min-width/max-width)</li>
+<li><code>flex-start</code> / <code>start</code> / <code>self-start</code>: items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the <code>flex-direction</code> rules or the <code>writing-mode</code> rules.</li>
+<li><code>flex-end</code> / <code>end</code> / <code>self-end</code>: items are placed at the end of the cross axis. The difference again is subtle and is about respecting <code>flex-direction</code> rules vs. <code>writing-mode</code> rules.</li>
+<li><code>center</code>: items are centered in the cross-axis</li>
+<li><code>baseline</code>: items are aligned such as their baselines align</li>
+</ul>
+<p>The <code>safe</code> and <code>unsafe</code> modifier keywords can be used in conjunction with all the rest of these keywords (although note <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">browser support</a>), and deal with helping you prevent aligning elements such that the content becomes inaccessible.</p>
+<h4 class="mume-header" id="align-content">align-content</h4>
+
+<p><img src="./notes_files/align-content.svg" alt="examples of the align-content property where a group of items cluster at the top or bottom, or stretch out to fill the space, or have spacing."></p>
+<p>This aligns a flex container's lines within when there is extra space in the cross-axis, similar to how <code>justify-content</code> aligns individual items within the main-axis.</p>
+<p><strong>Note:</strong> This property only takes effect on multi-line flexible containers, where <code>flex-flow</code> is set to either <code>wrap</code> or <code>wrap-reverse</code>). A single-line flexible container (i.e. where <code>flex-flow</code> is set to its default value, <code>no-wrap</code>) will not reflect <code>align-content</code>.</p>
+<pre class="language-text">.container {
+  align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe;
+}
+</pre>
+<ul>
+<li><code>normal</code> (default): items are packed in their default position as if no&nbsp;value was set.</li>
+<li><code>flex-start</code> / <code>start</code>: items packed to the start of the container. The (more supported) <code>flex-start</code> honors the <code>flex-direction</code> while <code>start</code> honors the <code>writing-mode</code> direction.</li>
+<li><code>flex-end</code> / <code>end</code>: items packed to the end of the container. The (more support) <code>flex-end</code> honors the <code>flex-direction</code> while end honors the <code>writing-mode</code> direction.</li>
+<li><code>center</code>: items centered in the container</li>
+<li><code>space-between</code>: items evenly distributed; the first line is at the start of the container while the last one is at the end</li>
+<li><code>space-around</code>: items evenly distributed with equal space around each line</li>
+<li><code>space-evenly</code>: items are evenly distributed with equal space around them</li>
+<li><code>stretch</code>: lines stretch to take up the remaining space</li>
+</ul>
+<p>The <code>safe</code> and <code>unsafe</code> modifier keywords can be used in conjunction with all the rest of these keywords (although note <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">browser support</a>), and deal with helping you prevent aligning elements such that the content becomes inaccessible.</p>
+<p><img src="./notes_files/02-items.svg" alt=""></p>
+<h2>Properties for the Children<br>
+(flex items)</h2>
+<h4 class="mume-header" id="order">order</h4>
+
+<p><img src="./notes_files/order.svg" alt="Diagram showing flexbox order. A container with the items being 1 1 1 2 3, -1 1 2 5, and 2 2 99."></p>
+<p>By default, flex items are laid out in the source order. However, the <code>order</code> property controls the order in which they appear in the flex container.</p>
+<pre class="language-text">.item {
+  order: 5; 
+}
+</pre>
+<h4 class="mume-header" id="flex-grow">flex-grow</h4>
+
+<p><img src="./notes_files/flex-grow.svg" alt="two rows of items, the first has all equally-sized items with equal flex-grow numbers, the second with the center item at twice the width because its value is 2 instead of 1."></p>
+<p>This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.</p>
+<p>If all items have <code>flex-grow</code> set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
+      <span class="token property">flex-grow</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+</pre><p>Negative numbers are invalid.</p>
+<h4 class="mume-header" id="flex-shrink">flex-shrink</h4>
+
+<p>This defines the ability for a flex item to shrink if necessary.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
+      <span class="token property">flex-shrink</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+</pre><p>Negative numbers are invalid.</p>
+<h4 class="mume-header" id="flex-basis">flex-basis</h4>
+
+<p>This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The <code>auto</code> keyword means "look at my width or height property" (which was temporarily done by the <code>main-size</code> keyword until deprecated). The <code>content</code> keyword means "size it based on the item's content" - this keyword isn't well supported yet, so it's hard to test and harder to know what its brethren <code>max-content</code>, <code>min-content</code>, and <code>fit-content</code> do.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
+      <span class="token property">flex-basis</span><span class="token punctuation">:</span>  | auto<span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+</pre><p>If set to <code>0</code>, the extra space around content isn't factored in. If set to <code>auto</code>, the extra space is distributed based on its <code>flex-grow</code> value. <a href="https://www.w3.org/TR/css3-flexbox/images/rel-vs-abs-flex.svg">See this graphic.</a></p>
+<h4 class="mume-header" id="flex-1">flex</h4>
+
+<p>This is the shorthand for <code>flex-grow,</code> <code>flex-shrink</code> and <code>flex-basis</code> combined. The second and third parameters (<code>flex-shrink</code> and <code>flex-basis</code>) are optional. The default is <code>0 1 auto</code>, but if you set it with a single number value, it's like <code>1 0</code>.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
+      <span class="token property">flex</span><span class="token punctuation">:</span> none | [ &lt;<span class="token string">'flex-grow'</span>&gt; &lt;<span class="token string">'flex-shrink'</span>&gt;? || &lt;<span class="token string">'flex-basis'</span>&gt; ]
+    <span class="token punctuation">}</span>
+</pre><p><strong>It is recommended that you use this shorthand property</strong> rather than set the individual properties. The shorthand sets the other values intelligently.</p>
+<h4 class="mume-header" id="align-self">align-self</h4>
+
+<p><img src="./notes_files/align-self.svg" alt="One item with a align-self value is positioned along the bottom of a flex parent instead of the top where all the rest of the items are."></p>
+<p>This allows the default alignment (or the one specified by <code>align-items</code>) to be overridden for individual flex items.</p>
+<p>Please see the <code>align-items</code> explanation to understand the available values.</p>
+<pre class="language-text">.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+</pre>
+<p>Note that <code>float</code>, <code>clear</code> and <code>vertical-align</code> have no effect on a flex item.</p>
+<h3 class="mume-header" id="examplesflexbox-examples"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-examples">Examples</a></h3>
+
+<p>Let's start with a very very simple example, solving an almost daily problem: perfect centering. It couldn't be any simpler if you use flexbox.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.parent</span></span> <span class="token punctuation">{</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector"><span class="token class">.child</span></span> <span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>  
+      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span> 
+      <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>
+</pre><p>This relies on the fact a margin set to <code>auto</code> in a flex container absorb extra space. So setting a vertical margin of <code>auto</code> will make the item perfectly centered in both axes.</p>
+<p>Now let's use some more properties. Consider a list of 6 items, all with fixed dimensions, but can be auto-sized. We want them to be evenly distributed on the horizontal axis so that when we resize the browser, everything scales nicely, and without media queries.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.flex-container</span></span> <span class="token punctuation">{</span>
+      
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    
+      
+      <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span>
+    
+      
+      <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>Done. Everything else is just some styling concern. Below is a pen featuring this example. Be sure to go to CodePen and try resizing your windows to see what happens.</p>
+<p>Let's try something else. Imagine we have a right-aligned navigation element on the very top of our website, but we want it to be centered on medium-sized screens and single-columned on small devices. Easy enough.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    
+    <span class="token selector"><span class="token class">.navigation</span></span> <span class="token punctuation">{</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span>
+      
+      <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    
+    <span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">800</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      <span class="token selector"><span class="token class">.navigation</span></span> <span class="token punctuation">{</span>
+        
+        <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    
+    <span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">500</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      <span class="token selector"><span class="token class">.navigation</span></span> <span class="token punctuation">{</span>
+        
+        <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><p>Let's try something even better by playing with flex items flexibility! What about a mobile-first 3-columns layout with full-width header and footer. And independent from source order.</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token selector"><span class="token class">.wrapper</span></span> <span class="token punctuation">{</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    
+    <span class="token selector"><span class="token class">.wrapper</span> <span class="token combinator">&gt;</span> *</span> <span class="token punctuation">{</span>
+      <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    
+    
+    
+    <span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">600</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      
+      <span class="token selector"><span class="token class">.aside</span></span> <span class="token punctuation">{</span> <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span> auto<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    
+    <span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">800</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      
+      <span class="token selector"><span class="token class">.main</span></span> <span class="token punctuation">{</span> <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token number">0</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token selector"><span class="token class">.aside-1</span></span> <span class="token punctuation">{</span> <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token selector"><span class="token class">.main</span></span>    <span class="token punctuation">{</span> <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token selector"><span class="token class">.aside-2</span></span> <span class="token punctuation">{</span> <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token selector"><span class="token class">.footer</span></span>  <span class="token punctuation">{</span> <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="prefixing-flexboxflexbox-sass"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-sass">Prefixing Flexbox</a></h3>
+
+<p>Flexbox requires some vendor prefixing to support the most browsers possible. It doesn't just include prepending properties with the vendor prefix, but there are actually entirely different property and value names. This is because the Flexbox spec has changed over time, creating an <a href="https://css-tricks.com/old-flexbox-and-new-flexbox/">"old", "tweener", and "new"</a> versions.</p>
+<p>Perhaps the best way to handle this is to write in the new (and final) syntax and run your CSS through <a href="https://css-tricks.com/autoprefixer/">Autoprefixer</a>, which handles the fallbacks very well.</p>
+<p>Alternatively, here's a Sass <code>@mixin</code> to help with some of the prefixing, which also gives you an idea of what kind of things need to be done:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css">    <span class="token atrule"><span class="token rule">@mixin</span> <span class="token function">flexbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> -moz-box<span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token atrule"><span class="token rule">@mixin</span> <span class="token function">flex</span><span class="token punctuation">(</span>$values<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      <span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> $values<span class="token punctuation">;</span>
+      <span class="token property">-moz-box-flex</span><span class="token punctuation">:</span>  $values<span class="token punctuation">;</span>
+      <span class="token property">-webkit-flex</span><span class="token punctuation">:</span>  $values<span class="token punctuation">;</span>
+      <span class="token property">-ms-flex</span><span class="token punctuation">:</span>  $values<span class="token punctuation">;</span>
+      <span class="token property">flex</span><span class="token punctuation">:</span>  $values<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token atrule"><span class="token rule">@mixin</span> <span class="token function">order</span><span class="token punctuation">(</span>$val<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+      <span class="token property">-webkit-box-ordinal-group</span><span class="token punctuation">:</span> $val<span class="token punctuation">;</span>  
+      <span class="token property">-moz-box-ordinal-group</span><span class="token punctuation">:</span> $val<span class="token punctuation">;</span>     
+      <span class="token property">-ms-flex-order</span><span class="token punctuation">:</span> $val<span class="token punctuation">;</span>     
+      <span class="token property">-webkit-order</span><span class="token punctuation">:</span> $val<span class="token punctuation">;</span>  
+      <span class="token property">order</span><span class="token punctuation">:</span> $val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector"><span class="token class">.wrapper</span></span> <span class="token punctuation">{</span>
+      <span class="token atrule"><span class="token rule">@include</span> <span class="token function">flexbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token selector"><span class="token class">.item</span></span> <span class="token punctuation">{</span>
+      <span class="token atrule"><span class="token rule">@include</span> <span class="token function">flex</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+      <span class="token atrule"><span class="token rule">@include</span> <span class="token function">order</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+    <span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="related-propertiesflexbox-related"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-related">Related Properties</a></h3>
+
+<h3 class="mume-header" id="other-resourcesflexbox-resources"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-resources">Other Resources</a></h3>
+
+<h3 class="mume-header" id="bugsflexbox-bugs"><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flexbox-bugs">Bugs</a></h3>
+
+<p>Flexbox is certainly not without its bugs. The best collection of them I've seen is Philip Walton and Greg Whitworth's <a href="https://github.com/philipwalton/flexbugs">Flexbugs</a>. It's an open-source place to track all of them, so I think it's best to just link to that.</p>
+<h3 class="mume-header" id="order-is-a-flex-item-property">Order is a flex-item property</h3>
+
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex">Flex</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#justify-content-css-tricks">justify-content | CSS-Tricks</a>
+<ul>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#syntax">Syntax</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#demo">Demo</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#related-properties">Related Properties</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#other-resources">Other Resources</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#a-complete-guide-to-flexbox-css-tricks">A Complete Guide to Flexbox | CSS-Tricks</a>
+<ul>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#backgroundflexbox-background">Background</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#basics-terminologyflexbox-basics">Basics &amp; Terminology</a>
+<ul>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#get-the-poster">Get the poster!</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#display">display</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-direction">flex-direction</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-wrap">flex-wrap</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-flow">flex-flow</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#justify-content">justify-content</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#align-items">align-items</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#align-content">align-content</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#order">order</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-grow">flex-grow</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-shrink">flex-shrink</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-basis">flex-basis</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#flex-1">flex</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#align-self">align-self</a></li>
+</ul>
+</li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#examplesflexbox-examples">Examples</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#prefixing-flexboxflexbox-sass">Prefixing Flexbox</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#related-propertiesflexbox-related">Related Properties</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#other-resourcesflexbox-resources">Other Resources</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#bugsflexbox-bugs">Bugs</a></li>
+<li><a href="file:///C:/Users/bryan/AppData/Local/Temp/mume202138-45776-19jrv7g.3brhh.html#order-is-a-flex-item-property">Order is a flex-item property</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  </body></html>
