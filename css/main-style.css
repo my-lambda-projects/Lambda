@@ -150,13 +150,11 @@ body {
 }
 
 ul {
-
     justify-content: center;
     align-items: center;
     box-align: center;
     column-count: 2;
     margin: auto;
-
 }
 
 li {
@@ -166,7 +164,6 @@ li {
     font-weight: 900;
     line-height: 14px;
     text-transform: uppercase;
-
     cursor: pointer;
     justify-content: center;
     padding: 15px 15px;
@@ -219,7 +216,7 @@ body {
 iframe.animate {
     overflow-y: scroll;
     border-radius: 2px;
-    min-width: 5em;
+    min-width: 15em;
     /* padding: 1.2em 1em 0; */
     box-shadow: 0 0 9px;
     margin: 0.5em;

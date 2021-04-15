@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 1 Sprint 2 Study Guide</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a0a71737-13ca-4067-93cd-5c63c3d11c13" class="page serif"><header><h1 class="page-title">Unit 1 Sprint 2 Study Guide</h1></header><div class="page-body"><p id="a3755c4b-7bd4-4ee4-84ef-2e0ff3c32094" class="">
+</p><p id="95c047a5-5937-4602-86e4-6b8b8f18f5c4" class="">Sprint challenges are a way for you to demonstrate to us that you have mastered the skills you learned this week. The sprint challenge will test you on each of the week’s objectives. If you want to spend some more time preparing for the sprint challenge this week, below you will find a list of notes and challenges to give you more practice with the objectives we have covered. Alternatively, you may use canvas, afternoon projects or guided projects as a study guide.</p><ul id="1df0c6f2-c4fb-4910-ac32-7271bc337bc9" class="toggle"><li><details open=""><summary>Responsive Design</summary><p id="f34bfbd6-7302-407b-a6c3-0fee55ec0bdd" class="">
+</p><p id="5308f302-101e-4df3-8232-31303d4bc113" class="">Responsive web design is the practice of building a website suitable to work on every device and every screen size, no matter how large or small, mobile or desktop, but it’s about more than just that. We want to make our websites accessible to all users! Responsive web design is focused around providing an intuitive and gratifying experience for everyone.</p><h3 id="1ccd3b3b-f798-42f0-8aee-88cc2a235bdf" class="">The Viewport Meta Tag</h3><p id="26401ac7-fa4b-4a0c-95aa-3f81a402d19c" class="">The viewport is the user&#x27;s visible area of a web page. The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen. Before tablets and mobile phones, web pages were designed only for computer screens, and it was common for web pages to have a static design and a fixed size. Today we view websites on all different screen sizes from tablet to mobile to computer screen to big screen. This means that we now have to create website taking into consideration all of these different screen sizes.</p><p id="5ec4b517-e2cb-40b2-b5a1-89cae87471f2" class="">To remedy this HTML5 introduced a method to let web designers take control over the viewport, through the &lt;meta&gt; tag.</p><p id="8186c3d4-9abd-440f-8bac-84b7c72aabad" class="">You should include the following &lt;meta&gt; viewport element in all your web pages:</p><p id="87886b3d-126e-4200-95c4-77cb1687b1f2" class="">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; A &lt;meta&gt; viewport element gives the browser instructions on how to control the page&#x27;s dimensions and scaling.</p><p id="fc1ea388-5ef7-4ba5-b9d8-882040927ca5" class="">The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).</p><p id="a9df1f02-598e-42e2-9f11-e3efe7c6b7fb" class="">The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.</p><p id="7f8e246c-f89f-4c6c-aa5b-d57a7338208b" class="">The viewport meta tag must be included in the head of your HTML document whenever you are writing media queries. Without it, the browser will not be able to read your media queries.</p><h3 id="059db8e0-84db-4ad0-996b-5c47d3e012e1" class="">Media Queries</h3><p id="72a2ecf3-21a7-443f-9ccf-0bacf484dd39" class="">There are a couple different ways to use media queries, using the @media rule inside of an existing style sheet, importing a new style sheet using the @import rule, or by linking to a separate stylesheet from within the HTML document. Generally speaking it is recommended to use the @media rule inside of an existing style sheet to avoid any additional HTTP requests.</p><p id="87c4acbf-1dff-4a3d-8383-a5c2d7c64365" class="">Each media query may include a media type followed by one or more expressions. Common media types include all, screen, print, tv, and braille. The HTML5 specification includes new media types, even including 3d-glasses. Should a media type not be specified the media query will default the media type to screen.</p><p id="4002dfad-3a42-40e7-a36f-587a327b128d" class="">The media query expression that follows the media type may include different media features and values, which then allocate to be true or false. When a media feature and value allocated to true, the styles are applied. If the media feature and value allocate to false the styles are ignored.</p><p id="4edc11e8-00de-4987-85d2-495ec7d7d639" class="">Challenge!</p><p id="f19dc857-5179-4428-bbfd-d49d65af6ecb" class="">Let&#x27;s Try it!</p><ol id="f60cb7d8-3263-4fc1-9e05-af52416fe3a7" class="numbered-list" start="1"><li>Write a media query that changes the background to green when the browser reaches a max width of 940px</li></ol><ol id="0887a51c-9133-4839-b126-71aacc2be3b0" class="numbered-list" start="2"><li>write a media query that changes the background to red when the browser reaches a max-width of 767px</li></ol><ol id="b2f88304-2fd8-42b9-a25b-9b18f9fd4d32" class="numbered-list" start="3"><li>write a media query that changes the background to yellow when the browser reaches a max-width of 480px</li></ol><p id="0096dcb4-4e28-4b7e-98b6-8cd7df5e6a5e" class="">[embed codepen <a href="https://codepen.io/BritHemming/pen/BaBZPjv">https://codepen.io/BritHemming/pen/BaBZPjv</a>]</p><h3 id="f4b07366-f344-4039-bc7f-973c712e54e4" class="">Flexible Layouts</h3><p id="95ca0059-6fc0-4eb9-8031-bf5bb429081a" class="">Responsive web design is broken down into three main components, including flexible layouts, media queries, and flexible media. The first part, flexible layouts, is the practice of building the layout of a website with a flexible grid, capable of dynamically resizing to any width. Flexible grids are built using relative length units, most commonly percentages or rem units. These relative lengths are then used to declare common grid property values such as width, margin, or padding.</p><p id="ad8fd0b6-81ea-4c70-b21c-58f62546a417" class="">Flexible layouts do not advocate the use of fixed measurement units, such as pixels or inches. Reason being, the viewport height and width continually change from device to device. Website layouts need to adapt to this change and fixed values have too many constraints. Fortunately, Ethan pointed out an easy formula to help identify the proportions of a flexible layout using relative values.</p><p id="cf5fd2e1-6cd0-4b06-b0b9-1bbfedc4e398" class="">The formula is based around taking the target width of an element and dividing it by the width of its parent element. The result is the relative width of the target element.</p><p id="2b4e296c-8209-4743-813a-7b146de5da14" class="">Challenge!</p><p id="3b136d5f-f2e4-416c-8f5b-def240eadc16" class="">Let’s Try it!</p><ol id="e2b15a2b-e080-4fb8-98b0-a3ce0bd7faea" class="numbered-list" start="1"><li>write a media query that changes the background color of div one to green and the background color of div two to yellow and the paragraph font to the equivalent of 16px (using a scalable unit) when the browser reaches 940px.</li></ol><ol id="4e265b46-8be3-4ca7-aef9-7e31d4ad2bf5" class="numbered-list" start="2"><li>write a media query that stacks the divs in two rows of two when the browsers reaches 767 px and changes all of the background colours to pink and the font size to 20px (using scalable units)</li></ol><ol id="4e6141bc-bc43-4d5a-b909-3933dc832fd9" class="numbered-list" start="3"><li>write a rule that stacks all of the divs on top of eachother and changes the background colors of div one and three to blue and two and four to white and the font size to 30px(using scalable units) when the browsers reaches 480px</li></ol><p id="ff343305-afdb-42ad-9905-859463adf7e6" class="">[embed codepen: <a href="https://codepen.io/BritHemming/pen/MWgoBba">https://codepen.io/BritHemming/pen/MWgoBba</a>]</p><h3 id="b940a552-8651-4638-999c-c89df6a8e6d9" class="">Accessibility and the Web</h3><p id="7b1d71fc-a238-4f79-9759-760b46986893" class="">Web accessibility is the inclusive practice of ensuring there are no barriers that would prevent anyone from using or interacting with your website or application. When you think of web accessibility you may immediately think of screen readers or motor assistance but accessibility includes everyone. Think of people in areas with slow internet access, those who do not have access to computers and need to use mobile devices, Furthermore, at some point all of us will become old, or have injuries which will hinder our ability to interact on the web. Web accessibility is difficult for a lot of people to understand because it’s very hard to solve a problem that we ourselves have never experienced. This is why it’s so important to take the time to educate yourself on what you can do to make your products (website and applications) more inclusive.</p><p id="8eb794fe-f100-48bb-a63e-f38d6aa05e9f" class="">Accessibility should never be an afterthought, it starts with good design. Good usability is good accessibility. The UN has now declared internet access to be a <a href="https://www.businessinsider.com/un-says-internet-access-is-a-human-right-2016-7">fundamental human right</a> and this makes complete sense in our day and age. Today we use the internet for everything from education, to job searches and applications, to connecting with friends and family, to accessing life saving information in the case of emergencies etc. This is why it’s so important for everyone, no matter their abilities, location or circumstances to be able to use and access everything on the internet.  (I feel like this paragraph isn’t a finished thought yet)</p><h3 id="4921418b-11dd-46a8-9e3b-55a22b61ab15" class="">Tips For Making Your Website Accessible</h3><p id="ec414495-79af-4b93-9252-fbbc47c63017" class="">Now that we understand why accessibility is important, it&#x27;s time to talk about the practical things we can do to make our websites more accessible. Thus far, in our course we’ve been using HTML5 which is the current standard in markup, another reason to use semantic tags has to do with accessibility.  Semantic elements provide defaults or shortcuts to a more usable and accessible web. They provide consistent and well-tested components for common interactions. Assistive technology (like a screen reader) uses semantic HTML to interpret each element to its user, this is another way of saying that semantic HTML gives context to screen readers. While someone who can clearly see your sight may use visual cues in order to navigate through your website, those who cannot see your website rely on assistive technology. The visually impaired use a screen reader as an alternate means of navigation enabling them to jump between and interact with different elements on your website, if your entire site is marked up with divs and spans - this makes it extremely difficult for someone relying on a screen reader for some context. Keyboard navigation is also aided by semantic HTML. Who would use a keyboard to navigate a website? It could be anyone with an injury or disability that may prevent them from using a mouse. Forms, option menus, navigation, video, and audio are particularly hard for people relying on a keyboard to access. Semantic HTML might mean the difference between someone being able to fill out a form on your website using keyboard navigation or leaving your website frustrated unable to accomplish the task they came there for in the first place.</p><p id="ed554165-3844-4c3b-864c-1b81011932f1" class="">How do we make sure we are using the correct tags for the correct things on our website? As a rule of thumb, use the most semantic element possible for the job. Keep divs and spans as presentational markup only. Keep your styles and your markup separate and always test your work! In addition to using semantic markup, we’ve added some tips and guidelines below. Note that these are only guidelines to start with and that we encourage you to do further research on your own.</p><h3 id="f11cb0b1-e78c-4681-b40c-3b28585bfa03" class="">Images</h3><p id="404a1726-94a4-4575-85b8-c2db47bbeff2" class="">Resizing</p><p id="e54822c8-6ada-4195-815d-77ee25d454bb" class="">It’s important to compress your images so that they will load for those without a high speed internet connection. It is possible to resize images without compromising their quality. If you are working with photoshop you have an option to “save for web”. You can also use an image optimizer like <a href="https://tinypng.com/">TinyPNG</a>. As a general rule of thumb, product photos should be a maximum 80-150 KB, and for large homepage hero images a maximum of 250-350 KB. Those are good benchmark numbers for you to aim for.</p><p id="ade9acbe-e3be-475a-8b62-5e0d5dbdca0f" class="">alt text</p><p id="86bc6c0f-0f59-4de5-85f7-f4bb837aa949" class="">alt text is the written copy that appears in place of an image on a webpage if the image fails to load on a user&#x27;s screen. This text helps screen-reading tools describeimages to visually impaired readers and allows search engines to better crawl and rank your website.</p><h3 id="9b1db138-2b65-465c-b8db-784cd227c30b" class="">Typography</h3><p id="0441f967-75c7-44bb-98e8-41be1940913a" class="">Headings</p><p id="8d2be14a-be02-4280-995a-325439da94d9" class="">Heading tags (h1 - h6) help a user gage the structure and organization of your website. Visually headings usually larger, bolder and more distinct that the rest of the text on the page. This helps a user scrolling through your site find what they are looking for or stop and read what is interesting to them. This is especially helpful for users with cognitive disabilities.</p><p id="3a34ed78-35c0-4f5a-831d-08f46301eb2c" class="">Those using screen readers can also benefit from using headings. Screen reader users can navigate a page according to its headings, listen to a list of all headings, and skip to a desired heading to begin reading at that point.</p><p id="a5a776ab-fb90-4b13-859a-e65b633f290e" class="">I like to think of headings like I think of titles of an essay or a book. There is only one main title and therefore there should only be one h1 on a single page, however there could be many subtitles in an essay or chapters in a book, I like to think of these as h2 - they aren’t as important as the main title but they are still pretty important. h3 would be a sub-title of a sub-title and so on - you may never actually use h4-h6. This comes back to design. It’s best to plan out headings before marking up your page. This will help you keep your website as well as your thoughts organized.</p><p id="84d04806-4255-4606-80c0-0d13f219a7a9" class="">Scalable units for fonts</p><p id="0b3d5f05-7eb1-4282-824e-240a12bff0f5" class="">Relative font sizes such as % or rems allows for scalability in the text on your website. Fixed units such as pixels do not. Scalable fonts allow users to enlarge text as well as making it easier to create responsive designs that work across various screen sizes.</p><p id="3533f351-acaf-40a7-8340-8fca9e47caf3" class="">Some other tips for making your website more readable</p><ul id="63a0e811-1d59-44e0-a146-a528cc70f125" class="bulleted-list"><li>Use real text over graphics</li></ul><ul id="b767ea7e-26ed-4a52-a49f-19e0641394bd" class="bulleted-list"><li>Use a serif font when you are writing large bodies of text on your page (the little feet actually guide the users eye and make your site easier to read)</li></ul><ul id="1f7415db-eccb-4865-acc8-445b13875109" class="bulleted-list"><li>Avoid small font sizes (anything under 16px)</li></ul><ul id="a6090c51-5073-4e77-bdc1-7583e494ef72" class="bulleted-list"><li>Keep colour contrast in mind<ul id="c988dcbd-25e7-4c3d-be9c-e74d57904cc5" class="bulleted-list"><li>Some people find a harsh black on white can be tiring to read, so it&#x27;s often worth considering softening the contrast just a little</li></ul><ul id="2d899b4a-050b-4acf-846f-458121cf5e18" class="bulleted-list"><li>On the other hand don’t make your text too light</li></ul><ul id="0ce59b1f-03f1-4ad4-b21f-0b03d3982a51" class="bulleted-list"><li>You can use tools like <a href="https://contrastchecker.com/">https://contrastchecker.com/</a> to check your contrast</li></ul></li></ul><ul id="34b79481-61bd-4aa2-8846-723efde65613" class="bulleted-list"><li>Moving text is hard to read - avoid the use of blinking or scrolling text whenever possible</li></ul><p id="efcc3272-526a-4522-bb47-fa8351e96ecb" class="">Resource: <a href="https://hostingfacts.com/website-accessibility-guide/">https://hostingfacts.com/website-accessibility-guide/</a></p><p id="43ea3a50-57c5-4192-9830-714213018c90" class="">Challenge:</p><ul id="0e657475-1a2e-44ca-80dd-d8ef97676fc1" class="bulleted-list"><li>Go through your day one and two websites, what could you add to make these websites more accessible? Make a list of 3 to 5 things you could change now.</li></ul><ul id="5f7077ab-29c6-400f-a310-ae0308982572" class="bulleted-list"><li>What are the laws/guidelines around accessibility in the city/province/state/country in which you are located?</li></ul><p id="a31df814-44d5-48db-9a7d-fe6003d9ba52" class="">Further reading and resources on accessibility</p><p id="ab167d48-0848-47d8-afac-99be7dfa8d71" class=""><a href="https://a11yproject.com/">https://a11yproject.com/</a></p><p id="872b1952-ad3c-4290-9d9e-5b2f760ad089" class=""><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Mobile_accessibility_checklist">https://developer.mozilla.org/en-US/docs/Web/Accessibility/Mobile_accessibility_checklist</a></p><p id="fa50bf7c-5052-4beb-a80f-9df58319ce57" class=""><a href="https://blogs.adobe.com/creativecloud/making-your-website-design-accessible/">https://blogs.adobe.com/creativecloud/making-your-website-design-accessible/</a></p><p id="77436004-95ba-4656-88cc-d8243ae41f7d" class=""><a href="https://webaim.org/articles/">https://webaim.org/articles/</a></p><p id="3a7c7b67-46e7-4831-9147-248a325c2fba" class=""><a href="https://wave.webaim.org/extension/">https://wave.webaim.org/extension/</a></p><p id="17180a0f-8b53-4529-8aa0-0eb9eb418578" class="">CodePen Solutions</p><p id="d1cd5fec-5b20-49e3-bfe7-5a3cf9095341" class="">Responsive Design I <a href="https://codepen.io/BritHemming/pen/YzKQjqe">https://codepen.io/BritHemming/pen/YzKQjqe</a></p><p id="7d1de9e4-e1ea-4c3d-8f7b-4522ef8d8960" class="">Responsive Design - Multiple Rules <a href="https://codepen.io/BritHemming/pen/XWrgBap">https://codepen.io/BritHemming/pen/XWrgBap</a></p></details></li></ul><ul id="91fe0a43-5c14-46a2-971f-3bfb7604c8c3" class="toggle"><li><details open=""><summary>Introduction to JavaScript</summary><p id="27576b32-5237-4eb9-85f0-d874dd40fd54" class=""><strong>Variables</strong></p><p id="26178d48-8a11-481a-a86a-1f6d4ecda44e" class="">Variables are one of the foundational building blocks of JavaScript. They are a way to store values that you can reference and retrieve later on in your program.</p><p id="f3d20c14-9026-4898-af63-d7fbd98bea18" class="">There are 3 different ways to declare a variable in JavaScript:</p><p id="c16ec2d2-ff9c-44fc-8aa7-5889930d2ffa" class="">var</p><ul id="eec03a17-53f9-4f0e-a74a-ae7be0e08d72" class="bulleted-list"><li>Can be redefined</li></ul><ul id="7946eb9e-7b92-463f-8afa-f3619c0fb234" class="bulleted-list"><li>Can be redeclared</li></ul><ul id="7fe7a28e-0522-4bc3-8ffd-5a940dba145d" class="bulleted-list"><li>Is function scoped</li></ul><p id="58a6d777-e066-4a9c-baf6-1039cd225efb" class="">ES6 Syntax:</p><p id="d454d61e-fcca-4873-b9b6-8d8e500e0cbd" class="">let</p><ul id="389c1b97-35e2-4750-b3d4-b1b75e2ef4c8" class="bulleted-list"><li>Cannot be redefined</li></ul><ul id="9dbdfe5a-f7e1-44e2-8d20-99ea4289ef8f" class="bulleted-list"><li>Can be redeclared</li></ul><ul id="b9d7c6d2-86d2-4bde-ab30-509f660d7bc8" class="bulleted-list"><li>Is block scoped</li></ul><p id="897bff1d-c3c2-4044-b9cf-6e48944bd235" class="">const</p><ul id="5c338056-8ebd-4ad0-8c9c-1e283f9ffcd2" class="bulleted-list"><li>Cannot be redefined</li></ul><ul id="383ae83d-b700-4c09-afe6-2143b9258b4f" class="bulleted-list"><li>Cannot be redeclared</li></ul><ul id="18b43e9f-0ef0-4368-9cf9-bf7725d92a88" class="bulleted-list"><li>Is block scoped</li></ul><p id="c5692c69-324f-4223-8f8a-21056a8e22ad" class="">General Rule: use const until you can’t and then use let but avoid var</p><p id="304d717e-c89d-4565-a54d-57130c552ef3" class=""><strong>Functions</strong></p><p id="1b1c8470-dda5-4095-b069-12794f9c87ed" class="">Functions are a way to protect a block of code until they are invoked.</p><p id="31e92ff3-b391-45eb-8955-e4d557c66340" class=""><strong>Arguments + Parameters</strong></p><p id="a1c918fb-c890-4291-86c2-3d386e0f8b3b" class="">Parameters are placeholder values - you should name them something descriptive so that the next developer looking at your code can easily understand what they are doing, but technically you could name them anything. What matters is the order they are passed into the function for example:</p><p id="36c517d5-7ec0-4c3f-974a-bccd09fdfc0d" class="">Function someFunction(param1, param2, param3){}</p><p id="e24b4c5c-6a65-4cf4-bad2-1bfb0a57b6ad" class="">The first argument you pass into the function will take the place of param1, the second argument will take the place of param2 the third argument will take the place of param3</p><p id="cdd20a47-503f-4b8d-b0fe-1d980a16d5d2" class="">Arguments are the actual values that you pass into the function when it’s invoked - they will take the place of the parameters when the code runs</p><p id="15ca9cda-6aba-4ea1-a23b-481920e94e6c" class=""><strong>Conditionals</strong></p><p id="edbade6e-bde5-4674-b513-ae246e0df997" class="">if statements are the foundation of all logic in javaScript - they expect a boolean (either true or false) or they expect some sort of condition that is evaluated to true or false</p><p id="5c754606-0d5c-4d3f-8099-593bb0c36901" class="">The syntax of an if statement looks like this:</p><pre id="b32821f1-2cc4-4504-bdc2-0daf3c008e0c" class="code"><code>if( /*condition that can be evaluated to true or false*/){
+//If true run this code
+// code goes here
+}</code></pre><p id="351b62ea-eaff-413d-8dad-0bbb21f6d6a1" class="">Else if</p><p id="f96553dd-e0c0-460b-9945-fbb928fbffaa" class="">Always two words in javaScript. This is chained onto an if statement and provides another option if the first if statement is found to be false</p><p id="7219d2da-98d3-4cf0-a609-6b5a8a4361ba" class="">Else statements - no condition - says “if nothing else is true then run this code”</p><p id="4e99d2df-fede-4196-8a5f-3cedf4e56b18" class="">code will stop when it reaches a true conditional, even if more than one if statement is true. As soon as JS sees a true if statement it says &quot;okay my work here is done&quot; and the code stops running</p><p id="2ad7d38c-ab2c-473d-8728-f4676d6f6c81" class=""><strong>Logical Operators + Order of Operations</strong></p><p id="e0b1a9a9-621b-4fff-ae48-317ed8cebe27" class=""> !== does not equal</p><p id="18308465-5ad3-4e3f-9bb5-add7c0add8d7" class=""> === equals</p><p id="d8028aad-182c-4010-a49f-94dcd8111320" class="">|| this is or</p><p id="ba0a3907-eb32-4b7e-96fc-7ae62bb1a1f8" class="">&amp;&amp; and</p><p id="c18ffc38-3a10-4266-af81-2d7d57f9d71e" class="">PEMDAS APPLIES</p><p id="8544a442-b44d-4858-99ee-8a5850291005" class="">P-parenthesis</p><p id="a1fffcbd-4e99-4524-95a1-c787e851c540" class="">E-exponents</p><p id="0a606fd2-254f-48d7-ab9d-b3eef0e475a3" class="">DM-multiply or divide (left to right)</p><p id="ae00d100-9f99-41d8-bc1a-904691ea6081" class="">AS-add subtract (left to right)</p><p id="c9ca3116-dcf4-4032-8e5e-51a3af3a911f" class="">
+</p><p id="d6840b02-ebf2-47bb-9911-0bb5ecc9177a" class="">Awesome Resource for looking up operators: <a href="https://www.joshwcomeau.com/operator-lookup/">https://www.joshwcomeau.com/operator-lookup/</a></p><p id="bba8b2a0-acde-4f33-a1a9-4569aba4b66e" class="">
+</p><p id="a1f45b60-4d26-4cb5-8e7e-a6363780e589" class=""><strong>Loops</strong></p><p id="4a539caa-1ebd-402b-a9bb-c6c73299bfea" class="">for loop are used for iterating through a block of code - great for running a block of code n number of times</p><p id="981f3d6f-ef9f-4b00-bb9e-d0ac4fd4914b" class="">It requires 3 things</p><ul id="3f4e6648-f838-4303-a6a8-f0e120f595b4" class="bulleted-list"><li>inital expression - think about this as a setup for the code you are going to write - the loop starts here</li></ul><ul id="a190e3bc-25e0-4aaf-803f-4ce1777025c4" class="bulleted-list"><li>condition - the condition will run each time before each loop runs meaning that if the condition is true the loop will run one more time/ if it is false the loop will no longer run it will move onto the next line of code</li></ul><ul id="ff472e31-7770-4a48-a029-b2b4fb764c0e" class="bulleted-list"><li>increment expression - in this case we take the i which we&#x27;ve set to 0 and incrementing it by 1</li></ul><pre id="985e71d7-12f1-4d2f-bb02-3e913c66c22b" class="code"><code>for(let i = 0; i &lt;= 10; i++){
+console.log(i);
+}</code></pre><p id="5cc11165-d1cf-48d4-a2b6-12bff3d062d4" class="">NOTE - no semicolon after the increment - this will break the loop</p><p id="8f8091f2-ad6c-49ef-ba16-e7e632d0b2b2" class="">While Loop</p><p id="5a35e423-c64a-4b54-a26c-d388f5b12022" class="">while will take a condition and run infinitely until the condition is false</p><p id="bbabbc07-ec81-430a-a124-35350534bbcb" class="">NOTE - if you don’t give the while loop an exit condition it will run as an infinite loop and it will crash your browser.</p><pre id="032e1faf-de5c-49d8-a0f3-bed0a81b4793" class="code"><code>let javaScript = &#x27;is fun&#x27;;
+let i = 0;
+while(javaScript === &#x27;is fun&#x27;){ // inside the () is a condition that checks for something
+console.log(&#x27;javaScript is fun&#x27;);// this will be an infinite loop - there is no exit condition meaning that there is nothing to stop this loop from running. We may crash the computer
+// let&#x27;s create an exit condition
+i++; // increment i
+if (i &gt; 10){ // if i is greater than 10
+javaScript = &#x27;is NOT fun&#x27;; // update variable
+}
+}</code></pre><p id="1870484d-8a8e-408c-b98d-5d5545cf5d2d" class="">For Loop VS While Loop: <a href="https://www.harrisgeospatial.com/Learn/Blogs/Blog-Details/ArtMID/10198/ArticleID/15332/What-Type-of-Loop-Should-I-Use">What Type Of Loop Should I Use?</a></p></details></li></ul><ul id="9ce1d4b1-0e41-4286-a243-5664b1e75936" class="toggle"><li><details open=""><summary>Arrays</summary><p id="6722c4c8-5fcc-4123-9ba9-efb1a54b75ca" class="">An array is used for holding a list of items where the order matters.
+Each thing inside of an array is called an item and the position of the item is called the index.
+The number of items in the array is called the length and each item in the array can be any type (string, number, boolean, object, array, etc.)</p><p id="6c5c5667-a13c-4294-8d46-a429f6784926" class="">An array has a whole bunch of built in methods that we can use to work with it</p><p id="87268861-9fa9-44ac-882f-a34b9848a107" class="">Cheatsheet for array methods: <a href="https://gist.github.com/ourmaninamsterdam/1be9a5590c9cf4a0ab42">https://gist.github.com/ourmaninamsterdam/1be9a5590c9cf4a0ab42</a></p><p id="2c43cde5-8913-476f-9d80-784cf4f5da72" class="">
+</p><p id="09f91ba6-cf07-46bc-8c54-d5b00a22f89c" class=""><strong>mutable vs immutable</strong>
+When you think mutant think mutation (change) - when something changes the original version that is referred to as mutable
+Immutable - the method does not change the original thing - it returns a new array</p><p id="0992553b-c05a-430d-af68-30b4d0d774e2" class="">Accessing an item in an array: </p><pre id="cb8166d8-76eb-4321-a1ab-d24ac74451a4" class="code"><code>array[index]</code></pre><p id="01f349e6-a201-4ba2-92c5-e3c142ffe1c1" class="">Link to guided project with notes: <a href="https://codepen.io/BritHemming/pen/RwrrPeG?editors=0012">https://codepen.io/BritHemming/pen/RwrrPeG?editors=0012</a></p></details></li></ul><ul id="0795a8d3-edb1-4ef9-8d2f-2af556e4d811" class="toggle"><li><details open=""><summary>Objects</summary><ul id="a810125c-5530-4bd7-bbaf-613535f30777" class="bulleted-list"><li>Another fundamental building block of JS</li></ul><ul id="beed5b6e-5a77-47c4-adae-3797b90b67a8" class="bulleted-list"><li>Allows us to group together properties and values</li></ul><ul id="cd23e8e6-71e8-4420-9c89-2912c4eacebd" class="bulleted-list"><li>Order of properties doesn&#x27;t matter</li></ul><ul id="8eedd1da-1f4b-4042-bcf3-c87deab44fa8" class="bulleted-list"><li>Everything in JavaScript is an object (minus primitive data types)! </li></ul><ul id="4213dffd-f99a-4b9d-9543-43daa44ebc10" class="bulleted-list"><li>Objects are used for collections of data</li></ul><p id="0851d89b-f099-45af-aec6-989e4da8b00c" class="">Anatomy of an object</p><pre id="38b75dc5-2e97-4d63-9e0e-9af87fab92de" class="code"><code>const dog = {
+// key value pairs (properties:values)
+name: &#x27;Ada&#x27;,
+breed: &#x27;bali dog&#x27;,
+age: 3,
+colour: &#x27;brindle&#x27;,
+favFood: &#x27;Salmon&#x27;,
+// methods - functions that belong to objects
+eat: function(){
+// string template literal
+return ${this.name} likes to eat ${this.favFood};
+}
+}</code></pre><p id="24d716ea-b45b-4091-a4a0-aa8d86b3ac88" class="">2 Ways to access data inside of an object </p><p id="bd927dfe-c42a-49bc-a180-d2999cf98c64" class="">dot notation </p><pre id="8aa7c69d-6f14-4c23-9e26-03370b54db8a" class="code"><code>object.key
+object.method()
+</code></pre><p id="8ed4bbe1-5f4c-4b47-9a43-a1cd629145e1" class="">bracket notation (you need to use this if your keys are strings that have spaces in them)</p><pre id="0c56d95d-d5b6-481c-893a-3caf046615e8" class="code"><code>object[&#x27;key&#x27;]</code></pre><p id="c7fde441-716b-449c-89ed-0d04267a360c" class="">Objects can be stored inside of an array </p><pre id="b1788d0d-696c-44a9-90c5-03f4142e4d8a" class="code"><code>const places = [
+  {city: &#x27;Tel Aviv&#x27;, country: &#x27;Israel&#x27;, region: &#x27;Middle East&#x27;},
+  {city: &#x27;Toronto&#x27;, country: &#x27;Canada&#x27;, region: &#x27;North America&#x27;},
+  {city: &#x27;Najaf&#x27;, country: &#x27;Iraq&#x27;, region: &#x27;Middle East&#x27;},
+  {city: &#x27;Amman&#x27;, country: &#x27;Jordan&#x27;, region: &#x27;Middle East&#x27;},
+  {city: &#x27;Seattle&#x27;, country: &#x27;USA&#x27;, region: &#x27;North America&#x27;},
+  {city: &#x27;Quito&#x27;, country:&#x27;Equador&#x27;, region: &#x27;South America&#x27;},
+  {city: &#x27;Dar Es Salaam&#x27;, country: &#x27;Tanzania&#x27;, region:&#x27;East Africa&#x27;}
+];
+// to access data you would need to reference the index then the key
+
+console.log(places[2].city); // Najaf</code></pre><p id="e991427a-4eb1-47f7-a80e-d6ec3df74e4d" class="">if they keys were strings with spaces</p><pre id="cf068ec3-05e8-4bbd-b83a-4c4f8f1fe98d" class="code"><code>const places = [
+  {&#x27;the city&#x27;: &#x27;Tel Aviv&#x27;, &#x27;the country&#x27;: &#x27;Israel&#x27;, &#x27;the region&#x27;: &#x27;Middle East&#x27;},
+  {&#x27;the city&#x27;: &#x27;Toronto&#x27;, &#x27;the country&#x27;: &#x27;Canada&#x27;, &#x27;the region&#x27;: &#x27;North America&#x27;},
+  {&#x27;the city&#x27;: &#x27;Najaf&#x27;, &#x27;the country&#x27;: &#x27;Iraq&#x27;, &#x27;the region&#x27;: &#x27;Middle East&#x27;},
+  {&#x27;the city&#x27;: &#x27;Amman&#x27;, &#x27;the country&#x27;: &#x27;Jordan&#x27;, &#x27;the region&#x27;: &#x27;Middle East&#x27;},
+  {&#x27;the city&#x27;: &#x27;Seattle&#x27;, &#x27;the country&#x27;: &#x27;USA&#x27;, &#x27;the region&#x27;: &#x27;North America&#x27;},
+  {&#x27;the city&#x27;: &#x27;Quito&#x27;, &#x27;the country&#x27;:&#x27;Equador&#x27;, &#x27;the region&#x27;: &#x27;South America&#x27;},
+  {&#x27;the city&#x27;: &#x27;Dar Es Salaam&#x27;, &#x27;the country&#x27;: &#x27;Tanzania&#x27;, &#x27;the region&#x27;:&#x27;East Africa&#x27;}
+];
+
+console.log(places[2][&#x27;the city&#x27;]); // Najaf</code></pre><p id="92edb6e1-f18f-450c-ace3-5274bc1786e0" class="">Guided Project with notes: <a href="https://codepen.io/BritHemming/pen/mdVVJZW?editors=0012">https://codepen.io/BritHemming/pen/mdVVJZW?editors=0012</a></p><p id="ddef79ee-b139-4068-8010-3fd746f6ac00" class="">
+</p></details></li></ul></div></article></body></html>

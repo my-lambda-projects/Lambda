@@ -177,7 +177,10 @@ function getLastReview( obj ) {
   return lastRev;
 }
 
-getLastReview( reviews )
+getLastReview( reviews );
+
+
+
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
@@ -193,6 +196,21 @@ Use the getReviewsByRating function below to do the following:
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}
   ]
 */
+/*
+function getReviewByRating( array, rate ) {
+  let rangeBottom = Math.floor( rate );
+  let rangeTop = Math.ceil( rate );
+  let reviewRange = [];
+  for ( let i = 0; i < array.length; i++ ) {
+    if ( array[ i ].rating >= rangeBottom && array[ i ].rating < rangeTop ) {
+      reviewRange.push( array[ i ] )
+    }
+  }
+  return reviewRange
+}
+console.log( getReviewByRating( reviews, 4.5 ) )
+*/
+
 
 /*
 function arrayFilter( arr, func ) {
@@ -207,8 +225,8 @@ function arrayFilter( arr, func ) {
 
 function getReviewByRating( arr, numb ) {
   let result;
-  result = arr.filter( x => {
-    return ( numb <= x.rating && x.rating < numb + 1 );
+  result = arr.filter( curElement => {
+    return ( numb <= curElement.rating && curElement.rating < numb + 1 );
   } );
 
   return result;
@@ -227,9 +245,11 @@ Use the getLongReviews function below to do the following:
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }
   ]
 */
-
+// curElement === arr[i] == object
 function getLongReviews( arr ) {
-  let result = arr.filter( x => x.feedback.length >= 15 )
+  let result = arr.filter( ( curElement ) => {
+    return curElement.feedback.length >= 15;
+  } )
   return result;
 }
 console.log( getLongReviews( reviews ) )
@@ -249,9 +269,9 @@ Use the carMaker function below to do the following:
   Then we called car1.drive(100)
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
-
+let carObj;
 function carMaker( miles ) {
-  const carObj = {
+  carObj = {
     odometer: miles,
     drive: function ( distance ) {
       this.odometer += distance;
@@ -264,6 +284,7 @@ function carMaker( miles ) {
 let car1 = carMaker( 10 );
 
 console.log( car1.drive( 100 ) );
+
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo() {
