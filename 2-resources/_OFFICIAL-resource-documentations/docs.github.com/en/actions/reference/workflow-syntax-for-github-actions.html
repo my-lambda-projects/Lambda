@@ -1,0 +1,2480 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/actions/reference/workflow-syntax-for-github-actions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:10 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Workflow syntax for GitHub Actions - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.">
+  
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/actions/reference/workflow-syntax-for-github-actions"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/actions/reference/workflow-syntax-for-github-actions"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/actions/reference/workflow-syntax-for-github-actions"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/actions/reference/workflow-syntax-for-github-actions"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="DPuePeKj-4ogrt-MNhJA6CtyCFsAYO-49jFM">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="GitHub Actions" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/actions" class="pl-4 pr-5 pb-1 f4">GitHub Actions</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 standalone-category">
+    
+    <a href="https://docs.github.com/en/actions/quickstart" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Quickstart for GitHub Actions</a>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/guides" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Guides</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/about-continuous-integration" class="pl-4 pr-5 py-1">About continuous integration</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/setting-up-continuous-integration-using-workflow-templates" class="pl-4 pr-5 py-1">Setting up CI using templates</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-nodejs" class="pl-4 pr-5 py-1">Building and testing Node.js</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-net" class="pl-4 pr-5 py-1">Building and testing .NET</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-powershell" class="pl-4 pr-5 py-1">Building and testing PowerShell</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-python" class="pl-4 pr-5 py-1">Building and testing Python</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-ruby" class="pl-4 pr-5 py-1">Building and testing Ruby</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-java-with-maven" class="pl-4 pr-5 py-1">Building and testing Java with Maven</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-java-with-gradle" class="pl-4 pr-5 py-1">Building and testing Java with Gradle</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/building-and-testing-java-with-ant" class="pl-4 pr-5 py-1">Building and testing Java with Ant</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development" class="pl-4 pr-5 py-1">Installing an Apple certificate on macOS runners for Xcode development</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/about-packaging-with-github-actions" class="pl-4 pr-5 py-1">About packaging with GitHub Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/publishing-nodejs-packages" class="pl-4 pr-5 py-1">Publishing Node.js packages</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven" class="pl-4 pr-5 py-1">Publishing Java packages with Maven</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/publishing-java-packages-with-gradle" class="pl-4 pr-5 py-1">Publishing Java packages with Gradle</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/publishing-docker-images" class="pl-4 pr-5 py-1">Publishing Docker images</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/storing-workflow-data-as-artifacts" class="pl-4 pr-5 py-1">Storing workflow artifacts</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows" class="pl-4 pr-5 py-1">Caching dependencies</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/about-service-containers" class="pl-4 pr-5 py-1">About service containers</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/creating-redis-service-containers" class="pl-4 pr-5 py-1">Redis service containers</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/creating-postgresql-service-containers" class="pl-4 pr-5 py-1">PostgreSQL service containers</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/deploying-to-amazon-elastic-container-service" class="pl-4 pr-5 py-1">Deploying to Amazon Elastic Container Service</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/deploying-to-azure-app-service" class="pl-4 pr-5 py-1">Deploying to Azure App Service</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/deploying-to-google-kubernetes-engine" class="pl-4 pr-5 py-1">Deploying to Google Kubernetes Engine</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/using-github-actions-for-project-management" class="pl-4 pr-5 py-1">Using GitHub Actions for project management</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/closing-inactive-issues" class="pl-4 pr-5 py-1">Closing inactive issues</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/scheduling-issue-creation" class="pl-4 pr-5 py-1">Scheduling issue creation</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/adding-labels-to-issues" class="pl-4 pr-5 py-1">Adding labels to issues</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/commenting-on-an-issue-when-a-label-is-added" class="pl-4 pr-5 py-1">Commenting on an issue when a label is added</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/moving-assigned-issues-on-project-boards" class="pl-4 pr-5 py-1">Moving assigned issues on project boards</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column" class="pl-4 pr-5 py-1 pb-2">Removing a label when a card is added to a project board column</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/learn-github-actions" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Learn GitHub Actions</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions" class="pl-4 pr-5 py-1">Introduction to GitHub Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions" class="pl-4 pr-5 py-1">Finding and customizing actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions" class="pl-4 pr-5 py-1">Essential features</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows" class="pl-4 pr-5 py-1">Managing complex workflows</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/sharing-workflows-with-your-organization" class="pl-4 pr-5 py-1">Sharing workflows with your organization</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions" class="pl-4 pr-5 py-1">Security hardening</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions" class="pl-4 pr-5 py-1">Migrating from Azure Pipelines to GitHub Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/migrating-from-circleci-to-github-actions" class="pl-4 pr-5 py-1">Migrating from CircleCI to GitHub Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions" class="pl-4 pr-5 py-1">Migrating from GitLab CI/CD to GitHub Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/migrating-from-jenkins-to-github-actions" class="pl-4 pr-5 py-1">Migrating from Jenkins to GitHub Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions" class="pl-4 pr-5 py-1 pb-2">Migrating from Travis CI to GitHub Actions</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/managing-workflow-runs" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Managing workflow runs</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/creating-actions" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Creating actions</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/using-github-hosted-runners" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Using GitHub-hosted runners</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/hosting-your-own-runners" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Hosting your own runners</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/actions/reference" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Reference</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article active is-current-page">
+          <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions" class="pl-4 pr-5 py-1">Workflow syntax</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions" class="pl-4 pr-5 py-1">Context and expression syntax</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions" class="pl-4 pr-5 py-1">Workflow commands</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows" class="pl-4 pr-5 py-1">Events that trigger workflows</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/authentication-in-a-workflow" class="pl-4 pr-5 py-1">Authentication in a workflow</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/encrypted-secrets" class="pl-4 pr-5 py-1">Encrypted secrets</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/environments" class="pl-4 pr-5 py-1">Environments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/environment-variables" class="pl-4 pr-5 py-1">Environment variables</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration" class="pl-4 pr-5 py-1 pb-2">Usage limits, billing, and administration</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    GitHub Actions
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/actions/reference/workflow-syntax-for-github-actions"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/actions/reference/workflow-syntax-for-github-actions"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/actions/reference/workflow-syntax-for-github-actions"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: GitHub Actions" href="https://docs.github.com/en/actions" class="d-inline-block ">
+        GitHub Actions
+      </a>
+    
+  
+    
+      <a title="category: Reference" href="https://docs.github.com/en/actions/reference" class="d-inline-block ">
+        Reference
+      </a>
+    
+  
+    
+      <a title="article: Workflow syntax" href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions" class="d-inline-block text-gray-light">
+        Workflow syntax
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/actions/reference/workflow-syntax-for-github-actions"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Workflow syntax for GitHub Actions</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"><p>A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.</p></div>
+      
+
+      
+
+      
+
+      
+        <div class="product-callout border rounded-1 mb-4 p-3 border-purple bg-purple-light">
+        <p>GitHub Actions is available with GitHub Free, GitHub Pro, GitHub Free for organizations, GitHub Team, GitHub Enterprise Cloud, GitHub Enterprise Server, GitHub One, and GitHub AE. GitHub Actions is not available for private repositories owned by accounts using legacy per-repository plans. For more information, see "<a href="https://docs.github.com/en/articles/github-s-products">GitHub's products</a>."</p>
+        </div>
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#about-yaml-syntax-for-workflows">About YAML syntax for workflows</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#name"><code>name</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#on"><code>on</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#onevent_nametypes"><code>on.&lt;event_name&gt;.types</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#onpushpull_requestbranchestags"><code>on.&lt;push|pull_request&gt;.&lt;branches|tags&gt;</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#onpushpull_requestpaths"><code>on.&lt;push|pull_request&gt;.paths</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#onschedule"><code>on.schedule</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#env"><code>env</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#defaults"><code>defaults</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#defaultsrun"><code>defaults.run</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobs"><code>jobs</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_id"><code>jobs.&lt;job_id&gt;</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idname"><code>jobs.&lt;job_id&gt;.name</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idneeds"><code>jobs.&lt;job_id&gt;.needs</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idruns-on"><code>jobs.&lt;job_id&gt;.runs-on</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idenvironment"><code>jobs.&lt;job_id&gt;.environment</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idoutputs"><code>jobs.&lt;job_id&gt;.outputs</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idenv"><code>jobs.&lt;job_id&gt;.env</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_iddefaults"><code>jobs.&lt;job_id&gt;.defaults</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_iddefaultsrun"><code>jobs.&lt;job_id&gt;.defaults.run</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idif"><code>jobs.&lt;job_id&gt;.if</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idsteps"><code>jobs.&lt;job_id&gt;.steps</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepsid"><code>jobs.&lt;job_id&gt;.steps[*].id</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepsif"><code>jobs.&lt;job_id&gt;.steps[*].if</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepsname"><code>jobs.&lt;job_id&gt;.steps[*].name</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepsuses"><code>jobs.&lt;job_id&gt;.steps[*].uses</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepsrun"><code>jobs.&lt;job_id&gt;.steps[*].run</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepswith"><code>jobs.&lt;job_id&gt;.steps[*].with</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepswithargs"><code>jobs.&lt;job_id&gt;.steps[*].with.args</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepswithentrypoint"><code>jobs.&lt;job_id&gt;.steps[*].with.entrypoint</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepsenv"><code>jobs.&lt;job_id&gt;.steps[*].env</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepscontinue-on-error"><code>jobs.&lt;job_id&gt;.steps[*].continue-on-error</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstepstimeout-minutes"><code>jobs.&lt;job_id&gt;.steps[*].timeout-minutes</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idtimeout-minutes"><code>jobs.&lt;job_id&gt;.timeout-minutes</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstrategy"><code>jobs.&lt;job_id&gt;.strategy</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstrategymatrix"><code>jobs.&lt;job_id&gt;.strategy.matrix</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstrategyfail-fast"><code>jobs.&lt;job_id&gt;.strategy.fail-fast</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idstrategymax-parallel"><code>jobs.&lt;job_id&gt;.strategy.max-parallel</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontinue-on-error"><code>jobs.&lt;job_id&gt;.continue-on-error</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontainer"><code>jobs.&lt;job_id&gt;.container</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontainerimage"><code>jobs.&lt;job_id&gt;.container.image</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontainercredentials"><code>jobs.&lt;job_id&gt;.container.credentials</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontainerenv"><code>jobs.&lt;job_id&gt;.container.env</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontainerports"><code>jobs.&lt;job_id&gt;.container.ports</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontainervolumes"><code>jobs.&lt;job_id&gt;.container.volumes</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idcontaineroptions"><code>jobs.&lt;job_id&gt;.container.options</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservices"><code>jobs.&lt;job_id&gt;.services</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservicesservice_idimage"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.image</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservicesservice_idcredentials"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservicesservice_idenv"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservicesservice_idports"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.ports</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservicesservice_idvolumes"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.volumes</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#jobsjob_idservicesservice_idoptions"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.options</code></a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#filter-pattern-cheat-sheet">Filter pattern cheat sheet</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <h3 id="about-yaml-syntax-for-workflows"><a href="#about-yaml-syntax-for-workflows">About YAML syntax for workflows</a></h3>
+<p>Workflow files use YAML syntax, and must have either a <code>.yml</code> or <code>.yaml</code> file extension. If you&apos;re new to YAML and want to learn more, see &quot;<a href="https://learnxinyminutes.com/docs/yaml/">Learn YAML in Y minutes</a>.&quot;</p>
+<p>You must store workflow files in the <code>.github/workflows</code> directory of your repository.</p>
+<h3 id="name"><a href="#name"><code>name</code></a></h3>
+<p>The name of your workflow. GitHub displays the names of your workflows on your repository&apos;s actions page. If you omit <code>name</code>, GitHub sets it to the workflow file path relative to the root of the repository.</p>
+<h3 id="on"><a href="#on"><code>on</code></a></h3>
+<p><strong>Required</strong>. The name of the GitHub event that triggers the workflow. You can provide a single event <code>string</code>, <code>array</code> of events, <code>array</code> of event <code>types</code>, or an event configuration <code>map</code> that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see &quot;<a href="https://docs.github.com/en/articles/events-that-trigger-workflows">Events that trigger workflows</a>.&quot;</p>
+<h5 id="example-using-a-single-event"><a href="#example-using-a-single-event">Example using a single event</a></h5>
+<pre><code class="hljs language-yaml"><span class="hljs-comment"># Triggered when code is pushed to any branch in a repository</span>
+<span class="hljs-attr">on:</span> <span class="hljs-string">push</span>
+</code></pre>
+<h5 id="example-using-a-list-of-events"><a href="#example-using-a-list-of-events">Example using a list of events</a></h5>
+<pre><code class="hljs language-yaml"><span class="hljs-comment"># Triggers the workflow on push or pull request events</span>
+<span class="hljs-attr">on:</span> [<span class="hljs-string">push</span>, <span class="hljs-string">pull_request</span>]
+</code></pre>
+<h5 id="example-using-multiple-events-with-activity-types-or-configuration"><a href="#example-using-multiple-events-with-activity-types-or-configuration">Example using multiple events with activity types or configuration</a></h5>
+<p>If you need to specify activity types or configuration for an event, you must configure each event separately. You must append a colon (<code>:</code>) to all events, including events without configuration.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-comment"># Trigger the workflow on push or pull request,</span>
+  <span class="hljs-comment"># but only for the main branch</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span>
+  <span class="hljs-attr">pull_request:</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span>
+  <span class="hljs-comment"># Also trigger on page_build, as well as release created events</span>
+  <span class="hljs-attr">page_build:</span>
+  <span class="hljs-attr">release:</span>
+    <span class="hljs-attr">types:</span> <span class="hljs-comment"># This configuration does not affect the page_build event above</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">created</span>
+</code></pre>
+<h3 id="onevent_nametypes"><a href="#onevent_nametypes"><code>on.&lt;event_name&gt;.types</code></a></h3>
+<p>Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the event for the release resource is triggered when a release is <code>published</code>, <code>unpublished</code>, <code>created</code>, <code>edited</code>, <code>deleted</code>, or <code>prereleased</code>. The <code>types</code> keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the <code>types</code> keyword is unnecessary.</p>
+<p>You can use an array of event <code>types</code>. For more information about each event and their activity types, see &quot;<a href="https://docs.github.com/en/articles/events-that-trigger-workflows#webhook-events">Events that trigger workflows</a>.&quot;</p>
+<pre><code class="hljs language-yaml"><span class="hljs-comment"># Trigger the workflow on pull request activity</span>
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">release:</span>
+    <span class="hljs-comment"># Only use the types keyword to narrow down the activity types that will trigger your workflow.</span>
+    <span class="hljs-attr">types:</span> [<span class="hljs-string">published</span>, <span class="hljs-string">created</span>, <span class="hljs-string">edited</span>]
+</code></pre>
+<h3 id="onpushpull_requestbranchestags"><a href="#onpushpull_requestbranchestags"><code>on.&lt;push|pull_request&gt;.&lt;branches|tags&gt;</code></a></h3>
+<p>When using the <code>push</code> and <code>pull_request</code> events, you can configure a workflow to run on specific branches or tags. For a <code>pull_request</code> event, only branches and tags on the base are evaluated. If you define only <code>tags</code> or only <code>branches</code>, the workflow won&apos;t run for events affecting the undefined Git ref.</p>
+<p>The <code>branches</code>, <code>branches-ignore</code>, <code>tags</code>, and <code>tags-ignore</code> keywords accept glob patterns that use the <code>*</code> and <code>**</code> wildcard characters to match more than one branch or tag name. For more information, see the &quot;<a href="#filter-pattern-cheat-sheet">Filter pattern cheat sheet</a>.&quot;</p>
+<h4 id="example-including-branches-and-tags"><a href="#example-including-branches-and-tags">Example including branches and tags</a></h4>
+<p>The patterns defined in <code>branches</code> and <code>tags</code> are evaluated against the Git ref&apos;s name. For example, defining the pattern <code>mona/octocat</code> in <code>branches</code> will match the <code>refs/heads/mona/octocat</code> Git ref. The pattern <code>releases/**</code> will match the <code>refs/heads/releases/10</code> Git ref.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-comment"># Sequence of patterns matched against refs/heads</span>
+    <span class="hljs-attr">branches:</span>    
+      <span class="hljs-comment"># Push events on main branch</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span>
+      <span class="hljs-comment"># Push events to branches matching refs/heads/mona/octocat</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;mona/octocat&apos;</span>
+      <span class="hljs-comment"># Push events to branches matching refs/heads/releases/10</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;releases/**&apos;</span>
+    <span class="hljs-comment"># Sequence of patterns matched against refs/tags</span>
+    <span class="hljs-attr">tags:</span>        
+      <span class="hljs-bullet">-</span> <span class="hljs-string">v1</span>             <span class="hljs-comment"># Push events to v1 tag</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">v1.*</span>           <span class="hljs-comment"># Push events to v1.0, v1.1, and v1.9 tags</span>
+</code></pre>
+<h4 id="example-ignoring-branches-and-tags"><a href="#example-ignoring-branches-and-tags">Example ignoring branches and tags</a></h4>
+<p>Anytime a pattern matches the <code>branches-ignore</code> or <code>tags-ignore</code> pattern, the workflow will not run. The patterns defined in <code>branches-ignore</code> and <code>tags-ignore</code> are evaluated against the Git ref&apos;s name. For example, defining the pattern <code>mona/octocat</code> in <code>branches</code> will match the <code>refs/heads/mona/octocat</code> Git ref. The pattern <code>releases/**-alpha</code> in <code>branches</code> will match the <code>refs/releases/beta/3-alpha</code> Git ref.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-comment"># Sequence of patterns matched against refs/heads</span>
+    <span class="hljs-attr">branches-ignore:</span>
+      <span class="hljs-comment"># Push events to branches matching refs/heads/mona/octocat</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;mona/octocat&apos;</span>
+      <span class="hljs-comment"># Push events to branches matching refs/heads/releases/beta/3-alpha</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;releases/**-alpha&apos;</span>
+    <span class="hljs-comment"># Sequence of patterns matched against refs/tags</span>
+    <span class="hljs-attr">tags-ignore:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">v1.*</span>           <span class="hljs-comment"># Push events to tags v1.0, v1.1, and v1.9</span>
+</code></pre>
+<h4 id="excluding-branches-and-tags"><a href="#excluding-branches-and-tags">Excluding branches and tags</a></h4>
+<p>You can use two types of filters to prevent a workflow from running on pushes and pull requests to tags and branches.</p>
+<ul>
+<li><code>branches</code> or <code>branches-ignore</code> - You cannot use both the <code>branches</code> and <code>branches-ignore</code> filters for the same event in a workflow. Use the <code>branches</code> filter when you need to filter branches for positive matches and exclude branches. Use the <code>branches-ignore</code> filter when you only need to exclude branch names.</li>
+<li><code>tags</code> or <code>tags-ignore</code> - You cannot use both the <code>tags</code> and <code>tags-ignore</code> filters for the same event in a workflow. Use the <code>tags</code> filter when you need to filter tags for positive matches and exclude tags. Use the <code>tags-ignore</code> filter when you only need to exclude tag names.</li>
+</ul>
+<h4 id="example-using-positive-and-negative-patterns"><a href="#example-using-positive-and-negative-patterns">Example using positive and negative patterns</a></h4>
+<p>You can exclude <code>tags</code> and <code>branches</code> using the <code>!</code> character. The order that you define patterns matters.</p>
+<ul>
+<li>A matching negative pattern (prefixed with <code>!</code>) after a positive match will exclude the Git ref.</li>
+<li>A matching positive pattern after a negative match will include the Git ref again.</li>
+</ul>
+<p>The following workflow will run on pushes to <code>releases/10</code> or <code>releases/beta/mona</code>, but not on <code>releases/10-alpha</code> or <code>releases/beta/3-alpha</code> because the negative pattern <code>!releases/**-alpha</code> follows the positive pattern.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span>    
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;releases/**&apos;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;!releases/**-alpha&apos;</span>
+</code></pre>
+<h3 id="onpushpull_requestpaths"><a href="#onpushpull_requestpaths"><code>on.&lt;push|pull_request&gt;.paths</code></a></h3>
+<p>When using the <code>push</code> and <code>pull_request</code> events, you can configure a workflow to run when at least one file does not match <code>paths-ignore</code> or at least one modified file matches the configured <code>paths</code>. Path filters are not evaluated for pushes to tags.</p>
+<p>The <code>paths-ignore</code> and <code>paths</code> keywords accept glob patterns that use the <code>*</code> and <code>**</code> wildcard characters to match more than one path name. For more information, see the &quot;<a href="#filter-pattern-cheat-sheet">Filter pattern cheat sheet</a>.&quot;</p>
+<h4 id="example-ignoring-paths"><a href="#example-ignoring-paths">Example ignoring paths</a></h4>
+<p>When all the path names match patterns in <code>paths-ignore</code>, the workflow will not run. GitHub evaluates patterns defined in <code>paths-ignore</code> against the path name. A workflow with the following path filter will only run on <code>push</code> events that include at least one file outside the <code>docs</code> directory at the root of the repository.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">paths-ignore:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;docs/**&apos;</span>
+</code></pre>
+<h4 id="example-including-paths"><a href="#example-including-paths">Example including paths</a></h4>
+<p>If at least one path matches a pattern in the <code>paths</code> filter, the workflow runs. To trigger a build anytime you push a JavaScript file, you can use a wildcard pattern.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">paths:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;**.js&apos;</span>
+</code></pre>
+<h4 id="excluding-paths"><a href="#excluding-paths">Excluding paths</a></h4>
+<p>You can exclude paths using two types of filters. You cannot use both of these filters for the same event in a workflow.</p>
+<ul>
+<li><code>paths-ignore</code> - Use the <code>paths-ignore</code> filter when you only need to exclude path names.</li>
+<li><code>paths</code> - Use the <code>paths</code> filter when you need to filter paths for positive matches and exclude paths.</li>
+</ul>
+<h4 id="example-using-positive-and-negative-patterns-1"><a href="#example-using-positive-and-negative-patterns-1">Example using positive and negative patterns</a></h4>
+<p>You can exclude <code>paths</code> using the <code>!</code> character. The order that you define patterns matters:</p>
+<ul>
+<li>A matching negative pattern (prefixed with <code>!</code>) after a positive match will exclude the path.</li>
+<li>A matching positive pattern after a negative match will include the path again.</li>
+</ul>
+<p>This example runs anytime the <code>push</code> event includes a file in the <code>sub-project</code> directory or its subdirectories, unless the file is in the <code>sub-project/docs</code> directory. For example, a push that changed <code>sub-project/index.js</code> or <code>sub-project/src/index.js</code> will trigger a workflow run, but a push changing only <code>sub-project/docs/readme.md</code> will not.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">paths:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;sub-project/**&apos;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;!sub-project/docs/**&apos;</span>
+</code></pre>
+<h4 id="git-diff-comparisons"><a href="#git-diff-comparisons">Git diff comparisons</a></h4>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> If you push more than 1,000 commits, or if GitHub does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.</p>
+</div>
+<p>The filter determines if a workflow should run by evaluating the changed files and running them against the <code>paths-ignore</code> or <code>paths</code> list. If there are no files changed, the workflow will not run.</p>
+<p>GitHub generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:</p>
+<ul>
+<li><strong>Pull requests:</strong> Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.</li>
+<li><strong>Pushes to existing branches:</strong> A two-dot diff compares the head and base SHAs directly with each other.</li>
+<li><strong>Pushes to new branches:</strong> A two-dot diff against the parent of the ancestor of the deepest commit pushed.</li>
+</ul>
+<p>For more information, see &quot;<a href="https://docs.github.com/en/articles/about-comparing-branches-in-pull-requests">About comparing branches in pull requests</a>.&quot;</p>
+<h3 id="onschedule"><a href="#onschedule"><code>on.schedule</code></a></h3>
+<p>You can schedule a workflow to run at specific UTC times using <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07">POSIX cron syntax</a>. Scheduled workflows run on the latest commit on the default or base branch. The shortest interval you can run scheduled workflows is once every 5 minutes.</p>
+<p>This example triggers the workflow every day at 5:30 and 17:30 UTC:</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">schedule:</span>
+    <span class="hljs-comment"># * is a special character in YAML so you have to quote this string</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">cron:</span>  <span class="hljs-string">&apos;*/30 5,17 * * *&apos;</span>
+
+</code></pre>
+<p>For more information about cron syntax, see &quot;<a href="https://docs.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events">Events that trigger workflows</a>.&quot;</p>
+<h3 id="env"><a href="#env"><code>env</code></a></h3>
+<p>A <code>map</code> of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see <a href="#jobsjob_idenv"><code>jobs.&lt;job_id&gt;.env</code></a> and <a href="#jobsjob_idstepsenv"><code>jobs.&lt;job_id&gt;.steps[*].env</code></a>.</p>
+<p>When more than one environment variable is defined with the same name, GitHub uses the most specific environment variable. For example, an environment variable defined in a step will override job and workflow variables with the same name, while the step executes. A variable defined for a job will override a workflow variable with the same name, while the job executes.</p>
+<h4 id="example"><a href="#example">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">env:</span>
+  <span class="hljs-attr">SERVER:</span> <span class="hljs-string">production</span>
+</code></pre>
+<h3 id="defaults"><a href="#defaults"><code>defaults</code></a></h3>
+<p>A <code>map</code> of default settings that will apply to all jobs in the workflow. You can also set default settings that are only available to a job. For more information, see <a href="#jobsjob_iddefaults"><code>jobs.&lt;job_id&gt;.defaults</code></a>.</p>
+<p>When more than one default setting is defined with the same name, GitHub uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.</p>
+<h3 id="defaultsrun"><a href="#defaultsrun"><code>defaults.run</code></a></h3>
+<p>You can provide default <code>shell</code> and <code>working-directory</code> options for all <a href="#jobsjob_idstepsrun"><code>run</code></a> steps in a workflow. You can also set default settings for <code>run</code> that are only available to a job. For more information, see <a href="#jobsjob_iddefaultsrun"><code>jobs.&lt;job_id&gt;.defaults.run</code></a>. You cannot use contexts or expressions in this keyword.</p>
+<p>When more than one default setting is defined with the same name, GitHub uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.</p>
+<h4 id="example-1"><a href="#example-1">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">defaults:</span>
+  <span class="hljs-attr">run:</span>
+    <span class="hljs-attr">shell:</span> <span class="hljs-string">bash</span>
+    <span class="hljs-attr">working-directory:</span> <span class="hljs-string">scripts</span>
+</code></pre>
+<h3 id="jobs"><a href="#jobs"><code>jobs</code></a></h3>
+<p>A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the <code>jobs.&lt;job_id&gt;.needs</code> keyword.</p>
+<p>Each job runs in a runner environment specified by <code>runs-on</code>.</p>
+<p>You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration">Usage limits and billing</a>&quot; for GitHub-hosted runners and &quot;<a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits">About self-hosted runners</a>&quot; for self-hosted runner usage limits.</p>
+<p>If you need to find the unique identifier of a job running in a workflow run, you can use the GitHub API. For more information, see &quot;<a href="https://docs.github.com/en/rest/reference/actions#workflow-jobs">Workflow Jobs</a>.&quot;</p>
+<h3 id="jobsjob_id"><a href="#jobsjob_id"><code>jobs.&lt;job_id&gt;</code></a></h3>
+<p>Each job must have an id to associate with the job. The key <code>job_id</code> is a string and its value is a map of the job&apos;s configuration data. You must replace <code>&lt;job_id&gt;</code> with a string that is unique to the <code>jobs</code> object. The <code>&lt;job_id&gt;</code> must start with a letter or <code>_</code> and contain only alphanumeric characters, <code>-</code>, or <code>_</code>.</p>
+<h4 id="example-2"><a href="#example-2">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">job</span>
+  <span class="hljs-attr">my_second_job:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">second</span> <span class="hljs-string">job</span>
+</code></pre>
+<h3 id="jobsjob_idname"><a href="#jobsjob_idname"><code>jobs.&lt;job_id&gt;.name</code></a></h3>
+<p>The name of the job displayed on GitHub.</p>
+<h3 id="jobsjob_idneeds"><a href="#jobsjob_idneeds"><code>jobs.&lt;job_id&gt;.needs</code></a></h3>
+<p>Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.</p>
+<h4 id="example-requiring-dependent-jobs-to-be-successful"><a href="#example-requiring-dependent-jobs-to-be-successful">Example requiring dependent jobs to be successful</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job1:</span>
+  <span class="hljs-attr">job2:</span>
+    <span class="hljs-attr">needs:</span> <span class="hljs-string">job1</span>
+  <span class="hljs-attr">job3:</span>
+    <span class="hljs-attr">needs:</span> [<span class="hljs-string">job1</span>, <span class="hljs-string">job2</span>]
+</code></pre>
+<p>In this example, <code>job1</code> must complete successfully before <code>job2</code> begins, and <code>job3</code> waits for both <code>job1</code> and <code>job2</code> to complete.</p>
+<p>The jobs in this example run sequentially:</p>
+<ol>
+<li><code>job1</code></li>
+<li><code>job2</code></li>
+<li><code>job3</code></li>
+</ol>
+<h4 id="example-not-requiring-dependent-jobs-to-be-successful"><a href="#example-not-requiring-dependent-jobs-to-be-successful">Example not requiring dependent jobs to be successful</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job1:</span>
+  <span class="hljs-attr">job2:</span>
+    <span class="hljs-attr">needs:</span> <span class="hljs-string">job1</span>
+  <span class="hljs-attr">job3:</span>
+    <span class="hljs-attr">if:</span> <span class="hljs-string">always()</span>
+    <span class="hljs-attr">needs:</span> [<span class="hljs-string">job1</span>, <span class="hljs-string">job2</span>]
+</code></pre>
+<p>In this example, <code>job3</code> uses the <code>always()</code> conditional expression so that it always runs after <code>job1</code> and <code>job2</code> have completed, regardless of whether they were successful. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions">Context and expression syntax</a>.&quot;</p>
+<h3 id="jobsjob_idruns-on"><a href="#jobsjob_idruns-on"><code>jobs.&lt;job_id&gt;.runs-on</code></a></h3>
+<p><strong>Required</strong>. The type of machine to run the job on. The machine can be either a GitHub-hosted runner or a self-hosted runner.</p>
+<h4 id="github-hosted-runners"><a href="#github-hosted-runners">GitHub-hosted runners</a></h4>
+<p>If you use a GitHub-hosted runner, each job runs in a fresh instance of a virtual environment specified by <code>runs-on</code>.</p>
+<p>Available GitHub-hosted runner types are:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Virtual environment</th><th>YAML workflow label</th></tr></thead><tbody><tr><td>Windows Server 2019</td><td><code>windows-latest</code> or <code>windows-2019</code></td></tr><tr><td>Ubuntu 20.04</td><td><code>ubuntu-latest</code> or <code>ubuntu-20.04</code></td></tr><tr><td>Ubuntu 18.04</td><td><code>ubuntu-18.04</code></td></tr><tr><td>Ubuntu 16.04</td><td><code>ubuntu-16.04</code></td></tr><tr><td>macOS Big Sur 11.0</td><td><code>macos-11.0</code></td></tr><tr><td>macOS Catalina 10.15</td><td><code>macos-latest</code> or <code>macos-10.15</code></td></tr></tbody></table>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> The macOS 11.0 virtual environment is currently provided as a private preview only. Any users or organizations that are already using this runner can continue using it, but we&apos;re not accepting any further users or organizations at this time. The <code>macos-latest</code> YAML workflow label still uses the macOS 10.15 virtual environment.</p>
+</div>
+<h5 id="example-3"><a href="#example-3">Example</a></h5>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+</code></pre>
+<p>For more information, see &quot;<a href="https://docs.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners">Virtual environments for GitHub-hosted runners</a>.&quot;</p>
+<h4 id="self-hosted-runners"><a href="#self-hosted-runners">Self-hosted runners</a></h4>
+<p>To specify a self-hosted runner for your job, configure <code>runs-on</code> in your workflow file with self-hosted runner labels.</p>
+<p>All self-hosted runners have the <code>self-hosted</code> label, and you can select any self-hosted runner by providing only the <code>self-hosted</code> label. Alternatively, you can use <code>self-hosted</code> in an array with additional labels, such as labels for a specific operating system or system architecture, to select only the runner types you specify.</p>
+<h5 id="example-4"><a href="#example-4">Example</a></h5>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> [<span class="hljs-string">self-hosted</span>, <span class="hljs-string">linux</span>]
+</code></pre>
+<p>For more information, see &quot;<a href="https://docs.github.com/en/github/automating-your-workflow-with-github-actions/about-self-hosted-runners">About self-hosted runners</a>&quot; and &quot;<a href="https://docs.github.com/en/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow">Using self-hosted runners in a workflow</a>.&quot;</p>
+<h3 id="jobsjob_idenvironment"><a href="#jobsjob_idenvironment"><code>jobs.&lt;job_id&gt;.environment</code></a></h3>
+<p>The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/environments">Environments</a>.&quot;</p>
+<p>You can provide the environment as only the environment <code>name</code>, or as an environment object with the <code>name</code> and <code>url</code>. The URL maps to <code>environment_url</code> in the deployments API. For more information about the deployments API, see &quot;<a href="https://docs.github.com/en/rest/reference/repos#deployments">Deployments</a>.&quot;</p>
+<h5 id="example-using-a-single-environment-name"><a href="#example-using-a-single-environment-name">Example using a single environment name</a></h5>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">environment:</span> <span class="hljs-string">staging_environment</span>
+</code></pre>
+<h5 id="example-using-environment-name-and-url"><a href="#example-using-environment-name-and-url">Example using environment name and URL</a></h5>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">environment:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">production_environment</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">https://github.com</span>
+</code></pre>
+<p>The URL can be an expression and can use any context except for the <code>secrets</code> context. For more information about expressions, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<h4 id="example-5"><a href="#example-5">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">environment:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">production_environment</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.step_name.outputs.url_output</span> <span class="hljs-string">}}</span>
+</code></pre>
+<h3 id="jobsjob_idoutputs"><a href="#jobsjob_idoutputs"><code>jobs.&lt;job_id&gt;.outputs</code></a></h3>
+<p>A <code>map</code> of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see <a href="#jobsjob_idneeds"><code>jobs.&lt;job_id&gt;.needs</code></a>.</p>
+<p>Job outputs are strings, and job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to GitHub Actions.</p>
+<p>To use job outputs in a dependent job, you can use the <code>needs</code> context. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#needs-context">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<h4 id="example-6"><a href="#example-6">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job1:</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-comment"># Map a step output to a job output</span>
+    <span class="hljs-attr">outputs:</span>
+      <span class="hljs-attr">output1:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.step1.outputs.test</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">output2:</span> <span class="hljs-string">${{</span> <span class="hljs-string">steps.step2.outputs.test</span> <span class="hljs-string">}}</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">step1</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">&quot;::set-output name=test::hello&quot;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">step2</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">&quot;::set-output name=test::world&quot;</span>
+  <span class="hljs-attr">job2:</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">needs:</span> <span class="hljs-string">job1</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">${{needs.job1.outputs.output1}}</span> <span class="hljs-string">${{needs.job1.outputs.output2}}</span>
+</code></pre>
+<h3 id="jobsjob_idenv"><a href="#jobsjob_idenv"><code>jobs.&lt;job_id&gt;.env</code></a></h3>
+<p>A <code>map</code> of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see <a href="#env"><code>env</code></a> and <a href="#jobsjob_idstepsenv"><code>jobs.&lt;job_id&gt;.steps[*].env</code></a>.</p>
+<p>When more than one environment variable is defined with the same name, GitHub uses the most specific environment variable. For example, an environment variable defined in a step will override job and workflow variables with the same name, while the step executes. A variable defined for a job will override a workflow variable with the same name, while the job executes.</p>
+<h4 id="example-7"><a href="#example-7">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job1:</span>
+    <span class="hljs-attr">env:</span>
+      <span class="hljs-attr">FIRST_NAME:</span> <span class="hljs-string">Mona</span>
+</code></pre>
+<h3 id="jobsjob_iddefaults"><a href="#jobsjob_iddefaults"><code>jobs.&lt;job_id&gt;.defaults</code></a></h3>
+<p>A <code>map</code> of default settings that will apply to all steps in the job. You can also set default settings for the entire workflow. For more information, see <a href="#defaults"><code>defaults</code></a>.</p>
+<p>When more than one default setting is defined with the same name, GitHub uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.</p>
+<h3 id="jobsjob_iddefaultsrun"><a href="#jobsjob_iddefaultsrun"><code>jobs.&lt;job_id&gt;.defaults.run</code></a></h3>
+<p>Provide default <code>shell</code> and <code>working-directory</code> to all <code>run</code> steps in the job. Context and expression are not allowed in this section.</p>
+<p>You can provide default <code>shell</code> and <code>working-directory</code> options for all <a href="#jobsjob_idstepsrun"><code>run</code></a> steps in a job. You can also set default settings for <code>run</code> for the entire workflow. For more information, see <a href="#defaultsrun"><code>jobs.defaults.run</code></a>. You cannot use contexts or expressions in this keyword.</p>
+<p>When more than one default setting is defined with the same name, GitHub uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.</p>
+<h4 id="example-8"><a href="#example-8">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">job1:</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">defaults:</span>
+      <span class="hljs-attr">run:</span>
+        <span class="hljs-attr">shell:</span> <span class="hljs-string">bash</span>
+        <span class="hljs-attr">working-directory:</span> <span class="hljs-string">scripts</span>
+</code></pre>
+<h3 id="jobsjob_idif"><a href="#jobsjob_idif"><code>jobs.&lt;job_id&gt;.if</code></a></h3>
+<p>You can use the <code>if</code> conditional to prevent a job from running unless a condition is met. You can use any supported context and expression to create a conditional.</p>
+<p>When you use expressions in an <code>if</code> conditional, you may omit the expression syntax (<code>${{ }}</code>) because GitHub automatically evaluates the <code>if</code> conditional as an expression, unless the expression contains any operators. If the expression contains any operators, the expression must be contained within <code>${{ }}</code> to explicitly mark it for evaluation. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<h3 id="jobsjob_idsteps"><a href="#jobsjob_idsteps"><code>jobs.&lt;job_id&gt;.steps</code></a></h3>
+<p>A job contains a sequence of tasks called <code>steps</code>. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. GitHub provides built-in steps to set up and complete a job.</p>
+<p>You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration">Usage limits and billing</a>&quot; for GitHub-hosted runners and &quot;<a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits">About self-hosted runners</a>&quot; for self-hosted runner usage limits.</p>
+<h4 id="example-9"><a href="#example-9">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Greeting</span> <span class="hljs-string">from</span> <span class="hljs-string">Mona</span>
+
+<span class="hljs-attr">on:</span> <span class="hljs-string">push</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my-job:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">Job</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Print</span> <span class="hljs-string">a</span> <span class="hljs-string">greeting</span>
+      <span class="hljs-attr">env:</span>
+        <span class="hljs-attr">MY_VAR:</span> <span class="hljs-string">Hi</span> <span class="hljs-string">there!</span> <span class="hljs-string">My</span> <span class="hljs-string">name</span> <span class="hljs-string">is</span>
+        <span class="hljs-attr">FIRST_NAME:</span> <span class="hljs-string">Mona</span>
+        <span class="hljs-attr">MIDDLE_NAME:</span> <span class="hljs-string">The</span>
+        <span class="hljs-attr">LAST_NAME:</span> <span class="hljs-string">Octocat</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+</span></code></pre>
+<h3 id="jobsjob_idstepsid"><a href="#jobsjob_idstepsid"><code>jobs.&lt;job_id&gt;.steps[*].id</code></a></h3>
+<p>A unique identifier for the step. You can use the <code>id</code> to reference the step in contexts. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<h3 id="jobsjob_idstepsif"><a href="#jobsjob_idstepsif"><code>jobs.&lt;job_id&gt;.steps[*].if</code></a></h3>
+<p>You can use the <code>if</code> conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.</p>
+<p>When you use expressions in an <code>if</code> conditional, you may omit the expression syntax (<code>${{ }}</code>) because GitHub automatically evaluates the <code>if</code> conditional as an expression, unless the expression contains any operators. If the expression contains any operators, the expression must be contained within <code>${{ }}</code> to explicitly mark it for evaluation. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<h4 id="example-using-contexts"><a href="#example-using-contexts">Example using contexts</a></h4>
+<p> This step only runs when the event type is a <code>pull_request</code> and the event action is <code>unassigned</code>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+ <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+   <span class="hljs-attr">if:</span> <span class="hljs-string">${{</span> <span class="hljs-string">github.event_name</span> <span class="hljs-string">==</span> <span class="hljs-string">&apos;pull_request&apos;</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">github.event.action</span> <span class="hljs-string">==</span> <span class="hljs-string">&apos;unassigned&apos;</span> <span class="hljs-string">}}</span>
+   <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">This</span> <span class="hljs-string">event</span> <span class="hljs-string">is</span> <span class="hljs-string">a</span> <span class="hljs-string">pull</span> <span class="hljs-string">request</span> <span class="hljs-string">that</span> <span class="hljs-string">had</span> <span class="hljs-string">an</span> <span class="hljs-string">assignee</span> <span class="hljs-string">removed.</span>
+</code></pre>
+<h4 id="example-using-status-check-functions"><a href="#example-using-status-check-functions">Example using status check functions</a></h4>
+<p>The <code>my backup step</code> only runs when the previous step of a job fails. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">monacorp/action-name@main</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">backup</span> <span class="hljs-string">step</span>
+    <span class="hljs-attr">if:</span> <span class="hljs-string">${{</span> <span class="hljs-string">failure()</span> <span class="hljs-string">}}</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/heroku@1.0.0</span>
+</code></pre>
+<h3 id="jobsjob_idstepsname"><a href="#jobsjob_idstepsname"><code>jobs.&lt;job_id&gt;.steps[*].name</code></a></h3>
+<p>A name for your step to display on GitHub.</p>
+<h3 id="jobsjob_idstepsuses"><a href="#jobsjob_idstepsuses"><code>jobs.&lt;job_id&gt;.steps[*].uses</code></a></h3>
+<p>Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a <a href="https://hub.docker.com/">published Docker container image</a>.</p>
+<p>We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don&apos;t specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.</p>
+<ul>
+<li>Using the commit SHA of a released action version is the safest for stability and security.</li>
+<li>Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.</li>
+<li>Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.</li>
+</ul>
+<p>Some actions require inputs that you must set using the <a href="#jobsjob_idstepswith"><code>with</code></a> keyword. Review the action&apos;s README file to determine the inputs required.</p>
+<p>Actions are either JavaScript files or Docker containers. If the action you&apos;re using is a Docker container you must run the job in a Linux environment. For more details, see <a href="#jobsjob_idruns-on"><code>runs-on</code></a>.</p>
+<h4 id="example-using-versioned-actions"><a href="#example-using-versioned-actions">Example using versioned actions</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>    
+  <span class="hljs-comment"># Reference a specific commit</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e</span>
+  <span class="hljs-comment"># Reference the major version of a release</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1</span>
+  <span class="hljs-comment"># Reference a minor version of a release</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1.2</span>
+  <span class="hljs-comment"># Reference a branch</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@main</span>
+</code></pre>
+<h4 id="example-using-a-public-action"><a href="#example-using-a-public-action">Example using a public action</a></h4>
+<p><code>{owner}/{repo}@{ref}</code></p>
+<p>You can specific branch, ref, or SHA in a public GitHub repository.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+        <span class="hljs-comment"># Uses the default branch of a public repository</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/heroku@1.0.0</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">second</span> <span class="hljs-string">step</span>
+        <span class="hljs-comment"># Uses a specific version tag of a public repository</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/aws@v2.0.1</span>
+</code></pre>
+<h4 id="example-using-a-public-action-in-a-subdirectory"><a href="#example-using-a-public-action-in-a-subdirectory">Example using a public action in a subdirectory</a></h4>
+<p><code>{owner}/{repo}/{path}@{ref}</code></p>
+<p>A subdirectory in a public GitHub repository at a specific branch, ref, or SHA.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/aws/ec2@main</span>
+</code></pre>
+<h4 id="example-using-action-in-the-same-repository-as-the-workflow"><a href="#example-using-action-in-the-same-repository-as-the-workflow">Example using action in the same repository as the workflow</a></h4>
+<p><code>./path/to/dir</code></p>
+<p>The path to the directory that contains the action in your workflow&apos;s repository. You must check out your repository before using the action.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">out</span> <span class="hljs-string">repository</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Use</span> <span class="hljs-string">local</span> <span class="hljs-string">my-action</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">./.github/actions/my-action</span>
+</code></pre>
+<h4 id="example-using-a-docker-hub-action"><a href="#example-using-a-docker-hub-action">Example using a Docker Hub action</a></h4>
+<p><code>docker://{image}:{tag}</code></p>
+<p>A Docker image published on <a href="https://hub.docker.com/">Docker Hub</a>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">docker://alpine:3.8</span>
+</code></pre>
+<h5 id="example-using-the-github-container-registry"><a href="#example-using-the-github-container-registry">Example using the GitHub Container Registry</a></h5>
+<p><code>docker://{host}/{image}:{tag}</code></p>
+<p>A Docker image in the GitHub Container Registry.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">docker://ghcr.io/OWNER/IMAGE_NAME</span>
+</code></pre>
+<h5 id="example-using-a-docker-public-registry-action"><a href="#example-using-a-docker-public-registry-action">Example using a Docker public registry action</a></h5>
+<p><code>docker://{host}/{image}:{tag}</code></p>
+<p>A Docker image in a public registry. This example uses the Google Container Registry at <code>gcr.io</code>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">docker://gcr.io/cloud-builders/gradle</span>
+</code></pre>
+<h4 id="example-using-action-inside-a-different-private-repository-than-the-workflow"><a href="#example-using-action-inside-a-different-private-repository-than-the-workflow">Example using action inside a different private repository than the workflow</a></h4>
+<p>Your workflow must checkout the private repository and reference the action locally.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Check</span> <span class="hljs-string">out</span> <span class="hljs-string">repository</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">repository:</span> <span class="hljs-string">octocat/my-private-repo</span>
+          <span class="hljs-attr">ref:</span> <span class="hljs-string">v1.0</span>
+          <span class="hljs-attr">token:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.GITHUB_TOKEN</span> <span class="hljs-string">}}</span>
+          <span class="hljs-attr">path:</span> <span class="hljs-string">./.github/actions/my-private-repo</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">my</span> <span class="hljs-string">action</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">./.github/actions/my-private-repo/my-action</span>
+</code></pre>
+<h3 id="jobsjob_idstepsrun"><a href="#jobsjob_idstepsrun"><code>jobs.&lt;job_id&gt;.steps[*].run</code></a></h3>
+<p>Runs command-line programs using the operating system&apos;s shell. If you do not provide a <code>name</code>, the step name will default to the text specified in the <code>run</code> command.</p>
+<p>Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see &quot;<a href="#using-a-specific-shell">Using a specific shell</a>.&quot;</p>
+<p>Each <code>run</code> keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:</p>
+<ul>
+<li>
+<p>A single-line command:</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">Dependencies</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span>
+</code></pre>
+</li>
+<li>
+<p>A multi-line command:</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clean</span> <span class="hljs-string">install</span> <span class="hljs-string">dependencies</span> <span class="hljs-string">and</span> <span class="hljs-string">build</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|
+    npm ci
+    npm run build
+</span></code></pre>
+</li>
+</ul>
+<p>Using the <code>working-directory</code> keyword, you can specify the working directory of where to run the command.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Clean</span> <span class="hljs-string">temp</span> <span class="hljs-string">directory</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">rm</span> <span class="hljs-string">-rf</span> <span class="hljs-string">*</span>
+  <span class="hljs-attr">working-directory:</span> <span class="hljs-string">./temp</span>
+</code></pre>
+<h4 id="using-a-specific-shell"><a href="#using-a-specific-shell">Using a specific shell</a></h4>
+<p>You can override the default shell settings in the runner&apos;s operating system using the <code>shell</code> keyword. You can use built-in <code>shell</code> keywords, or you can define a custom set of shell options.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Supported platform</th><th><code>shell</code> parameter</th><th>Description</th><th>Command run internally</th></tr></thead><tbody><tr><td>All</td><td><code>bash</code></td><td>The default shell on non-Windows platforms with a fallback to <code>sh</code>. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used.</td><td><code>bash --noprofile --norc -eo pipefail {0}</code></td></tr><tr><td>All</td><td><code>pwsh</code></td><td>The PowerShell Core. GitHub appends the extension <code>.ps1</code> to your script name.</td><td><code>pwsh -command &quot;. &apos;{0}&apos;&quot;</code></td></tr><tr><td>All</td><td><code>python</code></td><td>Executes the python command.</td><td><code>python {0}</code></td></tr><tr><td>Linux / macOS</td><td><code>sh</code></td><td>The fallback behavior for non-Windows platforms if no shell is provided and <code>bash</code> is not found in the path.</td><td><code>sh -e {0}</code></td></tr><tr><td>Windows</td><td><code>cmd</code></td><td>GitHub appends the extension <code>.cmd</code> to your script name and substitutes for <code>{0}</code>.</td><td><code>%ComSpec% /D /E:ON /V:OFF /S /C &quot;CALL &quot;{0}&quot;&quot;</code>.</td></tr><tr><td>Windows</td><td><code>pwsh</code></td><td>This is the default shell used on Windows. The PowerShell Core. GitHub appends the extension <code>.ps1</code> to your script name. If your self-hosted Windows runner does not have <em>PowerShell Core</em> installed, then <em>PowerShell Desktop</em> is used instead.</td><td><code>pwsh -command &quot;. &apos;{0}&apos;&quot;</code>.</td></tr><tr><td>Windows</td><td><code>powershell</code></td><td>The PowerShell Desktop. GitHub appends the extension <code>.ps1</code> to your script name.</td><td><code>powershell -command &quot;. &apos;{0}&apos;&quot;</code>.</td></tr></tbody></table>
+<h4 id="example-running-a-script-using-bash"><a href="#example-running-a-script-using-bash">Example running a script using bash</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Display</span> <span class="hljs-string">the</span> <span class="hljs-string">path</span>
+    <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">$PATH</span>
+    <span class="hljs-attr">shell:</span> <span class="hljs-string">bash</span>
+</code></pre>
+<h4 id="example-running-a-script-using-windows-cmd"><a href="#example-running-a-script-using-windows-cmd">Example running a script using Windows <code>cmd</code></a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Display</span> <span class="hljs-string">the</span> <span class="hljs-string">path</span>
+    <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">%PATH%</span>
+    <span class="hljs-attr">shell:</span> <span class="hljs-string">cmd</span>
+</code></pre>
+<h4 id="example-running-a-script-using-powershell-core"><a href="#example-running-a-script-using-powershell-core">Example running a script using PowerShell Core</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Display</span> <span class="hljs-string">the</span> <span class="hljs-string">path</span>
+    <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">${env:PATH}</span>
+    <span class="hljs-attr">shell:</span> <span class="hljs-string">pwsh</span>
+</code></pre>
+<h4 id="example-using-powershell-desktop-to-run-a-script"><a href="#example-using-powershell-desktop-to-run-a-script">Example: Using PowerShell Desktop to run a script</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Display</span> <span class="hljs-string">the</span> <span class="hljs-string">path</span>
+    <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">${env:PATH}</span>
+    <span class="hljs-attr">shell:</span> <span class="hljs-string">powershell</span>
+</code></pre>
+<h4 id="example-running-a-python-script"><a href="#example-running-a-python-script">Example running a python script</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Display</span> <span class="hljs-string">the</span> <span class="hljs-string">path</span>
+    <span class="hljs-attr">run:</span> <span class="hljs-string">|
+      import os
+      print(os.environ[&apos;PATH&apos;])
+</span>    <span class="hljs-attr">shell:</span> <span class="hljs-string">python</span>
+</code></pre>
+<h4 id="custom-shell"><a href="#custom-shell">Custom shell</a></h4>
+<p>You can set the <code>shell</code> value to a template string using <code>command [&#x2026;options] {0} [..more_options]</code>. GitHub interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at <code>{0}</code>.</p>
+<p>For example:</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Display</span> <span class="hljs-string">the</span> <span class="hljs-string">environment</span> <span class="hljs-string">variables</span> <span class="hljs-string">and</span> <span class="hljs-string">their</span> <span class="hljs-string">values</span>
+    <span class="hljs-attr">run:</span> <span class="hljs-string">|
+      print %ENV
+</span>    <span class="hljs-attr">shell:</span> <span class="hljs-string">perl</span> {<span class="hljs-number">0</span>}
+</code></pre>
+<p>The command used, <code>perl</code> in this example, must be installed on the runner. </p>
+<p>For information about the software included on GitHub-hosted runners, see &quot;<a href="https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-software">Specifications for GitHub-hosted runners</a>.&quot;</p>
+<h4 id="exit-codes-and-error-action-preference"><a href="#exit-codes-and-error-action-preference">Exit codes and error action preference</a></h4>
+<p>For built-in shell keywords, we provide the following defaults that are executed by GitHub-hosted runners. You should use these guidelines when running shell scripts.</p>
+<ul>
+<li>
+<p><code>bash</code>/<code>sh</code>:</p>
+<ul>
+<li>Fail-fast behavior using <code>set -eo pipefail</code>: Default for <code>bash</code> and built-in <code>shell</code>. It is also the default when you don&apos;t provide an option on non-Windows platforms.</li>
+<li>You can opt out of fail-fast and take full control by providing a template string to the shell options. For example, <code>bash {0}</code>.</li>
+<li>sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.</li>
+</ul>
+</li>
+<li>
+<p><code>powershell</code>/<code>pwsh</code></p>
+<ul>
+<li>Fail-fast behavior when possible. For <code>pwsh</code> and <code>powershell</code> built-in shell, we will prepend <code>$ErrorActionPreference = &apos;stop&apos;</code> to script contents.</li>
+<li>We append <code>if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }</code> to powershell scripts so action statuses reflect the script&apos;s last exit code.</li>
+<li>Users can always opt out by not using the built-in shell, and providing a custom shell option like: <code>pwsh -File {0}</code>, or <code>powershell -Command &quot;&amp; &apos;{0}&apos;&quot;</code>, depending on need.</li>
+</ul>
+</li>
+<li>
+<p><code>cmd</code></p>
+<ul>
+<li>There doesn&apos;t seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can&apos;t actually provide that behavior by default, you need to write this behavior into your script.</li>
+<li><code>cmd.exe</code> will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous <code>sh</code> and <code>pwsh</code> default behavior and is the <code>cmd.exe</code> default, so this behavior remains intact.</li>
+</ul>
+</li>
+</ul>
+<h3 id="jobsjob_idstepswith"><a href="#jobsjob_idstepswith"><code>jobs.&lt;job_id&gt;.steps[*].with</code></a></h3>
+<p>A <code>map</code> of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with <code>INPUT_</code> and converted to upper case.</p>
+<h4 id="example-10"><a href="#example-10">Example</a></h4>
+<p>Defines the three input parameters (<code>first_name</code>, <code>middle_name</code>, and <code>last_name</code>) defined by the <code>hello_world</code> action. These input variables will be accessible to the <code>hello-world</code> action as <code>INPUT_FIRST_NAME</code>, <code>INPUT_MIDDLE_NAME</code>, and <code>INPUT_LAST_NAME</code> environment variables.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_first_job:</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">step</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/hello_world@main</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">first_name:</span> <span class="hljs-string">Mona</span>
+          <span class="hljs-attr">middle_name:</span> <span class="hljs-string">The</span>
+          <span class="hljs-attr">last_name:</span> <span class="hljs-string">Octocat</span>      
+</code></pre>
+<h3 id="jobsjob_idstepswithargs"><a href="#jobsjob_idstepswithargs"><code>jobs.&lt;job_id&gt;.steps[*].with.args</code></a></h3>
+<p>A <code>string</code> that defines the inputs for a Docker container. GitHub passes the <code>args</code> to the container&apos;s <code>ENTRYPOINT</code> when the container starts up. An <code>array of strings</code> is not supported by this parameter.</p>
+<h4 id="example-11"><a href="#example-11">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Explain</span> <span class="hljs-string">why</span> <span class="hljs-string">this</span> <span class="hljs-string">job</span> <span class="hljs-string">ran</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">monacorp/action-name@main</span>
+    <span class="hljs-attr">with:</span>
+      <span class="hljs-attr">entrypoint:</span> <span class="hljs-string">/bin/echo</span>
+      <span class="hljs-attr">args:</span> <span class="hljs-string">The</span> <span class="hljs-string">${{</span> <span class="hljs-string">github.event_name</span> <span class="hljs-string">}}</span> <span class="hljs-string">event</span> <span class="hljs-string">triggered</span> <span class="hljs-string">this</span> <span class="hljs-string">step.</span>
+</code></pre>
+<p>The <code>args</code> are used in place of the <code>CMD</code> instruction in a <code>Dockerfile</code>. If you use <code>CMD</code> in your <code>Dockerfile</code>, use the guidelines ordered by preference:</p>
+<ol>
+<li>Document required arguments in the action&apos;s README and omit them from the <code>CMD</code> instruction.</li>
+<li>Use defaults that allow using the action without specifying any <code>args</code>.</li>
+<li>If the action exposes a <code>--help</code> flag, or something similar, use that as the default to make your action self-documenting.</li>
+</ol>
+<h3 id="jobsjob_idstepswithentrypoint"><a href="#jobsjob_idstepswithentrypoint"><code>jobs.&lt;job_id&gt;.steps[*].with.entrypoint</code></a></h3>
+<p>Overrides the Docker <code>ENTRYPOINT</code> in the <code>Dockerfile</code>, or sets it if one wasn&apos;t already specified. Unlike the Docker <code>ENTRYPOINT</code> instruction which has a shell and exec form, <code>entrypoint</code> keyword accepts only a single string defining the executable to be run.</p>
+<h4 id="example-12"><a href="#example-12">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">a</span> <span class="hljs-string">custom</span> <span class="hljs-string">command</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">monacorp/action-name@main</span>
+    <span class="hljs-attr">with:</span>
+      <span class="hljs-attr">entrypoint:</span> <span class="hljs-string">/a/different/executable</span>
+</code></pre>
+<p>The <code>entrypoint</code> keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don&apos;t define any inputs.</p>
+<h3 id="jobsjob_idstepsenv"><a href="#jobsjob_idstepsenv"><code>jobs.&lt;job_id&gt;.steps[*].env</code></a></h3>
+<p>Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see <a href="#env"><code>env</code></a> and <a href="#jobsjob_idenv"><code>jobs.&lt;job_id&gt;.env</code></a>.</p>
+<p>When more than one environment variable is defined with the same name, GitHub uses the most specific environment variable. For example, an environment variable defined in a step will override job and workflow variables with the same name, while the step executes. A variable defined for a job will override a workflow variable with the same name, while the job executes.</p>
+<p>Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the <code>secrets</code> context. For more information, see &quot;<a href="https://docs.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables">Using environment variables</a>&quot; and &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<h4 id="example-13"><a href="#example-13">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">My</span> <span class="hljs-string">first</span> <span class="hljs-string">action</span>
+    <span class="hljs-attr">env:</span>
+      <span class="hljs-attr">GITHUB_TOKEN:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.GITHUB_TOKEN</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">FIRST_NAME:</span> <span class="hljs-string">Mona</span>
+      <span class="hljs-attr">LAST_NAME:</span> <span class="hljs-string">Octocat</span>
+</code></pre>
+<h3 id="jobsjob_idstepscontinue-on-error"><a href="#jobsjob_idstepscontinue-on-error"><code>jobs.&lt;job_id&gt;.steps[*].continue-on-error</code></a></h3>
+<p>Prevents a job from failing when a step fails. Set to <code>true</code> to allow a job to pass when this step fails.</p>
+<h3 id="jobsjob_idstepstimeout-minutes"><a href="#jobsjob_idstepstimeout-minutes"><code>jobs.&lt;job_id&gt;.steps[*].timeout-minutes</code></a></h3>
+<p>The maximum number of minutes to run the step before killing the process.</p>
+<h3 id="jobsjob_idtimeout-minutes"><a href="#jobsjob_idtimeout-minutes"><code>jobs.&lt;job_id&gt;.timeout-minutes</code></a></h3>
+<p>The maximum number of minutes to let a job run before GitHub automatically cancels it. Default: 360</p>
+<h3 id="jobsjob_idstrategy"><a href="#jobsjob_idstrategy"><code>jobs.&lt;job_id&gt;.strategy</code></a></h3>
+<p>A strategy creates a build matrix for your jobs. You can define different variations to run each job in.</p>
+<h3 id="jobsjob_idstrategymatrix"><a href="#jobsjob_idstrategymatrix"><code>jobs.&lt;job_id&gt;.strategy.matrix</code></a></h3>
+<p>You can define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job&apos;s configuration and creates a job for each matrix you configure.</p>
+<p>A job matrix can generate a maximum of 256 jobs per workflow run. This limit also applies to self-hosted runners.</p>
+<p>Each option you define in the <code>matrix</code> has a key and value. The keys you define become properties in the <code>matrix</code> context and you can reference the property in other areas of your workflow file. For example, if you define the key <code>os</code> that contains an array of operating systems, you can use the <code>matrix.os</code> property as the value of the <code>runs-on</code> keyword to create a job for each operating system. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions</a>.&quot;</p>
+<p>The order that you define a <code>matrix</code> matters. The first option you define will be the first job that runs in your workflow.</p>
+<h4 id="example-running-with-more-than-one-version-of-nodejs"><a href="#example-running-with-more-than-one-version-of-nodejs">Example running with more than one version of Node.js</a></h4>
+<p>You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 6, 8, and 10, you could specify an array of those versions in the <code>matrix</code>.</p>
+<p>This example creates a matrix of three jobs by setting the <code>node</code> key to an array of three Node.js versions. To use the matrix, the example sets the <code>matrix.node</code> context property as the value of the <code>setup-node</code> action&apos;s input parameter <code>node-version</code>. As a result, three jobs will run, each using a different Node.js version.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">matrix:</span>
+    <span class="hljs-attr">node:</span> [<span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>]
+<span class="hljs-attr">steps:</span>
+  <span class="hljs-comment"># Configures the node version used on GitHub-hosted runners</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1</span>
+    <span class="hljs-attr">with:</span>
+      <span class="hljs-comment"># The Node.js version to configure</span>
+      <span class="hljs-attr">node-version:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.node</span> <span class="hljs-string">}}</span>
+</code></pre>
+<p>The <code>setup-node</code> action is the recommended way to configure a Node.js version when using GitHub-hosted runners. For more information, see the <a href="https://github.com/actions/setup-node"><code>setup-node</code></a> action.</p>
+<h4 id="example-running-with-more-than-one-operating-system"><a href="#example-running-with-more-than-one-operating-system">Example running with more than one operating system</a></h4>
+<p>You can create a matrix to run workflows on more than one runner operating system. You can also specify more than one matrix configuration. This example creates a matrix of 6 jobs:</p>
+<ul>
+<li>2 operating systems specified in the <code>os</code> array</li>
+<li>3 Node.js versions specified in the <code>node</code> array</li>
+</ul>
+<p>When you define a matrix of operating systems, you must set the value of <code>runs-on</code> to the <code>matrix.os</code> context property you defined.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.os</span> <span class="hljs-string">}}</span>
+<span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">matrix:</span>
+    <span class="hljs-attr">os:</span> [<span class="hljs-string">ubuntu-16.04</span>, <span class="hljs-string">ubuntu-18.04</span>]
+    <span class="hljs-attr">node:</span> [<span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>]
+<span class="hljs-attr">steps:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1</span>
+    <span class="hljs-attr">with:</span>
+      <span class="hljs-attr">node-version:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.node</span> <span class="hljs-string">}}</span>
+</code></pre>
+<p>To find supported configuration options for GitHub-hosted runners, see &quot;<a href="https://docs.github.com/en/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners">Virtual environments for GitHub-hosted runners</a>.&quot;</p>
+<h4 id="example-including-additional-values-into-combinations"><a href="#example-including-additional-values-into-combinations">Example including additional values into combinations</a></h4>
+<p>You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of <code>npm</code> when the job that uses <code>windows-latest</code> and version 4 of <code>node</code> runs, you can use <code>include</code> to specify that additional option.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.os</span> <span class="hljs-string">}}</span>
+<span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">matrix:</span>
+    <span class="hljs-attr">os:</span> [<span class="hljs-string">macos-latest</span>, <span class="hljs-string">windows-latest</span>, <span class="hljs-string">ubuntu-18.04</span>]
+    <span class="hljs-attr">node:</span> [<span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>]
+    <span class="hljs-attr">include:</span>
+      <span class="hljs-comment"># includes a new variable of npm with a value of 2</span>
+      <span class="hljs-comment"># for the matrix leg matching the os and version</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">os:</span> <span class="hljs-string">windows-latest</span>
+        <span class="hljs-attr">node:</span> <span class="hljs-number">4</span>
+        <span class="hljs-attr">npm:</span> <span class="hljs-number">2</span>
+</code></pre>
+<h4 id="example-including-new-combinations"><a href="#example-including-new-combinations">Example including new combinations</a></h4>
+<p>You can use <code>include</code> to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use <code>node</code> version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use <code>include</code> to specify that additional job.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.os</span> <span class="hljs-string">}}</span>
+<span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">matrix:</span>
+    <span class="hljs-attr">node:</span> [<span class="hljs-number">12</span>]
+    <span class="hljs-attr">os:</span> [<span class="hljs-string">macos-latest</span>, <span class="hljs-string">windows-latest</span>, <span class="hljs-string">ubuntu-18.04</span>]
+    <span class="hljs-attr">include:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">node:</span> <span class="hljs-number">13</span>
+        <span class="hljs-attr">os:</span> <span class="hljs-string">ubuntu-18.04</span>
+        <span class="hljs-attr">experimental:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<h4 id="example-excluding-configurations-from-a-matrix"><a href="#example-excluding-configurations-from-a-matrix">Example excluding configurations from a matrix</a></h4>
+<p>You can remove a specific configurations defined in the build matrix using the <code>exclude</code> option. Using <code>exclude</code> removes a job defined by the build matrix. The number of jobs is the cross product of the number of operating systems (<code>os</code>) included in the arrays you provide, minus any subtractions (<code>exclude</code>).</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.os</span> <span class="hljs-string">}}</span>
+<span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">matrix:</span>
+    <span class="hljs-attr">os:</span> [<span class="hljs-string">macos-latest</span>, <span class="hljs-string">windows-latest</span>, <span class="hljs-string">ubuntu-18.04</span>]
+    <span class="hljs-attr">node:</span> [<span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>]
+    <span class="hljs-attr">exclude:</span>
+      <span class="hljs-comment"># excludes node 4 on macOS</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">os:</span> <span class="hljs-string">macos-latest</span>
+        <span class="hljs-attr">node:</span> <span class="hljs-number">4</span>
+</code></pre>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> All <code>include</code> combinations are processed after <code>exclude</code>. This allows you to use <code>include</code> to add back combinations that were previously excluded.</p>
+</div>
+<h5 id="using-environment-variables-in-a-matrix"><a href="#using-environment-variables-in-a-matrix">Using environment variables in a matrix</a></h5>
+<p>You can add custom environment variables for each test combination by using the <code>include</code> key. You can then refer to the custom environment variables in a later step.</p>
+<p>In this example, the matrix entries for <code>node-version</code> are each configured to use different values for the <code>site</code> and <code>datacenter</code> environment variables. The <code>Echo site details</code> step then uses <code>env: ${{ matrix.env }}</code> to refer to the custom variables:</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Node.js</span> <span class="hljs-string">CI</span>
+<span class="hljs-attr">on:</span> [<span class="hljs-string">push</span>]
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">build:</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">strategy:</span>
+      <span class="hljs-attr">matrix:</span>
+       <span class="hljs-attr">include:</span>
+         <span class="hljs-bullet">-</span> <span class="hljs-attr">node-version:</span> <span class="hljs-number">10.</span><span class="hljs-string">x</span>
+           <span class="hljs-attr">site:</span> <span class="hljs-string">&quot;prod&quot;</span>
+           <span class="hljs-attr">datacenter:</span> <span class="hljs-string">&quot;site-a&quot;</span>
+         <span class="hljs-bullet">-</span> <span class="hljs-attr">node-version:</span> <span class="hljs-number">12.</span><span class="hljs-string">x</span>
+           <span class="hljs-attr">site:</span> <span class="hljs-string">&quot;dev&quot;</span>
+           <span class="hljs-attr">datacenter:</span> <span class="hljs-string">&quot;site-b&quot;</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Echo</span> <span class="hljs-string">site</span> <span class="hljs-string">details</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">SITE:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.site</span> <span class="hljs-string">}}</span>
+          <span class="hljs-attr">DATACENTER:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.datacenter</span> <span class="hljs-string">}}</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">echo</span> <span class="hljs-string">$SITE</span> <span class="hljs-string">$DATACENTER</span>
+</code></pre>
+<h3 id="jobsjob_idstrategyfail-fast"><a href="#jobsjob_idstrategyfail-fast"><code>jobs.&lt;job_id&gt;.strategy.fail-fast</code></a></h3>
+<p>When set to <code>true</code>, GitHub cancels all in-progress jobs if any <code>matrix</code> job fails. Default: <code>true</code></p>
+<h3 id="jobsjob_idstrategymax-parallel"><a href="#jobsjob_idstrategymax-parallel"><code>jobs.&lt;job_id&gt;.strategy.max-parallel</code></a></h3>
+<p>The maximum number of jobs that can run simultaneously when using a <code>matrix</code> job strategy. By default, GitHub will maximize the number of jobs run in parallel depending on the available runners on GitHub-hosted virtual machines.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">max-parallel:</span> <span class="hljs-number">2</span>
+</code></pre>
+<h3 id="jobsjob_idcontinue-on-error"><a href="#jobsjob_idcontinue-on-error"><code>jobs.&lt;job_id&gt;.continue-on-error</code></a></h3>
+<p>Prevents a workflow run from failing when a job fails. Set to <code>true</code> to allow a workflow run to pass when this job fails.</p>
+<h4 id="example-preventing-a-specific-failing-matrix-job-from-failing-a-workflow-run"><a href="#example-preventing-a-specific-failing-matrix-job-from-failing-a-workflow-run">Example preventing a specific failing matrix job from failing a workflow run</a></h4>
+<p>You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with <code>node</code> set to <code>13</code> to fail without failing the workflow run.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">runs-on:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.os</span> <span class="hljs-string">}}</span>
+<span class="hljs-attr">continue-on-error:</span> <span class="hljs-string">${{</span> <span class="hljs-string">matrix.experimental</span> <span class="hljs-string">}}</span>
+<span class="hljs-attr">strategy:</span>
+  <span class="hljs-attr">fail-fast:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">matrix:</span>
+    <span class="hljs-attr">node:</span> [<span class="hljs-number">11</span>, <span class="hljs-number">12</span>]
+    <span class="hljs-attr">os:</span> [<span class="hljs-string">macos-latest</span>, <span class="hljs-string">ubuntu-18.04</span>]
+    <span class="hljs-attr">experimental:</span> [<span class="hljs-literal">false</span>]
+    <span class="hljs-attr">include:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">node:</span> <span class="hljs-number">13</span>
+        <span class="hljs-attr">os:</span> <span class="hljs-string">ubuntu-18.04</span>
+        <span class="hljs-attr">experimental:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<h3 id="jobsjob_idcontainer"><a href="#jobsjob_idcontainer"><code>jobs.&lt;job_id&gt;.container</code></a></h3>
+<p>A container to run any steps in a job that don&apos;t already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.</p>
+<p>If you do not set a <code>container</code>, all steps will run directly on the host specified by <code>runs-on</code> unless a step refers to an action configured to run in a container.</p>
+<h4 id="example-14"><a href="#example-14">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_job:</span>
+    <span class="hljs-attr">container:</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">node:10.16-jessie</span>
+      <span class="hljs-attr">env:</span>
+        <span class="hljs-attr">NODE_ENV:</span> <span class="hljs-string">development</span>
+      <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-number">80</span>
+      <span class="hljs-attr">volumes:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">my_docker_volume:/volume_mount</span>
+      <span class="hljs-attr">options:</span> <span class="hljs-string">--cpus</span> <span class="hljs-number">1</span>
+</code></pre>
+<p>When you only specify a container image, you can omit the <code>image</code> keyword.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">my_job:</span>
+    <span class="hljs-attr">container:</span> <span class="hljs-string">node:10.16-jessie</span>
+</code></pre>
+<h3 id="jobsjob_idcontainerimage"><a href="#jobsjob_idcontainerimage"><code>jobs.&lt;job_id&gt;.container.image</code></a></h3>
+<p>The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a  registry name.</p>
+<h3 id="jobsjob_idcontainercredentials"><a href="#jobsjob_idcontainercredentials"><code>jobs.&lt;job_id&gt;.container.credentials</code></a></h3>
+<p>If the image&apos;s container registry requires authentication to pull the image, you can use <code>credentials</code> to set a <code>map</code> of the <code>username</code> and <code>password</code>. The credentials are the same values that you would provide to the <a href="https://docs.docker.com/engine/reference/commandline/login/"><code>docker login</code></a> command.</p>
+<h4 id="example-15"><a href="#example-15">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">container:</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">ghcr.io/owner/image</span>
+  <span class="hljs-attr">credentials:</span>
+     <span class="hljs-attr">username:</span> <span class="hljs-string">${{</span> <span class="hljs-string">github.actor</span> <span class="hljs-string">}}</span>
+     <span class="hljs-attr">password:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ghcr_token</span> <span class="hljs-string">}}</span>
+</code></pre>
+<h3 id="jobsjob_idcontainerenv"><a href="#jobsjob_idcontainerenv"><code>jobs.&lt;job_id&gt;.container.env</code></a></h3>
+<p>Sets a <code>map</code> of environment variables in the container.</p>
+<h3 id="jobsjob_idcontainerports"><a href="#jobsjob_idcontainerports"><code>jobs.&lt;job_id&gt;.container.ports</code></a></h3>
+<p>Sets an <code>array</code> of ports to expose on the container.</p>
+<h3 id="jobsjob_idcontainervolumes"><a href="#jobsjob_idcontainervolumes"><code>jobs.&lt;job_id&gt;.container.volumes</code></a></h3>
+<p>Sets an <code>array</code> of volumes for the container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.</p>
+<p>To specify a volume, you specify the source and destination path:</p>
+<p><code>&lt;source&gt;:&lt;destinationPath&gt;</code>.</p>
+<p>The <code>&lt;source&gt;</code> is a volume name or an absolute path on the host machine, and <code>&lt;destinationPath&gt;</code> is an absolute path in the container.</p>
+<h4 id="example-16"><a href="#example-16">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">volumes:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">my_docker_volume:/volume_mount</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">/data/my_data</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">/source/directory:/destination/directory</span>
+</code></pre>
+<h3 id="jobsjob_idcontaineroptions"><a href="#jobsjob_idcontaineroptions"><code>jobs.&lt;job_id&gt;.container.options</code></a></h3>
+<p>Additional Docker container resource options. For a list of options, see &quot;<a href="https://docs.docker.com/engine/reference/commandline/create/#options"><code>docker create</code> options</a>.&quot;</p>
+<h3 id="jobsjob_idservices"><a href="#jobsjob_idservices"><code>jobs.&lt;job_id&gt;.services</code></a></h3>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> If your workflows use Docker container actions or service containers, then you must use a Linux runner:</p>
+<ul>
+<li>If you are using GitHub-hosted runners, you must use an Ubuntu runner.</li>
+<li>If you are using self-hosted runners, you must use a Linux machine as your runner and Docker must be installed.</li>
+</ul>
+</div>
+<p>Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.</p>
+<p>If you configure your job to run in a container, or your step uses container actions, you don&apos;t need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.</p>
+<p>If you configure the job to run directly on the runner machine and your step doesn&apos;t use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.</p>
+<p>For more information about the differences between networking service containers, see &quot;<a href="https://docs.github.com/en/actions/automating-your-workflow-with-github-actions/about-service-containers">About service containers</a>.&quot;</p>
+<h4 id="example-using-localhost"><a href="#example-using-localhost">Example using localhost</a></h4>
+<p>This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. GitHub sets the assigned container port in the <code>${{job.services.&lt;service_name&gt;.ports}}</code> context. In this example, you can access the service container ports using the <code>${{ job.services.nginx.ports[&apos;8080&apos;] }}</code> and <code>${{ job.services.redis.ports[&apos;6379&apos;] }}</code> contexts.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">nginx:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">nginx</span>
+    <span class="hljs-comment"># Map port 8080 on the Docker host to port 80 on the nginx container</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">8080</span><span class="hljs-string">:80</span>
+  <span class="hljs-attr">redis:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">redis</span>
+    <span class="hljs-comment"># Map TCP port 6379 on Docker host to a random free port on the Redis container</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">6379</span><span class="hljs-string">/tcp</span>
+</code></pre>
+<h3 id="jobsjob_idservicesservice_idimage"><a href="#jobsjob_idservicesservice_idimage"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.image</code></a></h3>
+<p>The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.</p>
+<h3 id="jobsjob_idservicesservice_idcredentials"><a href="#jobsjob_idservicesservice_idcredentials"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code></a></h3>
+<p>If the image&apos;s container registry requires authentication to pull the image, you can use <code>credentials</code> to set a <code>map</code> of the <code>username</code> and <code>password</code>. The credentials are the same values that you would provide to the <a href="https://docs.docker.com/engine/reference/commandline/login/"><code>docker login</code></a> command.</p>
+<h4 id="example-17"><a href="#example-17">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">myservice1:</span> 
+    <span class="hljs-attr">image:</span> <span class="hljs-string">ghcr.io/owner/myservice1</span>
+    <span class="hljs-attr">credentials:</span>
+      <span class="hljs-attr">username:</span> <span class="hljs-string">${{</span> <span class="hljs-string">github.actor</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">password:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ghcr_token</span> <span class="hljs-string">}}</span>
+  <span class="hljs-attr">myservice2:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">dockerhub_org/myservice2</span>
+    <span class="hljs-attr">credentials:</span>
+      <span class="hljs-attr">username:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.DOCKER_USER</span> <span class="hljs-string">}}</span>
+      <span class="hljs-attr">password:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.DOCKER_PASSWORD</span> <span class="hljs-string">}}</span>
+</code></pre>
+<h3 id="jobsjob_idservicesservice_idenv"><a href="#jobsjob_idservicesservice_idenv"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env</code></a></h3>
+<p>Sets a <code>map</code> of environment variables in the service container.</p>
+<h3 id="jobsjob_idservicesservice_idports"><a href="#jobsjob_idservicesservice_idports"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.ports</code></a></h3>
+<p>Sets an <code>array</code> of ports to expose on the service container.</p>
+<h3 id="jobsjob_idservicesservice_idvolumes"><a href="#jobsjob_idservicesservice_idvolumes"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.volumes</code></a></h3>
+<p>Sets an <code>array</code> of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.</p>
+<p>To specify a volume, you specify the source and destination path:</p>
+<p><code>&lt;source&gt;:&lt;destinationPath&gt;</code>.</p>
+<p>The <code>&lt;source&gt;</code> is a volume name or an absolute path on the host machine, and <code>&lt;destinationPath&gt;</code> is an absolute path in the container.</p>
+<h4 id="example-18"><a href="#example-18">Example</a></h4>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">volumes:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">my_docker_volume:/volume_mount</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">/data/my_data</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">/source/directory:/destination/directory</span>
+</code></pre>
+<h3 id="jobsjob_idservicesservice_idoptions"><a href="#jobsjob_idservicesservice_idoptions"><code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.options</code></a></h3>
+<p>Additional Docker container resource options. For a list of options, see &quot;<a href="https://docs.docker.com/engine/reference/commandline/create/#options"><code>docker create</code> options</a>.&quot;</p>
+<h3 id="filter-pattern-cheat-sheet"><a href="#filter-pattern-cheat-sheet">Filter pattern cheat sheet</a></h3>
+<p>You can use special characters in path, branch, and tag filters.</p>
+<ul>
+<li><code>*</code>: Matches zero or more characters, but does not match the <code>/</code> character. For example, <code>Octo*</code> matches <code>Octocat</code>.</li>
+<li><code>**</code>: Matches zero or more of any character.</li>
+<li><code>?</code>: Matches zero or one single character. For example, <code>Octoc?t</code> matches <code>Octocat</code>.</li>
+<li><code>+</code>: Matches one or more of the preceding character.</li>
+<li><code>[]</code> Matches one character listed in the brackets or included in ranges. Ranges can only include <code>a-z</code>, <code>A-Z</code>, and <code>0-9</code>. For example, the range<code>[0-9a-z]</code> matches any digit or lowercase letter. For example, <code>[CB]at</code> matches <code>Cat</code> or <code>Bat</code> and <code>[1-2]00</code> matches <code>100</code> and <code>200</code>.</li>
+<li><code>!</code>: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.</li>
+</ul>
+<p>The characters <code>*</code>, <code>[</code>, and <code>!</code> are special characters in YAML. If you start a pattern with <code>*</code>, <code>[</code>, or <code>!</code>, you must enclose the pattern in quotes.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-comment"># Valid</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">&apos;**/README.md&apos;</span>
+
+<span class="hljs-comment"># Invalid - creates a parse error that</span>
+<span class="hljs-comment"># prevents your workflow from running.</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">**/README.md</span>
+</code></pre>
+<p>For more information about branch, tag, and path filter syntax, see &quot;<a href="#onpushpull_requestbranchestags"><code>on.&lt;push|pull_request&gt;.&lt;branches|tags&gt;</code></a>&quot; and &quot;<a href="#onpushpull_requestpaths"><code>on.&lt;push|pull_request&gt;.paths</code></a>.&quot;</p>
+<h4 id="patterns-to-match-branches-and-tags"><a href="#patterns-to-match-branches-and-tags">Patterns to match branches and tags</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pattern</th><th>Description</th><th>Example matches</th></tr></thead><tbody><tr><td><code>feature/*</code></td><td>The <code>*</code> wildcard matches any character, but does not match slash (<code>/</code>).</td><td><code>feature/my-branch</code><br><br><code>feature/your-branch</code></td></tr><tr><td><code>feature/**</code></td><td>The <code>**</code> wildcard matches any character including slash (<code>/</code>) in branch and tag names.</td><td><code>feature/beta-a/my-branch</code><br><br><code>feature/your-branch</code><br><br><code>feature/mona/the/octocat</code></td></tr><tr><td><code>main</code><br><br><code>releases/mona-the-octcat</code></td><td>Matches the exact name of a branch or tag name.</td><td><code>main</code><br><br><code>releases/mona-the-octocat</code></td></tr><tr><td><code>&apos;*&apos;</code></td><td>Matches all branch and tag names that don&apos;t contain a slash (<code>/</code>). The <code>*</code> character is a special character in YAML. When you start a pattern with <code>*</code>, you must use quotes.</td><td><code>main</code><br><br><code>releases</code></td></tr><tr><td><code>&apos;**&apos;</code></td><td>Matches all branch and tag names. This is the default behavior when you don&apos;t use a <code>branches</code> or <code>tags</code> filter.</td><td><code>all/the/branches</code><br><br><code>every/tag</code></td></tr><tr><td><code>&apos;*feature&apos;</code></td><td>The <code>*</code> character is a special character in YAML. When you start a pattern with <code>*</code>, you must use quotes.</td><td><code>mona-feature</code><br><br><code>feature</code><br><br><code>ver-10-feature</code></td></tr><tr><td><code>v2*</code></td><td>Matches branch and tag names that start with <code>v2</code>.</td><td><code>v2</code><br><br><code>v2.0</code><br><br><code>v2.9</code></td></tr><tr><td><code>v[12].[0-9]+.[0-9]+</code></td><td>Matches all semantic versioning branches and tags with major version 1 or 2</td><td><code>v1.10.1</code><br><br><code>v2.0.0</code></td></tr></tbody></table>
+<h4 id="patterns-to-match-file-paths"><a href="#patterns-to-match-file-paths">Patterns to match file paths</a></h4>
+<p>Path patterns must match the whole path, and start from the repository&apos;s root.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pattern</th><th>Description of matches</th><th>Example matches</th></tr></thead><tbody><tr><td><code>&apos;*&apos;</code></td><td>The <code>*</code> wildcard matches any character, but does not match slash (<code>/</code>). The <code>*</code> character is a special character in YAML. When you start a pattern with <code>*</code>, you must use quotes.</td><td><code>README.md</code><br><br><code>server.rb</code></td></tr><tr><td><code>&apos;*.jsx?&apos;</code></td><td>The <code>?</code> character matches zero or one of the preceding character.</td><td><code>page.js</code><br><br><code>page.jsx</code></td></tr><tr><td><code>&apos;**&apos;</code></td><td>The <code>**</code> wildcard matches any character including slash (<code>/</code>). This is the default behavior when you don&apos;t use a <code>path</code> filter.</td><td><code>all/the/files.md</code></td></tr><tr><td><code>&apos;*.js&apos;</code></td><td>The <code>*</code> wildcard matches any character, but does not match slash (<code>/</code>). Matches all <code>.js</code> files at the root of the repository.</td><td><code>app.js</code><br><br><code>index.js</code></td></tr><tr><td><code>&apos;**.js&apos;</code></td><td>Matches all <code>.js</code> files in the repository.</td><td><code>index.js</code><br><br><code>js/index.js</code><br><br><code>src/js/app.js</code></td></tr><tr><td><code>docs/*</code></td><td>All files within the root of the <code>docs</code> directory, at the root of the repository.</td><td><code>docs/README.md</code><br><br><code>docs/file.txt</code></td></tr><tr><td><code>docs/**</code></td><td>Any files in the <code>/docs</code> directory at the root of the repository.</td><td><code>docs/README.md</code><br><br><code>docs/mona/octocat.txt</code></td></tr><tr><td><code>docs/**/*.md</code></td><td>A file with a <code>.md</code> suffix anywhere in the <code>docs</code> directory.</td><td><code>docs/README.md</code><br><br><code>docs/mona/hello-world.md</code><br><br><code>docs/a/markdown/file.md</code></td></tr><tr><td><code>&apos;**/docs/**&apos;</code></td><td>Any files in a <code>docs</code> directory anywhere in the repository.</td><td><code>/docs/hello.md</code><br><br><code>dir/docs/my-file.txt</code><br><br><code>space/docs/plan/space.doc</code></td></tr><tr><td><code>&apos;**/README.md&apos;</code></td><td>A README.md file anywhere in the repository.</td><td><code>README.md</code><br><br><code>js/README.md</code></td></tr><tr><td><code>&apos;**/*src/**&apos;</code></td><td>Any file in a folder with a <code>src</code> suffix anywhere in the repository.</td><td><code>a/src/app.js</code><br><br><code>my-src/code/js/app.js</code></td></tr><tr><td><code>&apos;**/*-post.md&apos;</code></td><td>A file with the suffix <code>-post.md</code> anywhere in the repository.</td><td><code>my-post.md</code><br><br><code>path/their-post.md</code></td></tr><tr><td><code>&apos;**/migrate-*.sql&apos;</code></td><td>A file with the prefix <code>migrate-</code> and suffix <code>.sql</code> anywhere in the repository.</td><td><code>migrate-10909.sql</code><br><br><code>db/migrate-v1.0.sql</code><br><br><code>db/sept/migrate-v1.sql</code></td></tr><tr><td><code>*.md</code><br><br><code>!README.md</code></td><td>Using an exclamation mark (<code>!</code>) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included.</td><td><code>hello.md</code><br><br><em>Does not match</em><br><br><code>README.md</code><br><br><code>docs/hello.md</code></td></tr><tr><td><code>*.md</code><br><br><code>!README.md</code><br><br><code>README*</code></td><td>Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths.</td><td><code>hello.md</code><br><br><code>README.md</code><br><br><code>README.doc</code></td></tr></tbody></table>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/actions/reference/workflow-syntax-for-github-actions.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/actions/reference/workflow-syntax-for-github-actions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:10 GMT -->
+</html>
