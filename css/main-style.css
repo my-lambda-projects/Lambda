@@ -1,12 +1,11 @@
-
-  nav ul {
-    display: flex;
-  }
-
-  nav li {
-    flex: 1;
-  }
+nav ul {
+  display: flex;
 }
+
+nav li {
+  flex: 1;
+}
+
 
 #footer {
   height: 950px;
@@ -14,35 +13,38 @@
   zoom: 0.8;
 
 }
-#fire{
-    width: 100%;
-    zoom: 0.8;
+
+#fire {
+  width: 100%;
+  zoom: 0.8;
 }
+
 #out {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#content{
-  height:880px;
+
+#content {
+  height: 880px;
 }
 
-h2{
-        position: relative;
-        font-family: 'Montserrat',
-        Arial,
-        sans-serif;
-        font-size: calc(20px + 5vw);
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        text-shadow: 0 0 0.15em #1da9cc;
-        user-select: none;
-        white-space: nowrap;
-        filter: blur(0.007em);
-        animation: shake 2.5s linear forwards;
-      }
+h2 {
+  position: relative;
+  font-family: 'Montserrat',
+    Arial,
+    sans-serif;
+  font-size: calc(20px + 5vw);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.15em #1da9cc;
+  user-select: none;
+  white-space: nowrap;
+  filter: blur(0.007em);
+  animation: shake 2.5s linear forwards;
+}
 
 *:before,
 *:after {
@@ -63,11 +65,7 @@ h2::after {
   left: 0;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+
 
 .embed {
   padding-top: 30px;
@@ -90,6 +88,7 @@ h2::after {
   -webkit-border-radius: 6px 6px 4px 4px;
   border-radius: 6px 6px 6px 6px;
 }
+
 .embed1 {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -210,7 +209,7 @@ a:active {
 body {
   justify-content: center;
   align-items: center;
-  zoom:1.1;
+  zoom: 1.1;
 }
 
 ul {
@@ -219,11 +218,11 @@ ul {
   box-align: center;
   column-count: 2;
   margin: auto;
-   padding: 8;
-   border-radius: 8;
-   border-color: '#33CC99';
-   border-width: 2;
-   box-shadow: 2.22;
+  padding: 8;
+  border-radius: 8;
+  border-color: '#33CC99';
+  border-width: 2;
+  box-shadow: 2.22;
 }
 
 li {
@@ -281,6 +280,7 @@ body {
   border-bottom: 1px solid #333333;
   border-left: 1px solid #18047a;
 }
+
 #scrollBtn {
   display: none;
   /* Hidden by default */
@@ -314,6 +314,7 @@ body {
   background-color: #555;
   /* Add a dark-grey background on hover */
 }
+
 iframe.animate {
   overflow-y: scroll;
   border-radius: 2px;
@@ -326,14 +327,14 @@ iframe.animate {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-   margin: auto;
-   align-content: center;
-   justify-content: center;
-    padding: 8;
-    border-radius: 8;
-    border-color: '#33CC99';
-    border-width: 2;
-    box-shadow: 2.22;
+  margin: auto;
+  align-content: center;
+  justify-content: center;
+  padding: 8;
+  border-radius: 8;
+  border-color: '#33CC99';
+  border-width: 2;
+  box-shadow: 2.22;
 }
 
 iframe.embed {
