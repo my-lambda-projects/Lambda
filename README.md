@@ -4,7 +4,7 @@
 ![demo](./frames.gif)
 # Lambda Resources Website)
 
-
+![demo2](https://github.com/bgoonz/Lambda/blob/master/eDTCKsuaI2.gif?raw=true)
 
 #### Loading Gif:
 
