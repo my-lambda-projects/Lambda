@@ -1,0 +1,324 @@
+<h2 id="linux">Linux</h2>
+<h4 id="q1.-to-mount-a-drive-by-its-id-what-command-would-you-use-first-to-retrieve-it">Q1. To mount a drive by its ID, what command would you use first to retrieve it?</h4>
+<ul>
+<li>[ ] df -h</li>
+<li>[ ] listid</li>
+<li>[ ] ls -l</li>
+<li>[x] blkid</li>
+</ul>
+<h4 id="q2.-linux-file-access-control-lists-acls-are-_.">Q2. Linux file access control lists (ACLs) are <strong>_</strong>.</h4>
+<ul>
+<li>[x] discretionary access control system permissions layered over standard Linux permissions</li>
+<li>[ ] mandatory access control system permissions layered over standard Linux permissions</li>
+<li>[ ] a type of firewall for Linux</li>
+<li>[ ] the same as standard Linux permissions</li>
+</ul>
+<h4 id="q3.-when-using-iproute2-how-do-you-show-routing-information-for-an-ipv6-network">Q3. When using iproute2, how do you show routing information for an IPv6 network?</h4>
+<ul>
+<li>[ ] route -ipv6</li>
+<li>[ ] route</li>
+<li>[x] ip -6 route show</li>
+<li>[ ] ip route show</li>
+</ul>
+<h4 id="q4.-what-does-this-command-string-do">Q4. What does this command string do?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">find</span> / -size +10M -exec ls -l {} ;</a></code></pre></div>
+<ul>
+<li>[ ] It finds all files using ls -l and hands them off to the find command to display.</li>
+<li>[ ] It finds all files older than 10 minutes and long lists them using the ls command.</li>
+<li>[x] It finds all files larger than 10 MB and long lists them using the ls command.</li>
+<li>[ ] It uses the ls command to find all files in the filesystem matching the {} wildcard.</li>
+</ul>
+<h4 id="q5.-what-would-this-locate-command-show">Q5. What would this locate command show?</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">locate</span> --regexp <span class="st">&#39;^/usr.*pixmaps.*jpg$&#39;</span></a></code></pre></div>
+<ul>
+<li>[ ] all files in a directory named pixmaps</li>
+<li>[ ] all files ending in ".jpg"</li>
+<li>[x] all file paths that start with "/usr", include the word "pixmaps", and end with ".jpg"</li>
+<li>[ ] all file paths that include "/usr/pixmaps" and end with ".jpg"</li>
+</ul>
+<h4 id="q6.-which-command-allows-you-to-do-packet-analysis-from-the-command-line">Q6. Which command allows you to do packet analysis from the command line?</h4>
+<ul>
+<li>[ ] wireshark</li>
+<li>[ ] ethtool</li>
+<li>[ ] netstat</li>
+<li>[x] tcpdump</li>
+</ul>
+<h4 id="q7.-which-command-will-tell-you-how-long-a-system-has-been-running">Q7. Which command will tell you how long a system has been running?</h4>
+<ul>
+<li>[ ] log</li>
+<li>[x] uptime</li>
+<li>[ ] runtime</li>
+<li>[ ] access</li>
+</ul>
+<h4 id="q8.-how-would-you-describe-pcp-performance-co-pilot">Q8. How would you describe PCP (Performance Co-Pilot)?</h4>
+<ul>
+<li>[ ] It is an application testing suite used to profile programming code.</li>
+<li>[ ] It is a local command used for monitoring local system resources in real time.</li>
+<li>[x] It is a set of tools, services, and libraries for gathering and analyzing performance measures.</li>
+<li>[ ] It is a tool designed to change system configuration for purposes of optimization.</li>
+</ul>
+<h4 id="q9.-you-want-to-resolve-a-long-list-of-dns-names-using-dig.-what-should-you-do">Q9. You want to resolve a long list of DNS names using dig. What should you do?</h4>
+<ul>
+<li>[x] Create a text file including all names and use the -f option of dig.</li>
+<li>[ ] Type in each query manually.</li>
+<li>[ ] Write a shell script to send multiple dig queries to the DNS server.</li>
+<li>[ ] Save the DNS names in an SQL database and process it with dig.</li>
+</ul>
+<h4 id="q10.-what-would-this-command-output">Q10. What would this command output?</h4>
+<pre><code>ps -e --format uid,pid,ppid,%cpu,cmd</code></pre>
+<ul>
+<li>[x] the user ID, process ID, parent process ID, CPU usage, and command name of a process</li>
+<li>[ ] the user ID, group ID, parent process ID, CPU usage, and command name of a process</li>
+<li>[ ] the UUID, process ID, parent process ID, CPU usage, and command name of a process</li>
+<li>[ ] all of these answers</li>
+</ul>
+<h4 id="q11.-which-command-in-bash-executes-the-last-line-in-the-shell-history-that-starts-with-ls">Q11. Which command in Bash executes the last line in the shell history that starts with ls?</h4>
+<ul>
+<li>[ ] !</li>
+<li>[ ] !!</li>
+<li>[ ] !*</li>
+<li>[x] !ls</li>
+</ul>
+<h4 id="q12.-the-ssh-copy-id-command-copies-_-to-the-remote-host.">Q12. The ssh-copy-id command copies <strong>_</strong> to the remote host.</h4>
+<ul>
+<li>[ ] both private and public keys</li>
+<li>[x] the ssh public key</li>
+<li>[ ] the ssh private key</li>
+<li>[ ] a fingerprint file</li>
+</ul>
+<h4 id="q13.-what-command-is-used-to-determine-the-amount-of-disk-usage-for-a-directory">Q13. What command is used to determine the amount of disk usage for a directory?</h4>
+<ul>
+<li>[ ] find</li>
+<li>[ ] fdisk</li>
+<li>[x] du</li>
+<li>[ ] df</li>
+</ul>
+<h4 id="q14.-a-backup-drive-was-created-using-dd-to-make-a-bit-for-bit-copy.-when-the-drive-is-inserted-into-an-iscsi-target-before-it-is-booted-up-the-data-appears-to-be-missing.-what-happened">Q14. A backup drive was created using dd to make a bit-for-bit copy. When the drive is inserted into an iSCSI target before it is booted up, the data appears to be missing. What happened?</h4>
+<ul>
+<li>[ ] The backup drive is corrupted and needs to be re-created.</li>
+<li>[x] When the backup drive was duplicated, the label was as well. When booted, the system mounted the old duplicated drive by its identical label.</li>
+<li>[ ] There is a conflict between the physical location of the backup drive and the original drive.</li>
+<li>[ ] The backup process went wrong, and the old drive was duplicated over the original drive.</li>
+</ul>
+<h4 id="q15.-what-is-the-key-difference-between-a-redirect-and-piping-to-the-tee-command">Q15. What is the key difference between a redirect (&gt;) and piping to the tee command?</h4>
+<ul>
+<li>[ ] The tee command sends output only to STDOUT and STDERR.</li>
+<li>[ ] A redirect sends output to STDOUT and a file, whereas a tee sends output only to STDOUT.</li>
+<li>[ ] Nothing, they are the same.</li>
+<li>[x] The tee command sends output to STDOUT and a file, whereas a redirect sends output only to a file.</li>
+</ul>
+<h4 id="q16.-what-does-the-etcnsswitch.conf-file-manage">Q16. What does the /etc/nsswitch.conf file manage?</h4>
+<ul>
+<li>[ ] priority of one DNS server over another</li>
+<li>[ ] per network interface DNS server configuration</li>
+<li>[ ] alternative DNS services</li>
+<li>[x] sources for name service information</li>
+</ul>
+<h4 id="q17.-assume-the-variable-mynumber-holds-a-string-consisting-of-10-digits.-what-will-this-command-output">Q17. Assume the variable myNumber holds a string consisting of 10 digits. What will this command output?</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">echo</span> <span class="dt">\$</span>myNumber <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&#39;s/^[[:digit:]][[:digit:]][[:digit:]]/(&amp;)/g&#39;</span></a></code></pre></div>
+<ul>
+<li>[ ] It will only match digits—and since the string has only digits, the command will output the same number without changes.</li>
+<li>[ ] It will output the same 10-digit number, but every digit will be inside parentheses.</li>
+<li>[ ] It will output the entire 10-digit number inside parentheses.</li>
+<li>[x] It will output the same 10-digit number, but the first 3 digits will be inside parentheses.</li>
+</ul>
+<h4 id="q18.-packages-can-be-downloaded-but-not-installed-with-yum-or-dnf-by-specifying-which-option">Q18. Packages can be downloaded but not installed with yum or dnf by specifying which option?</h4>
+<ul>
+<li>[ ] None of these answers. yum does not support downloading packages without installing them.</li>
+<li>[ ] –downloaddir</li>
+<li>[ ] -d</li>
+<li>[x] –downloadonly</li>
+</ul>
+<h4 id="q19.-what-character-class-is-equal-to-this-set">Q19. What character class is equal to this set?</h4>
+<p>[0-9]</p>
+<ul>
+<li>[ ] [[:alnum:]]</li>
+<li>[x] [[:digit:]]</li>
+<li>[ ] [[:alpha:]]</li>
+<li>[ ] [[:num:]]</li>
+</ul>
+<h4 id="q20.-when-archiving-files-which-command-will-preserve-all-file-attributes-including-acls-and-selinux-security-context">Q20. When archiving files, which command will preserve all file attributes including ACLs and SELinux security context?</h4>
+<ul>
+<li>[ ] zip</li>
+<li>[x] tar</li>
+<li>[ ] archive</li>
+<li>[ ] gzip</li>
+</ul>
+<h4 id="q21.-in-a-systemd-based-os-you-can-change-the-system-hostname-by-editing-etchostname-manually-and-then-doing-what">Q21. In a systemd-based OS, you can change the system hostname by editing /etc/hostname manually and then doing what?</h4>
+<ul>
+<li>[ ] Restart dhcpd.</li>
+<li>[ ] Run /etc/hostname.</li>
+<li>[x] Nothing, the system notices automatically.</li>
+<li>[ ] Notify systemd to update it by restarting the systemd-hostnamed service.</li>
+</ul>
+<h4 id="q22.-what-command-would-you-use-to-resize-an-lvm-volume-group-to-include-an-additional-physical-volume">Q22. What command would you use to resize an LVM volume group to include an additional physical volume?</h4>
+<ul>
+<li>[ ] vgadd</li>
+<li>[ ] vgresize</li>
+<li>[ ] vgappend</li>
+<li>[x] vgextend</li>
+</ul>
+<h4 id="q23.-when-would-this-system-cron-job-run-its-task">Q23. When would this system cron job run its task?</h4>
+<p>0 1 * * *</p>
+<ul>
+<li>[ ] every minute of the hour</li>
+<li>[ ] every hour of every day</li>
+<li>[x] every day at 1:00 AM</li>
+<li>[ ] only on Mondays</li>
+</ul>
+<h4 id="q24.-ifconfig-has-been-deprecated.-what-command-is-now-recommended-for-changing-ip-addresses-in-the-live-config">Q24. ifconfig has been deprecated. What command is now recommended for changing IP addresses in the live config?</h4>
+<ul>
+<li>[ ] netconf</li>
+<li>[ ] ipconfig</li>
+<li>[ ] ipman</li>
+<li>[x] ip</li>
+</ul>
+<h4 id="q25.-you-are-managing-an-apache-web-server-on-a-system-using-selinux.-by-default-it-cannot-read-personal-webpages-in-users-home-directories.-what-selinux-boolean-would-you-set-to-allow-this">Q25. You are managing an Apache web server on a system using SELinux. By default it cannot read personal webpages in users' home directories. What SELinux boolean would you set to allow this?</h4>
+<ul>
+<li>[ ] apache_enable_homedirs</li>
+<li>[ ] httpd_enable_userdirs</li>
+<li>[x] httpd_enable_homedirs</li>
+<li>[ ] httpd_enable_userhome_dirs</li>
+</ul>
+<h4 id="q26.-why-doesnt-passwd--l-keep-a-user-from-logging-in-via-other-methods">Q26. Why doesn't passwd -l keep a user from logging in via other methods?</h4>
+<ul>
+<li>[ ] The passwd command is not used for locking passwords.</li>
+<li>[ ] There is no password -l option.</li>
+<li>[x] It locks only the password, not the account, so users can still authenticate with keys or other methods.</li>
+<li>[ ] It does lock the account, keeping users from logging in even if they are using other authentication methods.</li>
+</ul>
+<h4 id="q27.-in-the-bash-shell-what-is-the-difference-between-piping-into-and-piping-into">Q27. In the Bash shell, what is the difference between piping into | and piping into |&amp;?</h4>
+<ul>
+<li>[ ] Piping into | pipes both stdout and stderr. Piping into |&amp; pipes only stderr.</li>
+<li>[x] Piping into | pipes stdout. Piping into |&amp; pipes stdout and stderr.</li>
+<li>[ ] Piping into | pipes both stdout and stderr. Piping into |&amp; pipes only stdout.</li>
+<li>[ ] Piping into | pipes stdout. Piping into |&amp; pipes all open file descriptors.</li>
+</ul>
+<h4 id="q28.-why-is-the-passwd-command-able-to-modify-the-etcpasswd-file">Q28. Why is the passwd command able to modify the /etc/passwd file?</h4>
+<ul>
+<li>[ ] The kernel identifies it as one of the names of extended commands.</li>
+<li>[ ] It has the same name as the file it modifies.</li>
+<li>[x] It has the SUID permission mode and is owned by root.</li>
+<li>[ ] It is a system administration command.</li>
+</ul>
+<h4 id="q29.-when-a-user-deletes-a-file-using-the-rm-command-linux-will-_.">Q29. When a user deletes a file using the rm command, Linux will <strong>_</strong>.</h4>
+<ul>
+<li>[ ] always ask for confirmation</li>
+<li>[ ] back up the file before it deletes the file</li>
+<li>[x] ask for confirmation if configured to do so</li>
+<li>[ ] never ask for confirmation</li>
+</ul>
+<h4 id="q30.-what-is-a-major-advantage-of-using-logical-volume-management-lvm">Q30. What is a major advantage of using Logical Volume Management (LVM)?</h4>
+<ul>
+<li>[ ] Access to a drive is faster than with standard partitions.</li>
+<li>[ ] Volumes can be resized smaller without unmounting them.</li>
+<li>[ ] Repairing filesystem errors is easier than with standard partitions.</li>
+<li>[x] Volumes can be resized even if the free space is not contiguous.</li>
+</ul>
+<h4 id="q31.-what-is-one-major-difference-between-brace-expansion-and-globs">Q31. What is one major difference between brace expansion and globs?</h4>
+<ul>
+<li>[ ] Globs create a list; brace expansion matches pattern.</li>
+<li>[ ] Brace expansion requires files to exist; globs do not.</li>
+<li>[x] Brace expansion creates a list; globs mart the list of pathnames.</li>
+<li>[ ] Globs get processes first and brace expansion later.</li>
+</ul>
+<h4 id="q32.-to-remove-all-acls-from-a-directory-use-setfacl-with-which-options">Q32. To remove all ACLs from a directory , use setfacl with which options?</h4>
+<ul>
+<li>[ ] -d</li>
+<li>[ ] -k</li>
+<li>[x] -b</li>
+<li>[ ] -x</li>
+</ul>
+<h4 id="q33.-which-choice-will-not-print-hello-world-in-the-terminal">Q33. Which choice will not print "Hello World" in the terminal?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">myVar</span> = 5</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">[[</span> <span class="va">$myVar</span> <span class="ot">-lt</span> 10<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot; Hello World&quot;</span></a></code></pre></div>
+<ul>
+<li>[X]</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">myVar</span> = 5</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">[[</span> <span class="va">$myVar</span> <span class="ot">-lt</span> 10<span class="kw"> ]]</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot; Hello World&quot;</span></a></code></pre></div>
+<ul>
+<li>[X]</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">myVar</span> = 5</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">[[</span> <span class="va">$myVar</span> <span class="ot">-gt</span> 10<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot; Hello World&quot;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">myVar</span> = 5</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">[[</span> <span class="va">$myVar</span> <span class="ot">-gt</span> 10<span class="kw"> ]]</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&quot; Hello World&quot;</span></a></code></pre></div>
+<h4 id="q34.-what-is-not-inherited-by-child-process">Q34. What is not inherited by child process?</h4>
+<ul>
+<li>[x] shell aliases</li>
+<li>[ ] userid</li>
+<li>[ ] environmental variables</li>
+<li>[ ] scheduling priority</li>
+</ul>
+<h4 id="q35.-what-nfs-option-allows-the-root-user-to-access-nfs-shares-as-the-root-user">Q35. What NFS option allows the root user to access NFS shares as the root user?</h4>
+<ul>
+<li>[ ] no_admin_squash</li>
+<li>[ ] no_root_squash</li>
+<li>[x] allow_root_access</li>
+<li>[ ] all_squash</li>
+</ul>
+<h4 id="q36.-you-send-an-email-to-a-remote-client-using-the-following-syntax.-what-will-be-in-the-body-of-the-email">Q36. You send an email to a remote client using the following syntax. What will be in the body of the email?</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="fu">date</span> <span class="kw">|</span> <span class="ex">mail</span> -s <span class="st">&quot;This is a remote test&quot;</span> user1@rhhost1.localnet.com</a></code></pre></div>
+<ul>
+<li>[ ] "This is a remote test"</li>
+<li>[ ] the date, the time, and the words "This is a remote test"</li>
+<li>[ ] The email subject shows "This is a remote test" but the body of the email will be empty.</li>
+<li>[x] the current date and time</li>
+</ul>
+<h4 id="q37.-what-is-the-etchosts-file-used-for">Q37. What is the /etc/hosts file used for?</h4>
+<ul>
+<li>[ ] resolving the local name</li>
+<li>[ ] blocking sites using iptables</li>
+<li>[x] setting the hostname</li>
+<li>[ ] configuring DNS name servers</li>
+</ul>
+<h4 id="q38.-in-an-extended-regular-expression-you-would-use-pattern3-to-match-three-instances-of-the-pattern.-how-would-you-match-the-same-thing-with-an-extended-glob">Q38. In an extended regular expression, you would use (pattern){3} to match three instances of the pattern. How would you match the same thing with an extended glob?</h4>
+<ul>
+<li>[ ] 3(pattern)</li>
+<li>[ ] {0,3}(pattern}</li>
+<li>[x] Occurrence quantifiers are not supported in Bash's version of extended globs, so this is not possible.</li>
+<li>[ ] {3}(pattern})</li>
+</ul>
+<h4 id="q39.-when-configuring-a-samba-share-how-would-the-engineering-group-be-specified-in-the-smb.conf">Q39. When configuring a Samba share, how would the engineering group be specified in the smb.conf?</h4>
+<ul>
+<li>[ ] Samba uses Linux operating system groups from the /etc/group file; just specify the group name.</li>
+<li>[x] It would be preceded by a percent sign (%), such as %engineers.</li>
+<li>[ ] Use the group name by itself; Samba checks for its existence.</li>
+<li>[ ] It would be preceded by an @ symbol, such as <span class="citation" data-cites="engineering">@engineering</span>.</li>
+</ul>
+<h4 id="q40.-to-configure-the-kerberos-client-which-command-should-you-use-to-import-the-keytab-file">Q40. To configure the Kerberos client, which command should you use to import the keytab file?</h4>
+<ul>
+<li>[ ] krb5-workstation</li>
+<li>[x] ktutil</li>
+<li>[ ] pam_krb5</li>
+<li>[ ] kdb5_util</li>
+</ul>
+<h4 id="q41.-to-search-from-the-current-cursor-position-up-to-the-beginning-of-the-file-using-vim-type-______-and-then-the-search-criteria.">Q41. To search from the current cursor position up to the beginning of the file using VIM, type ______ and then the search criteria.</h4>
+<ul>
+<li>[x] ?</li>
+<li>[ ]<br />
+</li>
+<li>[ ] /</li>
+<li>[ ] /search</li>
+</ul>
+<h4 id="q42.-what-is-the-job-of-the-networkmanager-daemon">Q42. What is the job of the NetworkManager daemon?</h4>
+<ul>
+<li>[ ] It is a graphical tool that manages network connections, including bonding and wireless networks.</li>
+<li>[ ] It is a security service that manages user access control of local network-aware services.</li>
+<li>[ ] It attempts to keep an active network connection available at all times.</li>
+<li>[x] It is a command-line tool that manages network connections.</li>
+</ul>
+<h4 id="q43.-why-might-would-you-use-the-usermod-command">Q43. Why might would you use the usermod command ?</h4>
+<ul>
+<li>[ ] to log out a user</li>
+<li>[ ] to lock a user's account</li>
+<li>[x] to change global user account settings</li>
+<li>[ ] to set a user's password</li>
+</ul>

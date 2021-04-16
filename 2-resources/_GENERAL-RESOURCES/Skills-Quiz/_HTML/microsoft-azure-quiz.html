@@ -1,0 +1,347 @@
+<h2 id="microsoft-azure">Microsoft Azure</h2>
+<h4 id="q1.-you-need-to-create-an-application-in-azure-ad-representing-the-kineteco-web-app-so-you-can-assign-directory-permissions-to-the-app.-to-create-the-application-identity-which-command-will-you-run">Q1. You need to create an application in Azure AD representing the Kineteco Web App so you can assign directory permissions to the app. To create the application identity, which command will you run?</h4>
+<ul>
+<li>[ ] <code>bash az ad app permission grant -display-name $appName \ ...</code></li>
+<li>[ ] <code>bash az ad app credential create -display-name $appName \ ...</code></li>
+<li>[x] <code>bash az ad app create -display-name $appName \ ...</code></li>
+<li>[ ] <code>bash az ad app permission ass -display-name $appName \ ...</code></li>
+</ul>
+<h4 id="q2.-you-need-to-deliver-a-mobile-push-notification-feature-for-the-kineteco-retail-app-hosted-in-azure-app-service.-the-solution-should-minimize-cost-complexity-and-development-effort.-which-option-should-you-choose">Q2. You need to deliver a mobile push notification feature for the Kineteco Retail app, hosted in Azure App Service. The solution should minimize cost, complexity, and development effort. Which option should you choose?</h4>
+<ul>
+<li>[x] Notification Hub</li>
+<li>[ ] Event Grid</li>
+<li>[ ] Twilio</li>
+<li>[ ] Service Bus</li>
+</ul>
+<h4 id="q3.-your-application-hosted-in-azure-app-service-needs-to-retrieve-secrets-from-azure-key-vault.-which-choice-is-not-a-way-to-authenticate-to-key-vault">Q3. Your application hosted in Azure App Service needs to retrieve secrets from Azure Key Vault. Which choice is NOT a way to authenticate to Key Vault?</h4>
+<ul>
+<li>[ ] service principal and a certificate</li>
+<li>[ ] managed identity</li>
+<li>[ ] service principal and a secret</li>
+<li>[x] shared access key</li>
+</ul>
+<h4 id="q4.-you-added-a-persistent-volume-claim-to-your-apps-yaml-manifest.-when-you-attempt-to-deploy-to-an-existing-aks-cluster-there-is-no-persistent-volume-available.-what-should-you-do">Q4. You added a persistent volume claim to your apps YAML manifest. When you attempt to deploy to an existing AKS cluster there is no persistent volume available. What should you do?</h4>
+<ul>
+<li>[ ] Do nothing. The API server will provision additional storage automatically</li>
+<li>[x] Add a data disk definition for the AKS cluster to your apps YAML manifest</li>
+<li>[ ] Add a data disk to each Kubernetes cluster node and reattempt app deployment</li>
+<li>[ ] Provision an Azure Files instance and reattempt app deployment</li>
+</ul>
+<h4 id="q5.-your-corporate-web-application-is-hosted-in-azure-regional-data-centres-around-the-world.-you-need-to-route-user-requests-to-the-closest-service-endpoint-based-on-response-latency.-which-routing-method-should-you-use">Q5. Your corporate web application is hosted in Azure regional data centres around the world. You need to route user requests to the closest service endpoint based on response latency. Which routing method should you use?</h4>
+<ul>
+<li>[ ] Application gateway</li>
+<li>[ ] Front Door</li>
+<li>[ ] API Management</li>
+<li>[x] Traffic manager</li>
+</ul>
+<h4 id="q6.-you-are-developing-a-release-strategy-for-several-related-software-components.-you-need-to-reference-variable-groups-and-secure-files-across-multiple-build-and-release-pipelines.-what-is-the-most-efficient-way-to-store-and-reference-these-assets-from-the-pipeline">Q6. You are developing a release strategy for several related software components. You need to reference variable groups and secure files across multiple build and release pipelines. What is the most efficient way to store and reference these assets from the pipeline?</h4>
+<ul>
+<li>[ ] Add the assets to a git repository</li>
+<li>[x] Add the assets in Key Vault</li>
+<li>[ ] Add the assets to an encrypted volume</li>
+<li>[ ] Add the assets to a library</li>
+</ul>
+<h4 id="q7.-you-need-to-grant-full-access-for-an-app-to-a-temporary-azure-storage-account.-configuring-access-should-require-minimum-effort.-which-option-should-you-use">Q7. You need to grant full access for an app to a temporary Azure storage account. Configuring access should require minimum effort. Which option should you use?</h4>
+<ul>
+<li>[x] Azure AD user account</li>
+<li>[ ] Shared access signature</li>
+<li>[ ] Shared key</li>
+<li>[ ] Certificate</li>
+</ul>
+<h4 id="q8.-the-kineteco-web-app-runs-in-an-azure-kubernetes-service.-you-need-to-monitor-feature-use-and-user-navigation-paths-to-identify-where-improvements-are-needed.-what-should-you-do">Q8. The Kineteco web app runs in an Azure Kubernetes Service. You need to monitor feature use and user navigation paths to identify where improvements are needed. What should you do?</h4>
+<ul>
+<li>[ ] Configure application insights cohort</li>
+<li>[x] Install the Log Analytics agent and configure Azure Monitor for Containers</li>
+<li>[ ] Install the App Insights on AKS nodes</li>
+<li>[ ] Add instrumentation to your app to send usage analytics with Application Insights.</li>
+</ul>
+<h4 id="q9.-which-choice-is-not-a-valid-trigger-for-an-azure-functions">Q9. Which choice is not a valid trigger for an Azure functions?</h4>
+<ul>
+<li>[ ] based on a time (schedule)</li>
+<li>[ ] another Azure service (cosmos, service bus)</li>
+<li>[ ] threshold alert in Azure App insights</li>
+<li>[x] third party services (GitHub)</li>
+</ul>
+<h4 id="q10.-which-messaging-service-enables-an-even-driven-programming-model">Q10. Which messaging service enables an even-driven programming model?</h4>
+<ul>
+<li>[ ] Service Bus</li>
+<li>[ ] Event Hub</li>
+<li>[ ] Notification Hub</li>
+<li>[x] Event Grid</li>
+</ul>
+<h4 id="q11.-you-need-to-populate-a-newly-created-sql-database-from-your-release-pipeline-in-azure-devops.-the-solution-should-minimize-deployment-time-and-efforts.-which-approach-should-you-use">Q11. You need to populate a newly created SQL database from your release pipeline in Azure DevOps. The solution should minimize deployment time and efforts. Which approach should you use?</h4>
+<ul>
+<li>[x] Populate from a BACPAC file.</li>
+<li>[ ] Restore from a backup file.</li>
+<li>[ ] Populate from a CSV file.</li>
+<li>[ ] Populate from a SQL file.</li>
+</ul>
+<h4 id="q12.-you-need-to-host-a-community-website-for-your-neighborhood-association.-the-site-contains-static-content-including-html-css-and-a-few-pages-with-client-side-javascript.-the-site-contains-no-sensitive-information-and-cors-support-is-unnecessary.-the-association-has-limited-funds-to-pay-for-hosting-so-the-solution-should-be-as-inexpensive-as-possible.-which-option-should-you-use">Q12. You need to host a community website for your neighborhood association. The site contains static content, including HTML, CSS, and a few pages with client-side JavaScript. The site contains no sensitive information, and CORS support is unnecessary. The association has limited funds to pay for hosting, so the solution should be as inexpensive as possible. Which option should you use?</h4>
+<ul>
+<li>[x] Azure Storage static website</li>
+<li>[ ] static website with Azure CDN</li>
+<li>[ ] App Service on Consumption plan</li>
+<li>[ ] App Service on Standard plan</li>
+</ul>
+<h4 id="q13.-your-organization-delivers-a-number-of-restful-web-services-to-customers-around-the-world.-you-need-to-deploy-cloud-infrastructure-to-deliver-these-services-to-paying-customers-including-authentication-request-throttling-and-routing-of-requests-to-the-closest-service-endpoint.-which-solution-should-you-choose">Q13. Your organization delivers a number of RESTful web services to customers around the world. You need to deploy cloud infrastructure to deliver these services to paying customers, including authentication, request throttling and routing of requests to the closest service endpoint. Which solution should you choose?</h4>
+<ul>
+<li>[ ] Front door</li>
+<li>[ ] API Management</li>
+<li>[ ] Traffic manager</li>
+<li>[x] Application Gateway</li>
+</ul>
+<h4 id="q14.-you-have-a-.net-app-running-on-a-vm-scale-set.-you-need-to-monitor-application-performance-without-modifying-the-code.-the-solution-should-minimize-the-cost.-what-should-you-do">Q14. You have a .NET app running on a VM Scale set. You need to monitor application performance without modifying the code. The solution should minimize the cost. What should you do?</h4>
+<ul>
+<li>[ ] Enable Network Performance Monitor on the VMs.</li>
+<li>[ ] Install the Log Analytics Agent and enable Azure Monitor for VMs.</li>
+<li>[x] Install the Application Insights Agent.</li>
+<li>[ ] Enable SolarWinds Performance Monitor from the Azure Marketplace.</li>
+</ul>
+<h4 id="q15.-when-setting-your-cicd-pipeline-an-approval-from-your-product-owner-is-required-before-a-final-release-to-production.-what-solution-do-you-use-to-achieve-this">Q15. When setting your CI/CD pipeline an approval from your product owner is required before a final release to production. What solution do you use to achieve this?</h4>
+<ul>
+<li>[ ] a Manual Intervention task</li>
+<li>[x] a pre-deployment condition</li>
+<li>[ ] a branch filter</li>
+<li>[ ] a pre-deployment gate</li>
+</ul>
+<h4 id="q16.-you-want-to-configure-the-aks-instance-running-the-kineteco-inventory-app-to-use-azure-active-directory-ad-for-user-authentication.-to-integrate-with-aks-with-azure-ad-which-steps-should-you-perform-first">Q16. You want to configure the AKS instance running the Kineteco Inventory App to use Azure Active Directory (AD) for user authentication. To integrate with AKS with Azure AD which steps should you perform first?</h4>
+<ul>
+<li>[ ] Create a service principal in Azure then assign the service principal AKS.</li>
+<li>[ ] Add users an Azure AD security group. Then assign the group permissions to AKS.</li>
+<li>[x] Create a service principal in Azure AD. Then add user to the AKS security group.</li>
+<li>[ ] Create an App ID in Azure AD. Then create a service principal for the server app.</li>
+</ul>
+<h4 id="q17.-which-access-protocol-does-azure-files-not-support">Q17. Which access protocol does Azure Files not support?</h4>
+<ul>
+<li>[ ] Network File System (NFS)</li>
+<li>[x] HTTPS</li>
+<li>[ ] REST API</li>
+<li>[ ] Server Message Block(SMB)</li>
+</ul>
+<h4 id="q18.-you-are-writing-an-app-for-a-sales-team.-you-need-to-implement-security-in-sql-server-to-ensure-that-sales-representatives-see-customer-financial-information-only-for-customers-whom-they-manage.-your-app-must-make-this-transparent-to-the-user.-which-s-ql-data-security-option-should-you-choose">Q18. You are writing an app for a sales team. You need to implement security in SQL Server to ensure that sales representatives see customer financial information only for customers whom they manage. Your app must make this transparent to the user. Which S#### QL data security option should you choose?</h4>
+<ul>
+<li>[x] Dynamic Data Masking</li>
+<li>[ ] Transparent Data Encryption</li>
+<li>[ ] Row-Level Security</li>
+<li>[ ] Always Encrypted</li>
+</ul>
+<h4 id="q19.-you-configure-access-to-secrets-in-azure-key-vault-with-_.">Q19. You configure access to secrets in Azure Key Vault with <code>\_</code>.</h4>
+<ul>
+<li>[ ] service principals</li>
+<li>[ ] certificates</li>
+<li>[ ] access policies</li>
+<li>[x] RBAC roles</li>
+</ul>
+<h4 id="q20.-your-kineteco-web-app-experiences-occasional-spikes-in-usage-that-cause-resource-shortages-that-generate-an-alert.-when-this-occurs-you-want-to-configure-scale-out-of-the-app-service-plan-resources.-the-solution-should-minimize-cost-and-administrative-effort.-what-should-you-do">Q20. Your Kineteco Web App experiences occasional spikes in usage that cause resource shortages that generate an alert. When this occurs, you want to configure scale out of the App Service plan resources. The solution should minimize cost and administrative effort. What should you do?</h4>
+<ul>
+<li>[ ] Create a Logic App. Then configure an action group with the Logic App action type.</li>
+<li>[ ] Create an Azure Automation Runbook. Then configure an action group with the Automation Runbook action type.</li>
+<li>[x] Configure an rule based on a metric.</li>
+<li>[ ] Create an Azure function. Then configure an action group with the Secure Webhook action type.</li>
+</ul>
+<h4 id="q21.-you-have-cicd-pipeline-for-a-modern-web-application-in-azure-devops.-the-cicd-process-includes-both-a-build-and-a-release-pipeline.-you-need-to-ensure-that-user-testing-uat-is-successful-before-triggering-the-release-pipeline.-the-process-should-be-automated-as-possible.-what-should-you-add-to-your-build-pipeline">Q21. You have CI/CD pipeline for a modern web application in Azure DevOps. The CI/CD process includes both a build and a release pipeline. You need to ensure that user testing (UAT) is successful before triggering the release pipeline. The process should be automated as possible. What should you add to your build pipeline?</h4>
+<ul>
+<li>[ ] Query Work Items gate</li>
+<li>[ ] Manual Intervention task</li>
+<li>[x] Approval gate</li>
+<li>[ ] Invoke REST API gate</li>
+</ul>
+<h4 id="q22.-the-kineteco-web-app-is-running-on-aks.-to-meet-a-spike-in-demand-the-horizontal-pod-autoscaler-recently-provisioned-additional-pods-which-are-no-longer-needed.-what-should-you-do-to-scale-down-unnecessary-pods">Q22. The Kineteco Web App is running on AKS. To meet a spike in demand, the horizontal pod autoscaler recently provisioned additional pods, which are no longer needed. What should you do to scale down unnecessary pods?</h4>
+<ul>
+<li>[ ] Trigger scale down in Azure Container Instances.</li>
+<li>[ ] Trigger scale down in the HPA from the Azure CLI.</li>
+<li>[ ] Manually deprovision unneeded pods.</li>
+<li>[x] Do nothing. HPA will initiate scale down automatically.</li>
+</ul>
+<h4 id="q23.-your-arm-template-created-in-vs-code-is-failing-validation-in-the-build-pipeline-in-azure-devops.-you-need-to-correct-syntax-issues-at-authoring-time-with-a-minimum-of-cost-and-effort.-what-should-you-do">Q23. Your ARM template, created in VS Code, is failing validation in the build pipeline in Azure DevOps. You need to correct syntax issues at authoring time with a minimum of cost and effort. What should you do?</h4>
+<ul>
+<li>[x] Install Azure Resource Manager Tools extension in VS Code.</li>
+<li>[ ] Install Visual Studio 2019 Enterprise edition.</li>
+<li>[ ] Install Visual Studio 2019 Community edition.</li>
+<li>[ ] Install Visual Studio Code IntelliCode extension in VS Code.</li>
+</ul>
+<h4 id="q24.-you-need-to-migrate-the-backlog-of-a-development-project-for-a-newly-acquired-subsidiary.-the-development-team-currently-uses-a-kanban-board-to-track-stories-tasks-and-bugs.-which-process-framework-should-you-select-in-azure-boards">Q24. You need to migrate the backlog of a development project for a newly acquired subsidiary. The development team currently uses a Kanban board to track stories, tasks, and bugs. Which process framework should you select in Azure Boards?</h4>
+<ul>
+<li>[x] Agile</li>
+<li>[ ] Waterfall</li>
+<li>[ ] Basic</li>
+<li>[ ] CMMI</li>
+</ul>
+<h4 id="q25.-you-have-set-of-sql-databases-used-with-various-paas-applications-with-predictable-usage-patterns.-you-are-planning-to-move-these-databases-to-azure-sql-and-need-to-choose-the-right-deployment-option.-your-priorities-are-minimizing-costs-and-having-the-ability-to-assign-cpu-and-resources-to-individual-databases.-which-option-should-you-choose">Q25. You have set of SQL databases used with various PaaS applications with predictable usage patterns. You are planning to move these databases to Azure SQL and need to choose the right deployment option. Your priorities are minimizing costs, and having the ability to assign CPU and resources to individual databases. Which option should you choose?</h4>
+<ul>
+<li>[x] Azure SQL elastic pool</li>
+<li>[ ] SQL on Azure VMs</li>
+<li>[ ] Azure SQL Database</li>
+<li>[ ] SQL Managed Instance</li>
+</ul>
+<h4 id="q26.-your-photo-app-hosted-in-azure-records-user-operations-in-a-log-for-historical-reference.-records-must-not-be-overwritten.-which-storage-type-should-you-select-to-host-log-data">Q26. Your photo app hosted in Azure records user operations in a log for historical reference. Records must not be overwritten. Which storage type should you select to host log data?</h4>
+<ul>
+<li>[x] append blob</li>
+<li>[ ] table storage</li>
+<li>[ ] page blob</li>
+<li>[ ] block blob</li>
+</ul>
+<h4 id="q27.-the-kineteco-retail-app-uses-keys-for-signing-and-encryption-of-some-data-transfers.-how-should-you-write-your-app-to-invoke-keys">Q27. The Kineteco Retail App uses keys for signing and encryption of some data transfers. How should you write your app to invoke keys?</h4>
+<ul>
+<li>[ ] Azure CLI</li>
+<li>[x] Azure Portal</li>
+<li>[ ] Azure PowerShell</li>
+<li>[ ] REST API</li>
+</ul>
+<h4 id="q28.-you-need-to-create-a-tech-support-chatbot-for-microsoft-teams-that-interacts-with-users-based-on-natural-language-processing-nlp.-the-bot-should-be-capable-of-processing-differing-sentence-structures.-which-microsoft-bot-framework-component-will-deliver-this-functionality">Q28. You need to create a tech support chatbot for Microsoft Teams that interacts with users based on natural language processing (NLP). The bot should be capable of processing differing sentence structures. Which Microsoft Bot Framework component will deliver this functionality?</h4>
+<ul>
+<li>[x] LUIS</li>
+<li>[ ] Text to Speech</li>
+<li>[ ] QnA Maker</li>
+<li>[ ] Form Recognizer</li>
+</ul>
+<h4 id="q29.-you-are-implementing-an-application-to-manage-automated-warehouse-operations-for-a-global-retailer.-you-need-to-design-an-enrollment-process-for-iot-devices-for-production-use.-solution-requirements-are-as-follows-register-iot-devices-in-bulk-encrypt-all-communication-between-devices-and-the-azure-iot-cloud-service-and-implement-microsoft-recommendations-for-device-security.-which-option-should-you-choose">Q29. You are implementing an application to manage automated warehouse operations for a global retailer. You need to design an enrollment process for IoT devices for production use. Solution requirements are as follows: Register IoT devices in bulk; encrypt all communication between devices and the Azure IoT cloud service; and implement Microsoft recommendations for device security. Which option should you choose?</h4>
+<ul>
+<li>[ ] managed identity (shared)</li>
+<li>[x] X.509 certificate</li>
+<li>[ ] managed service identity (per device)</li>
+<li>[ ] SAS key</li>
+</ul>
+<h4 id="q30.-you-are-deploying-three-azure-vms-with-an-azure-resource-manager-arm-template.-which-arm-function-implements-the-iteration-loop-to-provision-the-right-number-of-vms">Q30. You are deploying three Azure VMS with an Azure Resource Manager (ARM) template. Which ARM function implements the iteration loop to provision the right number of VMs?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;Microsoft.Compute/virtualMachines&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;[concat(&#39;myvm&#39;, `______`)]&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">&quot;apiVersion&quot;</span><span class="fu">:</span> <span class="st">&quot;2016-04-30-preview&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="dt">&quot;location&quot;</span><span class="fu">:</span> <span class="st">&quot;[parameters(&#39;location&#39;)]&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">&quot;copy&quot;</span><span class="fu">:</span> <span class="st">&quot; &quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;virtualMachineLoop&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="dt">&quot;count&quot;</span><span class="fu">:</span> <span class="st">&quot;[parameters(&#39;numberOfInstances&#39;)]&quot;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="fu">}</span><span class="er">,</span></a></code></pre></div>
+<ul>
+<li>[ ] max()</li>
+<li>[x] copyIndex()</li>
+<li>[ ] createArray()</li>
+<li>[ ] indexOf()</li>
+</ul>
+<h4 id="q31.-the-kineteco-web-app-runs-in-an-azure-kubernetes-service.-you-need-to-monitor-feature-use-and-user-navigation-paths-to-identify-where-improvements-are-needed.-what-should-you-do">Q31. The Kineteco web app runs in an Azure Kubernetes Service. You need to monitor feature use and user navigation paths to identify where improvements are needed. What should you do?</h4>
+<ul>
+<li>[ ] Install the Analytics agent and configure Azure Monitor for Containers.</li>
+<li>[ ] Install the App Insights Agent on AKS nodes.</li>
+<li>[x] Configure Application Insights cohorts.</li>
+<li>[ ] Add instrumentation to your app to send usage analysis with Application Insights.</li>
+</ul>
+<h4 id="q32.-your-web-app-hosted-on-azure-vms-generates-a-large-number-of-random-non-sequential-writes.-which-storage-type-should-you-select-for-your-application">Q32. Your web app hosted on Azure VMS generates a large number of random (non-sequential) writes. Which storage type should you select for your application?</h4>
+<ul>
+<li>[x] page blob</li>
+<li>[ ] block blob</li>
+<li>[ ] table storage</li>
+<li>[ ] queue storage</li>
+</ul>
+<h4 id="q33.-you-are-configuring-a-release-pipeline-in-azure-devops.-you-need-to-reference-several-application-variables-across-multiple-pipelines-at-deployment-time.-how-should-you-store-application-variables">Q33. You are configuring a release pipeline in Azure DevOps. You need to reference several application variables across multiple pipelines at deployment time. How should you store application variables?</h4>
+<ul>
+<li>[ ] Store secrets in Azure Key Vault.</li>
+<li>[ ] Store secrets in a configuration file.</li>
+<li>[ ] Configure release variables.</li>
+<li>[x] Configure a variable group.</li>
+</ul>
+<h4 id="q34.-you-have-configured-the-kineteco-web-app-to-run-on-azure-kubernetes-service-aks.-application-resources-need-to-scale-to-meet-spikes-in-traffic.-what-should-you-do-the-solution-should-minimize-manual-effort-and-cost.">Q34. You have configured the Kineteco Web App to run on Azure Kubernetes Service (AKS). Application resources need to scale to meet spikes in traffic. What should you do? The solution should minimize manual effort and cost.</h4>
+<ul>
+<li>[ ] Configure the horizontal pod autoscaler (HPA).</li>
+<li>[ ] Manually scale pod when necessary.</li>
+<li>[ ] Configure burst to Azure Container Instances.</li>
+<li>[x] Do nothing. Pods running on AKS scale up automatically.</li>
+</ul>
+<h4 id="q35.-you-are-configuring-a-release-pipeline-in-azure-devops.-you-need-to-read-secrets-from-azure-key-vault-during-pipeline-execution.-how-should-you-retrieve-application-variables">Q35. You are configuring a release pipeline in Azure DevOps. You need to read secrets from Azure Key Vault during pipeline execution. How should you retrieve application variables?</h4>
+<ul>
+<li>[ ] with a community-developed Key Vault task</li>
+<li>[ ] with an ARM template</li>
+<li>[x] all of these answers</li>
+<li>[ ] with an Azure CLI script in a Bash task</li>
+</ul>
+<h4 id="q36.-you-need-to-update-the-data-within-an-existing-database-in-azure-sql-with-your-changes.-you-want-to-test-this-process-from-your-development-workstation-before-incorporating-the-update-into-your-cicd-process.-which-command-will-you-run-to-update-the-schema-on-the-target-database">Q36. You need to update the data within an existing database in Azure SQL with your changes. You want to test this process from your development workstation before incorporating the update into your CI/CD process. Which command will you run to update the schema on the target database?</h4>
+<ul>
+<li>[x] SqlPackage.exe /TargetFile:" myapp.bacpac " /Action:<strong>Export</strong> /SourceServerName:"kinetecosql.database.windows.net" /SourceDatabaseName:"kinetecoweb" /SourceUser:"admin" /SourcePassword:"MyPassword"</li>
+<li>[ ] SqlPackage.exe /TargetFile:" myapp.bacpac " /Action:<strong>Import</strong> /SourceServerName:"kinetecosql.database.windows.net" /SourceDatabaseName:"kinetecoweb" /SourceUser:"admin" /SourcePassword:"MyPassword" SqiPackage.exe /TargetFile :" myapp.bacpac Action:Import</li>
+<li>[ ] SqlPackage.exe /TargetFile:"./myapp.bacpac" /Action:<strong>Publish</strong> /SourceServerName:"kinetecosql.database.windows.net" /SourceDatabaseName:"kinetecoweb" /SourceUser:"admin" /SourcePassword:"MyPassword"</li>
+<li>[ ] SqlPackage.exe /TargetFile:"./myapp.bacpac" /Action:<strong>Extract</strong> /SourceServerName:"kinetecosql.database.windows.net" /SourceDatabaseName:"kinetecoweb" /SourceUser:"admin" /SourcePassword:"MyPassword"</li>
+</ul>
+<h4 id="q37.-you-have-a-web-app-hosted-in-azure-app-service-that-reads-from-and-writes-data-to-an-azure-sql-database-back-end.-you-need-to-send-email-alert-when-your-web-app-returns-any-failure-http-status-code-anything-except-http-200-for-a-user-request.-which-solution-should-you-use">Q37. You have a web app hosted in Azure App Service that reads from and writes data to an Azure SQL Database back-end. You need to send email alert when your web app returns any failure HTTP status code (anything except HTTP 200) for a user request. Which solution should you use?</h4>
+<ul>
+<li>[x] service map in Azure Monitor</li>
+<li>[ ] application maps in Azure Application Insights</li>
+<li>[ ] availability tests in Azure Application Insights</li>
+<li>[ ] Profiler in Azure Application Insights</li>
+</ul>
+<h4 id="q38.-your-new-release-pipeline-in-azure-devops-includes-a-bash-task-that-runs-an-azure-cli-script.-the-bash-task-running-script-fails.-the-agent-setting-of-the-agent-job-in-the-release-pipeline-is-pictured-below.-the-solution-must-minimize-cost.-what-should-you-change-in-agent-pool-settings">Q38. Your new release pipeline in Azure DevOps includes a Bash task that runs an Azure CLI script. The Bash task running script fails. The agent setting of the agent job in the release pipeline is pictured below. The solution must minimize cost. What should you change in agent pool settings?</h4>
+<ul>
+<li>[ ] Change to a self-hosted agent pool running Ubuntu 16.04 LTS or later.</li>
+<li>[ ] Changed to a hosted pool running Windows 2019.</li>
+<li>[x] Change to a hosted agent pool running Ubuntu 16.04 LTS or later.</li>
+<li>[ ] Change to a self-hosted agent pool running Windows 2019.</li>
+</ul>
+<h4 id="q39.-you-are-selecting-a-cloud-messaging-solution-for-your-retail-mobile-app.-requirements-for-the-solution-are-process-messages-in-the-order-they-are-received-preserve-messages-in-case-of-a-processing-delay-end-guarantee-message-delivery.-which-solution-should-you-use">Q39. You are selecting a cloud messaging solution for your retail mobile app. Requirements for the solution are: Process messages in the order they are received: preserve messages in case of a processing delay; end guarantee message delivery. Which solution should you use?</h4>
+<ul>
+<li>[ ] Event Grid</li>
+<li>[x] Service Bus</li>
+<li>[ ] Event Hub</li>
+<li>[ ] Queue Storage</li>
+</ul>
+<h4 id="q40.-you-need-to-provision-a-port-mapping-on-the-underlying-node-that-allows-the-application-to-be-accessed-directly-with-the-ip-address-and-on-the-cluster-node.-which-service-type-should-you-provision">Q40. You need to provision a port mapping on the underlying node that allows the application to be accessed directly with the IP address and on the cluster node. Which service type should you provision?</h4>
+<ul>
+<li>[ ] LoadBalancer</li>
+<li>[x] NodePort</li>
+<li>[ ] Cluster IP</li>
+<li>[ ] ExternalName</li>
+</ul>
+<h4 id="q41.-what-is-the-difference-between-a-user-assigned-managed-identity-and-a-system-assigned-managed-identity">Q41. What is the difference between a user-assigned managed identity and a system-assigned managed identity?</h4>
+<ul>
+<li>[x] The lifecycle of a user-managed identity is managed separately from the resource.</li>
+<li>[ ] with a user-assigned managed identity, Azure manages the password for you.</li>
+<li>[ ] The lifecycle of a system-managed identity is managed separately from the resource.</li>
+<li>[ ] with a system-assigned managed identity, Azure manages the password for you.</li>
+</ul>
+<h4 id="q42.-you-need-to-configure-user-access-to-azure-devops-agent-pools-to-meet-the-following-requirements-use-an-agent-pool-when-authoring-build-or-release-pipelines-for-the-project-view-the-agent-pool-and-agents-of-the-organization-and-use-the-principle-of-least-privilege.-which-role-memberships-are-required-for-the-azure-devops-organization-and-the-project">Q42. You need to configure user access to Azure DevOps agent pools to meet the following requirements: Use an agent pool when authoring build or release pipelines for the project; view the agent pool and agents of the organization; and use the principle of least privilege. Which role memberships are required for the Azure DevOps organization and the project?</h4>
+<ul>
+<li>[ ] Organization: Administrator; Project: Service Account</li>
+<li>[x] Organization: Reader; Project: Service Account</li>
+<li>[ ] Organization: Reader; Project: Administrator</li>
+<li>[ ] Organization: Service Account; Project: Reader</li>
+</ul>
+<h4 id="q43.-you-have-created-an-azure-cli-script-for-a-release-pipeline-in-azure-devops.-you-need-to-reference-the-working-directory-for-the-running-job.-which-variable-should-you-reference">Q43. You have created an Azure CLI script for a release pipeline in Azure DevOps. You need to reference the working directory for the running job. Which variable should you reference?</h4>
+<ul>
+<li>[x] Agent.WorkFolder</li>
+<li>[ ] Agent.HomeDirectory</li>
+<li>[ ] Agent.BuildDirectory</li>
+<li>[ ] Agent.ToolsDirectory</li>
+</ul>
+<h4 id="q44.-you-are-selecting-azure-technologies-for-a-new-a-pp-that-will-process-print-jobs-in-a-facility-with-thousands-of-printers.-a-pool-of-worker-processes-will-send-jobs-to-printer-and-report-results-when-jobs-are-complete.-requirements-for-the-solution-are-worker-processes-will-retrieve-and-process-messages-as-capacity-permits-if-a-worker-process-or-printer-fails-a-worker-process-should-be-able-to-retrieve-message-and-resume-processing-and-the-solution-should-maintain-a-central-server-side-log-of-messages-processed.-which-solution-should-you-use">Q44. You are selecting Azure technologies for a new a pp that will process print jobs in a facility with thousands of printers. A pool of worker processes will send jobs to printer and report results when jobs are complete. Requirements for the solution are: Worker processes will retrieve and process messages as capacity permits; if a worker process or printer fails, a worker process should be able to retrieve message and resume processing; and the solution should maintain a central (server-side) log of messages processed. Which solution should you use?</h4>
+<ul>
+<li>[ ] Event Hub</li>
+<li>[ ] Event Grid</li>
+<li>[ ] Service Bus</li>
+<li>[ ] Queue Storage</li>
+</ul>
+<h4 id="q45.-in-azure-key-vault-you-can-manage-access-to-your-application-secrets-by-setting-permissions-at-any-level-except-__.">Q45. In Azure Key Vault, you can manage access to your application secrets by setting permissions at any level except <strong>__</strong>.</h4>
+<ul>
+<li>[ ] on the secret itself</li>
+<li>[ ] by secret type</li>
+<li>[ ] on the Key Vault instance</li>
+<li>[x] at the Azure Subscription level</li>
+</ul>
+<h4 id="q46.-your-company-hosts-a-web-application-that-uses-azure-sql-database-to-store-data.-you-need-to-implement-measures-that-allow-only-members-of-the-managers-group-to-see-sensitive-information.-which-two-actions-should-you-perform">Q46. Your company hosts a web application that uses Azure SQL Database to store data. You need to implement measures that allow only members of the managers group to see sensitive information. Which two actions should you perform?</h4>
+<ul>
+<li>[ ] Implement dynamic data masking and include the managers group.</li>
+<li>[ ] Implement transparent data encryption and include the managers group.</li>
+<li>[x] Implement dynamic data masking and exclude the managers group.</li>
+<li>[ ] Implement transparent data encryption and exclude the managers group.</li>
+</ul>
+<p><code>Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer.</code> <a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqldatabasedatamaskingrule?view=azurermps-6.13.0">Reference</a></p>
+<h4 id="q47.-the-kineteco-inventory-app-uses-an-azure-sql-database-instance-to-store-application-and-store-inventory-data.-store-employees-report-occasional-periods-where-queries-in-the-web-interface-never-return-data.-you-suspect-a-database-issue-and-need-to-identify-the-performance-issue-as-soon-as-possible.-the-resource-health-dashboard-reports-no-health-related-issues-found.-what-should-you-do">Q47. The Kineteco Inventory App uses an Azure SQL Database instance to store application and store inventory data. Store employees report occasional periods where queries in the web interface never return data. You suspect a database issue and need to identify the performance issue as soon as possible. The resource health dashboard reports "No health related issues found." What should you do?</h4>
+<ul>
+<li>[ ] Run the troubleshooting wizards under Resource and solve problems.</li>
+<li>[ ] Enable Intelligent Insights.</li>
+<li>[ ] Configure App Insights to alert admins when web interface experiences latency.</li>
+<li>[ ] Configure an alert rule to email DBAs when DTU usage hits 100%.</li>
+</ul>
+<h4 id="q48.-your-web-application-needs-to-access-files-on-an-azure-files-share.-which-option-will-deliver-the-highest-throughput">Q48. Your web application needs to access files on an Azure Files share. Which option will deliver the highest throughput?</h4>
+<ul>
+<li>[ ] SMB</li>
+<li>[ ] REST API</li>
+<li>[ ] Storage Explorer</li>
+<li>[ ] NFS</li>
+</ul>

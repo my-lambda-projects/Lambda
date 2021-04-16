@@ -1,0 +1,196 @@
+<h2 id="angularjs">AngularJs</h2>
+<h4 id="q1.-what-is-the-purpose-of-the-viewchild-decorator-in-this-component-class">Q1. What is the purpose of the ViewChild decorator in this component class?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">@<span class="at">Component</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    . . .</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;&lt;p #bio&gt;&lt;/p&gt;&#39;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="im">export</span> <span class="kw">class</span> UserDetailsComponent <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    @<span class="at">ViewChild</span>(<span class="st">&#39;bio&#39;</span>) bio<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[X] It provides access from within the component class to the ElementRef object for the <code>&lt;p&gt;</code> tag that has the bio template reference variable in the component's template view.</li>
+<li>[ ] It indicates that the <code>&lt;p&gt;</code> tag be rendered as a child of the parent view that uses this component.</li>
+<li>[ ] It makes the <code>&lt;p&gt;</code> tag in the template support content projection.</li>
+<li>[ ] It makes the <code>&lt;p&gt;</code> tag visible in the final render. If the #bio was used in the template and the <span class="citation" data-cites="ViewChild">@ViewChild</span> was not used in the class, then Angular would automatically hide the <code>&lt;p&gt;</code> tag that has #bio on it.</li>
+</ul>
+<h4 id="q2.-what-method-is-used-to-wire-up-a-formcontrol-to-a-native-dom-input-element-in-reactive-forms">Q2. What method is used to wire up a FormControl to a native DOM input element in reactive forms?</h4>
+<ul>
+<li>[ ] Add the string name given to the FormControl to an attribute named controls on the
+<form>
+element to indicate what fields it should include.</li>
+<li>[ ] Use the square bracket binding syntax around the value attribute on the DOM element and set that equal to an instance of the FormControl.</li>
+<li>[x] Use the formControlName directive and set the value equal to the string name given to the FormControl.</li>
+<li>[ ] Use the string name given to the FormControl as the value for the DOM element id attribute.</li>
+</ul>
+<h4 id="q3.-what-is-the-difference-between-the-parammap-and-the-queryparammap-on-the-activatedroute-class">Q3. What is the difference between the paramMap and the queryParamMap on the ActivatedRoute class?</h4>
+<ul>
+<li>[ ] The paramMap is an object literal of the parameters in a route's URL path. The queryParamMap is an Observable of those same parameters.</li>
+<li>[ ] The paramMap is an Observable that contains the parameter values that are part of a route's URL path. The queryParamMap is a method that takes in an array of keys and is used to find specific parameters in the paramMap.</li>
+<li>[ ] paramMap is the legacy name from Angular 3. The new name is queryParamMap.</li>
+<li>[x] Both are Observables containing values from the requested route's URL string. The paramMap contains the parameter values that are in the URL path and the queryParamMap contains the URL query parameters.</li>
+</ul>
+<h4 id="q4.-based-on-the-following-usage-of-the-async-pipe-and-assuming-the-users-class-field-is-an-observable-how-many-subscriptions-to-the-users-observable-are-being-made">Q4. Based on the following usage of the async pipe, and assuming the users class field is an Observable, how many subscriptions to the users Observable are being made?</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;h2&gt;</span>Names<span class="kw">&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">&lt;div</span><span class="ot"> *ngFor=</span><span class="st">&quot;let user of users | async&quot;</span><span class="kw">&gt;</span>{{ user.name }}<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">&lt;h2&gt;</span>Ages<span class="kw">&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">&lt;div</span><span class="ot"> *ngFor=</span><span class="st">&quot;let user of users | async&quot;</span><span class="kw">&gt;</span>{{ user.age }}<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">&lt;h2&gt;</span>Genders<span class="kw">&lt;/h2&gt;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">&lt;div</span><span class="ot"> *ngFor=</span><span class="st">&quot;let user of users | async&quot;</span><span class="kw">&gt;</span>{{ user.gender }}<span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] None. The async pipe does not subscribe automatically. None.</li>
+<li>[ ] None. The template syntax is not correct.</li>
+<li>[x] Three. There is one for each async pipe.</li>
+<li>[ ] One. The async pipe caches Observables by type internally.</li>
+</ul>
+<h4 id="q5.-how-can-you-use-the-httpclient-to-send-a-post-request-to-an-endpoint-from-within-an-addorder-function-in-this-orderservice">Q5. How can you use the HttpClient to send a POST request to an endpoint from within an addOrder function in this OrderService?</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="im">export</span> <span class="kw">class</span> OrderService <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="at">constructor</span>(<span class="kw">private</span> <span class="dt">httpClient</span><span class="op">:</span> HttpClient) <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="at">addOrder</span>(<span class="dt">order</span><span class="op">:</span> Order) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="co">// Missing line</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] this.httpClient.url(this.orderUrl).post(order);</li>
+<li>[ ] this.httpClient.send(this.orderUrl, order);</li>
+<li>[ ] this.httpClient.post<Order>(this.orderUrl, order);</li>
+<li>[x] this.httpClient.post<Order>(this.orderUrl, order).subscribe();</li>
+</ul>
+<h4 id="q6.-what-is-the-routermodule.forroot-method-used-for">Q6. What is the RouterModule.forRoot method used for?</h4>
+<ul>
+<li>[ ] Registering any providers that you intend to use in routed components.</li>
+<li>[x] Registering route definitions at the root application level.</li>
+<li>[ ] Indicating that Angular should cheer on your routes to be successful.</li>
+<li>[ ] Declaring that you intend to use routing only at the root level.</li>
+</ul>
+<h4 id="q7.-which-dom-elements-will-this-component-metadata-selector-match-on">Q7. Which DOM elements will this component metadata selector match on?</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">@<span class="at">Component</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="dt">selector</span><span class="op">:</span> <span class="st">&#39;app-user-card&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    . . .</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a></code></pre></div>
+<ul>
+<li>[ ] Any element with the attribute app-user-card, such as <code>&lt;div app-user-card&gt;&lt;/div&gt;</code>.</li>
+<li>[ ] The first instance of <code>&lt;app-user-card&gt;&lt;/app-user-card&gt;</code>.</li>
+<li>[x] All instances of <code>&lt;app-user-card&gt;&lt;/app-user-card&gt;</code>.</li>
+<li>[ ] All instances of <code>&lt;user-card&gt;&lt;/user-card&gt;</code>.</li>
+</ul>
+<h4 id="q8.-what-is-the-correct-template-syntax-for-using-the-built-in-ngfor-structural-directive-to-render-out-a-list-of-productnames">Q8. What is the correct template syntax for using the built-in ngFor structural directive to render out a list of productNames?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">&lt;li</span><span class="ot"> [ngFor]=</span><span class="st">&quot;let productName of productNames&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    {{ productName }}</a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="kw">&lt;li</span><span class="ot"> ngFor=</span><span class="st">&quot;let productName of productNames&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    {{ productName }}</a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">&lt;li</span><span class="ot"> *ngFor=</span><span class="st">&quot;let productName of productNames&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    {{ productName }}</a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="kw">&lt;?</span> for productName in productNames { <span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="kw">&lt;li&gt;</span>{{ productName }}<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="kw">&lt;?</span> } <span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<h4 id="q9.-what-are-the-two-component-decorator-metadata-properties-used-to-set-up-css-styles-for-a-component">Q9. What are the two component decorator metadata properties used to set up CSS styles for a component?</h4>
+<ul>
+<li>[ ] viewEncapsulation and viewEncapsulationFiles.</li>
+<li>[ ] There is only one and it is the property named css.</li>
+<li>[ ] css and cssUrl.</li>
+<li>[x] styles and styleUrls.</li>
+</ul>
+<h4 id="q10.-with-the-following-component-class-what-template-syntax-would-you-use-in-the-template-to-display-the-value-of-the-title-class-field">Q10. With the following component class, what template syntax would you use in the template to display the value of the title class field?</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1">@<span class="at">Component</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="dt">selector</span><span class="op">:</span> <span class="st">&#39;app-title-card&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="kw">class</span> TitleCardComponent <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-6" title="6">    title <span class="op">=</span> <span class="st">&#39;User Data&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>{{ 'title' }}</code></li>
+<li>[x] <code>{{ title }}</code></li>
+<li>[ ] <code>[title]</code></li>
+<li>[ ] A class field cannot be displayed in a template via the template syntax.</li>
+</ul>
+<h4 id="q11.-what-is-the-purpose-of-the-valuechanges-method-on-a-formcontrol">Q11. What is the purpose of the valueChanges method on a FormControl?</h4>
+<ul>
+<li>[ ] It is used to configure what values are allowed for the control.</li>
+<li>[ ] It is used to change the value of a control to a new value. You would call that method and pass in the new value for the form field. It even supports passing in an array of values that can be set over time.</li>
+<li>[ ] It returns a Boolean based on if the value of the control is different from the value with which it was initialized.</li>
+<li>[x] It is an observable that emits every time the value of the control changes, so you can react to new values and make logic decisions at that time.</li>
+</ul>
+<h4 id="q12.-what-directive-is-used-to-link-an-a-tag-to-routing">Q12. What directive is used to link an <code>&lt;a&gt;</code> tag to routing?</h4>
+<ul>
+<li>[ ] routeTo</li>
+<li>[x] routerLink</li>
+<li>[ ] routePath</li>
+<li>[ ] appLink</li>
+</ul>
+<h4 id="q13.-what-is-the-output-decorator-used-for-in-this-component-class">Q13. What is the Output decorator used for in this component class?</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1">@<span class="at">Component</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="dt">selector</span><span class="op">:</span> <span class="st">&#39;app-shopping-cart&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb10-3" title="3">    . . .</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="im">export</span> <span class="kw">class</span> ShoppingCartComponent <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-6" title="6">    @<span class="at">Output</span>() itemTotalChanged <span class="op">=</span> <span class="kw">new</span> <span class="at">EventEmitter</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] It makes the <code>itemTotalChanged</code> class field public.</li>
+<li>[ ] It provides a way to bind values to the <code>itemTotalChanged</code> class field, like so: <code>&lt;app-shopping-cart [itemTotalChanged]="newTotal"&gt;&lt;/app-shopping-cart&gt;</code>.</li>
+<li>[ ] It provides a way to bind events to the <code>itemTotalChanged</code> class field, like so: <code>&lt;app-shopping-cart (itemTotalChanged)="logNewTotal($event)"&gt;&lt;/app-shopping-cart&gt;</code>.</li>
+<li>[ ] It is simply a way to put a comment in front of a class field for documentation.</li>
+</ul>
+<h4 id="q14.-what-is-the-difference-between-these-two-markup-examples-for-conditionally-handling-display">Q14. What is the difference between these two markup examples for conditionally handling display?</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">&lt;div</span><span class="ot"> *ngIf=</span><span class="st">&quot;isVisible&quot;</span><span class="kw">&gt;</span>Active<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">&lt;div</span><span class="ot"> [hidden]=</span><span class="st">&quot;!isVisible&quot;</span><span class="kw">&gt;</span>Active<span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] The <code>ngIf</code> is shorthand for the other example. When Angular processes that directive, it writes a div element to the DOM with the hidden property.</li>
+<li>[ ] They are fundamentally the same.</li>
+<li>[x] The <code>ngIf</code> directive does not render the div in the DOM if the expression is false. The <code>hidden</code> property usage hides the div content in the browser viewport, but the div is still in the in the DOM.</li>
+<li>[ ] The <code>ngIf</code> is valid, but the use of the <code>hidden</code> property is wrong and will throw an error.</li>
+</ul>
+<h4 id="q15.-how-can-you-disable-the-submit-button-when-the-form-has-errors-in-this-template-driven-forms-example">Q15. How can you disable the submit button when the form has errors in this template-driven forms example?</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">&lt;form</span><span class="ot"> #userForm=</span><span class="st">&quot;ngForm&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> ngModel name=</span><span class="st">&quot;firstName&quot;</span><span class="ot"> required</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-3" title="3">    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> ngModel name=</span><span class="st">&quot;lastName&quot;</span><span class="ot"> required</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-4" title="4">    <span class="kw">&lt;button</span><span class="ot"> (click)=</span><span class="st">&quot;submit(userForm.value)&quot;</span><span class="kw">&gt;</span>Save<span class="kw">&lt;/button&gt;</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="kw">&lt;/form&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">&lt;button</span><span class="ot"> (click)=</span><span class="st">&quot;submit(userForm.value)&quot;</span><span class="ot"> disable=</span><span class="st">&quot;userForm.invalid&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-2" title="2">    Save</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">&lt;button</span><span class="ot"> (click)=</span><span class="st">&quot;submit(userForm.value)&quot;</span><span class="ot"> [disabled]=</span><span class="st">&quot;userForm.invalid&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-2" title="2">    Save</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">&lt;button</span><span class="ot"> (click)=</span><span class="st">&quot;submit(userForm.value)&quot;</span><span class="ot"> [ngForm.disabled]=</span><span class="st">&quot;userForm.valid&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-2" title="2">    Save</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;button</span><span class="ot"> (click)=</span><span class="st">&quot;submit(userForm.value)&quot;</span><span class="ot"> *ngIf=</span><span class="st">&quot;userForm.valid&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb16-2" title="2">    Save</a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="kw">&lt;/button&gt;</span></a></code></pre></div>

@@ -1,0 +1,345 @@
+<h2 id="ruby-on-rails">Ruby on Rails</h2>
+<h4 id="q1.-when-rendering-a-partial-in-a-view-how-would-you-pass-local-variables-for-rendering">Q1. When rendering a partial in a view, how would you pass local variables for rendering?</h4>
+<ul>
+<li>[ ] <code>&lt;%= render partial: "nav", selected: "about"}%&gt;</code></li>
+<li>[ ] <code>&lt;%= render partial: "nav", local_variables: {selected: "about"} %&gt;</code></li>
+<li>[ ] <code>&lt;%= render partial: "nav", locals: {selected: "about"}</code></li>
+</ul>
+<h4 id="q2.-within-a-rails-controller-which-code-will-prevent-the-parent-controllers-before_action-get_feature-from-running">Q2. Within a Rails controller, which code will prevent the parent controller's before_action <code>:get_feature</code> from running?</h4>
+<ul>
+<li>[ ] <code>skip_before_action :get_feature</code></li>
+<li>[x] <code>skip :get_feature, except: []</code></li>
+<li>[ ] <code>prevent_action :get_feature</code></li>
+<li>[ ] <code>:redis_cache_store</code></li>
+</ul>
+<h4 id="q3.-which-statement-correctly-describes-a-difference-between-the-form-helper-methods-form_tag-and-form_for">Q3. Which statement correctly describes a difference between the form helper methods <code>form_tag</code> and <code>form_for</code>?</h4>
+<ul>
+<li>[ ] The <code>form_tag</code> method is for basic forms, while the <code>form_for</code> method is for multipart forms that include file uploads.</li>
+<li>[ ] The <code>form_tag</code> method is for HTTP requests, while the <code>form_for</code> method is for AJAX requests.</li>
+<li>[x] The <code>form_tag</code> method typically expects a URL as its first argument, while the <code>form_for</code> method typically expects a model object.</li>
+<li>[ ] The <code>form_tag</code> method is evaluated at runtime, while the <code>form_for</code> method is precompiled and cached.</li>
+</ul>
+<h4 id="q4.-what-is-before_action-formerly-known-as-before_filter">Q4. What is <code>before_action</code> (formerly known as <code>before_filter</code>)?</h4>
+<ul>
+<li>[ ] A trigger that is executed before an alteration of an object's state</li>
+<li>[ ] A method that is executed before an ActiveRecord model is saved</li>
+<li>[ ] A callback that fires before an event is handled</li>
+<li>[x] A method in a controller that is executed before the controller action method</li>
+</ul>
+<h4 id="q5.-which-module-can-you-use-to-encapsulate-a-cohesive-chunk-of-functionality-into-a-mixin">Q5. Which module can you use to encapsulate a cohesive chunk of functionality into a mixin?</h4>
+<ul>
+<li>[ ] <code>ActiveSupport::Concern</code></li>
+<li>[ ] <code>RailsHelper.CommonClass</code></li>
+<li>[ ] <code>ActiveJob::Mixin</code></li>
+<li>[ ] <code>ActiveSupport::Module</code></li>
+</ul>
+<h4 id="q6.-in-rails-which-code-would-you-use-to-define-a-route-that-handles-both-the-put-and-patch-rest-http-verbs">Q6. In Rails, which code would you use to define a route that handles both the <code>PUT</code> and <code>PATCH</code> <code>REST HTTP</code> verbs?</h4>
+<ul>
+<li>[ ] <code>put :items, include: patch</code></li>
+<li>[ ] <code>put 'items', to: 'items#update'</code></li>
+<li>[ ] <code>match 'items', to 'items#update', via: [:put, :patch]</code></li>
+<li>[ ] <code>match :items, using: put &amp;&amp; patch</code></li>
+</ul>
+<h4 id="q7.-which-choice-includes-standard-rest-http-verbs">Q7. Which choice includes standard REST HTTP verbs?</h4>
+<ul>
+<li>[x] GET, POST, PATCH, DELETE</li>
+<li>[ ] REDIRECT, RENDER, SESSION, COOKIE</li>
+<li>[ ] INDEX, SHOW, NEW, CREATE, EDIT, UPDATE, DESTROY</li>
+<li>[ ] CREATE, READ, UPDATE, DELETE</li>
+</ul>
+<h4 id="q8.-which-activerecord-query-prevents-sql-injection">Q8. Which ActiveRecord query prevents SQL injection?</h4>
+<ul>
+<li>[ ] <code>Product.where("name = #{@keyword}")</code></li>
+<li>[ ] <code>Product.where("name = " &lt;&lt; @keyword}</code></li>
+<li>[x] <code>Product.where("name = ?", @keyword</code></li>
+<li>[ ] <code>Product.where("name = " + h(@keyword)</code></li>
+</ul>
+<h4 id="q9.-given-this-code-which-statement-about-the-database-table-documents-could-be-expected-to-be-true">Q9. Given this code, which statement about the database table "documents" could be expected to be <em>true</em>?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> <span class="dt">Document</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  belongs_to <span class="st">:documentable</span>, <span class="st">polymorphic: </span><span class="dv">true</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">class</span> <span class="dt">Product</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  has_many <span class="st">:documents</span>, <span class="st">as: :documentable</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">class</span> <span class="dt">Service</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  has_many <span class="st">:documents</span>, <span class="st">as: :documentable</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] It would include a column for <code>:type</code>.</li>
+<li>[ ] It would include columns for <code>:documentable_id</code> and <code>:documentable_type</code>.</li>
+<li>[ ] It would include columns for <code>:documentable</code> and <code>:type</code>.</li>
+<li>[ ] It would include a column for <code>:polymorphic_type</code>.</li>
+</ul>
+<h4 id="q10.-are-instance-variables-set-within-a-controller-method-accessible-within-a-view">Q10. Are instance variables set within a controller method accessible within a view?</h4>
+<ul>
+<li>[ ] Yes, any instance variables that are set in an action method on a controller can be accessed and displayed in a view.</li>
+<li>[ ] Yes, instance variables set within an action method are accessible within a view, but only when render is explicitly called inside the action method.</li>
+<li>[ ] No, instance variables in a controller are private and are not accessible.</li>
+<li>[ ] No, instance variables can never be set in a controller action method.</li>
+</ul>
+<h4 id="q11.-when-a-validation-of-a-field-in-a-rails-model-fails-where-are-the-messages-for-validation-errors-stored">Q11. When a validation of a field in a Rails model fails, where are the messages for validation errors stored?</h4>
+<ul>
+<li>[ ] <code>my_model.errors[:field]</code></li>
+<li>[ ] <code>my_model.get_errors_for(:field)</code></li>
+<li>[ ] <code>my_model.field.error</code></li>
+<li>[ ] <code>my_model.all_errors.select(:field)</code></li>
+</ul>
+<h4 id="q12.-if-a-database-table-of-users-contains-the-following-rows-and-id-is-the-primary-key-which-statement-would-return-only-an-object-whose-last_name-is-cordero">Q12. If a database table of users contains the following rows, and <code>id</code> is the primary key, which statement would return only an object whose <code>last_name</code> is "Cordero"?</h4>
+<pre><code>-------------------------------
+
+| id | first_name | last_name |
+|----|------------|-----------|
+| 1  | Alice      | Anderson  |
+| 2  | Bob        | Buckner   |
+| 3  | Carrie     | Cordero   |
+| 4  | Devon      | Dupre     |
+| 5  | Carrie     | Eastman   |
+
+-------------------------------</code></pre>
+<ul>
+<li>[ ] <code>User.where(first_name: "Carrie")</code></li>
+<li>[ ] <code>User.not.where(id: [1, 2, 4, 5])</code></li>
+<li>[ ] <code>User.find_by(first_name: "Cordero")</code></li>
+<li>[x] <code>User.find(3)</code></li>
+</ul>
+<h4 id="q13.-how-would-you-generate-a-drop-down-menu-that-allows-the-user-to-select-from-a-collection-of-product-names">Q13. How would you generate a drop-down menu that allows the user to select from a collection of product names?</h4>
+<ul>
+<li>[ ] <code>&lt;%= select_tag(@products) %&gt;</code></li>
+<li>[ ] <code>&lt;%= collection_select(@products) %&gt;</code></li>
+<li>[ ] <code>&lt;select name="product_id"&gt; &lt;%= @products.each do |product| %&gt; &lt;option value="&lt;%= product.id %&gt;"/&gt; &lt;% end %&gt;&lt;/select&gt;</code></li>
+<li>[x] <code>&lt;%= collection_select(:product, :product_id, Product.all, :id, :name) %&gt;</code></li>
+</ul>
+<h4 id="q14.-for-a-rails-validator-how-would-you-define-an-error-message-for-the-model-attribute-address-with-the-message-this-address-is-invalid">Q14. For a Rails validator, how would you define an error message for the model attribute <code>address</code> with the message "This address is invalid"?</h4>
+<ul>
+<li>[ ] <code>model.errors = This address is invalid</code></li>
+<li>[ ] <code>errors(model, :address) &lt;&lt; "This address is invalid"</code></li>
+<li>[ ] <code>display_error_for(model, :address, "This address is invalid")</code></li>
+<li>[ ] <code>model.errors[:address] &lt;&lt; "This address is invalid"</code></li>
+</ul>
+<h4 id="q15.-given-the-url-helper-product_pathproduct-which-statement-would-be-expected-to-be-false">Q15. Given the URL helper <code>product_path(@product)</code>, which statement would be expected to be <em>false</em>?</h4>
+<ul>
+<li>[ ] If sent using the PATCH HTTP method, the URL could be used to update a product in the database.</li>
+<li>[ ] If sent using the POST HTTP method, the URL would create a new product in the database.</li>
+<li>[ ] If sent using the GET HTTP method, the URL would execute the show action in ProductsController.</li>
+<li>[ ] If sent using the DELETE HTTP method, the URL would call the destroy action by default.</li>
+</ul>
+<h4 id="q16.-given-this-code-which-choice-would-be-expected-to-be-a-true-statement-if-the-user-requests-the-index-action">Q16. Given this code, which choice would be expected to be a <em>true</em> statement if the user requests the index action?</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> <span class="dt">DocumentsController</span> &lt; <span class="dt">ApplicationController</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  before_action <span class="st">:require_login</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">def</span> index</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="ot">@documents</span> = <span class="dt">Document</span>.visible.sorted</a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] The user's documents will be loaded.</li>
+<li>[ ] The index action will run normally because <code>:index</code> is not listed as an argument to <code>before_action</code>.</li>
+<li>[ ] The <code>require_login</code> method will automatically log in the user before running the index action.</li>
+<li>[ ] The index action will not be run if the <code>require_login</code> method calls render or <code>redirect_to</code>.</li>
+</ul>
+<h4 id="q17.-in-rails-how-would-you-cache-a-partial-template-that-is-rendered">Q17. In Rails, how would you cache a partial template that is rendered?</h4>
+<ul>
+<li>[ ] <code>render partial: ‘shared/menu', cached: true</code></li>
+<li>[ ] <code>render_with_cache partial: ‘shared/menu'</code></li>
+<li>[ ] <code>render partial: ‘shared/menu'</code></li>
+<li>[ ] <code>render partial: ‘shared/menu', cached_with_variables: {}</code></li>
+</ul>
+<h4 id="q18.-what-is-the-reason-for-using-concerns-in-rails">Q18. What is the reason for using Concerns in Rails?</h4>
+<ul>
+<li>[ ] Concerns allow modularity and code reuse in models, controllers, and other classes.</li>
+<li>[ ] Concerns are used to separate class methods from models.</li>
+<li>[ ] Concerns are used to increase security of Rails applications.</li>
+<li>[ ] Concerns are used to refactor Rails views.</li>
+</ul>
+<h4 id="q19.-when-using-an-activerecord-model-which-method-will-create-the-model-instance-in-memory-and-save-it-to-the-database">Q19. When using an ActiveRecord model, which method will create the model instance in memory and save it to the database?</h4>
+<ul>
+<li>[ ] <code>build</code></li>
+<li>[ ] <code>new</code></li>
+<li>[ ] <code>create</code></li>
+<li>[ ] <code>save</code></li>
+</ul>
+<h4 id="q20.-you-are-using-an-existing-database-that-has-a-table-named-coffee_orders.-what-would-the-activerecord-model-be-named-in-order-to-use-that-table">Q20. You are using an existing database that has a table named <code>coffee_orders</code>. What would the ActiveRecord model be named in order to use that table?</h4>
+<ul>
+<li>[ ] <code>CoffeeOrders</code></li>
+<li>[ ] <code>Coffee_Orders</code></li>
+<li>[ ] <code>Coffee_Order</code></li>
+<li>[ ] <code>CoffeeOrder</code></li>
+</ul>
+<h4 id="q21.-in-activerecord-what-is-the-difference-between-the-has_many-and-has_many-through-associations">Q21. In ActiveRecord, what is the difference between the <code>has_many</code> and <code>has_many :through</code> associations?</h4>
+<ul>
+<li>[ ] The <code>has_many: through</code> association is the one-to-many equivalent to the <code>belongs_to</code> one-to-one association.</li>
+<li>[ ] Both associations are identical, and <code>has_many: through</code> is maintained only for legacy purposes.</li>
+<li>[ ] The <code>has_many</code> association is a one-to-many association, while <code>has_many: through</code> is a one-to-one association that matches through a third model.</li>
+<li>[ ] Both are one-to-many associations but with <code>has_many :through</code>, the declaring model can associate through a third model.</li>
+</ul>
+<h4 id="q22.-how-do-you-add-ruby-code-inside-rails-views-and-have-its-result-outputted-in-the-html-file">Q22. How do you add Ruby code inside Rails views and have its result outputted in the HTML file?</h4>
+<ul>
+<li>[ ] Create an embedded Ruby file (.html.erb) and surround the Ruby code with <code>&lt;% %&gt;</code>.</li>
+<li>[ ] Insert Ruby code inside standard HTML files and surround it with <code>&lt;% %&gt;</code>. The web server will handle the rest.</li>
+<li>[ ] Create an embedded Ruby file (.html.erb) and surround the Ruby code with <code>&lt;%= %&gt;</code>.</li>
+<li>[ ] Put the code in an .rb file and include it in a <code>&lt;link&gt;</code> tag of an HTML file.</li>
+</ul>
+<h4 id="q23.-how-would-you-render-a-view-using-a-different-layout-in-an-erb-html-view">Q23. How would you render a view using a different layout in an ERB HTML view?</h4>
+<ul>
+<li>[ ] <code>&lt;% render 'view_mobile' %&gt;</code></li>
+<li>[ ] <code>&lt;% render 'view', use_layout: 'mobile' %&gt;</code></li>
+<li>[ ] <code>&lt;% render 'view', layout: 'mobile' %&gt;</code></li>
+<li>[ ] <code>&lt;% render_with_layout 'view', 'mobile' %&gt;</code></li>
+</ul>
+<h4 id="q24.-given-this-controller-code-which-choice-describes-the-expected-behavior-if-parameters-are-submitted-to-the-update-action-that-includes-values-for-the-products-name-style-color-and-price">Q24. Given this controller code, which choice describes the expected behavior if parameters are submitted to the update action that includes values for the product's name, style, color, and price?</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> <span class="dt">ProductController</span> &lt; <span class="dt">ActionController</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">def</span> update</a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="ot">@product</span> = <span class="dt">Product</span>.find(params[<span class="st">:id</span>])</a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="kw">if</span> <span class="ot">@product</span>.update_attributes(product_params)</a>
+<a class="sourceLine" id="cb4-6" title="6">      redirect_to(product_path(<span class="ot">@product</span>))</a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="kw">else</span></a>
+<a class="sourceLine" id="cb4-8" title="8">      render(<span class="st">&#39;edit&#39;</span>)</a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="kw">private</span></a>
+<a class="sourceLine" id="cb4-13" title="13"></a>
+<a class="sourceLine" id="cb4-14" title="14">  <span class="kw">def</span> product_params</a>
+<a class="sourceLine" id="cb4-15" title="15">    params.require(<span class="st">:product</span>).permit(<span class="st">:name</span>, <span class="st">:style</span>, <span class="st">:color</span>)</a>
+<a class="sourceLine" id="cb4-16" title="16">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] The product will not be updated and the edit template will be rendered.</li>
+<li>[ ] The product will not be updated and the controller will raise an ActiveModel::ForbiddenAttributes exception.</li>
+<li>[ ] The product will be updated with the values for name, style, and color, but the value for price will be ignored.</li>
+<li>[ ] The product will be updated with the values for name, style, color, and price.</li>
+</ul>
+<h4 id="q25.-a-rails-project-has-activerecord-classes-defined-for-classroom-and-student.-if-instances-of-these-classes-are-related-so-that-students-are-assigned-the-id-of-one-particular-classroom-which-choice-shows-the-correct-associations-to-define">Q25. A Rails project has ActiveRecord classes defined for Classroom and Student. If instances of these classes are related so that students are assigned the ID of one particular classroom, which choice shows the correct associations to define?</h4>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> <span class="dt">Classroom</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  belongs_to <span class="st">:students</span>, <span class="kw">class</span><span class="st">_name: &#39;Student&#39;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">class</span> <span class="dt">Student</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  belongs_to <span class="st">:classrooms</span>, <span class="kw">class</span><span class="st">_name: &#39;Classroom&#39;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">class</span> <span class="dt">Student</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  has_many <span class="st">:classrooms</span>, <span class="st">dependent: </span><span class="dv">true</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">class</span> <span class="dt">Classroom</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  has_many <span class="st">:students</span>, <span class="st">dependent: </span><span class="dv">false</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> <span class="dt">Student</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  has_many <span class="st">:classrooms</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">class</span> <span class="dt">Classroom</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  belongs_to <span class="st">:student</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span> <span class="dt">Classroom</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  has_many <span class="st">:students</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">class</span> <span class="dt">Student</span> &lt; <span class="dt">ActiveRecord</span>::<span class="dt">Base</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  belongs_to <span class="st">:classroom</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="kw">end</span></a></code></pre></div>
+<h4 id="q26.-where-should-you-put-images-javascript-and-css-so-that-they-get-processed-by-the-asset-pipeline">Q26. Where should you put images, JavaScript, and CSS so that they get processed by the asset pipeline?</h4>
+<ul>
+<li>[ ] app/static</li>
+<li>[ ] app/images</li>
+<li>[ ] app/assets</li>
+<li>[ ] app/views</li>
+</ul>
+<h4 id="q27.-if-the-rails-asset-pipeline-is-being-used-to-serve-javascript-files-how-would-you-include-a-link-to-one-of-those-javascript-files-in-a-view">Q27. If the Rails asset pipeline is being used to serve JavaScript files, how would you include a link to one of those JavaScript files in a view?</h4>
+<ul>
+<li>[ ] <code>&lt;script src="/main.js"&gt;&lt;/script&gt;</code></li>
+<li>[ ] <code>&lt;%= javascript_include_tag 'main' %&gt;</code></li>
+<li>[ ] <code>&lt;%= javascript_tag 'main' %&gt;</code></li>
+<li>[ ] <code>&lt;!-- include_javascript 'main' --&gt;</code></li>
+</ul>
+<h4 id="q28.-in-rails-what-caching-stores-can-be-used">Q28. In Rails, what caching stores can be used?</h4>
+<ul>
+<li>[ ] MemCacheStore, MongoDBStore, MemoryStore, and FileStore</li>
+<li>[ ] MemoryStore, FileStore, and CacheCacheStore</li>
+<li>[ ] MemoryStore, FileStore, MemCacheStore, RedisCacheStore, and NullStore</li>
+<li>[ ] MemoryStore, FileStore, MySQLStore, and RedisCacheStore</li>
+</ul>
+<h4 id="q29.-what-is-the-correct-way-to-generate-a-productscontroller-with-an-index-action-using-only-the-command-line-tools-bundled-with-rails">Q29. What is the correct way to generate a ProductsController with an index action using only the command-line tools bundled with Rails?</h4>
+<ul>
+<li>[ ] <code>rails generate controller --options {name: "Products", actions: "index"}</code></li>
+<li>[ ] <code>rails generate controller --name Products --action index</code></li>
+<li>[ ] <code>rails generate controller Products index</code></li>
+<li>[ ] <code>rails generate ProductsController --actions index</code></li>
+</ul>
+<h4 id="q30.-if-a-model-class-is-named-product-in-which-database-table-will-activerecord-store-and-retrieve-model-instances">Q30. If a model class is named Product, in which database table will ActiveRecord store and retrieve model instances?</h4>
+<ul>
+<li>[ ] <code>product_table</code></li>
+<li>[ ] <code>all_products</code></li>
+<li>[ ] <code>products_table</code></li>
+<li>[ ] <code>products</code></li>
+</ul>
+<h4 id="q31.-what-is-a-popular-alternative-template-language-for-generating-views-in-a-rails-app-that-is-focused-on-simple-abstracted-markup">Q31. What is a popular alternative template language for generating views in a Rails app that is focused on simple abstracted markup?</h4>
+<ul>
+<li>[ ] Mustache</li>
+<li>[ ] Haml</li>
+<li>[ ] Liquid</li>
+<li>[ ] Tilt</li>
+</ul>
+<h4 id="q32.-when-ruby-methods-add-an-exclamation-point-at-the-end-of-their-name-such-as-sort-what-does-it-typically-indicate">Q32. When Ruby methods add an exclamation point at the end of their name (such as <code>sort!</code>), what does it typically indicate?</h4>
+<ul>
+<li>[ ] The method executes using "sudo" privileges.</li>
+<li>[ ] Any ending line return will be omitted from the result.</li>
+<li>[ ] The method will ignore exceptions that occur during execution.</li>
+<li>[ ] It is a more powerful or destructive version of the method.</li>
+</ul>
+<h4 id="q33.-what-part-of-the-code-below-causes-the-method-decrypt_data-to-be-run">Q33. What part of the code below causes the method <code>#decrypt_data</code> to be run?</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span> <span class="dt">MyModel</span> &lt; <span class="dt">ApplicationRecord</span></a>
+<a class="sourceLine" id="cb9-2" title="2">after_find <span class="st">:decrypt_data</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw">end</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>MyModel.first.update(field: 'example')</code></li>
+<li>[ ] <code>MyModel.where(id: 42)</code></li>
+<li>[ ] <code>MyModel.first.destroy</code></li>
+<li>[ ] <code>MyModel.new(field: 'new instance')</code></li>
+</ul>
+<h4 id="q34.-which-rails-helper-would-you-use-in-the-application-view-to-protect-against-csrf-cross-site-request-forgery-attacks">Q34. Which Rails helper would you use in the application view to protect against CSRF (Cross-Site Request Forgery) attacks?</h4>
+<ul>
+<li>[ ] <code>csrf_protection</code></li>
+<li>[ ] <code>csrf_helper</code></li>
+<li>[ ] <code>csrf_meta_tags</code></li>
+<li>[ ] <code>csrf</code></li>
+</ul>
+<h4 id="q35.-in-the-model-user-you-have-the-code-shown-below.-when-saving-the-model-and-model.is_admin-is-set-to-true-which-callback-will-be-called">Q35. In the model <code>User</code> you have the code shown below. When saving the model and <code>model.is_admin</code> is set to true, which callback will be called?</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb10-1" title="1">before_save <span class="st">:encrypt_data</span>, <span class="kw">unless</span>: -&gt;(model) { model.is_admin }</a>
+<a class="sourceLine" id="cb10-2" title="2">after_save <span class="st">:clear_cache</span>, <span class="kw">if</span>: -&gt;(model) { model.is_admin }</a>
+<a class="sourceLine" id="cb10-3" title="3">before_destroy <span class="st">:notify_admin_users</span>, <span class="kw">if</span>: -&gt;(model) { model.is_admin }</a></code></pre></div>
+<ul>
+<li>[ ] <code>encrypt_data</code></li>
+<li>[ ] <code>clear_cache</code></li>
+<li>[ ] <code>notify_admin_users</code></li>
+<li>[ ] None of these callbacks will be called when <code>is_admin</code> is true.</li>
+</ul>
+<h4 id="q36.-in-a-rails-controller-what-does-the-code-params.permitname-sku-do">Q36. In a Rails controller, what does the code <code>params.permit(:name, :sku)</code> do?</h4>
+<ul>
+<li>[ ] It filters out all parameters.</li>
+<li>[ ] It filters out submitted form parameters that are not named <code>:name</code> or <code>:sku</code> to make forms more secure.</li>
+<li>[ ] It raises an error if parameters that are not named <code>:name</code> or <code>:sku</code> are found.</li>
+<li>[ ] It raises an error if the <code>:name</code> and <code>:sku</code> parameters are set to <code>nil</code>.</li>
+</ul>
+<h4 id="q37.-review-the-code-below.-which-ruby-operator-should-be-used-to-fill-in-the-blank-so-that-the-sort-method-executes-properly">Q37. Review the code below. Which Ruby operator should be used to fill in the blank so that the <code>sort</code> method executes properly?</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" title="1">[<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">3</span>].sort {|v1,v2| v1 <span class="dt">___</span> v2}</a></code></pre></div>
+<ul>
+<li>[ ] <code>=&gt;</code></li>
+<li>[ ] <code>&lt;==&gt;</code></li>
+<li>[ ] <code>&lt;=&gt;</code></li>
+<li>[ ] <code>||</code></li>
+</ul>

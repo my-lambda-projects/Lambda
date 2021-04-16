@@ -1,0 +1,583 @@
+<h2 id="json">JSON</h2>
+<h4 id="q1.-by-convention-what-name-is-used-for-the-first-key-in-a-json-schema">Q1. By convention, what name is used for the first key in a JSON schema?</h4>
+<ul>
+<li>[ ] schema</li>
+<li>[x] $schema</li>
+<li>[ ] JsonSchema</li>
+<li>[ ] JSONschema</li>
+</ul>
+<h4 id="q2.-which-code-is-the-closest-json-equivalent-of-the-data-shown">Q2. Which code is the closest JSON equivalent of the data shown?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>[
+    &#39;red&#39;,
+    &#39;blue&#39;,
+    &#39;green&#39;
+]</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>  [
+    &quot;red&quot;,
+    &quot;blue&quot;,
+    &quot;green&quot;
+  ]</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>  {
+    &quot;color&quot;: &quot;red&quot;,
+    &quot;color&quot;: &quot;blue&quot;,
+    &quot;color&quot;: &quot;green&quot;
+  }</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>  {
+    &#39;red&#39;: &#39;red&#39;,
+    &#39;blue&#39;: &#39;blue&#39;,
+  }</code></pre>
+<h4 id="q3.-which-javascript-method-converts-a-javascript-value-to-json">Q3. Which JavaScript method converts a JavaScript value to Json?</h4>
+<ul>
+<li>[ ] JSON.parse()</li>
+<li>[x] JSON.stringify()</li>
+<li>[ ] JSON.toString()</li>
+<li>[ ] JSON.objectify()</li>
+</ul>
+<h4 id="q4.-which-data-type-is-not-part-of-json-standard">Q4. Which data type is NOT part of JSON standard?</h4>
+<ul>
+<li>[ ] string</li>
+<li>[ ] number</li>
+<li>[x] date</li>
+<li>[ ] array</li>
+</ul>
+<h4 id="q5.-which-term-is-commonly-used-to-refer-to-converting-data-to-json">Q5. Which term is commonly used to refer to converting data to JSON?</h4>
+<ul>
+<li>[ ] unpacking</li>
+<li>[x] serialization</li>
+<li>[ ] deserialization</li>
+<li>[ ] parsing</li>
+</ul>
+<h4 id="q6.-which-code-uses-the-correct-json-syntax-to-encode-the-keyvalue-pair-shown">Q6. Which code uses the correct JSON syntax to encode the key/value pair shown?</h4>
+<p><code>accountNum: '000605802'</code> - [✅] "accountNum": "00060504" - [ ] accountNum: "00060504" - [ ] "accountNum": 00060504 - [ ] accountNum: 00060504</p>
+<h4 id="q7.-what-character-do-you-specify-before-a-json-control-character-when-you-want-to-use-that-control-characters-as-a-literal-part-of-a-string">Q7. What character do you specify before a JSON control character when you want to use that control characters as a literal part of a string?</h4>
+<ul>
+<li>[ ] <code>/</code></li>
+<li>[x] <code>\</code></li>
+<li>[ ] <code>:</code></li>
+<li>[ ] <code>{</code></li>
+</ul>
+<h4 id="q8.-which-date-type-is-part-of-the-json-standard">Q8. Which date type is part of the JSON standard?</h4>
+<ul>
+<li>[x] Boolean</li>
+<li>[ ] map</li>
+<li>[ ] promise</li>
+<li>[ ] function</li>
+</ul>
+<h4 id="q9.-which-key-name-is-used-to-specify-properties-that-must-be-included-for-json-to-be-valid">Q9. Which key name is used to specify properties that must be included for JSON to be valid?</h4>
+<ul>
+<li>[ ] important</li>
+<li>[ ] base</li>
+<li>[ ] core</li>
+<li>[x] required</li>
+</ul>
+<h4 id="q10.-which-is-the-valid-json-equivalent-of-the-data-shown">Q10. Which is the valid JSON equivalent of the data shown?</h4>
+<pre><code>{
+    photo: {
+    width: 1600,
+    height: 900,
+    binaries: {
+    url: &#39;https://www.example.com/images/34097349843&#39;,
+    thumbnail: &#39;https://www.example.com/images/thumbs/34097349843&#39;
+    },
+    animated: false,
+    tags: [116, 943, 234, 38793],
+    }
+}</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>  {
+    &#39;photo&#39;: {
+    &#39;width&#39;: 1600,
+    &#39;height&#39;: 900,
+    &#39;binaries&#39;: {
+    &#39;url&#39;: &#39;https://www.example.com/images/34097349843&#39;,
+    &#39;thumbnail&#39;: &#39;https://www.example.com/images/thumbs/34097349843&#39;
+    },
+    &#39;animated&#39;: &#39;false&#39;,
+    &#39;tags&#39;: [116, 943, 234, 38793],
+    }
+  }</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>  {
+    photo: {
+    width: 1600,
+    height: 900,
+    binaries: {
+    url: &#39;https://www.example.com/images/34097349843&#39;,
+    thumbnail: &#39;https://www.example.com/images/thumbs/34097349843&#39;
+    },
+    animated: false,
+    tags: [116, 943, 234, 38793],
+    }
+  }</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>  {
+    &quot;photo&quot;: {
+    &quot;width&quot;: 1600,
+    &quot;height&quot;: 900,
+    &quot;binaries&quot;: {
+    &quot;url&quot;: &quot;https://www.example.com/images/34097349843&quot;,
+    &quot;thumbnail&quot;: &quot;https://www.example.com/images/thumbs/34097349843&quot;
+    },
+    &quot;animated&quot;: false,
+    &quot;tags&quot;: [116, 943, 234, 38793],
+    }
+  }</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>  {
+    &quot;photo&quot;: {
+    &quot;width&quot;: &quot;1600&quot;,
+    &quot;height&quot;: &quot;900&quot;,
+    &quot;binaries&quot;: {
+    &quot;url&quot;: &quot;https://www.example.com/images/34097349843&quot;,
+    &quot;thumbnail&quot;: &quot;https://www.example.com/images/thumbs/34097349843&quot;
+    },
+    &quot;animated&quot;: &quot;false&quot;,
+    &quot;tags&quot;: [&quot;116&quot;, &quot;943&quot;, &quot;234&quot;, &quot;38793&quot;],
+    }
+  }</code></pre>
+<h4 id="q11.-how-do-you-store-several-paragraphs-of-text-as-a-string-in-json">Q11. How do you store several paragraphs of text as a string in JSON?</h4>
+<ul>
+<li>[x] Escape all whitespaces expect space characters.</li>
+<li>[ ] Escape line breaks.</li>
+<li>[ ] Escape paragraphs.</li>
+<li>[ ] Remove all whitespaces</li>
+</ul>
+<h4 id="q12.-what-data-type-is-represented-by-the-value-of-the-keyvalue-pair-shown">Q12. What data type is represented by the value of the key/value pair shown?</h4>
+<p><code>loggedIn: true</code> - [ ] string - [✅] Boolean - [ ] number - [ ] object</p>
+<h4 id="q13.-if-you-need-to-store-the-loggedin-status-of-a-user-in-json-as-a-boolean-what-is-the-correct-syntax">Q13. If you need to store the loggedIn status of a user in JSON as a boolean, what is the correct syntax?</h4>
+<ul>
+<li>[ ] "loggedIn": (true)</li>
+<li>[ ] loggedIn: "true"</li>
+<li>[x] "loggedIn": true</li>
+<li>[ ] loggedIn: {true}</li>
+</ul>
+<h4 id="q14.-what-does-json-with-padding-json-p-use-to-make-a-request">Q14. What does JSON with padding (JSON-P) use to make a request?</h4>
+<ul>
+<li>[ ] an <code>&lt;origin&gt;</code> element</li>
+<li>[ ] a header request</li>
+<li>[x] the <code>&lt;script&gt;</code> element</li>
+<li>[ ] the XMLHttpRequest object</li>
+</ul>
+<h4 id="q15.-which-value-is-supported-in-the-json-specifications">Q15. Which value is supported in the JSON specifications?</h4>
+<ul>
+<li>[ ] undefined</li>
+<li>[ ] infinity</li>
+<li>[ ] NaN</li>
+<li>[x] null</li>
+</ul>
+<h4 id="q16.-which-javascript-method-converts-a-json-to-javascript-value">Q16. Which JavaScript method converts a Json to JavaScript value?</h4>
+<ul>
+<li>[x] JSON.parse()</li>
+<li>[ ] JSON.stringify()</li>
+<li>[ ] JSON.toString()</li>
+<li>[ ] JSON.objectify()</li>
+</ul>
+<h4 id="q17.-transferring-json-information-from-client-to-server-and-back-again-often-includes-http-requests.-match-each-method-with-the-best-choice-describing-its-use.">Q17. Transferring JSON information from client to server and back again often includes HTTP requests. Match each method with the best choice describing its use.</h4>
+<pre><code>1.Sends data to specific server to create or update information.
+2.Sends data to specific server to create or update information without the risk of creating the resource more than once.
+3.Previews what the GET request response might be without the body of the text.
+4.Learns the communication channels used by the target source.
+5.Requests information from a specific source.
+6.Removes information.</code></pre>
+<ul>
+<li>[ ] 1.POST 2.DELETE 3.OPTIONS 4.HEADER 5.GET 6.PUT</li>
+<li>[ ] 1.POST 2.PUT 3.HEADER 4.OPTIONS 5.GET 6.DELETE</li>
+<li>[ ] 1.POST 2.DELETE 3.OPTIONS 4.HEADER 5.GET 6.PUT</li>
+<li>[x] 1.POST 2.PUT 3.HEADER 4.OPTIONS 5.GET 6.DELETE</li>
+</ul>
+<h4 id="q18.-which-code-uses-valid-json-syntax-for-the-text-centennial-olympics">Q18. Which code uses valid JSON syntax for the text "Centennial Olympics?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>{
+&quot;host&quot;: &quot;Atlanta&quot;,
+&quot;year&quot;: 1996
+/_ Centennial Olympics _/
+}</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>{
+&quot;host&quot;: &quot;Atlanta&quot;,
+&quot;year&quot;: 1996,
+/_ Centennial Olympics _/
+}</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>{
+&quot;host&quot;: &quot;Atlanta&quot;,
+&quot;year&quot;: 1996
+// Centennial Olympics
+}</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>{
+&quot;host&quot;: &quot;Atlanta&quot;,
+&quot;year&quot;: 1996,
+&quot;comments&quot;: &quot;Centennial Olympics&quot;
+}</code></pre>
+<h4 id="q19.-can-trailing-commas-be-used-in-objects-and-arrays">Q19. Can trailing commas be used in objects and arrays?</h4>
+<ul>
+<li>[ ] yes</li>
+<li>[ ] only if there is more than one item</li>
+<li>[x] no</li>
+<li>[ ] only when arrays and objects contain more than 10 items</li>
+</ul>
+<h4 id="q20.-which-whitespace-characters-should-be-escaped-within-a-string">Q20. Which whitespace characters should be escaped within a string?</h4>
+<ul>
+<li>[ ] All whitespace is allowed.</li>
+<li>[ ] double quotes, slashes new lines, and carriage returns</li>
+<li>[x] new lines and carriage returns only</li>
+<li>[ ] double quotes only</li>
+</ul>
+<h4 id="q21.-which-is-supported-by-yaml-but-not-supported-by-json">Q21. Which is supported by YAML but not supported by JSON?</h4>
+<ul>
+<li>[ ] nested</li>
+<li>[x] comments</li>
+<li>[ ] arrays</li>
+<li>[ ] null values</li>
+</ul>
+<h4 id="q22.-which-is-an-invalid-json-value">Q22. Which is an invalid JSON value?</h4>
+<ul>
+<li>[ ] "‘|=(<em>)(X 72(</em>)|/||*'"</li>
+<li>[ ] "|=(<em>)(X 72(</em>)|/||*"</li>
+<li>[ ] "|=(<em>)(X" "72(</em>)|/||*"</li>
+<li>[x] "(<em>)(X 72(</em>)|/||*"</li>
+</ul>
+<h4 id="q23.-how-do-you-encode-a-date-in-json">Q23. How do you encode a date in JSON?</h4>
+<ul>
+<li>[ ] Convert the date to UTC and enclose in quotes.</li>
+<li>[x] Encode the date as string using the ISO-8601 date format.</li>
+<li>[ ] Wrap the date in double quotes.</li>
+<li>[ ] Add a "date" key to your object and include the date as string.</li>
+</ul>
+<h4 id="q24.-whats-wrong-with-this-javascript">Q24. What's wrong with this JavaScript?</h4>
+<p><code>JSON.parse({"first": "Sarah", "last": "Connor"}) ;</code> - [ ] JSON should be wrapped with curly braces. - [ ] JSON.parse() is missing an argument. - [✅] The value supplied to JSON.parse() is not a string. - [ ] Nothing is wrong with it.</p>
+<h4 id="q25.-what-does-this-javascript-code-print">Q25. What does this JavaScript code print?</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="at">printNullness</span>(<span class="va">JSON</span>.<span class="at">parse</span>(<span class="st">&#39;{ &quot;lemmings&quot;: [] }&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="at">printNullness</span>(<span class="va">JSON</span>.<span class="at">parse</span>(<span class="st">&#39;{ &quot;lemmings&quot;: null }&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="at">printNullness</span>(<span class="va">JSON</span>.<span class="at">parse</span>(<span class="st">&#39;{ &quot;lemmings&quot;: &quot;null&quot; }&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-4" title="4"></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="kw">function</span> <span class="at">printNullness</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb15-6" title="6">  <span class="cf">if</span> (<span class="va">testMe</span>.<span class="at">lemmings</span> <span class="op">==</span> <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb15-7" title="7">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;null&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-8" title="8">  <span class="cf">else</span></a>
+<a class="sourceLine" id="cb15-9" title="9">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;not null&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-10" title="10"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[x] A</li>
+</ul>
+<pre><code>not null
+null
+not null</code></pre>
+<ul>
+<li>[ ] B</li>
+</ul>
+<pre><code>null
+null
+not null</code></pre>
+<ul>
+<li>[ ] C</li>
+</ul>
+<pre><code>not null
+null
+null</code></pre>
+<ul>
+<li>[ ] D</li>
+</ul>
+<pre><code>null
+null
+null</code></pre>
+<h4 id="q26.-what-tool-might-you-use-to-validate-your-json">Q26. What tool might you use to validate your JSON?</h4>
+<ul>
+<li>[x] JSONLint</li>
+<li>[ ] ValidateJSON</li>
+<li>[ ] JSONFiddle</li>
+<li>[ ] TextEdit</li>
+</ul>
+<h4 id="q27.-what-characters-denote-strings-in-json">Q27. What characters denote strings in JSON?</h4>
+<ul>
+<li>[x] double quotes</li>
+<li>[ ] smart (curly) quotes</li>
+<li>[ ] single or double quotes</li>
+<li>[ ] single quotes</li>
+</ul>
+<h4 id="q28.-which-code-is-a-valid-json-equivalent-of-the-keyvalue-pair-shown-that-also-preserves-the-data-type-constant-6.022e23">Q28. Which code is a valid JSON equivalent of the key/value pair shown that also preserves the data type? <code>constant: 6.022E23</code></h4>
+<ul>
+<li>[x] <code>"constant": "6.022E23"</code></li>
+<li>[ ] <code>"constant": "6\.022\E23"</code></li>
+<li>[ ] <code>constant: 6.022E23</code></li>
+<li>[ ] <code>constant: "6.022E23"</code></li>
+</ul>
+<p>Explanation: Scientific Notation is a valid JSON number. You can use <code>e</code> or <code>E</code>. <a href="https://json-schema.org/understanding-json-schema/reference/numeric.html">(Reference)</a></p>
+<h4 id="q29.-which-element-is-added-to-the-dom-to-create-a-json-p-request">Q29. Which element is added to the DOM to create a JSON-P request?</h4>
+<ul>
+<li>[ ] <code>&lt;object&gt;</code></li>
+<li>[x] <code>&lt;script&gt;</code></li>
+<li>[ ] <code>&lt;json&gt;</code></li>
+<li>[ ] <code>&lt;meta&gt;</code></li>
+</ul>
+<h4 id="q30.-why-do-so-many-apis-use-json">Q30. Why do so many APIs use JSON?</h4>
+<ul>
+<li>[ ] Because it's object-based.</li>
+<li>[ ] Because it's a simple and adaptable format for sharing data.</li>
+<li>[x] Because it's based on JavaScript.</li>
+<li>[ ] Because it is derived from SGML.</li>
+</ul>
+<h4 id="q31.-you-need-to-assemble-a-list-of-members-but-your-json-is-not-parsing-correctly.-how-do-you-change-it">Q31. You need to assemble a list of members, but your JSON is not parsing correctly. How do you change it?</h4>
+<pre><code>{
+  &quot;avengers&quot;: [
+    &quot;iron man&quot;,
+    &quot;hulk&quot;,
+    &quot;thor&quot;,
+    &quot;black widow&quot;,
+    &quot;ant man&quot;,
+    &quot;spider man&#39;
+  ]
+}</code></pre>
+<ul>
+<li>[x] A</li>
+</ul>
+<pre><code>{
+  &quot;avengers&quot;: [
+    &quot;iron man&quot;,
+    &quot;hulk&quot;,
+    &quot;thor&quot;,
+    &quot;black widow&quot;,
+    &quot;ant man&quot;,
+    &quot;spider man&quot;
+  ]
+}</code></pre>
+<ul>
+<li>[ ] B</li>
+</ul>
+<pre><code>{
+  &#39;avengers&#39;: [
+  {&#39;iron man&#39;,
+  &#39;hulk&#39;,
+  &#39;thor&#39;,
+  &#39;black widow&#39;,
+  &#39;ant man&#39;,
+  &#39;spider man&#39;}
+  ]
+}</code></pre>
+<ul>
+<li>[ ] C</li>
+</ul>
+<pre><code>{
+  &#39;avengers&#39;: [
+    &#39;iron man&#39;,
+    &#39;hulk&#39;,
+    &#39;thor&#39;,
+    &#39;black widow&#39;,
+    &#39;ant man&#39;,
+    &#39;spider man&#39;
+  ]
+}</code></pre>
+<ul>
+<li>[ ] D</li>
+</ul>
+<pre><code>{
+  &quot;avengers&quot;: {[
+    &quot;iron man&quot;,
+    &quot;hulk&quot;,
+    &quot;thor&quot;,
+    &quot;black widow&quot;,
+    &quot;ant man&quot;,
+    &quot;spider man&quot;
+  ]}
+}</code></pre>
+<h4 id="q32.-when-building-dynamic-web-applications-using-ajax-developers-originally-used-the-____-data-format-which-has-since-been-replaced-by-json.">Q32. When building dynamic web applications using AJAX, developers originally used the ____ data format, which has since been replaced by JSON.</h4>
+<ul>
+<li>[x] XML</li>
+<li>[ ] GRAPHQL</li>
+<li>[ ] REST</li>
+<li>[ ] SOAP</li>
+</ul>
+<h4 id="q33.-how-is-a-true-boolean-value-represented-in-json">Q33. How is a true boolean value represented in JSON?</h4>
+<ul>
+<li>[ ] TRUE</li>
+<li>[ ] "true"</li>
+<li>[ ] 1</li>
+<li>[x] true</li>
+</ul>
+<h4 id="q34.-which-array-is-valid-json">Q34. Which array is valid JSON?</h4>
+<ul>
+<li>[ ] [‘tatooine', ‘hoth', ‘dagobah']</li>
+<li>[ ] [tatooine, hoth, dagobah]</li>
+<li>[ ] ["tatooine", "hoth", "dagobah",]</li>
+<li>[x] ["tatooine", "hoth", "dagobah"]</li>
+</ul>
+<h4 id="q35.-what-data-type-is-encoded-in-the-outermost-component-of-the-json-shown">Q35. What data type is encoded in the outermost component of the JSON shown?</h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb25-1" title="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb25-2" title="2">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb25-3" title="3">    <span class="dt">&quot;year&quot;</span><span class="fu">:</span> <span class="dv">2024</span></a>
+<a class="sourceLine" id="cb25-4" title="4">  <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb25-5" title="5">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb25-6" title="6">    <span class="dt">&quot;location&quot;</span><span class="fu">:</span> <span class="st">&quot;unknown&quot;</span></a>
+<a class="sourceLine" id="cb25-7" title="7">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb25-8" title="8"><span class="ot">]</span></a></code></pre></div>
+<ul>
+<li>[ ] object</li>
+<li>[x] array</li>
+<li>[ ] number</li>
+<li>[ ] string</li>
+</ul>
+<h4 id="q36.-which-is-ignored-by-json-but-treated-as-significant-by-yaml">Q36. Which is ignored by JSON but treated as significant by YAML?</h4>
+<ul>
+<li>[ ] trailing commas</li>
+<li>[ ] trailing decimals</li>
+<li>[ ] whitespace</li>
+<li>[x] leading zeroes</li>
+</ul>
+<h4 id="q37.-when-you-need-to-set-the-value-of-a-key-in-json-to-be-blank-what-is-the-correct-syntax-for-the-empty-value">Q37. When you need to set the value of a key in JSON to be blank, what is the correct syntax for the empty value?</h4>
+<ul>
+<li>[ ] FALSE</li>
+<li>[ ] 0</li>
+<li>[ ] ""</li>
+<li>[x] null</li>
+</ul>
+<h4 id="q38.-how-do-you-assign-a-number-value-in-json">Q38. How do you assign a number value in JSON?</h4>
+<ul>
+<li>[ ] Escape the number with a backslash.</li>
+<li>[ ] Enclose the number in double quotes.</li>
+<li>[ ] Enclose the number in single quotes.</li>
+<li>[x] Leave the number as is.</li>
+</ul>
+<h4 id="q39.-which-code-uses-the-correct-json-syntax-for-encoding-a-keyvalue-pair-with-a-null-value">Q39. Which code uses the correct JSON syntax for encoding a key/value pair with a null value?</h4>
+<ul>
+<li>[x] "lastVisit": "null"</li>
+<li>[ ] lastVisit: null</li>
+<li>[ ] "lastVisit": 0</li>
+<li>[ ] "lastVisit": undefined</li>
+</ul>
+<p>Note: None of the above options appear to be correct. A correct answer would be <code>"lastVisit": null</code></p>
+<h4 id="q40.-which-reference-to-the-unicode-character-u1f602-complies-with-the-json-standard">Q40. Which reference to the Unicode character U+1F602 complies with the JSON standard?</h4>
+<ul>
+<li>[ ] 128514</li>
+<li>[ ] d83dde02</li>
+<li>[x] 83D02</li>
+<li>[ ] &amp;#128514;</li>
+</ul>
+<h4 id="q41.-which-code-uses-the-correct-json-syntax-for-a-keyvalue-pair-containing-a-string">Q41. Which code uses the correct JSON syntax for a key/Value pair containing a string?</h4>
+<ul>
+<li>[x] "largest": "blue whale"</li>
+<li>[ ] largest: ‘blue whale'</li>
+<li>[ ] ‘largest': ‘blue whale'</li>
+<li>[ ] largest: "blue whale"</li>
+</ul>
+<h4 id="q42.-which-key-name-is-used-to-specify-data-type-in-a-json-schema">Q42. Which key name is used to specify data type in a JSON schema?</h4>
+<ul>
+<li>[ ] data</li>
+<li>[ ] schemadata</li>
+<li>[ ] schematype</li>
+<li>[x] type</li>
+</ul>
+<h4 id="q43.-which-code-is-a-valid-json-equivalent-of-the-keyvalue-pair-shown-that-also-preserves-the-original-value">Q43. Which code is a valid JSON equivalent of the key/value pair shown that also preserves the original value?</h4>
+<ul>
+<li>[ ] "UPC": \043875</li>
+<li>[ ] UPC: "043875"</li>
+<li>[ ] "UPC": 043875</li>
+<li>[ ] UPC: ‘043875' <strong>NONE OF THESE ARE CORRECT A CORRECT ANSWER WOULD LOOK LIKE <code>"UPC": "043875"</code></strong></li>
+</ul>
+<h4 id="q44.-which-data-format-is-a-json-schema-written-in">Q44. Which data format is a JSON schema written in?</h4>
+<ul>
+<li>[ ] markdown</li>
+<li>[ ] YAML</li>
+<li>[ ] XML</li>
+<li>[x] JSON</li>
+</ul>
+<h4 id="q45.-which-code-is-valid-json-equivalent-of-the-keyvalue-pair-shown-that-also-preserves-the-data-type">Q45. Which code is valid JSON equivalent of the key/value pair shown that also preserves the data type?</h4>
+<ul>
+<li>[x] "variance": "-0.0823"</li>
+<li>[ ] variance: "-0.0823"</li>
+<li>[ ] "variance": "-0.0823"</li>
+<li>[ ] variance: -0.0823</li>
+</ul>
+<h4 id="q46.-with-what-character-should-keyvalue-pairs-be-separated">Q46. With what character should key/value pairs be separated?</h4>
+<ul>
+<li>[x] colon</li>
+<li>[ ] space</li>
+<li>[ ] semicolon</li>
+<li>[ ] comma</li>
+</ul>
+<h4 id="q47.-what-character-separates-keys-from-values">Q47. What character separates keys from values?</h4>
+<ul>
+<li>[ ] <code>:</code></li>
+<li>[ ] <code>-&gt;</code></li>
+<li>[ ] <code>::</code></li>
+<li>[x] <code>.</code></li>
+</ul>
+<h4 id="q48.-if-a-string-contains-line-breaks-what-should-you-do">Q48. If a string contains line breaks, what should you do?</h4>
+<ul>
+<li>[ ] Wrap line breaks in single quotation marks</li>
+<li>[ ] Make no changes, because whitespace is allowed</li>
+<li>[ ] Replace any line breaks with <code>\r</code></li>
+<li>[x] Replace any line breaks with <code>\n</code></li>
+</ul>
+<h4 id="q49.-which-number-types-are-available-in-javascript-but-not-supported-in-json">Q49. Which number types are available in javascript but not supported in json?</h4>
+<ul>
+<li>[ ] Fractional and Transcendental</li>
+<li>[ ] Infinity or Rational</li>
+<li>[ ] Rational and Irrational</li>
+<li>[x] Infinity or NaN</li>
+</ul>
+<h4 id="q50.-how-should-a-date-value-be-stored-in-json">Q50. How should a date value be stored in JSON?</h4>
+<ul>
+<li>[ ] As a string with quotes</li>
+<li>[ ] As a string without quotes</li>
+<li>[ ] As a string in ISO 8583 format</li>
+<li>[x] As a string in ISO 8601 format</li>
+</ul>
+<h4 id="q51.-is-the-json-code-shown-here-valid">Q51. Is the JSON code shown here valid?</h4>
+<p><img src="images/Q51/Q51.jpeg" alt="JSON object with key "Vehicles" containing an array of emojis" /> - [ ] No, emojis must be escaped with a backslash. - [ ] No, JSON strings are not allowed to use emojis. - [ ] No, emojis should never be enclosed with double quotes. - [✅] Yes, emojis are valid characters because JSON strings are unicode.</p>
+<h4 id="q52.-what-data-structure-do-you-use-to-encode-ordered-information">Q52. What data structure do you use to encode ordered information?</h4>
+<ul>
+<li>[ ] list</li>
+<li>[x] array</li>
+<li>[ ] struct</li>
+<li>[ ] indexed hash</li>
+</ul>
+<h4 id="q53.-what-are-valid-values-in-json">Q53. What are valid values in JSON?</h4>
+<ul>
+<li>[ ] arrays, strings, numbers, true/false</li>
+<li>[ ] hashes, arrays, strings, numbers, booleans, null</li>
+<li>[ ] arrays, objects, lists, strings, numbers, booleans</li>
+<li>[x] objects, arrays, strings, numbers, booleans, null</li>
+</ul>
+<h4 id="q54.-what-character-separates-keys-from-values">Q54. What character separates keys from values?</h4>
+<ul>
+<li>[ ] -&gt;</li>
+<li>[x] :</li>
+<li>[ ] ::</li>
+<li>[ ] .</li>
+</ul>
+<h4 id="q54.-which-key-format-is-valid-json">Q54. Which key format is valid JSON?</h4>
+<ul>
+<li>[ ] key: "value"</li>
+<li>[x] "key": "value"</li>
+<li>[ ] key, "value"</li>
+<li>[ ] ‘key': ‘value'</li>
+</ul>
