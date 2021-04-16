@@ -6,7 +6,12 @@ nav li {
   flex: 1;
 }
 
-
+#loading{
+  height:50px;
+  width:50px;
+  align-items: center;
+  align-self: center;
+}
 #footer {
   height: 950px;
   width: 100%;

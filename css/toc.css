@@ -1,6 +1,6 @@
- #ToC {
+ /* #ToC {
        font-family: Arial, Helvetica, sans-serif;
-       color: Black;
+       color: Black!important;
        background-color:whitesmoke;
        border-radius: 10px;
        position: fixed;
@@ -15,3 +15,43 @@
 
        height: 600px
      }
+*/
+#ToC {
+  resize: both;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12;
+  color: rgb(0, 0, 0)!important;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  position: fixed;
+  top: 0px;
+  right: 0;
+  width: 8%;
+  border: 3px solid gold;
+  padding: 10px;
+  margin: 30px;
+  overflow: auto;
+  overflow-y: scroll;
+  zoom: 0.68;
+  height: 450px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  overflow-wrap: break-word;
+}
+#ToC a {
+  color: black !important;
+}
+
+#ToC ul{
+  columns: 1!important;
+}
+
+div.my_class {
+  resize: both;
+  overflow: auto;
+  /* something other than visible */
+  /* z-index: -1; */
+  color: black, im !important;
+}
