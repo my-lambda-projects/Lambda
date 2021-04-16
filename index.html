@@ -14,9 +14,10 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/main-style.css" rel="stylesheet">
     <script src="./js/index.js" async></script>
+    <!--do not use async defer on this script... it affects the animated title-->
     <!----------------------jQuery------------------------------------------------------------------------------------------->
     <!-- <script async defer src="./jQuery-min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" async defer></script>
     <script type="text/javascript">
       function hideLoader() {
         $( '#loading' ).hide();
@@ -27,6 +28,7 @@
       $( window ).on( 'beforeunload', function () {
         $( window ).scrollTop( 0 );
       } );
+
     </script>
     <!-------------------------------------Angolia Search---------------------------------------------------------------------------------------------------------------------------------->
     <link href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
@@ -41,6 +43,7 @@
         branch: 'master',
         selector: 'div#search',
       } );
+
     </script>
   </head>
   <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -162,8 +165,8 @@
 
 
       <center>
-        <iframe class="embed" src="./fireworks.gif" height="365" style="width: 80%;" scrolling="no" frameborder="yes"
-          allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white"></iframe>
+        <img class="embed" src="./fireworks.gif" height="365" style="width:850px;" scrolling="no" frameborder="yes"
+          allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white">
       </center>
 
 
@@ -237,7 +240,7 @@
       <!------------------------------------------------------Demos----------------------------------------------------------------------------------->
       <h2>Demo's</h2>
       <br>
-      <iframe id="content" class="embed" src="./lightshow-background.html"
+      <iframe class="embed" id="content" src="./lightshow-background.html"
         style="width:90%!important; height:800px;overflow-y:hidden; zoom:0.5;  display:inline-flexbox;"></iframe>
 
 
@@ -254,9 +257,11 @@
         width="90%" scrolling="yes" frameborder="yes" allowtransparency="false" scroll="true"
         allowfullscreen="true"></iframe>
       <!----------------------------------------------------------------------------------------------------------------------------------------->
-
+      <button id="scrollBtn" title="Go to top" onclick="topFunction()">Back To Top</button>
       <br>
       <br>
+      <button id="myBtn" style="background-color:rgb(145, 136, 136); color:white;font-weight:900;"
+        onclick="removeaudio()">Mute</button>
       <!---------------------------------------------Clock nd Time Zone Widget----------------------------------------->
       <iframe class="animate" id="hexload"
         src="https://codepen.io/bgoonz/embed/ExZxMPN?height=265&theme-id=dark&default-tab=result" height="290px"
@@ -276,7 +281,7 @@
       <iframe src="https://observablehq.com/embed/1b6399182c98cd36@480?cells=chart%2Cviewof+date" width="90%"
         height="629" frameborder="0"></iframe>
 
-      <!------------------------------------------------------------------------------------------------------->
+      <!-----------------------------------------------Bottom Nav-------------------------------------------------------->
       <br>
       <br>
       <li class="btn"><a href="./WEEKS/wk1/0-notes/d2/directory.html">🧭NAVIGATION🧭&nbsp;<img src=""></a></li>
@@ -286,7 +291,7 @@
       </li>
       <br>
       <br>
-      <!------------------------------------------------------------------------------------------------------->
+      <!----------------------------------------------------Bookmark and Visit Counter--------------------------------------------------->
       <a class="bookmarklet_button"
         href="javascript:(function(){f='https://www.addtoany.com/share#url='+encodeURIComponent(window.location.href)+'&amp;title='+encodeURIComponent(document.title);a=function(){if(!window.open(f,'addtoany','width=800,height=600,toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
         title="AddToAny"
@@ -298,16 +303,17 @@
         type="text/javascript"></script>
       <script src="https://www.freevisitorcounters.com/en/home/counter/814984/t/0" type="text/javascript" async>
       </script>
+      <!----------------------------------------------------Remove audio I frame script--------------------------------------------------->
       <script>
         function removeaudio() {
-          var elem = document.getElementById( 'audio' );
+          let elem = document.getElementById( 'audio' );
           elem.parentNode.removeChild( elem );
           return false;
         }
 
         function pageInit() {
           // Hook up the "remove audio" button
-          var btn = document.getElementById( 'btnRemoveaudio' );
+          let btn = document.getElementById( 'btnRemoveaudio' );
           if ( btn.addEventListener ) {
             // DOM2 standard
             btn.addEventListener( 'click', removeaudio, false );
@@ -319,36 +325,48 @@
             btn.onclick = removeaudio;
           }
         };
+
       </script>
 
-      <!--------------------bug fix for scroll to top on page load error----------->
-      <script>
-        function out() {
-          document.getElementById( 'out' ).scrollIntoView();
-        };
 
-        function bottom() {
-          document.getElementById( 'bottom' ).scrollIntoView();
-          window.setTimeout( function () {
-            out();
-          }, 1000 );
-        };
-
-        bottom();
-      </script>
 
       <a href="https://free-hit-counters.net/" style="color:black;">Free Hit Counters</a>
       <script src="https://www.freevisitorcounters.com/auth.php?id=f904dfc58ec6c182f5b6f3c4144fb84f03f356bc"
         type="text/javascript"></script>
       <script src="https://www.freevisitorcounters.com/en/home/counter/815451/t/0" type="text/javascript"></script>
 
+      <!------------------------------------------------------------------------------------------------------->
+      <!-------------------------------------------Back To Top Button---------------------------------------------------->
+      <script>
+        //Get the button:
+        mybutton = document.getElementById( "scrollBtn" );
 
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction()
+        };
+
+        function scrollFunction() {
+          if ( document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+      </script>
 
 
       <br>
       <br>
       <!---------------------------------------------------Footer------------------------------------------------------------------------------>
-
+      <!----------------------------------------------------------------------------------------------------->
       <iframe id="footer" src="https://nervous-spence-2c9965.netlify.app/" frameborder="0" scrolling="no" border:none;
         style="zoom:0.8; heght:1100; width :100% !important;" "></iframe>
 </div></body>
