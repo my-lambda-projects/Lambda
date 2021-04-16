@@ -74,11 +74,12 @@
       <div id="loading"
         style="background: url('./giphy.gif') no-repeat center center;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999999;">
       </div>
-      <div id="search"></div>
-      <!----------------------------------------------One Drive File Storage------------------------------------------------------------------------------------------------------------------------->
-      <h2>One-Drive-File-Storage!</h2>
-      <button onclick="removeaudio()" id="myBtn">Mute</button>
 
+      <!----------------------------------------------One Drive File Storage------------------------------------------------------------------------------------------------------------------------->
+
+      <button  onclick="removeaudio()" id="myBtn">Mute</button>
+      <br>
+      <div class="embed" id="search"></div>
       <div class="loading-overlay"></div>
       <div class="loading-overlay-image-container">
         <img src="./giphy.gif" class="loading-overlay-img" />
@@ -86,6 +87,7 @@
       <br>
       </br>
       <div style="display:flex; flex-direction: row;">
+              <h2>One-Drive-File-Storage!</h2>
         <iframe class="embed"
           src="https://onedrive.live.com/embed?cid=D21009FDD967A241&resid=D21009FDD967A241%21538729&authkey=AHSDSyoYqzg2K2E"
           width="165" height="128" frameborder="0" scrolling="no"></iframe>
@@ -132,20 +134,23 @@
       <!----------------------------------------------------------------------------------Top Animations----------------------------------------------------------------->
       <br>
       </br>
-      <div style="display:flex; flex-direction: row;">
+      <center>
+        <div class="embed"
+          style="background:url(https://media3.giphy.com/media/3o7qDNfxtNRtLVv8qs/source.gif)!important; align-content: center;    justify-content: center; margin: auto;display:flex; flex-direction: row;">
 
-        <iframe class="animate embed" id="ann" src="https://embedable-content.netlify.app/standalone/test.html"
-          height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350 loading="lazy"
-          align-content:center allowtransparency="true" allowfullscreen="true" opacity="0.7"
-          box-shaddow="16px white"></iframe>
+          <iframe class="animate embed" id="ann" src="https://embedable-content.netlify.app/standalone/test.html"
+            height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350 loading="lazy"
+            align-content:center allowtransparency="true" allowfullscreen="true" opacity="0.7"
+            box-shaddow="16px white"></iframe>
 
-        <button onclick="removeaudio()" id="myBtn">Mute</button>
-        <iframe class="animate embed" id="audio"
-          src="https://project-showcase-bgoonz.netlify.app/future-tech-innov-creative/etc/musicviz/index_forexample.html"
-          height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350 allow="autoplay" id="audio"
-          style="display:none" align-content:center allowtransparency="true" allowfullscreen="true" opacity="0.7"
-          box-shaddow="16px white"></iframe>
-      </div>
+          <button onclick="removeaudio()" id="myBtn">Mute</button>
+          <iframe class="animate embed" id="audio"
+            src="https://project-showcase-bgoonz.netlify.app/future-tech-innov-creative/etc/musicviz/index_forexample.html"
+            height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350 allow="autoplay"
+            id="audio" style="display:none" align-content:center allowtransparency="true" allowfullscreen="true"
+            opacity="0.7" box-shaddow="16px white"></iframe>
+        </div>
+      </center>
       <!---------------------------------------------------------Announcments------------------------------------------------------------------------------------------>
       <br>
       </br>
@@ -156,7 +161,7 @@
       <br>
       <br>
       <!---------------------------------------------------------Quizes------------------------------------------------------------------------------------------>
-<h2 style="color:white; align-content:center;"> Quizes</h2>
+      <h2 style="color:white; align-content:center;"> Quizes</h2>
       <br>
       <br>
       <iframe class="embed" src="https://web-dev-interview-prep-quiz-website.netlify.app/"
@@ -324,10 +329,8 @@
       <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/815451/t/0"></script>
 
 
-      <br>
-      </br>
-      <br>
-      </br>
+
+
       <br>
       </br>
       <!---------------------------------------------------Footer------------------------------------------------------------------------------>
