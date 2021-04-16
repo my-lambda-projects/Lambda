@@ -1,0 +1,326 @@
+<h2 id="nosql">NoSQL</h2>
+<h4 id="q1.-which-types-of-indexes-are-available-in-cosmosdb">Q1. Which types of indexes are available in CosmosDB?</h4>
+<ul>
+<li>[x] range and spatial</li>
+<li>[ ] secondary and primary key</li>
+<li>[ ] secondary and spatial</li>
+<li>[ ] range and primary key</li>
+</ul>
+<h4 id="q2.-you-want-to-connect-a-dynamodb-stream-to-aws-lambda-function">Q2. You want to connect a DynamoDB stream to AWS Lambda function?</h4>
+<ul>
+<li>[ ] DynamoDB table</li>
+<li>[x] DynamoDB trigger</li>
+<li>[ ] DynamoDB item</li>
+<li>[ ] DynamoDB index</li>
+</ul>
+<h4 id="q3.-to-index-a-field-that-holds-an-array-value-in-mongodb-which-index-type-do-you-create">Q3. To index a field that holds an array value in MongoDB, which index type do you create?</h4>
+<ul>
+<li>[ ] partial</li>
+<li>[ ] sparse</li>
+<li>[ ] compound</li>
+<li>[x] multikey</li>
+</ul>
+<h4 id="q4.-you-want-to-test-hbase-on-your-laptop-using-the-fewest-number-of-steps.-what-do-you-do">Q4. You want to test HBASE on your laptop using the fewest number of steps. What do you do?</h4>
+<ul>
+<li>[ ] Set up Hadoop in pseudo-distributed mode.</li>
+<li>[ ] Set up HBASE in local mode.</li>
+<li>[x] Set up HBASE in pseudo-distributed mode.</li>
+<li>[ ] Set up Hadoop in local mode.</li>
+</ul>
+<h4 id="q5.-you-need-to-create-a-document-database-that-supports-database-triggers.-which-nosql-database-should-you-use">Q5. You need to create a document database that supports database triggers. Which NoSQL database should you use?</h4>
+<ul>
+<li>[x] DynamoDB</li>
+<li>[ ] BigTable</li>
+<li>[ ] Redis</li>
+<li>[ ] MongoDB</li>
+</ul>
+<h4 id="q6.-what-is-recommended-size-for-redis-keys">Q6. What is recommended size for Redis keys?</h4>
+<ul>
+<li>[ ] medium</li>
+<li>[x] short</li>
+<li>[ ] single bit<br />
+</li>
+<li>[ ] long</li>
+</ul>
+<h4 id="q7.-you-need-to-design-security-for-dynamodb-to-allow-users-read-only-access-to-certain-items-and-attributes-in-a-table.-what-do-you-do">Q7. You need to design security for DynamoDB to allow users read-only access to certain items and attributes in a table. What do you do?</h4>
+<ul>
+<li>[ ] Use lAM policy conditions</li>
+<li>[ ] Use lAM roles</li>
+<li>[ ] Use VPC endpoint</li>
+<li>[x] Use lAM policies</li>
+</ul>
+<h4 id="q8.-what-does-redis-use-to-sort-the-elements-of-a-sorted-set">Q8. What does redis use to sort the elements of a sorted set?</h4>
+<ul>
+<li>[ ] Scores.</li>
+<li>[ ] Ids.</li>
+<li>[ ] Values.</li>
+<li>[x] Keys.</li>
+</ul>
+<h4 id="q9.you-need-to-change-the-shard-key-of-an-existing-mongodb-collection.-what-do-you-do">Q9.You need to change the shard key of an existing MongoDB collection. What do you do?</h4>
+<ul>
+<li>[ ] Dump the collection data, drop the collection, create a new collection and shard key, import the data.</li>
+<li>[ ] Add second shard key and drop the first shard key.</li>
+<li>[ ] Dump the collection data, drop the collection, presplit the data, create a new collection and shard key, import the data.</li>
+<li>[ ] Drop and recreate the shard key.</li>
+</ul>
+<h4 id="q10.-polyglot-storage-means-using-multiple-types-of-what-in-the-same-application">Q10. Polyglot storage means using multiple types of what in the same application?</h4>
+<ul>
+<li>[ ] Security systems.</li>
+<li>[ ] Database systems.</li>
+<li>[ ] Storage systems.</li>
+<li>[x] Query systems.</li>
+</ul>
+<h4 id="q11.-you-need-to-implement-the-simplest-possible-scalable-in-memory-cache-for-your-aws-application.-which-service-do-you-select">Q11. You need to implement the simplest possible scalable, in-memory cache for your AWS application. Which service do you select?</h4>
+<ul>
+<li>[ ] Elasticache using Memcached.</li>
+<li>[ ] DynamoDB.</li>
+<li>[ ] DynamoDB Accelerator (DAX).</li>
+<li>[x] Elasticache using Redis.</li>
+</ul>
+<h4 id="q12.-you-are-doing-data-modelling-for-google-bigtable.-which-statement-expresses-if-and-when-you-should-split-entities-across-multiple-rows">Q12. You are doing data modelling for Google BigTable. Which statement expresses if and when you should split entities across multiple rows?</h4>
+<ul>
+<li>[ ] Keep all information for an entity in a single row. Store related entities in adjacent rows.<br />
+</li>
+<li>[ ] Keep all information for an entity in a single row.</li>
+<li>[ ] Split entities across multiple rows if the entity data is over thousands of MBs, or if it does not need atomic updates and reads.</li>
+<li>[x] Split entities across multiple rows if the entity data is over hundreds of MBs, or if it does not need atomic updates and reads.</li>
+</ul>
+<h4 id="q13.-which-two-characteristics-define-amazon-quantum-ledger-database">Q13. Which two characteristics define Amazon Quantum Ledger Database?</h4>
+<ul>
+<li>[ ] Key-value data model; transactionally consistent with ACID semantics.<br />
+</li>
+<li>[x] Document data model; transactionally consistent with ACID semantics.</li>
+<li>[ ] Key-value data model; transactions with tunable consistency.</li>
+<li>[ ] Document data model; transactions with tunable consistency.</li>
+</ul>
+<h4 id="q14.-you-need-to-design-the-primary-key-for-dynamodb-based-on-three-attributes.-what-do-you-do">Q14. You need to design the primary key for DynamoDB based on three attributes. What do you do?</h4>
+<ul>
+<li>[ ] Designate all three fields as the primary key.<br />
+</li>
+<li>[x] Concatenate all three fields into one new field, then designate that new field as the primary key.</li>
+<li>[ ] Designate two fields of the three fields as the primary key.</li>
+<li>[ ] Concatenate two fields into one new field, then designate that new field and the remaining field as the primary key.</li>
+</ul>
+<h4 id="q15.-you-need-to-design-the-primary-key-for-dynamodb-based-on-three-attributes.-what-do-you-do">Q15. You need to design the primary key for DynamoDB based on three attributes. What do you do?</h4>
+<ul>
+<li>[ ] Designate all three fields as the primary key.<br />
+</li>
+<li>[x] Concatenate all three fields into one new field, then designate that new field as the primary key.</li>
+<li>[ ] Designate two fields of the three fields as the primary key.</li>
+<li>[ ] Concatenate two fields into one new field, then designate that new field and the remaining field as the primary key.</li>
+</ul>
+<h4 id="q16.-which-of-these-data-types-should-you-avoid-in-designing-a-google-bigtable-row-key">Q16. Which of these data types should you avoid in designing a Google Bigtable row key?</h4>
+<ul>
+<li>[ ] multi-valued identifiers</li>
+<li>[ ] string identifiers</li>
+<li>[ ] timesstamps</li>
+<li>[x] frequently updated identifiers</li>
+</ul>
+<h4 id="q17.-your-startup-is-building-a-prototype-that-has-an-evolving-schema.-your-data-will-be-eventually-consistent.-your-application-is-hosted-in-aws.-which-databse-do-you-choose">Q17. Your startup is building a prototype that has an evolving schema. Your data will be eventually consistent. Your application is hosted in AWS. Which databse do you choose?</h4>
+<ul>
+<li>[ ] Neptune</li>
+<li>[ ] DocumentDB</li>
+<li>[x] DynamoDB</li>
+<li>[ ] Amazon Aurora</li>
+</ul>
+<h4 id="q18.-you-need-to-create-a-scalable-databse-that-allows-you-to-share-documents-across-authorized-mobile-clients-in-real-time.-what-google-nosql-database-should-you-use">Q18. You need to create a scalable databse that allows you to share documents across authorized mobile clients in real time. What Google NoSQL database should you use?</h4>
+<ul>
+<li>[ ] Memorystore</li>
+<li>[ ] Datastore</li>
+<li>[x] Firebase</li>
+<li>[ ] Bigtable</li>
+</ul>
+<h4 id="q19.-you-want-to-test-hbase-on-your-laptop-using-the-fewest-number-of-steps.-what-do-you-do">Q19. You want to test HBase on your laptop using the fewest number of steps. What do you do?</h4>
+<ul>
+<li>[ ] Set up HBase in local mode.</li>
+<li>[ ] Set up Hadoop in pseudo-distributed mode.</li>
+<li>[ ] Set up HBase in pseudo-distributed mode.</li>
+<li>[x] Set up Hadoop in local mode.</li>
+</ul>
+<h4 id="q20.-you-need-to-design-security-for-dynamodb-to-allow-users-read-obly-access-to-certain-items-and-attriutes-in-a-table.-what-do-you-do">Q20. You need to design security for DynamoDB to allow users read-obly access to certain items and attriutes in a table. What do you do?</h4>
+<ul>
+<li>[ ] Use IAM roles.</li>
+<li>[x] Use IAM plicy conditions.</li>
+<li>[ ] Use a VPC endpoint.</li>
+<li>[ ] Use IAM plicies.</li>
+</ul>
+<h4 id="q21.-you-need-to-design-a-primary-key-for-dynamodb-based-on-three-attributes.-what-do-you-do">Q21. You need to design a primary key for DynamoDb based on three attributes. What do you do?</h4>
+<ul>
+<li>[ ] Concatenate all three fields into into one new field, than disignate that new field as the primary key.</li>
+<li>[ ] Concatenate two fileds into one new field, than disignate that new field and the remaining field as the primary key.</li>
+<li>[x] Designate all three fields as the primary key.</li>
+<li>[ ] Designate two filds of the three fields as the primary key.</li>
+</ul>
+<h4 id="q22.-what-does-redis-use-to-sort-the-elements-of-a-sorted-set">Q22. What does Redis use to sort the elements of a sorted set?</h4>
+<ul>
+<li>[ ] keys</li>
+<li>[ ] values</li>
+<li>[x] scroes</li>
+<li>[ ] ids</li>
+</ul>
+<h4 id="q23.-you-need-to-create-a-document-database-that-supports-database-triggers.-which-nosql-database-should-you-use">Q23. You need to create a document database that supports database triggers. Which NoSQL database should you use?</h4>
+<ul>
+<li>[x] DynamoDb</li>
+<li>[ ] Redis</li>
+<li>[ ] MongoDB</li>
+<li>[ ] Bigtable</li>
+</ul>
+<h4 id="q24.-which-statement-is-prefered-cypher-code-for-neo4j">Q24. Which statement is prefered Cypher code for Neo4j?</h4>
+<ul>
+<li>[ ] MATCH (:Person)–&gt;(:Card)–&gt;(:Company) RETURN count(vehicle)</li>
+<li>[ ] Match (:Person)–&gt;(:Car):(vehicle:Car)–&gt;(:Company) RETURN count(vehicle)</li>
+<li>[x] MATCH (:Person)–&gt;(vehicle:Car)–&gt;(:Company) RETURN count(vehicle)</li>
+<li>[ ] MATCH (:Person)–&gt;(:Card), (vehicle:Car)–&gt;(:Company) RETURN count(vehicle)</li>
+</ul>
+<h4 id="q25.-you-need-multi-item-acid-transactions-with-snapshot-isolation-within-a-partition-for-your-cloud-based-application.-which-nosql-databse-do-you-choose">Q25. You need multi-item ACID transactions with snapshot isolation within a partition for your cloud-based application. Which NoSQL databse do you choose?</h4>
+<ul>
+<li>[ ] Bigtable</li>
+<li>[ ] GraphDB</li>
+<li>[ ] DynamoDB</li>
+<li>[x] Cosmos DB</li>
+</ul>
+<h4 id="q26.-you-need-to-control-your-applications-batch-updates-destination-for-your-bigtable-multinode-cluster.-which-action-do-you-take">Q26. You need to control your application's batch updates destination for your Bigtable multinode cluster. Which action do you take?</h4>
+<ul>
+<li>[ ] Create a custom app profile to route batch updates.</li>
+<li>[ ] Create a custom app profile to route the batch update from that client.</li>
+<li>[x] Update the default app profile to route the natch update from that client.</li>
+<li>[ ] Use the default app profile to route batch updates.</li>
+</ul>
+<h4 id="q27.-polyglot-storage-mean-using-multiple-types-of-what-in-the-same-application">Q27. Polyglot storage mean using multiple types of what in the same application?</h4>
+<ul>
+<li>[ ] security systems</li>
+<li>[ ] databse systems</li>
+<li>[ ] query systems</li>
+<li>[x] storage systems</li>
+</ul>
+<h4 id="q28.-your-query-to-verify-that-your-redis-key-is-configured-to-support-expiring-user-information-on-a-efined-interval-returns-----what-does-this-value-indicate">Q28. Your query to verify that your Redis key is configured to support expiring user information on a efined interval returns - - [ ] What does this value indicate?</h4>
+<ul>
+<li>[ ] The queried key value expired in the last two secodns.</li>
+<li>[ ] The queried key value exists, but has no associated expire value.</li>
+<li>[x] The queried key value does not exist.</li>
+<li>[ ] There are two expired keys with this value.</li>
+</ul>
+<h4 id="q29.-you-are-designing-a-mongodb-schema-to-support-queries-that-will-include-lookups.-what-should-you-do">Q29. You are designing a MongoDB schema to support queries that will include lookups. What should you do?</h4>
+<ul>
+<li>[ ] Create an index on the key value used as the primary key.</li>
+<li>[ ] Create an index on the key value used as the foreign key.</li>
+<li>[x] Create a multicolumn index on the key value used as the foreign key and the most unique column in the document.</li>
+<li>[ ] Create a multicolumn index on the key value used as the primary and also the forign key.</li>
+</ul>
+<h4 id="q30.-what-is-the-aggregation-operator-for-a-join-concept-in-mongodb">Q30. What is the aggregation operator for a join concept in MongoDB?</h4>
+<ul>
+<li>[ ] $group</li>
+<li>[ ] $match</li>
+<li>[x] $lookup</li>
+<li>[ ] $project</li>
+</ul>
+<h4 id="q31.-for-your-mobile-application-you-need-to-select-a-google-cloud-databse-that-can-support-compound-filtered-document-queries.-which-do-you-choose">Q31. For your mobile application, you need to select a Google cloud databse that can support compound, filtered document queries. Which do you choose?</h4>
+<ul>
+<li>[ ] Cloud SQL</li>
+<li>[ ] Cloud Spanner</li>
+<li>[x] Cloud Firestore</li>
+<li>[ ] Cloud Firebase</li>
+</ul>
+<h4 id="q32.-to-bulk-load-data-into-amazon-neputn-what-do-you-do">Q32. To bulk load data into Amazon Neputn, what do you do?</h4>
+<ul>
+<li>[x] Upload data to S3 VPC endpoint, Use the Neptun loader to load from s3 into your Neptune instance</li>
+<li>[ ] Ad data to a Kinesis stream, and use the Neptune loade to load from S# into your Neptun instance.</li>
+<li>[ ] Add data to a Kisnesis stream, and create a Kinesis stream VPC endpoint. Use the Nepune loader to load from S3into your Neptune instance.</li>
+<li>[ ] Upload data to S Use the neptune loader to load from S3 into your Neptune instance.</li>
+</ul>
+<h4 id="q33.-you-need-to-create-a-pubsub-server.-which-databse-do-you-use">Q33. You need to create a pub/sub server. Which databse do you use?</h4>
+<ul>
+<li>[ ] Neo4j</li>
+<li>[ ] Cassandra</li>
+<li>[x] Redis</li>
+<li>[ ] MyS#### QL</li>
+</ul>
+<h4 id="q34.-you-want-to-connect-a-dynamodb-stream-to-an-aws-lamdba-function.-which-one-of-these-object-do-you-create.">Q34. You want to connect a DynamoDb stream to an AWS lamdba function. Which one of these object do you create.</h4>
+<ul>
+<li>[ ] DynamoDb table</li>
+<li>[x] DynamoDB trigger</li>
+<li>[ ] DynamoDB item</li>
+<li>[ ] DYnamoDB index</li>
+</ul>
+<h4 id="q35.-which-two-types-of-indexes-are-available-in-cosmos-db">Q35. Which two types of indexes are available in Cosmos DB?</h4>
+<ul>
+<li>[x] secondery and primary key</li>
+<li>[ ] secondary and spatial</li>
+<li>[ ] range and spatial</li>
+<li>[ ] range and primary key</li>
+</ul>
+<h4 id="q36.-sql-databses-and-nosql-are-which-types-of-scalable">Q36. SQL databses and NoSQL are which types of scalable?</h4>
+<ul>
+<li>[ ] horizontally, infinitely</li>
+<li>[x] vertically, horizontally</li>
+<li>[ ] vertically, infinitely</li>
+<li>[ ] horizonally, vertically</li>
+</ul>
+<h4 id="q37.-you-need-to-create-a-scalable-database-that-allows-you-to-query-data-nodes-and-edges-efficiently.-what-do-you-use">Q37. You need to create a scalable database that allows you to query data nodes and edges efficiently. What do you use?</h4>
+<ul>
+<li>[ ] a relational databse</li>
+<li>[ ] a columnstore databse</li>
+<li>[ ] a document databse</li>
+<li>[x] a graph database</li>
+</ul>
+<h4 id="q38.-you-are-developing-a-model-for-a-graph-databse.-your-data-will-be-moved-from-a-relatinal-databse-into-neo4j.-which-of-these-transformations-apply">Q38. You are developing a model for a graph databse. Your data will be moved from a relatinal databse into Neo4j. Which of these transformations apply?</h4>
+<ul>
+<li>[ ] Rows become labes: bales become nodes.</li>
+<li>[ ] Tables become labels: rows become nodes.</li>
+<li>[ ] Tables become collections: rows become items.</li>
+<li>[x] Rows become collections: tables become items.</li>
+</ul>
+<h4 id="q39.-to-index-a-field-that-holds-an-array-value-in-mongodb-which-index-type-do-you-create">Q39. To index a field that holds an array value in MongoDB, which index type do you create?</h4>
+<ul>
+<li>[ ] sparse</li>
+<li>[ ] compound</li>
+<li>[ ] partial</li>
+<li>[x] multikey</li>
+</ul>
+<h4 id="q40.-you-need-to-execute-a-command-for-mongodb-that-does-not-load-values-from-the-.mongorc.js-file.-what-do-you-do">Q40. You need to execute a command for MongoDB that does NOT load values from the <code>.mongorc.js</code> file. What do you do ?</h4>
+<ul>
+<li>[ ] Delete the .monorc.js file and restart mongo shell.</li>
+<li>[ ] Use the mongo shell to create a command with –norc option</li>
+<li>[ ] Rem all lines in the .mongorc.js file ad restart mongo shell.</li>
+<li>[x] Use the mongo shell to create a command with –nodedefault option.</li>
+</ul>
+<h4 id="q41.-what-is-the-recommended-size-for-redis-keys">Q41. What is the recommended size for Redis keys?</h4>
+<ul>
+<li>[ ] long</li>
+<li>[ ] short</li>
+<li>[ ] medium</li>
+<li>[x] a single bit</li>
+</ul>
+<h4 id="q42.-you-need-to-store-an-unordered-collection-of-name-value-pairs-with-differing-data-types-in-dynamodb.-which-data-type-should-you-choose">Q42. You need to store an unordered collection of name-value pairs with differing data types in DynamoDB. Which data type should you choose?</h4>
+<ul>
+<li>[x] map</li>
+<li>[ ] set</li>
+<li>[ ] list</li>
+<li>[ ] stack</li>
+</ul>
+<p>#### Q43. Which statement retrieves an item from the MusicCollection table in DynamoDB? - [ ] aws dynamodb query –table-name MusicCollection –key file://key.json - [✅] aws dynamodb get-item –table-name MusicCollection –key file://key.json - [ ] aws dynamodb select –table-name MusicCollection –key file://key.json - [ ] aws dynamodb put-item –table-name MusicCollection –key file://key.json</p>
+<p>#### Q44. Database availability is measured by which metric? - [ ] the amount of service calls - [ ] the number of minutes - [ ] the amount of service costs - [ ] the number of nines</p>
+<p>#### Q45. You need to encrypt data at rest in DynamoDB. Which action do you take? - [ ] You assign a default AWS encryption key to your table to encrypt data. - [ ] You create an AWS encryption key and assign it to your table to encrypt data. - [ ] None. Data is encrypted by default. - [ ] You create an AWS encryption key and assign it to your database to encrypt data.</p>
+<p>#### Q46. You need to generate a unique, sequential identifier for each value stored in a Redis cluster. What do you do? - [ ] Implement a SortedSet object to generate a value. - [ ] Use the GUID keyword to generate a value. - [ ] Implement a List object to generate a value. - [✅] Use the INCR keyword to generate a value</p>
+<p>#### Q47. You want to return a list of all elements in two Redis sets. Which keyword do you use? - [✅] smembers - [ ] returnall - [ ] sunion - [ ] sismember</p>
+<h4 id="q48.-which-method-shows-you-whether-mongodb-uses-any-indexes-when-running-a-query-and-how-the-indexes-are-used">Q48. Which method shows you whether MongoDB uses any indexes when running a query, and how the indexes are used?</h4>
+<ul>
+<li>[ ] detailQueryExecution()</li>
+<li>[ ] showPlan()</li>
+<li>[x] explain()</li>
+<li>[ ] describe()</li>
+</ul>
+<h4 id="q49.-which-statement-accurately-describes-global-secondary-indexes-in-dynamodb">Q49. Which statement accurately describes global secondary indexes in DynamoDB?</h4>
+<ul>
+<li>[ ] The global secondary indexes in DynamoDB are consistent, and are not guaranteed to return correct results.</li>
+<li>[ ] The global secondary indexes in DynamoDB are transactionally consistent, and are guaranteed to return correct results.</li>
+<li>[ ] The global secondary indexes in DynamoDB are partially consistent, and are not guaranteed to return correct results.</li>
+<li>[ ] The global secondary indexes in DynamoDB are eventually consistent, and are not guaranteed to return correct results.</li>
+</ul>
+<h4 id="q50.-which-command-do-you-use-to-add-a-value-to-a-redis-stream-named-mystream">Q50. Which command do you use to add a value to a Redis stream named mystream?</h4>
+<ul>
+<li>[ ] ADD mystream * sensor-id 1234 temperature 19.8 1518951480106-1</li>
+<li>[ ] UPDATE mystream * sensor-id 1234 temperature 19.8 1518951480106-3</li>
+<li>[x] XADD mystream * sensor-id 1234 temperature 9.8 1518951480106-0</li>
+<li>[ ] INSERT mystream * sensor-d 1234 temperature 19.8 15181480106-2</li>
+</ul>

@@ -1,0 +1,596 @@
+<h2 id="matlab">MATLAB</h2>
+<h4 id="q1.-from-what-distribution-does-the-rand-function-return-value">Q1. From what distribution does the <code>rand()</code> function return value?</h4>
+<ul>
+<li>[ ] normal</li>
+<li>[ ] poisson</li>
+<li>[ ] binomial</li>
+<li>[x] uniform</li>
+</ul>
+<h4 id="q2.-based-on-the-code-below-c-is-the-_-of-a.">Q2. Based on the code below, c is the <code>\_</code> of a.</h4>
+<pre><code>a = rand(1, 11);
+b = sort(a);
+c = b(1, ceil(end/2));</code></pre>
+<ul>
+<li>[x] median</li>
+<li>[ ] mode</li>
+<li>[ ] mean</li>
+<li>[ ] margin</li>
+</ul>
+<h4 id="q3.-what-does-the-profiler-track">Q3. What does the Profiler track?</h4>
+<ul>
+<li>[x] execution time</li>
+<li>[ ] command history</li>
+<li>[ ] errors</li>
+<li>[ ] the value of variables</li>
+</ul>
+<h4 id="q4.-which-code-block-contains-the-correct-syntax-for-a-while-loop">Q4. Which code block contains the correct syntax for a <code>while</code> loop?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>a = 0;
+do
+    a = a + 1;
+while a &lt; 5
+end</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>a = 0;
+while(a &lt; 5)
+    a = a + 1;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>a = 0;
+while a &lt; 5:
+    a = a + 1;</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>a = 0;
+while a &lt; 5
+    a = a + 1;
+end</code></pre>
+<h4 id="q5.-what-does-b-contain">Q5. What does <code>b</code> contain?</h4>
+<pre><code>a =
+    19    20    12     0     6
+     6     9    56     0     3
+    46     8     9     8    19
+     9     8     8    19    46
+     1     9    46     6    19</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>b =
+
+    56     0
+     9     8</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>b =
+
+     8    19
+    19    46</code></pre>
+<h4 id="q6.-you-have-written-a-function-myfun-and-want-to-measure-how-long-it-takes-to-run.-which-code-segment-will-return-in-t-the-time-in-seconds-it-takes-myfun-to-run">Q6. You have written a function <code>myfun</code> and want to measure how long it takes to run. Which code segment will return in <code>t</code> the time in seconds it takes <code>myfun</code> to run?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>t = cputime(myfun());</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>tic;
+myfun();
+toc;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>timer.start;
+myfun()
+t = timer.stop;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>t = timer(myfun());</code></pre>
+<h4 id="q7.-what-is-used-for">Q7. What is <code>%%</code> used for?</h4>
+<ul>
+<li>[ ] argument placeholder</li>
+<li>[ ] block quotes</li>
+<li>[x] code sections</li>
+<li>[ ] conversion specifier</li>
+</ul>
+<h4 id="q8.-what-is-the-.-character-not-used-for">Q8. what is the <code>.</code> character NOT used for?</h4>
+<ul>
+<li>[ ] structure field access</li>
+<li>[ ] a decimal point</li>
+<li>[x] cell array access</li>
+<li>[ ] element-wise operations</li>
+</ul>
+<h4 id="q9.-which-function-could-you-use-for-multiple-linear-regression">Q9. Which function could you use for multiple linear regression?</h4>
+<ul>
+<li>[ ] polyval</li>
+<li>[x] regress</li>
+<li>[ ] solve</li>
+<li>[ ] polyfit</li>
+</ul>
+<h4 id="q10.-for-which-of-these-arrays-do-mean-median-and-mode-return-the-same-value">Q10. For which of these arrays do <code>mean</code>, <code>median</code>, and <code>mode</code> return the same value?</h4>
+<ul>
+<li>[x] [0 1 1 1 2]</li>
+<li>[ ] [1 3 5 5 6]</li>
+<li>[ ] [0 1 1 1 1]</li>
+<li>[ ] [0 0 5 5 5]</li>
+</ul>
+<h4 id="q11.-you-are-in-the-middle-of-a-long-matlab-session-where-you-have-performed-many-analyses-and-made-many-plots.-you-run-the-following-commands-yet-a-figure-window-doesnt-pop-up-on-the-top-of-your-screen-with-your-plot.-what-might-be-the-issue">Q11. You are in the middle of a long MATLAB session where you have performed many analyses and made many plots. You run the following commands, yet a figure window doesn't pop up on the top of your screen with your plot. What might be the issue?</h4>
+<pre><code>x = [-1:0.1:1];
+y = X.^2;
+plot(x, y)</code></pre>
+<ul>
+<li>[ ] Your plot doesn't plot in a figure window because <code>figure</code> was not called immediately in advance.</li>
+<li>[ ] Your <code>plot</code> syntax is incorrect.</li>
+<li>[x] Your plot is in a figure window that was already open, hidden behind other windows on your screen.</li>
+<li>[ ] Your plot was saved to an image file but not displayed.</li>
+</ul>
+<h4 id="q12.-how-do-you-access-the-value-for-the-field-name-in-structure-s">Q12. How do you access the value for the field <code>name</code> in structure S?</h4>
+<ul>
+<li>[ ] S[‘name']</li>
+<li>[x] S.name</li>
+<li>[ ] S(‘name')</li>
+<li>[ ] S{‘name'}</li>
+</ul>
+<h4 id="q13.-what-built-in-definition-does-i-have">Q13. What built-in definition does i have?</h4>
+<ul>
+<li>[x] basic imaginary unit</li>
+<li>[ ] index function</li>
+<li>[ ] infinity</li>
+<li>[ ] index variable</li>
+</ul>
+<h4 id="q14.-which-statement-is-equivalent-to-this-for-loop">Q14. Which statement is equivalent to this for loop?</h4>
+<pre><code>a = [1 2 3; 4 5 6];
+b = zeros(size(a));
+for i_row = 1:size(a, 1)
+    for i_col = 1:size(a, 2)
+        b(i_row, i_col) = a(i_row, i_col)^2;
+    end
+end</code></pre>
+<ul>
+<li>[ ] b = a*a;</li>
+<li>[x] b = a.^2;</li>
+<li>[ ] b = a^2;</li>
+<li>[ ] b = pow2(a);</li>
+</ul>
+<h4 id="q15.-you-have-plotted-values-of-cosine-from--10-to-10-and-want-to-change-the-x-axis-tick-marks-to-every-pi-from--3pi-to-3pi.-which-statement-will-do-that">Q15. You have plotted values of cosine from -10 to 10 and want to change the x-axis tick marks to every pi, from -3<em>pi to 3</em>pi. Which statement will do that?</h4>
+<ul>
+<li>[ ] xticks(-3<em>pi:3.14:3</em>pi)</li>
+<li>[x] xticks(-3<em>pi:pi:3</em>pi)</li>
+<li>[ ] xticks(linespace(-3<em>pi(), 3</em>pi(), pi()))</li>
+<li>[ ] xticks(linespace(-3<em>pi, 3</em>pi, pi)</li>
+</ul>
+<h4 id="q16.-what-is-the-value-of-c">Q16. What is the value of <code>c</code>?</h4>
+<pre><code>a = ones(1,3);
+b = 1:3;
+c = conv(a,b)</code></pre>
+<ul>
+<li>[ ] [-1 2 -1]</li>
+<li>[x] [1 3 6 5 3]</li>
+<li>[ ] 6</li>
+<li>[ ] [1 -2 1]</li>
+</ul>
+<h4 id="q17.-which-function-cannot-be-used-to-randomly-sample-data">Q17. Which function CANNOT be used to randomly sample data?</h4>
+<ul>
+<li>[ ] datasample</li>
+<li>[ ] randi</li>
+<li>[x] resample</li>
+<li>[ ] randperm</li>
+</ul>
+<h4 id="q18.-which-choice-is-correct-syntax-for-a-switch-statement">Q18. Which choice is correct syntax for a <code>switch</code> statement?</h4>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>x = 7;
+switch x
+    case 2
+        disp(&quot;two&quot;);
+    otherwise
+        disp(&quot;not two&quot;);
+end</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>x = 7;
+switch x :
+    case 2
+        disp(&quot;two&quot;);
+    otherwise
+        disp(&quot;not two&quot;);
+end</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>x = 7;
+switch x
+    case 2
+        disp(&quot;two&quot;);
+    else
+        disp(&quot;not two&quot;);
+end</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>x = 7;
+switch x
+    case 2
+        disp(&quot;two&quot;);
+    default
+        disp(&quot;not two&quot;);
+end</code></pre>
+<h4 id="q19.-what-is-the-result-of-this-code">Q19. What is the result of this code?</h4>
+<pre><code>a = 1;
+b = 2;
+c = 3;
+d = 4;
+e = c / (~a - b == c - d);</code></pre>
+<ul>
+<li>[ ] Error</li>
+<li>[ ]</li>
+</ul>
+<pre><code>c =
+    NaN</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>c =
+    Inf</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>c =
+    -0.2500</code></pre>
+<h4 id="q20.-what-is-true-of-a-handle-class-object">Q20. What is true of a handle class object?</h4>
+<ul>
+<li>[ ] When you pass a handle object to a function, a new object is made that is independent of the original.</li>
+<li>[x] All copies of handle objects refer to the same underlying object.</li>
+<li>[ ] Handle object cannot reference one another.</li>
+<li>[ ] Handle object do not have a default <code>eq</code> function.</li>
+</ul>
+<h4 id="q21.-which-choice-has-a-different-final-result-in-f10-than-the-other-three">Q21. Which choice has a different final result in <code>f10</code> than the other three?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>f10 = 1;
+for i = 1:10
+    f10 = f10 * i;
+end</code></pre>
+<ul>
+<li>[ ] <code>f10 = factorial(10)</code></li>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb25-1" title="1">f10 = <span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb25-2" title="2">i = <span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb25-3" title="3">while i &lt;= <span class="fl">10</span></a>
+<a class="sourceLine" id="cb25-4" title="4">    i   = i + <span class="fl">1</span>;</a>
+<a class="sourceLine" id="cb25-5" title="5">    f10 = i * f10;</a>
+<a class="sourceLine" id="cb25-6" title="6">end</a></code></pre></div>
+<ul>
+<li>[ ] <code>f10 = prod(1:10)</code></li>
+</ul>
+<h4 id="q22.-which-choice-will-not-give-you-a-5-x-5-identity-matrix">Q22. Which choice will NOT give you a 5 x 5 identity matrix?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>a = rand(5);
+round(a * inv(a))</code></pre>
+<ul>
+<li>[ ] <code>diag(ones(5, 1))</code></li>
+<li>[x] <code>identity(5)</code></li>
+<li>[ ] <code>eye(5)</code></li>
+</ul>
+<h4 id="q23.-which-statement-creates-this-structure">Q23. Which statement creates this structure?</h4>
+<pre><code>dog =
+
+      name: &#39;Bindy&#39;
+     breed: &#39;border collie&#39;
+    weight: 32</code></pre>
+<ul>
+<li>[ ] <code>dog = struct('name', 'Bindy'; 'breed', 'border collie'; 'weight', 32);</code></li>
+<li>[x]</li>
+</ul>
+<pre><code>dog.name   = &#39;Bindy&#39;;
+dog.breed  = &#39;border collie&#39;;
+dog.weight = 32;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>dog = {
+    &#39;name&#39;  : &#39;Bindy&#39;,
+    &#39;breed&#39; : &#39;border collie&#39;,
+    &#39;weight&#39;: 32;
+}</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>dog(&#39;name&#39;)   = &#39;Bindy&#39;;
+dog(&#39;breed&#39;)  = &#39;border collie&#39;;
+dog(&#39;weight&#39;) = 32;</code></pre>
+<h4 id="q24.-my_func-is-a-function-as-follows.-what-is-the-value-of-a-at-the-end-of-the-code-beneath">Q24. <code>my_func</code> is a function as follows. What is the value of <code>a</code> at the end of the code beneath?</h4>
+<pre><code>function a = my_func(a)
+    a = a + 1;
+end
+------------------
+a = 0;
+for i = 1:3
+    my_func(a);
+end
+a = my_func(a);</code></pre>
+<ul>
+<li>[ ] 4</li>
+<li>[ ] 3</li>
+<li>[ ] 0</li>
+<li>[x] 1</li>
+</ul>
+<h4 id="q25.-which-statement-could-create-this-cell-array">Q25. Which statement could create this cell array?</h4>
+<pre><code>c =
+    {[&quot;hello world&quot;]}    {1×1 cell}    {[&quot;goodbye&quot;]}    {1×3 double}</code></pre>
+<ul>
+<li>[ ] c = {"hello world" {"hello"} "goodbye" [1 2 ]};</li>
+<li>[ ] c = {"hello world" {"hello"} "goodbye" {[1 2 3]}};</li>
+<li>[x] c = {"hello world" {"hello"} "goodbye" [1 2 3]};</li>
+<li>[ ] c = {"hello world" {"hello" "hello"} "goodbye" {[1 2 3]}};</li>
+</ul>
+<h4 id="q26.-which-choice-adds-b-to-each-row-of-a">Q26. Which choice adds <code>b</code> to each row of <code>a</code>?</h4>
+<pre><code>a = ones(4, 4);
+b= [1 2 3 4];</code></pre>
+<ul>
+<li>[ ] a = a + reshape(b, 4, 1);</li>
+<li>[ ] a = a + b';</li>
+<li>[x] a = a + repmat(b, 4, 1);</li>
+<li>[ ] a = a + [b b b b];</li>
+</ul>
+<h4 id="q27.-which-choice-replaces-all-as-with-os">Q27. Which choice replaces all <code>a</code>s with <code>o</code>s?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>for i = 1:length(fruit)
+    fruit{i}(fruit{i} == a) == o;
+end</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>for i = 1:length(fruit)
+    fruit(i)(fruit(i) == &#39;a&#39;) == &#39;o&#39;;
+end</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>for i = 1:length(fruit)
+    fruit{i}(fruit{i} == &#39;a&#39;) == &#39;o&#39;;
+end</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>for i = 1:length(fruit)
+    fruit{i}(fruit{i} == &#39;a&#39;) == &#39;o&#39;;</code></pre>
+<h4 id="q28.-which-statement-returns-the-roots-for-the-polynomial-x2-2x---4">Q28. Which statement returns the roots for the polynomial <code>x^2 + 2x - 4</code>?</h4>
+<ul>
+<li>[ ] poly([1 2 -4])</li>
+<li>[ ] solve(x^2 + 2x - 4 == 0)</li>
+<li>[ ] polyfit(x^2 + 2x - 4 == 0)</li>
+<li>[x] roots([1 2 -4])</li>
+</ul>
+<h4 id="q29.-which-choice-is-the-proper-syntax-to-append-a-new-elements-a-to-the-end-of-1x-2-dimensional-cell-array-c">Q29. Which choice is the proper syntax to append a new elements <code>a</code> to the end of 1x 2 dimensional cell array <code>C</code>?</h4>
+<ul>
+<li>[ ] C = {C a};</li>
+<li>[ ] C = cellcat(C a)</li>
+<li>[ ] C = cat(2, {a}, C)</li>
+<li>[x] C{end+1}=a</li>
+</ul>
+<h4 id="q30.-you-have-loaded-a-dataset-of-peoples-heights-into-a-100-x-1-array-called-height.-which-statement-will-return-a-100-x-1-array-sim_height-with-values-from-a-normal-distribution-with-the-same-mean-and-variance-as-your-height-data">Q30. You have loaded a dataset of people's heights into a 100 x 1 array called <code>height</code>. Which statement will return a 100 x 1 array, <code>sim_height</code>, with values from a normal distribution with the same mean and variance as your height data?</h4>
+<ul>
+<li>[ ] sim_height = std(height) + mean(height) * randn(100, 1);</li>
+<li>[x] sim_height = mean(height) + std(height) * randn(100, 1);</li>
+<li>[ ] sim_height = randn(std(height), mean(height), [100, 1]);</li>
+<li>[ ] sim_height = randn(mean(height), std(height), [100, 1]);</li>
+</ul>
+<h4 id="q31.-which-statement-returns-a-cell-array-of-the-strings-containing-burger-from-menu">Q31. Which statement returns a cell array of the strings containing ‘<code>burger</code>' from <code>menu</code>?</h4>
+<p><code>menu = {'hot dog' 'corn dog' 'regular burger' 'cheeseburger' 'veggie burger'}</code> - [ ] menu{strfind(menu, ‘burger')} - [ ] menu(strfind(menu, ‘burger')) - [ ] menu{contains(menu, ‘burger')} - [✅] menu(contains(menu, ‘burger'))</p>
+<h4 id="q32.-what-is-the-set-of-possible-values-that-a-may-contain">Q32. What is the set of possible values that <code>a</code> may contain?</h4>
+<pre><code>a      = randi(10, [1, 10]);
+a(3)   = 11;
+a(a&gt;2) = 12;</code></pre>
+<ul>
+<li>[ ] 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</li>
+<li>[x] 1, 2, 12</li>
+<li>[ ] 2, 11, 12</li>
+<li>[ ] 1, 12</li>
+</ul>
+<h4 id="q33.-which-statement-is-true-about-the-sparse-matrices">Q33. Which statement is true about the sparse matrices?</h4>
+<ul>
+<li>[ ] You can use the <code>sparse</code> function to remove empty cells from cell array variables.</li>
+<li>[x] Sparse matrices always use less memory than their associated full matrices.</li>
+<li>[ ] Mixtures of sparse and full matrices can be combined in all of MATLAB's built-in arithmetic operations.</li>
+<li>[ ] The <code>sparse</code> function requires its input to be a full matrix with at least 50% zero elements.</li>
+</ul>
+<h4 id="q34.-which-statement-using-logical-indices-will-result-in-an-error">Q34. Which statement using logical indices will result in an error?</h4>
+<p><code>a = 1:10;</code> - [ ] b = a(a ~= 11) - [ ] b = a(a == 1) - [✅] b = a(a&gt;6 &amp;&amp; a&lt;9) - [ ] b = a(a | 1)</p>
+<h4 id="q35.-which-statement-turns-menu-into-the-variable-menu_string-below">Q35. Which statement turns <code>menu</code> into the variable <code>menu_string</code> below?</h4>
+<pre><code>menu = {&#39;hot dog&#39; &#39;corn dog&#39; &#39;regular burger&#39; &#39;cheeseburger&#39; &#39;veggie burger&#39;}
+menu_string =
+    &#39;hot dog
+     corn dog
+     regular burger
+     cheeseburger
+     veggie burger&#39;</code></pre>
+<ul>
+<li>[x] menu_string = cell2mat(join(menu, newline))</li>
+<li>[ ] menu_string = cell2mat(join(menu, ‘'))</li>
+<li>[ ] menu_string = join(menu, newline)</li>
+<li>[ ] menu_string = cell2mat(pad(menu))</li>
+</ul>
+<h4 id="q36.-which-code-snippet-sets-a-new-random-seed-based-on-the-current-time-and-saves-the-current-settings-of-the-random-number-generator">Q36. Which code snippet sets a new random seed based on the current time and saves the current settings of the random number generator?</h4>
+<ul>
+<li>[x] <code>rng_settings_curr = rng('shuffle');</code></li>
+<li>[ ]</li>
+</ul>
+<pre><code>rng(time());
+rng_settings_curr = rng();</code></pre>
+<ul>
+<li>[ ] <code>rng_settings_curr = rand('shuffle');</code></li>
+<li>[ ]</li>
+</ul>
+<pre><code>rng(&#39;shuffle&#39;);
+rng_settings_curr = rng();</code></pre>
+<h4 id="q37.-you-have-a-matrix-data-in-which-each-column-is-mono-audio-recording-from-a-room-in-your-house.-youve-noticed-that-each-column-has-a-very-different-mean-and-when-you-plot-them-all-on-the-same-graph-the-spread-across-the-y-axis-make-it-impossible-to-see-anything.-you-want-to-subtract-the-mean-from-each-column.-which-code-block-will-accomplish-this">Q37. You have a matrix <code>data</code> in which each column is mono audio recording from a room in your house. You've noticed that each column has a very different mean and when you plot them all on the same graph, the spread across the y axis make it impossible to see anything. You want to subtract the mean from each column. Which code block will accomplish this?</h4>
+<ul>
+<li>[ ] <code>data_nomean = data - repmat(median(data), size(data, 1), 1);</code></li>
+<li>[x] <code>data_nomean = bsxfun(@minus, data, mean(data));</code></li>
+<li>[ ]</li>
+</ul>
+<pre><code>data_nomean = zeros(size(data));
+for i = 1:size(data, 1)
+    data_nomean(i, :) = data(i, :) - mean(data(i, :));
+end</code></pre>
+<ul>
+<li>[ ] <code>data_nomean = zscore(data');</code></li>
+</ul>
+<h4 id="q38.-which-code-block-results-in-an-array-b-containing-the-mean-values-of-each-array-within-c">Q38. Which code block results in an array <code>b</code> containing the mean values of each array within <code>C</code>?</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>b = zeros(1, size(C, 2));
+for i_C = 1:size(C, 2)
+    b(i_C) = mean(C(i_C));
+end</code></pre>
+<ul>
+<li>[ ] <code>b = cellfun(@mean, C);</code></li>
+<li>[ ]</li>
+</ul>
+<pre><code>b = zeros(1, size(C, 1));
+for i_C = 1:size(C, 1)
+    b(i_C) = mean(C{i_C}(:));
+end</code></pre>
+<ul>
+<li>[x] <code>b = cellfun(@(m) mean(m(:)), C)</code></li>
+</ul>
+<h4 id="q39.-which-statement-creates-a-logical-array-that-is-1-if-the-element-in-passwords-contains-a-digit-and-0-if-it-does-not">Q39. Which statement creates a logical array that is 1 if the element in <code>passwords</code> contains a digit and 0 if it does not?</h4>
+<p><code>passwords = {'abcd' '1234' 'qwerty' 'love1'};</code> - [ ] contains(password, ‘) - [ ] ~isempty(regexp(passwords,')) - [✅] cellfun(@(x) ~isempty(regexp(x, ‘)), passwords) - [ ] regexp(passwords,')</p>
+<h4 id="q40.-which-is-not-a-function-that-adds-text-to-a-plot">Q40. Which is NOT a function that adds text to a plot?</h4>
+<ul>
+<li>[ ] title</li>
+<li>[ ] text</li>
+<li>[x] label</li>
+<li>[ ] legend</li>
+</ul>
+<h4 id="q41.-which-code-block-most-likely-produced-this-graph">Q41. Which code block most likely produced this graph?</h4>
+<p><img src="images/matlab_Q39.jpg" alt="MatLab Q39" /> - [ ]</p>
+<pre><code>figure
+x = rand(10,10);
+r = corrcoef(x);
+surf(r)
+colorbar</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>figure
+x = rand(10,10);
+r = corrcoef(x);
+imagesc(r)
+colorbar</code></pre>
+<h4 id="q42.-what-kind-of-files-are-stored-with-the-.mat-extension">Q42. What kind of files are stored with the .mat extension?</h4>
+<ul>
+<li>[ ] figure files</li>
+<li>[ ] script files</li>
+<li>[ ] function files</li>
+<li>[x] stored variable files</li>
+</ul>
+<h4 id="q43.-you-would-like-to-randomly-reorder-every-element-in-array-a-and-put-the-result-into-another-array-b.-which-code-is-not-necessary-to-do-that">Q43. You would like to randomly reorder every element in array a and put the result into another array b. Which code is NOT necessary to do that?</h4>
+<p><code>a = 1:10;</code> - [✅] <code>b = a(randi(10, 1, 10));</code> - [ ]</p>
+<pre><code>m = perms(a);
+i = randi(factorial(10), 1);
+b = a(m(i, :))</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>[s, j] = sort(rand(10, 1));
+b      = a(i);</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>b = a(randperm(10));</code></pre>
+<h4 id="q44.-which-statement-returns-1-true">Q44. Which statement returns <strong>1</strong> (true)?</h4>
+<pre><code>a = &#39;stand&#39;
+b = &quot;stand&quot;</code></pre>
+<ul>
+<li>[x] a == b</li>
+<li>[ ] ischar(b)</li>
+<li>[ ] length(a) == length(b)</li>
+<li>[ ] class(a) == class(b)</li>
+</ul>
+<h4 id="q45.-which-does-e-contain">Q45. Which does E contain?</h4>
+<pre><code>C = {&#39;dog&#39; &#39;cat&#39; &#39;mouse&#39;}
+D = {&#39;cow&#39; &#39;piranha&#39; &#39;mouse&#39;}
+E = setdiff(C,D)</code></pre>
+<ul>
+<li>[x] E = {‘cat'} {‘dog'}</li>
+<li>[ ] E = {‘mouse'}</li>
+<li>[ ] E = {‘cat'} {‘cow'} {‘dog'} {‘piranha'}</li>
+<li>[ ] E =</li>
+</ul>
+<h4 id="q46.-where-in-the-ui-can-you-see-what-variables-have-been-created-their-values-and-their-class">Q46. Where in the UI can you see what variables have been created, their values, and their class?</h4>
+<ul>
+<li>[ ] Editor</li>
+<li>[ ] command window</li>
+<li>[ ] details</li>
+<li>[x] workspace</li>
+</ul>
+<h4 id="q47.-given-the-following-x-and-y-coordinates-which-choice-calculates-a-linear-regression-for-the-x-and-y-coordinates-and-which-plots-the-points-of-the-xy-data-and-the-regression-line-on-the-same-graph">Q47. Given the following x and y coordinates, which choice calculates a linear regression for the x and y coordinates, and which plots the points of the x,y data and the regression line on the same graph?</h4>
+<pre><code>x = 9.0646 6.4362 7.8266 8.3945 5.6135 4.8186 2.8862 10.9311 1.1908 3.2586
+y = 15.4357 11.0923 14.1417 14.9506 8.7687 8.0416 5.1662 20.5005 1.0978</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>coeff_line = polyfit(x,y,1)
+x_line = floor(min(x)):0.1:ceil(max(x));
+y_line = polyval(coeff_line,x_line)
+
+figure; plot(x,y,&#39;o&#39;)
+hold on
+plot(x_linemy_line)</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>figure
+plot(x,y,&#39;o&#39;)
+
+coeff_line = polyfit(x,y,1);
+x_line = floor(min(x)):0.1:ceil(max(x));
+y_line = polyval(coeff_line,x_line);
+plot(x_line,y_line)</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>figure
+plot(x,y)
+
+coeff_line = polyfit(x,y,1);
+x_line = floor(min(x)):0.1:ceil(max(x));
+y_line = polyval(coeff_line,x_line);
+hold on; plot(x_line,y_line)</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>coeff_line = polyfit(x,y,1);
+x_line = floor(min(x)):0.1:ceil(max(x));
+y_line = polyval(coeff_line,x_line);
+
+figure; plot(x,y,&#39;o&#39;)
+hold on
+plot(x_line,y_line)</code></pre>
+<h4 id="q48.-if-you-run-this-piece-of-code-you-will-get-an-error.-why">Q48. If you run this piece of code, you will get an error. Why?</h4>
+<pre><code>a = [0 1 2 3; 4 5 6 7];
+a = a^2;</code></pre>
+<ul>
+<li>[x] You are attempting to multiply a non-square matrix by itself, causing a dimension mismatch.</li>
+<li>[ ] MATLAB does not allow you to square all the elements in the matrix in a single operation.</li>
+<li>[ ] You must use the ** operator instead of the ^ operator.</li>
+<li>[ ] You cannot square matrices that have a 0 as the first element.</li>
+</ul>

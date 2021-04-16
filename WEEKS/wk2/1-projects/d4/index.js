@@ -70,36 +70,51 @@ export const burger = {
 // console.log(burger.discount("teacher"));
 
 ///////////////Reviews (MVP)///////////////////
-const reviews = [ {
+const reviews = [
+   //!-------------------------------------Array-----------------------------------------------------------
+      //!-------------------------------------Object-idx =0----------------------------------------------------------
+  {
     name: "Daniela",
     rating: 5,
     feedback: "Beautiful atmosphere and wonderful vegan options!"
   },
+        //!-------------------------------------Object-----------------------------------------------------------
+
   {
     name: "Jack",
     rating: 3,
     feedback: "A little too hipster for my taste, but the burger was decent, if overpriced"
   },
+        //!-------------------------------------Object-----------------------------------------------------------
+
   {
     name: "Miranda",
     rating: 4,
     feedback: "fun trivia and cool vibes"
   },
+        //!-------------------------------------Object-----------------------------------------------------------
+
   {
     name: "Wen",
     rating: 4.5,
     feedback: "I don't leave my house often, but when I do, it's for this place. Highly reccomend."
   },
+        //!-------------------------------------Object-----------------------------------------------------------
+
   {
     name: "Brett",
     rating: 3,
     feedback: "great selection of snacks and a nice cafe area to get work done during the day."
   },
+        //!-------------------------------------Object-----------------------------------------------------------
+
   {
     name: "Julius",
     rating: 2,
     feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it."
   },
+        //!-------------------------------------Object-----------------------------------------------------------
+
   {
     name: "Lauren",
     rating: 4,
@@ -110,6 +125,7 @@ const reviews = [ {
     rating: 3.5,
     feedback: ""
   },
+  //-------------------------------------------------------------------------------------------------
 ]
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -172,8 +188,8 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview( obj ) {
-  let lastRev = ( obj[ obj.length - 1 ].name + " gave the restaurant a " + obj[ obj.length - 1 ].rating + " star review, and their feedback was: " + obj[ obj.length - 1 ].feedback )
+function getLastReview(arr ) {
+  let lastRev = (arr[arr.length - 1 ].name + " gave the restaurant a " +arr[arr.length - 1 ].rating + " star review, and their feedback was: " +arr[arr.length - 1 ].feedback )
   return lastRev;
 }
 

@@ -1,0 +1,453 @@
+<h2 id="php">PHP</h2>
+<h5 id="q1.-what-does-this-code-output">Q1. What does this code output?</h5>
+<p><code>echo 76 &amp;lt;=&amp;gt; '76 trombones';</code></p>
+<ul>
+<li>[ ] 1</li>
+<li>[ ] -1</li>
+<li>[x] a parser error</li>
+<li>[ ] 0</li>
+</ul>
+<h5 id="q2.-which-is-the-most-secure-way-to-avoid-storing-a-password-in-clear-text-in-database">Q2. Which is the most secure way to avoid storing a password in clear text in database?</h5>
+<ul>
+<li>[ ] <code>$encrypted = shal($password);</code></li>
+<li>[ ] <code>$encrypted = crypt($password, \$salt);</code></li>
+<li>[ ] <code>$encrypted = md5($password);</code></li>
+<li>[x] <code>$encrypted = password_hash($password, PASSWORD_DEFAULT);</code></li>
+</ul>
+<h5 id="q3.-what-does-this-script-do">Q3. What does this script do?</h5>
+<pre><code>1 $email = filter_input(INPUT_POST, &#39;email&#39;, FILTER_VALIDATE_EMAIL);
+2 if ($email === false) {
+3  $emailErr = &quot;Please re-enter valid email&quot;;
+4 }</code></pre>
+<ul>
+<li>[ ] It makes sure the email address is a good and functioning address</li>
+<li>[ ] It makes an email safe to input into a database</li>
+<li>[ ] It assigns an email to a variable and then removes all illegal characters from the $email variable</li>
+<li>[x] It verifies that an email address is well formed.</li>
+</ul>
+<h5 id="q4.-in-the-following-script-which-lines-will-cause-an-errors">Q4. In the following script, which line(s) will cause an error(s)?</h5>
+<pre><code>1 &lt;?php
+2       $count = 0
+3       $_xval = 5
+4       $_yval = 1.0
+5       $some_string = &quot;Hello there!&quot;;
+6       $some_string = &quot;How are you?&quot;;
+7       $will i work = 6;
+8       $3blindmice = 3;
+9 ?&gt;</code></pre>
+<ul>
+<li>[ ] Line 6 will cause an error because you can't reassign a new value to a variable that has already been set.</li>
+<li>[x] Line 7 and 8 will cause an error. Line 7 has whitespace in $will i work and should be $will_i_work. Line 8 cannot start with a number befcause it is a variable.</li>
+<li>[ ] Line 5 will cause an error because some_string should be someString.</li>
+<li>[ ] Line 3 and 4 will cause an error because a variable cannot start with an underscore(_).</li>
+</ul>
+<h5 id="q5.-in-a-conditional-statement-you-want-to-execute-the-code-only-if-both-value-are-true.-which-comparison-operator-should-you-use">Q5. In a conditional statement, you want to execute the code only if both value are true. Which comparison operator should you use?</h5>
+<ul>
+<li>[ ] ||</li>
+<li>[ ] &amp;</li>
+<li>[ ] &lt;=&gt;</li>
+<li>[x] &amp;&amp;</li>
+</ul>
+<h5 id="q6.-all-variables-in-php-start-with-which-symbol">Q6. All variables in PHP start with which symbol?</h5>
+<ul>
+<li>[ ] &amp;</li>
+<li>[ ] %</li>
+<li>[ ] _</li>
+<li>[x] $</li>
+</ul>
+<h5 id="q7.-what-is-a-key-difference-between-get-and-post">Q7. What is a key difference between GET and POST?</h5>
+<ul>
+<li>[ ] GET is used with the HTTP protocol. POST is used with HTTPS.</li>
+<li>[x] GET displays the submitted data as part of the URL. During POST, this information is not shown, as it's encoded in the request body.</li>
+<li>[ ] GET is intended for changing the server state and it carries more data than POST.</li>
+<li>[ ] GET is more secure than POST and should be used for sensitive information.</li>
+</ul>
+<h5 id="q8.-the-_-operator-is-useful-for-sorting-operations.-it-compares-two-values-and-returns-an-integer-less-than-equal-to-or-greater-than-0-depending-on-whether-on-whether-the-value-on-the-_is-less-than-equal-to-or-greater-than-the-other.">Q8. The **_ operator is useful for sorting operations. It compares two values and returns an integer less than, equal to, or greater than 0 depending on whether on whether the value on the _**is less than, equal to, or greater than the other.</h5>
+<ul>
+<li>[ ] greater-than; right</li>
+<li>[x] spaceship; left</li>
+<li>[ ] equality; right</li>
+<li>[ ] comparison; left</li>
+</ul>
+<h5 id="q9.-which-are-valid-php-error-handling-keywords">Q9. Which are valid PHP error handling keywords?</h5>
+<ul>
+<li>[ ] try, throw, catch, callable</li>
+<li>[ ] try, yield, catch, finally</li>
+<li>[ ] yield, throw, catch, finally</li>
+<li>[x] try, throw, catch, finally</li>
+</ul>
+<h5 id="q10.-which-value-equates-to-true">Q10. Which value equates to true?</h5>
+<ul>
+<li>[ ] 0</li>
+<li>[ ] NULL</li>
+<li>[ ] ''</li>
+<li>[x] -1</li>
+</ul>
+<h5 id="q11.-what-is-missing-from-this-code-which-is-supposed-to-create-a-test-cookies">Q11. What is missing from this code, which is supposed to create a test cookies?</h5>
+<pre><code>1 $string_name = &quot; testcookie&quot;;
+2 $string_value = &quot;This is a test cookie&quot;;
+3 $expiry_info = info()+259200;
+4 $string_domain = &quot;localhost.localdomain&quot;;</code></pre>
+<ul>
+<li>[ ] The $_REQUEST is missing.</li>
+<li>[ ] The $_COOKIES array is missing.</li>
+<li>[ ] The cookie session is missing.</li>
+<li>[x] The call to setcookie() is missing.</li>
+</ul>
+<h5 id="q12.-what-is-the-value-of-total-in-this-calculation">Q12. What is the value of $total in this calculation?</h5>
+<p><code>$total = 2 + 5 * 20 - 6 / 3</code></p>
+<ul>
+<li>[ ] 44</li>
+<li>[ ] 138</li>
+<li>[ ] 126</li>
+<li>[x] 100</li>
+</ul>
+<h5 id="q13.-what-is-the-purpose-of-adding-a-lowercase-u-as-a-modifier-after-the-final-delimiter-in-a-perl-compatible-regular-expression">Q13. What is the purpose of adding a lowercase "u" as a modifier after the final delimiter in a Perl-compatible regular expression?</h5>
+<ul>
+<li>[ ] It makes the dot metacharacter match anything, including newline characters.</li>
+<li>[ ] It makes the pattern match uppercase letters.</li>
+<li>[x] Both the pattern and subject string are treated as UTF-8.</li>
+<li>[ ] It inverts the greediness of the quantifiers in the pattern so they are not greedy by default.</li>
+</ul>
+<h5 id="q14.-which-code-snippet-uses-the-correct-syntax-for-creating-an-instance-of-the-pet-class">Q14. Which code snippet uses the correct syntax for creating an instance of the Pet class?</h5>
+<ul>
+<li>[ ] $dog = new Pet;</li>
+<li>[x] all of these answers</li>
+<li>[ ] $horse = (new Pet);</li>
+<li>[ ] $cat = new Pet();</li>
+</ul>
+<h5 id="q15.-what-is-the-best-way-to-explain-what-this-script-does">Q15. What is the best way to explain what this script does?</h5>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb4-1" title="1">1 if (!\$\_SESSION[&#39;myusername&#39;])</a>
+<a class="sourceLine" id="cb4-2" title="2">2 {</a>
+<a class="sourceLine" id="cb4-3" title="3">3 header(&#39;locaton: /login.php&#39;);</a>
+<a class="sourceLine" id="cb4-4" title="4">4 exit;</a>
+<a class="sourceLine" id="cb4-5" title="5">5 }</a></code></pre></div>
+<ul>
+<li>[ ] This script times out the session for myusername.</li>
+<li>[ ] Cookies are starting to be stored as a result of this script.</li>
+<li>[ ] This script validates the username and password.</li>
+<li>[x] This script is on a page that requires the user to be logged in. It checks to see if the user has a valid session.</li>
+</ul>
+<h5 id="q16.-which-is-the-correct-format-for-adding-a-comment-to-a-php-script">Q16. Which is the correct format for adding a comment to a PHP script?</h5>
+<ul>
+<li>[x] all of these answers</li>
+<li>[ ] #This is a comment</li>
+<li>[ ] /* This is a comment /</li>
+<li>[ ] // This is a comment</li>
+</ul>
+<h5 id="q17.-php-supports-multiple-types-of-loops.-if-you-wanted-to-loop-through-a-block-of-code-if-and-as-long-a-specified-condition-is-true-which-type-of-loop-would-you-use">Q17. PHP supports multiple types of loops. If you wanted to loop through a block of code if and as long a specified condition is true, which type of loop would you use?</h5>
+<ul>
+<li>[ ] for</li>
+<li>[ ] do-while</li>
+<li>[x] while</li>
+<li>[ ] foreach</li>
+</ul>
+<h5 id="q18.-the-ignore_user_abort-function-sets-whether-a-client-disconnect-should-abort-a-script-execution.-in-what-scenario-would-you-as-a-web-developer-use-this-function">Q18. The ignore_user_abort( ) function sets whether a client disconnect should abort a script execution. In what scenario would you, as a web developer, use this function?</h5>
+<ul>
+<li>[ ] You would use it to stop a user from clicking the back button if they decide not to view as a result of a click. //Maybe</li>
+<li>[ ] You would use this function if you have some important processing to do and you do not want to stop it, even if your users click Cancel.</li>
+<li>[ ] You would use this function if you wanted to abort the script for all logged-in users, not just the one who disconnected.</li>
+<li>[ ] You would use this function if you want a PHP script to run forever.</li>
+</ul>
+<h5 id="q19.-the-php-function-array_reduce-takes-a-callback-function-that-accepts-a-value-carried-over-each-iteration-and-the-current-item-in-the-array-and-reduces-an-array-to-a-single-value.-which-code-sample-will-sum-and-output-the-values-in-the-provided-array">Q19. The PHP function array_reduce() takes a callback function that accepts a value carried over each iteration and the current item in the array, and reduces an array to a single value. Which code sample will sum and output the values in the provided array?</h5>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 &lt;?php
+2 echo array_reduce([1, 2, 5, 10, 11], function ($item, $carry) {
+3 $carry = $carry + \$item;
+4 });
+5?&gt;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 &lt;?php
+2 echo array_reduce([1, 2, 5, 10, 11], function ($carry, $item) {
+3 return $carry = $item + \$item;
+4 });
+5?&gt;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 &lt;?php
+2 array_reduce([11 2, 5, 10, 11], function ($item, $carry) {
+3 echo $carry + $item;
+4 });
+5?&gt;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 &lt;?php --CORRECT
+2 echo array_reduce([1, 2, 5, 10, 11], function ($carry, $item) {
+3 return $carry += $item;
+4 });
+5?&gt;</code></pre>
+<h5 id="q20.-which-php-script-uses-a-constructor-to-display-the-string-winter-is-almost-over">Q20. Which PHP script uses a constructor to display the string "Winter is almost over!"?</h5>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 class MyClass { //Maybe
+2 public function \_construct()
+3 {
+4 echo &#39;Winter is almost over!&#39;.&quot;\n&quot;;
+5 }
+6 }
+7 \$userclass = new MyClass;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 class MyClass {
+2 public function _construct()
+3 {
+4 echo &#39;Winter is almost over!..&quot;\n&quot;;
+5 }
+6 }
+7 $userclass = new MyClass;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 class MyClass {
+2 public function \_construct()
+3 {
+4 echo &#39;Winter is almost over!..&quot;\n&quot;;
+5 }
+6 }
+7 \$userclass = new MyClass;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>1 class MyClass {
+2 public function _construct()
+3 {
+4 echo &#39;Winter is almost over!&#39;.&quot;n&quot;;
+5 }
+6 }
+7 $userclass = MyClass;</code></pre>
+<h5 id="q21.-how-might-you-troubleshoot-a-call-to-undefined-function-error">Q21. How might you troubleshoot a "call to undefined function" error?</h5>
+<ul>
+<li>[ ] Make sure you have imported the file containing the function.</li>
+<li>[ ] Make sure you have spelled the function name correctly.</li>
+<li>[ ] all of these answers //Maybe</li>
+<li>[ ] Make sure the function declaration is at an earlier point in the code than the function call.</li>
+</ul>
+<h5 id="q22.-which-line-could-you-not-use-to-comment-out-space-the-final-frontier">Q22. Which line could you NOT use to comment out "Space: the final frontier"?</h5>
+<ul>
+<li>[ ] /_ Space: the final frontier _/</li>
+<li>[x] <em>/ Space: the final frontier /</em></li>
+<li>[ ] #Space: the final frontier</li>
+<li>[ ] // Space: the final frontier</li>
+</ul>
+<h5 id="q23.-what-displays-in-a-browser-when-the-following-code-is-written">Q23. What displays in a browser when the following code is written? <?php echo "How much are the bananas?"?></h5>
+<ul>
+<li>[ ] The browser would display nothing due to a syntax error.</li>
+<li>[ ] The browser would display an error, since there are no parentheses around the string.</li>
+<li>[x] The browser would display How much are the bananas?</li>
+<li>[ ] The browser would display an error, since there is no semicolon at the end of the echo command.</li>
+</ul>
+<h5 id="q24.-which-operator-would-you-use-to-find-the-remainder-after-division">Q24. Which operator would you use to find the remainder after division?</h5>
+<ul>
+<li>[ ] /</li>
+<li>[x] %</li>
+<li>[ ] //</li>
+<li>[ ] DIV</li>
+</ul>
+<h5 id="q25.-what-is-the-significance-of-the-three-dots-in-this-function-signature">Q25. What is the significance of the three dots in this function signature?</h5>
+<pre><code>function process(...$vals) {
+        // do some processing
+ }</code></pre>
+<ul>
+<li>[ ] It makes the function variadic, allowing it to accept as an argument an array containing an arbitrary number of values.</li>
+<li>[x] It makes the function variadic, allowing it to accept an arbitrary number of arguments that are converted into an array inside the function.</li>
+<li>[ ] It temporarily disables the function while debugging other parts of the script.</li>
+<li>[ ] It's a placeholder like a TO DO reminder that automatically triggers a notice when you run a script before completing the function definition.</li>
+</ul>
+<h5 id="q26.-assuming-the-horse-class-exists-which-is-a-valid-example-of-inheritance-in-php">Q26. Assuming the Horse class exists, which is a valid example of inheritance in PHP?</h5>
+<ul>
+<li>[x] class Pegasus extends Horse {}</li>
+<li>[ ] class Alicorn imports Pegasus, Unicorn {}</li>
+<li>[ ] class Unicorn implements Horse {}</li>
+<li>[ ] class Horse inherits Unicorn {}</li>
+</ul>
+<h5 id="q27.-both-triple-and-double-can-be-used-to-_-variables-in-php.-if-you-want-to-hear-that-string-33-and-the-number-33-are-equal-you-would-use-.-if-you-want-to-check-if-an-array-contains-a-particular-string-value-at-a-particular-index-you-would-use-___">Q27. Both triple === and double == can be used to <strong>_ variables in php. If you want to hear that string "33" and the number 33 are equal, you would use </strong> . If you want to check if an array contains a particular string value at a particular index, you would use ___</h5>
+<ul>
+<li>[x] compare; doubles;triples</li>
+<li>[ ] compare; triples;doubles</li>
+<li>[ ] assign; triples;doubles</li>
+<li>[ ] assign;doubles;triples</li>
+</ul>
+<h5 id="q28.-your-php-page-is-unexpectedly-rendering-as-totally-blank.-which-step-will-shed-light-on-the-problem">Q28. Your php page is unexpectedly rendering as totally blank. Which step will shed light on the problem?</h5>
+<ul>
+<li>[ ] Add this code to the top of your script:ini_set(‘display_errors',1);</li>
+<li>[ ] check the server error logged</li>
+<li>[x] all of these answers</li>
+<li>[ ] make sure you are not missing any semicolons</li>
+</ul>
+<h5 id="q29.-which-is-the-way-to-create-an-array-of-seasons">Q29. Which is the way to create an array of "seasons"?</h5>
+<ul>
+<li>[ ] seasons=array( 1=&gt;‘spring', 2=&gt;‘summer', 3=&gt;‘autumn', 4=&gt;‘winter', );</li>
+<li>[ ] $seasons=array(spring,summer,autumn,winter);</li>
+<li>[ ] $seasons=(‘spring',‘summer',‘autumn',‘winter');</li>
+<li>[x] $seasons=[‘spring',‘summer',‘autumn',‘winter'];</li>
+</ul>
+<h5 id="q30.-both-self-and-this-are-keywords-that-can-be-used-to-refer-to-member-variables-of-an-enclosing-class.-the-difference-is-that-this-member-should-be-used-for-__-members-and-selfmember-should-be-used-for-__-members.">Q30. Both self and this are keywords that can be used to refer to member variables of an enclosing class. The difference is that <span class="math inline"><em>t</em><em>h</em><em>i</em><em>s</em> −  &gt; <em>m</em><em>e</em><em>m</em><em>b</em><em>e</em><em>r</em><em>s</em><em>h</em><em>o</em><em>u</em><em>l</em><em>d</em><em>b</em><em>e</em><em>u</em><em>s</em><em>e</em><em>d</em><em>f</em><em>o</em><em>r</em><sub><em></em><sub><em>m</em></sub></sub><em>e</em><em>m</em><em>b</em><em>e</em><em>r</em><em>s</em><em>a</em><em>n</em><em>d</em><em>s</em><em>e</em><em>l</em><em>f</em> : :</span>member should be used for __ members.</h5>
+<ul>
+<li>[ ] private, public</li>
+<li>[ ] object,primitive</li>
+<li>[x] non-static,static</li>
+<li>[ ] concrete,abstract</li>
+</ul>
+<h5 id="q31.-what-will-this-code-print">Q31. What will this code print?</h5>
+<pre><code>$mathe=array(&#39;archi&#39;,&#39;euler&#39;,&#39;pythagoras&#39;);
+array_push($mathe,&#39;hypatia&#39;);
+array_push($mathe,&#39;fibonacci&#39;);
+array_pop($mathe);
+echo array_pop($mathe);
+echo sizeof($mathe);</code></pre>
+<ul>
+<li>[ ] euler3</li>
+<li>[ ] hypatia5</li>
+<li>[x] hypatia3</li>
+<li>[ ] fibonacci4</li>
+</ul>
+<h5 id="q32.-you-are-using-the-following-code-to-find-a-users-band-but-it-is-returning-false.-which-steps-would-solve-the-problem">Q32. You are using the following code to find a users band, but it is returning false. Which step(s) would solve the problem?</h5>
+<p><code>isset (\$\_GET['fav_band'])</code></p>
+<ul>
+<li>[ ] check if fav_band is included in the query string at the top of your browser</li>
+<li>[x] all of the answers</li>
+<li>[ ] view the source of form and make sure there is an input field with the name ‘fav_band'</li>
+<li>[ ] print everything that has been transmitted in the request:print_r($_REQUEST);</li>
+</ul>
+<h5 id="q33.-which-code-would-you-use-to-print-all-the-elements-in-an-array-called-cupcakes">Q33. Which code would you use to print all the elements in an array called $cupcakes?</h5>
+<ul>
+<li>[x] all of the answers</li>
+<li>[ ] print_r($cupcakes);</li>
+<li>[ ] var_dump($cupcakes);</li>
+<li>[ ] foreach(<span class="math inline">$cupcakes as &amp;$</span>cupcake) echo $cupcake;</li>
+</ul>
+<h5 id="q34.-what-is-the-cause-of-cannot-modify-header-information---headers-already-sent">Q34. What is the cause of ‘Cannot modify header information - headers already sent'?</h5>
+<ul>
+<li>[ ] You are trying to modify a private value</li>
+<li>[ ] Semicolon missing</li>
+<li>[ ] Using a key on an array that does not exists</li>
+<li>[x] Some html is being sent before a header() command that you are using for a redirect</li>
+</ul>
+<h5 id="q35.-which-php-control-structure-is-used-inside-a-loop-to-skip-the-rest-of-the-current-loops-code-and-go-back-to-the-start-of-the-loop-for-the-next-iteration">Q35. Which php control structure is used inside a loop to skip the rest of the current loops code and go back to the start of the loop for the next iteration</h5>
+<ul>
+<li>[ ] else</li>
+<li>[ ] break</li>
+<li>[ ] return</li>
+<li>[x] continue</li>
+</ul>
+<h5 id="q36.-the-php-not-operator-is-.-given-the-snippet-is-there-an-out-put-and-what-is-it">Q36. The php not operator is !. Given the snippet, is there an out put and what is it?</h5>
+<ul>
+<li>[ ] there is an output '2 is an even number</li>
+<li>[x] output ‘21 is an odd number'</li>
+<li>[ ] no output. Syntax error do to missing semicolon at the end</li>
+<li>[ ] no output due to % in $num%2!=0</li>
+</ul>
+<h5 id="q37.-you-want-to-list-the-modules-available-in-your-php-installation.-what-command-should-you-run">Q37. You want to list the modules available in your PHP installation. What command should you run?</h5>
+<ul>
+<li>[ ] php -h</li>
+<li>[ ] php info</li>
+<li>[ ] php -v</li>
+<li>[x] php -m</li>
+</ul>
+<h5 id="q38.-for-the-html-form-below-what-is-the-correct-functioning-script-that-checks-the-input-mail-to-be-sure-it-is-filled-before-proceeding">Q38. For the HTML form below, what is the correct functioning script that checks the input "mail" to be sure it is filled before proceeding?</h5>
+<pre><code>if (!empty(\$\_POST[&quot;mail&quot;])) {
+echo &quot;Yes, mail is set&quot;;
+} else {
+echo &quot;No, mail is not set&quot;;
+} (correct)</code></pre>
+<h5 id="q39.-what-is-the-value-of-result-in-this-calculation">Q39. What is the value of ‘$result' in this calculation?</h5>
+<p><code>$result = 25 % 6;</code></p>
+<ul>
+<li>[ ] 4.167</li>
+<li>[ ] 1.5</li>
+<li>[ ] 4</li>
+<li>[x] 1</li>
+</ul>
+<h5 id="q40.-what-is-the-job-of-the-controller-as-a-component-in-mvc">Q40. What is the job of the controller as a component in MVC?</h5>
+<ul>
+<li>[ ] The controller handles data passed to it by the view, and also passes data to the view. It interprets data sent by the view and disperses that data to the approrpiate models awaiting results to pass back to the view.</li>
+<li>[ ] The controller is a mechanism that allows you to create reusable code in languages such as PHP, where multiple inheritance is not supported.</li>
+<li>[ ] The controller presents content through the user interface, after communicating directly with the database.</li>
+<li>[x] The controller handles specific tasks related to a specific area of functionality, handles business logic related to the results, and communicates directly with the database.</li>
+</ul>
+<h5 id="q41.-why-does-this-code-trigger-an-error">Q41. Why does this code trigger an error?</h5>
+<p><code>$string = 'Shylock in a Shakespeare's "Merchangt of Venice" demands his pound of flesh.';</code></p>
+<ul>
+<li>[ ] Strings should always be wrapped in double quotes; and double quotes inside a string should be escaped by backslashes.</li>
+<li>[ ] All single and double quotes inside a string need to be escaped by backslashes to prevent a parse error.</li>
+<li>[ ] The opening and closing single quotes should be replaced by double quotes; and the apostrophe should be escaped by a backslash.</li>
+<li>[x] The apostrophe needs to be escaped by a backslash to prevent it from being treated as the closing quote.</li>
+</ul>
+<h5 id="q42.-a-pdo-object-called-db-has-been-set-up-to-use-for-database-operations-including-user-authentication.-all-user-related-properties-are-set.-the-script-line-public-function-__constructdb-shows-a-constructor-that-initializes-all-user-related-properties-to-____-if-no-user-has-logged-in.-these-parameters-will-be-properly-set-by-the-login-functions-when-a-user-logs-in.">Q42. A PDO object called <span class="math inline">$db has been set up to use for database operations, including user authentication. All user-related properties are set. The script line `public function __construct(&amp;$</span>db)` shows a constructor that initializes all user-related properties to ____ if no user has logged in. These parameters will be properly set by the login functions when a user logs in.</h5>
+<ul>
+<li>[x] NULL</li>
+<li>[ ] TRUE</li>
+<li>[ ] FALSE</li>
+<li>[ ] 0</li>
+</ul>
+<h5 id="q43.-assuming-that-first_name-and-family_name-are-valid-strings-which-statement-is-invalid">Q43. Assuming that $first_name and $family_name are valid strings, which statement is invalid?</h5>
+<ul>
+<li>[ ] echo $first_name. ' '. $familiy_name;</li>
+<li>[x] print $first_name, ' ', $familiy_name;</li>
+<li>[ ] print $first_name. ' '. $familiy_name;</li>
+<li>[ ] echo $first_name, ' ', $familiy_name;</li>
+</ul>
+<h5 id="q44.-which-code-snippet-demonstrates-encapsulation">Q44. Which code snippet demonstrates encapsulation?</h5>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>class Cow extends Animal {
+    private $milk;
+}</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>class Cow {
+    public $milk;
+}
+$daisy = new Cow();
+$daisy-&gt;milk = &quot;creamy&quot;;</code></pre>
+<ul>
+<li>[ ]</li>
+</ul>
+<pre><code>class Cow {
+    public $milk;
+    function getMilk() {`
+        return $this-&gt;milk;
+    }
+}</code></pre>
+<ul>
+<li>[x]</li>
+</ul>
+<pre><code>class Cow {
+    private $milk;
+        public function getMilk() {
+            return $this-&gt;milk;
+        }
+}</code></pre>
+<h5 id="q45.-the-following-xml-document-is-in-books.xml.-which-code-will-output-historical">Q45. The following XML document is in books.xml. Which code will output "Historical"?</h5>
+<pre><code>&lt;books&gt;
+    &lt;book&gt;
+        &lt;title&gt;A Tale of Two Cities&lt;/title&gt;
+            &lt;author&gt;Charles Dickens&lt;/author&gt;
+            &lt;categories&gt;
+            &lt;category&gt;Classics&lt;/category&gt;
+            &lt;category&gt;Historical&lt;/category&gt;
+            &lt;/categories&gt;
+            &lt;/book&gt;
+        &lt;title&gt;Then There Were None&lt;/title&gt;
+            &lt;author&gt;Agatha Christies&lt;/author&gt;
+            &lt;categories&gt;
+            &lt;category&gt;Mystery&lt;/category&gt;
+        &lt;/categories&gt;
+    &lt;/book&gt;
+&lt;/books&gt;</code></pre>
+<ul>
+<li>[ ] $books = simplexml_load_string(‘books.xml'); echo $books-&gt;book[0]-&gt;categories-&gt;category[1];</li>
+<li>[ ] $books = simplexml_load_file(‘books.xml'); echo $books-&gt;book[0]-&gt;categories-&gt;category[1];</li>
+<li>[x] $books = SimpleXMLElement(‘books.xml'); echo $books-&gt;book[0]-&gt;categories-&gt;category[1];</li>
+<li>[ ] $books = SimpleXML(‘books.xml'); echo $books-&gt;book[0]-&gt;categories-&gt;category[1];</li>
+</ul>

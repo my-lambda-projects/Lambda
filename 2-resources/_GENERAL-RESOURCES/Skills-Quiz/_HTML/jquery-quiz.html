@@ -1,0 +1,785 @@
+<h2 id="jquery">jQuery</h2>
+<h4 id="q1.-whats-the-difference-between-these-two-snippets">Q1. What's the difference between these two snippets?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">$</span>(<span class="st">&#39;button&#39;</span>).<span class="at">on</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span> <span class="at">alert</span>(<span class="st">&#39;you clicked the button!&#39;</span>)<span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">$</span>(<span class="st">&#39;button&#39;</span>).<span class="at">click</span>(<span class="kw">function</span>()<span class="op">{</span> <span class="at">alert</span>(<span class="st">&#39;you clicked the button!&#39;</span>)<span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] Only the second one will work; jQuery does not have a function called <code>.on</code>.</li>
+<li>[ ] The second snippet will not function.</li>
+<li>[x] Nothing <code>.click(function)</code> is shorter way to write <code>.on('click', function)</code>.</li>
+<li>[ ] The first snippet will execute for every button on the page, the second will only apply to the first button.</li>
+</ul>
+<h4 id="q2.-what-does-the-following-line-of-code-do">Q2. What does the following line of code do?</h4>
+<p><code>jQuery('p')</code> - [ ] Loads a paragraph tag from a remote server using AJAX - [ ] Aliases jQuery to a variable p - [✅] Selects all paragraphs on the page - [ ] Creates a new paragraph tag and inserts it into the body tag</p>
+<h4 id="q3.-given-the-following-html-how-could-we-use-one-line-to-hide-or-show-the-button">Q3. Given the following HTML, how could we use one line to hide or show the button?</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;btn btn-primary&quot;</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="kw">&gt;</span>Continue to checkout<span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>$('.btn-primary').toggle();</code></li>
+<li>[ ] <code>$('.btn-primary').showHide();</code></li>
+<li>[ ] <code>$('.btn-primary').not(':visible').show();</code></li>
+<li>[ ] <code>$('.btn-primary').css({ display: 'block'});</code></li>
+</ul>
+<h4 id="q4.-working-with-ajax-we-may-run-into-situations-where-a-piece-of-code-should-not-be-run-until-after-multiple-ajax-calls-have-completed-successfully.-say-we-need-to-call-two-external-services-for-json-data-a-list-of-students-and-a-list-of-classes.-and-only-after-retrieving-those-data-will-we-perform-some-manipulations-on-a-page.-what-is-the-preferred-way-for-dealing-with-this-scenario">Q4. Working with AJAX, we may run into situations where a piece of code should not be run until after multiple AJAX calls have completed successfully. Say we need to call two external services for JSON data (a list of students, and a list of classes). And only after retrieving those data will we perform some manipulations on a page. What is the preferred way for dealing with this scenario?</h4>
+<p><code>https://example.com/json-api/students</code><br />
+<code>https://example.com/json-api/classes</code> - [ ]</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">$</span>.<span class="at">get</span>([ <span class="st">&#39;https://example.com/json-api/students&#39;</span><span class="op">,</span> <span class="st">&#39;https://example.com/json-api/classes&#39;</span> ]<span class="op">,</span> <span class="kw">function</span>(studentRequest<span class="op">,</span> classRequest) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="co">// the rest of the code goes here </span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">$</span>.<span class="at">when</span>( <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;https://example.com/json-api/students&#39;</span>)<span class="op">,</span> <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;https://example.com/json-api/classes&#39;</span>) ).<span class="at">done</span>(<span class="kw">function</span>(studentRequest<span class="op">,</span> classRequest) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">// the rest of the code goes here </span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">$</span>.<span class="at">bind</span>( <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;https://example.com/json-api/students&#39;</span>)<span class="op">,</span> <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;https://example.com/json-api/classes&#39;</span>) ).<span class="at">done</span>(<span class="kw">function</span>(studentRequest<span class="op">,</span> classRequest) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="co">// the rest of the code goes here </span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">$</span>.<span class="at">ajax</span>(<span class="st">&#39;https://example.com/json-api/students&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">success</span><span class="op">:</span> <span class="kw">function</span>(studentRequest) <span class="op">{</span> <span class="va">$</span>.<span class="at">ajax</span>(<span class="st">&#39;https://example.com/json-api/classes&#39;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">success</span><span class="op">:</span> <span class="kw">function</span>(classRequest) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="co">// the rest of the code goes here </span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">}</span> <span class="op">}</span>)<span class="op">;</span> <span class="op">}</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="q5.-given-the-snippet-of-html-below-what-is-the-difference-between-the-two-lines-that-follow-it">Q5. Given the snippet of HTML below, what is the difference between the two lines that follow it?</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">&lt;li&gt;</span>Item 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="kw">&lt;li&gt;</span>Item 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="kw">&lt;li&gt;</span>Item 3<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="kw">&lt;li&gt;</span>Item 4<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">$</span>(<span class="st">&#39;ul&#39;</span>).<span class="at">find</span>(<span class="st">&#39;li&#39;</span>).<span class="at">get</span>(<span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="at">$</span>(<span class="st">&#39;ul&#39;</span>).<span class="at">find</span>(<span class="st">&#39;li&#39;</span>).<span class="at">eq</span>(<span class="dv">2</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x] .get() retrieves a DOM element, and can't be chained, eq() retrieves a jQuery object, and can be chained.</li>
+<li>[ ] .get() retrieves a jQuery object, and can't be chained, eq() retrieves a DOM element, and can be chained.</li>
+<li>[ ] .get() retrieves a jQuery object, and is zero-indexed, eq() retrieves a DOM element, and is 1-indexed.</li>
+<li>[ ] .get() retrieves a DOM element, and is zero-indexed, eq() retrieves a jQuery object, and is 1-indexed.</li>
+</ul>
+<h4 id="q6.-suppose-we-want-to-have-a-ball-created-from-an-html-element-idball-move-down-and-to-the-right-from-its-original-location-when-clicked-and-move-back-into-its-original-place-when-finished.-given-a-starting-point-of-this-which-of-these-snippets-would-accomplish-that-goal">Q6. Suppose we want to have a ball created from an HTML element (id=ball) move down and to the right from its original location when clicked, and move back into its original place when finished. Given a starting point of this, which of these snippets would accomplish that goal?</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="at">$</span>(<span class="st">&#39;#ball&#39;</span>).<span class="at">click</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="co">// Our code goes here</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span> <span class="op">},</span> <span class="op">{</span> <span class="dt">duration</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span> <span class="dt">complete</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span> <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span> <span class="op">},</span> <span class="dv">600</span>) <span class="op">}</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span> <span class="op">},</span> <span class="dv">600</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span> <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span> <span class="op">},</span> <span class="dv">600</span>) <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;=100&#39;</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;=100&#39;</span><span class="op">,</span> <span class="op">},</span> <span class="op">{</span> <span class="dt">duration</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span> <span class="dt">complete</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span> <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="op">},</span> <span class="dv">600</span>) <span class="op">}</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;100&#39;</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;100&#39;</span><span class="op">,</span> <span class="op">},</span> <span class="dv">600</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span> <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span> <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="op">},</span> <span class="dv">600</span>) <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="q7.-given-the-following-css-and-html-codes-below-how-could-you-apply-the-success-class-to-the-feedback-div">Q7. Given the following CSS and HTML codes below, how could you apply the success class to the feedback div?</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb14-1" title="1"><span class="fu">.success</span> {</a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="kw">color</span>: <span class="cn">green</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-3" title="3">  <span class="kw">background</span>: <span class="cn">#ddffdd</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-4" title="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;feedback&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  Thank you for answering this survey.</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>$('.feedback').hasClass('.success');</code></li>
+<li>[ ] <code>$.css('.feedback', '.success')</code>;</li>
+<li>[x] <code>$('.feedback').addClass('success');</code></li>
+<li>[ ] <code>$('.feedback').css('.success');</code></li>
+</ul>
+<h4 id="q8.-below-is-an-example-page-snippet-that-includes-a-couple-of-messages-in-a-list-and-a-code-snippet-that-retrieves-a-few-hundred-messages-from-a-api-endpoints-using-ajax.-how-might-we-add-these-items-to-the-page-snippet-in-a-way-that-avoids-performance-problems-with-dom-insertions">Q8. Below is an example page snippet that includes a couple of messages in a list, and a code snippet that retrieves a few hundred messages from a API endpoints using AJAX. How might we add these items to the page snippet in a way that avoids performance problems with DOM insertions?</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;message-area&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;message-area--list&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb16-3" title="3">    <span class="kw">&lt;li&gt;</span>Existing message 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="kw">&lt;li&gt;</span>Existing message 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb16-5" title="5">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;//example.com/api/v1/message&#39;</span>)</a>
+<a class="sourceLine" id="cb17-2" title="2">.<span class="at">done</span>(<span class="kw">function</span>(data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-3" title="3">  <span class="kw">var</span> tonsOfItems <span class="op">=</span> <span class="va">data</span>.<span class="at">messages</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb17-4" title="4">  <span class="co">// add all these messages to a large page</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>tonsOfItems.map(function(item) { $('.message-area--list').append('&lt;li&gt;'+item+'&lt;/li&gt;'); });</code></li>
+<li>[ ] <code>var tonsOfListItems = tonsOfItems.map(function(item)) { return '&lt;li&gt;'+item+'&lt;/li&gt;'; }); $('.message-area--list').append(tonsOfListItems.join(''));</code></li>
+<li>[ ] <code>Removing the event handlers with JavaScript will be slower than removing them $.each(tonsOfItems, function(idx, item) { $('&lt;li&gt;'+item+'&lt;/li&gt;').appendTo($messageList); });</code></li>
+<li>[ ] <code>$.each(tonsOfItems, function(idx, item) { $('.message-area--list').append('&lt;li&gt;'+item+'&lt;/li&gt;'); });</code></li>
+</ul>
+<h4 id="q9.-what-is-jquery">Q9. What is jQuery?</h4>
+<ul>
+<li>[ ] jQuery is a bridge between Java and Javascript that makes native apps easier to write.</li>
+<li>[ ] jQuery is a plugin for JavaScript that makes database queries easier to write.</li>
+<li>[x] jQuery is a collection of JavaScript functions that makes finding and manipulating elements on a page, AJAX, and other things easier.</li>
+<li>[ ] jQuery is a Chrome extension that allows users to create their own extensions with just a few lines of JavaScript.</li>
+</ul>
+<h4 id="q10.-we-want-to-create-a-new-jquery-plugin-called-linkupdater-that-can-be-chained-onto-other-jquery-selector-like-a-normal-plugin.-it-should-update-all-the-links-in-the-referenced-collection-so-they-open-in-new-windows-or-tabs.-below-is-the-first-cut.-what-is-one-problem-with-this-plugin">Q10. We want to create a new jQuery plugin called linkUpdater that can be chained onto other jQuery selector like a normal plugin. It should update all the links in the referenced collection so they open in new windows or tabs. Below is the first cut. What is one problem with this plugin?</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="st">&quot;user strict&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb18-2" title="2">(<span class="va">$</span>.<span class="at">linkUpdater</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-3" title="3">  <span class="kw">this</span>.<span class="at">find</span>(<span class="st">&#39;a&#39;</span>).<span class="at">attr</span>(<span class="st">&#39;target&#39;</span><span class="op">,</span> <span class="st">&#39;_blank&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="op">}</span>)( jQuery )<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] this needs to be wrapped, like <code>$(this)</code>, in order to be chained in a plugin.</li>
+<li>[ ] jQuery plugins can't be safely authored in strict mode.</li>
+<li>[ ] In order to be used by other code, plugins need to be added to the global namespace, not wrapped in a function expression.</li>
+<li>[x] Our plugin should extend jQuery.fn, not jQuery itself.</li>
+</ul>
+<h4 id="q11.-generally-speaking-when-used-on-a-web-page-how-should-jquery-be-installed-and-why">Q11. Generally speaking, when used on a web page, how should jQuery be installed, and why?</h4>
+<ul>
+<li>[x] Just before the closing body tag, because we want to avoid blocking other resources from loading, and we use the ready method to make sure our code fires after the DOM is ready</li>
+<li>[ ] Using the highest version number possible because only jQuery 3 and up are compatible with Internet Explorer 7</li>
+<li>[ ] In the head tag because we want jQuery available as soon as possible</li>
+<li>[ ] From a CDN because we want to be able to use jQuery online or offline</li>
+</ul>
+<h4 id="q12.-given-the-following-html-how-could-we-make-this-button-disappear-from-the-page-using-jquery">Q12. Given the following HTML, how could we make this button disappear from the page using jQuery?</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;btn btn-primary&quot;</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="kw">&gt;</span>Continue to checkout<span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>$('.btn-primary').hide();</code></li>
+<li>[ ] <code>$('.btn-primary:visible').not();</code></li>
+<li>[ ] <code>$('.btn-primary').visibility(false);</code></li>
+<li>[ ] <code>$('.btn-primary').show(false);</code></li>
+</ul>
+<h4 id="q13.-what-is-the-difference-between-header.html-and-header.text">Q13. What is the difference between <code>$('header').html()</code> and <code>$('header').text()</code>?</h4>
+<ul>
+<li>[x] <code>$('header').html()</code> returns the inner HTML of the header. <code>$('header').text()</code> returns only the text</li>
+<li>[ ] <code>$('header').html()</code> returns only the HTML tags used, without the text. <code>$('header').text()</code> returns only the text</li>
+<li>[ ] <code>$('header').html()</code> strips all HTML from the header. <code>$('header').text()</code> always returns an empty string.</li>
+<li>[ ] <code>$('header').html()</code> returns all headers in an HTML document. <code>$('header').text()</code> the first line of a text file.</li>
+</ul>
+<h4 id="q14.-when-writing-jquery-plugins-we-often-provide-default-options-that-may-be-overridden-by-the-end-user.-what-jquery-function-is-most-useful-for-this-purpose">Q14. When writing jQuery plugins, we often provide default options that may be overridden by the end user. What jQuery function is most useful for this purpose?</h4>
+<ul>
+<li>[x] $.extend</li>
+<li>[ ] $.clone</li>
+<li>[ ] $.fn.extend</li>
+<li>[ ] $.merge</li>
+</ul>
+<h4 id="q15.-there-are-times-when-you-might-want-to-programmatically-trigger-an-event-instead-of-simply-reacting-to-user-input-directly.-given-this-markup-which-choice-will-not-cause-a-click-event-to-the-select-box-when-the-button-is-clicked">Q15. There are times when you might want to programmatically trigger an event, instead of simply reacting to user input directly. Given this markup, Which choice will NOT cause a click event to the select box when the button is clicked?</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">&lt;article&gt;</span></a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb20-3" title="3">    Here&#39;s a button you can click: <span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;btn&quot;</span><span class="kw">&gt;</span>Click Me<span class="kw">&lt;/button&gt;</span></a>
+<a class="sourceLine" id="cb20-4" title="4">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb20-5" title="5">  <span class="kw">&lt;form&gt;</span></a>
+<a class="sourceLine" id="cb20-6" title="6">    <span class="kw">&lt;p&gt;</span></a>
+<a class="sourceLine" id="cb20-7" title="7">      Further down the page, there&#39;s a select box.</a>
+<a class="sourceLine" id="cb20-8" title="8">    <span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb20-9" title="9">    <span class="kw">&lt;select&gt;</span></a>
+<a class="sourceLine" id="cb20-10" title="10">      <span class="kw">&lt;option</span><span class="ot"> value=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span>One<span class="kw">&lt;/option&gt;</span></a>
+<a class="sourceLine" id="cb20-11" title="11">      <span class="kw">&lt;option</span><span class="ot"> value=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span>One<span class="kw">&lt;/option&gt;</span></a>
+<a class="sourceLine" id="cb20-12" title="12">      <span class="kw">&lt;option</span><span class="ot"> value=</span><span class="st">&quot;3&quot;</span><span class="kw">&gt;</span>One<span class="kw">&lt;/option&gt;</span></a>
+<a class="sourceLine" id="cb20-13" title="13">      <span class="kw">&lt;option</span><span class="ot"> value=</span><span class="st">&quot;4&quot;</span><span class="kw">&gt;</span>One<span class="kw">&lt;/option&gt;</span></a>
+<a class="sourceLine" id="cb20-14" title="14">    <span class="kw">&lt;/select&gt;</span></a>
+<a class="sourceLine" id="cb20-15" title="15">  <span class="kw">&lt;/form&gt;</span></a>
+<a class="sourceLine" id="cb20-16" title="16"><span class="kw">&lt;/article&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>$('button').on('click.myApp', (function() { $('input[type=select]').trigger('click'); });</code></li>
+<li>[ ] <code>$('button').on('click', (function() { $('input[type=select]').click()); });</code></li>
+<li>[ ] <code>$('button').trigger(function() { $('input[type=select]').click(); });</code></li>
+<li>[ ] <code>$('button').click(function() { $('input[type=select]').click(); });</code></li>
+</ul>
+<h4 id="q16.-you-have-an-absolutely-positioned-element-inside-a-relatively-positioned-parent-element-and-you-want-to-animate-that-element-within-its-parent-element.-what-jquery-function-is-most-useful-for-finding-the-initial-coordinates-of-the-.animate-me">Q16. You have an absolutely positioned element inside a relatively positioned parent element, and you want to animate that element within its parent element. What jQuery function is most useful for finding the initial coordinates of the <code>.animate-me</code>?</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">&lt;style&gt;</span></a>
+<a class="sourceLine" id="cb21-2" title="2">  <span class="fu">.parent</span> {</a>
+<a class="sourceLine" id="cb21-3" title="3">    <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-4" title="4">    <span class="kw">top</span>: <span class="dv">3</span><span class="dt">em</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-5" title="5">    <span class="kw">width</span>: <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-6" title="6">    <span class="kw">min-height</span>: <span class="dv">50</span><span class="dt">vh</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-7" title="7">    <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-8" title="8">  }</a>
+<a class="sourceLine" id="cb21-9" title="9"></a>
+<a class="sourceLine" id="cb21-10" title="10">  <span class="fu">.animate-me</span> {</a>
+<a class="sourceLine" id="cb21-11" title="11">    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-12" title="12">    <span class="kw">top</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-13" title="13">    <span class="kw">right</span>: <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-14" title="14">  }</a>
+<a class="sourceLine" id="cb21-15" title="15"><span class="kw">&lt;/style&gt;</span></a>
+<a class="sourceLine" id="cb21-16" title="16"></a>
+<a class="sourceLine" id="cb21-17" title="17"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;parent&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb21-18" title="18">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;animate-me&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb21-19" title="19">    This box will move!</a>
+<a class="sourceLine" id="cb21-20" title="20">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb21-21" title="21"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>$('.animate-me').offset();</code></li>
+<li>[ ] <code>$('.animate-me').each();</code></li>
+<li>[ ] <code>$('.animate-me').position();</code></li>
+<li>[ ] <code>$('.animate-me').offsetParent();</code></li>
+</ul>
+<h4 id="q17.-you-want-to-work-with-ajax-using-a-promise-like-interface-instead-of-nested-callback-functions.-what-jquery-api-should-you-use">Q17. You want to work with AJAX using a Promise-like interface instead of nested callback functions. What jQuery API should you use?</h4>
+<ul>
+<li>[ ] <code>jQuery.sub</code></li>
+<li>[ ] <code>jQuery.ajaxTransport</code></li>
+<li>[x] <code>jQuery.Deferred</code></li>
+<li>[ ] <code>jQuery.proxy</code></li>
+</ul>
+<h4 id="q18.-what-is-tricky-about-jquerys-nth--filters-nth-child-nth-of-type-etc.-relative-to-other-filters">Q18. What is tricky about jQuery's nth- filters (:nth-child, :nth-of-type, etc.) relative to other filters?</h4>
+<ul>
+<li>[x] Referring to lists of items, they are 1-indexed (like CSS), not 0-indexed (like JavaScript).</li>
+<li>[ ] They don't return the jQuery object, and cannot be chained.</li>
+<li>[ ] They can return the wrong items if the DOM was recently manipulated.</li>
+<li>[ ] They are not part of CSS, so they don't get the performance benefits of passing through the <code>document.querySelectorAll</code>.</li>
+</ul>
+<h4 id="q19.-jquerys-ajax-functions-return-objects-that-implement-the-promise-api.-as-a-result-you-can-chain-promises-and-avoid-nested-callbacks.-what-does-that-look-like">Q19. jQuery's AJAX functions return objects that implement the Promise API. As a result, you can chain promises and avoid nested callbacks. What does that look like?</h4>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1"><span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;hhttp://httpbin.org/delay/2&#39;</span>)</a>
+<a class="sourceLine" id="cb22-2" title="2">  .<span class="at">then</span>(<span class="kw">function</span>(response) <span class="op">{</span></a>
+<a class="sourceLine" id="cb22-3" title="3">    <span class="co">// Data from first GET is here as &#39;response&#39;</span></a>
+<a class="sourceLine" id="cb22-4" title="4">    <span class="cf">return</span> <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;http://httpbin.org/delay/2&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb22-5" title="5">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb22-6" title="6">  .<span class="at">then</span>(<span class="kw">function</span>(response) <span class="op">{</span></a>
+<a class="sourceLine" id="cb22-7" title="7">    <span class="co">// Data from second GET is here as &#39;response&#39;</span></a>
+<a class="sourceLine" id="cb22-8" title="8">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1"><span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;hhttp://httpbin.org/delay/2&#39;</span>)</a>
+<a class="sourceLine" id="cb23-2" title="2">  .<span class="at">catch</span>(<span class="kw">function</span>(response) <span class="op">{</span></a>
+<a class="sourceLine" id="cb23-3" title="3">    <span class="co">// Data from first GET is here as &#39;response&#39;</span></a>
+<a class="sourceLine" id="cb23-4" title="4">    <span class="cf">return</span> <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;http://httpbin.org/delay/2&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb23-5" title="5">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb23-6" title="6">  .<span class="at">done</span>(<span class="kw">function</span>(response) <span class="op">{</span></a>
+<a class="sourceLine" id="cb23-7" title="7">    <span class="co">// Data from second GET is here as &#39;response&#39;</span></a>
+<a class="sourceLine" id="cb23-8" title="8">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1"><span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;hhttp://httpbin.org/delay/2&#39;</span><span class="op">,</span> <span class="kw">function</span>(response1) <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-2" title="2">  <span class="co">// Data from first GET is here as &#39;response1&#39;</span></a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4">  <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;http://httpbin.org/delay/2&#39;</span><span class="op">,</span> <span class="kw">function</span>(response2) <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-5" title="5">  <span class="co">// Data from second GET is here as &#39;response2&#39;</span></a>
+<a class="sourceLine" id="cb24-6" title="6">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb24-7" title="7"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" title="1"><span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;hhttp://httpbin.org/delay/2&#39;</span>)</a>
+<a class="sourceLine" id="cb25-2" title="2">  .<span class="at">then</span>(<span class="kw">function</span>(response) <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-3" title="3">    <span class="co">// Data from first GET is here as &#39;response&#39;</span></a>
+<a class="sourceLine" id="cb25-4" title="4">    <span class="cf">return</span> response<span class="op">;</span></a>
+<a class="sourceLine" id="cb25-5" title="5">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb25-6" title="6">  .<span class="at">get</span>(<span class="st">&#39;http://httpbin.org/delay/2&#39;</span><span class="op">,</span> <span class="kw">function</span>(response) <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-7" title="7">    <span class="co">// Data from second GET is here as &#39;response&#39;</span></a>
+<a class="sourceLine" id="cb25-8" title="8">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="q20.-you-want-to-have-a-ball-that-is-created-from-an-html-element-idball-move-down-and-to-the-right-of-its-original-location-when-clicked-and-move-back-to-its-original-place-when-finished.-what-snippet-added-to-the-code-below-would-do-this">Q20. You want to have a ball that is created from an HTML element (id=ball) move down and to the right of its original location when clicked, and move back to its original place when finished. What snippet, added to the code below, would do this?</h4>
+<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" title="1"><span class="at">$</span>(<span class="st">&#39;#ball&#39;</span>).<span class="at">click</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb26-2" title="2">  <span class="co">// Our code goes here</span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb27-2" title="2">  <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb27-3" title="3">  <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="op">},</span> <span class="dv">600</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-5" title="5">  <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb27-6" title="6">  <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb27-7" title="7">  <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb27-8" title="8">  <span class="op">},</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb27-9" title="9"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb28-2" title="2">  <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb28-3" title="3">  <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;+=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="op">},</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-5" title="5">  <span class="dt">duration</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb28-6" title="6">  <span class="dt">complete</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-7" title="7">  <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb28-8" title="8">  <span class="dt">top</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb28-9" title="9">  <span class="dt">left</span><span class="op">:</span> <span class="st">&#39;-=100&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb28-10" title="10">  <span class="op">},</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb28-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb28-12" title="12"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb29-2" title="2">  <span class="dt">top</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb29-3" title="3">  <span class="dt">left</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="op">},</span> <span class="dv">600</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-5" title="5">  <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb29-6" title="6">  <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb29-7" title="7">  <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb29-8" title="8">  <span class="op">},</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb29-9" title="9"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" title="1"><span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb30-2" title="2">  <span class="dt">top</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb30-3" title="3">  <span class="dt">left</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb30-4" title="4"><span class="op">},</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-5" title="5">  <span class="dt">duration</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb30-6" title="6">  <span class="dt">complete</span><span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-7" title="7">  <span class="at">$</span>(<span class="kw">this</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb30-8" title="8">  <span class="dt">top</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb30-9" title="9">  <span class="dt">left</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb30-10" title="10">  <span class="op">},</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb30-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb30-12" title="12"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="q21.-the-way-.wrap-works-is-sometimes-misunderstood.-given-the-dom-and-jquery-snippets-below-what-does-the-modified-dom-snippet-look-like">Q21. The way <code>.wrap()</code> works is sometimes misunderstood. Given the DOM and jQuery snippets below, what does the modified DOM snippet look like?</h4>
+<div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb31-2" title="2">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Here&#39;s an item<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb31-3" title="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" title="1"><span class="at">$</span>(<span class="st">&#39;#container&#39;</span>).<span class="at">wrap</span>(<span class="st">&#39;&lt;div class=&quot;wrapper&quot;&gt;&lt;/div&gt;&#39;</span>).<span class="at">css</span>(<span class="st">&#39;border&#39;</span><span class="op">,</span> <span class="st">&#39;2px solid red&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;wrapper&quot;</span><span class="ot"> style=</span><span class="st">&quot;border: 2px solid red;&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb33-2" title="2">  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb33-3" title="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Here&#39;s an item<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb33-4" title="4">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb33-5" title="5"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;wrapper&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb34-2" title="2">  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;container&quot;</span><span class="ot"> style=</span><span class="st">&quot;border: 2px solid red;&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb34-3" title="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Here&#39;s an item<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb34-4" title="4">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;container&quot;</span><span class="ot"> style=</span><span class="st">&quot;border: 2px solid red;&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb35-2" title="2">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;wrapper&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb35-3" title="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Here&#39;s an item<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb35-4" title="4">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb35-5" title="5">  <span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;container&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb36-2" title="2">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;wrapper&quot;</span><span class="ot"> style=</span><span class="st">&quot;border: 2px solid red;&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb36-3" title="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Here&#39;s an item<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb36-4" title="4">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb36-5" title="5"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<h4 id="q22.-how-can-you-select-the-following-blockquote-and-the-list-in-a-single-call-to-jquery-without-chaining">Q22. How can you select the following blockquote AND the list in a single call to jQuery() without chaining?</h4>
+<div class="sourceCode" id="cb37"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;quotes&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb37-2" title="2">  <span class="kw">&lt;blockquote</span><span class="ot"> data-favorite=</span><span class="st">&quot;false&quot;</span><span class="kw">&gt;</span>A quote<span class="kw">&lt;/blockquote&gt;</span></a>
+<a class="sourceLine" id="cb37-3" title="3">  <span class="kw">&lt;blockquote</span><span class="ot"> data-favorite=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;</span>A favorite quote<span class="kw">&lt;/blockquote&gt;</span></a>
+<a class="sourceLine" id="cb37-4" title="4">  <span class="kw">&lt;blockquote</span><span class="ot"> data-favorite=</span><span class="st">&quot;false&quot;</span><span class="kw">&gt;</span>A quote<span class="kw">&lt;/blockquote&gt;</span></a>
+<a class="sourceLine" id="cb37-5" title="5">  <span class="kw">&lt;blockquote</span><span class="ot"> data-favorite=</span><span class="st">&quot;false&quot;</span><span class="kw">&gt;</span>A quote<span class="kw">&lt;/blockquote&gt;</span></a>
+<a class="sourceLine" id="cb37-6" title="6"><span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb37-7" title="7"></a>
+<a class="sourceLine" id="cb37-8" title="8"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;menu-first&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb37-9" title="9">  <span class="kw">&lt;li&gt;</span>Item 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb37-10" title="10">  <span class="kw">&lt;li&gt;</span>Item 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb37-11" title="11">  <span class="kw">&lt;li&gt;</span>Item 3<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb37-12" title="12">  <span class="kw">&lt;li&gt;</span>Item 4<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb37-13" title="13"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>$('.quotes + .menu-first')</code></li>
+<li>[ ] <code>$('.quotes .menu-first')</code></li>
+<li>[x] <code>$('.quotes, .menu-first')</code></li>
+<li>[ ] <code>$('.quotes' + '.menu-first')</code></li>
+</ul>
+<h4 id="q23.-effects-like-show-hide-fadin-and-fadeout-can-be-called-with-no-arguments-but-can-also-take-arguments-for-how-long-they-should-last.-which-is-not-a-duration-argument-supported-by-these-functions">Q23. Effects like show, hide, fadIn, and fadeOut can be called with no arguments, but can also take arguments for how long they should last. Which is NOT a duration argument supported by these functions?</h4>
+<ul>
+<li>[ ] "fast"</li>
+<li>[x] "extreme"</li>
+<li>[ ] 2000</li>
+<li>[ ] "slow"</li>
+</ul>
+<h4 id="q24.-though-jquery-offers-visual-effects-it-is-considered-a-best-practice-to-use-css-to-set-up-different-states-triggered-by-classes-where-it-makes-sense.-whats-the-easiest-way-to-enable-and-disable-a-class-bounce-on-an-element-with-the-id-dialog">Q24. Though jQuery offers visual effects, it is considered a best practice to use CSS to set up different states triggered by classes, where it makes sense. What's the easiest way to enable and disable a class bounce on an element with the ID dialog?</h4>
+<ul>
+<li>[ ] <code>$('#dialog').classToggle('bounce')</code></li>
+<li>[ ] <code>$('#dialog.bounce').removeClass().addClass()</code></li>
+<li>[ ] <code>$('#dialog').addOrRemoveClass('bounce')</code></li>
+<li>[x] <code>$('#dialog').toggleClass('bounce')</code></li>
+</ul>
+<h4 id="q25.-what-is-the-main-difference-between-selectors-and-filters">Q25. What is the main difference between selectors and filters?</h4>
+<ul>
+<li>[ ] Selectors are used to refine the content that filters have been applied to.</li>
+<li>[x] Selectors are used to find and select content in a page. Filters are used to refine the results of selectors.</li>
+<li>[ ] Filters are used to remove content from the page. Selectors are used to add content to the page</li>
+<li>[ ] There is no real difference. They are both used to build up lists of page content.</li>
+</ul>
+<h4 id="q26.-you-want-to-create-a-custom-right-click-menu.-how-might-you-start-the-code">Q26. You want to create a custom right-click menu. How might you start the code?</h4>
+<ul>
+<li>[ ] <code>$('#canvas').on('click.right', function(){ console.log('Handled a right-click') });</code></li>
+<li>[ ] <code>$('#canvas').on('contextual', function(){ console.log('Handled a right-click') });</code></li>
+<li>[x] <code>$('#canvas').on('contextmenu', function(){ console.log('Handled a right-click') });</code></li>
+<li>[ ] <code>$('#canvas').on('rightclick', function(){ console.log('Handled a right-click') });</code></li>
+</ul>
+<h4 id="q27.-what-is-the-correct-way-to-check-how-many-paragraphs-exist-on-a-page-using-jquery">Q27. What is the correct way to check how many paragraphs exist on a page using jQuery?</h4>
+<ul>
+<li>[ ] <code>$('p').count()</code></li>
+<li>[x] <code>$('p').length</code></li>
+<li>[ ] <code>$('*').find('p')</code></li>
+<li>[ ] <code>$('p').length()</code></li>
+</ul>
+<h4 id="q28.-as-with-many-areas-of-javascript-keeping-track-of-the-meaning-of-this-is-important-and-sometimes-tricky.-what-does-this-mean-at-each-of-the-two-points-in-this-custom-plugin-snippet">Q28. As with many areas of JavaScript, keeping track of the meaning of <strong>this</strong> is important and sometimes tricky. What does <strong>this</strong> mean at each of the two points in this custom plugin snippet?</h4>
+<div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb38-1" title="1"><span class="va">$</span>.<span class="va">fn</span>.<span class="at">customPlugin</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb38-2" title="2">  <span class="co">// Point 1</span></a>
+<a class="sourceLine" id="cb38-3" title="3"></a>
+<a class="sourceLine" id="cb38-4" title="4">  <span class="cf">return</span> <span class="kw">this</span>.<span class="at">each</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb38-5" title="5">    <span class="co">// Point 2</span></a>
+<a class="sourceLine" id="cb38-6" title="6">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb38-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb38-8" title="8"><span class="at">$</span>(document).<span class="at">customPlugin</span>()<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] At Point 1, <code>this</code> means a jQuery object. At Point 2, it means a DOM element.</li>
+<li>[ ] In this case, they mean the same thing: a jQuery object.</li>
+<li>[ ] In this case, they mean the same thing: a DOM element.</li>
+<li>[x] At Point 1, <code>this</code> means a DOM element. At Point 2, it means a jQuery object.</li>
+</ul>
+<h4 id="q29.-how-can-you-make-the-first-list-item-bold-and-the-next-item-oblique-in-a-single-statement-chain">Q29. How can you make the first list item bold and the next item oblique, in a single statement chain?</h4>
+<div class="sourceCode" id="cb39"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;menu-first&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb39-2" title="2">  <span class="kw">&lt;li&gt;</span>Item 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb39-3" title="3">  <span class="kw">&lt;li&gt;</span>Item 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb39-4" title="4">  <span class="kw">&lt;li&gt;</span>Item 3<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb39-5" title="5">  <span class="kw">&lt;li&gt;</span>Item 4<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb39-6" title="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb40-1" title="1"><span class="at">$</span>(<span class="st">&#39;.menu-first &gt; li&#39;</span>)</a>
+<a class="sourceLine" id="cb40-2" title="2">  .<span class="at">eq</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb40-3" title="3">  .<span class="at">css</span>(<span class="st">&#39;font-weight&#39;</span><span class="op">,</span> <span class="st">&#39;bold&#39;</span>)</a>
+<a class="sourceLine" id="cb40-4" title="4">  .<span class="at">eq</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb40-5" title="5">  .<span class="at">css</span>(<span class="st">&#39;font-style&#39;</span><span class="op">,</span> <span class="st">&#39;oblique&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb41-1" title="1"><span class="at">$</span>(<span class="st">&#39;.menu-first &gt; li&#39;</span>)</a>
+<a class="sourceLine" id="cb41-2" title="2">  .<span class="at">first</span>()</a>
+<a class="sourceLine" id="cb41-3" title="3">  .<span class="at">css</span>(<span class="st">&#39;font-weight&#39;</span><span class="op">,</span> <span class="st">&#39;bold&#39;</span>)</a>
+<a class="sourceLine" id="cb41-4" title="4">  .<span class="at">after</span>()</a>
+<a class="sourceLine" id="cb41-5" title="5">  .<span class="at">css</span>(<span class="st">&#39;font-style&#39;</span><span class="op">,</span> <span class="st">&#39;oblique&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb42-1" title="1"><span class="at">$</span>(<span class="st">&#39;.menu-first &gt; li&#39;</span>)</a>
+<a class="sourceLine" id="cb42-2" title="2">  .<span class="at">first</span>()</a>
+<a class="sourceLine" id="cb42-3" title="3">  .<span class="at">css</span>(<span class="st">&#39;font-weight&#39;</span><span class="op">,</span> <span class="st">&#39;bold&#39;</span>)</a>
+<a class="sourceLine" id="cb42-4" title="4">  .<span class="at">second</span>()</a>
+<a class="sourceLine" id="cb42-5" title="5">  .<span class="at">css</span>(<span class="st">&#39;font-style&#39;</span><span class="op">,</span> <span class="st">&#39;oblique&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb43-1" title="1"><span class="at">$</span>(<span class="st">&#39;.menu-first &gt; li&#39;</span>)</a>
+<a class="sourceLine" id="cb43-2" title="2">  .<span class="at">eq</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb43-3" title="3">  .<span class="at">css</span>(<span class="st">&#39;font-weight&#39;</span><span class="op">,</span> <span class="st">&#39;bold&#39;</span>)</a>
+<a class="sourceLine" id="cb43-4" title="4">  .<span class="at">next</span>()</a>
+<a class="sourceLine" id="cb43-5" title="5">  .<span class="at">css</span>(<span class="st">&#39;font-style&#39;</span><span class="op">,</span> <span class="st">&#39;oblique&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="q30.-which-css-selectors-can-you-not-use-in-jquery">Q30. Which CSS selectors can you NOT use in jQuery?</h4>
+<ul>
+<li>[ ] You cannot use multiple class selectors such as <code>.class1.class2</code>.</li>
+<li>[ ] You cannot use pseudo-classes such as <code>:not</code> or <code>:last-of-type</code>.</li>
+<li>[ ] You cannot use IDs and classes together, such as <code>#element.class</code>.</li>
+<li>[x] None. All CSS selectors are compatible in jQuery.</li>
+</ul>
+<h4 id="q31.-starting-with-some-dom-elements-in-the-nested-structure-below-you-assign-listeners-for-the-same-event-to-a-child-element-and-one-of-the-parents-using-the-javascript-that-follows.-you-want-to-ensure-that-when-.leaf-is-clicked-only-its-event-handler-will-be-fired-instead-of-the-click-bubbling-up-and-also-firing-the-parents-click-handler.-what-do-you-need-to-add-to-its-handler-function">Q31. Starting with some DOM elements in the nested structure below, you assign listeners for the same event to a child element and one of the parents using the JavaScript that follows. You want to ensure that when <code>.leaf</code> is clicked, only its event handler will be fired, instead of the click bubbling up and also firing the parent's click handler. What do you need to add to its handler function?</h4>
+<div class="sourceCode" id="cb44"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;items&quot;</span><span class="ot"> id=</span><span class="st">&quot;main-menu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb44-2" title="2">  <span class="kw">&lt;li&gt;</span>Item 1<span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb44-3" title="3">    <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;leaf&quot;</span><span class="kw">&gt;</span>Sub Item 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb44-4" title="4">    <span class="kw">&lt;li&gt;</span>Sub Item 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb44-5" title="5">  <span class="kw">&lt;/ul&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb44-6" title="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb45-1" title="1"><span class="at">$</span>(<span class="st">&#39;.leaf&#39;</span>).<span class="at">click</span>( <span class="kw">function</span>(event) <span class="op">{</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Sub Item 1 got a click&#39;</span>)<span class="op">;</span> <span class="op">}</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="at">$</span>(<span class="st">&#39;#main-menu&#39;</span>).<span class="at">click</span>( <span class="kw">function</span>(event) <span class="op">{</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Main menu got a click&#39;</span>)<span class="op">;</span> <span class="op">}</span> )<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>event.capture();</code></li>
+<li>[x] <code>event.stopPropagation();</code></li>
+<li>[ ] <code>event.preventDefault();</code></li>
+<li>[ ] <code>event.stop();</code></li>
+</ul>
+<h4 id="q32.-using-event-delegation-you-can-listen-for-events-on-a-lot-of-different-items-without-having-to-attach-separate-listeners-to-each-one.-but-there-are-times-when-you-may-want-to-check-the-type-of-item-receiving-the-event-before-doing-anything-such-as-checking-if-an-image-was-clicked-versus-a-text-field.-given-the-starter-code-below-which-choice-shows-what-jquery-provides-to-help-with-that-process">Q32. Using event delegation, you can listen for events on a lot of different items without having to attach separate listeners to each one. But there are times when you may want to check the type of item receiving the event before doing anything, such as checking if an image was clicked versus a text field. Given the starter code below, which choice shows what jQuery provides to help with that process?</h4>
+<div class="sourceCode" id="cb46"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;sidebar&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb46-2" title="2">  <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;fancy-button.png&quot;</span><span class="ot"> alt=</span><span class="st">&quot;Pick Me&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb46-3" title="3">  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Fill in something&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb46-4" title="4"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb47-1" title="1"><span class="at">$</span>(<span class="st">&#39;#sidebar&#39;</span>).<span class="at">click</span>(<span class="kw">function</span>(evt) <span class="op">{</span></a>
+<a class="sourceLine" id="cb47-2" title="2">  <span class="kw">var</span> $target <span class="op">=</span> <span class="at">$</span>(<span class="va">evt</span>.<span class="at">target</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb47-3" title="3"></a>
+<a class="sourceLine" id="cb47-4" title="4">  <span class="co">// What goes here?</span></a>
+<a class="sourceLine" id="cb47-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>$($target.get(0) + ':image')</code></li>
+<li>[ ] <code>$('img').is($target)</code></li>
+<li>[ ] <code>$target.filter('img')</code></li>
+<li>[x] <code>$target.is('img')</code></li>
+</ul>
+<h4 id="q33.-there-are-many-ways-to-create-elements-that-can-be-added-to-the-page.-which-answer-is-not-one-of-those-ways-assuming-you-have-the-following-on-the-page">Q33. There are many ways to create elements that can be added to the page. Which answer is NOT one of those ways, assuming you have the following on the page?</h4>
+<div class="sourceCode" id="cb48"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;elements&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb49-1" title="1"><span class="at">$</span>(<span class="st">&quot;#elements&quot;</span>).<span class="at">append</span>(<span class="at">$</span>(<span class="st">&#39;&lt;p class=&quot;appended&quot;&gt;As an HTML string&lt;/p&gt;&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">var</span> p <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="kw">var</span> text <span class="op">=</span> <span class="va">document</span>.<span class="at">createTextNode</span>(<span class="st">&#39;As a DOM element&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="va">p</span>.<span class="at">appendChild</span>(text)<span class="op">;</span></a>
+<a class="sourceLine" id="cb50-4" title="4"><span class="at">$</span>(<span class="st">&quot;#elements&quot;</span>).<span class="at">append</span>(p)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x]</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb51-1" title="1"><span class="at">$</span>(<span class="st">&quot;#elements&quot;</span>).<span class="at">append</span>(<span class="op">&lt;</span>p <span class="kw">class</span><span class="op">=</span><span class="st">&quot;appended&quot;</span><span class="op">&gt;</span>As a JSX object&lt;/p<span class="op">&gt;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ]</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb52-1" title="1"><span class="at">$</span>(<span class="st">&quot;#elements&quot;</span>).<span class="at">append</span>(<span class="at">$</span>(<span class="st">&#39;&lt;p&gt;&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb52-2" title="2">  <span class="st">&quot;class&quot;</span><span class="op">:</span> <span class="st">&#39;appended&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb52-3" title="3">  <span class="st">&#39;text&#39;</span><span class="op">:</span> <span class="st">&quot;As an attribute object&quot;</span></a>
+<a class="sourceLine" id="cb52-4" title="4"><span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
+<h4 id="q34.-the-.addclass-and-.removeclass-methods-can-accept-functions-as-arguments.-what-does-this-function-do">Q34. The <code>.addClass()</code> and <code>.removeClass()</code> methods can accept functions as arguments. What does this function do?</h4>
+<div class="sourceCode" id="cb53"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb53-1" title="1"><span class="at">$</span>(<span class="st">&#39;#menu&#39;</span>).<span class="at">addClass</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb53-2" title="2">  <span class="cf">return</span> <span class="at">$</span>(<span class="st">&#39;body&#39;</span>).<span class="at">attr</span>(<span class="st">&#39;class&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb53-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] It adds the first class found on the body element to the #menu element.</li>
+<li>[ ] It adds all classes found on the #menu element to the body tag.</li>
+<li>[ ] It replaces any classes on the #menu element with all classes from the body tag.</li>
+<li>[x] It adds all classes found on the body element to the #menu element.</li>
+</ul>
+<h4 id="q35.-youre-working-on-a-site-that-uses-an-old-version-of-jquery-and-you-want-to-update-to-a-newer-version.-whats-the-most-efficient-way-to-do-so">Q35. You're working on a site that uses an old version of jQuery, and you want to update to a newer version. What's the most efficient way to do so?</h4>
+<ul>
+<li>[ ] Install the newer version of jQuery, go through each script one by one, and fix what looks broken.</li>
+<li>[ ] Read the change notes for the newer version of jQuery, fix all scripts, install the newer version, and fix anything that remains broken.</li>
+<li>[x] Install the newer version of jQuery as well as its Migrate plugin, fix all warnings, and uninstall the Migrate plugin.</li>
+<li>[ ] Install the newer version of jQuery at the same time, and use <code>jQuery.noConflict()</code> on pages that need the older version.</li>
+</ul>
+<h4 id="q36.-lets-say-you-have-a-page-with-just-one-link-on-it.-how-can-you-change-the-anchor-tag-so-it-links-to-example.com">Q36. Let's say you have a page with just one link on it. How can you change the anchor tag so it links to example.com?</h4>
+<ul>
+<li>[ ] <code>$('a').attribute('href', 'http://www.example.com')</code></li>
+<li>[x] <code>$('a').attr('href', 'http://www.example.com')</code></li>
+<li>[ ] <code>$('a').data('href', 'http://www.example.com')</code></li>
+<li>[ ] <code>$('a').href('http://www.example.com')</code></li>
+</ul>
+<h4 id="q37.-what-does-mean-in-jquery">Q37. What does <code>$()</code> mean in jQuery?</h4>
+<ul>
+<li>[x] It is an alias to the main core method of jQuery itself—the same as writing jQuery().</li>
+<li>[ ] It is a utility function that selects the first element from the document.</li>
+<li>[ ] It is a shorter way to write <code>document.getElementById()</code>.</li>
+<li>[ ] It is a utility function that selects the last element from the document.</li>
+</ul>
+<h4 id="q38.-along-with-dom-traversal-and-manipulation-jquery-offers-several-general-purpose-helper-functions-that-fill-in-some-javascript-gaps-especially-before-es2015.-which-is-not-a-jquery-utility-function">Q38. Along with DOM traversal and manipulation, jQuery offers several general-purpose helper functions that fill in some JavaScript gaps, especially before ES2015. Which is NOT a jQuery utility function?</h4>
+<ul>
+<li>[ ] <code>jQuery.each</code>, a general purpose iterator for looping over arrays or objects</li>
+<li>[ ] <code>jQuery.isNumeric</code>, which can check whether its argument is, or looks like, a number</li>
+<li>[ ] <code>jQuery.extend</code>, which can merge objects and make complete deep copies of objects</li>
+<li>[x] <code>jQuery.isMobile</code>, which can tell whether the user is using a mobile browser</li>
+</ul>
+<h4 id="q39.-given-this-set-of-checkboxes-how-can-you-select-the-ones-that-have-the-phrase-sun-as-part-of-the-value">Q39. Given this set of checkboxes, how can you select the ones that have the phrase "sun" as part of the value?</h4>
+<div class="sourceCode" id="cb54"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb54-1" title="1"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;artists[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;sun-ra&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;artists[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;otis-redding&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;artists[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;captain-beefheart&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb54-4" title="4"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;artists[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;king-sunny-ade&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb54-5" title="5"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;artists[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;weather-report&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>$('checkbox').val(/sun/);</code></li>
+<li>[x] <code>$('input[value*="sun"]');</code></li>
+<li>[ ] <code>$('input[value|="sun"]');</code></li>
+<li>[ ] <code>$('input:checkbox').attr('value', '*sun*');</code></li>
+</ul>
+<h4 id="q40.-how-can-you-get-an-ajax-request-to-go-through-without-triggering-any-of-jquerys-ajax-events">Q40. How can you get an AJAX request to go through without triggering any of jQuery's AJAX events?</h4>
+<ul>
+<li>[ ] Set the type option to "none".</li>
+<li>[ ] Set the processData option to false.</li>
+<li>[ ] Set a success callback that returns false.</li>
+<li>[x] Set the option "global" to false.</li>
+</ul>
+<h4 id="q41.-how-do-you-change-the-current-value-of-a-text-field-with-the-class-.form-item-to-555-1212">Q41. How do you change the current value of a text field with the class <code>.form-item</code> to "555-1212"?</h4>
+<ul>
+<li>[ ] <code>$.val('.form-item', '555-1212');</code></li>
+<li>[x] <code>$('.form-item').val('555-1212');</code></li>
+<li>[ ] <code>$('.form-item').data('value', '555-1212');</code></li>
+<li>[ ] <code>$('.form-item').set('value', '555-1212');</code></li>
+</ul>
+<h4 id="q42.-how-would-you-fire-a-callback-when-any-ajax-request-on-a-page-has-completed">Q42. How would you fire a callback when any AJAX request on a page has completed?</h4>
+<ul>
+<li>[ ] <code>$('body').ajaxComplete(function() { console.count('An AJAX request completed'); });</code></li>
+<li>[ ] <code>$(document).on('ajax-complete', function() { console.count('An AJAX request completed'); });</code></li>
+<li>[ ] <code>$('body').on('ajaxComplete', function() { console.count('An AJAX request completed'); });</code></li>
+<li>[x] <code>$(document).ajaxComplete(function() { console.count('An AJAX request completed'); });</code></li>
+</ul>
+<h4 id="q43.-given-this-set-of-checkboxes-how-can-you-select-the-one-with-the-value-blimp">Q43. Given this set of checkboxes, how can you select the one with the value "blimp"?</h4>
+<div class="sourceCode" id="cb55"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb55-1" title="1"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;songs[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;satisfaction&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;songs[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;respect&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb55-3" title="3"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;songs[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;blimp&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb55-4" title="4"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;songs[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;saturn&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb55-5" title="5"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name=</span><span class="st">&quot;songs[]&quot;</span><span class="ot"> value=</span><span class="st">&quot;penguins&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>$('input[value="blimp"]');</code></li>
+<li>[ ] <code>$('input[value!="blimp"]');</code></li>
+<li>[ ] <code>$('checkbox').val('blimp');</code></li>
+<li>[ ] <code>$('input:checkbox').attr('value', 'blimp');</code></li>
+</ul>
+<h4 id="q44.-given-this-snippet-of-html-and-jquery-code-what-does-the-jquery-do">Q44. Given this snippet of HTML and jQuery code, what does the jQuery do?</h4>
+<div class="sourceCode" id="cb56"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;menu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb56-2" title="2">  <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="ot"> class=</span><span class="st">&quot;active&quot;</span><span class="kw">&gt;</span>Home<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb56-3" title="3">  <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Page 2<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb56-4" title="4"><span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb56-5" title="5"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;active submenu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb56-6" title="6">  <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Subpage 1<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb56-7" title="7">  <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Subpage 2<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb56-8" title="8"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb57-1" title="1"><span class="kw">var</span> m <span class="op">=</span> <span class="at">$</span>(<span class="st">&#39;.menu&#39;</span>)<span class="op">,</span> sm <span class="op">=</span> <span class="at">$</span>(<span class="st">&#39;.submenu&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb57-2" title="2"><span class="va">m</span>.<span class="at">add</span>(sm)<span class="op">;</span></a>
+<a class="sourceLine" id="cb57-3" title="3"><span class="va">m</span>.<span class="at">css</span>(<span class="st">&#39;font-weight&#39;</span><span class="op">,</span> <span class="st">&#39;bold&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] It makes all the menu items bold.</li>
+<li>[ ] It throws an exception on line 3.</li>
+<li>[x] It makes the first set of menu items, not the second, bold.</li>
+<li>[ ] It makes the second set of menu items, not the first, bold.</li>
+</ul>
+<h4 id="q45.-you-want-to-take-a-block-of-type-and-animate-it-to-a-larger-size-with-jquery.-the-following-html-and-javascript-behaves-strangely.-what-is-the-issue">Q45. You want to take a block of type and animate it to a larger size with jQuery. The following HTML and JavaScript behaves strangely. What is the issue?</h4>
+<div class="sourceCode" id="cb58"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;type&quot;</span><span class="ot"> style=</span><span class="st">&quot;font: 1em/1.5 helvetica, arial, sans-serif; background: #ffc; padding: 0&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb58-2" title="2">  Animate me!</a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb59-1" title="1"><span class="at">$</span>(<span class="st">&#39;#type&#39;</span>).<span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb59-2" title="2">  <span class="dt">fontSize</span><span class="op">:</span> <span class="st">&#39;+=1em&#39;</span></a>
+<a class="sourceLine" id="cb59-3" title="3"><span class="op">},</span> <span class="dv">3000</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] jQuery does not support ems and will make the type 1 pixel larger instead of 1 em larger.</li>
+<li>[ ] jQuery cannot override CSS in a style attribute, so the font size will not change.</li>
+<li>[ ] The font size was set with a shorthand property, so jQuery will not animate the font size at all.</li>
+<li>[x] The font size was set with a shorthand property, so jQuery will start the animation from 0 instead of from 1 em.</li>
+</ul>
+<h4 id="q46.-when-using-the-clone-function-to-duplicate-an-element-what-is-one-of-the-main-concerns-your-code-needs-to-watch-out-for">Q46. When using the <code>clone()</code> function to duplicate an element, what is one of the main concerns your code needs to watch out for?</h4>
+<ul>
+<li>[ ] The <code>clone()</code> function may ignore data attributes on the original elements.</li>
+<li>[x] The <code>clone()</code> function may result in elements with duplicate ID attributes.</li>
+<li>[ ] The <code>clone()</code> function may remove CSS classes from the cloned elements.</li>
+<li>[ ] The <code>clone()</code> function may not respect the attribute order of the original elements.</li>
+</ul>
+<h4 id="q47.-when-incorporating-a-plugin-into-a-project-what-are-the-important-steps-for-basic-installation-and-usage">Q47. When incorporating a plugin into a project, what are the important steps for basic installation and usage?</h4>
+<ul>
+<li>[x] The jQuery script tag must come first, followed by the plugin, followed by your custom scripts, all preferably at or near the bottom of the page.</li>
+<li>[ ] Your custom scripts must appear first in the document <code>&lt;head&gt;</code>, followed by jQuery, followed by the plugin.</li>
+<li>[ ] The jQuery script tag and the plugin script tag must appear in the document <code>&lt;head&gt;</code>, and your custom scripts can follow anywhere on the page.</li>
+<li>[ ] The jQuery script tag must appear in the document <code>&lt;head&gt;</code>, but the plugin and your custom scripts can appear anywhere else in any order.</li>
+</ul>
+<h4 id="q48.-these-two-script-tags-show-different-ways-of-using-jquerys-ready-method.-what-is-true-about-both-approaches">Q48. These two script tags show different ways of using jQuery's <code>ready()</code> method. What is true about both approaches?</h4>
+<div class="sourceCode" id="cb60"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb60-1" title="1"><span class="op">&lt;</span>script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb60-2" title="2">  <span class="at">$</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb60-3" title="3">    <span class="co">// The rest of my code goes here</span></a>
+<a class="sourceLine" id="cb60-4" title="4">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb60-5" title="5">&lt;/script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb60-6" title="6"></a>
+<a class="sourceLine" id="cb60-7" title="7"><span class="op">&lt;</span>script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb60-8" title="8">  <span class="at">jQuery</span>(document).<span class="at">ready</span>(<span class="kw">function</span>($) <span class="op">{</span></a>
+<a class="sourceLine" id="cb60-9" title="9">    <span class="co">// The rest of my code goes here</span></a>
+<a class="sourceLine" id="cb60-10" title="10">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb60-11" title="11">&lt;/script<span class="op">&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] The code inside them can manipulate the DOM safely, knowing the browser has loaded it fully.</li>
+<li>[ ] The code inside them can manipulate images on the page safely, knowing they have fully downloaded to the browser.</li>
+<li>[ ] The code inside them will be run exactly once per user session.</li>
+<li>[ ] The code inside them is not aware of the DOM.</li>
+</ul>
+<h4 id="q49.-which-property-of-the-jquery-event-object-references-the-dom-object-that-dispatched-an-event">Q49. Which property of the jQuery event object references the DOM object that dispatched an event?</h4>
+<ul>
+<li>[ ] self</li>
+<li>[x] target</li>
+<li>[ ] object</li>
+<li>[ ] source</li>
+</ul>
+<h4 id="q50.-which-describes-how-jquery-makes-working-with-the-dom-faster">Q50. Which describes how jQuery makes working with the DOM faster?</h4>
+<ul>
+<li>[ ] jQuery optimizes the DOM in a background thread, making updates faster.</li>
+<li>[ ] jQuery avoids using the DOM at all.</li>
+<li>[ ] jQuery uses a virtual DOM that batches updates, making inserts and deletes faster.</li>
+<li>[x] jQuery code to perform DOM manipulation is shorter and easier to write, but does not make DOM operations faster.</li>
+</ul>
+<h4 id="q51.-there-are-some-issues-with-this-snippet-of-jquery.-first-it-is-manipulating-css-directly-rather-than-manipulating-classes-and-leaving-the-css-in-stylesheets.-what-else-in-this-code-is-best-to-avoid">Q51. There are some issues with this snippet of jQuery. First, it is manipulating CSS directly, rather than manipulating classes and leaving the CSS in stylesheets. What else in this code is best to avoid?</h4>
+<div class="sourceCode" id="cb61"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb61-1" title="1"><span class="at">$</span>(<span class="st">&#39;.item&#39;</span>).<span class="at">css</span>(<span class="st">&#39;background-color&#39;</span><span class="op">,</span> <span class="st">&#39;red&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb61-2" title="2"><span class="co">// some other code here</span></a>
+<a class="sourceLine" id="cb61-3" title="3"><span class="kw">var</span> firstSubItem <span class="op">=</span> <span class="at">$</span>(<span class="st">&#39;.item&#39;</span>).<span class="at">find</span>(<span class="st">&#39;.sub-item&#39;</span>).<span class="at">get</span>(<span class="dv">0</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb61-4" title="4"><span class="co">// some other code here too</span></a>
+<a class="sourceLine" id="cb61-5" title="5"><span class="at">$</span>(<span class="st">&#39;.item&#39;</span>).<span class="at">parents</span>(<span class="st">&#39;.navigation&#39;</span>).<span class="at">css</span>(<span class="st">&#39;font-weight&#39;</span><span class="op">,</span> <span class="st">&#39;bold&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] The <code>.css()</code> method accepts only an object, not two separate arguments. This will trigger an exception that should be caught.</li>
+<li>[ ] The <code>$('.item')</code> selection is being made several times. This should be cached in a variable for (however slightly) better performance and easier maintainability.</li>
+<li>[x] The call to <code>.parents()</code> is in an inefficient place.</li>
+<li>[ ] All the calls to <code>$('.item')</code> should be chained together as a single executable line for better performance.</li>
+</ul>
+<h4 id="q52.-which-choice-is-an-example-of-statement-chaining">Q52. Which choice is an example of statement chaining?</h4>
+<ul>
+<li>[ ] <code>var $p = $('p'); console.log($p.length);</code></li>
+<li>[x] <code>$('p').find('a').children('li');</code></li>
+<li>[ ] <code>$('p &gt; a &gt; li');</code></li>
+<li>[ ] <code>$('p'); $('a'); $('li');</code></li>
+</ul>
+<h4 id="q53.-how-can-you-ensure-that-some-code-executes-only-when-a-class-active-appears-on-an-element">Q53. How can you ensure that some code executes only when a class <code>active</code> appears on an element?</h4>
+<ul>
+<li>[x] <code>$('.element').attr('class', 'active')</code></li>
+<li>[ ] <code>$('.element').with('.active')</code></li>
+<li>[ ] <code>$('.element').hasClass('active')</code></li>
+<li>[ ] <code>$('.active').then()</code></li>
+</ul>
+<h4 id="q54.-jquery-has-a-main-function-for-handling-ajax-and-several-shorthand-function-including-load-that-make-calling-that-main-function-easier.-given-this-html-snippet-how-can-you-insert-only-the-second-snippet-from-the-source.html-file-divone-into-the-load-me-div-on-demand-via-ajax">Q54. jQuery has a main function for handling AJAX, and several shorthand function including <code>load()</code> that make calling that main function easier. Given this HTML snippet, how can you insert only the second snippet from the source.html file (<code>div#one</code>) into the <code>#load-me</code> div on-demand via AJAX?</h4>
+<div class="sourceCode" id="cb62"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;load-me&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb62-2" title="2">  This area will be replaced with AJAX loaded content.</a>
+<a class="sourceLine" id="cb62-3" title="3"><span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb62-4" title="4"></a>
+<a class="sourceLine" id="cb62-5" title="5"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;one&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb62-6" title="6">  <span class="kw">&lt;h1&gt;</span>First Piece<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb62-7" title="7"></a>
+<a class="sourceLine" id="cb62-8" title="8">  <span class="kw">&lt;p&gt;</span></a>
+<a class="sourceLine" id="cb62-9" title="9">    Lorem ipsum duis maximus quam condimentum dolor eleifend scelerisque.</a>
+<a class="sourceLine" id="cb62-10" title="10">  <span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb62-11" title="11"><span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb62-12" title="12"></a>
+<a class="sourceLine" id="cb62-13" title="13"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;two&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb62-14" title="14">  <span class="kw">&lt;h1&gt;</span>Second Piece<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb62-15" title="15"></a>
+<a class="sourceLine" id="cb62-16" title="16">  <span class="kw">&lt;p&gt;</span></a>
+<a class="sourceLine" id="cb62-17" title="17">    Lorem ipsum proin facilisis augue in risus interdum ornare.</a>
+<a class="sourceLine" id="cb62-18" title="18">  <span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb62-19" title="19"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>$('#load-me').get('source.html#one');</code></li>
+<li>[ ] <code>$('#load-me').get('source.html #one');</code></li>
+<li>[ ] <code>$('#load-me').load('source.html #one');</code></li>
+<li>[ ] <code>$('#load-me').load('source.html', '#one');</code></li>
+</ul>
+<h4 id="q55.-given-this-html-list-and-subsequent-two-lines-of-jquery-what-is-the-difference-in-the-behavior-of-.closest-and-.parents">Q55. Given this HTML list and subsequent two lines of jQuery, what is the difference in the behavior of <code>.closest()</code> and <code>.parents()</code>?</h4>
+<div class="sourceCode" id="cb63"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb63-1" title="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;items&quot;</span><span class="ot"> id=</span><span class="st">&quot;main-menu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb63-2" title="2">  <span class="kw">&lt;li&gt;</span>Item 1 <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;sub-menu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb63-3" title="3">  <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;leaf&quot;</span><span class="kw">&gt;</span>Sub Item 1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb63-4" title="4">  <span class="kw">&lt;li&gt;</span>Sub Item 2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb63-5" title="5">  <span class="kw">&lt;/ul&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb63-6" title="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb64-1" title="1"><span class="at">$</span>(<span class="st">&#39;.leaf&#39;</span>).<span class="at">closest</span>(<span class="st">&#39;.items&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb64-2" title="2"><span class="at">$</span>(<span class="st">&#39;.leaf&#39;</span>).<span class="at">parents</span>(<span class="st">&#39;.items&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x] <code>.closest()</code> returns <code>.leaf</code> and <code>#main-menu</code>; <code>.parents()</code> returns <code>#main-menu</code> and <code>#sub-menu</code>.</li>
+<li>[ ] <code>.closest()</code> returns <code>.leaf</code> and <code>#sub-menu</code>; <code>.parents()</code> returns <code>#main-menu</code> and <code>#sub-menu</code>.</li>
+<li>[ ] <code>.closest()</code> returns only <code>#main-menu</code>; <code>.parents()</code> returns <code>#main-menu</code> and <code>#sub-menu</code>.</li>
+<li>[ ] <code>.closest()</code> returns only <code>#sub-menu</code>; <code>.parents()</code> returns <code>#main-menu</code> and <code>#sub-menu</code>.</li>
+</ul>
+<h4 id="q56.-what-does-this-line-of-code-do">Q56. What does this line of code do?</h4>
+<div class="sourceCode" id="cb65"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb65-1" title="1"><span class="at">$</span>(<span class="st">&#39;ul &gt; li:first-child&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x] selects the first list item inside all unordered lists on the page</li>
+<li>[ ] selects the first list item inside the first unordered list on the page</li>
+<li>[ ] selects the first element inside any list items on the page</li>
+<li>[ ] creates a predefined CSS selector that can be reused later</li>
+</ul>
+<h4 id="q57.-below-is-a-list-of-items-that-you-want-to-be-clickable-and-an-event-handler-function.-how-can-you-assign-the-event-handler-to-every-item-in-the-list-in-a-way-that-is-most-performant-and-also-that-ensures-that-the-handler-is-called-even-if-more-items-are-added-to-the-list-programmatically">Q57. Below is a list of items that you want to be clickable and an event handler function. How can you assign the event handler to every item in the list in a way that is most performant, and also that ensures that the handler is called even if more items are added to the list programmatically?</h4>
+<div class="sourceCode" id="cb66"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;clickable-list&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb66-2" title="2">  <span class="kw">&lt;li&gt;</span>First Item<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb66-3" title="3">  <span class="kw">&lt;li&gt;</span>Second Item<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb66-4" title="4">  <span class="kw">&lt;li&gt;</span>Third Item<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb66-5" title="5">  <span class="kw">&lt;li&gt;</span>Fourth Item<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb66-6" title="6">  <span class="kw">&lt;li&gt;</span>Fifth Item<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb66-7" title="7"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">function</span> <span class="at">listResponder</span>(evt) <span class="op">{</span></a>
+<a class="sourceLine" id="cb67-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;You clicked a list item that says&#39;</span><span class="op">,</span> <span class="va">evt</span>.<span class="va">target</span>.<span class="at">innerText</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb67-3" title="3"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>$('.clickable-list).click(listResponder);</code></li>
+<li>[ ] <code>$('.clickable-list).on('click', 'li', listResponder);</code></li>
+<li>[ ] <code>$('.clickable-list).on('click, append', listResponder);</code></li>
+<li>[ ] <code>$('.clickable-list).each(function() { $(this).click(listResponder); });</code></li>
+</ul>

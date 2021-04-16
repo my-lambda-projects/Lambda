@@ -1,0 +1,106 @@
+<h2 id="visual-basic-for-applications-vba">Visual Basic for Applications (VBA)</h2>
+<h4 id="q1.-which-two-sets-of-values-are-printed-by-this-function-and-sub">Q1. Which two sets of values are printed by this function and sub?</h4>
+<pre><code>Function GetVitals(ID As Long, Age As Long, ptional Weight As Long) As String
+    GetVitals=&quot;ID=&quot; &amp; ID &amp;&quot;Age=&quot; &amp; Age &amp; &quot;Weight=&quot; &amp; Weight
+End Function
+Sub ShowVitals()
+    Dim ID As Long, Age As Long,Weight as Long
+    Debug.Print GetVitals(ID:=5,Age:=20)
+    Debug.Print GetVitals(ID:=6,Age:=25,Weight:=130
+End Sub</code></pre>
+<ul>
+<li>[ ] id=5 Age = 20 Weight= ID=6 Age = 25 Weight=130</li>
+<li>[ ] id=5 Age = 20 Weight=0 ID=6 Age = 25 Weight=130</li>
+<li>[ ] id=5 Age = 20 Weight=Null ID=6 Age = 25 Weight=130</li>
+<li>[ ] id=5 Age = 20 ID=6 Age = 25 Weight=130</li>
+</ul>
+<h4 id="q2.-this-code-shows-the-first-statement-of-calledsub.-which-calling-statement-will-work-properly">Q2. This code shows the first statement of CalledSub. Which calling statement will work properly?</h4>
+<p><code>Sub CalledSub(Surname, Age)</code> - [ ] call Calledsub "smith",26 - [ ] calledsub (surname="smith", Age = 26) - [ ] calledsub (Surname:="Smith", Age:=26) - [ ] calledsub "smith", 26</p>
+<h4 id="q3.-what-is-the-principal-difference-between-a-class-and-an-object">Q3. What is the principal difference between a class and an object?</h4>
+<ul>
+<li>[ ] There is no meaningful difference. The terms are used interchangeably.</li>
+<li>[ ] A dass declares an object's properties. An object completes the declaration by defining events and methods.</li>
+<li>[ ] An object is a template for a class.</li>
+<li>[X] A class describes the design of an object. An object is an instance of that design.</li>
+</ul>
+<h4 id="q4.-what-value-does-the-msgbox-statement-display">Q4. What value does the MsgBox statement display?</h4>
+<pre><code>Sub MySub(VarA As Long, ParamArray VarB() As Variant)
+MsgBox VarB(0)
+End Sub
+Sub ShowValue()
+Call MySub(10, &quot;First arg&quot;, 2, 3.1416)
+End Sub</code></pre>
+<ul>
+<li>[ ] 2</li>
+<li>[ ] 10</li>
+<li>[x] First arg</li>
+<li>[ ] 3.1416</li>
+</ul>
+<h4 id="q5.-what-object-is-needed-to-put-a-userform-module-in-a-vba-project">Q5. What object is needed to put a userform module in a VBA project?</h4>
+<ul>
+<li>[ ] associated standard code module</li>
+<li>[ ] UserForm</li>
+<li>[ ] associated class module</li>
+<li>[ ] userForm class</li>
+</ul>
+<h4 id="q6.-what-is-the-output">Q6. What is the output?</h4>
+<pre><code>Sub UseSum()
+Dim TestArray() As Integer, Total As Integer
+ReDim TestArray(1)
+TestArray(1) = 6
+ReDim TestArray(2)
+TestArray(2) = 3
+Total = WorksheetFunction.Sum(TestArray)
+End Sub</code></pre>
+<ul>
+<li>[ ] 3</li>
+<li>[ ] 0</li>
+<li>[ ] 9</li>
+<li>[ ] 6</li>
+</ul>
+<h4 id="q7.-the-driver-subroutine-is-declared-by-sub-driver-y.-which-statement-results-in-a-compile-error">Q7. The Driver subroutine is declared by Sub Driver (Y). Which statement results in a compile error?</h4>
+<ul>
+<li>[ ] Driver x</li>
+<li>[ ] call Driver(x)</li>
+<li>[ ] call Driver x</li>
+<li>[ ] Driver (X)</li>
+</ul>
+<h4 id="q8.-you-have-several-variables-to-display-on-a-user-form-and-there-are-too-many-variables-to-display-at-once.-which-control-best-enables-the-user-to-see-all-the-variables">Q8. You have several variables to display on a user form, and there are too many variables to display at once. Which control best enables the user to see all the variables?</h4>
+<ul>
+<li>[ ] Frame</li>
+<li>[ ] multipage</li>
+<li>[ ] TabStrip</li>
+<li>[ ] ListBox</li>
+</ul>
+<h4 id="q9.-below-is-a-function-named-squareit.-which-version-of-the-subroutine-named-area-results-in-a-compile-error">Q9. Below is a function named SquareIt. Which version of the subroutine named Area results in a compile error?</h4>
+<pre><code>Function SquareIt(ByRef Basis As Integer) As Long
+SquareIt = Basis ^ 2
+End Function</code></pre>
+<ul>
+<li>[ ] sub Area()</li>
+</ul>
+<pre><code>Dim Result As Long, Side As Integer
+Side = 5
+Result = Squarelt(Side)
+End Sub</code></pre>
+<ul>
+<li>[ ] Sub Area()</li>
+</ul>
+<pre><code>Dim Result As Long, Side
+Side = 5
+Result = SquareIt(Cint(Side))
+End Sub</code></pre>
+<h4 id="q10.-emailaddress-is-an-array.-it-is-declared-by-dim-emailaddress10-as-string-and-option-base-1-is-in-effect.-how-many-rows-and-columns-are-in-emailaddress">Q10. EmailAddress() is an array. It is declared by Dim EmailAddress(10) As String, and option Base 1 is in effect. How many rows and columns are in EmailAddress()?</h4>
+<ul>
+<li>[ ] 10 rows and 10 columns</li>
+<li>[ ] 10 rows and 1 column</li>
+<li>[ ] 10 rows and 0 columns</li>
+<li>[ ] 1 row and 10 columns</li>
+</ul>
+<h4 id="q11.-which-cell-is-selected-if-you-run-this-code">Q11. Which cell is selected if you run this code?</h4>
+<p><code>Range("E3:312").Range("B3").Select</code> - [ ] F5 - [✅] F3 - [ ] B3 - [ ] E3 #### Q12. Which variable name is valid in VBA? - [✅] _MyVar - [ ] My_Var - [ ] My-Var - [ ] 1MyVar</p>
+<p><a href="https://docs.microsoft.com/en-us/office/vba/language/concepts/getting-started/visual-basic-naming-rules">Reference link</a></p>
+<pre><code>Use the following rules when you name procedures, constants, variables, and arguments in a Visual Basic module:
+You must use a letter as the first character.
+You can&#39;t use a space, period (.), exclamation mark (!), or the characters @, &amp;, $, # in the name.
+Name can&#39;t exceed 255 characters in length.</code></pre>
