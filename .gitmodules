@@ -1,18 +1,18 @@
-[submodule "master"]
-	path = master
-	url = https://github.com/bgoonz/Git-for-Web-Development-Project.git
-[submodule "web-module-project-intro-css"]
-	path = web-module-project-intro-css
-	url = https://github.com/bgoonz/web-module-project-intro-css.git
-[submodule "screenshot-preview"]
-	path = screenshot-preview
-	url = https://github.com/Jaex/screenshot-preview.git
-[submodule "Cumulative-Resource-List-master"]
-	path = 2-resources/awesome-resources/Cumulative-Resource-List-master
-	url = https://github.com/bgoonz/Cumulative-Resource-List.git
-# [submodule "noderouting"]
-# 	path = 2-resources/_Past-Projects/LambdaSchool-master/m4/41b1/noderouting
+# [submodule "master"]
+# 	path = master
+# 	url = https://github.com/bgoonz/Git-for-Web-Development-Project.git
+# [submodule "web-module-project-intro-css"]
+# 	path = web-module-project-intro-css
+# 	url = https://github.com/bgoonz/web-module-project-intro-css.git
+# [submodule "screenshot-preview"]
+# 	path = screenshot-preview
+# 	url = https://github.com/Jaex/screenshot-preview.git
+# [submodule "Cumulative-Resource-List-master"]
+# 	path = 2-resources/awesome-resources/Cumulative-Resource-List-master
+# 	url = https://github.com/bgoonz/Cumulative-Resource-List.git
+# # [submodule "noderouting"]
+# # 	path = 2-resources/_Past-Projects/LambdaSchool-master/m4/41b1/noderouting
+# # 	url = https://github.com/evoingram/LambdaSchool.git
+# [submodule "LambdaSchool"]
+# 	path = LambdaSchool
 # 	url = https://github.com/evoingram/LambdaSchool.git
-[submodule "LambdaSchool"]
-	path = LambdaSchool
-	url = https://github.com/evoingram/LambdaSchool.git

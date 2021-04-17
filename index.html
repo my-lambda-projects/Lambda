@@ -37,6 +37,7 @@
       $( window ).on( 'beforeunload', function () {
         $( window ).scrollTop( 0 );
       } );
+
     </script>
     <!-------------------------------------Angolia Search---------------------------------------------------------------------------------------------------------------------------------->
     <link href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
@@ -51,6 +52,7 @@
         branch: 'master',
         selector: 'div#search',
       } );
+
     </script>
     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -106,6 +108,9 @@
             fill="currentColor"></path>
         </svg></a>
       <!------------------------------------------------Top Bar----------------------------------------------------------------------------------------------------->
+        
+             
+      <!------------------------------------------------Top Bar----------------------------------------------------------------------------------------------------->
       <h5></h5>
       <div class="my_class" id="ToC"> </div>
       <!---------------------------------------------------------Animated Title---------------------------------------------------------------------------------------->
@@ -117,8 +122,12 @@
       <div id="loading"
         style="background: url('./giphy.gif') no-repeat center center;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999999;">
       </div>
-      <!----------------------------------------------One Drive File Storage------------------------------------------------------------------------------------------------------------------------->
-      <button id="myBtn" onclick="removeaudio()">Mute</button>
+      <!----------------------------------------------Mute------------------------------------------------------------------------------------------------------------------------>
+ <button id="myBtn"
+   style="background-color:rgb(255, 0, 0); color:white;font-weight:900;border-radius: 10px;box-shadow: 6px solid #fff;"
+   onclick="removeaudio()">Mute!</button>
+         <!----------------------------------------------One Drive File Storage------------------------------------------------------------------------------------------------------------------------->
+
       <br>
       <div class="embed" id="search"></div>
       <div class="loading-overlay"></div>
@@ -179,7 +188,8 @@
             loading="lazy" height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350
             align-content:center allowtransparency="true" allowfullscreen="true" opacity="0.7"
             box-shaddow="16px white"></iframe>
-          <button id="myBtn" onclick="removeaudio()">Mute</button>
+      <button id="myBtn" style="background-color:rgb(255, 0, 0); color:white;font-weight:900;"
+        onclick="removeaudio()">Mute!</button>
           <iframe class="animate embed" id="audio"
             src="https://project-showcase-bgoonz.netlify.app/future-tech-innov-creative/etc/musicviz/index_forexample.html"
             loading="lazy" height="365" style="width: 8%;" scrolling="no" frameborder="yes" border-radius:350
@@ -224,13 +234,13 @@
       <br>
       <br>
       <!-------------------------------------------------------------------------------------------------------------------------------------------------->
-            <!---------------------------------------------------------Mock Interview---------------------------------------------------------------------------------------------------------------------------------->
-            <h2 style="color:white; align-content:center;"> Interview</h2>
-            <br>
-            <br>
-            <iframe class="embed" src="./7-assets/from-class/web-interview.pdf" loading="lazy"
-              style="width:90%!important; height:800px;"></iframe>
-            <!-----------------------------------------------------------Resources------------------------------------------------------------------------------>
+      <!---------------------------------------------------------Mock Interview---------------------------------------------------------------------------------------------------------------------------------->
+      <h2 style="color:white; align-content:center;"> Interview</h2>
+      <br>
+      <br>
+      <iframe class="embed" src="./7-assets/from-class/web-interview.pdf" loading="lazy"
+        style="width:90%!important; height:800px;"></iframe>
+      <!-----------------------------------------------------------Resources------------------------------------------------------------------------------>
       <!---------------------------------------------------------Many Quizes------------------------------------------------------------------------------------------>
       <h2 style="color:white; align-content:center;"> All Topics Quiz</h2>
       <br>
@@ -277,12 +287,12 @@
       <button id="scrollBtn" title="Go to top" onclick="topFunction()">Back To Top</button>
       <br>
       <br>
-      <button id="myBtn" style="background-color:rgb(145, 136, 136); color:white;font-weight:900;"
-        onclick="removeaudio()">Mute</button>
+      <button id="myBtn" style="background-color:rgb(255, 0, 0); color:white;font-weight:900;"
+        onclick="removeaudio()">Mute!</button>
       <!---------------------------------------------Clock nd Time Zone Widget----------------------------------------->
       <iframe class="animate" id="hexload"
         src="https://codepen.io/bgoonz/embed/ExZxMPN?height=265&theme-id=dark&default-tab=result" loading="lazy"
-        height="290px" width="90%" " scrolling=" no" frameborder="yes" border-radius:85px; align-content:center
+        height="400px" width="90%" " scrolling=" no" frameborder="yes" border-radius:85px; align-content:center
         allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="16px white"></iframe>
       <div class="shadow">
         <br>
@@ -337,6 +347,7 @@ return false">
           elem.parentNode.removeChild( elem );
           return false;
         };
+
         function pageInit() {
           // Hook up the "remove audio" button
           let btn = document.getElementById( 'btnRemoveaudio' );
@@ -351,6 +362,7 @@ return false">
             btn.onclick = removeaudio;
           }
         };
+
       </script>
       <a href="https://free-hit-counters.net/" style="color:black;">Free Hit Counters</a>
       <script src="https://www.freevisitorcounters.com/auth.php?id=f904dfc58ec6c182f5b6f3c4144fb84f03f356bc"
@@ -365,6 +377,7 @@ return false">
         window.onscroll = function () {
           scrollFunction()
         };
+
         function scrollFunction() {
           if ( document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ) {
             mybutton.style.display = "block";
@@ -377,6 +390,21 @@ return false">
           document.body.scrollTop = 0; // For Safari
           document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         };
+
+      </script>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM fully loaded and parsed');
+             const scrollToTop = () => {
+             const c = document.documentElement.scrollTop || document.body.scrollTop;
+             if ( c > 0 ) {
+             window.requestAnimationFrame( scrollToTop );
+             window.scrollTo( 0, c - c / 8 );
+             }
+             };
+             scrollToTop();
+        });
+ 
       </script>
       <br>
       <br>
