@@ -4,25 +4,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>html</title>
-    <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-    <title>Stable</title>
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"
-        type="text/css" />
-    <!-- Latest compiled and minified JavaScript -->
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
-        type="text/javascript"></script>
-    <style type="text/css">
-/*<![CDATA[*/
-/* Basic */
-@-ms-viewport {
-  width: device-width;
-}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/blob/master/gradient.css">
+<style type="text/css">
+table { width: 100%;height: 100%;padding:5%; text-align:center; }
 a {
   text-transform: inherit;
   box-shadow: 0 5px 0 gold;
@@ -46,10 +30,10 @@ body {
 body {
   background: url(https://i.gifer.com/76YS.gif);
   padding: 2em;
-  zoom: 1.4;
+  zoom:1.3;
   font-family: 'Raleway', sans-serif;
   padding: 1em 2em;
-  font-size: 12px;
+  font-size: 18px;
   color: #aaa
 }
 .btn {
@@ -81,7 +65,7 @@ iframe.embed {
   overflow-y: scroll;
   padding: 2em;
   margin: auto;
-  overflow: auto;
+  overflow: scroll;
   border: solid 4px rgb(41, 54, 204);
   -moz-border-radius: 6px 6px 4px 4px;
   -webkit-border-radius: 6px 6px 4px 4px;
@@ -121,240 +105,259 @@ h2 {
     background-position: 0% 50%;
   }
 }
-html {
-  box-sizing: border-box;
-}
-body {
-  background-color: whitesmoke;
-}
-body.is-preload *,
-body.is-preload *:before,
-body.is-preload *:after {
-  -moz-animation: none !important;
-  -webkit-animation: none !important;
-  -ms-animation: none !important;
-  animation: none !important;
-  -moz-transition: none !important;
-  -webkit-transition: none !important;
-  -ms-transition: none !important;
-  transition: none !important;
-}
-/* Type */
-html {
-  font-size: 11pt;
-}
-body {
-  color: whitesmoke;
-}
-body,
-input,
-select,
-textarea {
-  font-family: "Merriweather", Georgia, serif;
-  font-weight: 200;
-  font-size: 0.8rem;
-}
-a {
-  -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  border-bottom: dotted 1px;
-  text-decoration: none;
-}
-a:hover {
-  border-bottom-color: transparent;
-}
-@charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-HTML {
-  font-size: medium;
-  font-family: Garamond
-}
-BODY {
-  background: black font-family: 'Open Sans', sans-serif;
-  font-weight: 150;
-  color: #A7A1AE;
-  background-color: #1F2739;
-}
-h1 {
-  font-size: 2em;
-  font-weight: 300;
-  text-align: left;
-  color: #4DC3FA;
-}
-p {
-  color: grey;
-}
-A {
-  text-decoration: none color:black;
-  overflow-wrap: anywhere;
-}
-A:hover {
-  color: red;
-  background: whitesmoke;
-  border-radius: 8px;
-  padding-left: 3px;
-  padding-right: 3px;
-}
-TABLE.fancy {
+        html {
+            box-sizing: border-box;
+        }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+        body.is-preload *,
+        body.is-preload *:before,
+        body.is-preload *:after {
+            -moz-animation: none !important;
+            -webkit-animation: none !important;
+            -ms-animation: none !important;
+            animation: none !important;
+            -moz-transition: none !important;
+            -webkit-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
+        /* Type */
+        html {
+            font-size: 11pt;
+overflow-y:scroll;
+        }
+       
+        body {
+            color: whitesmoke;
+        }
+        body,
+        input,
+        select,
+        textarea {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 200;
+            font-size: 0.8rem;
+          
+        }
+        a {
+            -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-bottom: dotted 1px;
+            text-decoration: none;
+        }
+        a:hover {
+            border-bottom-color: transparent;
+        }
+  a:visited {
+            border-bottom-color: transparent;
+color:red;
+        }
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+        HTML {
+            font-size: medium;
+            font-family: Garamond
+        }
+        BODY {
+            background: black font-family: 'Open Sans', sans-serif;
+            font-weight: 150;
+         
+            color: #A7A1AE;
+            background-color: #1F2739;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: 300;
+         
+            text-align: left;
+            color: #4DC3FA;
+        }
+        p {
+            color: grey;
+        }
+        A {
+            text-decoration: none color:black;
+          
+        }
+        A:hover {
+            color: red;
+            background: whitesmoke;
+            border-radius: 8px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        TABLE.fancy {
+           background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-left: 3px solid;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            min-width: 150px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid;
+            border-bottom: 0px solid;
+            border-color: #FFF;
+            overflow-y: scroll;
+            width: 80%;
+            display: table;
+            padding: 0 0 8em 0;
+        }
+        TABLE.fancy TD {
   background: url(https://i.gifer.com/76YS.gif);
   padding: 2em;
   zoom: 0.85;
   font-family: 'Raleway', sans-serif;
   padding: 1em 2em;
-  font-size: 12px;
-  color: #aaa border-left: 3px solid;
-  border-collapse: collapse;
-  margin: 15px 0;
-  font-size: 0.8em;
-  font-family: sans-serif;
-  min-width: 150px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-top: 1px solid;
-  border-bottom: 0px solid;
-  border-color: #FFF;
-  overflow-y: scroll;
-  width: 80%;
-  display: table;
-  padding: 0 0 8em 0;
-  overflow: ellipsis-word;
-}
-TABLE.fancy TD {
-  background: url(https://i.gifer.com/76YS.gif);
+  font-size: 18px;
+  color: #aaa
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            border-color: #FFF;
+            text-align: left;
+            padding-right: 4%px;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            padding-left: 4%;
+            border: 2px solid gold !important;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            font-weight: 470;
+            line-height: 18px;
+            text-decoration: none !important;
+            text-transform: uppercase;
+     
+           
+            cursor: pointer;
+            justify-content: left;
+            padding: 20px 300px;
+            height: 75px;
+            text-align:left;
+            white-space: normal;
+            border-radius: 10px;
+            min-width: 14em;
+            padding: .9em .9em 0;
+            box-shadow: 0 0 5px;
+            margin: 1em;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 20px;
+        TABLE.fancy tr:nth-child(odd) {
+            background-color: #323C50;
+        }
+        TABLE.fancy tr:nth-child(even) {
+            background-color: #2C3446;
+        }
+        TABLE.fancy th {
+            background-color: #1F2739;
+        }
+        TABLE.fancy td,
+        TABLE.fancy th {
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 2%;
+        }
+        TABLE.fancy tr:hover {
+            background-color: #464A52;
+            -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+            -moz-box-shadow: 0 6px 6px -6px #0E1119;
+            box-shadow: 0 6px 6px -6px #0E1119;
+        }
+        TABLE.fancy td:hover {
+            background-color: #FFF842;
+            color: #403E10;
+            font-weight: bold;
+            box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+            transform: translate3d(6px, -6px, 0);
+            transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+            transition-timing-function: line;
+        }
+        @media (max-width: 800px) {
+            TABLE.fancy td:nth-child(4),
+            TABLE.fancy th:nth-child(4) {
+                display: none;
+            }
+        }
+        TABLE.fancy TD.no-right {
+            border-right: 0px
+        }
+        TABLE.fancy TD.right {
+            text-align: left
+        }
+        TABLE.fancy TD.left {
+            text-align: center
+        }
+        TABLE.fancy a {
+            color: yellow;
+        }
+        TABLE.fancy TH {
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            text-align: left;
+            background: black;
+            color: #FFF;
+            border-color: #FFF;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+        .anchor {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: black;
+            color: #FFF
+        }
+        .dark-blue {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: url(https://i.gifer.com/76YS.gif);
   padding: 2em;
-  zoom: 0.78;
+  zoom: 0.85;
   font-family: 'Raleway', sans-serif;
   padding: 1em 2em;
-  font-size: 12px;
-  color: #aaa border-right: 1px solid;
-  border-bottom: 1px solid;
-  border-color: #FFF;
-  text-align: left;
-  padding-right: 4%;
-  padding-bottom: 4%;
-  padding-top: 4%;
-  padding-left: 4%;
-  border: 2px solid gold !important;
-  font-weight: 370;
-  line-height: 14px;
-  text-decoration: none !important;
-  text-transform: uppercase;
-  min-width: 100px;
-  max-width: 250px;
-  cursor: pointer;
-  justify-content: left;
-  padding: 20px 30px;
-  height: 59px;
-  text-align: left;
-  border-radius: 10px;
-  padding: .1em .1em 0;
-  box-shadow: 0 0 5px;
-  margin: 1em;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 20px;
-  TABLE.fancy tr:nth-child(odd) {
-    background-color: #323C50;
-  }
-  TABLE.fancy tr:nth-child(even) {
-    background-color: #2C3446;
-  }
-  TABLE.fancy th {
-    background-color: #1F2739;
-  }
-  TABLE.fancy td,
-  TABLE.fancy th {
-    padding-bottom: 2%;
-    padding-top: 2%;
-    padding-left: 2%;
-  }
-  TABLE.fancy tr:hover {
-    background-color: #464A52;
-    -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-    -moz-box-shadow: 0 6px 6px -6px #0E1119;
-    box-shadow: 0 6px 6px -6px #0E1119;
-  }
-  TABLE.fancy td:hover {
-    background-color: #FFF842;
-    color: #403E10;
-    font-weight: bold;
-    box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-    transform: translate3d(6px, -6px, 0);
-    transition-delay: 0s;
-    transition-duration: 0.4s;
-    transition-property: all;
-    transition-timing-function: line;
-  }
-  @media (max-width: 800px) {
-    TABLE.fancy td:nth-child(4),
-    TABLE.fancy th:nth-child(4) {
-      display: none;
-    }
-  }
-  TABLE.fancy TD.no-right {
-    border-right: 0px
-  }
-  TABLE.fancy TD.right {
-    text-align: left
-  }
-  TABLE.fancy TD.left {
-    text-align: center
-  }
-  TABLE.fancy a {
-    color: yellow;
-  }
-  TABLE.fancy TH {
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    text-align: left;
-    background: black;
-    color: #FFF;
-    border-color: #FFF;
-    font-weight: bold;
-    padding: 12px 15px;
-  }
-  .anchor {
-    font-weight: bold;
-    border-top: 0px solid;
-    text-align: left;
-    border-bottom: 1px solid;
-    background: black;
-    color: #FFF
-  }
-  .dark-blue {
-    font-weight: bold;
-    border-top: 0px solid;
-    text-align: left;
-    border-bottom: 1px solid;
-    background: url(https://i.gifer.com/76YS.gif);
-    padding: 2em;
-    zoom: 0.75;
-    font-family: 'Raleway', sans-serif;
-    padding: 1em 2em;
-    font-size: 12px;
-    color: #aaa
-  }
-  .no-top-border {
-    border-top: 0px
-  }
-  .centered {
-    margin: auto
-  }
-  .rZ {
-    text-align: right
-  }
-  .row2 {
-    background: #D3D3E1
-  }
-  @import url(//fonts.googleapis.com/css?family=PT+Sans);
-  body {
+  font-size: 18px;
+  color: #aaa  
+        }
+        .no-top-border {
+            border-top: 0px
+        }
+        .centered {
+            margin: auto
+        }
+        .rZ {
+            text-align: right
+        }
+        .row2 {
+            background: #D3D3E1
+        }
+@import url(//fonts.googleapis.com/css?family=PT+Sans);
+body {
     margin: 0px;
     font-family: 'PT Sans', Helvetica, 'Helvetica Neuve', Arial, Tahoma, sans-serif;
     font-size: 17px;
     color: #333;
-  }
+}
 }
 h1,
 h2,
@@ -362,8 +365,8 @@ h3,
 h4,
 h5,
 h6 {
-  color: #222;
-  margin: 0 0 20px;
+    color: #222;
+    margin: 0 0 20px;
 }
 p,
 ul,
@@ -371,239 +374,232 @@ ol,
 table,
 pre,
 dl {
-  margin: 0 0 20px;
+    margin: 0 0 20px;
 }
 h1,
 h2,
 h3 {
-  line-height: 1.1;
+    line-height: 1.1;
 }
 h1 {
-  font-size: 28px;
+    font-size: 28px;
 }
 h2 {
-  color: #393939;
+    color: #393939;
 }
 h3,
 h4,
 h5,
 h6 {
-  color: #494949;
+    color: #494949;
 }
 a {
-  color: #39c;
-  font-weight: 400;
-  text-decoration: none;
+    color: #39c;
+    font-weight: 400;
+    text-decoration: none;
 }
 a small {
-  font-size: 11px;
-  color: #777;
-  margin-top: -0.6em;
+    font-size: 11px;
+    color: #777;
+    margin-top: -0.6em;
+    display: block;
 }
 .wrapper {
-  width: 860px;
-  margin: 0 auto;
+    width: 860px;
+    margin: 0 auto;
 }
 blockquote {
-  border-left: 1px solid #e5e5e5;
-  margin: 0;
-  padding: 0 0 0 20px;
-  font-style: italic;
+    border-left: 1px solid #e5e5e5;
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-style: italic;
 }
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 th,
 td {
-  text-align: left;
-  padding: 5px 10px;
-  border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
 }
 dt {
-  color: #444;
-  font-weight: 700;
+    color: #444;
+    font-weight: 700;
 }
 th {
-  color: #444;
+    color: #444;
 }
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 header {
-  width: 370px;
-  float: left;
-  position: fixed;
+    width: 270px;
+    float: left;
+    position: fixed;
+}
+header ul {
+    list-style: none;
+    height: 40px;
+    padding: 0;
+    background: #eee;
+    background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+    background: -webkit-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -ms-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    border-radius: 5px;
+    border: 1px solid #d2d2d2;
+    box-shadow: inset #fff 0 1px 0,
+    inset rgba(0, 0, 0, 0.03) 0 -1px 0;
+    width: 270px;
 }
 header li {
-  width: 89px;
-  float: left;
-  border-right: 1px solid #d2d2d2;
-  height: 40px;
+    width: 89px;
+    float: left;
+    border-right: 1px solid #d2d2d2;
+    height: 40px;
 }
 header ul a {
-  line-height: 1;
-  font-size: 11px;
-  color: #999;
-  display: block;
-  text-align: center;
-  padding-top: 6px;
-  height: 40px;
+    line-height: 1;
+    font-size: 11px;
+    color: #999;
+    display: block;
+    text-align: center;
+    padding-top: 6px;
+    height: 40px;
 }
 strong {
-  color: #222;
-  font-weight: 700;
+    color: #222;
+    font-weight: 700;
 }
 header ul li+li {
-  width: 88px;
-  border-left: 1px solid #fff;
+    width: 88px;
+    border-left: 1px solid #fff;
 }
 header ul li+li+li {
-  border-right: none;
-  width: 89px;
+    border-right: none;
+    width: 89px;
 }
 header ul a strong {
-  font-size: 14px;
-  display: block;
-  color: #222;
+    font-size: 14px;
+    display: block;
+    color: #222;
 }
 section {
-  width: 500px;
-  float: right;
-  padding-bottom: 50px;
+    width: 500px;
+    float: right;
+    padding-bottom: 50px;
 }
 small {
-  font-size: 11px;
+    font-size: 11px;
 }
 hr {
-  border: 0;
-  background: #e5e5e5;
-  height: 1px;
-  margin: 0 0 20px;
+    border: 0;
+    background: #e5e5e5;
+    height: 1px;
+    margin: 0 0 20px;
 }
 footer {
-  width: 270px;
-  float: left;
-  position: fixed;
-  bottom: 50px;
+    width: 270px;
+    float: left;
+    position: fixed;
+    bottom: 50px;
 }
 @media print,
 screen and (max-width: 960px) {
-  div.wrapper {
-    width: auto;
-    margin: 0;
-  }
-  header,
-  section,
-  footer {
-    float: none;
-    position: static;
-    width: auto;
-  }
-  header {
-    padding-right: 320px;
-  }
-  section {
-    border: 1px solid #e5e5e5;
-    border-width: 1px 0;
-    padding: 20px 0;
-    margin: 0 0 20px;
-  }
-  header a small {
-    display: inline;
-  }
-  header ul {
-    position: absolute;
-    right: 50px;
-    top: 52px;
-  }
-}
-@media print,
-screen and (max-width: 720px) {
-  header {
-    padding: 0;
-  }
-  header ul,
-  header p.view {
-    position: static;
-  }
-}
-@media print,
-screen and (max-width: 480px) {
-  body {
-    padding: 15px;
-  }
-  header ul {
-    display: none;
-  }
-}
-@media print {
-  body {
-    padding: 0.4in;
-    font-size: 12pt;
-    color: #444;
-  }
+    div.wrapper {
+        width: auto;
+        margin: 0;
+    }
+    header,
+    section,
+    footer {
+        float: none;
+        position: static;
+        width: auto;
+    }
+    header {
+        padding-right: 320px;
+    }
+    section {
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
+        padding: 20px 0;
+        margin: 0 0 20px;
+    }
+    header a small {
+        display: inline;
+    }
+    header ul {
+        position: absolute;
+        right: 50px;
+        top: 52px;
+    }
 }
 #wrapper {
-  padding: 1em;
+    padding: 1em;
 }
 .ca-menu {
-  list-style: none;
-  padding: 0;
-  margin: 20px auto;
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
 }
 .nav-list {
-  height: 50%;
-  margin: auto 0;
+    height: 50%;
+    margin: auto 0;
 }
 div.clear {
-  clear: both;
+    clear: both;
 }
-/*]]>*/
-    </style>
+        /*]]>*/
+.fancybox-margin{margin-right:0px;}
+</style>
 </head>
 
 <body>
 
-<table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><td colspan="6" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
-<tr><td class="left"><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td></tr>
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><td colspan="6" class="header-row"><b>Folders</b></td></tr>
+<tr><td><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td></tr>
 </table>
 <br>
 
-<table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
 <tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="epydoc.css">epydoc.css</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.mediator.Mediator-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.factory.Factory-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.flyweight-module.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.memento.Memento-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.pool.Pool-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="redirect.html">redirect.html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="class-tree.html">class-tree.html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.memento-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.pool-module.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.flyweight-pysrc.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.memento.Originator-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.pool.Reusable-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-everything.html">toc-ever....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.chain-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="frames.html">frames.html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.memento-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.pool-pysrc.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.flyweight.FlyweightMeta-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.null-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.prototype-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.command-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="help.html">help.html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.memento.Memento-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.pool.Pool-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.null-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.prototype-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.iterator-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="identifier-index.html">identifi....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.memento.Originator-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.pool.Reusable-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.null.Null-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.prototype.Prototype-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.chain-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.mediator-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="module-tree.html">module-tree.html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.null-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.prototype-module.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.observer-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.singleton-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.command-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.memento-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat-module.html">pypat-mo....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.null-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.prototype-pysrc.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.observer-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.singleton-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.iterator-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.null-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat-pysrc.html">pypat-pysrc.html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.null.Null-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.prototype.Prototype-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.chain-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.observer.Observable-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.singleton.Singleton-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.mediator-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.observer-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.observer-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.singleton-module.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.chain-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.observer.Observer-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.memento-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.behavioral.visitor-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.observer-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.singleton-pysrc.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.chain.Chain-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.visitor-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.null-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.creational-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.chain-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.observer.Observable-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.singleton.Singleton-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.chain.ChainLink-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.visitor-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.adapter-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.observer-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.creational.builder-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.chain-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.observer.Observer-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.structural-module.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.command-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.visitor.Visitee-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.adapter-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.behavioral.visitor-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.creational.factory-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.chain.Chain-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.visitor-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.structural-pysrc.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.command-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.visitor.Visitor-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.adapter.Adapter-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.creational-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.creational.pool-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.chain.ChainLink-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.visitor-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.adapter-module.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.command.Command-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.composite-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.creational.builder-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.creational.prototype-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.command-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.visitor.Visitee-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.adapter-pysrc.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.command.Invoker-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.composite-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.creational.factory-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.creational.singleton-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.command-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.behavioral.visitor.Visitor-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.adapter.Adapter-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.command.Receiver-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.builder-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.composite.Composite-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.creational.pool-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.structural-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.command.Command-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational-module.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.composite-module.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.iterator-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.builder-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.decorator-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.creational.prototype-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.structural.adapter-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.command.Invoker-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational-pysrc.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.composite-pysrc.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.iterator-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.builder.Builder-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.decorator-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.creational.singleton-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.structural.composite-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.command.Receiver-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.builder-module.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.composite.Composite-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.iterator.Iterable-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.builder.Director-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.decorator.CallWrapper-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.structural-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.structural.decorator-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.iterator-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.builder-pysrc.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.decorator-module.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.iterator.Iterator-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.factory-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.decorator.Decorator-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.structural.adapter-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn.structural.flyweight-module.html">toc-pypa....html</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.iterator-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.builder.Builder-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.decorator-pysrc.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.mediator-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.factory-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.decorator.DecoratorComplex-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.structural.composite-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="toc.html">toc.html</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.iterator.Iterable-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.builder.Director-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.decorator.CallWrapper-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.mediator-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.factory.AbstractFactory-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.decorator.DecoratorSimple-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.structural.decorator-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="epydoc.js">epydoc.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.iterator.Iterator-class.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.factory-module.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.decorator.Decorator-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.mediator.Mediator-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.factory.Factory-class.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.flyweight-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypat.structural.flyweight-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="crarr.png">crarr.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="pypat.behavioral.mediator-module.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.factory-pysrc.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.decorator.DecoratorComplex-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.memento-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.pool-module.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.flyweight-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="toc-pypattyrn-module.html">toc-pypa....html</a>&nbsp;</td><td class="left"><a href="api-objects.txt">api-objects.txt</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="pypat.behavioral.mediator-pysrc.html">pypat.be....html</a>&nbsp;</td><td class="left"><a href="pypat.creational.factory.AbstractFactory-class.html">pypat.cr....html</a>&nbsp;</td><td class="left"><a href="pypat.structural.decorator.DecoratorSimple-class.html">pypat.st....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.behavioral.memento-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.creational.pool-pysrc.html">pypattyr....html</a>&nbsp;</td><td class="left"><a href="pypattyrn.structural.flyweight.FlyweightMeta-class.html">pypattyr....html</a>&nbsp;</td><td class="left"></td><td class="left"></td></tr>
+<tr><td><a href="epydoc.css" target="_parent">epydoc.css</a>&nbsp;</td><td><a href="pypat.behavioral.mediator-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.factory.AbstractFactory-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.decorator.DecoratorSimple-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.memento-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.pool-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.flyweight.FlyweightMeta-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="class-tree.html" target="_parent">class-tree.html</a>&nbsp;</td><td><a href="pypat.behavioral.mediator.Mediator-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.factory.Factory-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.flyweight-module.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.memento.Memento-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.pool.Pool-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="redirect.html" target="_parent">redirect.html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.chain-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="frames.html" target="_parent">frames.html</a>&nbsp;</td><td><a href="pypat.behavioral.memento-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.pool-module.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.flyweight-pysrc.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.memento.Originator-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.pool.Reusable-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-everything.html" target="_parent">toc-ever....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.command-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="help.html" target="_parent">help.html</a>&nbsp;</td><td><a href="pypat.behavioral.memento-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.pool-pysrc.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.flyweight.FlyweightMeta-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.null-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.prototype-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.iterator-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="identifier-index.html" target="_parent">identifi....html</a>&nbsp;</td><td><a href="pypat.behavioral.memento.Memento-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.pool.Pool-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.null-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.prototype-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.mediator-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="left.html" target="_parent">left.html</a>&nbsp;</td><td><a href="pypat.behavioral.memento.Originator-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.pool.Reusable-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.null.Null-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.prototype.Prototype-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.chain-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.memento-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="module-tree.html" target="_parent">module-tree.html</a>&nbsp;</td><td><a href="pypat.behavioral.null-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.prototype-module.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.observer-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.singleton-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.command-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.null-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat-module.html" target="_parent">pypat-mo....html</a>&nbsp;</td><td><a href="pypat.behavioral.null-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.prototype-pysrc.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.observer-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.singleton-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.iterator-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.observer-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat-pysrc.html" target="_parent">pypat-pysrc.html</a>&nbsp;</td><td><a href="pypat.behavioral.null.Null-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.prototype.Prototype-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.chain-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.observer.Observable-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.singleton.Singleton-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.mediator-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.behavioral.visitor-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.observer-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.singleton-module.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.chain-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.observer.Observer-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.memento-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.creational-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.observer-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.singleton-pysrc.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.chain.Chain-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.visitor-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.null-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.creational.builder-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.chain-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.observer.Observable-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.singleton.Singleton-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.chain.ChainLink-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.visitor-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.adapter-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.observer-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.creational.factory-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.chain-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.observer.Observer-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.structural-module.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.command-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.visitor.Visitee-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.adapter-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.behavioral.visitor-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.creational.pool-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.chain.Chain-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.visitor-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.structural-pysrc.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.command-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.visitor.Visitor-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.adapter.Adapter-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.creational-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.creational.prototype-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.chain.ChainLink-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.visitor-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.structural.adapter-module.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.command.Command-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.composite-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.creational.builder-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.creational.singleton-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.command-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.visitor.Visitee-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.structural.adapter-pysrc.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.command.Invoker-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.composite-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.creational.factory-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.structural-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.command-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.behavioral.visitor.Visitor-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.structural.adapter.Adapter-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.command.Receiver-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.builder-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.composite.Composite-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.creational.pool-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.structural.adapter-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.command.Command-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational-module.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.composite-module.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.iterator-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.builder-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.decorator-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.creational.prototype-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.structural.composite-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.command.Invoker-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational-pysrc.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.composite-pysrc.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.iterator-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.builder.Builder-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.decorator-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.creational.singleton-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.structural.decorator-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.command.Receiver-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.builder-module.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.composite.Composite-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.iterator.Iterable-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.builder.Director-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.decorator.CallWrapper-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.structural-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc-pypattyrn.structural.flyweight-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.iterator-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.builder-pysrc.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.decorator-module.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.iterator.Iterator-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.factory-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.decorator.Decorator-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.structural.adapter-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="toc.html" target="_parent">toc.html</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.iterator-pysrc.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.builder.Builder-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.decorator-pysrc.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.mediator-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.factory-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.decorator.DecoratorComplex-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.structural.composite-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="epydoc.js" target="_parent">epydoc.js</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.iterator.Iterable-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.builder.Director-class.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.decorator.CallWrapper-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.mediator-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.factory.AbstractFactory-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.decorator.DecoratorSimple-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.structural.decorator-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="crarr.png" target="_parent">crarr.png</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="pypat.behavioral.iterator.Iterator-class.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.factory-module.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.decorator.Decorator-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.mediator.Mediator-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.factory.Factory-class.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.flyweight-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypat.structural.flyweight-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td><a href="api-objects.txt" target="_parent">api-objects.txt</a>&nbsp;</td></tr>
+<tr><td><a href="pypat.behavioral.mediator-module.html" target="_parent">pypat.be....html</a>&nbsp;</td><td><a href="pypat.creational.factory-pysrc.html" target="_parent">pypat.cr....html</a>&nbsp;</td><td><a href="pypat.structural.decorator.DecoratorComplex-class.html" target="_parent">pypat.st....html</a>&nbsp;</td><td><a href="pypattyrn.behavioral.memento-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.creational.pool-module.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="pypattyrn.structural.flyweight-pysrc.html" target="_parent">pypattyr....html</a>&nbsp;</td><td><a href="toc-pypattyrn-module.html" target="_parent">toc-pypa....html</a>&nbsp;</td><td></td></tr>
 </table>
 
-<p style="font-weight: bold; margin-bottom: 0px">
+<p class="summary-style">
 Folders:  1<br>
-Files: 198<br>
-Size of all files: 1691158 KB</p>
+Files: 199<br>
+Size of all files: 1726463 KB</p>
 
 </body>
 </html>

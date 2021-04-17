@@ -45,7 +45,9 @@
  #ToC a {
    color: rgb(255, 255, 255) !important;
  }
-
+ #ToC a:visited {
+   color: red !important;
+ }
  #ToC ul {
    columns: 1 !important;
  }
