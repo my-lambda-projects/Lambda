@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>My Dev Journal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">JavaScript in 7 Days
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynavvy" aria-controls="mynavvy" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mynavvy">
+        <form name="search-form" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <div class="mt-2">
+            <img class="rounded d-inline-block" src="https://picsum.photos/200/100?random=true" />
+            
+            <h2 class="ml-5 d-inline-block">
+              My Dev Journal!
+            </h2>
+            
+          </div>
+          <p class="pt-3 mb-0">
+            Welcome, this is my Developer <s>Diary</s> <strong>Journal</strong>. This has a list of projects I've been working on, and you can read about them and even try them out in the browser!
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row" id="journal">
+          
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <form name='insert-post' class="col-sm-12 col-md-6">
+            
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input 
+                  type="text" 
+                  class="form-control"
+                  id="title" 
+                  aria-describedby="title-help" 
+                  placeholder="Enter Title" />
+              <small id="title-help" class="form-text text-muted">
+                Enter the title for your post  
+              </small>
+            </div>
+            
+            <div class="form-group">
+              <label for="post">Post</label>
+              <textarea 
+                  type="text" 
+                  class="form-control"
+                  id="post" 
+                  aria-describedby="post-help" 
+                  placeholder="Post text"></textarea>
+                
+              <small id="post-help" class="form-text text-muted">
+                Type the post content, use \n\n for new paragraphs
+              </small>
+            </div>
+            
+            
+            <div class="form-group">
+              <label for="code-src">Code Src</label>
+              <input 
+                  type="text" 
+                  class="form-control"
+                  id="code-src" 
+                  aria-describedby="code-src-help" 
+                  placeholder="Enter Code Url" />
+              <small id="title-help" class="form-text text-muted">
+                If you have something to embed, put the url here
+              </small>
+            </div>
+            
+            
+            <div class="form-group">
+              <button 
+                  class="btn btn-lg btn-outline-success" 
+                  type='submit'
+              >
+                Insert Post
+              </button>
+            </div>
+          </form>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+
+    <footer class="container">
+      <p>©2018 JavaScript in Seven Days</p>
+    </footer>
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    
+    <script src="js/data.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="streams">Streams</h3>
+<pre><code>process.stdout.write(&#39;...&#39;);
+process.stderr.write(&#39;...&#39;);
+
+function stdin(fn) {
+  var data = &#39;&#39;;
+
+  process.stdin.setEncoding(&#39;utf8&#39;);
+  process.stdin.on(&#39;readable&#39;, function() {
+    var chunk = process.stdin.read();
+    if (chunk !== null) data += chunk;
+  });
+
+  process.stdin.on(&#39;end&#39;, function() {
+    fn(null, data);
+  });
+}</code></pre>
+<h3 id="stuff">stuff</h3>
+<pre><code>process.argv; //=&gt; [&#39;node&#39;, &#39;file.js&#39;, &#39;one&#39;, &#39;two&#39;]
+process.env; //=&gt; {TERM: &#39;screen-256color&#39;, SHELL: &#39;/bin/bash&#39;, ...}
+
+process.exit();
+process.exit(1);</code></pre>
+<h3 id="directories">Directories</h3>
+<pre><code>process.cwd(); //=&gt; &quot;/tmp&quot;
+process.chdir(&#39;dir&#39;);</code></pre>
+<h3 id="references">References</h3>
+<ul>
+<li>http://nodejs.org/api/process.html</li>
+</ul>
+</body></html>

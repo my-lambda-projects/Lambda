@@ -1,0 +1,15 @@
+{
+  "name": "testservice",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^3.16.0"
+  },
+  "dependencies": {},
+  "description": ""
+}

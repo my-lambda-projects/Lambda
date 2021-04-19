@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="custom-domains">Custom domains</h2>
+<h3 id="custom-domains-1">Custom domains</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="bu">echo</span> <span class="st">&quot;foobar.com&quot;</span> <span class="op">&gt;</span> CNAME</a>
+<a class="sourceLine" id="cb1-2" title="2">$ <span class="fu">git</span> commit <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</a></code></pre></div>
+<p>Create a <code>CNAME</code> file with your domain on it.</p>
+<p>See: <a href="https://help.github.com/articles/quick-start-setting-up-a-custom-domain/">Setting up a custom domain</a> <em>(github.com)</em></p>
+<h3 id="set-up-your-domain">Set up your domain</h3>
+<p>Subdomain (like www): {: .-setup}</p>
+<pre><code> CNAME =&gt; username.github.io</code></pre>
+<p>Apex domains: {: .-setup}</p>
+<pre><code> ALIAS =&gt; username.github.io</code></pre>
+<p>Apex domains (alternative): {: .-setup}</p>
+<pre><code>A =&gt; 192.30.252.153
+A =&gt; 192.30.252.154</code></pre>
+<h2 id="references">References</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li><a href="https://pages.github.com" class="uri">https://pages.github.com</a></li>
+</ul>
+</body></html>

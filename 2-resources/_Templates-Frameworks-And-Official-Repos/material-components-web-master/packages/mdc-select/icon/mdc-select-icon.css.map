@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAqBA,QAAQ,CAAR,WAAQ",
+    "sources": [
+        "mdc-select-icon.scss"
+    ],
+    "names": [],
+    "file": "mdc-select-icon.css"
+}

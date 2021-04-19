@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="comments">Comments</h3>
+<pre><code>.. @theme 2010
+.. include:: ../themes/2010/common.rst
+.. contents::
+.. |substitute| replace:: replacement name</code></pre>
+<h3 id="headings">Headings</h3>
+<pre><code>Heading
+=======
+
+.. class:: brief
+
+Hello there. |substitute| **This is bold**
+
+
+ - Bullet list with a link_ (or `link with words`_)
+ - Yes
+
+.. _link: http://link.org</code></pre>
+<h3 id="pdf-page-break">PDF page break</h3>
+<pre><code>.. raw:: pdf
+
+   PageBreak oneColumn</code></pre>
+<h3 id="link-targets">Link targets</h3>
+<pre><code>Internal link target_.
+
+.. _target:
+
+This is where _target will end up in.</code></pre>
+<h3 id="tables">Tables (?)</h3>
+<pre><code>.. class:: hash-table
+
+.. list-table::
+
+   * - :key:`Cuisine:`
+     - :val:`French/fusion`
+   * - :key:`Number of ingredients:`
+     - :val:`8`
+   * - :key:`Preparation time:`
+     - :val:`30 hours`</code></pre>
+</body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="revision-ranges">Revision ranges</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">git</span> log master             <span class="co"># branch</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">git</span> log origin/master      <span class="co"># branch, remote</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="fu">git</span> log v1.0.0             <span class="co"># tag</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="fu">git</span> log master develop</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="fu">git</span> log v2.0..master       <span class="co"># reachable from *master* but not *v2.0*</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="fu">git</span> log v2.0...master      <span class="co"># reachable from *master* and *v2.0*, but not both</span></a></code></pre></div>
+<p>See <a href="./git-revisions">gitrevisions</a>.</p>
+<h3 id="basic-filters">Basic filters</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">-n</span>, --max-count=2</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="ex">--skip</span>=2</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">    <span class="ex">--since</span>=<span class="st">&quot;1 week ago&quot;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="ex">--until</span>=<span class="st">&quot;yesterday&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">    <span class="ex">--author</span>=<span class="st">&quot;Rico&quot;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="ex">--committer</span>=<span class="st">&quot;Rico&quot;</span></a></code></pre></div>
+<h3 id="search">Search</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1">    <span class="ex">--grep</span>=<span class="st">&quot;Merge pull request&quot;</span>   <span class="co"># in commit messages</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="ex">-S</span><span class="st">&quot;console.log&quot;</span>               <span class="co"># in code</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="ex">-G</span><span class="st">&quot;foo.*&quot;</span>                     <span class="co"># in code (regex)</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1">    <span class="ex">--invert-grep</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="ex">--all-match</span>                   <span class="co"># AND in multi --grep</span></a></code></pre></div>
+<h3 id="limiting">Limiting</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1">    <span class="ex">--merges</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="ex">--no-merges</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1">    <span class="ex">--first-parent</span>          <span class="co"># no stuff from merged branches</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1">    <span class="ex">--branches</span>=<span class="st">&quot;feature/*&quot;</span></a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="ex">--tags</span>=<span class="st">&quot;v*&quot;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="ex">--remotes</span>=<span class="st">&quot;origin&quot;</span></a></code></pre></div>
+<h3 id="simplification">Simplification</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">git</span> log -- app/file.rb          <span class="co"># only file</span></a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="ex">--simplify-by-decoration</span>    <span class="co"># tags and branches</span></a></code></pre></div>
+<h3 id="ordering">Ordering</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1">    <span class="ex">--date-order</span></a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="ex">--author-date-order</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="ex">--topo-order</span>              <span class="co"># &quot;smart&quot; ordering</span></a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="ex">--reverse</span></a></code></pre></div>
+<h3 id="formatting">Formatting</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1">    <span class="ex">--abbrev-commit</span></a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="ex">--oneline</span></a>
+<a class="sourceLine" id="cb12-3" title="3">    <span class="ex">--graph</span></a></code></pre></div>
+<h3 id="custom-formats">Custom formats</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1">    <span class="ex">--pretty</span>=<span class="st">&quot;format:%H&quot;</span></a></code></pre></div>
+<p>See: <a href="./git-log-format">Git log format cheatsheet</a></p>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="./git-log-format">Git log format cheatsheet</a></li>
+</ul>
+</body></html>

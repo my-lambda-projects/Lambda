@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="select-expand">Select &amp; Expand</h3>
+<div class="line-block"><code>⌘ D</code> | select current word (repeat to include next instance of word) |<br />
+<code>⌘ L</code> | select current line (repeat to include next line) |<br />
+<code>⌘ ⇧ L</code> | split selection into multiple lines |<br />
+<code>⌘ ⇧ A</code> | select text inside tag (repeat to expand) |<br />
+<code>Ctrl ⇧ M</code> | select to curly or angle brackets (repeat to expand) |</div>
+<p>{: .-shortcuts}</p>
+<p>Replace ⌘ with Ctrl on Windows and Linux.</p>
+<h3 id="code-folding">Code Folding</h3>
+<div class="line-block"><code>⌘ Alt [</code> | fold closest block |<br />
+<code>⌘ Alt ]</code> | unfold closest block |<br />
+<code>⌘ K</code> <code>⌘ 1</code> | fold all first level code blocks |<br />
+<code>⌘ K</code> <code>⌘ 2</code> | fold all second level code blocks |<br />
+<code>⌘ K</code> <code>⌘ 3 (etc)</code> | fold all third level code blocks (etc) |<br />
+<code>⌘ K</code> <code>⌘ T</code> | fold all HTML attributes |<br />
+<code>⌘ K</code> <code>⌘ 0</code> | unfold everything |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="editing">Editing</h3>
+<div class="line-block"><code>⌘ ⇧ D</code> | duplicate current line/selection |<br />
+<code>⌘ ⇧ K</code> | delete current line/selection |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="goto">Goto</h3>
+<div class="line-block"><code>⌘ P</code> | goto anything |<br />
+<code>⌘ G</code> | goto line number |<br />
+<code>⌘ R</code> | goto symbol |<br />
+<code>⌘ P, :</code> | goto line number (enter number after <code>:</code>) |<br />
+<code>⌘ P, #</code> | goto and list fuzzy-matches of string (enter characters after <code>#</code>) |<br />
+<code>⌘ P, @</code> | goto and list symbol (begin typing symbol name after <code>@</code>) |</div>
+<p>{: .-shortcuts}</p>
+<h3 id="command-line">Command line</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">subl</span> .</a>
+<a class="sourceLine" id="cb1-2" title="2">$ <span class="ex">subl</span> README.md</a></code></pre></div>
+<p>Use <code>subl</code> to open files in Sublime from the terminal.</p>
+</body></html>

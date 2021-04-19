@@ -1,0 +1,1910 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:02 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Command-line utilities - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="GitHub Enterprise Server includes a variety of utilities to help resolve particular problems or perform specific tasks.">
+  
+  
+    <meta name="keywords" content="enterprise">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/enterprise-server@3.0/admin/configuration/command-line-utilities"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/enterprise-server@3.0/admin/configuration/command-line-utilities"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/enterprise-server@3.0/admin/configuration/command-line-utilities"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/enterprise-server@3.0/admin/configuration/command-line-utilities"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/enterprise-server@3.0/admin/configuration/command-line-utilities"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="clWgoT7w-I_b8orS9mObUO3vWS79yxQkjPDg">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="Enterprise Administrators" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/enterprise-server@3.0/admin" class="pl-4 pr-5 pb-1 f4">Enterprise Administrators</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Overview</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview/about-upgrades-to-new-releases" class="pl-4 pr-5 py-1">About upgrades</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview/about-enterprise-accounts" class="pl-4 pr-5 py-1">About enterprise accounts</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview/managing-your-github-enterprise-license" class="pl-4 pr-5 py-1">Managing your GitHub Enterprise license</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview/managing-billing-for-your-enterprise" class="pl-4 pr-5 py-1">Managing billing for your enterprise</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview/system-overview" class="pl-4 pr-5 py-1">System overview</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/overview/about-the-github-enterprise-api" class="pl-4 pr-5 py-1 pb-2">About the GitHub Enterprise API</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Installing</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-topics list-style-none position-relative">
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance" class="pl-4 pr-5 py-2">Setting up a GitHub Enterprise Server instance</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-aws" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on AWS</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-azure" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on Azure</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-google-cloud-platform" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on Google Cloud Platform</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-hyper-v" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on Hyper-V</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-openstack-kvm" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on OpenStack KVM</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-vmware" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on VMware</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/installing-github-enterprise-server-on-xenserver" class="pl-6 pr-5 py-1">Installing GitHub Enterprise Server on XenServer</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/setting-up-a-staging-instance" class="pl-6 pr-5 py-1 pb-2">Setting up a staging instance</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+      <!-- some categories have no maptopics, only articles -->
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Configuring GitHub Enterprise</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-topics list-style-none position-relative">
+        
+          
+            
+
+            <li class="sidebar-maptopic active ">
+              <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-your-enterprise" class="pl-4 pr-5 py-2">Configuring your enterprise</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/about-enterprise-configuration" class="pl-6 pr-5 py-1">About enterprise configuration</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/accessing-the-management-console" class="pl-6 pr-5 py-1">Accessing the management console</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/accessing-the-administrative-shell-ssh" class="pl-6 pr-5 py-1">Accessing the administrative shell (SSH)</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-and-scheduling-maintenance-mode" class="pl-6 pr-5 py-1">Enabling and scheduling maintenance mode</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance" class="pl-6 pr-5 py-1">Configuring backups on your appliance</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/site-admin-dashboard" class="pl-6 pr-5 py-1">Site admin dashboard</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-private-mode" class="pl-6 pr-5 py-1">Enabling private mode</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/managing-github-for-mobile-for-your-enterprise" class="pl-6 pr-5 py-1">Managing GitHub for mobile for your enterprise</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-email-for-notifications" class="pl-6 pr-5 py-1">Configuring email for notifications</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-rate-limits" class="pl-6 pr-5 py-1">Configuring rate limits</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-applications" class="pl-6 pr-5 py-1">Configuring applications</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/troubleshooting-ssl-errors" class="pl-6 pr-5 py-1">Troubleshooting SSL errors</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-time-synchronization" class="pl-6 pr-5 py-1">Configuring time synchronization</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article active is-current-page">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities" class="pl-6 pr-5 py-1">Command-line utilities</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-github-pages-for-your-enterprise" class="pl-6 pr-5 py-1 pb-2">Configuring GitHub Pages for your enterprise</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-network-settings" class="pl-4 pr-5 py-2">Configuring network settings</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console" class="pl-6 pr-5 py-1">Configuring the IP address using the virtual machine console</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-dns-nameservers" class="pl-6 pr-5 py-1">Configuring DNS nameservers</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-a-hostname" class="pl-6 pr-5 py-1">Configuring a hostname</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/validating-your-domain-settings" class="pl-6 pr-5 py-1">Validating your domain settings</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-tls" class="pl-6 pr-5 py-1">Configuring TLS</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-subdomain-isolation" class="pl-6 pr-5 py-1">Enabling subdomain isolation</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-an-outbound-web-proxy-server" class="pl-6 pr-5 py-1">Configuring an outbound web proxy server</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-built-in-firewall-rules" class="pl-6 pr-5 py-1">Configuring built-in firewall rules</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/network-ports" class="pl-6 pr-5 py-1">Network ports</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/using-github-enterprise-server-with-a-load-balancer" class="pl-6 pr-5 py-1 pb-2">Using GitHub Enterprise Server with a load balancer</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud" class="pl-4 pr-5 py-2">Managing connections between GitHub Enterprise Server and GitHub Enterprise Cloud</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud" class="pl-6 pr-5 py-1">Connecting GitHub Enterprise Server to GitHub Enterprise Cloud</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom" class="pl-6 pr-5 py-1">Enabling unified search between GitHub Enterprise Server and GitHub.com</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom" class="pl-6 pr-5 py-1">Enabling unified contributions between GitHub Enterprise Server and GitHub.com</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server" class="pl-6 pr-5 py-1">Enabling alerts for vulnerable dependencies on GitHub Enterprise Server</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud" class="pl-6 pr-5 py-1 pb-2">Enabling automatic user license sync between GitHub Enterprise Server and GitHub Enterprise Cloud</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-advanced-security-features" class="pl-4 pr-5 py-2">Configuring Advanced Security features</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-code-scanning-for-your-appliance" class="pl-6 pr-5 py-1">Configuring code scanning</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-secret-scanning-for-your-appliance" class="pl-6 pr-5 py-1 pb-2">Configuring secret scanning</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+      <!-- some categories have no maptopics, only articles -->
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/authentication" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Authentication</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/user-management" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Managing users, organizations, and repositories</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/policies" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Setting policies for your enterprise</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/enterprise-management" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Monitoring, managing, and updating your enterprise</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/github-actions" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Managing GitHub Actions for your enterprise</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/packages" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Managing GitHub Packages for your enterprise</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/enterprise-server@3.0/admin/enterprise-support" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Working with GitHub Support</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 standalone-category">
+    
+    <a href="https://docs.github.com/en/enterprise-server@3.0/admin/release-notes" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Release notes</a>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    Enterprise Administrators
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/enterprise-server@3.0/admin/configuration/command-line-utilities"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/enterprise-server@3.0/admin/configuration/command-line-utilities"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/enterprise-server@3.0/admin/configuration/command-line-utilities"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/enterprise-server@3.0/admin/configuration/command-line-utilities"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> Enterprise Server 3.0
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities"
+      class="d-block py-2 link-blue active"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/admin/configuration/command-line-utilities"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/admin/configuration/command-line-utilities"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: Enterprise Administrators" href="https://docs.github.com/en/enterprise-server@3.0/admin" class="d-inline-block ">
+        Enterprise Administrators
+      </a>
+    
+  
+    
+      <a title="category: Configuring GitHub Enterprise" href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration" class="d-inline-block ">
+        Configuring GitHub Enterprise
+      </a>
+    
+  
+    
+      <a title="maptopic: Configuring your enterprise" href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-your-enterprise" class="d-inline-block ">
+        Configuring your enterprise
+      </a>
+    
+  
+    
+      <a title="article: Command-line utilities" href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities" class="d-inline-block text-gray-light">
+        Command-line utilities
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> Enterprise Server 3.0
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities"
+      class="d-block py-2 link-blue active"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/admin/configuration/command-line-utilities"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/admin/configuration/command-line-utilities"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Command-line utilities</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"><p>GitHub Enterprise Server includes a variety of utilities to help resolve particular problems or perform specific tasks.</p></div>
+      
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#general">General</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-announce">ghe-announce</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-check-disk-usage">ghe-check-disk-usage</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-cleanup-caches">ghe-cleanup-caches</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-cleanup-settings">ghe-cleanup-settings</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-config">ghe-config</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-config-apply">ghe-config-apply</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-console">ghe-console</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-dbconsole">ghe-dbconsole</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-es-index-status">ghe-es-index-status</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-legacy-github-services-report">ghe-legacy-github-services-report</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-logs-tail">ghe-logs-tail</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-maintenance">ghe-maintenance</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-motd">ghe-motd</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-nwo">ghe-nwo</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-org-admin-promote">ghe-org-admin-promote</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-reactivate-admin-login">ghe-reactivate-admin-login</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-resque-info">ghe-resque-info</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-saml-mapping-csv">ghe-saml-mapping-csv</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-service-list">ghe-service-list</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-set-password">ghe-set-password</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-ssh-check-host-keys">ghe-ssh-check-host-keys</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-ssh-roll-host-keys">ghe-ssh-roll-host-keys</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-ssh-weak-fingerprints">ghe-ssh-weak-fingerprints</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-ssl-acme">ghe-ssl-acme</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-ssl-ca-certificate-install">ghe-ssl-ca-certificate-install</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-ssl-generate-csr">ghe-ssl-generate-csr</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-storage-extend">ghe-storage-extend</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-version">ghe-version</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-webhook-logs">ghe-webhook-logs</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#clustering">Clustering</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-cluster-status">ghe-cluster-status</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-cluster-support-bundle">ghe-cluster-support-bundle</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-cluster-failover">ghe-cluster-failover</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-dpages">ghe-dpages</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-spokes">ghe-spokes</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-storage">ghe-storage</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#git">Git</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-btop">ghe-btop</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-repo">ghe-repo</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-repo-gc">ghe-repo-gc</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#import-and-export">Import and export</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-migrator">ghe-migrator</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#git-import-detect">git-import-detect</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#git-import-hg-raw">git-import-hg-raw</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#git-import-svn-raw">git-import-svn-raw</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#git-import-tfs-raw">git-import-tfs-raw</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#git-import-rewrite">git-import-rewrite</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#support">Support</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-diagnostics">ghe-diagnostics</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-support-bundle">ghe-support-bundle</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-support-upload">ghe-support-upload</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#upgrading-github-enterprise-server">Upgrading GitHub Enterprise Server</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-upgrade">ghe-upgrade</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-upgrade-scheduler">ghe-upgrade-scheduler</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-update-check">ghe-update-check</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#user-management">User management</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-license-usage">ghe-license-usage</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-org-membership-update">ghe-org-membership-update</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-user-csv">ghe-user-csv</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-user-demote">ghe-user-demote</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-user-promote">ghe-user-promote</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-user-suspend">ghe-user-suspend</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#ghe-user-unsuspend">ghe-user-unsuspend</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <p>You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/accessing-the-administrative-shell-ssh">Accessing the administrative shell (SSH)</a>."</p>
+<h3 id="general"><a href="#general">General</a></h3>
+<h4 id="ghe-announce"><a href="#ghe-announce">ghe-announce</a></h4>
+<p>This utility sets a banner at the top of every GitHub Enterprise page. You can use it to broadcast a message to your users.</p>
+<p>You can also set an announcement banner using the enterprise settings on GitHub Enterprise Server. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner">Customizing user messages on your instance</a>."</p>
+<pre><code class="hljs language-shell"># Sets a message that's visible to everyone
+$ ghe-announce -s MESSAGE
+> Announcement message set.
+# Removes a previously set message
+$ ghe-announce -u
+> Removed the announcement message</code></pre>
+<h4 id="ghe-check-disk-usage"><a href="#ghe-check-disk-usage">ghe-check-disk-usage</a></h4>
+<p>This utility checks the disk for large files or files that have been deleted but still have open file handles. This should be run when you're trying to free up space on the root partition.</p>
+<pre><code class="hljs language-shell">ghe-check-disk-usage</code></pre>
+<h4 id="ghe-cleanup-caches"><a href="#ghe-cleanup-caches">ghe-cleanup-caches</a></h4>
+<p>This utility cleans up a variety of caches that might potentially take up extra disk space on the root volume. If you find your root volume disk space usage increasing notably over time it would be a good idea to run this utility to see if it helps reduce overall usage.</p>
+<pre><code class="hljs language-shell">ghe-cleanup-caches</code></pre>
+<h4 id="ghe-cleanup-settings"><a href="#ghe-cleanup-settings">ghe-cleanup-settings</a></h4>
+<p>This utility wipes all existing Management Console settings.</p>
+<div class="extended-markdown tip border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Tip</strong>: Typically, you will only execute this if you've <a href="https://enterprise.github.com/support">contacted support</a> and they've asked you to do so.</p>
+</div>
+<pre><code class="hljs language-shell">ghe-cleanup-settings</code></pre>
+<h4 id="ghe-config"><a href="#ghe-config">ghe-config</a></h4>
+<p>With this utility, you can both retrieve and modify the configuration settings of your GitHub Enterprise Server instance.</p>
+<pre><code class="hljs language-shell">$ ghe-config <em>core.github-hostname</em>
+# Gets the configuration value of `core.github-hostname`
+$ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
+# Sets the configuration value of `core.github-hostname` to `example.com`
+$ ghe-config -l
+# Lists all the configuration values</code></pre>
+<p>Allows you to find the universally unique identifier (UUID) of your node in <code>cluster.conf</code>.</p>
+<pre><code class="hljs language-shell">$ ghe-config <em>HOSTNAME</em>.uuid</code></pre>
+<p>Allows you to exempt a list of users from API rate limits. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/rest/overview/resources-in-the-rest-api#rate-limiting">Resources in the REST API</a>."</p>
+<pre><code class="hljs language-shell">$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
+# Exempts the users hubot and github-actions from rate limits</code></pre>
+<h4 id="ghe-config-apply"><a href="#ghe-config-apply">ghe-config-apply</a></h4>
+<p>This utility applies Management Console settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking <strong>Save settings</strong> in the Management Console's web UI or to sending a POST request to <a href="https://docs.github.com/en/enterprise-server@3.0/rest/reference/enterprise-admin#management-console">the <code>/setup/api/configure</code> endpoint</a>.</p>
+<p>You will probably never need to run this manually, but it's available if you want to automate the process of saving your settings via SSH.</p>
+<pre><code class="hljs language-shell">ghe-config-apply</code></pre>
+<h4 id="ghe-console"><a href="#ghe-console">ghe-console</a></h4>
+<p>This utility opens the GitHub Rails console on your GitHub Enterprise appliance. <strong>Do not use</strong> this command without direction from <a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/enterprise-support">GitHub Enterprise Support</a>. Incorrect use could cause damage or data loss.</p>
+<pre><code class="hljs language-shell">ghe-console</code></pre>
+<h4 id="ghe-dbconsole"><a href="#ghe-dbconsole">ghe-dbconsole</a></h4>
+<p>This utility opens a MySQL database session on your GitHub Enterprise appliance. <strong>Do not use</strong> this command without direction from <a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/enterprise-support">GitHub Enterprise Support</a>. Incorrect use could cause damage or data loss.</p>
+<pre><code class="hljs language-shell">ghe-dbconsole</code></pre>
+<h4 id="ghe-es-index-status"><a href="#ghe-es-index-status">ghe-es-index-status</a></h4>
+<p>This utility returns a summary of Elasticsearch indexes in CSV format.</p>
+<p>Print an index summary with a header row to <code>STDOUT</code>:</p>
+<pre><code class="hljs language-shell">$ ghe-es-index-status -do
+> warning: parser/current is loading parser/ruby23, which recognizes
+> warning: 2.3.3-compliant syntax, but you are running 2.3.4.
+> warning: please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+> Name,Primary,Searchable,Writable,UpToDate,RepairProgress,Version
+> code-search-1,true,true,true,true,100.0,72e27df7c631b45e026b42bfef059328fa040e17
+> commits-5,true,true,true,true,100.0,7ed28813100c47813ef654c0ee2bb9abf21ab744
+> gists-4,true,true,true,true,100.0,cf8e7d04fcf2564c902e2873c424a279cc41079d
+> issues-4,false,false,false,true,100.0,d0bb08f71eebf6e7b070572aa399b185dbdc8a76
+> issues-5,true,true,true,true,100.0,d0bb08f71eebf6e7b070572aa399b185dbdc8a76
+> projects-2,true,true,true,true,100.0,c5cac1c4b3c66d42e609d088d174dbc3dd44469a
+> pull-requests-6,true,true,true,true,100.0,6a466ad6b896a3499509990979bf9a18d7d41de3
+> repos-6,true,true,true,true,100.0,6c8b5fbba0fc1e409558db411d05e092c1387082
+> users-5,true,true,true,true,100.0,38984875552bb826c9ec42999f409cb2e95556eb
+> wikis-4,true,true,true,true,100.0,2613dec44bd14e14577803ac1f9e4b7e07a7c234</code></pre>
+<p>Print an index summary and pipe results to <code>column</code> for readability:</p>
+<pre><code class="hljs language-shell">$ ghe-es-index-status -do | column -ts,
+> warning: parser/current is loading parser/ruby23, which recognizes
+> warning: 2.3.3-compliant syntax, but you are running 2.3.4.
+> warning: please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+> Name             Primary  Searchable  Writable  UpToDate  RepairProgress  Version
+> code-search-1    true     true        true      true      100.0           72e27df7c631b45e026b42bfef059328fa040e17
+> commits-5        true     true        true      true      100.0           7ed28813100c47813ef654c0ee2bb9abf21ab744
+> gists-4          true     true        true      true      100.0           cf8e7d04fcf2564c902e2873c424a279cc41079d
+> issues-4         false    false       false     true      100.0           d0bb08f71eebf6e7b070572aa399b185dbdc8a76
+> issues-5         true     true        true      true      100.0           d0bb08f71eebf6e7b070572aa399b185dbdc8a76
+> projects-2       true     true        true      true      100.0           c5cac1c4b3c66d42e609d088d174dbc3dd44469a
+> pull-requests-6  true     true        true      true      100.0           6a466ad6b896a3499509990979bf9a18d7d41de3
+> repos-6          true     true        true      true      100.0           6c8b5fbba0fc1e409558db411d05e092c1387082
+> users-5          true     true        true      true      100.0           38984875552bb826c9ec42999f409cb2e95556eb
+> wikis-4          true     true        true      true      100.0           2613dec44bd14e14577803ac1f9e4b7e07a7c234</code></pre>
+<h4 id="ghe-legacy-github-services-report"><a href="#ghe-legacy-github-services-report">ghe-legacy-github-services-report</a></h4>
+<p>This utility lists repositories on your appliance that use GitHub Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up GitHub Services to create notifications for pushes to certain repositories. For more information, see "<a href="https://developer.github.com/changes/2018-04-25-github-services-deprecation/">Announcing the deprecation of GitHub Services</a>" on the GitHub Blog or "<a href="https://docs.github.com/en/enterprise-server@3.0/developers/overview/replacing-github-services">Replacing GitHub Services</a>." For more information about this command or for additional options, use the <code>-h</code> flag.</p>
+<pre><code class="hljs language-shell">ghe-legacy-github-services-report
+</code></pre>
+<h4 id="ghe-logs-tail"><a href="#ghe-logs-tail">ghe-logs-tail</a></h4>
+<p>This utility lets you tail log all relevant log files from your installation. You can pass options in to limit the logs to specific sets. Use the -h flag for additional options.</p>
+<pre><code class="hljs language-shell">ghe-logs-tail</code></pre>
+<h4 id="ghe-maintenance"><a href="#ghe-maintenance">ghe-maintenance</a></h4>
+<p>This utility allows you to control the state of the installation's maintenance mode. It's designed to be used primarily by the Management Console behind-the-scenes, but it can be used directly.</p>
+<pre><code class="hljs language-shell">ghe-maintenance -h</code></pre>
+<h4 id="ghe-motd"><a href="#ghe-motd">ghe-motd</a></h4>
+<p>This utility re-displays the message of the day (MOTD) that administrators see when accessing the instance via the administrative shell. The output contains an overview of the instance's state.</p>
+<pre><code class="hljs language-shell">ghe-motd</code></pre>
+<h4 id="ghe-nwo"><a href="#ghe-nwo">ghe-nwo</a></h4>
+<p>This utility returns a repository's name and owner based on the repository ID.  </p>
+<pre><code class="hljs language-shell">ghe-nwo <em>REPOSITORY_ID</em></code></pre>
+<h4 id="ghe-org-admin-promote"><a href="#ghe-org-admin-promote">ghe-org-admin-promote</a></h4>
+<p>Use this command to give organization owner privileges to users with site admin privileges on the appliance, or to give organization owner privileges to any single user in a single organization. You must specify a user and/or an organization. The <code>ghe-org-admin-promote</code> command will always ask for confirmation before running unless you use the <code>-y</code> flag to bypass the confirmation.</p>
+<p>You can use these options with the utility:</p>
+<ul>
+<li>The <code>-u</code> flag specifies a username. Use this flag to give organization owner privileges to a specific user. Omit the <code>-u</code> flag to promote all site admins to the specified organization.</li>
+<li>The <code>-o</code> flag specifies an organization. Use this flag to give owner privileges in a specific organization. Omit the <code>-o</code> flag to give owner permissions in all organizations to the specified site admin.</li>
+<li>The <code>-a</code> flag gives owner privileges in all organizations to all site admins.</li>
+<li>The <code>-y</code> flag bypasses the manual confirmation.</li>
+</ul>
+<p>This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with <a href="#ghe-user-promote">ghe-user-promote</a>.</p>
+<p>Give organization owner privileges in a specific organization to a specific site admin</p>
+<pre><code class="hljs language-shell">ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em></code></pre>
+<p>Give organization owner privileges in all organizations to a specific site admin</p>
+<pre><code class="hljs language-shell">ghe-org-admin-promote -u <em>USERNAME</em></code></pre>
+<p>Give organization owner privileges in a specific organization to all site admins</p>
+<pre><code class="hljs language-shell">ghe-org-admin-promote -o <em>ORGANIZATION</em></code></pre>
+<p>Give organization owner privileges in all organizations to all site admins</p>
+<pre><code class="hljs language-shell">ghe-org-admin-promote -a</code></pre>
+<h4 id="ghe-reactivate-admin-login"><a href="#ghe-reactivate-admin-login">ghe-reactivate-admin-login</a></h4>
+<p>Use this command to immediately unlock the Management Console after 10 failed login attempts in the span of 10 minutes.</p>
+<pre><code class="hljs language-shell">$ ghe-reactivate-admin-login</code></pre>
+<h4 id="ghe-resque-info"><a href="#ghe-resque-info">ghe-resque-info</a></h4>
+<p>This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.</p>
+<p>This utility can help identify whether the Resque server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Resque:</p>
+<ul>
+<li>The number of background jobs is increasing, while the active jobs remain the same.</li>
+<li>The event feeds are not updating.</li>
+<li>Webhooks are not being triggered.</li>
+<li>The web interface is not updating after a Git push.</li>
+</ul>
+<p>If you suspect Resque is failing, contact <a href="https://enterprise.githubsupport.com/hc/en-us">GitHub Enterprise Support</a> or <a href="https://premium.githubsupport.com/">GitHub Premium Support</a> for help.</p>
+<p>With this command, you can also pause or resume jobs in the queue.</p>
+<pre><code class="hljs language-shell">$ ghe-resque-info
+# lists queues and the number of currently queued jobs
+$ ghe-resque-info -p <em>QUEUE</em>
+# pauses the specified queue
+$ ghe-resque-info -r <em>QUEUE</em>
+# resumes the specified queue</code></pre>
+<h4 id="ghe-saml-mapping-csv"><a href="#ghe-saml-mapping-csv">ghe-saml-mapping-csv</a></h4>
+<p>This utility can help map SAML records.</p>
+<p>To create a CSV file containing all the SAML mapping for your GitHub Enterprise Server users:</p>
+<pre><code class="hljs language-shell">$ ghe-saml-mapping-csv -d</code></pre>
+<p>To perform a dry run of updating SAML mappings with new values:</p>
+<pre><code class="hljs language-shell">$ ghe-saml-mapping-csv -u -n -f /path/to/file</code></pre>
+<p>To update SAML mappings with new values:</p>
+<pre><code class="hljs language-shell">$ ghe-saml-mapping-csv -u -f /path/to/file</code></pre>
+<h4 id="ghe-service-list"><a href="#ghe-service-list">ghe-service-list</a></h4>
+<p>This utility lists all of the services that have been started or stopped (are running or waiting) on your appliance.</p>
+<pre><code class="hljs language-shell">$ ghe-service-list
+start/running
+  - github-resqued, process 12711
+  - github-unicorn, process 12726
+  - github-gitauth, process 12743
+  - git-daemon, process 12755
+  - babeld, process 12771
+  - github-svn-proxy, process 12802
+  - gist-unicorn, process 12832
+  - gist-resqued, process 12881
+  - render-unicorn, process 12939
+  - hookshot-unicorn, process 13076
+  - nodeload2, process 13192
+  - slumlord-unicorn, process 13304
+  - ghe-storage, process 2012
+  - enterprise-manage-unicorn, process 2024
+  - enterprise-manage-resque, process 2053
+
+stop/waiting
+  - ghe-replica-mode</code></pre>
+<div class="extended-markdown tip border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p>The service names returned from this command can be used with <a href="https://www.freedesktop.org/software/systemd/man/systemctl.html"><code>systemctl</code></a> commands to stop, start, or restart these services manually, if needed. For example:</p>
+<pre><code class="hljs language-shell">$ sudo systemctl restart github-resqued</code></pre>
+<p>Stopping services will cause downtime on your installation, so we recommend you contact <a href="https://enterprise.githubsupport.com/hc/en-us">GitHub Enterprise Support</a> or <a href="https://premium.githubsupport.com/">GitHub Premium Support</a> before stopping or restarting any service.</p>
+</div>
+<h4 id="ghe-set-password"><a href="#ghe-set-password">ghe-set-password</a></h4>
+<p>With <code>ghe-set-password</code>, you can set a new password to authenticate into the <a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/accessing-the-management-console">Management Console</a>.</p>
+<pre><code class="hljs language-shell">ghe-set-password <new_password></new_password></code></pre>
+<h4 id="ghe-ssh-check-host-keys"><a href="#ghe-ssh-check-host-keys">ghe-ssh-check-host-keys</a></h4>
+<p>This utility checks the existing SSH host keys against the list of known leaked SSH host keys.</p>
+<pre><code class="hljs language-shell">$ ghe-ssh-check-host-keys</code></pre>
+<p>If a leaked host key is found the utility exits with status <code>1</code> and a message:</p>
+<pre><code class="hljs language-shell">> One or more of your SSH host keys were found in the blacklist.
+> Please reset your host keys using ghe-ssh-roll-host-keys.</code></pre>
+<p>If a leaked host key was not found, the utility exits with status <code>0</code> and a message:</p>
+<pre><code class="hljs language-shell">> The SSH host keys were not found in the SSH host key blacklist.
+> No additional steps are needed/recommended at this time.</code></pre>
+<h4 id="ghe-ssh-roll-host-keys"><a href="#ghe-ssh-roll-host-keys">ghe-ssh-roll-host-keys</a></h4>
+<p>This utility rolls the SSH host keys and replaces them with newly generated keys.</p>
+<pre><code class="hljs language-shell">$ sudo ghe-ssh-roll-host-keys
+Proceed with rolling SSH host keys? This will delete the
+existing keys in /etc/ssh/ssh_host_* and generate new ones. [y/N]
+
+# Press 'Y' to confirm deleting, or use the -y switch to bypass this prompt
+
+> SSH host keys have successfully been rolled.</code></pre>
+<h4 id="ghe-ssh-weak-fingerprints"><a href="#ghe-ssh-weak-fingerprints">ghe-ssh-weak-fingerprints</a></h4>
+<p>This utility returns a report of known weak SSH keys stored on the GitHub Enterprise appliance. You can optionally revoke user keys as a bulk action. The utility will report weak system keys, which you must manually revoke in the <a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/accessing-the-management-console">Management Console</a>.</p>
+<pre><code class="hljs language-shell"># Print a report of weak user and system SSH keys
+$ ghe-ssh-weak-fingerprints
+
+# Revoke all weak user keys
+$ ghe-ssh-weak-fingerprints --revoke</code></pre>
+<h4 id="ghe-ssl-acme"><a href="#ghe-ssl-acme">ghe-ssl-acme</a></h4>
+<p>This utility allows you to install a Let's Encrypt certificate on your GitHub Enterprise appliance. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/configuring-tls">Configuring TLS</a>."</p>
+<p>You can use the <code>-x</code> flag to remove the ACME configuration.</p>
+<pre><code class="hljs language-shell">ghe-ssl-acme -e</code></pre>
+<h4 id="ghe-ssl-ca-certificate-install"><a href="#ghe-ssl-ca-certificate-install">ghe-ssl-ca-certificate-install</a></h4>
+<p>This utility allows you to install a custom root CA certificate on your GitHub Enterprise server. The certificate must be in PEM format. Furthermore, if your certificate provider includes multiple CA certificates in a single file, you must separate them into individual files that you then pass to <code>ghe-ssl-ca-certificate-install</code> one at a time.</p>
+<p>Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/articles/about-commit-signature-verification">About commit signature verification</a>."</p>
+<p>Run this utility when your GitHub Enterprise Server instance is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run <code>openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs</code> from your GitHub Enterprise Server instance. If the remote server's SSL certificate can be verified, your <code>SSL-Session</code> should have a return code of 0, as shown below.</p>
+<pre><code>SSL-Session:
+    Protocol  : TLSv1
+    Cipher    : AES128-SHA
+    Session-ID: C794EBCC3CBC10F747C9AFC029C03C1048FC99CFC34D13D7444E0F267C58DF4C
+    Session-ID-ctx:
+    Master-Key: 02A7C47CFD6EEC87D3C710E9DD87390E04EF82DDD7514AE03127D5DC1945FC0CAEFB5395791AEA598667EFA61B9EA8C5
+    Key-Arg   : None
+    Start Time: 1394581597
+    Timeout   : 300 (sec)
+    Verify return code: 0 (ok)
+</code></pre>
+<p>If, on the other hand, the remote server's SSL certificate can <em>not</em> be verified, your <code>SSL-Session</code> should have a nonzero return code:</p>
+<pre><code>SSL-Session:
+    Protocol  : TLSv1
+    Cipher    : AES128-SHA
+    Session-ID: 82CB288051A6DB66094C50A69CF1292AEE7E54C6B01B659B98AB336F8C33863E
+    Session-ID-ctx:
+    Master-Key: 01B025B2F764043A27919A8D1355AAECD8844FF0831B1D664042334790574A6F4025BAB085D4ED71D71AAB3091B849E5
+    Key-Arg   : None
+    Start Time: 1394581782
+    Timeout   : 300 (sec)
+    Verify return code: 27 (certificate not trusted)
+</code></pre>
+<p>You can use these additional options with the utility:</p>
+<ul>
+<li>The <code>-r</code> flag allows you to uninstall a CA certificate.</li>
+<li>The <code>-h</code> flag displays more usage information.</li>
+</ul>
+<pre><code class="hljs language-shell">ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em></code></pre>
+<h4 id="ghe-ssl-generate-csr"><a href="#ghe-ssl-generate-csr">ghe-ssl-generate-csr</a></h4>
+<p>This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/configuring-tls">Configuring TLS</a>."</p>
+<p>For more information about this command or for additional options, use the <code>-h</code> flag.</p>
+<pre><code class="hljs language-shell">ghe-ssl-generate-csr</code></pre>
+<h4 id="ghe-storage-extend"><a href="#ghe-storage-extend">ghe-storage-extend</a></h4>
+<p>Some platforms require this script to expand the user volume. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/increasing-storage-capacity">Increasing Storage Capacity</a>".</p>
+<pre><code class="hljs language-shell">$ ghe-storage-extend</code></pre>
+<h4 id="ghe-version"><a href="#ghe-version">ghe-version</a></h4>
+<p>This utility prints the version, platform, and build of your GitHub Enterprise Server instance.</p>
+<pre><code class="hljs language-shell">$ ghe-version</code></pre>
+<h4 id="ghe-webhook-logs"><a href="#ghe-webhook-logs">ghe-webhook-logs</a></h4>
+<p>This utility returns webhook delivery logs for administrators to review and identify any issues.</p>
+<pre><code class="hljs language-shell">ghe-webhook-logs</code></pre>
+<p>To show all failed hook deliveries in the past day:</p>
+<pre><code class="hljs language-shell">ghe-webhook-logs -f -a <em>YYYY-MM-DD</em></code></pre>
+<p>The date format should be <code>YYYY-MM-DD</code>, <code>YYYY-MM-DD HH:MM:SS</code>, or <code>YYYY-MM-DD HH:MM:SS (+/-) HH:M</code>.</p>
+<p>To show the full hook payload, result, and any exceptions for the delivery:</p>
+<pre><code class="hljs language-shell">ghe-webhook-logs -g <em>delivery-guid</em> -v</code></pre>
+<h3 id="clustering"><a href="#clustering">Clustering</a></h3>
+<h4 id="ghe-cluster-status"><a href="#ghe-cluster-status">ghe-cluster-status</a></h4>
+<p>Check the health of your nodes and services in a cluster deployment of GitHub Enterprise Server.</p>
+<pre><code class="hljs language-shell">$ ghe-cluster-status</code></pre>
+<h4 id="ghe-cluster-support-bundle"><a href="#ghe-cluster-support-bundle">ghe-cluster-support-bundle</a></h4>
+<p>This utility creates a support bundle tarball containing important logs from each of the nodes in either a Geo-replication or Clustering configuration.</p>
+<p>By default, the command creates the tarball in <em>/tmp</em>, but you can also have it <code>cat</code> the tarball to <code>STDOUT</code> for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from <em>/setup/support</em> doesn't work. You must use this command if you want to generate an <em>extended</em> bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to GitHub Enterprise support.</p>
+<p>To create a standard bundle:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz</code></pre>
+<p>To create an extended bundle:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz</code></pre>
+<p>To send a bundle to GitHub Support:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -u'</code></pre>
+<p>To send a bundle to GitHub Support and associate the bundle with a ticket:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'</code></pre>
+<h4 id="ghe-cluster-failover"><a href="#ghe-cluster-failover">ghe-cluster-failover</a></h4>
+<p>Fail over from active cluster nodes to passive cluster nodes. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster">Initiating a failover to your replica cluster</a>."</p>
+<pre><code class="hljs language-shell">ghe-cluster-failover</code></pre>
+<h4 id="ghe-dpages"><a href="#ghe-dpages">ghe-dpages</a></h4>
+<p>This utility allows you to manage the distributed GitHub Pages server.</p>
+<pre><code class="hljs language-shell">ghe-dpages</code></pre>
+<p>To show a summary of repository location and health:</p>
+<pre><code class="hljs language-shell">ghe-dpages status</code></pre>
+<p>To evacuate a GitHub Pages storage service before evacuating a cluster node:</p>
+<pre><code class="hljs language-shell">ghe-dpages evacuate pages-server-<em>UUID</em></code></pre>
+<h4 id="ghe-spokes"><a href="#ghe-spokes">ghe-spokes</a></h4>
+<p>This utility allows you to manage the three copies of each repository on the distributed git servers.</p>
+<pre><code class="hljs language-shell">ghe-spokes</code></pre>
+<p>To show a summary of repository location and health:</p>
+<pre><code class="hljs language-shell">ghe-spokes status</code></pre>
+<p>To show the servers in which the repository is stored:</p>
+<pre><code class="hljs language-shell">ghe-spokes route</code></pre>
+<p>To evacuate storage services on a cluster node:</p>
+<pre><code class="hljs language-shell">ghe-spokes server evacuate git-server-<em>UUID</em></code></pre>
+<h4 id="ghe-storage"><a href="#ghe-storage">ghe-storage</a></h4>
+<p>This utility allows you to evacuate all storage services before evacuating a cluster node.</p>
+<pre><code class="hljs language-shell">ghe-storage evacuate storage-server-<em>UUID</em></code></pre>
+<h3 id="git"><a href="#git">Git</a></h3>
+<h4 id="ghe-btop"><a href="#ghe-btop">ghe-btop</a></h4>
+<p>A <code>top</code>-like interface for current Git operations.</p>
+<pre><code class="hljs language-shell">ghe-btop [ <port number=""> | --help | --usage ]</port></code></pre>
+<h4 id="ghe-repo"><a href="#ghe-repo">ghe-repo</a></h4>
+<p>This utility allows you to change to a repository's directory and open an interactive shell as the <code>git</code> user. You can perform manual inspection or maintenance of a repository via commands like <code>git-*</code> or <code>git-nw-*</code>.</p>
+<pre><code class="hljs language-shell">ghe-repo <em>username</em>/<em>reponame</em></code></pre>
+<h4 id="ghe-repo-gc"><a href="#ghe-repo-gc">ghe-repo-gc</a></h4>
+<p>This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. GitHub Enterprise automatically runs this command throughout your interaction with a repository network.</p>
+<p>You can add the optional <code>--prune</code> argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing <a href="https://docs.github.com/en/enterprise-server@3.0/articles/remove-sensitive-data">previously expunged sensitive information</a>.</p>
+<pre><code class="hljs language-shell">ghe-repo-gc <em>username</em>/<em>reponame</em></code></pre>
+<h3 id="import-and-export"><a href="#import-and-export">Import and export</a></h3>
+<h4 id="ghe-migrator"><a href="#ghe-migrator">ghe-migrator</a></h4>
+<p><code>ghe-migrator</code> is a hi-fidelity tool to help you migrate from one GitHub instance to another. You can consolidate your instances or move your organization, users, teams, and repositories from GitHub.com to GitHub Enterprise.</p>
+<p>For more information, please see our guide on <a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/migrations">migrating user, organization, and repository data</a>.</p>
+<h4 id="git-import-detect"><a href="#git-import-detect">git-import-detect</a></h4>
+<p>Given a URL, detect which type of source control management system is at the other end. During a manual import this is likely already known, but this can be very useful in automated scripts.</p>
+<pre><code class="hljs language-shell">git-import-detect</code></pre>
+<h4 id="git-import-hg-raw"><a href="#git-import-hg-raw">git-import-hg-raw</a></h4>
+<p>This utility imports a Mercurial repository to this Git repository. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/migrations/importing-data-from-third-party-version-control-systems">Importing data from third party version control systems</a>."</p>
+<pre><code class="hljs language-shell">git-import-hg-raw</code></pre>
+<h4 id="git-import-svn-raw"><a href="#git-import-svn-raw">git-import-svn-raw</a></h4>
+<p>This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/migrations/importing-data-from-third-party-version-control-systems">Importing data from third party version control systems</a>."</p>
+<pre><code class="hljs language-shell">git-import-svn-raw</code></pre>
+<h4 id="git-import-tfs-raw"><a href="#git-import-tfs-raw">git-import-tfs-raw</a></h4>
+<p>This utility imports from Team Foundation Version Control. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/migrations/importing-data-from-third-party-version-control-systems">Importing data from third party version control systems</a>."</p>
+<pre><code class="hljs language-shell">git-import-tfs-raw</code></pre>
+<h4 id="git-import-rewrite"><a href="#git-import-rewrite">git-import-rewrite</a></h4>
+<p>This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFS, produces Git branches based on folders. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/migrations/importing-data-from-third-party-version-control-systems">Importing data from third party version control systems</a>."</p>
+<pre><code class="hljs language-shell">git-import-rewrite</code></pre>
+<h3 id="support"><a href="#support">Support</a></h3>
+<h4 id="ghe-diagnostics"><a href="#ghe-diagnostics">ghe-diagnostics</a></h4>
+<p>This utility performs a variety of checks and gathers information about your installation that you can send to support to help diagnose problems you're having.</p>
+<p>Currently, this utility's output is similar to downloading the diagnostics info in the Management Console, but may have additional improvements added to it over time that aren't available in the web UI. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files">Creating and sharing diagnostic files</a>."</p>
+<pre><code class="hljs language-shell">ghe-diagnostics</code></pre>
+<h4 id="ghe-support-bundle"><a href="#ghe-support-bundle">ghe-support-bundle</a></h4>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note:</strong> If you are using a Geo-replication configuration, or GitHub Enterprise Clustering, you should use the <code>ghe-cluster-support-bundle</code> command to retrieve the support bundle. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/command-line-utilities/#ghe-cluster-support-bundle">Command-line utilities</a>."</p>
+</div>
+This utility creates a support bundle tarball containing important logs from your instance.
+<p>By default, the command creates the tarball in <em>/tmp</em>, but you can also have it <code>cat</code> the tarball to <code>STDOUT</code> for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from <em>/setup/support</em> doesn't work. You must use this command if you want to generate an <em>extended</em> bundle, containing older logs. You can also use this command to upload the support bundle directly to GitHub Enterprise support.</p>
+<p>To create a standard bundle:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle.tgz</code></pre>
+<p>To create an extended bundle:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -x -o' > support-bundle.tgz</code></pre>
+<p>To send a bundle to GitHub Support:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'</code></pre>
+<p>To send a bundle to GitHub Support and associate the bundle with a ticket:</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'</code></pre>
+<h4 id="ghe-support-upload"><a href="#ghe-support-upload">ghe-support-upload</a></h4>
+<p>This utility sends information from your appliance to GitHub Enterprise support. You can either specify a local file, or provide a stream of up to 100MB of data via <code>STDIN</code>. The uploaded data can optionally be associated with a support ticket.</p>
+<p>To send a file to GitHub Support and associate the file with a ticket:</p>
+<pre><code class="hljs language-shell">ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em></code></pre>
+<p>To upload data via <code>STDIN</code> and associating the data with a ticket:</p>
+<pre><code class="hljs language-shell"><em>ghe-repl-status -vv</em> | ghe-support-upload -t <em>ticket-id</em> -d "<em>Verbose Replication Status</em>"</code></pre>
+<p>In this example, <code>ghe-repl-status -vv</code> sends verbose status information from a replica appliance. You should replace <code>ghe-repl-status -vv</code> with the specific data you'd like to stream to <code>STDIN</code>, and <code>Verbose Replication Status</code> with a brief description of the data. Typically, you will only execute this if you've <a href="https://enterprise.github.com/support">contacted support</a> and they've asked you to do so.</p>
+<h3 id="upgrading-github-enterprise-server"><a href="#upgrading-github-enterprise-server">Upgrading GitHub Enterprise Server</a></h3>
+<h4 id="ghe-upgrade"><a href="#ghe-upgrade">ghe-upgrade</a></h4>
+<p>This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/upgrading-github-enterprise-server">Upgrading GitHub Enterprise Server</a>."</p>
+<p>To verify an upgrade package:</p>
+<pre><code class="hljs language-shell">ghe-upgrade --verify <em>UPGRADE-PACKAGE-FILENAME</em></code></pre>
+<p>To install an upgrade package:</p>
+<pre><code class="hljs language-shell">ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em></code></pre>
+<p>When rolling back an upgrade, you must use an upgrade package file with the <em>.pkg</em> extension. Hotpatch package files with the <em>.hpkg</em> extension are not supported.</p>
+<pre><code class="hljs language-shell">ghe-upgrade --allow-patch-rollback <em>EARLIER-RELEASE-UPGRADE-PACKAGE</em>.pkg</code></pre>
+<p>A reboot is required after running the command. Rolling back does not affect the data partition, as migrations are not run on patch releases.</p>
+<h4 id="ghe-upgrade-scheduler"><a href="#ghe-upgrade-scheduler">ghe-upgrade-scheduler</a></h4>
+<p>This utility manages scheduled installation of upgrade packages. You can show, create new, or remove scheduled installations. You must create schedules using cron expressions. For more information, see the <a href="https://en.wikipedia.org/wiki/Cron#Overview">Cron Wikipedia entry</a>.</p>
+<p>To schedule a new installation for a package:</p>
+<pre><code class="hljs language-shell">$ ghe-upgrade-scheduler -c "0 2 15 12 *" <em>UPGRADE-PACKAGE-FILENAME</em></code></pre>
+<p>To show scheduled installations for a package:</p>
+<pre><code class="hljs language-shell">$ ghe-upgrade-scheduler -s <em>UPGRADE PACKAGE FILENAME</em>
+> 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s <em>UPGRADE-PACKAGE-FILENAME</em> > /data/user/common/<em>UPGRADE-PACKAGE-FILENAME</em>.log 2>&#x26;1</code></pre>
+<p>To remove scheduled installations for a package:</p>
+<pre><code class="hljs language-shell">$ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em></code></pre>
+<h4 id="ghe-update-check"><a href="#ghe-update-check">ghe-update-check</a></h4>
+<p>This utility will check to see if a new patch release of GitHub Enterprise is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to <em>/var/lib/ghe-updates</em>. An administrator can then <a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/installation/updating-the-virtual-machine-and-physical-resources">perform the upgrade</a>.</p>
+<p>A file containing the status of the download is available at <em>/var/lib/ghe-updates/ghe-update-check.status</em>.</p>
+<p>To check for the latest GitHub Enterprise release, use the <code>-i</code> switch.</p>
+<pre><code class="hljs language-shell">$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'</code></pre>
+<h3 id="user-management"><a href="#user-management">User management</a></h3>
+<h4 id="ghe-license-usage"><a href="#ghe-license-usage">ghe-license-usage</a></h4>
+<p>This utility exports a list of the installation's users in JSON format. If your instance is connected to GitHub Enterprise Cloud, GitHub Enterprise Server uses this information for reporting licensing information to GitHub Enterprise Cloud. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud">Connecting GitHub Enterprise Server to GitHub Enterprise Cloud </a>."</p>
+<p>By default, the list of users in the resulting JSON file is encrypted. Use the <code>-h</code> flag for more options.</p>
+<pre><code class="hljs language-shell">ghe-license-usage</code></pre>
+<h4 id="ghe-org-membership-update"><a href="#ghe-org-membership-update">ghe-org-membership-update</a></h4>
+<p>This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see "<a href="https://docs.github.com/en/enterprise-server@3.0/admin/guides/user-management/configuring-visibility-for-organization-membership">Configuring visibility for organization membership</a>." Setting options are <code>public</code> or <code>private</code>.</p>
+<pre><code class="hljs language-shell">ghe-org-membership-update --visibility=<em>SETTING</em></code></pre>
+<h4 id="ghe-user-csv"><a href="#ghe-user-csv">ghe-user-csv</a></h4>
+<p>This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the <code>-h</code> flag for more options.</p>
+<pre><code class="hljs language-shell">ghe-user-csv -o > users.csv</code></pre>
+<h4 id="ghe-user-demote"><a href="#ghe-user-demote">ghe-user-demote</a></h4>
+<p>This utility demotes the specified user from admin status to that of a regular user. We recommend using the web UI to perform this action, but provide this utility in case the <code>ghe-user-promote</code> utility is run in error and you need to demote a user again from the CLI.</p>
+<pre><code class="hljs language-shell">ghe-user-demote <em>some-user-name</em></code></pre>
+<h4 id="ghe-user-promote"><a href="#ghe-user-promote">ghe-user-promote</a></h4>
+<p>This utility promotes the specified user account to a site administrator.</p>
+<pre><code class="hljs language-shell">ghe-user-promote <em>some-user-name</em></code></pre>
+<h4 id="ghe-user-suspend"><a href="#ghe-user-suspend">ghe-user-suspend</a></h4>
+<p>This utility suspends the specified user, preventing them from logging in, pushing, or pulling from your repositories.</p>
+<pre><code class="hljs language-shell">ghe-user-suspend <em>some-user-name</em></code></pre>
+<h4 id="ghe-user-unsuspend"><a href="#ghe-user-unsuspend">ghe-user-unsuspend</a></h4>
+<p>This utility unsuspends the specified user, granting them access to login, push, and pull from your repositories.</p>
+<pre><code class="hljs language-shell">ghe-user-unsuspend <em>some-user-name</em></code></pre>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/admin/configuration/command-line-utilities.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://enterprise.github.com/support" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/enterprise-server@3.0/admin/configuration/command-line-utilities by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:02 GMT -->
+</html>

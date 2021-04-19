@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html">
+        <meta name="Author" content="Bryan Guner">
+        <title>Javascript Resources</title>
+        <link type="image/x-icon"
+            href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/536/favicon_lambda_32.png"
+            rel="shortcut icon">
+        <link
+            href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png"
+            rel="apple-touch-icon">
+        <link type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/main-style.css" rel="stylesheet">
+        <style>
+            @media screen and (min-width: 40em) {
+                article {
+                    display: grid;
+                    grid-template-columns: 3fr 1fr;
+                    column-gap: 20px;
+                }
+
+                nav ul {
+                    display: flex;
+                }
+
+                nav li {
+                    flex: 1;
+                }
+            }
+
+            body {
+                margin: auto;
+                align-content: center !important;
+                justify-content: center;
+                overflow-x: hidden;
+                width: 100%;
+                margin: auto;
+                align-content: center;
+                justify-content: center;
+            }
+        </style>
+        <!-- <script>
+</script> -->
+        <script src="./js/index.js" async></script>
+        <!--====================jQuery=========================================================================================-->
+        <!-- <script async defer src="./jQuery-min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            function hideLoader() {
+                $( '#loading' ).hide();
+            }
+            $( window ).ready( hideLoader );
+            // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
+            setTimeout( hideLoader, 20 * 1000 );
+            $( window ).on( 'beforeunload', function () {
+                $( window ).scrollTop( 0 );
+            } );
+        </script>
+        <!--===================================Angolia Search================================================================================================================================-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
+            rel="stylesheet">
+        <script
+            src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
+            type="text/javascript"></script>
+        <script type="text/javascript">
+            algoliasearchNetlify( {
+                appId: '5UFU8H2XQ2',
+                apiKey: '3882cac807db103c3bbd02d853d9e785',
+                siteId: '0a9e6d86-b295-4037-b04d-88da85c1f6b5',
+                branch: 'master',
+                selector: 'div#search',
+            } );
+        </script>
+    </head>
+    <!--===================================================================================================================================================================-->
+
+    <body>
+        <!--===================================================================================================================================================================-->
+        <div id="out">
+            <!--===================================================================================================================================================================-->
+            <!--=============================================================================================================================================-->
+            <h1 style="color:rgb(84, 172, 226); align-content:center;">This is:</h1>
+            <!--===================================================================================================================================================================-->
+            <div id="loading"
+                style="background: url('./giphy.gif') no-repeat center center;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999999;">
+            </div>
+            <div id="search"></div>
+            <!--===================================================================================================================================================================-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <iframe height="850px" width="100%" src="https://replit.com/@bgoonz/WEEK2?lite=true" scrolling="no"
+                frameborder="no" allowtransparency="true" allowfullscreen="true"
+                sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <!--===================================================================================================================================================================-->
+            <br>
+            <iframe class"embed" height="500" style="width: 100%;" scrolling="no" title="Intro to Objects"
+                src="https://codepen.io/bgoonz/embed/rNjKJGo?height=265&theme-id=dark&default-tab=js,result"
+                frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href='https://codepen.io/bgoonz/pen/rNjKJGo'>Intro to Objects</a> by Bryan C Guner
+                (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+            </iframe>
+            <iframe class"embed" height="500" style="width: 100%;" scrolling="no" title="Intro to Arrays"
+                src="https://codepen.io/bgoonz/embed/qBRKxVW?height=265&theme-id=dark&default-tab=js,result"
+                frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href='https://codepen.io/bgoonz/pen/qBRKxVW'>Intro to Arrays</a> by Bryan C Guner
+                (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+            </iframe>
+            <br>
+            <iframe class"embed" height="500" style="width: 100%;" scrolling="no" title="Web 43 Sprint 2 Module 4"
+                src="https://codepen.io/bgoonz/embed/WNRyZOX?height=265&theme-id=dark&default-tab=js,result"
+                frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href='https://codepen.io/bgoonz/pen/WNRyZOX'>Web 43 Sprint 2 Module 4</a> by Bryan C
+                Guner
+                (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+            </iframe>
+            <iframe class="embed"
+                src="https://codepen.io/bgoonz/embed/VwPxEXK?height=265&amp;theme-id=light&amp;default-tab=js,result"
+                title="Web 43 Sprint 2 Module 3" height="605" style="width: 100%;" scrolling="no" frameborder="no"
+                loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a
+                    href="https://codepen.io/bgoonz/pen/VwPxEXK">Web 43
+                    Sprint 2 Module 3</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>) on <a
+                    href="https://codepen.io">CodePen</a>.</iframe>
+            <!--===================================================================================================================================================================-->
+            <div class="embed">
+                <br>
+                <br>
+                <ul>
+                    <li class="btn">
+                        <a href="./directory.html">🧭NAVIGATION🧭&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href=".link.html">🧭External Links (most used websites)🧭&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="https://code-playground.netlify.app/">🖥️Code Playground🖲️&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="./WEEKS/wk1/0-notes/d2/applied-js-1.html">✨applied-js-1.html✨&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="./WEEKS/wk1/0-notes/d2/js-fundamentals.html">✨js-fundamentals✨&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="./WEEKS/wk2/0-notes/d2/whatIsJavaScript.html">What is JavaScript&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="./WEEKS/wk2/0-notes/d2/Slice%20vs%20Splice.html">Splice vs Splice&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="WEEKS/wk2/0-notes/d2/Does%20it%20mutate_.html">Does It Mutate&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="WEEKS/wk2/0-notes/d3/array-methods.html">Array-Methods &nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="./WEEKS/wk2/0-notes/d2/structured-problem-solving.html">Structured Problem
+                            Solving&nbsp;</a>
+                    </li>
+                    <li class="btn">
+                        <a href="./WEEKS/wk2/0-notes/d2/ScopeandContext.html">Scope & Context&nbsp;</a>
+                    </li>
+                </ul>
+            </div>
+            <!--===============================================================================================================================================-->
+            <br>
+            <br>
+            <h2>Medium Articles</h2>
+            <iframe class="embed" src="./WEEKS/wk2/0-notes/other/index.html"
+                style="   height:950px;  width:100%;  zoom:0.8;  overflow:hidden; margin: auto;  align-content: center;  justify-content: center;"
+                width="90%" height="800" frameborder="0">
+            </iframe>
+            <h2>What is Javascript</h2>
+            <iframe class="embed" src="./WEEKS/wk2/0-notes/d2/whatIsJavaScript.html" width="90%" height="800"
+                frameborder="0"
+                style="   height:950px;  width:100%;  zoom:0.8;  overflow:hidden; margin: auto;  align-content: center;  justify-content: center;"></iframe>
+            <!--===================================================================================================-->
+            <br>
+            <br>
+            <li class="btn">
+                <a href="./WEEKS/wk1/0-notes/d2/directory.html">🧭NAVIGATION🧭&nbsp;<img src alt></a>
+            </li>
+            <li class="btn">
+                <a href="https://portfolio42.netlify.app/" target="" _blank"">ABOUT&nbsp;<img src alt></a>
+            </li>
+            <li class="btn">
+                <a href="https://lambda-w-1-notes.netlify.app/" target="" _blank"">🏠HOME!&nbsp;<img src alt></a>
+            </li><br>
+            <br>
+            <!--===================================================================================================-->
+            <script>
+                function out() {
+                    document.getElementById( 'out' ).scrollIntoView();
+                };
+
+                function bottom() {
+                    document.getElementById( 'bottom' ).scrollIntoView();
+                    window.setTimeout( function () {
+                        out();
+                    }, 1000 );
+                };
+                bottom();
+            </script>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!--=================================================Footer============================================================================-->
+    </body>
+
+</html>

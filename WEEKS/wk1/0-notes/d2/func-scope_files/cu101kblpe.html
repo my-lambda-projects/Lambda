@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://lambdaschool-1.wistia.com/medias/cu101kblpe -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./insight.min.js.download"></script><script async="" src="./fbevents.js.download"></script><script src="./fb.js.download" type="text/javascript" id="hs-ads-pixel-120237" data-ads-portal-id="120237" data-ads-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="120237" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script src="./120237.js.download" type="text/javascript" id="cookieBanner-120237" data-cookieconsent="ignore" data-loader="hs-scriptloader" data-hsjs-portal="120237" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script async="" src="./sp.js.download"></script><script id="hs-analytics" src="./120237.js(1).download"></script><script class="w-json-ld" type="application/ld+json">{"@context":"http://schema.org/","@id":"https://fast.wistia.net/embed/iframe/cu101kblpe","@type":"VideoObject","duration":"PT6M13S","name":"Return and Scope - Full Stack Web","thumbnailUrl":"https://embed-ssl.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.jpg?image_crop_resized=960x540","embedUrl":"https://fast.wistia.net/embed/iframe/cu101kblpe","uploadDate":"2021-02-04","transcript":"in this video you will learn to explain\n\nfunction skill and the return statement\n\nalright back to the cookie analogy\n\nthings are going great fresh cookies\n\nevery day until suddenly your robot\n\nstarts burning the lemon crisp cookies\n\ncome on robot to fix this you decide to\n\nadd a parameter temperature such that\n\nyou can specify how your robot should be\n\nbaking cookies so now bake cookies\n\nchocolate chip comma 400 and bake\n\ncookies lemon crisps , 350 are valid\n\nfunctions but later on you go to print a\n\nrecipe probably for a cookie baking\n\nrobot friend with console dot log\n\ntemperature and it comes back as\n\nundefined what isn't it clearly defined\n\nin the function you've just run into\n\nyour first scoping issue scope is\n\ndesigned as which variables we currently\n\nhave access to and where so far in this\n\ncourse we've been working mostly in the\n\nglobal scope in that we can access any\n\nvariable we have created anywhere in our\n\ncode there are a couple different levels\n\nof scope block global scope is used in\n\nif statements and for loops in block\n\nlevel scope a variable is declared using\n\nletter Const is only available within\n\nthe statement or loop like I in a for\n\nloop similarly there is function scope\n\nwhere temperature exists inside the\n\nfunction but not elsewhere in your code\n\nfile function scope allows us to create\n\nvariables inside functions that are\n\nessentially private to that function we\n\ncannot reach into a function from the\n\noutside and get access to these\n\nvariables but we are free to use these\n\nvariables anywhere within our function\n\nconversely we do not have access to the\n\nvariables outside of the function it's\n\nlike a one-way street functions can\n\nreach out and grab variables outside of\n\ntheir scope but we cannot reach into a\n\nfunction to get a variable because var 2\n\nis defined inside the function it can't\n\nbe accessed later on bar one however is\n\nglobal and it can be accessed anywhere\n\nin our script so we will not always want\n\na console.log everything that comes out\n\nof a function more likely we will want\n\nto return something for use in other\n\noperations the only way for us to\n\nget data local to a function outside of\n\nthe function is with the keyword return\n\nreturn essentially let's data escape a\n\nfunction nothing other than what is\n\nreturned can be accessed outside of the\n\nfunction a return is also always the\n\nlast thing in a function because when\n\nthe function hits a return statement the\n\nfunction immediately stops executing\n\ncode it stops everything else that it\n\nwas doing we can also assign the value\n\nof a return statement to another\n\nvariable and then we will have access to\n\nthe data returned from the function\n\neverywhere in our code important to note\n\nwe will never be able to have access to\n\nthe actual variable created in the\n\nfunction we will only have access to the\n\ndata that that variable was assigned to\n\nso when we left off on our flip function\n\nit logged a result of any number of coin\n\nflips our challenge now is going to be\n\nto include a summative number that\n\ncalculates the proportion of heads over\n\ntotal flips\n\nso if flip returned heads four times and\n\ntails six times our function should\n\nreturn not only a list of four heads and\n\nsix tails should also return zero point\n\nfour in order to perform this\n\ncalculation will utilize a common\n\nprogramming check and create a counter\n\ncalled count heads now it's time for the\n\nwe do where we get to practice these\n\nskills together you should be coding\n\nalong with me during this portion of the\n\nvideo\n\nin order to perform this calculation\n\nwill utilize a common programming trick\n\nand create a counter called count heads\n\nthis counter will be declared with bar\n\nand we'll add one to it every time the\n\nflip lands on heads or when coin flip\n\nequals one to make this counter\n\nfunctional we have to rely on scope it\n\nwill be important that we declare the\n\nvariable outside of the loop but inside\n\nthe function this way the variable can\n\nbe referenced and changed inside of the\n\nfor loop but it will reset to zero every\n\ntime the function is run so we need to\n\nadd a new line inside the function but\n\noutside the for loop where we'll declare\n\nour variable count heads with bar and\n\nset it equal to an initial value of zero\n\nin addition we'll want to create a\n\nreturn statement at the end of our\n\nfunction that returns the total number\n\nof counted heads over the number of\n\nrepetitions in our script if we ran this\n\nfunction we'd get all 100 of our heads\n\nand tails and then a summative number\n\ntelling us what percent was head so in\n\nthis example 0.5 4 or 54% of our flips\n\nwere heads we ran it again point 4 6 so\n\n46 percent of our flips were heads this\n\nis showing us that our scope is good and\n\nthat our function is working as expected\n\nto further demonstrate the importance of\n\nscope let's consider a few non examples\n\nwhere count heads is out of scope to be\n\ncompletely clear the examples are about\n\nto walk through our bad programming\n\npractice they don't work and you should\n\nnever code like this but they are really\n\nuseful to illustrate the importance of\n\nscope when count heads is outside of our\n\nfunction our program would work\n\nperfectly fine the first time we called\n\nflip at X but it would not reset if we\n\ncalled it again so let's try this let's\n\nmove our variable declaration outside\n\nthe function and let's call the function\n\njust once with flip five\n\nas we can see we get a number close to\n\n0.5 as we expected 0.4 if we ran it\n\nagain we're only calling it once so\n\nagain we'd be in the right range but\n\nlet's try calling flip five maybe three\n\ntimes when we do this we can see that\n\nour percentage becomes 200% and very\n\nobviously that is an impossible number\n\ngiven our results here this is because\n\nthe variable is outside of the function\n\nscope and not resetting when the\n\nfunction is called\n\nnow that we've seen the good and the\n\ndifficult parts of function scope go\n\nahead and read through the content below\n\nwork on this example and then try the\n\nscope and return statements challenge","description":"a 01 - Web Fundamentals video"}</script>
+
+<title>Return and Scope - Full Stack Web - Lambda School</title>
+<link href="https://lambdaschool-1.wistia.com/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta content="noindex, nofollow" name="robots">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Y8fck6RYE2LTXZADHwwD7JWh5U4b5DVR1ckNxdiP+PIvX25iMCEQeTgFutMf04ySXhWSV5cSPjfq8UcPxByYxw==">
+<link rel="alternate" type="application/json+oembed" href="https://fast.wistia.com/oembed.json?url=https%3A%2F%2Flambdaschool-1.wistia.com%2Fmedias%2Fcu101kblpe" title="Return and Scope - Full Stack Web">
+<link rel="alternate" type="application/xml+oembed" href="https://fast.wistia.com/oembed.xml?url=https%3A%2F%2Flambdaschool-1.wistia.com%2Fmedias%2Fcu101kblpe" title="Return and Scope - Full Stack Web">
+<link rel="stylesheet" media="all" href="./facebox.css"><link rel="stylesheet" media="all" href="./index-a8fe4d012220c1bc4356138e0074f9db516e66e815639e7be6f861589a76d06f.css"><link rel="stylesheet" media="all" href="./elements-c08f1e92127bf092813a6f2a55fc00f7644df2b04fd23c2b5b4a0215d775be76.css">
+<link rel="stylesheet" media="print" href="./print-b1f7f7f16d66dc7a70d2069834e31b28f0a9b829ddeb299490bc58e9f151bc8c.css">
+<script src="./quant.js.download" async="" type="text/javascript"></script><script async="" src="./gtm.js.download"></script><script async="" src="./analytics.js.download"></script><script async="" src="./pendo.js.download"></script><script src="./context.js.download"></script>
+<script async="" src="./cu101kblpe.jsonp"></script>
+
+<script src="./E-v1.js.download"></script><style id="wistia_22_style" type="text/css" class="wistia_injected_style">
+@font-face {
+font-family: 'WistiaPlayerInterNumbersSemiBold';
+font-feature-settings: 'tnum' 1;
+src: url(data:application/x-font-woff;charset=utf-8;base64,d09GMk9UVE8AAAaMAAwAAAAACgAAAAZBAAMD1wAAAAAAAAAAAAAAAAAAAAAAAAAADYpwGhQbIBwqBmAAgTIBNgIkAzAEBgWDGgcgGykJEZWkARP8KHCbm2tEznyIN98tPTUk9Ig3oiVV3pbDIzXa+f/fZgXpALFTZhBoMVFC9cp036dXvRKVmVnsxe+D+1NDQI5lG7ikZWEINIElTeBIdnxlhauQ5GQtoLHA/wN0riVdSx5xgbxF3KTbgnjVQ4B9P7YqCx7FpEZK+6ilx0AoopUh4aExJEKmkU+0ncdr4iFfKhdSFD9y91LCRaxNbVqvi0dND3rxI7ndUDR7EiwT3bhiua9krFA0oepCy2hCjwmjnjDjKjNTDz2ZuHtN8820Wfw/l8u4w4yV/f8/6uscs5rmiN00LcP4hAofyZUSyS3WinX0RGFFtnGrjj36x6dlNa57+PLTlrUisH2n9orfgd+R34XfDd0NsWDXwfwhvKHpbs3UBni37dBlPvO4KYn/PgylilcgSdw6sjsSSxsRGfIJgqhi14bKZCHcQvjUh/+3HMotTYrGLVYCxyMFjEnYC98yTAp6atAKVxaZ9eu2NMji8WTj4w/Y34elD60PPwb5bEywLqAX/amwmUo6TBCy14N/TL44jb3sE5JdUIPXXI0RBSoGt3BUObn4agKGIxxQhlyQacbstK4fS2mZoBtFNQ1bd+4zND2vQu6anl7gWFOj8MV2DVMtU44xMhpwElrrjA7zO5IqWojd/v1Vso6cqp91zC2YrGhDOy07Iqyza2q9smDIwUYek0AWbCt/8x78QmrzayQ6xtpmqfCYsLfgU9HdeP3UqutZTTNd/9Q8k08XzXzIxSdvLPda8YaeeZnkxUwql0nDKyUYdaWZjGAy7UDLHpVqBVHTxSV0wBy21El9u/491ik2J3YkdiP2LPZL41RBeeNUWtp97Bbn0Ee1g9wr9qqV/X+4R9nlPX03743dylnaXZyNp8v58yLOsFYCbUnCVQzjN+5QhlmKccO7aMkueWJggROd4qnw2x5LydUcg/NRamE3XMlkGovpRWPKWEavP74P2O1RANM/3gIIPJj7TX+lqU2geQuaBx4B/7cWAOx0ucTiEHYJU9y5DBuUMYNIHeHZz9tn+Fw2G5EBTqUlHRfRi4eB5wNlJsRsv5k4b6HyFkhIC6BO4LzPbWhW7rbCcxubeKHOc6UaBKZBMMd4j8XuRUynOCCa4EMfF9grkI1NcTaSAVtk1nrIOwFfeEBlQw4f4phb6zHzBOm0ZZ0dBcaZRVdYIo5xYiyOMEWONwQHmjKGE//VuRBgul1QrpyxmMvF4vGj0xfuuQrNt4tVTsRhEnjY9AuKa1FVLSEneQWzFd5WbO7hasX08ONUOVQgwQuVqACFXkSoIoUgK1hJEkAgbkG5CjqBS5wrRFuY2IfVwhRnLsVyZTZpatveGR4yEbYqbE6J80nM4aa+LD7Oqmr8PdSJFUQVynmgN4lerGQV1+uLdYzdOFWHPW/iK2gIQayhizQ0NMwyvBEBlrDczRfmU40CTtAHqLQGnjQG8MYkxm1MwJuTqjHwVCu9iRJ1C8ojWGHxUYowH0c5X57zpXquvlw0wzHHGMTfufxiJ1psFJTzq6nGeDvHF4LgmHHWCUViZBaInRn+cswnBi460RBPRYg9TRUQ0CZUC5LAT0qLLu50FpdTeBhjGf7/h4dg9hE0uqsBx/saOcYRDIfnOhfzGFBHyizcJK3p2edUjWrC0rn1aGjXtfVUCHMAKKhlxV8eTEIcV2jCOdKiqahv/MisrfRQVnxPJoOU62mR6pu2ZllIzo8zOZqQB7kWJXW2/c0aihata5PcIVJKfFRgHAETmEQVTCELptGMGcyigTnMJ1voUVN6uCZS9pV2hrwl7FYMvBwtUSd7L7E5qP9t7BIPRF7EcmA9ct2nIPHrxgWajtDltbXuBLuaY6qRZGa5ZlX5anfR0lYXaHUzVSFjZa8rfdhZ8rKXFZg21LVL5LFjI5TlDIbwnFGHE2dypHs6Q50N015dpOgLONEUlOqoiQgIaeCsjMq9gITDKwRMieQgKUy9UQY1BTFYZU2KpE2SkILMIjW8IdFwIKmMaK8oClJVssAEtFnz5dQ1s+w6EZoNGtPGQfzx+aoE8ikiP8GCYOWtgB+HBdWDaxACAZInVq14dZI85RRDvZGIghyONw59KV/BBEQ02P1ER8hmNGiURT2hQP8WfAY=);
+}
+</style>
+<script src="./loggedin-2d210fbea4ca7d20da5b.js.download"></script>
+
+<script>
+//<![CDATA[
+window._auth_token_name = "authenticity_token"; window._auth_token = "mXa7tEriyMx8eE+OTcgvEv1qI1HzVxcEPqMSXHkVVW3V7glF3pvL15cgZV5NF6BsNt5USH+hHGIBm1iWZYY1WA==";
+//]]>
+</script>
+<script>
+  $(document).ready(function(){
+    if (!window.statusBar) {
+      window.statusBar = new StatusBar({});
+    }
+  });
+</script>
+
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-535854-6', 'auto');
+      ga('set', 'dimension1', 'customer');
+ga('set', 'dimension2', 'anonymous');
+
+      if (window.URL && window.URLSearchParams) {
+        var url = new URL(location);
+        url.searchParams.delete('email');
+        url.searchParams.delete('first_name');
+        url.searchParams.delete('last_name');
+        url.searchParams.delete('wemail');
+        ga('send', 'pageview', url.href);
+      } else {
+        var page_without_origin = document.location.href.replace(document.location.origin, '');
+        var page = page_without_origin.replace(/wemail=[^&#]*/g, '');
+        page = page.replace(/email=[^&#]*/g, '');
+        page = page.replace(/first_name=[^&#]*/g, '');
+        page = page.replace(/last_name=[^&#]*/g, '');
+
+        ga('send', 'pageview', page);
+      }
+    </script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','GTMDataLayer','GTM-KSJ3B');</script>
+
+
+<meta property="og:type" content="website">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image" content="http://embed.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.jpg">
+<meta property="og:image:secure_url" content="https://embed-ssl.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.jpg">
+<meta property="og:title" content="Return and Scope - Full Stack Web">
+<meta property="og:image:width" content="3840">
+<meta property="og:image:height" content="2160">
+<meta property="og:url" content="https://lambdaschool-1.wistia.com/medias/cu101kblpe?wtime=0">
+<meta name="twitter:card" content="player">
+<meta name="twitter:site" content="@wistia">
+<meta name="twitter:title" content="Return and Scope - Full Stack Web">
+<meta name="twitter:url" content="https://fast.wistia.net/embed/iframe/cu101kblpe?twitter=true">
+<meta name="twitter:description" content="6 min 13 sec video">
+<meta name="twitter:image" content="https://embed-ssl.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697/file.">
+<meta name="twitter:player" content="https://fast.wistia.net/embed/iframe/cu101kblpe?twitter=true">
+<meta name="twitter:player:width" content="435">
+<meta name="twitter:player:height" content="245">
+
+
+<script async="true" type="text/javascript" src="./roundtrip.js.download"></script><style id="wistia_82_style" type="text/css" class="wistia_injected_style">
+      #wistia_chrome_37 ::cue {
+        visibility: hidden;
+      }
+      #wistia_chrome_37 ::-webkit-media-text-track-container {
+        visibility: hidden;
+      }
+      #wistia_chrome_37 ::-webkit-media-text-track-background {
+        visibility: hidden;
+      }
+      #wistia_chrome_37 ::-webkit-media-text-track-display {
+        visibility: hidden;
+      }
+    </style></head>
+<body class="anonymous"><div class="status-bar"></div>
+<div class="incident_notification"></div>
+
+<div id="nonfooter">
+
+<div class="" id="header">
+<div class="container">
+<div class="logo">
+<div class="logo__container">
+<div id="logo" style="position: relative">
+<div class="logo__link">
+<span class="logo__text">Lambda School</span>
+</div>
+</div>
+<form enctype="multipart/form-data" id="upload_logo_form" method="post" style="display: none;">
+<input name="create_media" type="hidden" value="false">
+<input name="access_token" type="hidden">
+<input name="redirect_to" type="hidden" value="https://lambdaschool-1.wistia.com/account/logo">
+<input id="real_file" name="file" size="12" style="display:none;" type="file">
+</form>
+</div>
+</div>
+
+<div class="skip">
+<div class="skip__container">
+<a class="skip__link" href="https://lambdaschool-1.wistia.com/medias/cu101kblpe#content">Skip to content</a>
+</div>
+</div>
+<nav id="nav">
+<ul class="nav__list">
+</ul>
+<script>
+  const highlightMenu = function($) {
+    $(document).ready(function() {
+      $links = $('#nav .nav-menu a[href]')
+      $links.each(function(index, el) {
+        if (new RegExp($(el)[0].pathname).test(location.pathname)) {
+          if ($(el).hasClass('live-chat')) {
+            return;
+          }
+  
+          $menu = $(el).closest('.nav-menu');
+          $menu.addClass('current');
+          return false;
+        }
+      });
+    });
+  };
+  
+  highlightMenu(jQuery);
+</script>
+
+</nav>
+
+</div>
+</div>
+
+<div class="" id="content">
+<a name="content"></a>
+<div class="container full_width">
+<link rel="stylesheet" media="all" href="./page-medias-show-cf6b1e9fb5f0329acd1dfd6fec3cdfd950f815135e28013059bcdbe341cf63da.css">
+<div class="se-content">
+<div class="outer_container" id="media_page">
+<div id="main">
+<div id="media_bar">
+<div class="inner_container">
+<div id="media" style="max-height: 411px; max-width: 731px;">
+<link href="https://lambdaschool-1.wistia.com/medias/cu101kblpe" rel="canonical">
+<div class="video" id="embed" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<meta content="Return and Scope - Full Stack Web" itemprop="name">
+<meta content="PT6M13S" itemprop="duration">
+<meta content="https://embed-ssl.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697/file." itemprop="thumbnailUrl">
+<meta content="html5" itemprop="playerType">
+<meta content="https://fast.wistia.net/embed/iframe/cu101kblpe" itemprop="embedUrl">
+<meta content="2021-02-04T18:19:30Z" itemprop="uploadDate">
+<meta content="https://embed-ssl.wistia.com/flash/embed_player_v2.0.swf?videoUrl=https://embed-ssl.wistia.com/deliveries/dba5c91b03eafd57f3f564144008115ee4ce0893.bin&amp;stillUrl=https://embed-ssl.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.bin&amp;controlsVisibleOnLoad=false&amp;unbufferedSeek=false&amp;autoLoad=false&amp;autoPlay=true&amp;endVideoBehavior=default&amp;embedServiceURL=http://distillery.wistia.com/x&amp;accountKey=wistia-production_963575&amp;mediaID=wistia-production_68205178&amp;mediaDuration=373.457&amp;fullscreenDisabled=false" itemprop="contentUrl">
+<div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+<div id="wistia_video_embed_container" class="wistia_embed wistia_embed_initialized" style="width: 730px; height: 411px;"><div class="wistia_swatch" style="height: 100%; left: 0px; opacity: 1; overflow: hidden; position: absolute; top: 0px; transition: opacity 200ms ease 0s; width: 100%;"><img src="./swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;"></div><div id="wistia_chrome_37" class="w-chrome" tabindex="-1" style="display: inline-block; height: 411px; line-height: normal; margin: 0px; padding: 0px; position: relative; vertical-align: top; width: 730px; zoom: 1; outline: none; overflow: hidden; box-sizing: content-box;"><div id="wistia_grid_42_wrapper" style="display: block; width: 730px; height: 411px;"><div id="wistia_grid_42_above" style="height: 0px; font-size: 0px; line-height: 0px;"> </div><div id="wistia_grid_42_main" style="width: 730px; left: 0px; height: 410.988px; margin-top: 0px;"><div id="wistia_grid_42_behind"></div><div id="wistia_grid_42_center" style="width: 100%; height: 100%;"><div class="w-video-wrapper w-css-reset" style="height: 100%; position: absolute; top: 0px; width: 100%; opacity: 1; background-color: rgb(0, 0, 0);"><video id="wistia_simple_video_63" crossorigin="anonymous" poster="https://fast.wistia.com/7-assets/images/blank.gif" aria-label="Video" defaultplaybackrate="1" src="blob:https://lambdaschool-1.wistia.com/bb4e317c-22e1-443d-95f4-3dbf5f1a1f2f" controlslist="nodownload" playsinline="" preload="metadata" type="video/m3u8" x-webkit-airplay="allow" style="background: transparent; display: block; height: 100%; max-height: none; max-width: none; position: static; visibility: visible; width: 100%; object-fit: fill;"><track kind="captions" label="English" srclang="eng" src="https://fast.wistia.net/embed/captions/cu101kblpe.vtt?language=eng"></video></div><div class="w-ui-container" style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; opacity: 1;"><div class="w-vulcan-v2 w-css-reset" id="w-vulcan-v2-41" style="box-sizing: border-box; cursor: default; height: 100%; left: 0px; position: absolute; visibility: visible; top: 0px; width: 100%;"><div class="w-vulcan--background w-css-reset" style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"><div class="w-css-reset" data-handle="statusBar"></div><div class="w-css-reset" data-handle="backgroundFocus"><button aria-label="Play Video" class="w-css-reset w-vulcan-v2-button" tabindex="0" style="width: 0px; height: 0px; pointer-events: none;"></button></div><div class="w-css-reset" data-handle="thumbnail"><div><div class="w-css-reset" style="filter: blur(5px); height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; display: block;"><img class="w-css-reset" srcset="" src="./swatch" alt="Classes" aria-hidden="true" style="height: 410.988px; left: 0px; position: absolute; top: 0px; width: 730px; clip: auto; display: block; border-width: 0px; border-style: solid; border-color: rgb(0, 0, 0); box-sizing: content-box;"></div><div class="w-css-reset" style="height: 100%; left: 0px; opacity: 1; position: absolute; top: 0px; width: 100%; display: block; transition: opacity 3s ease 0s;"><img class="w-css-reset" srcset="https://embed-fastly.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.webp?image_crop_resized=640x360 320w, https://embed-fastly.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.webp?image_crop_resized=640x360 640w, https://embed-fastly.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.webp?image_crop_resized=960x540 960w, https://embed-fastly.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.webp?image_crop_resized=1280x720 1280w, https://embed-fastly.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.webp?image_crop_resized=1920x1080 1920w, https://embed-fastly.wistia.com/deliveries/67ba0356b6157deada7f96cd1d608697.webp?image_crop_resized=3840x2160 3840w" src="./67ba0356b6157deada7f96cd1d608697.webp" alt="Classes" style="height: 410.988px; left: 0px; position: absolute; top: 0px; width: 730px; clip: auto; display: block; border-width: 0px; border-style: solid; border-color: rgb(0, 0, 0); box-sizing: content-box;"></div></div></div></div><div class="w-vulcan-overlays-table w-css-reset" style="display: table; pointer-events: none; position: absolute; width: 100%;"><div class="w-vulcan-overlays--left w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px;"><div class="w-css-reset" style="height: 376.988px;"></div></div><div class="w-vulcan-overlays--center w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 100%;"><div class="w-css-reset" style="height: 376.988px;"><div class="w-css-reset" data-handle="bigPlayButton" style="pointer-events: auto;"><div class="w-bpb-wrapper w-css-reset w-css-reset-tree" style="display: block; left: calc(50%); margin-left: -62.5px; margin-top: -40px; position: absolute; top: calc(50%);"><button class="w-big-play-button w-css-reset-button-important w-vulcan-v2-button" aria-label="Play Video: Return and Scope - Full Stack Web" style="cursor: pointer; height: 80px; box-shadow: none; width: 125px;"><div style="background: rgb(45, 83, 157); display: block; left: 0px; height: 80px; mix-blend-mode: darken; position: absolute; top: 0px; width: 125px;"></div><div style="background-color: rgba(45, 83, 157, 0.7); height: 80px; left: 0px; position: absolute; top: 0px; transition: background-color 150ms ease 0s; width: 125px;"></div><svg x="0px" y="0px" viewBox="0 0 125 80" enable-background="new 0 0 125 80" focusable="false" alt="" style="fill: rgb(255, 255, 255); height: 80px; left: 0px; stroke-width: 0px; top: 0px; width: 100%; position: absolute;"><rect fill-rule="evenodd" clip-rule="evenodd" fill="none" width="125" height="80"></rect><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="53,22 53,58 79,40"></polygon></svg></button></div></div><div class="w-css-reset" data-handle="clickForSoundButton" style="pointer-events: auto;"><div class="w-css-reset w-css-reset-tree" data-handle="click-for-sound-backdrop" style="display: none; height: 100%; left: 0px; pointer-events: auto; position: absolute; top: 0px; width: 100%;"><button aria-label="Click for sound" class="w-vulcan-v2-button" style="background: rgba(0, 0, 0, 0.8); border: 2px solid transparent; border-radius: 50%; cursor: pointer; height: 52.5px; width: 52.5px; line-height: 52.5px; outline: none; pointer-events: auto; position: absolute; right: 20.5px; text-align: left; top: 20.5px;"><svg viewBox="0 0 237 237"><style>
+      @keyframes VOLUME_SMALL_WAVE_FLASH {
+          0% { opacity: 0; }
+         33% { opacity: 1; }
+         66% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes VOLUME_LARGE_WAVE_FLASH {
+          0% { opacity: 0; }
+         33% { opacity: 1; }
+         66% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      .volume__small-wave {
+        animation: VOLUME_SMALL_WAVE_FLASH 2s infinite;
+        opacity: 0;
+      }
+
+      .volume__large-wave {
+        animation: VOLUME_LARGE_WAVE_FLASH 2s infinite .3s;
+        opacity: 0;
+      }
+    </style><polygon fill="white" points="88 107 65 107 65 131 89 131 112 154 112 84"></polygon><g fill="none" stroke="white" stroke-width="10" stroke-linecap="round"><path class="volume__small-wave" d="M 142 86 C 151 107 151 130 142 151"></path><path class="volume__large-wave" d="M 165 74 C 178 97 178 140 165 163"></path></g></svg></button></div></div><div class="w-css-reset" data-handle="playPauseNotifier" style="pointer-events: auto;"><div class="w-play-pause-notifier" style="background: rgba(0, 0, 0, 0.6); border-radius: 50%; height: 140px; left: 50%; pointer-events: none; position: absolute; opacity: 0; top: 50%; transform: translate(-50%, -50%) scale(0.8); transition: opacity 0.8s ease 0s, transform 0.8s ease 0s; width: 140px;"><div style="height: 80px; left: 50%; pointer-events: none; position: absolute; top: 50%; transform: translate(-50%, -50%); width: 50px;"><div style="height: 100%; width: 100%;"><div style="display: block; height: 100%; width: 100%;"><svg x="0px" y="0px" viewBox="0 0 10 12" enable-background="new 0 0 10 12" focusable="false" class="w-css-reset w-css-reset-tree" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><g><rect x="0" y="0" width="3.5" height="12"></rect><rect x="6.5" y="0" width="3.5" height="12"></rect></g></svg></div><div style="display: none; height: 100%; width: 100%;"><svg x="0px" y="0px" viewBox="0 0 10 12" enable-background="new 0 0 10 12" focusable="false" class="w-css-reset w-css-reset-tree" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><polygon points="11.556,7.5 0,15 0,0"></polygon></svg></div></div></div></div></div><div class="w-css-reset" data-handle="captions" style="pointer-events: auto;"><nothing></nothing></div><div class="w-css-reset" data-handle="playPauseLoading" style="pointer-events: auto;"><div class="w-css-reset w-css-reset-tree" style="height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"><button aria-label="Play Video" class="w-vulcan-v2-button" style="background: rgba(0, 0, 0, 0.6); border: 0px; border-radius: 50%; cursor: pointer; display: none; height: 140px; left: 50%; margin: 0px; padding: 0px; pointer-events: auto; position: absolute; opacity: 0; outline: none; top: 50%; transform: translate(-50%, -50%) scale(0.8); transition: opacity 200ms ease 0s, transform 600ms ease 0s; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 140px;"><div aria-live="polite"></div><div style="box-sizing: border-box; height: 100%; padding: 47.25px 47.25px 47.25px 57.75px;"><div style="height: 100%; width: 100%;"><div style="display: none; height: 100%; width: 100%;"><svg x="0px" y="0px" viewBox="0 0 11.556 16" enable-background="new 0 0 11.556 16" focusable="false" class="w-css-reset w-css-reset-tree" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><g><rect x="0" y="0" width="3.5" height="12"></rect><rect x="6.5" y="0" width="3.5" height="12"></rect></g></svg></div><div style="display: block; height: 100%; width: 100%;"><svg x="0px" y="0px" viewBox="0 0 11.556 16" enable-background="new 0 0 11.556 16" focusable="false" class="w-css-reset w-css-reset-tree" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><polygon points="11.556,7.5 0,15 0,0"></polygon></svg></div></div></div></button></div></div><div class="w-css-reset" data-handle="customerLogo" style="pointer-events: auto;"><a class="w-css-reset w-css-reset-tree" target="_blank" rel="noopener noreferrer" style="display: block; left: 16px; opacity: 0.75; position: absolute; top: 16px;"><img class="w-css-reset" src="./84ff8db598cacccd55aaec59e009e87c.bin" alt="Logo" style="max-height: 146px; max-width: 146px;"></a></div><div class="w-css-reset" data-handle="transcript" style="pointer-events: auto;"><div class="w-css-reset" style="position: absolute;"></div></div></div></div><div class="w-vulcan-overlays--right w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px;"><div class="w-css-reset" style="height: 376.988px;"></div></div></div><div class="w-bottom-bar w-css-reset" style="bottom: 0px; border-collapse: collapse; display: table; height: 34px; pointer-events: none; position: absolute; right: 0px; table-layout: auto; width: 100%;"><div class="w-bottom-bar-lower w-css-reset" style="position: relative;"><div style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"><div style="background: rgb(45, 83, 157); display: none; height: 100%; mix-blend-mode: darken; left: 0px; opacity: 1; position: absolute; top: 0px; transition: opacity 0s ease 0s; width: 100%;"></div><div style="background: rgba(45, 83, 157, 0.85); height: 100%; opacity: 1; left: 0px; position: absolute; top: 0px; transition: opacity 0s ease 0s; width: 100%;"></div></div><div style="display: none;"><div style="background: rgb(45, 83, 157); display: none; height: 100%; mix-blend-mode: darken; left: 0px; opacity: 1; position: absolute; top: 0px; transition: opacity 0s ease 0s; width: 100%;"></div><div style="background: rgba(45, 83, 157, 0.85); height: 100%; opacity: 1; left: 0px; position: absolute; top: 0px; transition: opacity 0s ease 0s; width: 100%;"></div></div><div class="w-bottom-bar-left w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px; opacity: 1; transition: opacity 0s ease 0s;"><div class="w-bottom-bar-left-inner w-css-reset" style="height: 34px; position: relative; pointer-events: auto; white-space: nowrap;"><div class="w-css-reset" data-handle="smallPlayButton" style="display: inline-block; vertical-align: top;"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button tagname="button" class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" aria-label="Play Video" title="Play Video" style="background-color: rgba(0, 0, 0, 0); box-shadow: none; cursor: pointer; height: 100%; position: relative; transition: background-color 150ms ease 0s; width: 100%;"><div class="w-vulcan-icon-wrapper" data-handle="smallPlayButton" style="box-sizing: border-box; height: 100%; position: relative; transform: scale(1.001); transition: transform 200ms ease 0s;"><div style="box-sizing: border-box; height: 100%; margin-left: 1px; padding: 10px 0px 9px; position: relative; width: 100%;"><div style="height: 100%; width: 100%;"><div style="display: none; height: 100%; width: 100%;"><svg x="0px" y="0px" viewBox="0 0 11.556 16" enable-background="new 0 0 11.556 16" focusable="false" class="w-css-reset w-css-reset-tree" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%; vertical-align: top;"><g><rect x="0" y="0" width="3.5" height="12"></rect><rect x="6.5" y="0" width="3.5" height="12"></rect></g></svg></div><div style="display: block; height: 100%; width: 100%;"><svg x="0px" y="0px" viewBox="0 0 11.556 16" enable-background="new 0 0 11.556 16" focusable="false" class="w-css-reset w-css-reset-tree" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%; vertical-align: top;"><polygon points="11.556,7.5 0,15 0,0"></polygon></svg></div></div></div></div></button></div></div></div></div><div class="w-bottom-bar-middle w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 100%; opacity: 1; transition: opacity 0s ease 0s;"><div class="w-bottom-bar-middle-inner w-css-reset" style="height: 34px; position: relative; pointer-events: auto; white-space: nowrap; opacity: 1; transform: translateY(0px); transition: opacity 0ms ease 0s, transform 0ms ease 0s;"><div class="w-css-reset" data-handle="playbar" style="height: 100%; position: relative;"><div class="w-playbar-wrapper w-css-reset w-css-reset-tree" style="display: flex; height: 100%; width: 100%;"><div class="w-playbar__time" style="box-sizing: content-box; color: white; font-family: WistiaPlayerInterNumbersSemiBold, Helvetica, sans-serif; font-size: 13px; letter-spacing: 0.5px; line-height: 34px; padding-left: 5px; pointer-events: none; position: relative; text-align: center; width: 28px;">6:13</div><div aria-label="Playbar" aria-orientation="horizontal" aria-valuemax="373.457" aria-valuemin="0" aria-valuenow="0" aria-valuetext="0:00" role="slider" tabindex="0" style="cursor: pointer; flex: 1 1 0%; height: 34px; outline: none; margin-left: 15px; margin-right: 10px; position: relative;"><canvas height="34" width="503" style="height: 34px; left: -15px; position: absolute; top: 0px; width: 497px;"></canvas><div style="border-radius: 50%; height: 11.2px; left: -5.6px; opacity: 0; position: absolute; top: 11.4px; width: 11.2px;"></div></div></div></div></div></div><div class="w-bottom-bar-right w-css-reset" style="display: table-cell; vertical-align: top; position: relative; width: 0px; opacity: 1; transition: opacity 0s ease 0s; white-space: nowrap;"><div class="w-bottom-bar-right-inner-anchor w-css-reset" style="height: 34px; position: relative; pointer-events: auto; white-space: nowrap; display: inline-block; right: 0px; top: 0px; vertical-align: top;"><div class="w-bottom-bar-right-inner w-css-reset" style="height: 34px; position: relative; pointer-events: auto; white-space: nowrap; display: inline-block; opacity: 1; right: 0px; top: 0px; transform: translateY(0px); transition: opacity 0ms ease 0s, transform 0ms ease 0s;"><div class="w-css-reset" data-handle="captionsButton" style="display: inline-block; vertical-align: top;"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button tagname="button" class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" aria-expanded="false" aria-label="Show captions menu" title="Show captions menu" style="background-color: rgba(0, 0, 0, 0); box-shadow: none; cursor: pointer; height: 100%; position: relative; transition: background-color 150ms ease 0s; width: 100%;"><div class="w-vulcan-icon-wrapper" data-handle="captionsButton" style="box-sizing: border-box; height: 100%; position: relative; transform: scale(1.001); transition: transform 200ms ease 0s;"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" focusable="false" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><g><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.8" d="M18.4,18.7c-0.5,0.7-1.1,1.2-2.1,1.2c-1.3,0-2.4-1.1-2.4-2.8c0-1.6,1-2.8,2.4-2.8c1,0,1.6,0.5,2,1.2"></path></g><g><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.8" d="M25.8,18.7c-0.5,0.7-1.1,1.2-2.1,1.2c-1.3,0-2.4-1.1-2.4-2.8c0-1.6,1-2.8,2.4-2.8c1,0,1.6,0.5,2,1.2"></path></g><g><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M31,21.9c0,1.6-1.4,3-3,3H12c-1.6,0-3-1.4-3-3V12c0-1.6,1.4-3,3-3h16c1.6,0,3,1.4,3,3V21.9z"></path></g></svg></div></button></div></div><div class="w-css-reset" data-handle="volumeButton" style="display: inline-block; vertical-align: top;"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button tagname="button" class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" aria-label="Mute" title="Mute" style="background-color: rgba(0, 0, 0, 0); box-shadow: none; cursor: pointer; height: 100%; position: relative; transition: background-color 150ms ease 0s; width: 100%;"><div class="w-vulcan-icon-wrapper" data-handle="volumeButton" style="box-sizing: border-box; height: 100%; position: relative; transform: scale(1.001); transition: transform 200ms ease 0s;"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" focusable="false" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><g style="transform: translateX(1.25px); transition: transform 100ms ease 0s;"><g><path d="M13.8,14.2c-0.5,0.5-1.4,0.8-2,0.8h-1.6C9.5,15,9,15.5,9,16.2v1.6c0,0.7,0.5,1.2,1.2,1.2h1.6c0.7,0,1.6,0.4,2,0.8l2.3,2.3c0.5,0.5,0.8,0.3,0.8-0.4v-9.6c0-0.7-0.4-0.8-0.8-0.4L13.8,14.2z"></path></g><g><path fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="2" d="M22,11.7c0,0,1.1,2.5,1.1,5s-1.1,5-1.1,5" style="opacity: 1; transition: opacity 100ms ease 0s;"></path><path fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="2" d="M25.8,9.2c0,0,1.7,3.8,1.7,7.5c0,3.7-1.7,7.5-1.7,7.5" style="opacity: 1; transition: opacity 100ms ease 0s;"></path></g><g style="opacity: 0; transition: opacity 100ms ease 0s;"><line fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="1.8102" x1="19.2" y1="15" x2="23.2" y2="19"></line><line fill="none" stroke="#ffffff" stroke-line-cap="round" stroke-miterlimit="10" stroke-width="1.8102" x1="19.2" y1="19" x2="23.2" y2="15"></line></g></g></svg></div></button></div></div><div class="w-css-reset" data-handle="settingsButton" style="display: inline-block; vertical-align: top;"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button tagname="button" class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" aria-expanded="false" aria-label="Show settings menu" title="Show settings menu" style="background-color: rgba(0, 0, 0, 0); box-shadow: none; cursor: pointer; height: 100%; position: relative; transition: background-color 150ms ease 0s; width: 100%;"><div class="w-vulcan-icon-wrapper" data-handle="settingsButton" style="box-sizing: border-box; height: 100%; position: relative; transform: scale(1.001); transition: transform 200ms ease 0s;"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" focusable="false" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><g><g><path d="M28.3,16.4h-1.9c-0.4,0-0.8-0.3-0.9-0.7l-0.4-1.1c-0.2-0.3-0.1-0.8,0.2-1.1l1.3-1.3c0.3-0.3,0.3-0.7,0-1l-0.4-0.4c-0.3-0.3-0.7-0.3-1,0l-1.3,1.3c-0.3,0.3-0.8,0.3-1.1,0.1l-1.1-0.5c-0.4-0.1-0.7-0.5-0.7-0.9V9.1c0-0.4-0.3-0.7-0.7-0.7h-0.6c-0.4,0-0.7,0.3-0.7,0.7v1.7c0,0.4-0.3,0.8-0.7,0.9l-1.2,0.5c-0.3,0.2-0.8,0.1-1.1-0.2l-1.2-1.2c-0.3-0.3-0.7-0.3-1,0l-0.4,0.4c-0.3,0.3-0.3,0.7,0,1l1.2,1.2c0.3,0.3,0.3,0.8,0.1,1.1l-0.5,1.2c-0.1,0.4-0.5,0.7-0.9,0.7h-1.6c-0.4,0-0.7,0.3-0.7,0.7v0.6c0,0.4,0.3,0.7,0.7,0.7h1.6c0.4,0,0.8,0.3,0.9,0.7l0.5,1.2c0.2,0.3,0.1,0.8-0.1,1.1l-1.2,1.2c-0.3,0.3-0.3,0.7,0,1l0.4,0.4c0.3,0.3,0.7,0.3,1,0l1.2-1.2c0.3-0.3,0.8-0.3,1.1-0.2l1.2,0.5c0.4,0.1,0.7,0.5,0.7,0.9v1.7c0,0.4,0.3,0.7,0.7,0.7h0.6c0.4,0,0.7-0.3,0.7-0.7V24c0-0.4,0.3-0.8,0.7-0.9l1.1-0.5c0.3-0.2,0.8-0.1,1.1,0.1l1.3,1.3c0.3,0.3,0.7,0.3,1,0l0.4-0.4c0.3-0.3,0.3-0.7,0-1l-1.3-1.3C25,21,25,20.5,25.1,20.2l0.4-1.1c0.1-0.4,0.5-0.7,0.9-0.7h1.9c0.4,0,0.7-0.3,0.7-0.7v-0.6C29,16.7,28.7,16.4,28.3,16.4z M23.8,17.5c0,2.2-1.8,3.9-3.9,3.9c-2.2,0-3.9-1.8-3.9-3.9s1.7-3.9,3.9-3.9C22.1,13.6,23.8,15.3,23.8,17.5z"></path></g></g></svg></div></button></div></div><div class="w-css-reset" data-handle="fullscreenButton" style="display: inline-block; vertical-align: top;"><div class="w-vulcan-button-wrapper w-css-reset" style="display: inline-block; height: 34px; position: relative; vertical-align: top; width: 40px;"><button tagname="button" class="w-vulcan-v2-button w-css-reset w-css-reset-tree w-css-reset-button-important" aria-label="Fullscreen" title="Fullscreen" style="background-color: rgba(0, 0, 0, 0); box-shadow: none; cursor: pointer; height: 100%; position: relative; transition: background-color 150ms ease 0s; width: 100%;"><div class="w-vulcan-icon-wrapper" data-handle="fullscreenButton" style="box-sizing: border-box; height: 100%; position: relative; transform: scale(1.001); transition: transform 200ms ease 0s;"><svg x="0px" y="0px" viewBox="0 0 40 34" enable-background="new 0 0 40 34" focusable="false" style="fill: rgb(255, 255, 255); height: 100%; left: 0px; stroke-width: 0px; top: 0px; width: 100%;"><g><g><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="31.4,12.6 31.4,8.7 25.8,8.7"></polyline><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="14.7,8.7 9.1,8.7 9.1,12.6"></polyline><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="25.8,24.8 31.4,24.8 31.4,20.9"></polyline><polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="9.1,20.9 9.1,24.8 14.7,24.8"></polyline></g><rect x="13.7" y="12.3" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new" width="13.3" height="8.9"></rect></g></svg></div></button></div></div></div></div><div class="w-ellipsis w-css-reset" style="height: 34px; position: relative; pointer-events: auto; white-space: nowrap; display: none;"></div></div></div></div><div class="w-foreground w-css-reset" style="height: 100%; left: 0px; pointer-events: none; position: absolute; top: 0px; width: 100%;"><div class="w-css-reset" data-handle="contextMenu" style="pointer-events: auto;"></div><div class="w-css-reset" data-handle="loadingHourglass" style="pointer-events: auto;"></div><div class="w-css-reset" data-handle="focusOutline" style="pointer-events: auto;"><div class="w-focus-outline" style="box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px inset; display: none; height: 100%; left: 0px; pointer-events: none; position: absolute; right: 0px; width: 100%;"></div></div></div></div><style id="wistia_48_style" type="text/css" class="wistia_injected_style">
+      #wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset{font-size:14px;}
+#wistia_chrome_37 #wistia_grid_42_wrapper div.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper span.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper ul.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper li.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper label.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper button.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper img.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper a.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper svg.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper p.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper a.w-css-reset{border:0;}
+#wistia_chrome_37 #wistia_grid_42_wrapper h1.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:2em;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper h2.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:1.5em;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper h3.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:1.17em;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper p.w-css-reset{margin:1.4em 0;}
+#wistia_chrome_37 #wistia_grid_42_wrapper a.w-css-reset{display:inline;}
+#wistia_chrome_37 #wistia_grid_42_wrapper span.w-css-reset{display:inline;}
+#wistia_chrome_37 #wistia_grid_42_wrapper svg.w-css-reset{display:inline;}
+#wistia_chrome_37 #wistia_grid_42_wrapper ul.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper ol.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper li.w-css-reset{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper ul:before.w-css-reset{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper ol:before.w-css-reset{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper li:before.w-css-reset{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper ul:after.w-css-reset{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper ol:after.w-css-reset{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper li:after.w-css-reset{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper label.w-css-reset{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;float:none;outline:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper button.w-css-reset{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;border:0;border-radius:0;outline:none;position:static}
+#wistia_chrome_37 #wistia_grid_42_wrapper img.w-css-reset{border:0;display:inline-block;vertical-align:top;border-radius:0;outline:none;position:static}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset button::-moz-focus-inner{border: 0;}
+      #wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree {font-size:14px;}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree div{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree span{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ul{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree li{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree label{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree button{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree img{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree a{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree svg{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree p{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree a{border:0;}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree h1{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:2em;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree h2{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:1.5em;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree h3{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:1.17em;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree p{margin:1.4em 0;}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree a{display:inline;}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree span{display:inline;}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree svg{display:inline;}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ul{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ol{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree li{box-sizing:inherit;box-shadow:none;color:inherit;display:block;float:none;font:inherit;font-family:inherit;font-style:normal;font-weight:normal;font-size:inherit;letter-spacing:0;line-height:inherit;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;padding:0;position:static;text-decoration:none;text-transform:none;text-shadow:none;transition:none;word-wrap:normal;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-user-select:none;-webkit-font-smoothing:antialiased;list-style-type:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ul:before{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ol:before{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree li:before{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ul:after{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree ol:after{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree li:after{display:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree label{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;float:none;outline:none}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree button{background-attachment:scroll;background-color:transparent;background-image:none;background-position:0 0;background-repeat:no-repeat;background-size:100% 100%;border:0;border-radius:0;outline:none;position:static}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree img{border:0;display:inline-block;vertical-align:top;border-radius:0;outline:none;position:static}
+#wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-tree  button::-moz-focus-inner{border: 0;}
+      #wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-max-width-none-important{max-width:none!important}
+      #wistia_chrome_37 #wistia_grid_42_wrapper .w-css-reset-button-important{border-radius:0!important;color:#fff!important;}
+    </style></div></div><div id="wistia_grid_42_front"></div><div id="wistia_grid_42_top_inside"><div id="wistia_grid_42_top" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div><div id="wistia_grid_42_bottom_inside"><div id="wistia_grid_42_bottom" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div><div id="wistia_grid_42_left_inside"><div id="wistia_grid_42_left" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div><div id="wistia_grid_42_right_inside"><div id="wistia_grid_42_right" style="height: 0px; font-size: 0px; line-height: 0px;"> </div></div></div><div id="wistia_grid_42_below" style="height: 0px; font-size: 0px; line-height: 0px;"> </div><style id="wistia_43_style" type="text/css" class="wistia_injected_style">#wistia_grid_42_wrapper{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Arial,sans-serif;font-size:14px;height:100%;position:relative;text-align:left;width:100%;}
+#wistia_grid_42_wrapper *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
+#wistia_grid_42_above{position:relative;}
+#wistia_grid_42_main{display:block;height:100%;position:relative;}
+#wistia_grid_42_behind{height:100%;left:0;position:absolute;top:0;width:100%;}
+#wistia_grid_42_center{height:100%;overflow:hidden;position:relative;width:100%;}
+#wistia_grid_42_front{display:none;height:100%;left:0;position:absolute;top:0;width:100%;}
+#wistia_grid_42_top_inside{position:absolute;left:0;top:0;width:100%;}
+#wistia_grid_42_top{width:100%;position:absolute;bottom:0;left:0;}
+#wistia_grid_42_bottom_inside{position:absolute;left:0;bottom:0;width:100%;}
+#wistia_grid_42_bottom{width:100%;position:absolute;top:0;left:0;}
+#wistia_grid_42_left_inside{height:100%;position:absolute;left:0;top:0;}
+#wistia_grid_42_left{height:100%;position:absolute;right:0;top:0;}
+#wistia_grid_42_right_inside{height:100%;right:0;position:absolute;top:0;}
+#wistia_grid_42_right{height:100%;left:0;position:absolute;top:0;}
+#wistia_grid_42_below{position:relative;}</style></div></div></div>
+</div></div>
+<script charset="ISO-8859-1" src="./E-v1.js.download"></script>
+<script>
+window.theMediaEmbed = Wistia.embed("cu101kblpe", {
+  accountKey: "wistia-production_963575",
+  container: "wistia_video_embed_container",
+  doNotTrack: false,
+  uuid: "wistia_video_embed",
+  dontFit: "false",
+  videoFoam: "true"
+});
+</script>
+<script>
+function setupLegacyFunctions() {
+  theMediaEmbed.ready(function() {
+    theMediaEmbed.getCurrentPosition = theMediaEmbed.time;
+    theMediaEmbed.seek = function(t) {
+      theMediaEmbed.time(t).play();
+    };
+    window.$ = window.jQuery = window.wJQuery;
+    setTimeout(function() {
+      window.$ = window.jQuery = window.wJQuery;
+    }, 500);
+    setTimeout(function() {
+      window.$ = window.jQuery = window.wJQuery;
+    }, 2000);
+  });
+}
+setupLegacyFunctions();
+</script>
+
+<div id="customize3_waypoints" style="display:none"></div>
+</div>
+<script>
+  $(function() {
+    theMediaEmbed.embedded(function(){
+      adjustVideoDimensions();
+  
+      $(window).resize(function(){
+        adjustVideoDimensions();
+      });
+    });
+  
+  
+    function adjustVideoDimensions() {
+      var aspectRatio = theMediaEmbed.aspect();
+      var maxHeight = $(window).height() - $('#media').offset().top;
+      var maxWidth = Math.min($(window).width(), 960);
+  
+      var heightForMaxWidth = Math.round(maxWidth / aspectRatio);
+      var heightIsRestricting = heightForMaxWidth > maxHeight;
+  
+      if (heightIsRestricting) {
+        var dimensions = getDimensionsForHeight(maxHeight, aspectRatio);
+        $('#media').css('maxHeight', dimensions.height);
+        $('#media').css('maxWidth', dimensions.width);
+      }
+    }
+  
+    function getDimensionsForHeight(maxHeight, aspect) {
+      var dimensions = {};
+      dimensions.height = maxHeight;
+      dimensions.width = Math.round(dimensions.height * aspect);
+      return dimensions;
+    }
+  
+  });
+</script>
+
+
+</div>
+</div>
+</div>
+<div id="sub_media_bar_wrapper">
+<div class="inner_container" id="sub_media_bar"></div>
+</div>
+<div id="title_and_comments">
+<div class="inner_container">
+<script>
+  window.userCanUpdateMedia = false;
+</script>
+<div class="title_and_description">
+<div id="title">
+<h1>
+Return and Scope - Full Stack Web
+</h1>
+</div>
+<div id="media_description">
+<div class="body">
+<div class="description_wrapper">
+
+</div>
+</div>
+<textarea name="media[markdown_description]" id="media_markdown_description" class="editor" style="display: none;" tabindex="2" placeholder="Add a description"></textarea>
+<button class="show_more_button" style="display: none;">
+Show More
+</button>
+<div class="description-footer">
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<div id="page_footer"></div>
+
+
+</div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    // "Leave a comment"
+    $('#media_controls a.comment').click(function(){
+      var ta = $('#comments textarea:last');
+      $.scrollTo(ta, 500, function() { ta.focus(); });
+      return false;
+    });
+  
+    window._wq = window._wq || [];
+    _wq.push({ "cu101kblpe": function(video) {
+      $(document).trigger('embed-handle-exists');
+    }});
+  
+    $("#inline_embed_embed_type_seo[disabled='true']").click(function(event) {
+      $('#seo_description').show();
+    });
+  });
+</script>
+<script>
+  window.canUpdateMedia = false;
+  window.canCreateMedia = false;
+  window.mediaPath = "/medias/cu101kblpe";
+  window.showBreadCrumbs = false;
+</script>
+<script src="./show-c21a4c4f0699c4a295a2.js.download"></script>
+<script>
+  $(document).ready(function() {
+    if (navigator.userAgent.indexOf("Firefox") > 0) {
+      var setLeftMarginForFlash = function() {
+        var newWindowWidth = $(window).width();
+        var mainWellWidth = $("#content").width();
+        // create an integer based left_offset number
+        var left_offset = parseInt((newWindowWidth - mainWellWidth)/2.0);
+        if (left_offset < 0) { left_offset = 0; }
+        $("#content").css("margin-left", left_offset);
+      }
+  
+      var repositionContentContainerForFlash = function(){
+        if ( $("#content").length > 0 ) {
+          //Adjust the #content left-margin, since by default it likely isn't an int
+          setLeftMarginForFlash();
+          //If the User resizes the window, adjust the #content left-margin
+          $(window).bind("resize", function() { setLeftMarginForFlash(); });
+        }
+      }
+      repositionContentContainerForFlash();
+    }
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    if (Cookies.get('replacement_message')) {
+      window.statusBar = new ReplaceVideoStatusBar({});
+      statusBar.clear()
+      statusBar.success(Cookies.get('replacement_message'))
+      Cookies.remove('replacement_message')
+    }
+    else if (Cookies.get("queued_for_replacement") === "cu101kblpe") {
+      statusBar.info('Preparing to replace video.')
+      setTimeout(location.reload, 2000)
+    }
+  })
+</script>
+
+</div>
+</div>
+<div id="footerpad">
+&nbsp;
+</div>
+</div>
+
+<script type="text/javascript"> var _qevents = _qevents || [];(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);})();</script>
+
+
+
+<script type="text/javascript">adroll_adv_id="ESFVIUHQHJHG7IFG5ABRXN";adroll_pix_id="6AHUGEQZ2BCRHDLBFDUA4J";(function(){var e=window.onload;window.onload=function(){__adroll_loaded=true;var t=document.createElement("script");var n="https:"==document.location.protocol?"https://s.adroll.com":"http://a.adroll.com";t.setAttribute("async","true");t.type="text/javascript";t.src=n+"/j/roundtrip.js";((document.getElementsByTagName("head")||[null])[0]||document.getElementsByTagName("script")[0].parentNode).appendChild(t);if(e){e()}}})()</script>
+
+<script src="./v1.js.download" async=""></script>
+<script type="text/javascript">window._trackJs = { token: '613f2243105d4a6e92220fa85f69e586' };</script><script type="text/javascript" src="./tracker.js.download" crossorigin="anonymous"></script>
+
+
+
+
+    <script type="text/javascript" id="">(function(a,c,d,e){if(!a.getElementById(d)){var b=a.createElement(c);a=a.getElementsByTagName(c)[0];b.id=d;b.src="//js.hubspot.com/analytics/"+Math.ceil(new Date/e)*e+"/120237.js";a.parentNode.insertBefore(b,a)}})(document,"script","hs-analytics",3E5);</script>
+<script type="text/javascript" id="">null==window.snowplow&&(function(a,e,f,g,b,c,d){a[b]||(a.GlobalSnowplowNamespace=a.GlobalSnowplowNamespace||[],a.GlobalSnowplowNamespace.push(b),a[b]=function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].q=a[b].q||[],c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d))}(window,document,"script","//d1fc8wv8zag5ca.cloudfront.net/2.5.3/sp.js","snowplow"),window.snowplow("newTracker","cf","events.fivetran.com/snowplow/constriction_thought",{appId:"wistia",
+cookieDomain:".wistia.com",platform:"web",contexts:{webPage:!0,performanceTiming:!1}}),window.snowplow("enableActivityTracking",30,30));window.WistiaContext&&WistiaContext.account&&WistiaContext.user?(window.snowplow("setUserId",WistiaContext.user.id),window.snowplow("trackPageView",null,[{schema:"https://d2iok8515ir7ba.cloudfront.net/fivetran/wistia_user.json",data:{account_id:WistiaContext.account.id,user_id:WistiaContext.user.id}}])):window.snowplow("trackPageView");</script>
+  <script type="text/javascript" id="hs-script-loader" src="./120237.js(2).download"></script>
+<span style="margin: 0px auto; border: 2px dotted rgb(0, 0, 0); position: absolute; z-index: 2147483647; visibility: hidden; left: 267px; width: 0px; top: 178px; height: 0px;"></span><span style="z-index: 2147483647; position: absolute; visibility: hidden; left: 252px; width: 50px; top: 163px; height: 20px; font-size: 10px; color: black;"></span></body></html>

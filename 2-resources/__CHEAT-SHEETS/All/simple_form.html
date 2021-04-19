@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="inputs">Inputs</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1">&lt;%= f.input <span class="st">:email</span>, <span class="st">required: </span><span class="dv">false</span>, <span class="st">autofocus: </span><span class="dv">true</span> %&gt;</a>
+<a class="sourceLine" id="cb1-2" title="2">&lt;%= f.input <span class="st">:password</span>, <span class="st">required: </span><span class="dv">false</span> %&gt;</a>
+<a class="sourceLine" id="cb1-3" title="3">&lt;%= f.input <span class="st">:remember_me</span>, <span class="st">as: :boolean</span> %&gt;</a>
+<a class="sourceLine" id="cb1-4" title="4">&lt;%= f.button <span class="st">:submit</span>, <span class="st">&quot;Sign in&quot;</span> %&gt;</a></code></pre></div>
+<h3 id="adding-a-wrapper">Adding a wrapper</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1">simple_form_for <span class="ot">@x</span>, <span class="st">wrapper: :small</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,75 @@
+{
+  "name": "portfolio",
+  "description": "My personal website",
+  "version": "0.0.0",
+  "author": {
+    "name": "Josh Jacobson",
+    "email": "joshjacobson14@gmail.com",
+    "url": "https://joshjacobsonmusic.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josh-jacobson/portfolio"
+  },
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "lint": "eslint . --ext .json --ext .js",
+    "prettier": "prettier --write \"**/*.{html,js,json,md,mdx,yml}\"",
+    "start": "next start",
+    "test": "yarn lint",
+    "postinstall": "patch-package"
+  },
+  "lint-staged": {
+    "*.{html,js,json,md,mdx,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@chakra-ui/core": "0.8.0",
+    "@emotion/core": "10.0.28",
+    "@emotion/styled": "10.0.27",
+    "@mapbox/rehype-prism": "0.4.0",
+    "@mdx-js/loader": "1.5.8",
+    "@mdx-js/react": "1.5.8",
+    "@next/mdx": "9.4.1",
+    "babel-plugin-import-glob-array": "0.2.0",
+    "big.js": "5.2.2",
+    "comma-number": "2.0.1",
+    "date-fns": "2.13.0",
+    "emotion-theming": "10.0.27",
+    "fathom-client": "3.0.0",
+    "firebase": "7.14.4",
+    "firebase-admin": "8.12.1",
+    "googleapis": "48.0.0",
+    "iframe-resizer-react": "^1.0.4",
+    "mdx-prism": "0.3.1",
+    "next": "^9.5.2",
+    "next-google-fonts": "1.1.0",
+    "next-mdx-enhanced": "3.0.0",
+    "next-seo": "4.5.0",
+    "patch-package": "6.2.2",
+    "postinstall-postinstall": "2.1.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-tweet-embed": "1.2.2",
+    "reading-time": "1.2.0",
+    "remark-autolink-headings": "6.0.0",
+    "remark-capitalize": "1.1.0",
+    "remark-code-titles": "0.1.1",
+    "remark-slug": "6.0.0",
+    "sass": "^1.26.10",
+    "swr": "0.2.0",
+    "unsplash-js": "6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-get-off-my-lawn": "5.0.1",
+    "globby": "11.0.0",
+    "lint-staged": "10.1.2",
+    "prettier": "2.0.5",
+    "rehype": "10.0.0"
+  }
+}

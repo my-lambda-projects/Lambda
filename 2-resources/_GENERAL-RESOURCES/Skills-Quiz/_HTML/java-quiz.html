@@ -1,0 +1,886 @@
+<h2 id="java">Java</h2>
+<h4 id="q1.-given-the-string-strawberries-saved-in-a-variable-called-fruit-what-would-fruit.substring2-5-return">Q1. Given the string "strawberries" saved in a variable called fruit, what would <code>fruit.substring(2, 5)</code> return?</h4>
+<ul>
+<li>[ ] rawb</li>
+<li>[x] raw</li>
+<li>[ ] awb</li>
+<li>[ ] traw</li>
+</ul>
+<p><strong>Reasoning:</strong> The substring method is accepting two arguments. The first argument being the index to start(includes that char at 2) and the second the index of the string to end the substring(excludes the char at 5). Strings in Java are like arrays of chars. Therefore the method will return "raw" as those are the chars in indexes 2,3, and 4. You can also take the ending index and subtract the beginning index from it, to determine how many chars will be included in the substring (5-2=3).</p>
+<h4 id="q2.-how-can-you-achieve-runtime-polymorphism-in-java">Q2. How can you achieve runtime polymorphism in Java?</h4>
+<ul>
+<li>[ ] method overloading</li>
+<li>[ ] method overrunning</li>
+<li>[x] method overriding</li>
+<li>[ ] method calling</li>
+</ul>
+<h4 id="q3.-given-the-following-definitions-which-of-these-expression-will-not-evaluate-to-true">Q3. Given the following definitions, which of these expression will <strong>NOT</strong> evaluate to true?</h4>
+<p><code>boolean b1 = true, b2 = false; int i1 = 1, i2 = 2;</code></p>
+<ul>
+<li>[ ] <code>(i1 | i2) == 3</code></li>
+<li>[x] <code>i2 &amp;&amp; b1</code></li>
+<li>[ ] <code>b1 || !b2</code></li>
+<li>[ ] <code>(i1 ^ i2) &lt; 4</code></li>
+</ul>
+<h4 id="q4.-what-can-you-use-to-create-new-instances-in-java">Q4. What can you use to create new instances in Java?</h4>
+<ul>
+<li>[x] constructor</li>
+<li>[ ] another instance</li>
+<li>[ ] field</li>
+<li>[ ] private method</li>
+</ul>
+<h4 id="q5.-what-is-the-output-of-this-code">Q5. What is the output of this code?</h4>
+<pre class="shell"><code>1: class Main {
+2:   public static void main (String[] args) {
+3:     int array[] = {1, 2, 3, 4};
+4:     for (int i = 0; i &lt; array.size(); i++) {
+5:        System.out.print(array[i]);
+6:     }
+7:   }
+8: }</code></pre>
+<ul>
+<li>[x] It will not compile because of line 4.</li>
+<li>[ ] It will not compile because of line 3.</li>
+<li>[ ] 123</li>
+<li>[ ] 1234</li>
+</ul>
+<h4 id="q6.-which-of-the-following-can-replace-the-code-snippet-to-make-the-code-below-print-hello-world">Q6. Which of the following can replace the CODE SNIPPET to make the code below print "Hello World"?</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">interface</span> Interface1 {</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">static</span> <span class="dt">void</span> <span class="fu">print</span>() {</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;Hello&quot;</span>);</a>
+<a class="sourceLine" id="cb2-4" title="4">    }</a>
+<a class="sourceLine" id="cb2-5" title="5">}</a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">interface</span> Interface2 {</a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="dt">static</span> <span class="dt">void</span> <span class="fu">print</span>() {</a>
+<a class="sourceLine" id="cb2-9" title="9">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;World!&quot;</span>);</a>
+<a class="sourceLine" id="cb2-10" title="10">    }</a>
+<a class="sourceLine" id="cb2-11" title="11">}</a></code></pre></div>
+<ul>
+<li>[ ] <code>super1.print(); super2.print();</code></li>
+<li>[ ] <code>this.print();</code></li>
+<li>[ ] <code>super.print();</code></li>
+<li>[x] <code>Interface1.print(); Interface2.print();</code></li>
+</ul>
+<h4 id="q7.-what-does-the-following-code-print">Q7. What does the following code print?</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">String</span> str = <span class="st">&quot;abcde&quot;</span>;</a>
+<a class="sourceLine" id="cb3-2" title="2">str.<span class="fu">trim</span>();</a>
+<a class="sourceLine" id="cb3-3" title="3">str.<span class="fu">toUpperCase</span>();</a>
+<a class="sourceLine" id="cb3-4" title="4">str.<span class="fu">substring</span>(<span class="dv">3</span>, <span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(str);</a></code></pre></div>
+<ul>
+<li>[ ] CD</li>
+<li>[ ] CDE</li>
+<li>[ ] D</li>
+<li>[x] "abcde"</li>
+</ul>
+<h4 id="q8.-what-is-the-result-of-this-code">Q8. What is the result of this code?</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb4-3" title="3">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="fu">print</span>(<span class="dv">1</span>));</a>
+<a class="sourceLine" id="cb4-4" title="4">    }</a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="dt">static</span> <span class="bu">Exception</span> <span class="fu">print</span>(<span class="dt">int</span> i){</a>
+<a class="sourceLine" id="cb4-6" title="6">        <span class="kw">if</span> (i&gt;<span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb4-7" title="7">            <span class="kw">return</span> <span class="kw">new</span> <span class="bu">Exception</span>();</a>
+<a class="sourceLine" id="cb4-8" title="8">        } <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb4-9" title="9">            <span class="kw">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span>();</a>
+<a class="sourceLine" id="cb4-10" title="10">        }</a>
+<a class="sourceLine" id="cb4-11" title="11">    }</a>
+<a class="sourceLine" id="cb4-12" title="12">}</a></code></pre></div>
+<ul>
+<li>[ ] It will show a stack trace with a runtime exception.</li>
+<li>[x] "java.lang.Exception"</li>
+<li>[ ] It will run and throw an exception.</li>
+<li>[ ] It will not compile.</li>
+</ul>
+<h4 id="q9.-which-class-can-compile-given-these-declarations">Q9. Which class can compile given these declarations?</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">interface</span> One {</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">default</span> <span class="dt">void</span> <span class="fu">method</span>() {</a>
+<a class="sourceLine" id="cb5-3" title="3">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;&quot;</span>One<span class="st">&quot;&quot;</span>);</a>
+<a class="sourceLine" id="cb5-4" title="4">    }</a>
+<a class="sourceLine" id="cb5-5" title="5">}</a>
+<a class="sourceLine" id="cb5-6" title="6"></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">interface</span> Two {</a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="kw">default</span> <span class="dt">void</span> <span class="fu">method</span> () {</a>
+<a class="sourceLine" id="cb5-9" title="9">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;&quot;</span>One<span class="st">&quot;&quot;</span>);</a>
+<a class="sourceLine" id="cb5-10" title="10">    }</a>
+<a class="sourceLine" id="cb5-11" title="11">}</a></code></pre></div>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">class</span> Three <span class="kw">implements</span> One, Two {</a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">method</span>() {</a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="kw">super</span>.<span class="fu">One</span>.<span class="fu">method</span>();</a>
+<a class="sourceLine" id="cb6-4" title="4">    }</a>
+<a class="sourceLine" id="cb6-5" title="5">}</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> Three <span class="kw">implements</span> One, Two {</a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">method</span>() {</a>
+<a class="sourceLine" id="cb7-3" title="3">        One.<span class="fu">method</span>();</a>
+<a class="sourceLine" id="cb7-4" title="4">    }</a>
+<a class="sourceLine" id="cb7-5" title="5">}</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span> Three <span class="kw">implements</span> One, Two {</a>
+<a class="sourceLine" id="cb8-2" title="2">}</a></code></pre></div>
+<ul>
+<li>[x] D</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span> Three <span class="kw">implements</span> One, Two {</a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">method</span>() {</a>
+<a class="sourceLine" id="cb9-3" title="3">        One.<span class="fu">super</span>.<span class="fu">method</span>();</a>
+<a class="sourceLine" id="cb9-4" title="4">    }</a>
+<a class="sourceLine" id="cb9-5" title="5">}</a></code></pre></div>
+<h4 id="q10.-what-is-the-output-of-this-code">Q10. What is the output of this code?</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb10-3" title="3">        <span class="bu">List</span> list = <span class="kw">new</span> <span class="bu">ArrayList</span>();</a>
+<a class="sourceLine" id="cb10-4" title="4">        list.<span class="fu">add</span>(<span class="st">&quot;hello&quot;</span>);</a>
+<a class="sourceLine" id="cb10-5" title="5">        list.<span class="fu">add</span>(<span class="dv">2</span>);</a>
+<a class="sourceLine" id="cb10-6" title="6">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(list.<span class="fu">get</span>(<span class="dv">0</span>) <span class="kw">instanceof</span> <span class="bu">Object</span>);</a>
+<a class="sourceLine" id="cb10-7" title="7">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(list.<span class="fu">get</span>(<span class="dv">1</span>) <span class="kw">instanceof</span> <span class="bu">Integer</span>);</a>
+<a class="sourceLine" id="cb10-8" title="8">    }</a>
+<a class="sourceLine" id="cb10-9" title="9">}</a></code></pre></div>
+<ul>
+<li>[ ] The code does not compile.</li>
+<li>[ ] truefalse</li>
+<li>[x] truetrue</li>
+<li>[ ] falsetrue</li>
+</ul>
+<h4 id="q11.-given-the-following-two-classes-what-will-be-the-output-of-the-main-class">Q11. Given the following two classes, what will be the output of the Main class?</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">package</span><span class="im"> mypackage;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Math</span> {</a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">abs</span>(<span class="dt">int</span> num){</a>
+<a class="sourceLine" id="cb11-4" title="4">        <span class="kw">return</span> num &lt; <span class="dv">0</span> ? -num : num;</a>
+<a class="sourceLine" id="cb11-5" title="5">    }</a>
+<a class="sourceLine" id="cb11-6" title="6">}</a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="kw">package</span><span class="im"> mypackage.elementary;</span></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Math</span> {</a>
+<a class="sourceLine" id="cb11-9" title="9">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">abs</span> (<span class="dt">int</span> num) {</a>
+<a class="sourceLine" id="cb11-10" title="10">        <span class="kw">return</span> -num;</a>
+<a class="sourceLine" id="cb11-11" title="11">    }</a>
+<a class="sourceLine" id="cb11-12" title="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">import</span><span class="im"> mypackage.Math;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">import</span><span class="im"> mypackage.elementary.*;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb12-5" title="5">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (<span class="bu">String</span> args[]){</a>
+<a class="sourceLine" id="cb12-6" title="6">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="bu">Math</span>.<span class="fu">abs</span>(<span class="dv">123</span>));</a>
+<a class="sourceLine" id="cb12-7" title="7">    }</a>
+<a class="sourceLine" id="cb12-8" title="8">}</a></code></pre></div>
+<ul>
+<li>[ ] Lines 1 and 2 generate compiler errors due to class name conflicts.</li>
+<li>[ ] "-123"</li>
+<li>[ ] It will throw an exception on line 5.</li>
+<li>[x] "123"</li>
+</ul>
+<p><strong>Explanation:</strong> The answer is "123". The <code>abs()</code> method evaluates to the one inside mypackage.Math class.</p>
+<h4 id="q12.-what-is-the-result-of-this-code">Q12. What is the result of this code?</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb13-1" title="1"><span class="dv">1</span>: <span class="kw">class</span> MainClass {</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="dv">2</span>:  <span class="dt">final</span> <span class="bu">String</span> <span class="fu">message</span>(){</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="dv">3</span>:      <span class="kw">return</span> <span class="st">&quot;Hello!&quot;</span>;</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="dv">4</span>:  }</a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="dv">5</span>: }</a>
+<a class="sourceLine" id="cb13-6" title="6"></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="dv">6</span>: <span class="kw">class</span> Main <span class="kw">extends</span> MainClass {</a>
+<a class="sourceLine" id="cb13-8" title="8"><span class="dv">7</span>:  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb13-9" title="9"><span class="dv">8</span>:      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="fu">message</span>());</a>
+<a class="sourceLine" id="cb13-10" title="10"><span class="dv">9</span>:  }</a>
+<a class="sourceLine" id="cb13-11" title="11"></a>
+<a class="sourceLine" id="cb13-12" title="12"><span class="dv">10</span>: <span class="bu">String</span> <span class="fu">message</span>(){</a>
+<a class="sourceLine" id="cb13-13" title="13"><span class="dv">11</span>:     <span class="kw">return</span> <span class="st">&quot;World!&quot;</span>;</a>
+<a class="sourceLine" id="cb13-14" title="14"><span class="dv">12</span>:  }</a>
+<a class="sourceLine" id="cb13-15" title="15"><span class="dv">13</span>: }</a></code></pre></div>
+<ul>
+<li>[x] It will not compile because of line 10.</li>
+<li>[ ] "Hello!"</li>
+<li>[ ] It will not compile because of line 2.</li>
+<li>[ ] "World!"</li>
+</ul>
+<p><strong>Explanation:</strong> Non-static method message() cannot be referenced from a static context.</p>
+<h4 id="q13.-given-this-code-which-command-will-output-2">Q13. Given this code, which command will output "2"?</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb14-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb14-3" title="3">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(args[<span class="dv">2</span>]);</a>
+<a class="sourceLine" id="cb14-4" title="4">    }</a>
+<a class="sourceLine" id="cb14-5" title="5">}</a></code></pre></div>
+<ul>
+<li>[ ] <code>java Main 1 2 "3 4" 5</code></li>
+<li>[x] <code>java Main 1 "2" "2" 5</code></li>
+<li>[ ] <code>java Main.class 1 "2" 2 5</code></li>
+<li>[ ] <code>java Main 1 "2" "3 4" 5</code></li>
+</ul>
+<h4 id="q14.-what-is-the-output-of-this-code">Q14. What is the output of this code?</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb15-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb15-3" title="3">        <span class="dt">int</span> a = <span class="dv">123451234512345</span>;</a>
+<a class="sourceLine" id="cb15-4" title="4">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(a);</a>
+<a class="sourceLine" id="cb15-5" title="5">    }</a>
+<a class="sourceLine" id="cb15-6" title="6">}</a></code></pre></div>
+<ul>
+<li>[ ] "123451234512345"</li>
+<li>[x] Nothing - this will not compile.</li>
+<li>[ ] a negative integer value</li>
+<li>[ ] "12345100000"</li>
+</ul>
+<p><strong>Reasoning:</strong> The int type in Java can be used to represent any whole number from -2147483648 to 2147483647. Therefore this code will not compile as the number assigned to ‘a' is larger than the int type can hold.</p>
+<h4 id="q15.-what-is-the-output-of-this-code">Q15. What is the output of this code?</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb16-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb16-3" title="3">        <span class="bu">String</span> message = <span class="st">&quot;Hello world!&quot;</span>;</a>
+<a class="sourceLine" id="cb16-4" title="4">        <span class="bu">String</span> newMessage = message.<span class="fu">substring</span>(<span class="dv">6</span>, <span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb16-5" title="5">            + message.<span class="fu">substring</span>(<span class="dv">12</span>, <span class="dv">6</span>);</a>
+<a class="sourceLine" id="cb16-6" title="6">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(newMessage);</a>
+<a class="sourceLine" id="cb16-7" title="7">    }</a>
+<a class="sourceLine" id="cb16-8" title="8">}</a></code></pre></div>
+<ul>
+<li>[ ] The code does not compile.</li>
+<li>[x] A runtime exception is thrown.</li>
+<li>[ ] "world!!world"</li>
+<li>[ ] "world!world!"</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb17-1" title="1"><span class="bu">String</span> m = <span class="st">&quot;Hello world!&quot;</span>;</a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="bu">String</span> n = m.<span class="fu">substring</span>(<span class="dv">6</span>,<span class="dv">12</span>) + m.<span class="fu">substring</span>(<span class="dv">12</span>,<span class="dv">6</span>);</a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(n);</a></code></pre></div>
+<h4 id="q16.-how-do-you-write-a-foreach-loop-that-will-iterate-over-arraylistpencilpencilcase">Q16. How do you write a foreach loop that will iterate over ArrayList&lt;Pencil&gt;pencilCase?</h4>
+<ul>
+<li>[x] <code>for (Pencil pencil : pencilCase) {}</code></li>
+<li>[ ] <code>for (pencilCase.next()) {}</code></li>
+<li>[ ] <code>for (Pencil pencil : pencilCase.iterator()) {}</code></li>
+<li>[ ] <code>for (pencil in pencilCase) {}</code></li>
+</ul>
+<h4 id="q17.-fill-in-the-blanks">Q17. Fill in the blanks?</h4>
+<ul>
+<li>Object-oriented programming (OOP) is a programming language model that organizes software design around (objects), rather than (actions).</li>
+</ul>
+<h4 id="q18.-what-code-would-you-use-to-tell-if-schwifty-is-of-type-string">Q18. What code would you use to tell if "schwifty" is of type String?</h4>
+<ul>
+<li>[ ] <code>"schwifty".getType() == String</code></li>
+<li>[ ] <code>"schwifty".getClass().getSimpleName() == "String"</code></li>
+<li>[ ] <code>"schwifty".getType().equals("String")</code></li>
+<li>[x] <code>"schwifty" instanceof String</code></li>
+</ul>
+<h4 id="q19.-what-does-this-code-print">Q19. What does this code print?</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb18-1" title="1"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;apple&quot;</span>.<span class="fu">compareTo</span>(<span class="st">&quot;banana&quot;</span>));</a></code></pre></div>
+<ul>
+<li>[ ] <code>0</code></li>
+<li>[ ] positive number</li>
+<li>[x] negative number</li>
+<li>[ ] compilation error</li>
+</ul>
+<h4 id="q20.-you-have-an-arraylist-of-names-that-you-want-to-sort-alphabetically.-which-approach-would-not-work">Q20. You have an ArrayList of names that you want to sort alphabetically. Which approach would <strong>NOT</strong> work?</h4>
+<ul>
+<li>[ ] <code>names.sort(Comparator.comparing(String::toString))</code></li>
+<li>[ ] <code>Collections.sort(names)</code></li>
+<li>[x] <code>names.sort(List.DESCENDING)</code></li>
+<li>[ ] <code>names.stream().sorted((s1, s2) -&gt; s1.compareTo(s2)).collect(Collectors.toList())</code></li>
+</ul>
+<h4 id="q21.-by-implementing-encapsulation-you-cannot-directly-access-the-classs-_-properties-unless-you-are-writing-code-inside-the-class-itself.">Q21. By implementing encapsulation, you cannot directly access the class's <strong>_</strong> properties unless you are writing code inside the class itself.</h4>
+<ul>
+<li>[x] private</li>
+<li>[ ] protected</li>
+<li>[ ] no-modifier</li>
+<li>[ ] public</li>
+</ul>
+<h4 id="q22.-which-is-the-most-up-to-date-way-to-instantiate-the-current-date">Q22. Which is the most up-to-date way to instantiate the current date?</h4>
+<ul>
+<li>[ ] <code>new SimpleDateFormat("yyyy-MM-dd").format(new Date())</code></li>
+<li>[ ] <code>new Date(System.currentTimeMillis())</code></li>
+<li>[x] <code>LocalDate.now()</code></li>
+<li>[ ] <code>Calendar.getInstance().getTime()</code></li>
+</ul>
+<p><strong>Explanation</strong>: LocalDate is newest class added in java 8</p>
+<h4 id="q23.-fill-in-the-blank-to-create-a-piece-of-code-that-will-tell-wether-int0-is-divisible-by-5">Q23. Fill in the blank to create a piece of code that will tell wether int0 is divisible by 5:</h4>
+<p><code>boolean isDivisibleBy5 = _____</code></p>
+<ul>
+<li>[ ] <code>int0 / 5 ? true: false</code></li>
+<li>[x] <code>int0 % 5 == 0</code></li>
+<li>[ ] <code>int0 % 5 != 5</code></li>
+<li>[ ] <code>Math.isDivisible(int0, 5)</code></li>
+</ul>
+<h4 id="q24.-how-many-times-will-this-code-print-hello-world">Q24. How many times will this code print "Hello World!"?</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb19-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb19-3" title="3">        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">10</span>; i=i++){</a>
+<a class="sourceLine" id="cb19-4" title="4">            i+=<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb19-5" title="5">            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Hello World!&quot;</span>);</a>
+<a class="sourceLine" id="cb19-6" title="6">        }</a>
+<a class="sourceLine" id="cb19-7" title="7">    }</a>
+<a class="sourceLine" id="cb19-8" title="8">}</a></code></pre></div>
+<ul>
+<li>[x] 10 times</li>
+<li>[ ] 9 times</li>
+<li>[ ] 5 times</li>
+<li>[ ] infinite number of times</li>
+</ul>
+<p>Reason : Observe the loop increment. It's not an increment, it's an assignment(post).</p>
+<h4 id="q25.-the-runtime-system-starts-your-program-by-calling-which-function-first">Q25. The runtime system starts your program by calling which function first?</h4>
+<ul>
+<li>[ ] print</li>
+<li>[ ] iterative</li>
+<li>[ ] hello</li>
+<li>[x] main</li>
+</ul>
+<h4 id="q26.-what-is-the-result-of-this-code">Q26. What is the result of this code?</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">try</span>{</a>
+<a class="sourceLine" id="cb20-2" title="2">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;Hello World&quot;</span>);</a>
+<a class="sourceLine" id="cb20-3" title="3">}<span class="kw">catch</span>(<span class="bu">Exception</span> e){</a>
+<a class="sourceLine" id="cb20-4" title="4">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;e&quot;</span>);</a>
+<a class="sourceLine" id="cb20-5" title="5">}<span class="kw">catch</span>(<span class="bu">ArithmeticException</span> e){</a>
+<a class="sourceLine" id="cb20-6" title="6">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;e&quot;</span>);</a>
+<a class="sourceLine" id="cb20-7" title="7">}<span class="kw">finally</span>{</a>
+<a class="sourceLine" id="cb20-8" title="8">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;!&quot;</span>)</a>
+<a class="sourceLine" id="cb20-9" title="9">}</a></code></pre></div>
+<ul>
+<li>[ ] It will throw a runtime exception</li>
+<li>[x] It will not compile</li>
+<li>[ ] Hello World!</li>
+<li>[ ] Hello World</li>
+</ul>
+<h4 id="q27.-which-statement-is-not-true">Q27. Which statement is <strong>NOT</strong> true?</h4>
+<ul>
+<li>[ ] An anonymous class may specify an abstract base class as its base type.</li>
+<li>[x] An anonymous class does not require a zero-argument constructor.</li>
+<li>[ ] An anonymous class may specify an interface as its base type.</li>
+<li>[ ] An anonymous class may specify both an abstract class and interface as base types.</li>
+</ul>
+<h4 id="q28.-what-will-this-program-print-out-to-the-console-when-executed">Q28. What will this program print out to the console when executed?</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">import</span><span class="im"> java.util.LinkedList;</span></a>
+<a class="sourceLine" id="cb21-2" title="2"></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">public</span> <span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb21-4" title="4">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb21-5" title="5">        <span class="bu">LinkedList</span>&lt;<span class="bu">Integer</span>&gt; list = <span class="kw">new</span> <span class="bu">LinkedList</span>&lt;&gt;();</a>
+<a class="sourceLine" id="cb21-6" title="6">        list.<span class="fu">add</span>(<span class="dv">5</span>);</a>
+<a class="sourceLine" id="cb21-7" title="7">        list.<span class="fu">add</span>(<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb21-8" title="8">        list.<span class="fu">add</span>(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb21-9" title="9">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(list);</a>
+<a class="sourceLine" id="cb21-10" title="10">    }</a>
+<a class="sourceLine" id="cb21-11" title="11">}</a></code></pre></div>
+<ul>
+<li>[x] [5, 1, 10]</li>
+<li>[ ] [10, 5, 1]</li>
+<li>[ ] [1, 5, 10]</li>
+<li>[ ] [10, 1, 5]</li>
+</ul>
+<h4 id="q29.-what-is-the-output-of-this-code">Q29. What is the output of this code?</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb22-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb22-3" title="3">       <span class="bu">String</span> message = <span class="st">&quot;Hello&quot;</span>;</a>
+<a class="sourceLine" id="cb22-4" title="4">       <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i&lt;message.<span class="fu">length</span>(); i++){</a>
+<a class="sourceLine" id="cb22-5" title="5">          <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(message.<span class="fu">charAt</span>(i+<span class="dv">1</span>));</a>
+<a class="sourceLine" id="cb22-6" title="6">       }</a>
+<a class="sourceLine" id="cb22-7" title="7">    }</a>
+<a class="sourceLine" id="cb22-8" title="8">}</a></code></pre></div>
+<ul>
+<li>[ ] "Hello"</li>
+<li>[x] A runtime exception is thrown.</li>
+<li>[ ] The code does not compile.</li>
+<li>[ ] "ello"</li>
+</ul>
+<h4 id="q30.-object-oriented-programming-is-a-style-of-programming-where-you-organize-your-program-around-__-rather-than-__-and-data-rather-than-logic.">Q30. Object-oriented programming is a style of programming where you organize your program around _<strong>_ rather than __</strong> and data rather than logic.</h4>
+<ul>
+<li>[ ] functions; actions</li>
+<li>[x] objects; actions</li>
+<li>[ ] actions; functions</li>
+<li>[ ] actions; objects</li>
+</ul>
+<h4 id="q31.-what-statement-returns-true-if-nifty-is-of-type-string">Q31. What statement returns true if "nifty" is of type String?</h4>
+<ul>
+<li>[ ] <code>"nifty".getType().equals("String")</code></li>
+<li>[ ] <code>"nifty".getType() == String</code></li>
+<li>[ ] <code>"nifty".getClass().getSimpleName() == "String"</code></li>
+<li>[x] <code>"nifty" instanceof String</code></li>
+</ul>
+<h4 id="q32.-what-is-the-output-of-this-code">Q32. What is the output of this code?</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">import</span><span class="im"> java.util.*;</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb23-3" title="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb23-4" title="4">        <span class="bu">List</span>&lt;<span class="bu">Boolean</span>&gt; list = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;();</a>
+<a class="sourceLine" id="cb23-5" title="5">        list.<span class="fu">add</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb23-6" title="6">        list.<span class="fu">add</span>(<span class="bu">Boolean</span>.<span class="fu">parseBoolean</span>(<span class="st">&quot;FalSe&quot;</span>));</a>
+<a class="sourceLine" id="cb23-7" title="7">        list.<span class="fu">add</span>(<span class="bu">Boolean</span>.<span class="fu">TRUE</span>);</a>
+<a class="sourceLine" id="cb23-8" title="8">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(list.<span class="fu">size</span>());</a>
+<a class="sourceLine" id="cb23-9" title="9">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(list.<span class="fu">get</span>(<span class="dv">1</span>) <span class="kw">instanceof</span> <span class="bu">Boolean</span>);</a>
+<a class="sourceLine" id="cb23-10" title="10">    }</a>
+<a class="sourceLine" id="cb23-11" title="11">}</a></code></pre></div>
+<ul>
+<li>[ ] A runtime exception is thrown.</li>
+<li>[ ] 3false</li>
+<li>[ ] 2true</li>
+<li>[x] 3true</li>
+</ul>
+<h4 id="q33.-what-is-the-result-of-this-code">Q33. What is the result of this code?</h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb24-1" title="1"><span class="dv">1</span>: <span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="dv">2</span>:      <span class="bu">Object</span> <span class="fu">message</span>(){</a>
+<a class="sourceLine" id="cb24-3" title="3"><span class="dv">3</span>:          <span class="kw">return</span> <span class="st">&quot;Hello!&quot;</span>;</a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="dv">4</span>:      }</a>
+<a class="sourceLine" id="cb24-5" title="5"><span class="dv">5</span>:      <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb24-6" title="6"><span class="dv">6</span>:          <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="kw">new</span> <span class="fu">Main</span>().<span class="fu">message</span>());</a>
+<a class="sourceLine" id="cb24-7" title="7"><span class="dv">7</span>:          <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="kw">new</span> <span class="fu">Main2</span>().<span class="fu">message</span>());</a>
+<a class="sourceLine" id="cb24-8" title="8"><span class="dv">8</span>:      }</a>
+<a class="sourceLine" id="cb24-9" title="9"><span class="dv">9</span>: }</a>
+<a class="sourceLine" id="cb24-10" title="10"><span class="dv">10</span>: <span class="kw">class</span> Main2 <span class="kw">extends</span> Main {</a>
+<a class="sourceLine" id="cb24-11" title="11"><span class="dv">11</span>:     <span class="bu">String</span> <span class="fu">message</span>(){</a>
+<a class="sourceLine" id="cb24-12" title="12"><span class="dv">12</span>:         <span class="kw">return</span> <span class="st">&quot;World!&quot;</span>;</a>
+<a class="sourceLine" id="cb24-13" title="13"><span class="dv">13</span>:     }</a>
+<a class="sourceLine" id="cb24-14" title="14"><span class="dv">14</span>: }</a></code></pre></div>
+<ul>
+<li>[ ] It will not compile because of line 7.</li>
+<li>[ ] Hello!Hello!</li>
+<li>[x] Hello!World!</li>
+<li>[ ] It will not compile because of line 11.</li>
+</ul>
+<h4 id="q34.-what-method-can-be-used-to-create-a-new-instance-of-an-object">Q34. What method can be used to create a new instance of an object?</h4>
+<ul>
+<li>[ ] another instance</li>
+<li>[ ] field</li>
+<li>[x] constructor</li>
+<li>[ ] private method</li>
+</ul>
+<h4 id="q35.-which-is-the-most-reliable-expression-for-testing-whether-the-values-of-two-string-variables-are-the-same">Q35. Which is the most reliable expression for testing whether the values of two string variables are the same?</h4>
+<ul>
+<li>[ ] string1 == string2</li>
+<li>[ ] string1 = string2</li>
+<li>[ ] string1.matches(string2)</li>
+<li>[x] string1.equals(string2)</li>
+</ul>
+<h4 id="q36.-which-letters-will-print-when-this-code-is-run">Q36. Which letters will print when this code is run?</h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb25-2" title="2">    <span class="kw">try</span> {</a>
+<a class="sourceLine" id="cb25-3" title="3">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;A&quot;</span>);</a>
+<a class="sourceLine" id="cb25-4" title="4">        <span class="fu">badMethod</span>();</a>
+<a class="sourceLine" id="cb25-5" title="5">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;B&quot;</span>);</a>
+<a class="sourceLine" id="cb25-6" title="6">    } <span class="kw">catch</span> (<span class="bu">Exception</span> ex) {</a>
+<a class="sourceLine" id="cb25-7" title="7">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;C&quot;</span>);</a>
+<a class="sourceLine" id="cb25-8" title="8">    } <span class="kw">finally</span> {</a>
+<a class="sourceLine" id="cb25-9" title="9">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;D&quot;</span>);</a>
+<a class="sourceLine" id="cb25-10" title="10">    }</a>
+<a class="sourceLine" id="cb25-11" title="11">}</a>
+<a class="sourceLine" id="cb25-12" title="12"><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">badMethod</span>() {</a>
+<a class="sourceLine" id="cb25-13" title="13">    <span class="kw">throw</span> <span class="kw">new</span> <span class="bu">Error</span>();</a>
+<a class="sourceLine" id="cb25-14" title="14">}</a></code></pre></div>
+<ul>
+<li>[ ] A, B, and D</li>
+<li>[ ] A, C, and D</li>
+<li>[ ] C and D</li>
+<li>[x] A and D</li>
+</ul>
+<h4 id="q37.-what-is-the-output-of-this-code">Q37. What is the output of this code?</h4>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb26-2" title="2">    <span class="dt">static</span> <span class="dt">int</span> count = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb26-3" title="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb26-4" title="4">        <span class="kw">if</span> (count &lt; <span class="dv">3</span>) {</a>
+<a class="sourceLine" id="cb26-5" title="5">            count++;</a>
+<a class="sourceLine" id="cb26-6" title="6">            <span class="fu">main</span>(<span class="kw">null</span>);</a>
+<a class="sourceLine" id="cb26-7" title="7">        } <span class="kw">else</span> {</a>
+<a class="sourceLine" id="cb26-8" title="8">            <span class="kw">return</span>;</a>
+<a class="sourceLine" id="cb26-9" title="9">        }</a>
+<a class="sourceLine" id="cb26-10" title="10">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Hello World!&quot;</span>);</a>
+<a class="sourceLine" id="cb26-11" title="11">    }</a>
+<a class="sourceLine" id="cb26-12" title="12">}</a></code></pre></div>
+<ul>
+<li>[ ] It will throw a runtime exception.</li>
+<li>[ ] It will not compile.</li>
+<li>[x] It will print "Hello World!" three times.</li>
+<li>[ ] It will run forever.</li>
+</ul>
+<h4 id="q38.-what-is-the-output-of-this-code">Q38. What is the output of this code?</h4>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">import</span><span class="im"> java.util.*;</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb27-3" title="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb27-4" title="4">        <span class="bu">String</span>[] array = {<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;10&quot;</span>, <span class="st">&quot;0&quot;</span>};</a>
+<a class="sourceLine" id="cb27-5" title="5">        <span class="bu">List</span>&lt;<span class="bu">String</span>&gt; list = <span class="bu">Arrays</span>.<span class="fu">asList</span>(array);</a>
+<a class="sourceLine" id="cb27-6" title="6">        <span class="bu">Collections</span>.<span class="fu">sort</span>(list);</a>
+<a class="sourceLine" id="cb27-7" title="7">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="bu">Arrays</span>.<span class="fu">toString</span>(array));</a>
+<a class="sourceLine" id="cb27-8" title="8">    }</a>
+<a class="sourceLine" id="cb27-9" title="9">}</a></code></pre></div>
+<ul>
+<li>[ ] [abc, 0, 2, 10]</li>
+<li>[ ] The code does not compile.</li>
+<li>[ ] [abc, 2, 10, 0]</li>
+<li>[x] [0, 10, 2, abc]</li>
+</ul>
+<h4 id="q39.-what-is-the-output-of-this-code">Q39. What is the output of this code?</h4>
+<div class="sourceCode" id="cb28"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb28-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb28-3" title="3">        <span class="bu">String</span> message = <span class="st">&quot;Hello&quot;</span>;</a>
+<a class="sourceLine" id="cb28-4" title="4">        <span class="fu">print</span>(message);</a>
+<a class="sourceLine" id="cb28-5" title="5">        message += <span class="st">&quot;World!&quot;</span>;</a>
+<a class="sourceLine" id="cb28-6" title="6">        <span class="fu">print</span>(message);</a>
+<a class="sourceLine" id="cb28-7" title="7">    }</a>
+<a class="sourceLine" id="cb28-8" title="8">    <span class="dt">static</span> <span class="dt">void</span> <span class="fu">print</span>(<span class="bu">String</span> message){</a>
+<a class="sourceLine" id="cb28-9" title="9">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(message);</a>
+<a class="sourceLine" id="cb28-10" title="10">        message += <span class="st">&quot; &quot;</span>;</a>
+<a class="sourceLine" id="cb28-11" title="11">    }</a>
+<a class="sourceLine" id="cb28-12" title="12">}</a></code></pre></div>
+<ul>
+<li>[ ] Hello World!</li>
+<li>[x] HelloHelloWorld!</li>
+<li>[ ] Hello Hello World!</li>
+<li>[ ] Hello HelloWorld!</li>
+</ul>
+<h4 id="q40.-what-is-displayed-when-this-code-is-compiled-and-executed">Q40. What is displayed when this code is compiled and executed?</h4>
+<div class="sourceCode" id="cb29"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Main {</a>
+<a class="sourceLine" id="cb29-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb29-3" title="3">        <span class="dt">int</span> x = <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb29-4" title="4">        x = <span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb29-5" title="5">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(x);</a>
+<a class="sourceLine" id="cb29-6" title="6">    }</a>
+<a class="sourceLine" id="cb29-7" title="7">}</a></code></pre></div>
+<ul>
+<li>[ ] x</li>
+<li>[ ] null</li>
+<li>[x] 10</li>
+<li>[ ] 5</li>
+</ul>
+<h4 id="q41.-which-approach-cannot-be-used-to-iterate-over-a-list-named-thelist">Q41. Which approach cannot be used to iterate over a List named <em>theList</em>?</h4>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; theList.<span class="fu">size</span>(); i++) {</a>
+<a class="sourceLine" id="cb30-2" title="2">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(theList.<span class="fu">get</span>(i));</a>
+<a class="sourceLine" id="cb30-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">for</span> (<span class="bu">Object</span> object : theList) {</a>
+<a class="sourceLine" id="cb31-2" title="2">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(object);</a>
+<a class="sourceLine" id="cb31-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[x] C</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb32-1" title="1"><span class="bu">Iterator</span> it = theList.<span class="fu">iterator</span>();</a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="kw">for</span> (it.<span class="fu">hasNext</span>()) {</a>
+<a class="sourceLine" id="cb32-3" title="3">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(it.<span class="fu">next</span>());</a>
+<a class="sourceLine" id="cb32-4" title="4">}</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb33-1" title="1">theList.<span class="fu">forEach</span>(<span class="bu">System</span>.<span class="fu">out</span>::println);</a></code></pre></div>
+<p><strong>Explanation:</strong> <code>for (it.hasNext())</code> should be <code>while (it.hasNext())</code>.</p>
+<h4 id="q42.-what-method-signature-will-work-with-this-code">Q42. What method signature will work with this code?</h4>
+<p><code>boolean healthyOrNot = isHealthy("avocado");</code></p>
+<ul>
+<li>[ ] public void isHealthy(String avocado)</li>
+<li>[x] boolean isHealthy(String string)</li>
+<li>[ ] public isHealthy("avocado")</li>
+<li>[ ] private String isHealthy(String food)</li>
+</ul>
+<h4 id="q43.-which-are-valid-keywords-in-a-java-module-descriptor-module-infojava">Q43. Which are valid keywords in a Java module descriptor (module-infoJava)?</h4>
+<ul>
+<li>[ ] provides, employs</li>
+<li>[ ] imports, exports</li>
+<li>[ ] consumes, supplies</li>
+<li>[x] requires, exports</li>
+</ul>
+<h4 id="q44.-which-type-of-variable-keeps-a-constant-value-once-it-is-assigned">Q44. Which type of variable keeps a constant value once it is assigned?</h4>
+<ul>
+<li>[ ] non-static</li>
+<li>[ ] static</li>
+<li>[x] final</li>
+<li>[ ] private</li>
+</ul>
+<h4 id="q45.-how-does-the-keyword-_volatile_-affect-how-a-variable-is-handled">Q45. How does the keyword <code>_volatile_</code> affect how a variable is handled?</h4>
+<ul>
+<li>[ ] It will be read by only one thread at a time.</li>
+<li>[ ] It will be stored on the hard drive.</li>
+<li>[x] It will never be cached by the CPU.</li>
+<li>[ ] It will be preferentially garbage collected.</li>
+</ul>
+<h4 id="q46.-what-is-the-result-of-this-code">Q46. What is the result of this code?</h4>
+<div class="sourceCode" id="cb34"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb34-1" title="1"><span class="dt">char</span> smooch = <span class="ch">&#39;x&#39;</span>;</a>
+<a class="sourceLine" id="cb34-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>((<span class="dt">int</span>) smooch);</a></code></pre></div>
+<ul>
+<li>[ ] an alphanumeric character</li>
+<li>[ ] a negative number</li>
+<li>[x] a positive number</li>
+<li>[ ] a ClassCastException</li>
+</ul>
+<h4 id="q47.-you-get-a-nullpointerexception.-what-is-the-most-likely-cause">Q47. You get a NullPointerException. What is the most likely cause?</h4>
+<ul>
+<li>[ ] A file that needs to be opened cannot be found.</li>
+<li>[ ] A network connection has been lost in the middle of communications.</li>
+<li>[ ] Your code has used up all available memory.</li>
+<li>[x] The object you are using has not been instantiated.</li>
+</ul>
+<h4 id="q48.-how-would-you-fix-this-code-so-that-it-compiles">Q48. How would you fix this code so that it compiles?</h4>
+<div class="sourceCode" id="cb35"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Nosey {</a>
+<a class="sourceLine" id="cb35-2" title="2">    <span class="dt">int</span> age;</a>
+<a class="sourceLine" id="cb35-3" title="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb35-4" title="4">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Your age is: &quot;</span> + age);</a>
+<a class="sourceLine" id="cb35-5" title="5">    }</a>
+<a class="sourceLine" id="cb35-6" title="6">}</a></code></pre></div>
+<ul>
+<li>[x] Make age static.</li>
+<li>[ ] Make age global.</li>
+<li>[ ] Make age public.</li>
+<li>[ ] Initialize age to a number.</li>
+</ul>
+<h4 id="q49.-add-a-duck-called-waddles-to-the-arraylist-ducks.">Q49. Add a Duck called "Waddles" to the ArrayList <strong>ducks</strong>.</h4>
+<div class="sourceCode" id="cb36"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Duck {</a>
+<a class="sourceLine" id="cb36-2" title="2">    <span class="kw">private</span> <span class="bu">String</span> name;</a>
+<a class="sourceLine" id="cb36-3" title="3">    <span class="fu">Duck</span>(<span class="bu">String</span> name) {}</a>
+<a class="sourceLine" id="cb36-4" title="4">}</a></code></pre></div>
+<ul>
+<li>[ ] <code>Duck waddles = new Duck();</code> <code>ducks.add(waddles);</code></li>
+<li>[ ] <code>Duck duck = new Duck("Waddles");</code> <code>ducks.add(waddles);</code></li>
+<li>[x] <code>ducks.add(new Duck("Waddles"));</code></li>
+<li>[ ] <code>ducks.add(new Waddles());</code></li>
+</ul>
+<h4 id="q50.-if-you-encounter-unsupportedclassversionerror-it-means-the-code-was-_-on-a-newer-version-of-java-than-the-jre-_-it.">Q50. If you encounter <code>UnsupportedClassVersionError</code> it means the code was <code>**\_**</code> on a newer version of Java than the JRE <code>**\_**</code> it.</h4>
+<ul>
+<li>[ ] executed; interpreting</li>
+<li>[ ] executed; compiling</li>
+<li>[x] compiled; executing</li>
+<li>[ ] compiled, translating</li>
+</ul>
+<h4 id="q51.-given-this-class-how-would-you-make-the-code-compile">Q51. Given this class, how would you make the code compile?</h4>
+<div class="sourceCode" id="cb37"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">public</span> <span class="kw">class</span> TheClass {</a>
+<a class="sourceLine" id="cb37-2" title="2">    <span class="kw">private</span> <span class="dt">final</span> <span class="dt">int</span> x;</a>
+<a class="sourceLine" id="cb37-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">public</span> <span class="fu">TheClass</span>() {</a>
+<a class="sourceLine" id="cb38-2" title="2">    x += <span class="dv">77</span>;</a>
+<a class="sourceLine" id="cb38-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">public</span> <span class="fu">TheClass</span>() {</a>
+<a class="sourceLine" id="cb39-2" title="2">    x = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb39-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">public</span> <span class="fu">TheClass</span>() {</a>
+<a class="sourceLine" id="cb40-2" title="2">    x = <span class="dv">77</span>;</a>
+<a class="sourceLine" id="cb40-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[x] D</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">setX</span>(<span class="dt">int</span> x) {</a>
+<a class="sourceLine" id="cb41-2" title="2">    <span class="kw">this</span>.<span class="fu">x</span> = x;</a>
+<a class="sourceLine" id="cb41-3" title="3">}</a>
+<a class="sourceLine" id="cb41-4" title="4"><span class="kw">public</span> <span class="fu">TheClass</span>() {</a>
+<a class="sourceLine" id="cb41-5" title="5">    <span class="fu">setX</span>(<span class="dv">77</span>);</a>
+<a class="sourceLine" id="cb41-6" title="6">}</a></code></pre></div>
+<h4 id="q52.-how-many-times-f-will-be-printed">Q52. How many times f will be printed?</h4>
+<div class="sourceCode" id="cb42"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Solution {</a>
+<a class="sourceLine" id="cb42-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb42-3" title="3">        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">44</span>; i &gt; <span class="dv">40</span>; i--) {</a>
+<a class="sourceLine" id="cb42-4" title="4">            <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;f&quot;</span>);</a>
+<a class="sourceLine" id="cb42-5" title="5">        }</a>
+<a class="sourceLine" id="cb42-6" title="6">    }</a>
+<a class="sourceLine" id="cb42-7" title="7">}</a></code></pre></div>
+<ul>
+<li>[x] 4</li>
+<li>[ ] 3</li>
+<li>[ ] 5</li>
+<li>[ ] A Runtime exception will be thrown</li>
+</ul>
+<h4 id="q53.-which-statements-about-abstract-classes-are-true">Q53. Which statements about <code>abstract</code> classes are true?</h4>
+<pre><code>1. They can be instantiated.
+2. They allow member variables and methods to be inherited by subclasses.
+3. They can contain constructors.</code></pre>
+<ul>
+<li>[ ] 1, 2, and 3</li>
+<li>[ ] only 3</li>
+<li>[x] 2 and 3</li>
+<li>[ ] only 2</li>
+</ul>
+<h4 id="q54.-which-keyword-lets-you-call-the-constructor-of-a-parent-class">Q54. Which keyword lets you call the constructor of a parent class?</h4>
+<ul>
+<li>[ ] parent</li>
+<li>[x] super</li>
+<li>[ ] this</li>
+<li>[ ] new</li>
+</ul>
+<h4 id="q55.-what-is-the-result-of-this-code">Q55. What is the result of this code?</h4>
+<div class="sourceCode" id="cb44"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb44-1" title="1">  <span class="dv">1</span>: <span class="dt">int</span> a = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb44-2" title="2">  <span class="dv">2</span>: <span class="dt">int</span> b = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb44-3" title="3">  <span class="dv">3</span>: <span class="dt">int</span> c = a/b;</a>
+<a class="sourceLine" id="cb44-4" title="4">  <span class="dv">4</span>: <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(c);</a></code></pre></div>
+<ul>
+<li>[x] It will throw an ArithmeticException.</li>
+<li>[ ] It will run and output 0.</li>
+<li>[ ] It will not compile because of line 3.</li>
+<li>[ ] It will run and output infinity.</li>
+</ul>
+<h4 id="q56.-normally-to-access-a-static-member-of-a-class-such-as-math.pi-you-would-need-to-specify-the-class-math.-what-would-be-the-best-way-to-allow-you-to-use-simply-pi-in-your-code">Q56. Normally, to access a static member of a class such as Math.PI, you would need to specify the class "Math". What would be the best way to allow you to use simply "PI" in your code?</h4>
+<ul>
+<li>[x] Add a static import.</li>
+<li>[ ] Declare local copies of the constant in your code.</li>
+<li>[ ] This cannot be done. You must always qualify references to static members with the class form which they came from.</li>
+<li>[ ] Put the static members in an interface and inherit from that interface.</li>
+</ul>
+<h4 id="q57.-which-keyword-lets-you-use-an-interface">Q57. Which keyword lets you use an interface?</h4>
+<ul>
+<li>[ ] extends</li>
+<li>[x] implements</li>
+<li>[ ] inherits</li>
+<li>[ ] import</li>
+</ul>
+<h4 id="q58.-why-are-arraylists-better-than-arrays">Q58. Why are ArrayLists better than arrays?</h4>
+<ul>
+<li>[x] You don't have to decide the size of an ArrayList when you first make it.</li>
+<li>[ ] You can put more items into an ArrayList than into an array.</li>
+<li>[ ] ArrayLists can hold more kinds of objects than arrays.</li>
+<li>[ ] You don't have to decide the type of an ArrayList when you first make it.</li>
+</ul>
+<h4 id="q59.-declare-a-variable-that-holds-the-first-four-digits-of-π">Q59. Declare a variable that holds the first four digits of Π</h4>
+<ul>
+<li>[ ] int pi = 3.141;</li>
+<li>[ ] decimal pi = 3.141;</li>
+<li>[x] double pi = 3.141;</li>
+<li>[ ] float pi = 3.141;</li>
+</ul>
+<p><strong>Reasoning:</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb45-1" title="1"><span class="kw">public</span> <span class="kw">class</span> TestReal {</a>
+<a class="sourceLine" id="cb45-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (<span class="bu">String</span>[] argv)</a>
+<a class="sourceLine" id="cb45-3" title="3">    {</a>
+<a class="sourceLine" id="cb45-4" title="4">      <span class="dt">double</span> pi = <span class="fl">3.</span><span class="dv">14159265</span>;       <span class="co">//accuaracy upto 15 digits</span></a>
+<a class="sourceLine" id="cb45-5" title="5">      <span class="dt">float</span> pi2 = <span class="fl">3.141F</span>;                <span class="co">//accuracy upto 6-7 digits</span></a>
+<a class="sourceLine" id="cb45-6" title="6">  </a>
+<a class="sourceLine" id="cb45-7" title="7">      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span> (<span class="st">&quot;Pi=&quot;</span> + pi);</a>
+<a class="sourceLine" id="cb45-8" title="8">      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span> (<span class="st">&quot;Pi2&quot;</span> + pi2;</a>
+<a class="sourceLine" id="cb45-9" title="9">    }</a>
+<a class="sourceLine" id="cb45-10" title="10">  }</a></code></pre></div>
+<pre><code>The default Java type which Java will be using for a float variable will be double. 
+So, even if you declare any variable as float, what the compiler has to actually do is to assign a double value to a float variable, 
+which is not possible. So, to tell the compiler to treat this value as a float, that &#39;F&#39; is used.</code></pre>
+<h4 id="q60.-use-the-magic-power-to-cast-a-spell">Q60. Use the magic power to cast a spell</h4>
+<div class="sourceCode" id="cb47"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">public</span> <span class="kw">class</span> MagicPower {</a>
+<a class="sourceLine" id="cb47-2" title="2">    <span class="dt">void</span> <span class="fu">castSpell</span>(<span class="bu">String</span> spell) {}</a>
+<a class="sourceLine" id="cb47-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[x] <code>new MagicPower().castSpell("expecto patronum")</code></li>
+<li>[ ] <code>MagicPower magicPower = new MagicPower();</code> <code>magicPower.castSpell();</code></li>
+<li>[ ] <code>MagicPower.castSpell("expelliarmus");</code></li>
+<li>[ ] <code>new MagicPower.castSpell();</code></li>
+</ul>
+<h4 id="q61.-what-language-construct-serves-as-a-blueprint-containing-an-objects-properties-and-functionality">Q61. What language construct serves as a blueprint containing an object's properties and functionality?</h4>
+<ul>
+<li>[ ] constructor</li>
+<li>[ ] instance</li>
+<li>[x] class</li>
+<li>[ ] method</li>
+</ul>
+<h4 id="q62.-what-does-this-code-print">Q62. What does this code print?</h4>
+<div class="sourceCode" id="cb48"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</a>
+<a class="sourceLine" id="cb48-2" title="2">    <span class="dt">int</span> x=<span class="dv">5</span>,y=<span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb48-3" title="3">    <span class="fu">swapsies</span>(x,y);</a>
+<a class="sourceLine" id="cb48-4" title="4">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(x+<span class="st">&quot;=&quot;</span>+y);</a>
+<a class="sourceLine" id="cb48-5" title="5">}</a>
+<a class="sourceLine" id="cb48-6" title="6"></a>
+<a class="sourceLine" id="cb48-7" title="7"><span class="dt">static</span> <span class="dt">void</span> <span class="fu">swapsies</span>(<span class="dt">int</span> a, <span class="dt">int</span> b) {</a>
+<a class="sourceLine" id="cb48-8" title="8">    <span class="dt">int</span> temp=a;</a>
+<a class="sourceLine" id="cb48-9" title="9">    a=b;</a>
+<a class="sourceLine" id="cb48-10" title="10">    b=temp;</a>
+<a class="sourceLine" id="cb48-11" title="11">}</a></code></pre></div>
+<ul>
+<li>[ ] 10=10</li>
+<li>[x] 5=10</li>
+<li>[ ] 10=5</li>
+<li>[ ] 5=5</li>
+</ul>
+<h4 id="q63.-what-is-the-result-of-this-code">Q63. What is the result of this code?</h4>
+<div class="sourceCode" id="cb49"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">try</span> {</a>
+<a class="sourceLine" id="cb49-2" title="2">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Hello World&quot;</span>);</a>
+<a class="sourceLine" id="cb49-3" title="3">} <span class="kw">catch</span> (<span class="bu">Exception</span> e) {</a>
+<a class="sourceLine" id="cb49-4" title="4">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;e&quot;</span>);</a>
+<a class="sourceLine" id="cb49-5" title="5">} <span class="kw">catch</span> (<span class="bu">ArithmeticException</span> e) {</a>
+<a class="sourceLine" id="cb49-6" title="6">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;e&quot;</span>);</a>
+<a class="sourceLine" id="cb49-7" title="7">} <span class="kw">finally</span> {</a>
+<a class="sourceLine" id="cb49-8" title="8">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;!&quot;</span>);</a>
+<a class="sourceLine" id="cb49-9" title="9">}</a></code></pre></div>
+<ul>
+<li>[ ] Hello World</li>
+<li>[x] It will not compile because the second catch statement is unreachable</li>
+<li>[ ] Hello World!</li>
+<li>[ ] It will throw runtime exception</li>
+</ul>
+<h4 id="q64.-what-is-not-a-java-keyword">Q64. What is not a java keyword</h4>
+<ul>
+<li>[ ] finally</li>
+<li>[ ] native</li>
+<li>[ ] interface</li>
+<li>[x] unsigned</li>
+</ul>
+<h4 id="q65.-which-operator-would-you-use-to-find-the-remainder-after-division">Q65. Which operator would you use to find the remainder after division?</h4>
+<ul>
+<li>[x] <code>%</code></li>
+<li>[ ] <code>//</code></li>
+<li>[ ] <code>/</code></li>
+<li>[ ] <code>DIV</code></li>
+</ul>
+<p><a href="http://www.cs.ukzn.ac.za/~hughm/java/intro/week2/21.html">Reference</a> #### Q66. Which choice is a disadvantage of inheritance?</p>
+<ul>
+<li>[ ] Overridden methods of the parent class cannot be reused.</li>
+<li>[ ] Responsibilities are not evenly distributed between parent and child classes.</li>
+<li>[x] Classes related by inheritance are tightly coupled to each other.</li>
+<li>[ ] The internal state of the parent class is accessible to its children.</li>
+</ul>
+<p><a href="http://erpbasic.blogspot.com/2012/01/inheritance-advantages-and.html#:~:text=Main%20disadvantage%20of%20using%20inheritance,used%20independent%20of%20each%20other.&amp;text=4.,case%20of%20using%20that%20method.">Reference</a></p>
+<h4 id="q67.-declare-and-initialize-an-array-of-10-ints.">Q67. Declare and initialize an array of 10 ints.</h4>
+<ul>
+<li>[ ] <code>Array&lt;Integer&gt; numbers = new Array&lt;Integer&gt;(10);</code></li>
+<li>[ ] <code>Array[int] numbers = new Array[int](10);</code></li>
+<li>[x] <code>int[] numbers = new int[10];</code></li>
+<li>[ ] <code>int numbers[] = int[10];</code></li>
+</ul>
+<h4 id="q68.-refactor-this-event-handler-to-a-lambda-expression">Q68. Refactor this event handler to a lambda expression:</h4>
+<div class="sourceCode" id="cb50"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb50-1" title="1">groucyButton.<span class="fu">addActionListener</span>(<span class="kw">new</span> <span class="bu">ActionListener</span>() {</a>
+<a class="sourceLine" id="cb50-2" title="2">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb50-3" title="3">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">actionPerformed</span>(<span class="bu">ActionEvent</span> e) {</a>
+<a class="sourceLine" id="cb50-4" title="4">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Press me one more time..&quot;</span>);</a>
+<a class="sourceLine" id="cb50-5" title="5">    }</a>
+<a class="sourceLine" id="cb50-6" title="6">});</a></code></pre></div>
+<ul>
+<li>[ ] <code>groucyButton.addActionListener(ActionListener listener -&gt; System.out.println("Press me one more time..."));</code></li>
+<li>[x] <code>groucyButton.addActionListener((event) -&gt; System.out.println("Press me one more time..."));</code></li>
+<li>[ ] <code>groucyButton.addActionListener(new ActionListener(ActionEvent e) {() -&gt; System.out.println("Press me one more time...");});</code></li>
+<li>[ ] <code>groucyButton.addActionListener(() -&gt; System.out.println("Press me one more time..."));</code></li>
+</ul>
+<p><a href="https://www.codejava.net/java-core/the-java-language/java-8-lambda-listener-example">Reference</a></p>
+<h4 id="q69.-which-functional-interfaces-does-java-provide-to-serve-as-data-types-for-lambda-expressions">Q69. Which functional interfaces does Java provide to serve as data types for lambda expressions?</h4>
+<ul>
+<li>[ ] Observer, Observable</li>
+<li>[ ] Collector, Builder</li>
+<li>[ ] Filter, Map, Reduce</li>
+<li>[x] Consumer, Predicate, Supplier</li>
+</ul>
+<p><a href="https://www.baeldung.com/java-8-functional-interfaces">Reference</a></p>
+<h4 id="q69.-what-is-a-valid-use-of-the-hashcode-method">Q69. What is a valid use of the hashCode() method?</h4>
+<ul>
+<li>[ ] encrypting user passwords</li>
+<li>[x] deciding if two instances of a class are equal</li>
+<li>[ ] enabling HashMap to find matches faster</li>
+<li>[ ] moving objects from a List to a HashMap</li>
+</ul>
+<p><a href="https://www.baeldung.com/java-hashcode">Reference</a></p>
+<h4 id="q70.-what-kind-of-relationship-does-extends-denote">Q70. What kind of relationship does "extends" denote?</h4>
+<ul>
+<li>[ ] uses-a</li>
+<li>[x] is-a</li>
+<li>[ ] has-a</li>
+<li>[ ] was-a</li>
+</ul>
+<p><a href="https://www.c-sharpcorner.com/UploadFile/3614a6/is-a-and-has-a-relationship-in-java/">Reference</a></p>
+<h4 id="q71.-how-do-you-force-an-object-to-be-garbage-collected">Q71. How do you force an object to be garbage collected?</h4>
+<ul>
+<li>[ ] Set object to null and call Runtime.gc()</li>
+<li>[x] Set object to null and call System.gc()</li>
+<li>[ ] Set object to null and call Runtime.getRuntime().runFinalization()</li>
+<li>[ ] There is no way to force an object to be garbage collected <a href="https://www.baeldung.com/java-hashcode">Reference</a></li>
+</ul>
+<h4 id="q72.-java-programmers-commonly-use-design-patterns.-some-examples-are-the-______-which-helps-create-instances-of-a-class-the-______-which-ensures-that-only-one-instance-of-a-class-can-be-created-and-the-______-which-allows-for-a-group-of-algorithms-to-be-interchangeable.">Q72. Java programmers commonly use design patterns. Some examples are the ______, which helps create instances of a class, the ______, which ensures that only one instance of a class can be created; and the ______, which allows for a group of algorithms to be interchangeable.</h4>
+<ul>
+<li>[x] static factory method; singleton; strategy pattern</li>
+<li>[ ] strategy pattern; static factory method; singleton</li>
+<li>[ ] creation pattern; singleton; prototype pattern</li>
+<li>[ ] singleton; strategy pattern; static factory method</li>
+</ul>

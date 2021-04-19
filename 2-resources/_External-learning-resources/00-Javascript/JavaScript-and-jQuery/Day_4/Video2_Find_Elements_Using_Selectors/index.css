@@ -1,0 +1,49 @@
+html, body {
+  width: 100%;
+  background-color: #4DB6AC;
+}
+
+body > div {
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+body > div > section {
+  padding: 1.2rem;
+}
+
+body > div > section {
+  background-color: #fefafe;
+  margin-top: 1rem;
+  border: 0.15rem solid #3949AB;
+  border-radius: 0.5rem;
+}
+
+ol > li span {
+  /* Selects only top level list item spans */
+  font-family: 'Arial Black', Arial;
+  font-weight: bold;
+}
+
+ol li:nth-of-type(2) {
+  text-decoration: underline;
+  background-color: #FFF176;
+}
+
+
+.shape {
+  border: 3px solid #455A64;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+}
+
+.circle {
+  background: #90caf9;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}

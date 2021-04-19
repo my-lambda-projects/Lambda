@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "964A6BB251D24EB2A7BF4C7099E960EF2377C442",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "43D4496BCEABC764DF53F957D4B9B13FB2A2C980" : 0,
+    "964A6BB251D24EB2A7BF4C7099E960EF2377C442" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "34A1D6CD-DC48-4FF6-9D73-1A1A327A7233",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "43D4496BCEABC764DF53F957D4B9B13FB2A2C980" : "react-native-sqlite\/",
+    "964A6BB251D24EB2A7BF4C7099E960EF2377C442" : "SQLSandbox\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SQLSandbox",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SQLSandbox.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:pcottle\/react-native-sqlite.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "43D4496BCEABC764DF53F957D4B9B13FB2A2C980"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:pcottle\/SandboxSQL.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "964A6BB251D24EB2A7BF4C7099E960EF2377C442"
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+<h2 id="node.js">Node.js</h2>
+<h4 id="q1.-when-a-javascript-function-is-invoked-called-in-node-where-is-a-new-frame-placed">Q1. When a javaScript function is invoked (called) in Node, where is a new frame placed?</h4>
+<ul>
+<li>[x] the call stack</li>
+<li>[ ] the event loop</li>
+<li>[ ] the poll phase</li>
+<li>[ ] the events queue</li>
+</ul>
+<h4 id="q2.-which-of-the-following-is-a-core-module-in-node">Q2. Which of the following is a core module in Node?</h4>
+<ul>
+<li>[ ] webpack</li>
+<li>[x] crypto</li>
+<li>[ ] request</li>
+<li>[ ] chalk</li>
+</ul>
+<h4 id="q3.-which-of-the-following-buffer-class-methods-returns-an-uninitialized-buffer">Q3. Which of the following Buffer class methods returns an uninitialized buffer?</h4>
+<ul>
+<li>[x] allocUnsafe</li>
+<li>[ ] concat</li>
+<li>[ ] from</li>
+<li>[ ] alloc</li>
+</ul>
+<h4 id="q4.-which-of-the-following-modules-is-not-a-built-in-module-in-node">Q4. Which of the following modules is NOT a built-in module in Node?</h4>
+<ul>
+<li>[x] ftp</li>
+<li>[ ] events</li>
+<li>[ ] dgram</li>
+<li>[ ] http2</li>
+</ul>
+<h4 id="q5.-which-fs-module-method-can-be-used-to-read-the-content-of-a-file-without-buffering-it-in-memory">Q5. Which fs module method can be used to read the content of a file without buffering it in memory?</h4>
+<ul>
+<li>[ ] read</li>
+<li>[ ] readFile</li>
+<li>[x] createReadStream</li>
+<li>[ ] readFileSync</li>
+</ul>
+<p><strong>Explanation:</strong></p>
+<p><em>From official docs: <a href="https://nodejs.org/api/fs.html#fs_dir_read">https://nodejs.org/api/fs.html#fs_dir_read</a> To minimize memory costs, when possible prefer streaming via fs.createReadStream().</em></p>
+<h4 id="q6.-which-of-the-following-dns-module-methods-uses-the-underlying-os-facilities-and-does-not-necessarily-perform-any-network-communication">Q6. Which of the following DNS module methods uses the underlying OS facilities and does not necessarily perform any network communication?</h4>
+<ul>
+<li>[x] lookup</li>
+<li>[ ] resolve</li>
+<li>[ ] resolve4</li>
+<li>[ ] reverse</li>
+</ul>
+<h4 id="q7.-how-do-you-check-that-a-value-is-a-date-object-in-node">Q7. How do you check that a value is a date object in Node?</h4>
+<ul>
+<li>[x] util.types.isDate(value)</li>
+<li>[ ] assert.isDate(value)</li>
+<li>[ ] console.isDate(value)</li>
+<li>[ ] util.date(value)</li>
+</ul>
+<h4 id="q8.-can-you-create-an-https-web-server-with-node.js">Q8. Can you create an https web server with Node.js?</h4>
+<ul>
+<li>[ ] no, there are no modules supporting it yet</li>
+<li>[x] yes, with the https or http2 modules</li>
+<li>[ ] yes, through the path module</li>
+<li>[ ] yes, with the http module</li>
+</ul>
+<h4 id="q9.-what-is-the-api-that-is-designed-to-insulate-addons-from-changes-in-the-underlying-javascript-engine">Q9. What is the Api that is designed to insulate Addons from changes in the underlying JavaScript engine?</h4>
+<ul>
+<li>[ ] A-API</li>
+<li>[ ] Z-API</li>
+<li>[x] N-API</li>
+<li>[ ] X-API</li>
+</ul>
+<h4 id="q10.-which-cli-option-can-you-use-to-debug-a-node-script-in-chrome-devtools">Q10. Which CLI option can you use to debug a node script in Chrome DevTools?</h4>
+<ul>
+<li>[ ] –dev-tools</li>
+<li>[x] –inspect</li>
+<li>[ ] –chrome</li>
+<li>[ ] –debug</li>
+</ul>
+<h4 id="q11.-how-can-you-count-the-number-of-logical-cpus-on-the-machine-that-is-running-node">Q11. How can you count the number of logical CPUs on the machine that is running Node?</h4>
+<ul>
+<li>[ ] node -p "process.cpus"</li>
+<li>[ ] node -p "util.cpus().size"</li>
+<li>[ ] node -p "process.os.cpus"</li>
+<li>[x] node -p "os.cpus().length"</li>
+</ul>
+<h4 id="q12.-which-of-the-following-is-a-method-on-the-console-obejct">Q12. Which of the following is a method on the console obejct?</h4>
+<ul>
+<li>[ ] exit</li>
+<li>[ ] test</li>
+<li>[x] time</li>
+<li>[ ] print</li>
+</ul>
+<h4 id="q13.-which-object-is-used-to-manage-the-cache-of-required-modules">Q13. Which object is used to manage the cache of required modules?</h4>
+<ul>
+<li>[ ] global.cache</li>
+<li>[ ] module.cache</li>
+<li>[ ] process.cache</li>
+<li>[x] require.cache</li>
+</ul>
+<h4 id="q14.-what-is-the-command-to-silence-all-process-warnings">Q14. What is the command to silence all process warnings?</h4>
+<ul>
+<li>[ ] node index.js –trace-warnings</li>
+<li>[x] node –no-warnings</li>
+<li>[ ] node -trace-warnings</li>
+<li>[ ] node index.js –no-warnings</li>
+</ul>
+<h4 id="q15.-how-can-you-use-the-promise-api-with-a-callback-based-function-like-child_process.exec">Q15. How can you use the promise API with a callback-based function like child_process.exec?</h4>
+<ul>
+<li>[ ] new Promise(child_process.exec())</li>
+<li>[ ] util.promisify(child_process.exec())</li>
+<li>[x] util.promisify(child_process.exec)</li>
+<li>[ ] new Promise(child_process.exec)</li>
+</ul>
+<h4 id="q16.-which-of-the-following-is-not-a-node-repl-command">Q16. Which of the following is NOT a Node repl command?</h4>
+<ul>
+<li>[ ] .brake</li>
+<li>[x] .history</li>
+<li>[ ] .editor</li>
+<li>[ ] .save</li>
+</ul>
+<h4 id="q17.-which-statement-is-true-when-you-run-the-code-shown-below">Q17. Which statement is true when you run the code shown below?</h4>
+<p><code>require('child_process').fork('script.js');</code> - [ ] The forked process shares the event loop with the parent process - [ ] A new VM instance is created and the two VM instances will be shared between the forked process and the parent process. - [✅] The forked process will have its own VM instance. - [ ] The forked process shares the same VM thread with the parent process.</p>
+<h4 id="q18.-if-eventemitter-is-in-scope-which-of-the-following-lines-of-code-will-have-an-event-emitter-emitting-a-change-event">Q18. If EventEmitter is in scope, which of the following lines of code will have an event emitter emitting a change event?</h4>
+<ul>
+<li>[x] EventEmitter.emit(‘change');</li>
+<li>[ ] EventEmitter.new().emit(‘change');</li>
+<li>[ ] (new EventEmitter()).emit(‘change');</li>
+<li>[ ] new EventEmitter(‘change');</li>
+</ul>
+<p><strong>Explanation:</strong></p>
+<p><em>Because the EventEmitter is already in scope. No need to create new one.</em></p>
+<h4 id="q19.-which-of-the-following-objects-is-a-stream">Q19. Which of the following objects is a stream</h4>
+<ul>
+<li>[ ] process.uptime</li>
+<li>[x] process.stdout</li>
+<li>[ ] process</li>
+<li>[ ] Buffer</li>
+</ul>
+<p><strong>Explanation:</strong></p>
+<p><em>process.stdout is Buffer type.</em></p>
+<h4 id="q20.-which-module-variable-holds-the-resolved-aboslute-path-of-the-current-module-file">Q20. Which module variable holds the resolved aboslute path of the current module file?</h4>
+<ul>
+<li>[ ] __pathname</li>
+<li>[ ] __location</li>
+<li>[ ] __flder</li>
+<li>[x] __filename</li>
+</ul>
+<h4 id="if-the-child_process-module-methods-are-in-scope-what-is-a-current-way-to-execute-the-command-ps--ef-using-a-child-process">21. If the child_process module methods are in scope, what is a current way to execute the command ps -ef using a child process?</h4>
+<ul>
+<li>[ ] spawn("ps -ef")</li>
+<li>[x] exec("ps -ef")</li>
+<li>[ ] exec("ps", "-ef")</li>
+<li>[ ] fork("ps -ef")</li>
+</ul>
+<h4 id="q22.which-console-method-can-be-used-to-print-the-stack-trace-to-the-point-of-its-execution">Q22.Which console method can be used to print the stack trace to the point of its execution?</h4>
+<ul>
+<li>[ ] stack</li>
+<li>[x] trace</li>
+<li>[ ] debug</li>
+<li>[ ] print</li>
+</ul>
+<h4 id="q23.when-you-run-javascript-in-a-node.js-application-which-of-the-following-elements-in-a-node.js-stack-actually-executes-that-javascript">Q23.When you run JavaScript in a Node.js application, which of the following elements in a Node.js stack actually executes that JavaScript?</h4>
+<ul>
+<li>[ ] the libuv library</li>
+<li>[ ] the c-ares library</li>
+<li>[x] the VM (like VS or Chakra)</li>
+<li>[ ] the repl module</li>
+</ul>
+<h4 id="q24.-looking-at-the-code-below-what-does-the-console-show">Q24. Looking at the code below, what does the console show?</h4>
+<pre><code>const http = require(&#39;http&#39;);
+ const hostname = &#39;127.0.0.1&#39;; const port = 3000;
+ const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;  res.setHeader(&quot;Content-Type&quot;, &quot;text/plain&quot;);  res.end(&quot;Hello World\n&quot;);
+});
+server.listen(port, hostname, () =&gt; { console.log(`server running at http://${hostname}:${port}/`); });</code></pre>
+<ul>
+<li>[ ] server running at http://localhost:3000/</li>
+<li>[ ] server running at port 3000</li>
+<li>[ ] server running at http://localhost:4000/</li>
+<li>[x] server running at http://127.0.0.1:3000/</li>
+</ul>
+<h4 id="q25.what-is-the-purpose-of-the-path-module">Q25.What is the purpose of the path module?</h4>
+<ul>
+<li>[x] to provide utilities to play with file and directory paths</li>
+<li>[ ] to provide utilities to add and remove files</li>
+<li>[ ] It is a retiring module.</li>
+<li>[ ] to provide utilities to test files</li>
+</ul>
+<h4 id="q26.how-do-you-make-an-http-server-object-active-and-listen-to-requests-on-certain-ports">Q26.How do you make an HTTP server object active and listen to requests on certain ports?</h4>
+<ul>
+<li>[ ] server. start</li>
+<li>[ ] server.activate</li>
+<li>[x] server.listen</li>
+<li>[ ] server. run</li>
+</ul>
+<h4 id="q27.what-does-the-code-shown-below-do">Q27.What does the code shown below do?</h4>
+<pre><code>const fs = require(&#39;fs&#39;); const os = require(&#39;os&#39;);
+const system = os.platform(); const user = os.userInfo().username;
+fs.appendFile(&#39;hello.txt&#39;, `Hello ${user} on ${system}`, (err) =&gt; { if (err) throw err; console.log(&#39;The data was appended to file!&#39;);}
+);</code></pre>
+<ul>
+<li>[x] creates a text file hello.txt and appends customized text</li>
+<li>[ ] creates an image file</li>
+<li>[ ] console logs system information</li>
+<li>[ ] creates a file named data and append numbers</li>
+</ul>
+<h4 id="q28.how-do-you-start-a-node-application-if-the-entry-file-is-indexjs">Q28.How do you start a Node application, if the entry file is indexjs?</h4>
+<ul>
+<li>[ ] nodemon start</li>
+<li>[ ] start index.js</li>
+<li>[x] node index.js</li>
+<li>[ ] node start</li>
+</ul>
+<h4 id="q29.what-is-the-purpose-of-the-file-system-fs-module">Q29.What is the purpose of the file system (fs) module?</h4>
+<ul>
+<li>[ ] to provide methods to work with requests and responses</li>
+<li>[x] to provide methods to work with files</li>
+<li>[ ] to provide methods to work with databases</li>
+<li>[ ] to find new file systems</li>
+</ul>
+<h4 id="q30.what-is-the-node-lts-version">Q30.What is the Node LTS version?</h4>
+<ul>
+<li>[ ] It is the current unstable version and is to be avoided.</li>
+<li>[ ] It is the version that will be retired soon.</li>
+<li>[ ] It is the version with the latest features.</li>
+<li>[x] It is the safest version for long-term support.</li>
+</ul>
+<h4 id="q31.-which-of-the-following-is-not-a-valid-stream-in-node">Q31. Which of the following is NOT a valid stream in Node?</h4>
+<ul>
+<li>[x] process. stdinfo</li>
+<li>[ ] process. stdin</li>
+<li>[ ] process. stdout</li>
+<li>[ ] process. stderr</li>
+</ul>
+<h4 id="q32.-you-have-a-script.js-file-with-the-single-line-of-code-shown-here.-what-will-be-the-output-of-executing-script.js-with-the-node-command">Q32. You have a script.js file with the single line of code shown here. What will be the output of executing script.js with the node command?</h4>
+<p><code>console.log(arguments);</code> - [ ] ReferenceError: arguments is not defined - [ ] an empty string - [ ] undefined - [✅] an object representing an array that has five elements</p>
+<h3 id="q33.-which-choice-is-not-a-valid-method-on-event-emitters">Q33. Which choice is not a valid method on event emitters?</h3>
+<ul>
+<li>[x] start</li>
+<li>[ ] on</li>
+<li>[ ] once</li>
+<li>[ ] off</li>
+</ul>
+<h3 id="q34.-which-special-object-is-an-instance-of-eventemitterwhich-special-object-is-an-instance-of-null">Q34. Which special object is an instance of EventEmitter?Which special object is an instance of null?</h3>
+<ul>
+<li>[ ] process</li>
+<li>[ ] Buffer</li>
+<li>[ ] root</li>
+<li>[x] require</li>
+</ul>
+<h3 id="q35.-what-is-the-command-to-get-a-list-of-available-commands-for-node.jswhat-is-the-command-to-get-a-list-of-available-commands-for-node.js">Q35. What is the command to get a list of available commands for Node.js?What is the command to get a list of available commands for Node.js?</h3>
+<ul>
+<li>[ ] node index.js -x</li>
+<li>[ ] node -v</li>
+<li>[x] node -h</li>
+<li>[ ] node index.js -h</li>
+</ul>
+<h3 id="q36.-when-a-request-event-is-received-in-the-http-module-what-is-the-type-of-the-first-argument-passed-to-that-event-usually-named-req">Q36. When a request event is received in the HTTP module, what is the type of the first argument passed to that event, usually named req?</h3>
+<ul>
+<li>[x] http.IncomingMessage</li>
+<li>[ ] http.ServerRequest</li>
+<li>[ ] http.ClientRequest</li>
+<li>[ ] http.ServerResponse</li>
+</ul>
+<h3 id="q37.-what-are-the-arguments-passed-to-the-module-wrapper-function">Q37. What are the arguments passed to the module wrapper function?</h3>
+<ul>
+<li>[ ] exports, __filename, __dirname</li>
+<li>[ ] exports, process, require, module, __filename, __dirname</li>
+<li>[ ] exports, module, __filename, __dirname</li>
+<li>[x] exports, require, module, __filename, __dirname</li>
+</ul>
+<h3 id="q38.-which-library-provides-node.js-with-the-event-loop">Q38. Which library provides Node.js with the event loop?</h3>
+<ul>
+<li>[ ] V8</li>
+<li>[ ] c-ares</li>
+<li>[x] libuv</li>
+<li>[ ] events</li>
+</ul>
+<h3 id="q39.-what-does-the-.node-file-extension-represent">Q39. What does the .node file extension represent?</h3>
+<ul>
+<li>[ ] a C++ file that can have a .node extension and that Node will be able to execute directly.</li>
+<li>[x] a C++ Addon file that is built with node-gyp</li>
+<li>[ ] a JSON file that can have a .node extension as well as the .json extension</li>
+<li>[ ] a JavaScript file that can have a .node extension as well as the .js extension</li>
+</ul>
+<h3 id="q40.-what-can-you-export-with-module.exports">Q40. What can you export with module.exports?</h3>
+<ul>
+<li>[ ] only objects.</li>
+<li>[ ] only functions</li>
+<li>[ ] only variables and arrays</li>
+<li>[x] functions, objects, arrays, or anything you assign to the module</li>
+</ul>
+<h3 id="q41.-which-core-module-in-node-can-you-use-to-take-advantage-of-multicore-systems">Q41. Which core module in Node can you use to take advantage of multicore systems?</h3>
+<ul>
+<li>[ ] os</li>
+<li>[ ] util</li>
+<li>[x] cluster</li>
+<li>[ ] net</li>
+</ul>
+<h3 id="q42.-which-core-node-module-has-wrappers-for-openssl-methods">Q42. Which core Node module has wrappers for OpenSSL methods?</h3>
+<ul>
+<li>[ ] SSL</li>
+<li>[ ] hash</li>
+<li>[x] crypto</li>
+<li>[ ] TLS</li>
+</ul>
+<h3 id="q43.-which-line-imports-a-promise-based-version-of-the-readfile-method">Q43. Which line imports a promise-based version of the readFile method?</h3>
+<ul>
+<li>[x] const { readFile } = require(fs).promises</li>
+<li>[ ] const { readFile } = require(fs)</li>
+<li>[ ] const { readFilePromises: readFile } = require(fs)</li>
+<li>[ ] const { readFile } = require(promises)</li>
+</ul>
+<h3 id="q44.-according-to-the-rules-of-semantic-versioning-what-does-a-release-incrementing-the-third-number-in-an-npm-version-string-communicate-to-users-about-the-release-changes">Q44. According to the rules of semantic versioning, what does a release incrementing the third number in an npm version string communicate to users about the release changes?</h3>
+<ul>
+<li>[ ] Changes are not backwards compatible.</li>
+<li>[ ] Changes might not be backward compatible and might break existing code.</li>
+<li>[x] Changes are just bug fixes and no new features were added.</li>
+<li>[ ] Changes will add new functionality but will not break any existing code.</li>
+</ul>
+<h3 id="q45.-what-does-repl-stand-for">Q45. What does REPL stand for?</h3>
+<ul>
+<li>[ ] run, examine, put, loop</li>
+<li>[x] read, eval, print, loop</li>
+<li>[ ] run, edit, print, loop</li>
+<li>[ ] read, extend, print, loop</li>
+</ul>
+<h3 id="q46.-which-statement-is-true-when-you-run-this-code">Q46. Which statement is true when you run this code?</h3>
+<p><code>require('child_process').fork("script.js")</code> - [ ] The forked process shares the same VM thread with the parent process. - [ ] The forked process will have its own VM instance. - [ ] The forked process shares the event loop with the parent process. - [ ] A new VM instance is created, and the two VM instances will be shared between the forked process and the parent process.</p>

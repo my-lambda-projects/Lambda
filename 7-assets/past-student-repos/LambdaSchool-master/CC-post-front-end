@@ -1,0 +1,52 @@
+//=========== MERGED OBJECT ==========//
+
+//Write a function that given an array of objects will return a single 'merged' object, 
+//where duplicate keys have the last value given.
+
+function mergeObjects(arr) {
+  //our first object in arr 
+  const newObj = arr[0];
+  //loop through obj to see if key-value is already in the existing obj 
+  for (let i = 1; i < arr.length; i++){
+    //loop through each key-value pair, to check each key
+    for (let key in arr[i]){
+      //is this value exists OR if it does exists, not the same as current arr[i][key]
+      if (!newObj[key] || newObj[key] !== arr[i][key]){
+        //create key and set the value in this array
+        newObj[key] = arr[i][key];
+      }
+    }
+  }
+  return newObj;
+}
+
+// Object.assign method one-liners //
+
+function mergeObjects(arr) {
+     return Object.assign({}, ...arr)
+}
+
+
+//============= Equal Sides ============ //
+
+// Write a function that returns the index of the given array at which the sums of the numbers on either side
+// of it are equal to each other. 
+
+function equalSides (arr) {
+  // reduce first
+  function reduceSide(side){
+    return side.reduce((cur, acc) => {
+      return cur + acc;
+  }, 0);
+}
+
+//if left slice equals right slice, return index i 
+  for (let i = 1; i < arr.length; i++){
+    const a = arr.slice(0, i);  //up to non-inclusive
+    const b = arr.slice(i + 1, arr.length);
+    if (reduceSide(a) === reduceSide(b)) {
+      return i;
+    }
+  }
+  return -1;
+}

@@ -1,0 +1,518 @@
+####### 3 TYPES OF SCOPES: Global, Block {}, Function () => {}
+
+### ES5 writing function
+const myFunc = function(){
+  const firstName = "Dan";
+  return `${firstName} ${lastName} `;
+}
+
+### ES6 writing functions
+const myFunc = () => {
+  const firstName = "Dan";
+  return `${firstName} ${lastName} `;
+}
+
+
+####### What happens when you call a function, within a function
+
+////// Function 
+
+const myFunc = () => {
+  const firstName = "Dan";
+
+  const saysHello = () => {
+    const lastName = "Frehner";
+    return `Hello ${firstName} ${lastName}`;
+  }
+
+  return saysHello;                     /// why not saysHello(); --> former returns entire function, 
+                                        // latter returns 'calling' of function
+                                        // former, you can use function somewhere
+                                        // latter, you only get what that function returns, NOT the
+                                        // function itself
+}
+
+/////// Calling it
+
+const placeholder = myFunc();           // Why is this step necessary?
+placeholder();
+
+
+######## ================ CLOSURES
+// This is an example of a closure in JavaScript
+
+// defining 
+const counter = () => {
+  let count = 0;
+
+  const addOne = () => {
+    debugger;
+    console.log(++count);          //Closure, accessing count aside of addOne() function scope, but still within counter()
+  }
+
+  return addOne;
+}
+
+const newCounter = counter();
+newCounter()
+newCounter()
+newCounter()
+
+######### ================== SIMPLE CALLBACKS
+
+const saysName = (name) => {
+  // name = "Dan"
+  return name;
+}
+const firstName = "Dan"
+
+saysName(firstName);
+
+const add = (num1, num2) => {                 //add function
+  return num1 + num2;
+}
+
+const multiply = (num1, num2) => {           //multiply function
+  return num1 * num2;
+}
+
+const calculate = (a, b, cb) => {
+                                            // callback = () => {...}
+  let number = cb(a,b);
+  return number
+} 
+
+let three = 3;
+let four = 4;
+
+calculate(three, four, multiply);
+calculate(three, four, add);
+
+#### SIMPLE CALLBACK TEMPLATE
+
+function calculate(param1, param2, callback){
+  return callback(param1,param2);
+}
+
+function add(param1, param2) {
+  console.log(param1 + param2)
+  return param1 + param2;
+}
+
+function subtract(param1, param2) {
+  console.log(param1 - param2)
+}
+
+function multiply(param1, param2) {
+  console.log(param1 * param2)
+}
+
+calculate(2,4, add);
+calculate(2,4, subtract);
+calculate(2,4, multiply);
+
+
+######### ================== CALLBACKS
+
+const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+
+
+function contains(item, list, cb) {
+                                        // contains checks if an item is present inside of the given array/list.
+                                        // Pass true to the callback if it is, otherwise pass false.
+  cb(list.includes(item));
+}
+
+function callback(boolean) {
+  console.log(`This is ${boolean}`);
+};
+
+contains('basketball', items, callback);      //This is false
+
+##///////## Alternative: call function with anonymous function for a callback
+
+contains(items, 'Pen', function(boolean){      // anonymous function
+  console.log(`This is ${boolean}`);
+});
+
+
+######### ====== MORE CALLBACKS: Remove Duplicate Items
+
+const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum', 'yo-yo', 'basketball', 'basketball'];
+
+
+function removeDuplicates(array, cb) {
+                                        // removeDuplicates removes all duplicate values from the given array.
+                                        // Pass the duplicate free array to the callback function.
+                                        // Do not mutate the original array.
+  cb(array);
+}
+
+function removeItem(arr) {
+                   // loop through array with filter method,
+  const arrayUnique = arr.filter(function(item, index){
+                   // use .indexOf() to see if an item already exists
+                   // if item is greater than the item's index, that means there is a duplicate, in which case, filter it out
+    return arr.indexOf(item) >= index;
+  });
+  console.log(arrayUnique);
+}
+
+removeDuplicates(items, removeItem);
+
+
+########################### ================ ARRAY METHODS
+######### ===== .forEach()   .filter()   .map()   
+
+let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year":2009},
+{"id":2,"car_make":"Mazda","car_model":"Miata MX-5","car_year":2001},
+{"id":3,"car_make":"Land Rover","car_model":"Defender Ice Edition","car_year":2010},
+{"id":4,"car_make":"Honda","car_model":"Accord","car_year":1983},
+{"id":5,"car_make":"Mitsubishi","car_model":"Galant","car_year":1990}]
+
+*NOTE*: Actual array much longer
+
+// ==== Challenge 2 ====
+// The dealer needs the information on the last car in their inventory.  
+// What is the make and model of the last car in the inventory?  Log the make and model into the console.
+
+// Answer
+console.log(inventory[inventory.length-1]);
+
+// ==== Challenge 3 ====
+// The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
+let carModels = [];
+console.log();
+
+// Answer
+function sortModel() {
+    let carModels = [];
+    for (i = 0; i < inventory.length; i++) {
+      carModels.push(inventory[i].car_model.toUpperCase());
+    }
+    carModels.sort();
+    return carModels;
+  }
+ 
+  sortModel();
+
+// ALTERNATIVE ANSWER with forEach()
+
+function sortModel() {
+  let carModels = [];
+// forEach object 'e' within 'i' index of inventory-array
+  inventory.forEach((e,i) => {   
+    // access car_model property of object 'e', push into empty array carModels
+    carModels.push(e.car_model.toUpperCase());
+  });
+  carModels.sort();
+  return carModels;
+}
+
+sortModel();
+
+// SECOND ALTERNATIVE ANSWER  with map()
+
+function sortModel() {
+  let carModels = [];
+  inventory.map(e => {
+    carModels.push(e.car_model.toUpperCase());
+  });
+  carModels.sort();
+  return carModels;
+}
+
+sortModel();
+
+
+// ==== Challenge 4 ====
+// The accounting team needs all the years from every car on the lot. 
+// Create a new array from the dealer data containing only the car years and log the result in the console.
+
+let carYears = [];
+console.log();
+
+//Answer
+function allYears() {
+    let carYears = [];
+    for (i = 0; i < inventory.length; i++) {
+      carYears.push(inventory[i].car_year);
+    }
+    return carYears;
+  }
+
+allYears();
+
+//ALTERNATIVE Answer using forEach()
+
+function allYears() {
+  let carYears = [];
+  inventory.forEach((e,i) => {
+    carYears.push(e.car_year);
+  });
+  return carYears;
+}
+
+allYears();
+
+//SECOND ALTERNATIVE ANSWER using map()
+function allYears() {
+  let carYears = [];
+  inventory.map(e => {
+    carYears.push(e.car_year);
+  });
+  return carYears;
+}
+
+allYears();
+
+
+// ==== Challenge 5 ====
+// The car lot manager needs to find out how many cars are older than the year 2000. 
+// Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
+
+let oldCars =[];
+console.log(); 
+
+// Answer
+function allYears() {
+    let oldCars = []
+    for (i = 0; i < inventory.length; i++) {
+      // check if car_year is < 2000
+      if (inventory[i].car_year < 2000) {
+        oldCars.push(inventory[i].car_year);
+      }
+    }
+    // return length of oldCars array
+    return oldCars.length;
+  }
+
+allYears();
+
+
+// ALTERNATIVE Answer with forEach()
+
+function allYears() {
+  let oldCars = [];
+  inventory.forEach((e,i) => {
+    if (e.car_year < 2000) {
+      oldCars.push(e.car_year);
+    }
+  });
+  return oldCars.length;
+}
+
+allYears();
+
+//SECOND ALTERNATIVE ANSWER with map()
+function allYears() {
+  let oldCars = [];
+  inventory.map(e => {
+    if (e.car_year < 2000) {
+      oldCars.push(e.car_year);
+    }
+  });
+  return oldCars.length;
+}
+
+allYears();
+
+// THIRD ALTERNATIVE ANSWER with filter()
+
+function allYears() {
+  let oldCars = inventory.filter(e => {
+    return e.car_year < 2000;
+  });
+  return oldCars.length;
+}
+
+allYears();
+
+
+
+// ==== Challenge 6 ====
+// A buyer is interested in seeing only BMW and Audi cars within the inventory.  
+// Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
+
+let BMWAndAudi =[];
+console.log();
+
+//Answer
+function selectCars() {
+    let BMWAndAudi =[];
+    for (i = 0; i < inventory.length; i++) {
+      if (inventory[i].car_make === "BMW" || inventory[i].car_make === "Audi") {
+        BMWAndAudi.push(inventory[i]);
+      }
+    }
+    return JSON.stringify(BMWAndAudi);
+  }
+  
+  selectCars();
+
+  //ALTERNATIVE using forEach()
+
+  function selectCars() {
+    let BMWAndAudi = [];
+    inventory.forEach((e,i) => {
+      if (e.car_make === "BMW" || e.car_make === "Audi") {
+        BMWAndAudi.push(e);
+      }
+    });
+    return JSON.stringify(BMWAndAudi);
+  }
+  
+  selectCars();
+  
+  //SECOND ALTERNATIVE using map()
+  
+  function selectCars() {
+    let BMWAndAudi = [];
+    inventory.map(e => {
+      if (e.car_make === "BMW" || e.car_make === "Audi") {
+        BMWAndAudi.push(e);
+      }
+    });
+    return JSON.stringify(BMWAndAudi);
+  }
+
+  selectCars();
+
+  //THIRD ALTERNATIVE using filter()
+
+
+  function selectCars() {
+    let BMWAndAudi = inventory.filter(e => {
+      if (e.car_make === "BMW" || e.car_make === "Audi") {
+        return e;
+      }
+    });
+    return JSON.stringify(BMWAndAudi);
+  }
+  
+    selectCars();
+    
+    
+########################### ================ ARRAY METHODS
+######### =====               .reduce()
+
+
+const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"cseiler0@wired.com","shirt_size":"2XL","company_name":"Divanoodle","donation":75},
+{"id":2,"first_name":"Whitaker","last_name":"Ierland","email":"wierland1@angelfire.com","shirt_size":"2XL","company_name":"Wordtune","donation":148},
+{"id":3,"first_name":"Julieta","last_name":"McCloid","email":"jmccloid2@yahoo.com","shirt_size":"S","company_name":"Riffpedia","donation":171},
+{"id":4,"first_name":"Martynne","last_name":"Paye","email":"mpaye3@sciencedaily.com","shirt_size":"XL","company_name":"Wordware","donation":288},
+{"id":5,"first_name":"Gussy","last_name":"Raraty","email":"graraty4@ucoz.ru","shirt_size":"L","company_name":"Oozz","donation":291},
+{"id":6,"first_name":"Yule","last_name":"Tommasetti","email":"ytommasetti5@state.gov","shirt_size":"S","company_name":"Yodo","donation":27},
+{"id":7,"first_name":"Kathie","last_name":"Majury","email":"kmajury6@guardian.co.uk","shirt_size":"3XL","company_name":"Zoomcast","donation":261}]
+
+*NOTE*: Actual array much longer
+
+
+// ==== Challenge 4: Use .reduce() ====
+// The donations need to be tallied up and reported for tax purposes. 
+// Add up all the donations into a ticketPriceTotal array and log the result
+
+let ticketPriceTotal = [];
+console.log(ticketPriceTotal);
+
+function tallyDonations(arr) {
+  let totalDonations = arr.reduce((accumulator, item) => {
+    return accumulator += item.donation;
+  },0);
+  return totalDonations;
+}
+
+tallyDonations(runners);
+
+
+####### =================== Use .reduce() and chain together with .map() .filter()
+
+### Array containing  many objects
+
+const pets = [
+  {
+    'name': 'Tinkerbell',
+    'species': 'cat',
+    'age': 2
+  },
+  {
+    'name': 'Lucy',
+    'species': 'dog',
+    'age': 12
+  },
+  {
+    'name': 'Chloe',
+    'species': 'cat',
+    'age': 18
+  },
+  {
+    'name': 'Mojo',
+    'species': 'dog',
+    'age': 6
+  },
+  {
+    'name': 'Olivia',
+    'species': 'parakeet',
+    'age': 4
+  },
+  {
+    'name': 'Shadow',
+    'species': 'cat',
+    'age': 8
+  },
+  {
+    'name': 'Oreo',
+    'species': 'cat',
+    'age': 5
+  },
+  {
+    'name': 'Molly',
+    'species': 'dog',
+    'age': 4
+  },
+  {
+    'name': 'Freddie Prinze Jr.',
+    'species': 'parakeet',
+    'age': 9
+  }
+];
+
+######## NEAR SOLUTION
+// Do not mutate original pets array (use map, filter)
+// iterates through each object in pets Array
+// filter by dog, cat, parakeet; 
+// multiply by 7, 4, 5
+// reduces (add) all dog, cat, parakeet 
+// return pets array
+
+
+
+function sumPetYears(arr, kind, multiply) {
+
+// create three separate functions to filter, map, reduce through three species
+
+  let dogSum = arr.filter(element => element.species === 'dog').map(element => element.age*7).reduce((acc, element) => acc + element,0);
+  let catSum = arr.filter(element => element.species === 'cat').map(element => element.age*4).reduce((acc, element) => acc + element,0);
+  let parakeetSum = arr.filter(element => element.species === 'parakeet').map(element => element.age*5).reduce((acc, element) => acc + element,0);
+
+  console.log(dogSum);
+  console.log(catSum);
+  console.log(parakeetSum);
+
+}
+
+console.log(sumPetYears(pets, 'dog', 7));     //output: 154, 132, 65 (for ages of dog, cat, parakeet, respectively)
+
+
+########## SHORTER SOLUTION: CHAINING filter, map, reduce
+
+function sumPetYears(arr, kind, multiply) {
+  let petSum = arr.filter(element => element.species === `${kind}`).map(element => element.age*multiply).reduce((acc, element) => acc + element,0);
+  return `The combined ${kind}s' ages: ${petSum}`;
+}
+
+console.log(sumPetYears(pets, 'parakeet', 5));
+
+
+
+

@@ -1,0 +1,638 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Using Canvas</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dea7d158-a511-417d-b145-1b573ceb32cc" class="page mono"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_frederic_edwin_church_1871.jpg" style="object-position:center 30.000000000000004%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📕</span></div><h1 class="page-title">Using Canvas</h1></header><div class="page-body"><nav id="c14f02a4-f46a-45a5-ba81-2c47e00dd4a5" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#18c88c73-8875-40d9-8e5a-75f918034d0c">New to Canvas? Start Here!</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0b1591a3-4ad6-4752-8da3-228d4b054ebb">Everything you need to know about using Canvas at Lambda School. Canvas helps you:</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4c13df68-4698-4b7f-9896-373b4b531f2c">💻 Logging In</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7d0177ca-0d40-4ce3-b49c-9676281a0114">📚 Dashboard</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#74de93ce-df8c-49b2-98b2-3b95acd7c325">🧾 Account</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#13597b3b-12f9-406b-9184-2b386c75b541">🚁 Help</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9d0165cd-82d8-4c6e-86b3-abc04157c6a5">🧭 Course Navigation</a></div></nav><h1 id="18c88c73-8875-40d9-8e5a-75f918034d0c" class="block-color-red_background">New to Canvas? Start Here!</h1><p id="b9c5b1fa-6655-48d6-a8b3-6018270ce566" class="block-color-red_background">💡Be sure to bookmark <a href="https://lambdaschool.instructure.com/">https://lambdaschool.instructure.com/</a> and use the same credentials to log in that you use for the student dashboard.</p><p id="ee6c278c-7e55-46cc-96d2-cbf73a8bc26c" class="block-color-red_background">1️⃣ You got your Canvas invitation... <a href="https://my.lambdaschool.com/resources/how-to-access-canvas">here&#x27;s what to do next</a>. </p><p id="490491cd-d2ce-48a3-8744-cfa461175199" class="block-color-red_background">🚨 If you don&#x27;t get an email invitation at your <a href="http://lambdastudents.com">lambdastudents.com</a> email, try going directly to the link above and logging in.</p><ul id="23911783-6413-418c-a6b3-659b850a8669" class="block-color-red_background toggle"><li><details open=""><summary>2️⃣ To see your current courses, click the triangle... </summary><p id="3dfa33dd-fa76-493a-8f00-088962a9b55c" class="">Navigate to <a href="https://lambdaschool.instructure.com/">the Canvas homepage</a>. Once there, you should see all of the courses (sprints) that you are enrolled in for this unit. For example, a WEB36 student in Unit 2 would see 4 courses for their current unit, 1 course for the Lambda Leadership program, and 1 Career &amp; Professional Development course (only applicable to students that started before 9/28/10).</p><figure id="ab2d036d-f312-4508-ae6d-0068846b4bd5" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.11_AM.png"><img src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.11_AM.png"/></a></figure></details></li></ul><p id="de99b22e-9a5f-4e0e-b373-48ab7fd3ace6" class="block-color-red_background">3️⃣ Get all the details on <a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/How%20are%20courses%20structured%20in%20Canvas%20How%20do%20I%20know%20f461130afcff4e58a5ce30e892435aff.html">how the courses are structured</a> &amp; what you need to do. </p><p id="edbeb3ea-c684-497e-86f4-bc714be1d5f2" class="block-color-red_background">4️⃣ When you&#x27;re ready to submit your first sprint challenge, <a href="https://my.lambdaschool.com/resources/completing-your-sprint-challenge-in-canvas">this will walk you through step-by-step</a>. </p><ul id="870780c8-80e3-4511-8cdb-f6bfc4391fbf" class="block-color-red_background toggle"><li><details open=""><summary>5️⃣ Watch this Canvas overview video to get familiar with how to navigate Canvas.</summary><p id="9eb542b5-9083-46f2-a719-86364dcacb5f" class="">In this training video, our all-star instructor Josh Knell walks through a sample Canvas course.</p><figure id="80993561-4c24-46ff-8fa2-9041317bd183"><div class="source"><a href="https://www.youtube.com/watch?v=WNMYOZwVuYQ&amp;feature=youtu.be">https://www.youtube.com/watch?v=WNMYOZwVuYQ&amp;feature=youtu.be</a></div></figure></details></li></ul><p id="bb8960cf-d745-4ed8-941c-321e338526fd" class="block-color-red_background">6️⃣ Need more help? Check out the the information ⬇️ below ⬇️ or <a href="https://my.lambdaschool.com/get-help">here</a>. </p><p id="0eb6b2a6-a973-48c2-aed5-e9306ab11320" class="">
+</p><p id="c896aa5b-d23b-4d8e-85df-d5706beabd59" class="">
+</p><h3 id="0b1591a3-4ad6-4752-8da3-228d4b054ebb" class="">Everything you need to know about using Canvas at Lambda School. Canvas helps you:</h3><ul id="150dd69b-0d2e-4520-b5f7-c2eb302b62e7" class="bulleted-list"><li>Organize all of the learning material your instructor has created</li></ul><ul id="4c9d9122-516f-4c94-87bb-4cdaa9f6756e" class="bulleted-list"><li>Keep track of the work you are assigned by your instructor, scores and feedback</li></ul><ul id="55d2f633-5bfb-47a6-9448-2f693fa28025" class="bulleted-list"><li>Submit retrospectives, quizzes, and assessments. It also lets you view the status of your submissions.</li></ul><ul id="895cb2d5-5b70-45cf-9377-2fbc70e6e355" class="bulleted-list"><li>Help you stay in touch with other members of your class</li></ul><figure class="block-color-pink_background callout" style="white-space:pre-wrap;display:flex" id="b6602aea-6462-4592-95ce-5e7de477c154"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">There are several features in Canvas you don't need to worry about at the moment. Continue using Slack for announcements and messaging; continue relying on your student Google Calendar for scheduling. We will not be using Canvas for discussions, collaborations, or video conferences. </div></figure><h1 id="4c13df68-4698-4b7f-9896-373b4b531f2c" class="">💻 Logging In</h1><ul id="639e24ea-ef02-4174-80af-9638027e8251" class="toggle"><li><details open=""><summary><strong>Course Invitation</strong></summary><ul id="602ed658-b728-4f87-bcff-dc30e10abcdf" class="toggle"><li><details open=""><summary>Lambda Launch and Unit 1 students</summary><p id="9c025fb5-d846-4301-894b-7eba130876b0" class="">If you are a new student, you should receive a Canvas invitation in the inbox of your Lambda School email. In that email, click the &quot;Get Started&quot; button to jump into Canvas. The invitation will look something like this:</p><figure id="0e9e825d-0cb0-4276-88d9-33a2906101bf" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/cef7fb4c-b0af-4d3b-9d8f-73988088ae96.png"><img style="width:613px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/cef7fb4c-b0af-4d3b-9d8f-73988088ae96.png"/></a></figure><p id="befa5196-c05b-4e7a-8550-a882ce053baa" class=""> If haven&#x27;t received a Canvas invitation in your email, try navigating directly to <a href="https://lambdaschool.instructure.com/">Lambda School&#x27;s Canvas homepage</a>. If you are prompted to login, use the same credentials that you use to sign into your student dashboards. </p><p id="16b2f02a-796f-47c1-a1d0-8bf023dec6c1" class="">If you are still having trouble accessing Canvas, please submit a <code>/frontdesk</code> ticket via Slack. To submit a ticket, type /frontdesk into any direct message in Slack and hit &quot;return&quot; or &quot;enter&quot; twice. Fill out the form and someone will respond to you, typically within 24 hours to your @lambdastudents.com email account.</p></details></li></ul><ul id="684b76cd-977b-4144-aabf-108d55df835c" class="toggle"><li><details open=""><summary>All Other Students</summary><p id="d363a06f-29be-4302-ae3c-7bf4a62f49cf" class="">Instead of looking in their Lambda School email, existing students should access Canvas directly by navigating to <a href="https://lambdaschool.instructure.com/">Lambda School&#x27;s Canvas homepage</a>. If you are prompted to login, use the same credentials that you use to sign into your student dashboards. Once logged in, you should be able to view all of the sprints for your current unit in Canvas. It&#x27;s important to note that each course in Canvas is <strong>one sprint </strong>for Lambda, so you will have at least four courses per unit. Your Canvas homepage should look similar to the screenshot below, but with different courses.</p><figure id="82d49c1e-cf27-4c14-bcc6-9650765408fb" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_10.24.21_AM.png"><img style="width:2758px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_10.24.21_AM.png"/></a></figure><p id="1b837ff0-09c9-42d1-9895-6e87d23981fd" class="">If you are still having trouble accessing Canvas after following the instructions above, please submit a <code>/frontdesk</code> ticket via Slack. </p></details></li></ul></details></li></ul><h1 id="7d0177ca-0d40-4ce3-b49c-9676281a0114" class="">📚 Dashboard</h1><ul id="a7493f11-b8bc-4114-9aa9-4ae34910d5df" class="toggle"><li><details open=""><summary><strong>Dashboard Views</strong></summary><p id="41be6824-fdec-4de0-92f0-06e1ba4fa89b" class="">There are three Dashboard views to choose from: card view, list view, and recent activity.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2fb80e66-b0f0-443e-a242-04d81a2e7757"><div style="font-size:1.5em"><span class="icon">♠️</span></div><div style="width:100%"><strong>Card View: </strong>Displays course cards for quick access to all your favorite courses.</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c38803e5-0844-4329-add2-a95e163b3dc8"><div style="font-size:1.5em"><span class="icon">📖</span></div><div style="width:100%"><strong>List View:</strong> Displays all course to-do items in an agenda view.</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ae8771b8-d7a4-4c3c-bd69-8cb2ec13e5ef"><div style="font-size:1.5em"><span class="icon">✍️</span></div><div style="width:100%"><strong>Recent Activity: </strong> Shows you important recent activities from all of your courses including announcements, discussions, assignments, and conversations.</div></figure><figure id="8fe674d5-9b59-4fa4-bff4-4a54dd77affd" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Changing_your_Dashboard_View.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Changing_your_Dashboard_View.gif"/></a></figure><p id="a7b4eb1a-1186-4b16-9a8a-5dc5ba9e6857" class="">
+</p></details></li></ul><ul id="1c510714-f75f-47af-b027-989d86436299" class="toggle"><li><details open=""><summary><strong>Rearranging/Changing Course Card Colors</strong></summary><p id="c8b5e6e3-eb95-4970-9cc8-1c30d88605ed" class="">Your Dashboard is customizable, allowing you to choose a nickname and color for each of your Courses Cards. This color matches the course color in the Calendar. You can order Course Cards using drag and drop.</p><ol id="20d631b0-ecd0-465e-ba24-ec18e14d793f" class="numbered-list" start="1"><li>To move a course card to a new location, click on the course card.</li></ol><ol id="69f73440-8ae1-47cc-abdd-eeb532bb6a2e" class="numbered-list" start="2"><li>Click and hold your mouse, drag the Course Card to the desired location on the Dashboard and drop it by releasing your mouse.</li></ol><p id="1b57c7c4-5ce4-4aab-aa44-9a095854deaf" class="">Want to change your card color?</p><ol id="6361710a-39c9-4c06-a31a-de54fbb33374" class="numbered-list" start="1"><li>To change the color of a course card select more options from the Course Card.</li></ol><ol id="5730fe3e-f31f-4daf-b26c-0afc4e7ac56d" class="numbered-list" start="2"><li>Select an available color or type a hex color code into the field.</li></ol><ol id="493e1bfc-a7f6-4801-a3c6-b8d44f82b864" class="numbered-list" start="3"><li>Click the &#x27;Apply&#x27; button to view the changes.<figure id="e9317bfc-5887-4594-a415-3c4135aa7620" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/change_dashboard_card_color.gif"><img style="width:1372px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/change_dashboard_card_color.gif"/></a></figure><p id="05749744-e9a1-4784-b3d8-7356df5efb9f" class="">
+</p></li></ol></details></li></ul><ul id="448b0661-d1a7-4616-b745-9ed92d96438a" class="toggle"><li><details open=""><summary><strong>Adding To-Do's</strong></summary><p id="6a190cf9-ce7a-4fc1-936c-c9fb7b2731ea" class="">First switch to your Dashboard&#x27;s List View — which shows all of your courses to-do items in an agenda view. You can add your own to-do items here.</p><ol id="3024b366-2153-4a65-95b3-c7c0192231fb" class="numbered-list" start="1"><li>To add an item to your To-Do list or a course To-Do list, select the &#x27;Add&#x27; button.</li></ol><ol id="13d17923-2583-46aa-8df5-310e58100c25" class="numbered-list" start="2"><li>Enter the title, date, and time.</li></ol><ol id="eebfe74c-6280-48ed-b4bf-14ff64a8a1f6" class="numbered-list" start="3"><li>Select the Course that you would like to add the item to.</li></ol><ol id="ba91dfc0-4564-4457-aae6-8f8ebce7edec" class="numbered-list" start="4"><li>When finished, press the &#x27;Save&#x27; button to view your new To-Do item.</li></ol><figure id="39d0ef42-77b8-45e9-8557-d4b74eddd33c" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/add_to-do_item.gif"><img style="width:1372px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/add_to-do_item.gif"/></a></figure><p id="1bf73c73-69c9-4733-a8c8-8e1e543eb37d" class="">
+</p></details></li></ul><ul id="54ff1e6c-c7a6-4e7f-9ad3-1cffb1cf5454" class="toggle"><li><details open=""><summary><strong>Favoriting Courses</strong></summary><p id="6b455b36-4940-419d-8fc2-198aacb2bd79" class="">If you favorite Courses, only those Courses that you choose to favorite will display on your Dashboard.</p><ol id="aac58b67-0f2b-48ad-97cc-d7843ea2141b" class="numbered-list" start="1"><li>To favorite courses, open your Course list from Courses in the Global Navigation.</li></ol><ol id="01e962a5-df79-4228-81c3-ec1d27d55ba4" class="numbered-list" start="2"><li>Select All Courses.</li></ol><ol id="7569f4a0-4b42-43ba-8619-d2375cbc772b" class="numbered-list" start="3"><li>On the All Courses page, click the star next to Courses that you wish to favorite. The star, when selected, appears solid.<figure id="69fd3c2b-a576-41d1-b522-8bd47955ad62" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Enabling_Course_Favoriting.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Enabling_Course_Favoriting.gif"/></a></figure></li></ol></details></li></ul><h1 id="74de93ce-df8c-49b2-98b2-3b95acd7c325" class="">🧾 Account</h1><ul id="b38328fc-d602-4a35-bff3-46737cfa4379" class="toggle"><li><details open=""><summary><strong>Setting Notification Preferences</strong></summary><p id="bb5ffe82-9172-4f12-bdd3-d30596cdbda4" class="">Notification preferences apply to all courses that you are enrolled in at an institution and allow you to choose what reminders you want to receive and how often.</p><p id="d10eed45-1a0e-4c54-8572-207314bf398a" class="">To access your Notification Preferences click on Account in Global Navigation, then click on Notifications.</p><figure id="ab346e06-364e-421a-a1f5-ec95fc963dbe" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Selecting_Notification_Preferences.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Selecting_Notification_Preferences.gif"/></a></figure><p id="90db7bdc-6dfa-4219-9714-183704ef5bbb" class="">A different notification frequency can be chosen for each contact method you have added to your Canvas Account.</p><ul id="be4ed045-9b5f-48f7-953b-94b25b58d6b6" class="bulleted-list"><li>Click on the frequency icons in the column below each contact method.</li></ul><ul id="daea00c2-6151-48ec-aa75-48258ff03e15" class="bulleted-list"><li>There are four frequencies for email and text messages notifications:<ol id="36f94b96-7215-4c87-889e-6b6310354db7" class="numbered-list" start="1"><li>Notify me right away</li></ol><ol id="d001fdba-fc75-467f-ae5a-07515a69b973" class="numbered-list" start="2"><li>Send a daily summary</li></ol><ol id="be0448d3-aebd-41ba-acc1-fc41e6c45965" class="numbered-list" start="3"><li>Send a weekly summary</li></ol><ol id="37e77fb4-007e-48d8-acc1-bd0c2a50564a" class="numbered-list" start="4"><li>Do not send me anything</li></ol></li></ul><ul id="259c4012-4be7-41a1-9817-1480e38169c8" class="bulleted-list"><li>For push notifications used on a tablet or phone where the Canvas Student App is installed, choose from two notification preferences:<ol id="349d290a-91c9-43b4-9eaf-2a401b00b1d6" class="numbered-list" start="1"><li>Notify me right away</li></ol><ol id="b0592661-2765-4709-9f5f-834eb0ae3434" class="numbered-list" start="2"><li>Do not send me anything.</li></ol></li></ul></details></li></ul><h1 id="13597b3b-12f9-406b-9184-2b386c75b541" class="">🚁 Help</h1><ul id="769a5753-7e7f-4939-8950-bc4bad29d9de" class="toggle"><li><details open=""><summary><strong>Canvas Student Guides</strong></summary><p id="d6725fec-5348-4533-b13c-9edcef6c8b08" class="">As a student, you have access to the Canvas Guides. At anytime you are welcome to search the Canvas Student Guides to find information on using Canvas as a student. The Canvas Student Guides provide images and step-by-step directions for using Canvas.</p><ol id="d1a34795-704b-4e36-a4a1-a16e3cdec7f3" class="numbered-list" start="1"><li>To access the Canvas Guides from the Help Menu, select &#x27;Help&#x27; from the Global Navigation menu.</li></ol><ol id="bba2d9f7-d7c8-4606-b70e-e487b96771e7" class="numbered-list" start="2"><li>Choose &quot;Search the Canvas Student Guides&quot;.</li></ol><ol id="33b47a72-1e96-4fb6-b553-d2419eb48926" class="numbered-list" start="3"><li>Then, click on the hypertext describing the topic for which you would like additional support. (Note: The video below show a few extra steps that have now been removed.)</li></ol><figure id="863db602-645f-415e-bd5f-ea92df25c3a9" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Accessing_Help_to_Access_the_Canvas_Guides.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Accessing_Help_to_Access_the_Canvas_Guides.gif"/></a></figure></details></li></ul><h1 id="9d0165cd-82d8-4c6e-86b3-abc04157c6a5" class="">🧭 Course Navigation</h1><ul id="37cc8e0f-64d7-4e39-8dd4-f4925ad7f570" class="toggle"><li><details open=""><summary><strong>Canvas Course Walkthrough Video</strong></summary><p id="21237501-e3ab-4d09-9a17-ae2b3b8e6ccb" class="">In this training video, our all-star instructor Josh Knell walks through a sample Canvas course.</p><figure id="b89325bc-0395-43ac-8f32-a3110187d25d"><div class="source"><a href="https://www.youtube.com/watch?v=WNMYOZwVuYQ&amp;feature=youtu.be">https://www.youtube.com/watch?v=WNMYOZwVuYQ&amp;feature=youtu.be</a></div></figure></details></li></ul><p id="b117ea25-b617-4d5e-a47b-e924c5f10cc0" class="">
+</p><ul id="d130ed1b-4327-4f45-ab0d-7c3c3680928b" class="toggle"><li><details open=""><summary><strong>Finding Current and Past Courses</strong></summary><p id="36771fec-430d-4c84-8cfc-9c3be666b255" class="">To find your current courses, navigate to <a href="https://lambdaschool.instructure.com/">the Canvas homepage</a>. Once there, you should see all of the courses (sprints) that you are enrolled in for this unit. For example, a WEB36 student in Unit 2 would see 4 courses for their current unit, 1 course for the Lambda Leadership program, and 1 Career &amp; Professional Development course. </p><figure id="cef2e98f-c810-4c11-8df2-6f965e72473c" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.11_AM.png"><img style="width:2072px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.11_AM.png"/></a></figure><p id="e88cdd43-9580-44af-b997-21ac319256d8" class=""> If you&#x27;d like to see course content from a previous unit, click the &quot;Courses&quot; button on the left side panel and then click &quot;All Courses&quot;. </p><figure id="c3442860-45a1-4bcb-9507-9aec87debd6f" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.17_AM.png"><img style="width:2060px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.17_AM.png"/></a></figure><p id="9ec6bdef-a8b1-4b9e-b50a-0a5ef31a79c1" class="">You should then be able to see all of your current and past courses in one list.</p><figure id="b849c8f1-6445-4078-ab66-3243f4903eba" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.24_AM.png"><img style="width:2540px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Screen_Shot_2020-10-22_at_11.54.24_AM.png"/></a></figure><p id="ce59ddcf-dc55-4529-b944-ced6e48c893b" class="">
+</p></details></li></ul><ul id="3578c75e-cf1c-4c0d-8613-58f19169f65a" class="toggle"><li><details open=""><summary><strong>Home Pages</strong></summary><p id="18343fe0-a395-4558-98d4-56c53598df9c" class="">The Course Home Page helps you navigate the course and manage your coursework.</p><p id="b4d940bb-ac2e-47ff-a80b-99f3280cd327" class="">All Home Page options include:</p><ul id="d2a09cb8-399c-4c80-88cf-e23af7dd7b14" class="bulleted-list"><li>A sidebar with a to-do list that shows announcements and up to seven assignments that you need to submit<figure id="5fd74d4c-fa48-4932-93b3-b6858d6891c1" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Viewing_the_Course_Home_Page.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Viewing_the_Course_Home_Page.gif"/></a></figure><p id="0ec2cc4f-daef-4172-a620-2ee51444319c" class="">
+</p></li></ul></details></li></ul><ul id="3cfbd3d2-9b4f-4a8c-8917-9f47e100850b" class="toggle"><li><details open=""><summary><strong>Custom Course Navigation</strong></summary><p id="556222b5-d50d-406f-80e3-3143cd7907ba" class="">The Course Navigation list may look slightly different for each course. &quot;Home&quot; will always be at the top of the course navigation list. In most cases, it will be followed by &quot;Modules&quot; and &quot;Grades&quot;. The Modules tab lets you access all of the course content and assignments for the course. The Grades tab will let you see the submission status for your assignments and view your Learning Mastery of the sprint&#x27;s objectives. </p><figure id="a856dca4-3134-409c-aaf0-671e69c62a9f" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Course_Navigation_Examples.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Course_Navigation_Examples.gif"/></a></figure><p id="9228a822-c46a-4419-93c4-a1cd2111a414" class="">
+</p></details></li></ul><ul id="4cf6d23a-1624-48eb-a0c8-facf9fdf47bd" class="toggle"><li><details open=""><summary><strong>Navigating Modules</strong></summary><p id="97e924b3-69b3-473a-8aac-9ebe6122fd5b" class="">Your instructor may organize your course into Modules. Think of a module as tabs in a binder. Each module will have learning materials and activities in an order that is best for learning.</p><p id="fc6e6c41-f70e-4076-8055-5849d8b42dd6" class="">Select &quot;Modules&quot; from the Course Navigation on the left.</p><figure id="7aec0ddb-bf8e-40b3-a0b2-f5f35fc081c4" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Accessing_and_Viewing_Modules.gif"><img style="width:800px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/Accessing_and_Viewing_Modules.gif"/></a></figure><p id="32a6038c-1832-4c42-b868-d26268aeef87" class="">To begin a module, click the first item in the module.</p><p id="d0ac7328-f18c-4c3d-af7c-ee60eafac403" class="">You can advance through module items or return to previous modules using the progression bar at the bottom of the page. To advance to the next module item, click the <strong>Next</strong> button. To return to a previous module item, click the <strong>Previous</strong> button.</p><p id="592e0569-036f-46a7-a0aa-d78d062f256d" class="">You can view the name of the next or previous module item by hovering over the Next or Previous button, respectively.</p><figure id="8cba85ac-0112-43d7-a187-ead88ea76683" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/d16cfafc-8db3-44f8-86fd-1c34878f807d.png"><img style="width:676px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/d16cfafc-8db3-44f8-86fd-1c34878f807d.png"/></a></figure><p id="d3179232-e580-439d-bd47-976e77179569" class="">
+</p></details></li></ul><ul id="2282803d-fc60-4f2a-8f70-cb717c6736db" class="toggle"><li><details open=""><summary><strong>Module Breakdown</strong></summary><p id="3b76754f-2689-458e-ba06-f85358dbd362" class="">In Modules, you can view all the modules in your course. Modules are organized by order of progression.</p><p id="a31b6e76-f93a-4324-a897-9f19520d1109" class="">Modules house the content items within each module. By default, modules are expanded and show all items in the module [1]. To collapse the module, click the collapse arrow [2].</p><figure id="e508b3f2-f9fb-46c2-bcaa-a310970caa2d" class="image"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/567df5f1-da89-40b4-9f41-f2964e53c49a.png"><img style="width:855px" src="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/567df5f1-da89-40b4-9f41-f2964e53c49a.png"/></a></figure><p id="0c2f3047-5a00-468d-9106-9e411a82fab7" class=""><strong>Note: </strong><em>The Modules page supports keyboard shortcuts. To view a list of keyboard shortcuts, press the Comma key.</em></p><p id="695900b6-f396-4f89-8830-4bac5055829c" class="">If a module includes requirements, the header shows whether you are supposed to complete all requirements or select one requirement. Next to the module item, you can view the type of requirement necessary to complete the module item. You must complete all required module items before you can progress to the next module. Some modules may require you to complete the module items in order.</p></details></li></ul><ul id="de0d00e9-eddb-4822-b9c8-fa4a9877380e" class="toggle"><li><details open=""><summary><strong>Submitting Sprint Retrospectives</strong></summary><p id="833182ba-55fc-4f13-8657-8bf591d15e5a" class="">Please check out <a href="https://my.lambdaschool.com/resources/completing-your-sprint-challenge-in-canvas">the documentation provided here</a> for step-by-step instructions on submitting sprint retrospectives in Canvas.</p></details></li></ul><figure id="f461130a-fcff-4e58-a5ce-30e892435aff" class="link-to-page"><a href="Using%20Canvas%20ab2d036df3124508ae6d0068846b4bd5/How%20are%20courses%20structured%20in%20Canvas%20How%20do%20I%20know%20f461130afcff4e58a5ce30e892435aff.html"><span class="icon">🎨</span>How are courses structured in Canvas? How do I know what&#x27;s expected of me &amp; what to submit?</a></figure><p id="7e0997c8-0012-4e3e-8a83-990df206c0fe" class="">
+</p><p id="6f6a5e5c-3a3c-458c-b5d0-533660ddb32e" class="">See the Canvas guides for more information:</p><figure id="b04e971b-7539-459d-aa03-31674d642588"><a href="https://community.canvaslms.com/community/answers/guides/canvas-guide" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Guides: Canvas</div><div class="bookmark-description">Documentation for the Canvas LMS. Canvas Basics information and role-specific guides for admins, instructors, students, and observers.</div></div><div class="bookmark-href"><img src="https://community.canvaslms.com/resources/images/palette-1082/faviconImage-1560274233019-community.ico" class="icon bookmark-icon"/>https://community.canvaslms.com/community/answers/guides/canvas-guide</div></div><img src="https://community.canvaslms.com/community/image/2558/2.png?a=128366" class="bookmark-image"/></a></figure></div></article></body></html>

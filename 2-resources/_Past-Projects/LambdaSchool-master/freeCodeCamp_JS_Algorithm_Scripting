@@ -1,0 +1,134 @@
+######## Reverse String
+function reverseString(str) {
+// turn string into an array of letters
+  let strsplit = str.split("");
+// reverse order of letters in array
+  let strrev = strsplit.reverse();
+//join letters into one string
+  let newstr = strrev.join("");
+  return newstr;
+}
+
+reverseString("hello");
+
+############# A function that multiplies all positive integers less than or equal itself
+// example: 5! = 5 * 4 * 3 * 2 * 1 = 120
+
+function factorialize(num) {
+// set factorial at 1
+let factorial = 1;
+let i = num;    
+// loop through all number less than or equal to num
+// start at num, count down till zero
+for (i = num; i > 0; i--){
+  // all integers multiplying itself
+    factorial = factorial * i;
+  // } 
+}
+return factorial;
+}
+
+
+factorialize(20);
+
+
+############### Find Longest Word in a String
+function findLongestWordLength(str) {
+                  //set up a dummy variable
+  let x = 0;
+  let i;
+                  //split string into array of words
+  let array = str.trim().split(" ");
+                  //loop through the array
+ for (i = 0; i < array.length; i++) {
+                  //run length method on each word and compare words
+    if (array[i].length >= x){
+       x = array[i].length;
+    }
+  }
+  //return length of longest word
+  return x;
+}
+
+//example: return '6'
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+############### Iterate through sub-arrays: Return largest numbers in arrays
+***********NOTE: This is NOT the solution; Solution below.
+
+function largestOfFour(arr) {
+  // set an empty global array
+  let emptyArr = [];
+  // set n 
+  let n = 0;
+  // iterate through the array
+  for (i = 0; i < arr.length; i++) {
+  // iterate through the sub-array
+    for (x = 0; x < arr[i].length; x++) {
+       // compare numbers within the sub-array
+      // if largest, set number to n
+       if (arr[i][x] > n) {
+         n = arr[i][x];
+         emptyArr.push(n);
+       }
+    }
+  }
+  // return global array
+  return emptyArr;
+}
+
+largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
+
+
+***********SOLUTION HERE ***********************
+
+function largestOfFour(arr) {
+  //set empty array to results variable to store numbers
+  let results = [];
+  // loop through outer array
+  for (i = 0; i < arr.length; i++) {
+  // set a second variable to hold largest numbers
+  // outer loop means it won't be reassigned until a larger number is found ? This is only looping through outer arrays (i.e., 17, 25, 4, -72) and stores the largest one (25)
+    let largestNumber = arr[i][0];
+  // loop through sub-array 
+    for (sb = 1; sb < arr[i].length; sb++) {
+  // (all numbers in first array is larger than 25?); all numbers in second array (34) bigger, if larger, then set the largestNumber to new value
+      if (arr[i][sb] > largestNumber) {
+        largestNumber = arr[i][sb];
+      }
+    }
+
+    results[i] = largestNumber;
+  }
+
+  return results;
+}
+
+
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+// doesn't run into problem of previous attempt where function stores a largest number, then it remains the largest across other sub-arrays, overriding other arrays.
+
+
+
+############### Confirm ending of String using .substr()  *NOT* .endsWith()
+***Explanation***
+// str.substr(start[, length])
+// first argument 'start' is the index of the first character to include in the returned substring.
+// second (optional) argument 'length' is the number of characters to extract.
+
+function confirmEnding(str, target) {
+// use substr method to return part of a string between the start index and a number of characters after it
+// if argument in substr() method is negative, the index counts from the end and value capped at .length
+// substr(-target.length) count at end of str, valued capped at target.length
+
+  if (str.substr(-target.length) === target) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// should return true or false
+confirmEnding("Bastian", "n");

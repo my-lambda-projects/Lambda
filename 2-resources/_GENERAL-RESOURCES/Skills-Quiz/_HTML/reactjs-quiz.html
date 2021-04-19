@@ -1,0 +1,547 @@
+<h2 id="react.js">React.js</h2>
+<h4 id="q1.-if-you-want-to-import-just-the-component-from-the-react-library-what-syntax-do-you-use">Q1. If you want to import just the Component from the React library, what syntax do you use?</h4>
+<ul>
+<li>[ ] <code>import React.Component from 'react'</code></li>
+<li>[ ] <code>import [ Component ] from 'react'</code></li>
+<li>[ ] <code>import Component from 'react'</code></li>
+<li>[x] <code>import { Component } from 'react'</code></li>
+</ul>
+<h4 id="q2.-if-a-function-component-should-always-render-the-same-way-given-the-same-props-what-is-a-simple-performance-optimization-available-for-it">Q2. If a function component should always render the same way given the same props, what is a simple performance optimization available for it?</h4>
+<ul>
+<li>[x] Wrap it in the <code>React.memo</code> higher-order component.</li>
+<li>[ ] Implement the <code>useReducer</code> Hook.</li>
+<li>[ ] Implement the <code>useMemo</code> Hook.</li>
+<li>[ ] Implement the <code>shouldComponentUpdate</code> lifecycle method.</li>
+</ul>
+<h4 id="q3.-how-do-you-fix-the-syntax-error-that-results-from-running-this-code">Q3. How do you fix the syntax error that results from running this code?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> person <span class="op">=</span>(firstName<span class="op">,</span> lastName) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">first</span><span class="op">:</span> firstName<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">last</span><span class="op">:</span> lastName</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="va">console</span>.<span class="at">log</span>(<span class="at">person</span>(<span class="st">&quot;Jill&quot;</span><span class="op">,</span> <span class="st">&quot;Wilson&quot;</span>))</a></code></pre></div>
+<ul>
+<li>[x] Wrap the object in parentheses.</li>
+<li>[ ] Call the function from another file.</li>
+<li>[ ] Add a return statement before the first curly brace.</li>
+<li>[ ] Replace the object with an array.</li>
+</ul>
+<h4 id="q4.-if-you-see-the-following-import-in-a-file-what-is-being-used-for-state-management-in-the-component">Q4. If you see the following import in a file, what is being used for state management in the component?</h4>
+<p><code>import React, {useState} from 'react';</code></p>
+<ul>
+<li>[x] React Hooks</li>
+<li>[ ] stateful components</li>
+<li>[ ] math</li>
+<li>[ ] class components</li>
+</ul>
+<h4 id="q5.-using-object-literal-enhancement-you-can-put-values-back-into-an-object.-when-you-log-person-to-the-console-what-is-the-output">Q5. Using object literal enhancement, you can put values back into an object. When you log person to the console, what is the output?</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> name <span class="op">=</span> <span class="st">&#39;Rachel&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">const</span> age <span class="op">=</span> <span class="dv">31</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">const</span> person <span class="op">=</span> <span class="op">{</span> name<span class="op">,</span> age <span class="op">};</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">console</span>.<span class="at">log</span>(person)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>{{name: "Rachel", age: 31}}</code></li>
+<li>[x] <code>{name: "Rachel", age: 31}</code></li>
+<li>[ ] <code>{person: "Rachel", person: 31}}</code></li>
+<li>[ ] <code>{person: {name: "Rachel", age: 31}}</code></li>
+</ul>
+<h4 id="q6.-what-is-the-testing-library-most-often-associated-with-react">Q6. What is the testing library most often associated with React?</h4>
+<ul>
+<li>[ ] Mocha</li>
+<li>[ ] Chai</li>
+<li>[ ] Sinon</li>
+<li>[x] Jest</li>
+</ul>
+<h4 id="q7.-to-get-the-first-item-from-the-array-cooking-using-array-destructuring-how-do-you-adjust-this-line">Q7. To get the first item from the array ("cooking") using array destructuring, how do you adjust this line?</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> topics <span class="op">=</span> [<span class="st">&#39;cooking&#39;</span><span class="op">,</span> <span class="st">&#39;art&#39;</span><span class="op">,</span> <span class="st">&#39;history&#39;</span>]<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>const first = ["cooking", "art", "history"]</code></li>
+<li>[ ] <code>const [] = ["cooking", "art", "history"]</code></li>
+<li>[ ] <code>const [, first]["cooking", "art", "history"]</code></li>
+<li>[x] <code>const [first] = ["cooking", "art", "history"]</code></li>
+</ul>
+<h4 id="q8.-how-do-you-handle-passing-through-the-component-tree-without-having-to-pass-props-down-manually-at-every-level">Q8. How do you handle passing through the component tree without having to pass props down manually at every level?</h4>
+<ul>
+<li>[ ] React Send</li>
+<li>[ ] React Pinpoint</li>
+<li>[ ] React Router</li>
+<li>[x] React Context</li>
+</ul>
+<h4 id="q9.-what-should-the-console-read-when-the-following-code-is-run">Q9. What should the console read when the following code is run?</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> [<span class="op">,</span> <span class="op">,</span> animal] <span class="op">=</span> [<span class="st">&#39;Horse&#39;</span><span class="op">,</span> <span class="st">&#39;Mouse&#39;</span><span class="op">,</span> <span class="st">&#39;Cat&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">console</span>.<span class="at">log</span>(animal)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] Horse</li>
+<li>[x] Cat</li>
+<li>[ ] Mouse</li>
+<li>[ ] undefined</li>
+</ul>
+<h4 id="what-is-the-name-of-the-tool-used-to-take-jsx-and-turn-it-into-createelement-calls">10. What is the name of the tool used to take JSX and turn it into createElement calls?</h4>
+<ul>
+<li>[ ] JSX Editor</li>
+<li>[ ] ReactDOM</li>
+<li>[ ] Browser Buddy</li>
+<li>[x] Babel</li>
+</ul>
+<h4 id="why-might-you-use-usereducer-over-usestate-in-a-react-component">11. Why might you use useReducer over useState in a React component?</h4>
+<ul>
+<li>[ ] when you want to replace Redux</li>
+<li>[x] when you need to manage more complex state in an app</li>
+<li>[ ] when you want to improve performance</li>
+<li>[ ] when you want to break your production app</li>
+</ul>
+<h4 id="which-props-from-the-props-object-is-available-to-the-component-with-the-following-syntax">12. Which props from the props object is available to the component with the following syntax?</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="op">&lt;</span>Message <span class="op">{</span>...<span class="at">props</span><span class="op">}</span> /&gt;</a></code></pre></div>
+<ul>
+<li>[ ] any that have not changed</li>
+<li>[x] all of them</li>
+<li>[ ] child props</li>
+<li>[ ] any that have changed</li>
+</ul>
+<h4 id="consider-the-following-code-from-react-router.-what-do-you-call-id-in-the-path-prop">13. Consider the following code from React Router. What do you call :id in the path prop?</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="op">&lt;</span>Route path<span class="op">=</span><span class="st">&quot;/:id&quot;</span> /&gt;</a></code></pre></div>
+<ul>
+<li>[ ] This is a route modal</li>
+<li>[x] This is a route parameter</li>
+<li>[ ] This is a route splitter</li>
+<li>[ ] This is a route link</li>
+</ul>
+<h4 id="if-you-created-a-component-called-dish-and-rendered-it-to-the-dom-what-type-of-element-would-be-rendered">14. If you created a component called Dish and rendered it to the DOM, what type of element would be rendered?</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">Dish</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>Mac and Cheese&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="va">ReactDOM</span>.<span class="at">render</span>(<span class="op">&lt;</span>Dish /<span class="op">&gt;,</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;root&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>div</code></li>
+<li>[ ] section</li>
+<li>[ ] component</li>
+<li>[x] <code>h1</code></li>
+</ul>
+<h4 id="what-does-this-react-element-look-like-given-the-following-function">15. What does this React element look like given the following function?</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">React</span>.<span class="at">createElement</span>(<span class="st">&#39;h1&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="st">&quot;What&#39;s happening?&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>&lt;h1 props={null}&gt;What's happening?&lt;/h1&gt;</code></li>
+<li>[x] <code>&lt;h1&gt;What's happening?&lt;/h1&gt;</code></li>
+<li>[ ] <code>&lt;h1 id="component"&gt;What's happening?&lt;/h1&gt;</code></li>
+<li>[ ] <code>&lt;h1 id="element"&gt;What's happening?&lt;/h1&gt;</code></li>
+</ul>
+<h4 id="what-property-do-you-need-to-add-to-the-suspense-component-in-order-to-display-a-spinner-or-loading-state">16. What property do you need to add to the Suspense component in order to display a spinner or loading state?</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">function</span> <span class="at">MyComponent</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="op">&lt;</span>Suspense<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">      <span class="op">&lt;</span>div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">        <span class="op">&lt;</span>Message /<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-6" title="6">      &lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-7" title="7">    &lt;/Suspense<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb9-8" title="8">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] lazy</li>
+<li>[ ] loading</li>
+<li>[x] fallback</li>
+<li>[ ] spinner</li>
+</ul>
+<h4 id="what-do-you-call-the-message-wrapped-in-curly-braces-below">17. What do you call the message wrapped in curly braces below?</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">const</span> message <span class="op">=</span> <span class="st">&#39;Hi there&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">const</span> element <span class="op">=</span> <span class="op">&lt;</span>p<span class="op">&gt;{</span>message<span class="op">}</span>&lt;/p<span class="op">&gt;;</span></a></code></pre></div>
+<ul>
+<li>[ ] a JS function</li>
+<li>[ ] a JS element</li>
+<li>[x] a JS expression</li>
+<li>[ ] a JSX wrapper</li>
+</ul>
+<h4 id="what-can-you-use-to-handle-code-splitting">18. What can you use to handle code splitting?</h4>
+<ul>
+<li>[ ] <code>React.memo</code></li>
+<li>[ ] <code>React.split</code></li>
+<li>[x] <code>React.lazy</code></li>
+<li>[ ] <code>React.fallback</code></li>
+</ul>
+<h4 id="when-do-you-use-uselayouteffect">19. When do you use <code>useLayoutEffect</code>?</h4>
+<ul>
+<li>[ ] to optimize for all devices</li>
+<li>[ ] to complete the update</li>
+<li>[ ] to change the layout of the screen</li>
+<li>[x] when you need the browser to paint before the effect runs</li>
+</ul>
+<h4 id="what-is-the-difference-between-the-click-behaviors-of-these-two-buttons-assuming-that-this.handleclick-is-bound-correctly">20. What is the difference between the click behaviors of these two buttons (assuming that this.handleClick is bound correctly)?</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">A</span>. <span class="op">&lt;</span>button onClick<span class="op">={</span><span class="kw">this</span>.<span class="at">handleClick</span><span class="op">}&gt;</span>Click Me&lt;/button<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="va">B</span>. <span class="op">&lt;</span>button onClick<span class="op">={</span>event <span class="kw">=&gt;</span> <span class="kw">this</span>.<span class="at">handleClick</span>(event)<span class="op">}&gt;</span>Click Me&lt;/button<span class="op">&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] Button A will not have access to the event object on click of the button.</li>
+<li>[ ] Button B will not fire the handler this.handleClick successfully.</li>
+<li>[ ] Button A will not fire the handler this.handleClick successfully.</li>
+<li>[x] There is no difference.</li>
+</ul>
+<h4 id="how-do-you-destructure-the-properties-that-are-sent-to-the-dish-component">21. How do you destructure the properties that are sent to the Dish component?</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">function</span> <span class="at">Dish</span>(props) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;{</span><span class="va">props</span>.<span class="at">name</span><span class="op">}</span> <span class="op">{</span><span class="va">props</span>.<span class="at">cookingTime</span><span class="op">}</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>function Dish([name, cookingTime]) { return &lt;h1&gt;{name} {cookingTime}&lt;/h1&gt;; }</code></li>
+<li>[x] <code>function Dish({name, cookingTime}) { return &lt;h1&gt;{name} {cookingTime}&lt;/h1&gt;; }</code></li>
+<li>[ ] <code>function Dish(props) { return &lt;h1&gt;{name} {cookingTime}&lt;/h1&gt;; }</code></li>
+<li>[ ] <code>function Dish(...props) { return &lt;h1&gt;{name} {cookingTime}&lt;/h1&gt;; }</code></li>
+</ul>
+<h4 id="when-might-you-use-react.purecomponent">22. When might you use <code>React.PureComponent</code>?</h4>
+<ul>
+<li>[ ] when you do not want your component to have props</li>
+<li>[ ] when you have sibling components that need to be compared</li>
+<li>[x] when you want a default implementation of <code>shouldComponentUpdate()</code></li>
+<li>[ ] when you do not want your component to have state</li>
+</ul>
+<h4 id="why-is-it-important-to-avoid-copying-the-values-of-props-into-a-components-state-where-possible">23. Why is it important to avoid copying the values of props into a component's state where possible?</h4>
+<ul>
+<li>[ ] because you should never mutate state</li>
+<li>[ ] because <code>getDerivedStateFromProps()</code> is an unsafe method to use</li>
+<li>[x] because you want to allow a component to update in response to changes in the props</li>
+<li>[ ] because you want to allow data to flow back up to the parent</li>
+</ul>
+<h4 id="what-is-the-children-prop">24. What is the children prop?</h4>
+<ul>
+<li>[ ] a property that adds child components to state</li>
+<li>[x] a property that lets you pass components as data to other components</li>
+<li>[ ] a property that lets you set an array as a property</li>
+<li>[ ] a property that lets you pass data to child elements</li>
+</ul>
+<h4 id="which-attribute-do-you-use-to-replace-innerhtml-in-the-browser-dom">25. Which attribute do you use to replace innerHTML in the browser DOM?</h4>
+<ul>
+<li>[ ] injectHTML</li>
+<li>[x] dangerouslySetInnerHTML</li>
+<li>[ ] weirdSetInnerHTML</li>
+<li>[ ] strangeHTML</li>
+</ul>
+<h4 id="which-of-these-terms-commonly-describe-react-applications">26. Which of these terms commonly describe React applications?</h4>
+<ul>
+<li>[x] declarative</li>
+<li>[ ] integrated</li>
+<li>[ ] closed</li>
+<li>[ ] imperative</li>
+</ul>
+<h4 id="when-using-webpack-why-would-you-need-to-use-a-loader">27. When using webpack, why would you need to use a loader?</h4>
+<ul>
+<li>[ ] to put together physical file folders</li>
+<li>[x] to preprocess files</li>
+<li>[ ] to load external data</li>
+<li>[ ] to load the website into everyone's phone</li>
+</ul>
+<h4 id="a-representation-of-a-user-interface-that-is-kept-in-memory-and-is-synced-with-the-real-dom-is-called-what">28. A representation of a user interface that is kept in memory and is synced with the "real" DOM is called what?</h4>
+<ul>
+<li>[x] virtual DOM</li>
+<li>[ ] DOM</li>
+<li>[ ] virtual elements</li>
+<li>[ ] shadow DOM</li>
+</ul>
+<h4 id="you-have-written-the-following-code-but-nothing-is-rendering.-how-do-you-fix-this-problem">29. You have written the following code but nothing is rendering. How do you fix this problem?</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">const</span> Heading <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="op">&lt;</span>h1<span class="op">&gt;</span>Hello<span class="op">!</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="op">};</span></a></code></pre></div>
+<ul>
+<li>[ ] Add a render function.</li>
+<li>[x] Change the curly braces to parentheses or add a return statement before the <code>h1</code> tag.</li>
+<li>[ ] Move the <code>h1</code> to another component.</li>
+<li>[ ] Surround the <code>h1</code> in a <code>div</code>.</li>
+</ul>
+<h4 id="q30.-to-create-a-constant-in-javascript-which-keyword-do-you-use">Q30. To create a constant in JavaScript, which keyword do you use?</h4>
+<ul>
+<li>[x] const</li>
+<li>[ ] let</li>
+<li>[ ] constant</li>
+<li>[ ] var</li>
+</ul>
+<h4 id="q31.-what-do-you-call-a-react-component-that-catches-javascript-errors-anywhere-in-the-child-component-tree">Q31. What do you call a React component that catches JavaScript errors anywhere in the child component tree?</h4>
+<ul>
+<li>[ ] error bosses</li>
+<li>[ ] error catchers</li>
+<li>[ ] error helpers</li>
+<li>[x] error boundaries</li>
+</ul>
+<h4 id="q32.-in-which-lifecycle-method-do-you-make-requests-for-data-in-a-class-component">Q32. In which lifecycle method do you make requests for data in a class component?</h4>
+<ul>
+<li>[ ] constructor</li>
+<li>[x] componentDidMount</li>
+<li>[ ] componentWillReceiveProps</li>
+<li>[ ] componentWillMount</li>
+</ul>
+<h4 id="q33.-react-components-are-composed-to-create-a-user-interface.-how-are-components-composed">Q33. React components are composed to create a user interface. How are components composed?</h4>
+<ul>
+<li>[ ] by putting them in the same file</li>
+<li>[x] by nesting components</li>
+<li>[ ] with webpack</li>
+<li>[ ] with code splitting</li>
+</ul>
+<h4 id="q34.-all-react-components-must-act-like-__-with-respect-to-their-props.">Q34. All React components must act like <code>**\_\_**</code> with respect to their props.</h4>
+<ul>
+<li>[ ] monads</li>
+<li>[x] pure functions</li>
+<li>[ ] recursive functions</li>
+<li>[ ] higher-order functions</li>
+</ul>
+<h4 id="q35.-why-might-you-use-a-ref">Q35. Why might you use a ref?</h4>
+<ul>
+<li>[x] to directly access the DOM node</li>
+<li>[ ] to refer to another JS file</li>
+<li>[ ] to call a function</li>
+<li>[ ] to bind the function</li>
+</ul>
+<h4 id="q36.-what-is-e.target.id-called-in-the-following-code-snippet">Q36. What is <code>[e.target.id]</code> called in the following code snippet?</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="at">handleChange</span>(e) <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="kw">this</span>.<span class="at">setState</span>(<span class="op">{</span> [<span class="va">e</span>.<span class="va">target</span>.<span class="at">id</span>]<span class="op">:</span> <span class="va">e</span>.<span class="va">target</span>.<span class="at">value</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] a computed property name</li>
+<li>[ ] a set value</li>
+<li>[x] a dynamic key</li>
+<li>[ ] a JSX code string</li>
+</ul>
+<h4 id="q37.-what-is-the-name-of-this-component">Q37. What is the name of this component?</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">class</span> Clock <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-3" title="3">    <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>Look at the <span class="dt">time</span><span class="op">:</span> <span class="op">{</span>time<span class="op">}</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb15-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[x] Clock</li>
+<li>[ ] It does not have a name prop.</li>
+<li>[ ] React.Component</li>
+<li>[ ] Component</li>
+</ul>
+<h4 id="q38.-what-is-sent-to-an-array.map-function">Q38. What is sent to an <code>Array.map()</code> function?</h4>
+<ul>
+<li>[x] a callback function that is called once for each element in the array</li>
+<li>[ ] the name of another array to iterate over</li>
+<li>[ ] the number of times you want to call the function</li>
+<li>[ ] a string describing what the function should do</li>
+</ul>
+<h4 id="q39.-why-is-it-a-good-idea-to-pass-a-function-to-setstate-instead-of-an-object">Q39. Why is it a good idea to pass a function to <code>setState</code> instead of an object?</h4>
+<ul>
+<li>[ ] It provides better encapsulation.</li>
+<li>[ ] It makes sure that the object is not mutated.</li>
+<li>[ ] It automatically updates a component.</li>
+<li>[x] <code>setState</code> is asynchronous and might result in out of sync values.</li>
+</ul>
+<h4 id="q40.-what-package-contains-the-render-function-that-renders-a-react-element-tree-to-the-dom">Q40. What package contains the render() function that renders a React element tree to the DOM?</h4>
+<ul>
+<li>[ ] <code>React</code></li>
+<li>[x] <code>ReactDOM</code></li>
+<li>[ ] <code>Render</code></li>
+<li>[ ] <code>DOM</code></li>
+</ul>
+<h4 id="q41.-how-do-you-set-a-default-value-for-an-uncontrolled-form-field">Q41. How do you set a default value for an uncontrolled form field?</h4>
+<ul>
+<li>[ ] Use the <code>value</code> property.</li>
+<li>[x] Use the <code>defaultValue</code> property.</li>
+<li>[ ] Use the <code>default</code> property.</li>
+<li>[ ] It assigns one automatically.</li>
+</ul>
+<h4 id="q42.-what-do-you-need-to-change-about-this-code-to-get-it-to-run">Q42. What do you need to change about this code to get it to run?</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">class</span> clock <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-3" title="3">    <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>Look at the <span class="dt">time</span><span class="op">:</span> <span class="op">{</span><span class="kw">this</span>.<span class="va">props</span>.<span class="at">time</span><span class="op">}</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb16-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] Add quotes around the return value</li>
+<li>[ ] Remove <code>this</code></li>
+<li>[ ] Remove the render method</li>
+<li>[x] Capitalize <code>clock</code></li>
+</ul>
+<details>
+<summary>Explanation</summary>
+<p>
+In JSX, lower-case tag names are considered to be HTML tags. Read <a href="https://reactjs.org/docs/jsx-in-depth.html#html-tags-vs.-react-components">this article</a>
+</p>
+</details>
+<h4 id="q43.-which-hook-could-be-used-to-update-the-documents-title">Q43. Which Hook could be used to update the document's title?</h4>
+<ul>
+<li>[x] <code>useEffect(function updateTitle() { document.title = name + ' ' + lastname; });</code></li>
+<li>[ ] <code>useEffect(() =&gt; { title = name + ' ' + lastname; });</code></li>
+<li>[ ] <code>useEffect(function updateTitle() { name + ' ' + lastname; });</code></li>
+<li>[ ] <code>useEffect(function updateTitle() { title = name + ' ' + lastname; });</code></li>
+</ul>
+<h4 id="q44.-what-can-you-use-to-wrap-component-imports-in-order-to-load-them-lazily">Q44. What can you use to wrap Component imports in order to load them lazily?</h4>
+<ul>
+<li>[ ] <code>React.fallback</code></li>
+<li>[ ] <code>React.split</code></li>
+<li>[x] <code>React.lazy</code></li>
+<li>[ ] <code>React.memo</code></li>
+</ul>
+<h4 id="q45.-how-do-you-invoke-setdone-only-when-component-mounts-using-hooks">Q45. How do you invoke setDone only when component mounts, using hooks?</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">function</span> <span class="at">MyComponent</span>(props) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="kw">const</span> [done<span class="op">,</span> setDone] <span class="op">=</span> <span class="at">useState</span>(<span class="kw">false</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-3" title="3"></a>
+<a class="sourceLine" id="cb17-4" title="4">  <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span><span class="dt">Done</span><span class="op">:</span> <span class="op">{</span>done<span class="op">}</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>useEffect(() =&gt; { setDone(true); });</code></li>
+<li>[x] <code>useEffect(() =&gt; { setDone(true); }, []);</code></li>
+<li>[ ] <code>useEffect(() =&gt; { setDone(true); }, [setDone]);</code></li>
+<li>[ ] <code>useEffect(() =&gt; { setDone(true); }, [done, setDone]);</code></li>
+</ul>
+<h4 id="q46.-what-value-of-button-will-allow-you-to-pass-the-name-of-the-person-to-be-hugged">Q46. What value of button will allow you to pass the name of the person to be hugged?</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">class</span> Huggable <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-2" title="2">  <span class="at">hug</span>(id) <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;hugging &quot;</span> <span class="op">+</span> id)<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb18-5" title="5"></a>
+<a class="sourceLine" id="cb18-6" title="6">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-7" title="7">    <span class="kw">let</span> name <span class="op">=</span> <span class="st">&quot;kitteh&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb18-8" title="8">    <span class="kw">let</span> button <span class="op">=</span> <span class="co">// Missing Code</span></a>
+<a class="sourceLine" id="cb18-9" title="9">    <span class="cf">return</span> button<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb18-11" title="11"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[x] <code>&lt;button onClick={(name) =&gt; this.hug(name)&gt;Hug Button&lt;/button&gt;</code></li>
+<li>[ ] <code>&lt;button onClick={this.hug(e, name)}&gt;Hug Button&lt;/button&gt;</code></li>
+<li>[ ] <code>&lt;button onClick={(e) =&gt; hug(e, name)}&gt;Hug Button&lt;/button&gt;</code></li>
+<li>[ ] <code>&lt;button onClick={(e) =&gt; this.hug(name, e)}&gt;Hug Button&lt;/button&gt;</code></li>
+</ul>
+<h4 id="q47.-currently-handleclick-is-being-called-instead-of-passed-as-a-reference.-how-do-you-fix-this">Q47. Currently, <code>handleClick</code> is being called instead of passed as a reference. How do you fix this?</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="op">&lt;</span>button onClick<span class="op">={</span><span class="kw">this</span>.<span class="at">handleClick</span>()<span class="op">}&gt;</span>Click <span class="kw">this</span>&lt;/button<span class="op">&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>&lt;button onClick={this.handleClick.bind(handleClick)}&gt;Click this&lt;/button&gt;</code></li>
+<li>[ ] <code>&lt;button onClick={handleClick()}&gt;Click this&lt;/button&gt;</code></li>
+<li>[x] <code>&lt;button onClick={this.handleClick}&gt;Click this&lt;/button&gt;</code></li>
+<li>[ ] <code>&lt;button onclick={this.handleClick}&gt;Click this&lt;/button&gt;</code></li>
+</ul>
+<h4 id="q48.-which-answer-best-describes-a-function-component">Q48. Which answer best describes a function component?</h4>
+<ul>
+<li>[ ] A function component is the same as a class component.</li>
+<li>[x] A function component accepts a single props object and returns a React element.</li>
+<li>[ ] A function component is the only way to create a component.</li>
+<li>[ ] A function component is required to create a React component.</li>
+</ul>
+<h4 id="q49.-which-library-does-the-fetch-function-come-from">Q49. Which library does the <code>fetch()</code> function come from?</h4>
+<ul>
+<li>[ ] FetchJS</li>
+<li>[ ] ReactDOM</li>
+<li>[X] No library. <code>fetch()</code> is supported by most browsers.</li>
+<li>[ ] React</li>
+</ul>
+<h4 id="q50.-what-will-happen-when-this-useeffect-hook-is-executed-assuming-name-is-not-already-equal-to-john">Q50. What will happen when this useEffect Hook is executed, assuming name is not already equal to John?</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1"><span class="at">useEffect</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="at">setName</span>(<span class="st">&quot;John&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="op">},</span> [name])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] It will cause an error immediately.</li>
+<li>[ ] It will execute the code inside the function, but only after waiting to ensure that no other component is accessing the name variable.</li>
+<li>[x] It will update the value of name once and not run again until name is changed from the outside.</li>
+<li>[ ] It will cause an infinite loop.</li>
+</ul>
+<h4 id="q51.-which-choice-will-not-cause-a-react-component-to-rerender">Q51. Which choice will not cause a React component to rerender?</h4>
+<ul>
+<li>[ ] if the component calls <code>this.setState(...)</code></li>
+<li>[ ] the value of one of the component's props changes</li>
+<li>[ ] if the component calls <code>this.forceUpdate()</code></li>
+<li>[X] one of the component's siblings rerenders</li>
+</ul>
+<h4 id="q52.-you-have-created-a-new-method-in-a-class-component-called-handleclick-but-it-is-not-working.-which-code-is-missing">Q52. You have created a new method in a class component called handleClick, but it is not working. Which code is missing?</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">class</span> Button <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span><span class="op">{</span></a>
+<a class="sourceLine" id="cb21-2" title="2"></a>
+<a class="sourceLine" id="cb21-3" title="3">  <span class="at">constructor</span>(props) <span class="op">{</span></a>
+<a class="sourceLine" id="cb21-4" title="4">    <span class="kw">super</span>(props)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-5" title="5">    <span class="co">// Missing line</span></a>
+<a class="sourceLine" id="cb21-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb21-7" title="7"></a>
+<a class="sourceLine" id="cb21-8" title="8">  <span class="at">handleClick</span>() <span class="op">{</span>...<span class="op">}</span></a>
+<a class="sourceLine" id="cb21-9" title="9"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>this.handleClick.bind(this);</code></li>
+<li>[ ] <code>props.bind(handleClick);</code></li>
+<li>[ ] <code>this.handleClick.bind();</code></li>
+<li>[x] <code>this.handleClick = this.handleClick.bind(this);</code></li>
+</ul>
+<h4 id="q53.-react-does-not-render-two-sibling-elements-unless-they-are-wrapped-in-a-fragment.-below-is-one-way-to-render-a-fragment.-what-is-the-shorthand-for-this">Q53. React does not render two sibling elements unless they are wrapped in a fragment. Below is one way to render a fragment. What is the shorthand for this?</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1"><span class="op">&lt;</span><span class="va">React</span>.<span class="at">Fragment</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb22-2" title="2">  <span class="op">&lt;</span>h1<span class="op">&gt;</span>Our Staff&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb22-3" title="3">  <span class="op">&lt;</span>p<span class="op">&gt;</span>Our staff is available <span class="dv">9-5</span> to answer your questions&lt;/p<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb22-4" title="4">&lt;/<span class="va">React</span>.<span class="at">Fragment</span><span class="op">&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1"><span class="op">&lt;</span>...<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-2" title="2">  <span class="op">&lt;</span>h1<span class="op">&gt;</span>Our Staff&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-3" title="3">  <span class="op">&lt;</span>p<span class="op">&gt;</span>Our staff is available <span class="dv">9-5</span> to answer your questions&lt;/p<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb23-4" title="4">&lt;/...<span class="op">&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1">&lt;//<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb24-2" title="2">  <span class="op">&lt;</span>h1<span class="op">&gt;</span>Our Staff&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb24-3" title="3">  <span class="op">&lt;</span>p<span class="op">&gt;</span>Our staff is available <span class="dv">9-5</span> to answer your questions&lt;/p<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb24-4" title="4">&lt;/<span class="co">//&gt;</span></a></code></pre></div>
+<ul>
+<li>[x] C</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" title="1"><span class="op">&lt;&gt;</span></a>
+<a class="sourceLine" id="cb25-2" title="2">  <span class="op">&lt;</span>h1<span class="op">&gt;</span>Our Staff&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb25-3" title="3">  <span class="op">&lt;</span>p<span class="op">&gt;</span>Our staff is available <span class="dv">9-5</span> to answer your questions&lt;/p<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb25-4" title="4">&lt;/<span class="op">&gt;</span></a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" title="1"><span class="op">&lt;</span>Frag<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb26-2" title="2">  <span class="op">&lt;</span>h1<span class="op">&gt;</span>Our Staff&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb26-3" title="3">  <span class="op">&lt;</span>p<span class="op">&gt;</span>Our staff is available <span class="dv">9-5</span> to answer your questions&lt;/p<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb26-4" title="4">&lt;/Frag<span class="op">&gt;</span></a></code></pre></div>
+<h4 id="q54.-if-you-wanted-to-display-the-count-state-value-in-the-component-what-do-you-need-to-add-to-the-curly-braces-in-the-h1">Q54. If you wanted to display the count state value in the component, what do you need to add to the curly braces in the <code>h1</code>?</h4>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">class</span> Ticker <span class="kw">extends</span> <span class="va">React</span>.<span class="at">component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-2" title="2">  <span class="at">constructor</span>(props) <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-3" title="3">    <span class="kw">super</span>(props)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-4" title="4">    <span class="kw">this</span>.<span class="at">state</span> <span class="op">=</span> <span class="op">{</span> <span class="dt">count</span><span class="op">:</span> <span class="dv">0</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb27-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb27-6" title="6">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-7" title="7">    <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;{}</span>&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb27-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb27-9" title="9"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[x] this.state.count</li>
+<li>[ ] count</li>
+<li>[ ] state</li>
+<li>[ ] state.count</li>
+</ul>
+<h4 id="q55.-per-the-following-code-when-is-the-hello-component-displayed">Q55. Per the following code, when is the Hello component displayed?</h4>
+<div class="sourceCode" id="cb28"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">const</span> greeting <span class="op">=</span> isLoggedIn <span class="op">?</span> <span class="op">&lt;</span>Hello /<span class="op">&gt;</span> : <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] never</li>
+<li>[x] when <code>isLoggedIn</code> is true</li>
+<li>[ ] when a user logs in</li>
+<li>[ ] when the Hello function is called</li>
+</ul>
+<h4 id="q56.-in-the-following-code-block-what-type-is-ordernumber">Q56. In the following code block, what type is orderNumber?</h4>
+<div class="sourceCode" id="cb29"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1"><span class="va">ReactDOM</span>.<span class="at">render</span>(</a>
+<a class="sourceLine" id="cb29-2" title="2">  <span class="op">&lt;</span>Message orderNumber<span class="op">=</span><span class="st">&quot;16&quot;</span>/&gt;<span class="op">,</span></a>
+<a class="sourceLine" id="cb29-3" title="3">  <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&quot;root&quot;</span>)</a>
+<a class="sourceLine" id="cb29-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[x] string</li>
+<li>[ ] boolean</li>
+<li>[ ] object</li>
+<li>[ ] number</li>
+</ul>
+<h4 id="q57.-you-have-added-a-style-property-to-the-h1-but-there-is-an-unexpected-token-error-when-it-runs.-how-do-you-fix-this">Q57. You have added a style property to the <code>h1</code> but there is an unexpected token error when it runs. How do you fix this?</h4>
+<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">const</span> element <span class="op">=</span> <span class="op">&lt;</span>h1 style<span class="op">={</span> <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">&quot;blue&quot;</span> <span class="op">}&gt;</span>Hi&lt;/h1<span class="op">&gt;;</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>const element = &lt;h1 style="backgroundColor: "blue""}&gt;Hi&lt;/h1&gt;;</code></li>
+<li>[x] <code>const element = &lt;h1 style={{backgroundColor: "blue"}}&gt;Hi&lt;/h1&gt;;</code></li>
+<li>[ ] <code>const element = &lt;h1 style={blue}&gt;Hi&lt;/h1&gt;;</code></li>
+<li>[ ] <code>const element = &lt;h1 style="blue"&gt;Hi&lt;/h1&gt;;</code></li>
+</ul>
+<h4 id="q58.-which-function-is-used-to-update-state-variables-in-a-react-class-component">Q58. Which function is used to update state variables in a React class component?</h4>
+<ul>
+<li>[ ] <code>replaceState</code></li>
+<li>[ ] <code>refreshState</code></li>
+<li>[ ] <code>updateState</code></li>
+<li>[x] <code>setState</code></li>
+</ul>
+<h4 id="q59.-consider-the-following-component.-what-is-the-default-color-for-the-star">Q59. Consider the following component. What is the default color for the star?</h4>
+<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">const</span> Star <span class="op">=</span> (<span class="op">{</span> selected <span class="op">=</span> <span class="kw">false</span> <span class="op">}</span>) <span class="kw">=&gt;</span> (</a>
+<a class="sourceLine" id="cb31-2" title="2">  <span class="op">&lt;</span>Icon color <span class="op">=</span> <span class="op">{</span>selected <span class="op">?</span> <span class="st">&quot;red&quot;</span> : <span class="st">&quot;grey&quot;</span><span class="op">}</span> /&gt;</a>
+<a class="sourceLine" id="cb31-3" title="3">)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] black</li>
+<li>[ ] red</li>
+<li>[x] grey</li>
+<li>[ ] white</li>
+</ul>

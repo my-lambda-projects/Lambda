@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h2 id="animated-gifs">Animated GIFs</h2>
+    <p>{: .-one-column}</p>
+    <h3 id="convert-mp4-to-gif">Convert MP4 to GIF</h3>
+    <div class="sourceCode" id="cb1">
+      <pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">mkdir</span> -p gif</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">mplayer</span> -ao null -vo gif89a:outdir=gif <span class="va">$INPUT</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="ex">mogrify</span> -format gif *.png</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ex">gifsicle</span> --colors=256 --delay=4 --loopcount=0 --dither -O3 gif/*.gif <span class="op">&gt;</span> <span class="va">${INPUT%</span>.*<span class="va">}</span>.gif</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="fu">rm</span> -rf gif</a></code></pre>
+    </div>
+    <p>You'll need <code>mplayer</code>, <code>imagemagick</code> and <code>gifsicle</code>. This converts frames to
+      .png, then turns them into an animated gif.</p>
+    <h3 id="a-given-range">A given range</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">mplayer</span> -ao null -ss 0:02:06 -endpos 0:05:00 -vo gif89a:outdir=gif videofile.mp4</a></code></pre>
+    </div>
+    <p>See <code>-ss</code> and <code>-endpos</code>.</p>
+  </body>
+
+</html>

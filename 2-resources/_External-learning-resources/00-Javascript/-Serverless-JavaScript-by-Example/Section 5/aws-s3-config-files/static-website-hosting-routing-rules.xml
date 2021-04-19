@@ -1,0 +1,14 @@
+<RoutingRules>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals/>
+      <HttpErrorCodeReturnedEquals>404</HttpErrorCodeReturnedEquals>
+    </Condition>
+    <Redirect>
+      <Protocol>https</Protocol>
+      <HostName>API_ENDPOINT</HostName>
+      <ReplaceKeyPrefixWith>dev/resize/get?key=</ReplaceKeyPrefixWith>
+      <HttpRedirectCode>307</HttpRedirectCode>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>

@@ -1,0 +1,601 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/2-resources/_GENERAL-RESOURCES/code-camp/10-coding-interview-prep/rosetta-code</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/blob/master/gradient.css">
+<style type="text/css">
+table { width: 100%;height: 100%;padding:5%; text-align:center; }
+a {
+  text-transform: inherit;
+  box-shadow: 0 5px 0 gold;
+  color: white;
+  padding: 1em 1.em;
+  position: relative;
+  text-transform: uppercase;
+}
+a:hover {
+  background-color: yellow;
+}
+a:active {
+  box-shadow: none;
+  top: 8px;
+}
+/* Non-Demo Styles */
+body {
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom:1.3;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+}
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-radius: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #18047a;
+}
+iframe.animate {
+  overflow-y: scroll;
+  border-radius: 2px;
+  min-width: 45em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+iframe.embed {
+  overflow-y: scroll;
+  padding: 2em;
+  margin: auto;
+  overflow: scroll;
+  border: solid 4px rgb(41, 54, 204);
+  -moz-border-radius: 6px 6px 4px 4px;
+  -webkit-border-radius: 6px 6px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
+}
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0.4em 0;
+}
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  color: #888;
+  font-size: 2em;
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+        html {
+            box-sizing: border-box;
+        }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+        body.is-preload *,
+        body.is-preload *:before,
+        body.is-preload *:after {
+            -moz-animation: none !important;
+            -webkit-animation: none !important;
+            -ms-animation: none !important;
+            animation: none !important;
+            -moz-transition: none !important;
+            -webkit-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
+        /* Type */
+        html {
+            font-size: 11pt;
+overflow-y:scroll;
+        }
+       
+        body {
+            color: whitesmoke;
+        }
+        body,
+        input,
+        select,
+        textarea {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 200;
+            font-size: 0.8rem;
+          
+        }
+        a {
+            -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-bottom: dotted 1px;
+            text-decoration: none;
+        }
+        a:hover {
+            border-bottom-color: transparent;
+        }
+  a:visited {
+            border-bottom-color: transparent;
+color:red;
+        }
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+        HTML {
+            font-size: medium;
+            font-family: Garamond
+        }
+        BODY {
+            background: black font-family: 'Open Sans', sans-serif;
+            font-weight: 150;
+         
+            color: #A7A1AE;
+            background-color: #1F2739;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: 300;
+         
+            text-align: left;
+            color: #4DC3FA;
+        }
+        p {
+            color: grey;
+        }
+        A {
+            text-decoration: none color:black;
+          
+        }
+        A:hover {
+            color: red;
+            background: whitesmoke;
+            border-radius: 8px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        TABLE.fancy {
+           background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-left: 3px solid;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            min-width: 150px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid;
+            border-bottom: 0px solid;
+            border-color: #FFF;
+            overflow-y: scroll;
+            width: 80%;
+            display: table;
+            padding: 0 0 8em 0;
+        }
+        TABLE.fancy TD {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            border-color: #FFF;
+            text-align: left;
+            padding-right: 4%px;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            padding-left: 4%;
+            border: 2px solid gold !important;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            font-weight: 470;
+            line-height: 18px;
+            text-decoration: none !important;
+            text-transform: uppercase;
+     
+           
+            cursor: pointer;
+            justify-content: left;
+            padding: 20px 300px;
+            height: 75px;
+            text-align:left;
+            white-space: normal;
+            border-radius: 10px;
+            min-width: 14em;
+            padding: .9em .9em 0;
+            box-shadow: 0 0 5px;
+            margin: 1em;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 20px;
+        TABLE.fancy tr:nth-child(odd) {
+            background-color: #323C50;
+        }
+        TABLE.fancy tr:nth-child(even) {
+            background-color: #2C3446;
+        }
+        TABLE.fancy th {
+            background-color: #1F2739;
+        }
+        TABLE.fancy td,
+        TABLE.fancy th {
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 2%;
+        }
+        TABLE.fancy tr:hover {
+            background-color: #464A52;
+            -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+            -moz-box-shadow: 0 6px 6px -6px #0E1119;
+            box-shadow: 0 6px 6px -6px #0E1119;
+        }
+        TABLE.fancy td:hover {
+            background-color: #FFF842;
+            color: #403E10;
+            font-weight: bold;
+            box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+            transform: translate3d(6px, -6px, 0);
+            transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+            transition-timing-function: line;
+        }
+        @media (max-width: 800px) {
+            TABLE.fancy td:nth-child(4),
+            TABLE.fancy th:nth-child(4) {
+                display: none;
+            }
+        }
+        TABLE.fancy TD.no-right {
+            border-right: 0px
+        }
+        TABLE.fancy TD.right {
+            text-align: left
+        }
+        TABLE.fancy TD.left {
+            text-align: center
+        }
+        TABLE.fancy a {
+            color: yellow;
+        }
+        TABLE.fancy TH {
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            text-align: left;
+            background: black;
+            color: #FFF;
+            border-color: #FFF;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+        .anchor {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: black;
+            color: #FFF
+        }
+        .dark-blue {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa  
+        }
+        .no-top-border {
+            border-top: 0px
+        }
+        .centered {
+            margin: auto
+        }
+        .rZ {
+            text-align: right
+        }
+        .row2 {
+            background: #D3D3E1
+        }
+@import url(//fonts.googleapis.com/css?family=PT+Sans);
+body {
+    margin: 0px;
+    font-family: 'PT Sans', Helvetica, 'Helvetica Neuve', Arial, Tahoma, sans-serif;
+    font-size: 17px;
+    color: #333;
+}
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    margin: 0 0 20px;
+}
+p,
+ul,
+ol,
+table,
+pre,
+dl {
+    margin: 0 0 20px;
+}
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    color: #393939;
+}
+h3,
+h4,
+h5,
+h6 {
+    color: #494949;
+}
+a {
+    color: #39c;
+    font-weight: 400;
+    text-decoration: none;
+}
+a small {
+    font-size: 11px;
+    color: #777;
+    margin-top: -0.6em;
+    display: block;
+}
+.wrapper {
+    width: 860px;
+    margin: 0 auto;
+}
+blockquote {
+    border-left: 1px solid #e5e5e5;
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-style: italic;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+dt {
+    color: #444;
+    font-weight: 700;
+}
+th {
+    color: #444;
+}
+img {
+    max-width: 100%;
+}
+header {
+    width: 270px;
+    float: left;
+    position: fixed;
+}
+header ul {
+    list-style: none;
+    height: 40px;
+    padding: 0;
+    background: #eee;
+    background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+    background: -webkit-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -ms-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    border-radius: 5px;
+    border: 1px solid #d2d2d2;
+    box-shadow: inset #fff 0 1px 0,
+    inset rgba(0, 0, 0, 0.03) 0 -1px 0;
+    width: 270px;
+}
+header li {
+    width: 89px;
+    float: left;
+    border-right: 1px solid #d2d2d2;
+    height: 40px;
+}
+header ul a {
+    line-height: 1;
+    font-size: 11px;
+    color: #999;
+    display: block;
+    text-align: center;
+    padding-top: 6px;
+    height: 40px;
+}
+strong {
+    color: #222;
+    font-weight: 700;
+}
+header ul li+li {
+    width: 88px;
+    border-left: 1px solid #fff;
+}
+header ul li+li+li {
+    border-right: none;
+    width: 89px;
+}
+header ul a strong {
+    font-size: 14px;
+    display: block;
+    color: #222;
+}
+section {
+    width: 500px;
+    float: right;
+    padding-bottom: 50px;
+}
+small {
+    font-size: 11px;
+}
+hr {
+    border: 0;
+    background: #e5e5e5;
+    height: 1px;
+    margin: 0 0 20px;
+}
+footer {
+    width: 270px;
+    float: left;
+    position: fixed;
+    bottom: 50px;
+}
+@media print,
+screen and (max-width: 960px) {
+    div.wrapper {
+        width: auto;
+        margin: 0;
+    }
+    header,
+    section,
+    footer {
+        float: none;
+        position: static;
+        width: auto;
+    }
+    header {
+        padding-right: 320px;
+    }
+    section {
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
+        padding: 20px 0;
+        margin: 0 0 20px;
+    }
+    header a small {
+        display: inline;
+    }
+    header ul {
+        position: absolute;
+        right: 50px;
+        top: 52px;
+    }
+}
+#wrapper {
+    padding: 1em;
+}
+.ca-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+.nav-list {
+    height: 50%;
+    margin: auto 0;
+}
+div.clear {
+    clear: both;
+}
+        /*]]>*/
+.fancybox-margin{margin-right:0px;}
+</style>
+</head>
+
+<body>
+
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><td colspan="6" class="header-row"><b>Folders</b></td></tr>
+<tr><td><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td></tr>
+</table>
+<br>
+
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><td><a href="left.html" target="_parent">left.html</a>&nbsp;</td><td><a href="count-occurrences-of-a-substring.md" target="_parent">count-oc...ng.md</a>&nbsp;</td><td><a href="euler-method.md" target="_parent">euler-method.md</a>&nbsp;</td><td><a href="greatest-common-divisor.md" target="_parent">greatest...or.md</a>&nbsp;</td><td><a href="knapsack-problem-bounded.md" target="_parent">knapsack...ed.md</a>&nbsp;</td><td><a href="lucas-lehmer-test.md" target="_parent">lucas-le...st.md</a>&nbsp;</td><td><a href="sorting-algorithms-bead-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="sum-digits-of-an-integer.md" target="_parent">sum-digi...er.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="100-doors.md" target="_parent">100-doors.md</a>&nbsp;</td><td><a href="count-the-coins.md" target="_parent">count-th...ns.md</a>&nbsp;</td><td><a href="evaluate-binomial-coefficients.md" target="_parent">evaluate...ts.md</a>&nbsp;</td><td><a href="greatest-subsequential-sum.md" target="_parent">greatest...um.md</a>&nbsp;</td><td><a href="knapsack-problem-continuous.md" target="_parent">knapsack...us.md</a>&nbsp;</td><td><a href="ludic-numbers.md" target="_parent">ludic-numbers.md</a>&nbsp;</td><td><a href="sorting-algorithms-bogosort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="sum-multiples-of-3-and-5.md" target="_parent">sum-mult...-5.md</a>&nbsp;</td></tr>
+<tr><td><a href="24-game.md" target="_parent">24-game.md</a>&nbsp;</td><td><a href="cramers-rule.md" target="_parent">cramers-rule.md</a>&nbsp;</td><td><a href="execute-a-markov-algorithm.md" target="_parent">execute-...hm.md</a>&nbsp;</td><td><a href="hailstone-sequence.md" target="_parent">hailston...ce.md</a>&nbsp;</td><td><a href="knapsack-problem-unbounded.md" target="_parent">knapsack...ed.md</a>&nbsp;</td><td><a href="luhn-test-of-credit-card-numbers.md" target="_parent">luhn-tes...rs.md</a>&nbsp;</td><td><a href="sorting-algorithms-cocktail-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="sum-of-a-series.md" target="_parent">sum-of-a...es.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="9-billion-names-of-god-the-integer.md" target="_parent">9-billio...er.md</a>&nbsp;</td><td><a href="cumulative-standard-deviation.md" target="_parent">cumulati...on.md</a>&nbsp;</td><td><a href="execute-brain.md" target="_parent">execute-brain.md</a>&nbsp;</td><td><a href="happy-numbers.md" target="_parent">happy-numbers.md</a>&nbsp;</td><td><a href="knights-tour.md" target="_parent">knights-tour.md</a>&nbsp;</td><td><a href="lychrel-numbers.md" target="_parent">lychrel-...rs.md</a>&nbsp;</td><td><a href="sorting-algorithms-comb-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="sum-of-squares.md" target="_parent">sum-of-s...es.md</a>&nbsp;</td></tr>
+<tr><td><a href="abc-problem.md" target="_parent">abc-problem.md</a>&nbsp;</td><td><a href="cusip.md" target="_parent">cusip.md</a>&nbsp;</td><td><a href="extensible-prime-generator.md" target="_parent">extensib...or.md</a>&nbsp;</td><td><a href="harshad-or-niven-series.md" target="_parent">harshad-...es.md</a>&nbsp;</td><td><a href="largest-int-from-concatenated-ints.md" target="_parent">largest-...ts.md</a>&nbsp;</td><td><a href="lzw-compression.md" target="_parent">lzw-comp...on.md</a>&nbsp;</td><td><a href="sorting-algorithms-gnome-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="sum-to-100.md" target="_parent">sum-to-100.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="abundant-deficient-and-perfect-number-classifications.md" target="_parent">abundant...ns.md</a>&nbsp;</td><td><a href="cut-a-rectangle.md" target="_parent">cut-a-re...le.md</a>&nbsp;</td><td><a href="factorial.md" target="_parent">factorial.md</a>&nbsp;</td><td><a href="hash-from-two-arrays.md" target="_parent">hash-fro...ys.md</a>&nbsp;</td><td><a href="last-friday-of-each-month.md" target="_parent">last-fri...th.md</a>&nbsp;</td><td><a href="s-expressions.md" target="_parent">s-expressions.md</a>&nbsp;</td><td><a href="sorting-algorithms-pancake-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="sutherland-hodgman-polygon-clipping.md" target="_parent">sutherla...ng.md</a>&nbsp;</td></tr>
+<tr><td><a href="accumulator-factory.md" target="_parent">accumula...ry.md</a>&nbsp;</td><td><a href="date-format.md" target="_parent">date-format.md</a>&nbsp;</td><td><a href="factors-of-a-mersenne-number.md" target="_parent">factors-...er.md</a>&nbsp;</td><td><a href="hash-join.md" target="_parent">hash-join.md</a>&nbsp;</td><td><a href="last-letter-first-letter.md" target="_parent">last-let...er.md</a>&nbsp;</td><td><a href="sailors-coconuts-and-a-monkey-problem.md" target="_parent">sailors-...em.md</a>&nbsp;</td><td><a href="sorting-algorithms-permutation-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="symmetric-difference.md" target="_parent">symmetri...ce.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="ackermann-function.md" target="_parent">ackerman...on.md</a>&nbsp;</td><td><a href="date-manipulation.md" target="_parent">date-man...on.md</a>&nbsp;</td><td><a href="factors-of-an-integer.md" target="_parent">factors-...er.md</a>&nbsp;</td><td><a href="heronian-triangles.md" target="_parent">heronian...es.md</a>&nbsp;</td><td><a href="leap-year.md" target="_parent">leap-year.md</a>&nbsp;</td><td><a href="search-a-list-of-records.md" target="_parent">search-a...ds.md</a>&nbsp;</td><td><a href="sorting-algorithms-shell-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="taxicab-numbers.md" target="_parent">taxicab-...rs.md</a>&nbsp;</td></tr>
+<tr><td><a href="align-columns.md" target="_parent">align-columns.md</a>&nbsp;</td><td><a href="day-of-the-week.md" target="_parent">day-of-t...ek.md</a>&nbsp;</td><td><a href="farey-sequence.md" target="_parent">farey-se...ce.md</a>&nbsp;</td><td><a href="hofstadter-figure-figure-sequences.md" target="_parent">hofstadt...es.md</a>&nbsp;</td><td><a href="least-common-multiple.md" target="_parent">least-co...le.md</a>&nbsp;</td><td><a href="sedols.md" target="_parent">sedols.md</a>&nbsp;</td><td><a href="sorting-algorithms-stooge-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="tokenize-a-string-with-escaping.md" target="_parent">tokenize...ng.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="amicable-pairs.md" target="_parent">amicable...rs.md</a>&nbsp;</td><td><a href="deal-cards-for-freecell.md" target="_parent">deal-car...ll.md</a>&nbsp;</td><td><a href="fibonacci-n-step-number-sequences.md" target="_parent">fibonacc...es.md</a>&nbsp;</td><td><a href="hofstadter-q-sequence.md" target="_parent">hofstadt...ce.md</a>&nbsp;</td><td><a href="left-factorials.md" target="_parent">left-fac...ls.md</a>&nbsp;</td><td><a href="self-describing-numbers.md" target="_parent">self-des...rs.md</a>&nbsp;</td><td><a href="sorting-algorithms-strand-sort.md" target="_parent">sorting-...rt.md</a>&nbsp;</td><td><a href="top-rank-per-group.md" target="_parent">top-rank...up.md</a>&nbsp;</td></tr>
+<tr><td><a href="averages-mode.md" target="_parent">averages-mode.md</a>&nbsp;</td><td><a href="deepcopy.md" target="_parent">deepcopy.md</a>&nbsp;</td><td><a href="fibonacci-sequence.md" target="_parent">fibonacc...ce.md</a>&nbsp;</td><td><a href="i-before-e-except-after-c.md" target="_parent">i-before...-c.md</a>&nbsp;</td><td><a href="letter-frequency.md" target="_parent">letter-f...cy.md</a>&nbsp;</td><td><a href="self-referential-sequence.md" target="_parent">self-ref...ce.md</a>&nbsp;</td><td><a href="soundex.md" target="_parent">soundex.md</a>&nbsp;</td><td><a href="topological-sort.md" target="_parent">topologi...rt.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="averages-pythagorean-means.md" target="_parent">averages...ns.md</a>&nbsp;</td><td><a href="define-a-primitive-data-type.md" target="_parent">define-a...pe.md</a>&nbsp;</td><td><a href="fibonacci-word.md" target="_parent">fibonacc...rd.md</a>&nbsp;</td><td><a href="iban.md" target="_parent">iban.md</a>&nbsp;</td><td><a href="levenshtein-distance.md" target="_parent">levensht...ce.md</a>&nbsp;</td><td><a href="semiprime.md" target="_parent">semiprime.md</a>&nbsp;</td><td><a href="spiral-matrix.md" target="_parent">spiral-matrix.md</a>&nbsp;</td><td><a href="towers-of-hanoi.md" target="_parent">towers-o...oi.md</a>&nbsp;</td></tr>
+<tr><td><a href="averages-root-mean-square.md" target="_parent">averages...re.md</a>&nbsp;</td><td><a href="department-numbers.md" target="_parent">departme...rs.md</a>&nbsp;</td><td><a href="fizzbuzz.md" target="_parent">fizzbuzz.md</a>&nbsp;</td><td><a href="identity-matrix.md" target="_parent">identity...ix.md</a>&nbsp;</td><td><a href="linear-congruential-generator.md" target="_parent">linear-c...or.md</a>&nbsp;</td><td><a href="set-consolidation.md" target="_parent">set-cons...on.md</a>&nbsp;</td><td><a href="split-a-character-string-based-on-change-of-character.md" target="_parent">split-a-...er.md</a>&nbsp;</td><td><a href="vector-cross-product.md" target="_parent">vector-c...ct.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="babbage-problem.md" target="_parent">babbage-...em.md</a>&nbsp;</td><td><a href="discordian-date.md" target="_parent">discordi...te.md</a>&nbsp;</td><td><a href="fractran.md" target="_parent">fractran.md</a>&nbsp;</td><td><a href="iterated-digits-squaring.md" target="_parent">iterated...ng.md</a>&nbsp;</td><td><a href="long-multiplication.md" target="_parent">long-mul...on.md</a>&nbsp;</td><td><a href="set-of-real-numbers.md" target="_parent">set-of-r...rs.md</a>&nbsp;</td><td><a href="state-name-puzzle.md" target="_parent">state-na...le.md</a>&nbsp;</td><td><a href="vector-dot-product.md" target="_parent">vector-d...ct.md</a>&nbsp;</td></tr>
+<tr><td><a href="balanced-brackets.md" target="_parent">balanced...ts.md</a>&nbsp;</td><td><a href="dot-product.md" target="_parent">dot-product.md</a>&nbsp;</td><td><a href="gamma-function.md" target="_parent">gamma-fu...on.md</a>&nbsp;</td><td><a href="jaro-distance.md" target="_parent">jaro-distance.md</a>&nbsp;</td><td><a href="longest-common-subsequence.md" target="_parent">longest-...ce.md</a>&nbsp;</td><td><a href="sha-1.md" target="_parent">sha-1.md</a>&nbsp;</td><td><a href="stern-brocot-sequence.md" target="_parent">stern-br...ce.md</a>&nbsp;</td><td><a href="word-frequency.md" target="_parent">word-fre...cy.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="circles-of-given-radius-through-two-points.md" target="_parent">circles-...ts.md</a>&nbsp;</td><td><a href="element-wise-operations.md" target="_parent">element-...ns.md</a>&nbsp;</td><td><a href="gaussian-elimination.md" target="_parent">gaussian...on.md</a>&nbsp;</td><td><a href="jortsort.md" target="_parent">jortsort.md</a>&nbsp;</td><td><a href="longest-increasing-subsequence.md" target="_parent">longest-...ce.md</a>&nbsp;</td><td><a href="sha-256.md" target="_parent">sha-256.md</a>&nbsp;</td><td><a href="straddling-checkerboard.md" target="_parent">straddli...rd.md</a>&nbsp;</td><td><a href="word-wrap.md" target="_parent">word-wrap.md</a>&nbsp;</td></tr>
+<tr><td><a href="closest-pair-problem.md" target="_parent">closest-...em.md</a>&nbsp;</td><td><a href="emirp-primes.md" target="_parent">emirp-primes.md</a>&nbsp;</td><td><a href="general-fizzbuzz.md" target="_parent">general-...zz.md</a>&nbsp;</td><td><a href="josephus-problem.md" target="_parent">josephus...em.md</a>&nbsp;</td><td><a href="longest-string-challenge.md" target="_parent">longest-...ge.md</a>&nbsp;</td><td><a href="sort-an-array-of-composite-structures.md" target="_parent">sort-an-...es.md</a>&nbsp;</td><td><a href="stream-merge.md" target="_parent">stream-merge.md</a>&nbsp;</td><td><a href="y-combinator.md" target="_parent">y-combinator.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="combinations.md" target="_parent">combinations.md</a>&nbsp;</td><td><a href="entropy.md" target="_parent">entropy.md</a>&nbsp;</td><td><a href="generate-lower-case-ascii-alphabet.md" target="_parent">generate...et.md</a>&nbsp;</td><td><a href="k-d-tree.md" target="_parent">k-d-tree.md</a>&nbsp;</td><td><a href="look-and-say-sequence.md" target="_parent">look-and...ce.md</a>&nbsp;</td><td><a href="sort-disjoint-sublist.md" target="_parent">sort-dis...st.md</a>&nbsp;</td><td><a href="strip-control-codes-and-extended-characters-from-a-string.md" target="_parent">strip-co...ng.md</a>&nbsp;</td><td><a href="zeckendorf-number-representation.md" target="_parent">zeckendo...on.md</a>&nbsp;</td></tr>
+<tr><td><a href="comma-quibbling.md" target="_parent">comma-qu...ng.md</a>&nbsp;</td><td><a href="equilibrium-index.md" target="_parent">equilibr...ex.md</a>&nbsp;</td><td><a href="generator-exponential.md" target="_parent">generato...al.md</a>&nbsp;</td><td><a href="kaprekar-numbers.md" target="_parent">kaprekar...rs.md</a>&nbsp;</td><td><a href="loop-over-multiple-arrays-simultaneously.md" target="_parent">loop-ove...ly.md</a>&nbsp;</td><td><a href="sort-stability.md" target="_parent">sort-sta...ty.md</a>&nbsp;</td><td><a href="subleq.md" target="_parent">subleq.md</a>&nbsp;</td><td><a href="zhang-suen-thinning-algorithm.md" target="_parent">zhang-su...hm.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="compare-a-list-of-strings.md" target="_parent">compare-...gs.md</a>&nbsp;</td><td><a href="ethiopian-multiplication.md" target="_parent">ethiopia...on.md</a>&nbsp;</td><td><a href="gray-code.md" target="_parent">gray-code.md</a>&nbsp;</td><td><a href="knapsack-problem-0-1.md" target="_parent">knapsack...-1.md</a>&nbsp;</td><td><a href="lu-decomposition.md" target="_parent">lu-decom...on.md</a>&nbsp;</td><td><a href="sort-using-a-custom-comparator.md" target="_parent">sort-usi...or.md</a>&nbsp;</td><td><a href="sudoku.md" target="_parent">sudoku.md</a>&nbsp;</td><td><a href="zig-zag-matrix.md" target="_parent">zig-zag-...ix.md</a>&nbsp;</td></tr>
+<tr><td><a href="convert-seconds-to-compound-duration.md" target="_parent">convert-...on.md</a>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<p class="summary-style">
+Folders:  1<br>
+Files: 161<br>
+Size of all files: 590050 KB</p>
+
+</body>
+</html>

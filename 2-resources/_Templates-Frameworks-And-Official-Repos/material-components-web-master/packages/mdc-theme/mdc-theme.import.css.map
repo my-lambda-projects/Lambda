@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,qDAAQ;AACR,QAAQ,CAAR,0BAAQ;AACR,QAAQ,CAAR,0BAAQ;AACR,QAAQ,CAAR,uBAAQ;AACR,QAAQ,CAAR,wDAAQ;AACR,QAAQ,CAAR,0BAAQ;AACR,QAAQ,CAAR,WAAQ",
+    "sources": [
+        "mdc-theme.import.scss"
+    ],
+    "names": [],
+    "file": "mdc-theme.import.css"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "ls-data-structures-ii",
+  "version": "1.0.0",
+  "description": "LambdaSchool's Data Structures II",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint tests/*.js && eslint src/*.js && jest --verbose",
+    "lint": "eslint",
+    "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunJieMing/LS-Data-Structures-II.git"
+  },
+  "author": "Ben Nelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SunJieMing/LS-Data-Structures-I/issues"
+  },
+  "homepage": "https://github.com/SunJieMing/LS-Data-Structures-I/#readme",
+  "devDependencies": {
+    "babel-jest": "^19.0.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "jest": "^19.0.2",
+    "regenerator-runtime": "^0.10.3"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}

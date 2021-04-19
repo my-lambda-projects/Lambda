@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":182,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Seqkit</title>
+<meta name="description" content="A cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/shenwei356/seqkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "shenwei356/seqkit",
+  "description": "A cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang",
+  "url": "https://awesomeopensource.com/project/shenwei356/seqkit",
+  "sku": "project/shenwei356/seqkit",
+  "mpn": "project/shenwei356/seqkit",
+  "image": "https://github.com/shenwei356.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "shenwei356/seqkit",
+    "logo": "https://github.com/shenwei356.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.63",
+    "ratingCount": "580"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="yVzsNE6xhVwovpv64VkiDM9RstH3fgVAz9AIS2WkOO/Mdd/qoqpjmaL5xhDc9OMAJ7iRcP2RAAxyxvRmIONo9A==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/shenwei356/seqkit","location":"/project/shenwei356/seqkit","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/shenwei356/seqkit","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-94ce4777-d9e9-4bb0-b787-98ce07ab8545"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Seqkit</div><div class="aos_project_metadata_description">A cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">580</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="https://bioinf.shenwei.me/seqkit" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://bioinf.shenwei.me/seqkit" target="_blank">https://bioinf.shenwei.me/seqkit</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/shenwei356/seqkit" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/shenwei356/seqkit" target="_blank">https://github.com/shenwei356/seqkit</a></span><div class="aos_project_metadata_header"><a href="https://github.com/shenwei356/seqkit/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/shenwei356/seqkit/issues" target="_blank">1</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">3 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/go"><div style="display:block;text-decoration:none;padding-bottom:10px">go<span> (<!-- -->14,132<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/golang"><div style="display:block;text-decoration:none;padding-bottom:10px">golang<span> (<!-- -->3,600<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cross-platform"><div style="display:block;text-decoration:none;padding-bottom:10px">cross-platform<span> (<!-- -->643<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tool"><div style="display:block;text-decoration:none;padding-bottom:10px">tool<span> (<!-- -->382<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/bioinformatics"><div style="display:block;text-decoration:none;padding-bottom:10px">bioinformatics<span> (<!-- -->253<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/toolkit"><div style="display:block;text-decoration:none;padding-bottom:10px">toolkit<span> (<!-- -->100<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/manipulation"><div style="display:block;text-decoration:none;padding-bottom:10px">manipulation<span> (<!-- -->23<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/sequence"><div style="display:block;text-decoration:none;padding-bottom:10px">sequence<span> (<!-- -->22<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/fastq"><div style="display:block;text-decoration:none;padding-bottom:10px">fastq<span> (<!-- -->16<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/fasta"><div style="display:block;text-decoration:none;padding-bottom:10px">fasta<span> (<!-- -->14<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="seqkit---a-cross-platform-and-ultrafast-toolkit-for-fastaq-file-manipulation" class="anchor" href="#seqkit---a-cross-platform-and-ultrafast-toolkit-for-fastaq-file-manipulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SeqKit - a cross-platform and ultrafast toolkit for FASTA/Q file manipulation</h1>
+<ul>
+<li>
+<strong>Documents:</strong> <a href="http://bioinf.shenwei.me/seqkit" rel="nofollow">http://bioinf.shenwei.me/seqkit</a>
+(<a href="http://bioinf.shenwei.me/seqkit/usage/" rel="nofollow"><strong>Usage</strong></a>,
+<a href="http://bioinf.shenwei.me/seqkit/faq/" rel="nofollow"><strong>FAQ</strong></a>,
+<a href="http://bioinf.shenwei.me/seqkit/tutorial/" rel="nofollow"><strong>Tutorial</strong></a>,
+and
+<a href="http://bioinf.shenwei.me/seqkit/benchmark/" rel="nofollow"><strong>Benchmark</strong></a>)</li>
+<li>
+<strong>Source code:</strong> <a href="https://github.com/shenwei356/seqkit" rel="nofollow">https://github.com/shenwei356/seqkit</a>
+<a href="https://github.com/shenwei356/seqkit" rel="nofollow"><img src="https://img.shields.io/github/stars/shenwei356/seqkit.svg?style=social&amp;label=Star&amp;?maxAge=2592000" alt="GitHub stars" style="max-width:100%;"></a>
+<a href="https://github.com/shenwei356/seqkit/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/shenwei356/seqkit.svg?maxAge=2592000" alt="license" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/shenwei356/seqkit" rel="nofollow"><img src="https://travis-ci.org/shenwei356/seqkit.svg?branch=master" alt="Build Status" style="max-width:100%;"></a>
+</li>
+<li>
+<strong>Latest version:</strong> <a href="https://github.com/shenwei356/seqkit/releases" rel="nofollow"><img src="https://img.shields.io/github/release/shenwei356/seqkit.svg?style=flat?maxAge=86400" alt="Latest Version" style="max-width:100%;"></a>
+<a href="http://bioinf.shenwei.me/seqkit/download/" rel="nofollow"><img src="https://img.shields.io/github/downloads/shenwei356/seqkit/latest/total.svg?maxAge=3600" alt="Github Releases" style="max-width:100%;"></a>
+<a href="http://bioinf.shenwei.me/seqkit/download/" rel="nofollow"><img src="https://img.shields.io/badge/platform-any-ec2eb4.svg?style=flat" alt="Cross-platform" style="max-width:100%;"></a>
+<a href="https://anaconda.org/bioconda/seqkit" rel="nofollow"><img src="https://anaconda.org/bioconda/seqkit/badges/version.svg" alt="Anaconda Cloud" style="max-width:100%;"></a>
+</li>
+<li>
+<strong><a href="#citation">Please cite</a>:</strong> <a href="https://doi.org/10.1371/journal.pone.0163962" rel="nofollow"><img src="https://img.shields.io/badge/doi-10.1371%2Fjournal.pone.0163962-blue.svg?style=flat" alt="doi" style="max-width:100%;"></a>
+</li>
+<li><a href="https://gitter.im/seqkit/community?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge" rel="nofollow"><img src="https://badges.gitter.im/seqkit/community.svg" alt="Gitter" style="max-width:100%;")</li>
+</ul>
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<p>FASTA and FASTQ are basic and ubiquitous formats for storing nucleotide and
+protein sequences. Common manipulations of FASTA/Q file include converting,
+searching, filtering, deduplication, splitting, shuffling, and sampling.
+Existing tools only implement some of these manipulations,
+and not particularly efficiently, and some are only available for certain
+operating systems. Furthermore, the complicated installation process of
+required packages and running environments can render these programs less
+user friendly.</p>
+<p>This project describes a cross-platform ultrafast comprehensive
+toolkit for FASTA/Q processing. SeqKit provides executable binary files for
+all major operating systems, including Windows, Linux, and Mac OS X, and can
+be directly used without any dependencies or pre-configurations.
+SeqKit demonstrates competitive performance in execution time and memory
+usage compared to similar tools. The efficiency and usability of SeqKit
+enable researchers to rapidly accomplish common FASTA/Q file manipulations.</p>
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#subcommands">Subcommands</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#bash-completion">Bash-completion</a></li>
+<li><a href="#technical-details-and-guides-for-use">Technical details and guides for use</a></li>
+<li><a href="#usage--examples">Usage &amp;&amp; Examples</a></li>
+<li><a href="#benchmark">Benchmark</a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#startchart">Starchart</a></li>
+</ul>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+<ul>
+<li>
+<strong>Cross-platform</strong> (Linux/Windows/Mac OS X/OpenBSD/FreeBSD,
+see <a href="http://bioinf.shenwei.me/seqkit/download/" rel="nofollow">download</a>)</li>
+<li>
+<strong>Light weight and out-of-the-box, no dependencies, no compilation, no configuration</strong>
+(see <a href="http://bioinf.shenwei.me/seqkit/download/" rel="nofollow">download</a>)</li>
+<li>
+<strong>UltraFast</strong> (see <a href="#benchmark">benchmark</a>),
+<strong>multiple-CPUs supported</strong>
+</li>
+<li>
+<strong>Practical functions supported by 34 subcommands</strong> (see subcommands and
+<a href="http://bioinf.shenwei.me/seqkit/usage/" rel="nofollow">usage</a> )</li>
+<li><strong>Supporting <a href="#bash-completion">Bash-completion</a></strong></li>
+<li>
+<strong>Well documented</strong> (detailed <a href="http://bioinf.shenwei.me/seqkit/usage/" rel="nofollow">usage</a>
+and <a href="http://bioinf.shenwei.me/seqkit/benchmark/" rel="nofollow">benchmark</a> )</li>
+<li><strong>Seamlessly parsing both FASTA and FASTQ formats</strong></li>
+<li>
+<strong>Supporting STDIN and gzipped input/output file, easy being used in pipe</strong>
+, <strong>writing gzip file is very fast (10X of <code>gzip</code>, 4X of <code>pigz</code>)</strong> by
+using package <a href="https://github.com/klauspost/pgzip" rel="nofollow">pgzip</a>
+</li>
+<li>
+<strong>Supporting custom sequence ID regular expression</strong> (especially useful for searching with ID list)</li>
+<li>Reproducible results (configurable rand seed in <code>sample</code> and <code>shuffle</code>)</li>
+<li>Well organized source code, friendly to use and easy to extend</li>
+</ul>
+<h3>
+<a id="features-comparison" class="anchor" href="#features-comparison" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features comparison</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Categories</th>
+<th align="left">Features</th>
+<th align="center">seqkit</th>
+<th align="center">fasta_utilities</th>
+<th align="center">fastx_toolkit</th>
+<th align="center">pyfaidx</th>
+<th align="center">seqmagick</th>
+<th align="center">seqtk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Formats support</strong></td>
+<td align="left">Multi-line FASTA</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">FASTQ</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Multi-line  FASTQ</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Validating sequences</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Supporting RNA</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"><strong>Functions</strong></td>
+<td align="left">Searching by motifs</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Sampling</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Extracting sub-sequence</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Removing duplicates</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Partly</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Splitting</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Partly</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Splitting by seq</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Shuffling</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Sorting</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Locating motifs</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Common sequences</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Cleaning bases</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Transcription</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Translation</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Filtering by size</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Renaming header</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"><strong>Other features</strong></td>
+<td align="left">Cross-platform</td>
+<td align="center">Yes</td>
+<td align="center">Partly</td>
+<td align="center">Partly</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Reading STDIN</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Reading gzipped file</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Writing gzip file</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">--</td>
+<td align="center">Yes</td>
+<td align="center">--</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note 1</strong>: See <a href="http://bioinf.shenwei.me/seqkit/benchmark/#softwares" rel="nofollow">version information</a> of the softwares.</p>
+<p><strong>Note 2</strong>: See <a href="http://bioinf.shenwei.me/seqkit/usage/" rel="nofollow">usage</a> for detailed options of seqkit.</p>
+<h2>
+<a id="subcommands" class="anchor" href="#subcommands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Subcommands</h2>
+<p>34 functional subcommands in total.</p>
+<p><strong>Sequence and subsequence</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#seq" rel="nofollow"><code>seq</code></a>          transform sequences (revserse, complement, extract ID...)</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#subseq" rel="nofollow"><code>subseq</code></a>    get subsequences by region/gtf/bed, including flanking sequences</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#sliding" rel="nofollow"><code>sliding</code></a>  sliding sequences, circular genome supported</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#stats" rel="nofollow"><code>stats</code></a>      simple statistics of FASTA/Q files</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#faidx" rel="nofollow"><code>faidx</code></a>      create FASTA index file and extract subsequence</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#watch" rel="nofollow"><code>watch</code></a>      monitoring and online histograms of sequence features</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#sana" rel="nofollow"><code>sana</code></a>        sanitize broken single line fastq files</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#scat" rel="nofollow"><code>scat</code></a>        real time concatenation and streaming of fastx files</li>
+</ul>
+<p><strong>Format conversion</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#fx2tab" rel="nofollow"><code>fx2tab</code></a>        convert FASTA/Q to tabular format (and length/GC content/GC skew)</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#tab2fx" rel="nofollow"><code>tab2fx</code></a>        convert tabular format to FASTA/Q format</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#fq2fa" rel="nofollow"><code>fq2fa</code></a>          convert FASTQ to FASTA</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#convert" rel="nofollow"><code>convert</code></a>      convert FASTQ quality encoding between Sanger, Solexa and Illumina</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#translate" rel="nofollow"><code>translate</code></a>  translate DNA/RNA to protein sequence (supporting ambiguous bases)</li>
+</ul>
+<p><strong>Searching</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#grep" rel="nofollow"><code>grep</code></a>        search sequences by ID/name/sequence/sequence motifs, mismatch allowed</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#locate" rel="nofollow"><code>locate</code></a>    locate subsequences/motifs, mismatch allowed</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#fish" rel="nofollow"><code>fish</code></a>	look for short sequences in larger sequences using local alignment</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#amplicon" rel="nofollow"><code>amplicon</code></a> retrieve amplicon (or specific region around it) via primer(s)</li>
+</ul>
+<p><strong>BAM processing and monitoring</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#bam" rel="nofollow"><code>bam</code></a>	monitoring and online histograms of BAM record features</li>
+</ul>
+<p><strong>Set operations</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#head" rel="nofollow"><code>head</code></a>            print first N FASTA/Q records</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#range" rel="nofollow"><code>range</code></a>          print FASTA/Q records in a range (start:end)</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#sample" rel="nofollow"><code>sample</code></a>        sample sequences by number or proportion</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#rmdup" rel="nofollow"><code>rmdup</code></a>          remove duplicated sequences by id/name/sequence</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#duplicate" rel="nofollow"><code>duplicate</code></a>  duplicate sequences N times</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#common" rel="nofollow"><code>common</code></a>        find common sequences of multiple files by id/name/sequence</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#split" rel="nofollow"><code>split</code></a>          split sequences into files by id/seq region/size/parts (mainly for FASTA)</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#split2" rel="nofollow"><code>split2</code></a>        split sequences into files by size/parts (FASTA, PE/SE FASTQ)</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#pair" rel="nofollow"><code>pair</code></a>            match up paired-end reads from two fastq files</li>
+</ul>
+<p><strong>Edit</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#replace" rel="nofollow"><code>replace</code></a>  replace name/sequence by regular expression</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#rename" rel="nofollow"><code>rename</code></a>    rename duplicated IDs</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#restart" rel="nofollow"><code>restart</code></a>  reset start position for circular genome</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#concat" rel="nofollow"><code>concat</code></a>    concatenate sequences with same ID from multiple files</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#mutate" rel="nofollow"><code>mutate</code></a>    edit sequence (point mutation, insertion, deletion)</li>
+</ul>
+<p><strong>Ordering</strong></p>
+<ul>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#shuffle" rel="nofollow"><code>shuffle</code></a>  shuffle sequences</li>
+<li>
+<a href="https://bioinf.shenwei.me/seqkit/usage/#sort" rel="nofollow"><code>sort</code></a>        sort sequences by id/name/sequence</li>
+</ul>
+<p><strong>Misc</strong></p>
+<ul>
+<li>
+<code>version</code>   print version information and check for update</li>
+<li>
+<code>genautocomplete</code> generate shell autocompletion script</li>
+</ul>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<p>Go to <a href="http://bioinf.shenwei.me/seqkit/download" rel="nofollow">Download Page</a> for more download options and changelogs.</p>
+<p><code>SeqKit</code> is implemented in <a href="https://golang.org/" rel="nofollow">Go</a> programming language,
+executable binary files <strong>for most popular operating systems</strong> are freely available
+in <a href="https://github.com/shenwei356/seqkit/releases" rel="nofollow">release</a> page.</p>
+<h4>
+<a id="method-1-download-binaries-latest-stabledev-version" class="anchor" href="#method-1-download-binaries-latest-stabledev-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 1: Download binaries (latest stable/dev version)</h4>
+<p>Just <a href="https://github.com/shenwei356/seqkit/releases" rel="nofollow">download</a> compressed
+executable file of your operating system,
+and decompress it with <code>tar -zxvf *.tar.gz</code> command or other tools.
+And then:</p>
+<ol>
+<li>
+<p><strong>For Linux-like systems</strong></p>
+<ol>
+<li>
+<p>If you have root privilege simply copy it to <code>/usr/local/bin</code>:</p>
+<pre><code> sudo cp seqkit /usr/local/bin/
+</code></pre>
+</li>
+<li>
+<p>Or copy to anywhere in the environment variable <code>PATH</code>:</p>
+<pre><code> mkdir -p $HOME/bin/; cp seqkit $HOME/bin/
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>For windows</strong>, just copy <code>seqkit.exe</code> to <code>C:\WINDOWS\system32</code>.</p>
+</li>
+</ol>
+<h4>
+<a id="method-2-install-via-conda--latest-stable-version--" class="anchor" href="#method-2-install-via-conda--latest-stable-version--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 2: Install via conda  (latest stable version) <a href="https://anaconda.org/bioconda/seqkit" rel="nofollow"><img src="https://anaconda.org/bioconda/seqkit/badges/version.svg" alt="Anaconda Cloud" style="max-width:100%;"></a> <a href="https://anaconda.org/bioconda/seqkit" rel="nofollow"><img src="https://anaconda.org/bioconda/seqkit/badges/downloads.svg" alt="downloads" style="max-width:100%;"></a>
+</h4>
+<pre><code>conda install -c bioconda seqkit
+</code></pre>
+<h4>
+<a id="method-3-install-via-homebrew--latest-stable-version" class="anchor" href="#method-3-install-via-homebrew--latest-stable-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 3: Install via homebrew  (latest stable version)</h4>
+<pre><code>brew install brewsci/bio/seqkit
+</code></pre>
+<h4>
+<a id="method-4-for-go-developer-latest-stabledev-version" class="anchor" href="#method-4-for-go-developer-latest-stabledev-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 4: For Go developer (latest stable/dev version)</h4>
+<pre><code>go get -u github.com/shenwei356/seqkit/seqkit
+</code></pre>
+<h4>
+<a id="method-5-docker-based-installation-latest-stabledev-version" class="anchor" href="#method-5-docker-based-installation-latest-stabledev-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method 5: Docker based installation (latest stable/dev version)</h4>
+<p><a href="https://docs.docker.com/engine/installation/#supported-platforms" rel="nofollow">Install Docker</a></p>
+<p>git clone this repo:</p>
+<pre><code>git clone https://github.com/shenwei356/seqkit
+</code></pre>
+<p>Run the following commands:</p>
+<pre><code>cd seqkit
+docker build -t shenwei356/seqkit .
+docker run -it shenwei356/seqkit:latest
+</code></pre>
+<h2>
+<a id="bash-completion" class="anchor" href="#bash-completion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bash-completion</h2>
+<p>Note: The current version supports Bash only.
+This should work for *nix systems with Bash installed.</p>
+<p>Howto:</p>
+<ol>
+<li>
+<p>run: <code>seqkit genautocomplete</code></p>
+</li>
+<li>
+<p>create and edit <code>~/.bash_completion</code> file if you don't have it.</p>
+<pre><code> nano ~/.bash_completion
+</code></pre>
+<p>add the following:</p>
+<pre><code> for bcfile in ~/.bash_completion.d/* ; do
+   . $bcfile
+ done
+</code></pre>
+</li>
+</ol>
+<h2>
+<a id="technical-details-and-guides-for-use" class="anchor" href="#technical-details-and-guides-for-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technical details and guides for use</h2>
+<h3>
+<a id="fastaq-format-parsing" class="anchor" href="#fastaq-format-parsing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FASTA/Q format parsing</h3>
+<p>SeqKit uses author's lightweight and high-performance bioinformatics packages
+<a href="https://github.com/shenwei356/bio" rel="nofollow">bio</a> for FASTA/Q parsing,
+which has <a href="https://github.com/shenwei356/bio#fastaq-parsing" rel="nofollow">high performance</a>
+close to the
+famous C lib <a href="https://github.com/attractivechaos/klib/" rel="nofollow">klib</a> (<a href="https://github.com/attractivechaos/klib/blob/master/kseq.h" rel="nofollow">kseq.h</a>).</p>
+<p><a href="https://github.com/shenwei356/bio/raw/master/benchmark/benchmark.tsv.png" target="_blank" rel="nofollow"><img src="https://github.com/shenwei356/bio/raw/master/benchmark/benchmark.tsv.png" alt="" style="max-width:100%;"></a></p>
+<p><s>Seqkit calls <code>pigz</code> (much faster than <code>gzip</code>) or <code>gzip</code> to decompress .gz file if they are available.
+So please <strong>install <a href="http://zlib.net/pigz/" rel="nofollow">pigz</a> to gain better parsing performance for gzipped data</strong>.</s>
+Seqkit does not call <code>pigz</code> or <code>gzip</code> any more since v0.8.1,
+Because it does not always increase the speed.
+But you can still utilize <code>pigz</code> or <code>gzip</code> by <code>pigz -d -c seqs.fq.gz | seqkit xxx</code>.</p>
+<p>Seqkit uses package <a href="https://github.com/klauspost/pgzip" rel="nofollow">pgzip</a> to write gzip file,
+which is very fast (<strong>10X of <code>gzip</code>, 4X of <code>pigz</code></strong>) and the gzip file would be slighty larger.</p>
+<h3>
+<a id="sequence-formats-and-types" class="anchor" href="#sequence-formats-and-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sequence formats and types</h3>
+<p>SeqKit seamlessly support FASTA and FASTQ format.
+Sequence format is automatically detected.
+All subcommands except for <code>faidx</code> can handle both formats.
+And only when some commands (<code>subseq</code>, <code>split</code>, <code>sort</code> and <code>shuffle</code>)
+which utilise FASTA index to improve perfrmance for large files in two pass mode
+(by flag <code>--two-pass</code>), only FASTA format is supported.</p>
+<p>Sequence type (DNA/RNA/Protein) is automatically detected by leading subsequences
+of the first sequences in file or STDIN. The length of the leading subsequences
+is configurable by global flag <code>--alphabet-guess-seq-length</code> with default value
+of 10000. If length of the sequences is less than that, whole sequences will
+be checked.</p>
+<h3>
+<a id="sequence-id" class="anchor" href="#sequence-id" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sequence ID</h3>
+<p>By default, most softwares, including <code>seqkit</code>, take the leading non-space
+letters as sequence identifier (ID). For example,</p>
+<table>
+<thead>
+<tr>
+<th align="left">FASTA header</th>
+<th align="left">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">&gt;123456 gene name</td>
+<td align="left">123456</td>
+</tr>
+<tr>
+<td align="left">&gt;longname</td>
+<td align="left">longname</td>
+</tr>
+<tr>
+<td align="left">&gt;gi|110645304|ref|NC_002516.2| Pseudomona</td>
+<td align="left">gi|110645304|ref|NC_002516.2|</td>
+</tr>
+</tbody>
+</table>
+<p>But for some sequences from NCBI,
+e.g. <code>&gt;gi|110645304|ref|NC_002516.2| Pseudomona</code>, the ID is <code>NC_002516.2</code>.
+In this case, we could set sequence ID parsing regular expression by global flag
+<code>--id-regexp "\|([^\|]+)\| "</code> or just use flag <code>--id-ncbi</code>. If you want
+the <code>gi</code> number, then use <code>--id-regexp "^gi\|([^\|]+)\|"</code>.</p>
+<h3>
+<a id="fasta-index" class="anchor" href="#fasta-index" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FASTA index</h3>
+<p>For some commands, including <code>subseq</code>, <code>split</code>, <code>sort</code> and <code>shuffle</code>,
+when input files are (plain or gzipped) FASTA files,
+FASTA index would be optional used for
+rapid access of sequences and reducing memory occupation.</p>
+<p>ATTENTION: the <code>.seqkit.fai</code> file created by SeqKit is slightly different from <code>.fai</code> file
+created by <code>samtools</code>. SeqKit uses full sequence head instead of just ID as key.</p>
+<h3>
+<a id="parallelization-of-cpu-intensive-jobs" class="anchor" href="#parallelization-of-cpu-intensive-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parallelization of CPU intensive jobs</h3>
+<p>The validation of sequences bases and complement process of sequences
+are parallelized for large sequences.</p>
+<p>Parsing of line-based files, including BED/GFF file and ID list file are also parallelized.</p>
+<p>The Parallelization is implemented by multiple goroutines in golang
+which are similar to but much
+lighter weight than threads. The concurrency number is configurable with global
+flag <code>-j</code> or <code>--threads</code> (default value: 1 for single-CPU PC, 2 for others).</p>
+<h3>
+<a id="memory-occupation" class="anchor" href="#memory-occupation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memory occupation</h3>
+<p>Most of the subcommands do not read whole FASTA/Q records in to memory,
+including <code>stat</code>, <code>fq2fa</code>, <code>fx2tab</code>, <code>tab2fx</code>, <code>grep</code>, <code>locate</code>, <code>replace</code>,
+<code>seq</code>, <code>sliding</code>, <code>subseq</code>.</p>
+<p>Note that when using <code>subseq --gtf | --bed</code>, if the GTF/BED files are too
+big, the memory usage will increase.
+You could use <code>--chr</code> to specify chromesomes and <code>--feature</code> to limit features.</p>
+<p>Some subcommands need to store sequences or heads in memory, but there are
+strategy to reduce memory occupation, including <code>rmdup</code> and <code>common</code>.
+When comparing with sequences, MD5 digest could be used to replace sequence by
+flag <code>-m</code> (<code>--md5</code>).</p>
+<p>Some subcommands could either read all records or read the files twice by flag
+<code>-2</code> (<code>--two-pass</code>), including <code>sample</code>, <code>split</code>, <code>shuffle</code> and <code>sort</code>.
+They use FASTA index for rapid acccess of sequences and reducing memory occupation.</p>
+<h3>
+<a id="reproducibility" class="anchor" href="#reproducibility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reproducibility</h3>
+<p>Subcommands <code>sample</code> and <code>shuffle</code> use random function, random seed could be
+given by flag <code>-s</code> (<code>--rand-seed</code>). This makes sure that sampling result could be
+reproduced in different environments with same random seed.</p>
+<h2>
+<a id="usage--examples" class="anchor" href="#usage--examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage &amp;&amp; Examples</h2>
+<p><a href="http://bioinf.shenwei.me/seqkit/usage/" rel="nofollow">Usage and examples</a></p>
+<p><a href="http://bioinf.shenwei.me/seqkit/tutorial/" rel="nofollow">Tutorial</a></p>
+<h2>
+<a id="benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benchmark</h2>
+<p>More details: <a href="http://bioinf.shenwei.me/seqkit/benchmark/" rel="nofollow">http://bioinf.shenwei.me/seqkit/benchmark/</a></p>
+<p>Datasets:</p>
+<pre><code>$ seqkit stat *.fa
+file          format  type   num_seqs        sum_len  min_len       avg_len      max_len
+dataset_A.fa  FASTA   DNA      67,748  2,807,643,808       56      41,442.5    5,976,145
+dataset_B.fa  FASTA   DNA         194  3,099,750,718      970  15,978,096.5  248,956,422
+dataset_C.fq  FASTQ   DNA   9,186,045    918,604,500      100           100          100
+</code></pre>
+<p>SeqKit version: v0.3.1.1</p>
+<p>FASTA:</p>
+<p><a href="https://github.com/shenwei356/seqkit/blob/master/benchmark/benchmark.5tests.tsv.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/seqkit/master/benchmark/benchmark.5tests.tsv.png" alt="benchmark-5tests.tsv.png" style="max-width:100%;"></a></p>
+<p>FASTQ:</p>
+<p><a href="https://github.com/shenwei356/seqkit/blob/master/benchmark/benchmark.5tests.tsv.C.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/shenwei356/seqkit/master/benchmark/benchmark.5tests.tsv.C.png" alt="benchmark-5tests.tsv.png" style="max-width:100%;"></a></p>
+<h2>
+<a id="citation" class="anchor" href="#citation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Citation</h2>
+<p><strong>W Shen</strong>, S Le, Y Li*, F Hu*. SeqKit: a cross-platform and ultrafast toolkit for FASTA/Q file manipulation.
+<em><strong>PLOS ONE</strong></em>. <a href="https://doi.org/10.1371/journal.pone.0163962" rel="nofollow">doi:10.1371/journal.pone.0163962</a>.</p>
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
+<ul>
+<li><a href="https://github.com/shenwei356" rel="nofollow">Wei Shen</a></li>
+<li>
+<a href="https://github.com/bsipos" rel="nofollow">Botond Sipos</a> for commands: bam, fish, sana, watch.</li>
+<li><a href="https://github.com/shenwei356/seqkit/graphs/contributors" rel="nofollow">others</a></li>
+</ul>
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+<p>We thank <a href="https://github.com/jameslz" rel="nofollow">Lei Zhang</a> for testing of SeqKit,
+and also thank <a href="https://github.com/jimhester/" rel="nofollow">Jim Hester</a>,
+author of <a href="https://github.com/jimhester/fasta_utilities" rel="nofollow">fasta_utilities</a>,
+for advice on early performance improvements of for FASTA parsing
+and <a href="https://twitter.com/BBToolsBio" rel="nofollow">Brian Bushnell</a>,
+author of <a href="https://sourceforge.net/projects/bbmap/" rel="nofollow">BBMaps</a>,
+for advice on naming SeqKit and adding accuracy evaluation in benchmarks.
+We also thank Nicholas C. Wu from the Scripps Research Institute,
+USA for commenting on the manuscript
+and <a href="http://guangchuangyu.github.io/" rel="nofollow">Guangchuang Yu</a>
+from State Key Laboratory of Emerging Infectious Diseases,
+The University of Hong Kong, HK for advice on the manuscript.</p>
+<p>We thank <a href="https://github.com/penglbio" rel="nofollow">Li Peng</a> for reporting many bugs.</p>
+<h2>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h2>
+<p>Email me for any problem when using seqkit. shenwei356(at)gmail.com</p>
+<p><a href="https://github.com/shenwei356/seqkit/issues" rel="nofollow">Create an issue</a> to report bugs,
+propose new functions or ask for help.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><a href="https://github.com/shenwei356/seqkit/blob/master/LICENSE" rel="nofollow">MIT License</a></p>
+<h2>
+<a id="starchart" class="anchor" href="#starchart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Starchart</h2>
+<a href="https://starchart.cc/shenwei356/seqkit.svg" target="_blank" rel="nofollow"><img src="https://starchart.cc/shenwei356/seqkit.svg" alt="Stargazers over time" style="max-width:100%;"></a>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120ba9ec89be738',m:'931699a404b417838906b4735bf3b6fe8b9a901b-1610725580-1800-AT51XD3YjQorR6q6f0JB7hHrYrfLTvuJzAqxuQ7LYMV7wT36YbhEqrTfksC/rFquRrARmxksC4l86q/OD2DDn47ZgLB2GQYpGMdlVH9HWDYLl2gBPAhsQQsl0FY8x4okuYeQWRtzQoXFoaL/URUKeWM=',s:[0xf3ff6ecc77,0x9c54f8a0f0],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="go"/> <!-- -->go<!-- --> (<!-- -->14,132<!-- -->) </div><div><input type="checkbox" name="topics" value="golang"/> <!-- -->golang<!-- --> (<!-- -->3,600<!-- -->) </div><div><input type="checkbox" name="topics" value="cross-platform"/> <!-- -->cross-platform<!-- --> (<!-- -->643<!-- -->) </div><div><input type="checkbox" name="topics" value="tool"/> <!-- -->tool<!-- --> (<!-- -->382<!-- -->) </div><div><input type="checkbox" name="topics" value="bioinformatics"/> <!-- -->bioinformatics<!-- --> (<!-- -->253<!-- -->) </div><div><input type="checkbox" name="topics" value="toolkit"/> <!-- -->toolkit<!-- --> (<!-- -->100<!-- -->) </div><div><input type="checkbox" name="topics" value="manipulation"/> <!-- -->manipulation<!-- --> (<!-- -->23<!-- -->) </div><div><input type="checkbox" name="topics" value="sequence"/> <!-- -->sequence<!-- --> (<!-- -->22<!-- -->) </div><div><input type="checkbox" name="topics" value="fastq"/> <!-- -->fastq<!-- --> (<!-- -->16<!-- -->) </div><div><input type="checkbox" name="topics" value="fasta"/> <!-- -->fasta<!-- --> (<!-- -->14<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Seqkit<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/shenwei356" target="_blank">Shenwei356</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/shenwei356" target="_blank">Shenwei356</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-94ce4777-d9e9-4bb0-b787-98ce07ab8545">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"bioinformatics","count":253},{"id":null,"name":"cross-platform","count":643},{"id":null,"name":"fasta","count":14},{"id":null,"name":"fastq","count":16},{"id":null,"name":"go","count":14132},{"id":null,"name":"golang","count":3600},{"id":null,"name":"manipulation","count":23},{"id":null,"name":"sequence","count":22},{"id":null,"name":"tool","count":382},{"id":null,"name":"toolkit","count":100}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/shenwei356/seqkit","projects":[],"project":{"id":56275,"created_at":"2018-08-21T00:34:05.030Z","updated_at":"2021-01-13T22:22:31.926Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"seqkit---a-cross-platform-and-ultrafast-toolkit-for-fastaq-file-manipulation\" class=\"anchor\" href=\"#seqkit---a-cross-platform-and-ultrafast-toolkit-for-fastaq-file-manipulation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSeqKit - a cross-platform and ultrafast toolkit for FASTA/Q file manipulation\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eDocuments:\u003c/strong\u003e \u003ca href=\"http://bioinf.shenwei.me/seqkit\" rel=\"nofollow\"\u003ehttp://bioinf.shenwei.me/seqkit\u003c/a\u003e\n(\u003ca href=\"http://bioinf.shenwei.me/seqkit/usage/\" rel=\"nofollow\"\u003e\u003cstrong\u003eUsage\u003c/strong\u003e\u003c/a\u003e,\n\u003ca href=\"http://bioinf.shenwei.me/seqkit/faq/\" rel=\"nofollow\"\u003e\u003cstrong\u003eFAQ\u003c/strong\u003e\u003c/a\u003e,\n\u003ca href=\"http://bioinf.shenwei.me/seqkit/tutorial/\" rel=\"nofollow\"\u003e\u003cstrong\u003eTutorial\u003c/strong\u003e\u003c/a\u003e,\nand\n\u003ca href=\"http://bioinf.shenwei.me/seqkit/benchmark/\" rel=\"nofollow\"\u003e\u003cstrong\u003eBenchmark\u003c/strong\u003e\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSource code:\u003c/strong\u003e \u003ca href=\"https://github.com/shenwei356/seqkit\" rel=\"nofollow\"\u003ehttps://github.com/shenwei356/seqkit\u003c/a\u003e\n\u003ca href=\"https://github.com/shenwei356/seqkit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/stars/shenwei356/seqkit.svg?style=social\u0026amp;label=Star\u0026amp;?maxAge=2592000\" alt=\"GitHub stars\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/shenwei356/seqkit/blob/master/LICENSE\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/license/shenwei356/seqkit.svg?maxAge=2592000\" alt=\"license\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://travis-ci.org/shenwei356/seqkit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://travis-ci.org/shenwei356/seqkit.svg?branch=master\" alt=\"Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eLatest version:\u003c/strong\u003e \u003ca href=\"https://github.com/shenwei356/seqkit/releases\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/release/shenwei356/seqkit.svg?style=flat?maxAge=86400\" alt=\"Latest Version\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://bioinf.shenwei.me/seqkit/download/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/downloads/shenwei356/seqkit/latest/total.svg?maxAge=3600\" alt=\"Github Releases\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://bioinf.shenwei.me/seqkit/download/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/platform-any-ec2eb4.svg?style=flat\" alt=\"Cross-platform\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://anaconda.org/bioconda/seqkit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://anaconda.org/bioconda/seqkit/badges/version.svg\" alt=\"Anaconda Cloud\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003ca href=\"#citation\"\u003ePlease cite\u003c/a\u003e:\u003c/strong\u003e \u003ca href=\"https://doi.org/10.1371/journal.pone.0163962\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/doi-10.1371%2Fjournal.pone.0163962-blue.svg?style=flat\" alt=\"doi\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://gitter.im/seqkit/community?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://badges.gitter.im/seqkit/community.svg\" alt=\"Gitter\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"introduction\" class=\"anchor\" href=\"#introduction\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eFASTA and FASTQ are basic and ubiquitous formats for storing nucleotide and\nprotein sequences. Common manipulations of FASTA/Q file include converting,\nsearching, filtering, deduplication, splitting, shuffling, and sampling.\nExisting tools only implement some of these manipulations,\nand not particularly efficiently, and some are only available for certain\noperating systems. Furthermore, the complicated installation process of\nrequired packages and running environments can render these programs less\nuser friendly.\u003c/p\u003e\n\u003cp\u003eThis project describes a cross-platform ultrafast comprehensive\ntoolkit for FASTA/Q processing. SeqKit provides executable binary files for\nall major operating systems, including Windows, Linux, and Mac OS X, and can\nbe directly used without any dependencies or pre-configurations.\nSeqKit demonstrates competitive performance in execution time and memory\nusage compared to similar tools. The efficiency and usability of SeqKit\nenable researchers to rapidly accomplish common FASTA/Q file manipulations.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"table-of-contents\" class=\"anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTable of Contents\u003c/h2\u003e\n\n\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#features\"\u003eFeatures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#subcommands\"\u003eSubcommands\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#installation\"\u003eInstallation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#bash-completion\"\u003eBash-completion\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#technical-details-and-guides-for-use\"\u003eTechnical details and guides for use\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#usage--examples\"\u003eUsage \u0026amp;\u0026amp; Examples\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#benchmark\"\u003eBenchmark\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#citation\"\u003eCitation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contributors\"\u003eContributors\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#acknowledgements\"\u003eAcknowledgements\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contact\"\u003eContact\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#license\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#startchart\"\u003eStarchart\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch2\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eCross-platform\u003c/strong\u003e (Linux/Windows/Mac OS X/OpenBSD/FreeBSD,\nsee \u003ca href=\"http://bioinf.shenwei.me/seqkit/download/\" rel=\"nofollow\"\u003edownload\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eLight weight and out-of-the-box, no dependencies, no compilation, no configuration\u003c/strong\u003e\n(see \u003ca href=\"http://bioinf.shenwei.me/seqkit/download/\" rel=\"nofollow\"\u003edownload\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eUltraFast\u003c/strong\u003e (see \u003ca href=\"#benchmark\"\u003ebenchmark\u003c/a\u003e),\n\u003cstrong\u003emultiple-CPUs supported\u003c/strong\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003ePractical functions supported by 34 subcommands\u003c/strong\u003e (see subcommands and\n\u003ca href=\"http://bioinf.shenwei.me/seqkit/usage/\" rel=\"nofollow\"\u003eusage\u003c/a\u003e )\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSupporting \u003ca href=\"#bash-completion\"\u003eBash-completion\u003c/a\u003e\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWell documented\u003c/strong\u003e (detailed \u003ca href=\"http://bioinf.shenwei.me/seqkit/usage/\" rel=\"nofollow\"\u003eusage\u003c/a\u003e\nand \u003ca href=\"http://bioinf.shenwei.me/seqkit/benchmark/\" rel=\"nofollow\"\u003ebenchmark\u003c/a\u003e )\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSeamlessly parsing both FASTA and FASTQ formats\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSupporting STDIN and gzipped input/output file, easy being used in pipe\u003c/strong\u003e\n, \u003cstrong\u003ewriting gzip file is very fast (10X of \u003ccode\u003egzip\u003c/code\u003e, 4X of \u003ccode\u003epigz\u003c/code\u003e)\u003c/strong\u003e by\nusing package \u003ca href=\"https://github.com/klauspost/pgzip\" rel=\"nofollow\"\u003epgzip\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSupporting custom sequence ID regular expression\u003c/strong\u003e (especially useful for searching with ID list)\u003c/li\u003e\n\u003cli\u003eReproducible results (configurable rand seed in \u003ccode\u003esample\u003c/code\u003e and \u003ccode\u003eshuffle\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003eWell organized source code, friendly to use and easy to extend\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"features-comparison\" class=\"anchor\" href=\"#features-comparison\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures comparison\u003c/h3\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"left\"\u003eCategories\u003c/th\u003e\n\u003cth align=\"left\"\u003eFeatures\u003c/th\u003e\n\u003cth align=\"center\"\u003eseqkit\u003c/th\u003e\n\u003cth align=\"center\"\u003efasta_utilities\u003c/th\u003e\n\u003cth align=\"center\"\u003efastx_toolkit\u003c/th\u003e\n\u003cth align=\"center\"\u003epyfaidx\u003c/th\u003e\n\u003cth align=\"center\"\u003eseqmagick\u003c/th\u003e\n\u003cth align=\"center\"\u003eseqtk\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eFormats support\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eMulti-line FASTA\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eFASTQ\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eMulti-line  FASTQ\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eValidating sequences\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSupporting RNA\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eFunctions\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSearching by motifs\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSampling\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eExtracting sub-sequence\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eRemoving duplicates\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003ePartly\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSplitting\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003ePartly\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSplitting by seq\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eShuffling\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSorting\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eLocating motifs\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eCommon sequences\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eCleaning bases\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eTranscription\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eTranslation\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eFiltering by size\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eRenaming header\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003cstrong\u003eOther features\u003c/strong\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eCross-platform\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003ePartly\u003c/td\u003e\n\u003ctd align=\"center\"\u003ePartly\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eReading STDIN\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eReading gzipped file\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eWriting gzip file\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003ctd align=\"center\"\u003eYes\u003c/td\u003e\n\u003ctd align=\"center\"\u003e--\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eNote 1\u003c/strong\u003e: See \u003ca href=\"http://bioinf.shenwei.me/seqkit/benchmark/#softwares\" rel=\"nofollow\"\u003eversion information\u003c/a\u003e of the softwares.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNote 2\u003c/strong\u003e: See \u003ca href=\"http://bioinf.shenwei.me/seqkit/usage/\" rel=\"nofollow\"\u003eusage\u003c/a\u003e for detailed options of seqkit.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"subcommands\" class=\"anchor\" href=\"#subcommands\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSubcommands\u003c/h2\u003e\n\u003cp\u003e34 functional subcommands in total.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSequence and subsequence\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#seq\" rel=\"nofollow\"\u003e\u003ccode\u003eseq\u003c/code\u003e\u003c/a\u003e          transform sequences (revserse, complement, extract ID...)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#subseq\" rel=\"nofollow\"\u003e\u003ccode\u003esubseq\u003c/code\u003e\u003c/a\u003e    get subsequences by region/gtf/bed, including flanking sequences\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#sliding\" rel=\"nofollow\"\u003e\u003ccode\u003esliding\u003c/code\u003e\u003c/a\u003e  sliding sequences, circular genome supported\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#stats\" rel=\"nofollow\"\u003e\u003ccode\u003estats\u003c/code\u003e\u003c/a\u003e      simple statistics of FASTA/Q files\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#faidx\" rel=\"nofollow\"\u003e\u003ccode\u003efaidx\u003c/code\u003e\u003c/a\u003e      create FASTA index file and extract subsequence\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#watch\" rel=\"nofollow\"\u003e\u003ccode\u003ewatch\u003c/code\u003e\u003c/a\u003e      monitoring and online histograms of sequence features\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#sana\" rel=\"nofollow\"\u003e\u003ccode\u003esana\u003c/code\u003e\u003c/a\u003e        sanitize broken single line fastq files\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#scat\" rel=\"nofollow\"\u003e\u003ccode\u003escat\u003c/code\u003e\u003c/a\u003e        real time concatenation and streaming of fastx files\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFormat conversion\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#fx2tab\" rel=\"nofollow\"\u003e\u003ccode\u003efx2tab\u003c/code\u003e\u003c/a\u003e        convert FASTA/Q to tabular format (and length/GC content/GC skew)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#tab2fx\" rel=\"nofollow\"\u003e\u003ccode\u003etab2fx\u003c/code\u003e\u003c/a\u003e        convert tabular format to FASTA/Q format\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#fq2fa\" rel=\"nofollow\"\u003e\u003ccode\u003efq2fa\u003c/code\u003e\u003c/a\u003e          convert FASTQ to FASTA\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#convert\" rel=\"nofollow\"\u003e\u003ccode\u003econvert\u003c/code\u003e\u003c/a\u003e      convert FASTQ quality encoding between Sanger, Solexa and Illumina\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#translate\" rel=\"nofollow\"\u003e\u003ccode\u003etranslate\u003c/code\u003e\u003c/a\u003e  translate DNA/RNA to protein sequence (supporting ambiguous bases)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSearching\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#grep\" rel=\"nofollow\"\u003e\u003ccode\u003egrep\u003c/code\u003e\u003c/a\u003e        search sequences by ID/name/sequence/sequence motifs, mismatch allowed\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#locate\" rel=\"nofollow\"\u003e\u003ccode\u003elocate\u003c/code\u003e\u003c/a\u003e    locate subsequences/motifs, mismatch allowed\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#fish\" rel=\"nofollow\"\u003e\u003ccode\u003efish\u003c/code\u003e\u003c/a\u003e\tlook for short sequences in larger sequences using local alignment\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#amplicon\" rel=\"nofollow\"\u003e\u003ccode\u003eamplicon\u003c/code\u003e\u003c/a\u003e retrieve amplicon (or specific region around it) via primer(s)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eBAM processing and monitoring\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#bam\" rel=\"nofollow\"\u003e\u003ccode\u003ebam\u003c/code\u003e\u003c/a\u003e\tmonitoring and online histograms of BAM record features\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSet operations\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#head\" rel=\"nofollow\"\u003e\u003ccode\u003ehead\u003c/code\u003e\u003c/a\u003e            print first N FASTA/Q records\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#range\" rel=\"nofollow\"\u003e\u003ccode\u003erange\u003c/code\u003e\u003c/a\u003e          print FASTA/Q records in a range (start:end)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#sample\" rel=\"nofollow\"\u003e\u003ccode\u003esample\u003c/code\u003e\u003c/a\u003e        sample sequences by number or proportion\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#rmdup\" rel=\"nofollow\"\u003e\u003ccode\u003ermdup\u003c/code\u003e\u003c/a\u003e          remove duplicated sequences by id/name/sequence\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#duplicate\" rel=\"nofollow\"\u003e\u003ccode\u003eduplicate\u003c/code\u003e\u003c/a\u003e  duplicate sequences N times\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#common\" rel=\"nofollow\"\u003e\u003ccode\u003ecommon\u003c/code\u003e\u003c/a\u003e        find common sequences of multiple files by id/name/sequence\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#split\" rel=\"nofollow\"\u003e\u003ccode\u003esplit\u003c/code\u003e\u003c/a\u003e          split sequences into files by id/seq region/size/parts (mainly for FASTA)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#split2\" rel=\"nofollow\"\u003e\u003ccode\u003esplit2\u003c/code\u003e\u003c/a\u003e        split sequences into files by size/parts (FASTA, PE/SE FASTQ)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#pair\" rel=\"nofollow\"\u003e\u003ccode\u003epair\u003c/code\u003e\u003c/a\u003e            match up paired-end reads from two fastq files\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eEdit\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#replace\" rel=\"nofollow\"\u003e\u003ccode\u003ereplace\u003c/code\u003e\u003c/a\u003e  replace name/sequence by regular expression\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#rename\" rel=\"nofollow\"\u003e\u003ccode\u003erename\u003c/code\u003e\u003c/a\u003e    rename duplicated IDs\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#restart\" rel=\"nofollow\"\u003e\u003ccode\u003erestart\u003c/code\u003e\u003c/a\u003e  reset start position for circular genome\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#concat\" rel=\"nofollow\"\u003e\u003ccode\u003econcat\u003c/code\u003e\u003c/a\u003e    concatenate sequences with same ID from multiple files\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#mutate\" rel=\"nofollow\"\u003e\u003ccode\u003emutate\u003c/code\u003e\u003c/a\u003e    edit sequence (point mutation, insertion, deletion)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eOrdering\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#shuffle\" rel=\"nofollow\"\u003e\u003ccode\u003eshuffle\u003c/code\u003e\u003c/a\u003e  shuffle sequences\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://bioinf.shenwei.me/seqkit/usage/#sort\" rel=\"nofollow\"\u003e\u003ccode\u003esort\u003c/code\u003e\u003c/a\u003e        sort sequences by id/name/sequence\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eMisc\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eversion\u003c/code\u003e   print version information and check for update\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003egenautocomplete\u003c/code\u003e generate shell autocompletion script\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003eGo to \u003ca href=\"http://bioinf.shenwei.me/seqkit/download\" rel=\"nofollow\"\u003eDownload Page\u003c/a\u003e for more download options and changelogs.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eSeqKit\u003c/code\u003e is implemented in \u003ca href=\"https://golang.org/\" rel=\"nofollow\"\u003eGo\u003c/a\u003e programming language,\nexecutable binary files \u003cstrong\u003efor most popular operating systems\u003c/strong\u003e are freely available\nin \u003ca href=\"https://github.com/shenwei356/seqkit/releases\" rel=\"nofollow\"\u003erelease\u003c/a\u003e page.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"method-1-download-binaries-latest-stabledev-version\" class=\"anchor\" href=\"#method-1-download-binaries-latest-stabledev-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 1: Download binaries (latest stable/dev version)\u003c/h4\u003e\n\u003cp\u003eJust \u003ca href=\"https://github.com/shenwei356/seqkit/releases\" rel=\"nofollow\"\u003edownload\u003c/a\u003e compressed\nexecutable file of your operating system,\nand decompress it with \u003ccode\u003etar -zxvf *.tar.gz\u003c/code\u003e command or other tools.\nAnd then:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFor Linux-like systems\u003c/strong\u003e\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eIf you have root privilege simply copy it to \u003ccode\u003e/usr/local/bin\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e sudo cp seqkit /usr/local/bin/\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eOr copy to anywhere in the environment variable \u003ccode\u003ePATH\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e mkdir -p $HOME/bin/; cp seqkit $HOME/bin/\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFor windows\u003c/strong\u003e, just copy \u003ccode\u003eseqkit.exe\u003c/code\u003e to \u003ccode\u003eC:\\WINDOWS\\system32\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch4\u003e\n\u003ca id=\"method-2-install-via-conda--latest-stable-version--\" class=\"anchor\" href=\"#method-2-install-via-conda--latest-stable-version--\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 2: Install via conda  (latest stable version) \u003ca href=\"https://anaconda.org/bioconda/seqkit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://anaconda.org/bioconda/seqkit/badges/version.svg\" alt=\"Anaconda Cloud\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://anaconda.org/bioconda/seqkit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://anaconda.org/bioconda/seqkit/badges/downloads.svg\" alt=\"downloads\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003econda install -c bioconda seqkit\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"method-3-install-via-homebrew--latest-stable-version\" class=\"anchor\" href=\"#method-3-install-via-homebrew--latest-stable-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 3: Install via homebrew  (latest stable version)\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003ebrew install brewsci/bio/seqkit\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"method-4-for-go-developer-latest-stabledev-version\" class=\"anchor\" href=\"#method-4-for-go-developer-latest-stabledev-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 4: For Go developer (latest stable/dev version)\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003ego get -u github.com/shenwei356/seqkit/seqkit\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\n\u003ca id=\"method-5-docker-based-installation-latest-stabledev-version\" class=\"anchor\" href=\"#method-5-docker-based-installation-latest-stabledev-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMethod 5: Docker based installation (latest stable/dev version)\u003c/h4\u003e\n\u003cp\u003e\u003ca href=\"https://docs.docker.com/engine/installation/#supported-platforms\" rel=\"nofollow\"\u003eInstall Docker\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003egit clone this repo:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://github.com/shenwei356/seqkit\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eRun the following commands:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecd seqkit\ndocker build -t shenwei356/seqkit .\ndocker run -it shenwei356/seqkit:latest\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"bash-completion\" class=\"anchor\" href=\"#bash-completion\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBash-completion\u003c/h2\u003e\n\u003cp\u003eNote: The current version supports Bash only.\nThis should work for *nix systems with Bash installed.\u003c/p\u003e\n\u003cp\u003eHowto:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003erun: \u003ccode\u003eseqkit genautocomplete\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ecreate and edit \u003ccode\u003e~/.bash_completion\u003c/code\u003e file if you don't have it.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e nano ~/.bash_completion\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eadd the following:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e for bcfile in ~/.bash_completion.d/* ; do\n   . $bcfile\n done\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"technical-details-and-guides-for-use\" class=\"anchor\" href=\"#technical-details-and-guides-for-use\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTechnical details and guides for use\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"fastaq-format-parsing\" class=\"anchor\" href=\"#fastaq-format-parsing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFASTA/Q format parsing\u003c/h3\u003e\n\u003cp\u003eSeqKit uses author's lightweight and high-performance bioinformatics packages\n\u003ca href=\"https://github.com/shenwei356/bio\" rel=\"nofollow\"\u003ebio\u003c/a\u003e for FASTA/Q parsing,\nwhich has \u003ca href=\"https://github.com/shenwei356/bio#fastaq-parsing\" rel=\"nofollow\"\u003ehigh performance\u003c/a\u003e\nclose to the\nfamous C lib \u003ca href=\"https://github.com/attractivechaos/klib/\" rel=\"nofollow\"\u003eklib\u003c/a\u003e (\u003ca href=\"https://github.com/attractivechaos/klib/blob/master/kseq.h\" rel=\"nofollow\"\u003ekseq.h\u003c/a\u003e).\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/bio/raw/master/benchmark/benchmark.tsv.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/shenwei356/bio/raw/master/benchmark/benchmark.tsv.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cs\u003eSeqkit calls \u003ccode\u003epigz\u003c/code\u003e (much faster than \u003ccode\u003egzip\u003c/code\u003e) or \u003ccode\u003egzip\u003c/code\u003e to decompress .gz file if they are available.\nSo please \u003cstrong\u003einstall \u003ca href=\"http://zlib.net/pigz/\" rel=\"nofollow\"\u003epigz\u003c/a\u003e to gain better parsing performance for gzipped data\u003c/strong\u003e.\u003c/s\u003e\nSeqkit does not call \u003ccode\u003epigz\u003c/code\u003e or \u003ccode\u003egzip\u003c/code\u003e any more since v0.8.1,\nBecause it does not always increase the speed.\nBut you can still utilize \u003ccode\u003epigz\u003c/code\u003e or \u003ccode\u003egzip\u003c/code\u003e by \u003ccode\u003epigz -d -c seqs.fq.gz | seqkit xxx\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eSeqkit uses package \u003ca href=\"https://github.com/klauspost/pgzip\" rel=\"nofollow\"\u003epgzip\u003c/a\u003e to write gzip file,\nwhich is very fast (\u003cstrong\u003e10X of \u003ccode\u003egzip\u003c/code\u003e, 4X of \u003ccode\u003epigz\u003c/code\u003e\u003c/strong\u003e) and the gzip file would be slighty larger.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"sequence-formats-and-types\" class=\"anchor\" href=\"#sequence-formats-and-types\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSequence formats and types\u003c/h3\u003e\n\u003cp\u003eSeqKit seamlessly support FASTA and FASTQ format.\nSequence format is automatically detected.\nAll subcommands except for \u003ccode\u003efaidx\u003c/code\u003e can handle both formats.\nAnd only when some commands (\u003ccode\u003esubseq\u003c/code\u003e, \u003ccode\u003esplit\u003c/code\u003e, \u003ccode\u003esort\u003c/code\u003e and \u003ccode\u003eshuffle\u003c/code\u003e)\nwhich utilise FASTA index to improve perfrmance for large files in two pass mode\n(by flag \u003ccode\u003e--two-pass\u003c/code\u003e), only FASTA format is supported.\u003c/p\u003e\n\u003cp\u003eSequence type (DNA/RNA/Protein) is automatically detected by leading subsequences\nof the first sequences in file or STDIN. The length of the leading subsequences\nis configurable by global flag \u003ccode\u003e--alphabet-guess-seq-length\u003c/code\u003e with default value\nof 10000. If length of the sequences is less than that, whole sequences will\nbe checked.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"sequence-id\" class=\"anchor\" href=\"#sequence-id\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSequence ID\u003c/h3\u003e\n\u003cp\u003eBy default, most softwares, including \u003ccode\u003eseqkit\u003c/code\u003e, take the leading non-space\nletters as sequence identifier (ID). For example,\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"left\"\u003eFASTA header\u003c/th\u003e\n\u003cth align=\"left\"\u003eID\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u0026gt;123456 gene name\u003c/td\u003e\n\u003ctd align=\"left\"\u003e123456\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u0026gt;longname\u003c/td\u003e\n\u003ctd align=\"left\"\u003elongname\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u0026gt;gi|110645304|ref|NC_002516.2| Pseudomona\u003c/td\u003e\n\u003ctd align=\"left\"\u003egi|110645304|ref|NC_002516.2|\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eBut for some sequences from NCBI,\ne.g. \u003ccode\u003e\u0026gt;gi|110645304|ref|NC_002516.2| Pseudomona\u003c/code\u003e, the ID is \u003ccode\u003eNC_002516.2\u003c/code\u003e.\nIn this case, we could set sequence ID parsing regular expression by global flag\n\u003ccode\u003e--id-regexp \"\\|([^\\|]+)\\| \"\u003c/code\u003e or just use flag \u003ccode\u003e--id-ncbi\u003c/code\u003e. If you want\nthe \u003ccode\u003egi\u003c/code\u003e number, then use \u003ccode\u003e--id-regexp \"^gi\\|([^\\|]+)\\|\"\u003c/code\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"fasta-index\" class=\"anchor\" href=\"#fasta-index\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFASTA index\u003c/h3\u003e\n\u003cp\u003eFor some commands, including \u003ccode\u003esubseq\u003c/code\u003e, \u003ccode\u003esplit\u003c/code\u003e, \u003ccode\u003esort\u003c/code\u003e and \u003ccode\u003eshuffle\u003c/code\u003e,\nwhen input files are (plain or gzipped) FASTA files,\nFASTA index would be optional used for\nrapid access of sequences and reducing memory occupation.\u003c/p\u003e\n\u003cp\u003eATTENTION: the \u003ccode\u003e.seqkit.fai\u003c/code\u003e file created by SeqKit is slightly different from \u003ccode\u003e.fai\u003c/code\u003e file\ncreated by \u003ccode\u003esamtools\u003c/code\u003e. SeqKit uses full sequence head instead of just ID as key.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"parallelization-of-cpu-intensive-jobs\" class=\"anchor\" href=\"#parallelization-of-cpu-intensive-jobs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eParallelization of CPU intensive jobs\u003c/h3\u003e\n\u003cp\u003eThe validation of sequences bases and complement process of sequences\nare parallelized for large sequences.\u003c/p\u003e\n\u003cp\u003eParsing of line-based files, including BED/GFF file and ID list file are also parallelized.\u003c/p\u003e\n\u003cp\u003eThe Parallelization is implemented by multiple goroutines in golang\nwhich are similar to but much\nlighter weight than threads. The concurrency number is configurable with global\nflag \u003ccode\u003e-j\u003c/code\u003e or \u003ccode\u003e--threads\u003c/code\u003e (default value: 1 for single-CPU PC, 2 for others).\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"memory-occupation\" class=\"anchor\" href=\"#memory-occupation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMemory occupation\u003c/h3\u003e\n\u003cp\u003eMost of the subcommands do not read whole FASTA/Q records in to memory,\nincluding \u003ccode\u003estat\u003c/code\u003e, \u003ccode\u003efq2fa\u003c/code\u003e, \u003ccode\u003efx2tab\u003c/code\u003e, \u003ccode\u003etab2fx\u003c/code\u003e, \u003ccode\u003egrep\u003c/code\u003e, \u003ccode\u003elocate\u003c/code\u003e, \u003ccode\u003ereplace\u003c/code\u003e,\n\u003ccode\u003eseq\u003c/code\u003e, \u003ccode\u003esliding\u003c/code\u003e, \u003ccode\u003esubseq\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eNote that when using \u003ccode\u003esubseq --gtf | --bed\u003c/code\u003e, if the GTF/BED files are too\nbig, the memory usage will increase.\nYou could use \u003ccode\u003e--chr\u003c/code\u003e to specify chromesomes and \u003ccode\u003e--feature\u003c/code\u003e to limit features.\u003c/p\u003e\n\u003cp\u003eSome subcommands need to store sequences or heads in memory, but there are\nstrategy to reduce memory occupation, including \u003ccode\u003ermdup\u003c/code\u003e and \u003ccode\u003ecommon\u003c/code\u003e.\nWhen comparing with sequences, MD5 digest could be used to replace sequence by\nflag \u003ccode\u003e-m\u003c/code\u003e (\u003ccode\u003e--md5\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eSome subcommands could either read all records or read the files twice by flag\n\u003ccode\u003e-2\u003c/code\u003e (\u003ccode\u003e--two-pass\u003c/code\u003e), including \u003ccode\u003esample\u003c/code\u003e, \u003ccode\u003esplit\u003c/code\u003e, \u003ccode\u003eshuffle\u003c/code\u003e and \u003ccode\u003esort\u003c/code\u003e.\nThey use FASTA index for rapid acccess of sequences and reducing memory occupation.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"reproducibility\" class=\"anchor\" href=\"#reproducibility\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReproducibility\u003c/h3\u003e\n\u003cp\u003eSubcommands \u003ccode\u003esample\u003c/code\u003e and \u003ccode\u003eshuffle\u003c/code\u003e use random function, random seed could be\ngiven by flag \u003ccode\u003e-s\u003c/code\u003e (\u003ccode\u003e--rand-seed\u003c/code\u003e). This makes sure that sampling result could be\nreproduced in different environments with same random seed.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"usage--examples\" class=\"anchor\" href=\"#usage--examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage \u0026amp;\u0026amp; Examples\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"http://bioinf.shenwei.me/seqkit/usage/\" rel=\"nofollow\"\u003eUsage and examples\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://bioinf.shenwei.me/seqkit/tutorial/\" rel=\"nofollow\"\u003eTutorial\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"benchmark\" class=\"anchor\" href=\"#benchmark\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBenchmark\u003c/h2\u003e\n\u003cp\u003eMore details: \u003ca href=\"http://bioinf.shenwei.me/seqkit/benchmark/\" rel=\"nofollow\"\u003ehttp://bioinf.shenwei.me/seqkit/benchmark/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eDatasets:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ seqkit stat *.fa\nfile          format  type   num_seqs        sum_len  min_len       avg_len      max_len\ndataset_A.fa  FASTA   DNA      67,748  2,807,643,808       56      41,442.5    5,976,145\ndataset_B.fa  FASTA   DNA         194  3,099,750,718      970  15,978,096.5  248,956,422\ndataset_C.fq  FASTQ   DNA   9,186,045    918,604,500      100           100          100\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSeqKit version: v0.3.1.1\u003c/p\u003e\n\u003cp\u003eFASTA:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/seqkit/blob/master/benchmark/benchmark.5tests.tsv.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/seqkit/master/benchmark/benchmark.5tests.tsv.png\" alt=\"benchmark-5tests.tsv.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eFASTQ:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/seqkit/blob/master/benchmark/benchmark.5tests.tsv.C.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/shenwei356/seqkit/master/benchmark/benchmark.5tests.tsv.C.png\" alt=\"benchmark-5tests.tsv.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"citation\" class=\"anchor\" href=\"#citation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCitation\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eW Shen\u003c/strong\u003e, S Le, Y Li*, F Hu*. SeqKit: a cross-platform and ultrafast toolkit for FASTA/Q file manipulation.\n\u003cem\u003e\u003cstrong\u003ePLOS ONE\u003c/strong\u003e\u003c/em\u003e. \u003ca href=\"https://doi.org/10.1371/journal.pone.0163962\" rel=\"nofollow\"\u003edoi:10.1371/journal.pone.0163962\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"contributors\" class=\"anchor\" href=\"#contributors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributors\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/shenwei356\" rel=\"nofollow\"\u003eWei Shen\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/bsipos\" rel=\"nofollow\"\u003eBotond Sipos\u003c/a\u003e for commands: bam, fish, sana, watch.\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/shenwei356/seqkit/graphs/contributors\" rel=\"nofollow\"\u003eothers\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"acknowledgements\" class=\"anchor\" href=\"#acknowledgements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgements\u003c/h2\u003e\n\u003cp\u003eWe thank \u003ca href=\"https://github.com/jameslz\" rel=\"nofollow\"\u003eLei Zhang\u003c/a\u003e for testing of SeqKit,\nand also thank \u003ca href=\"https://github.com/jimhester/\" rel=\"nofollow\"\u003eJim Hester\u003c/a\u003e,\nauthor of \u003ca href=\"https://github.com/jimhester/fasta_utilities\" rel=\"nofollow\"\u003efasta_utilities\u003c/a\u003e,\nfor advice on early performance improvements of for FASTA parsing\nand \u003ca href=\"https://twitter.com/BBToolsBio\" rel=\"nofollow\"\u003eBrian Bushnell\u003c/a\u003e,\nauthor of \u003ca href=\"https://sourceforge.net/projects/bbmap/\" rel=\"nofollow\"\u003eBBMaps\u003c/a\u003e,\nfor advice on naming SeqKit and adding accuracy evaluation in benchmarks.\nWe also thank Nicholas C. Wu from the Scripps Research Institute,\nUSA for commenting on the manuscript\nand \u003ca href=\"http://guangchuangyu.github.io/\" rel=\"nofollow\"\u003eGuangchuang Yu\u003c/a\u003e\nfrom State Key Laboratory of Emerging Infectious Diseases,\nThe University of Hong Kong, HK for advice on the manuscript.\u003c/p\u003e\n\u003cp\u003eWe thank \u003ca href=\"https://github.com/penglbio\" rel=\"nofollow\"\u003eLi Peng\u003c/a\u003e for reporting many bugs.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"contact\" class=\"anchor\" href=\"#contact\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContact\u003c/h2\u003e\n\u003cp\u003eEmail me for any problem when using seqkit. shenwei356(at)gmail.com\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/seqkit/issues\" rel=\"nofollow\"\u003eCreate an issue\u003c/a\u003e to report bugs,\npropose new functions or ask for help.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/shenwei356/seqkit/blob/master/LICENSE\" rel=\"nofollow\"\u003eMIT License\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"starchart\" class=\"anchor\" href=\"#starchart\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStarchart\u003c/h2\u003e\n\u003ca href=\"https://starchart.cc/shenwei356/seqkit.svg\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://starchart.cc/shenwei356/seqkit.svg\" alt=\"Stargazers over time\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":52715040,"name":"seqkit","owner_login":"shenwei356","description":"A cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang","pushed_at":"2021-01-13T01:21:30.000Z","stargazers_count":580,"open_issues_count":1,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"https://bioinf.shenwei.me/seqkit","private":false,"project_created_at":"2016-02-28T10:04:40.000Z","project_updated_at":"2021-01-13T21:01:34.000Z","language":"Go","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

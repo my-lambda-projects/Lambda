@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="multicloud-a-cheat-sheet">Multicloud: A cheat sheet</h1>
+  <blockquote>
+    <p>This comprehensive guide covers the use of services from multiple cloud vendors, including the benefits
+      businesses gain and the challenges IT teams face when using multicloud.</p>
+  </blockquote>
+  <p>This comprehensive guide covers the use of services from multiple cloud vendors, including the benefits businesses
+    gain and the challenges IT teams face when using multicloud.</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2015/09/28/67b6b002-8a4c-431f-a974-c94b0f4d5361/resize/770x/2586a214e5c97b0be226886e89dac21e/cloudistock000072552515phototechno.jpg"
+      alt="cloudistock000072552515phototechno.jpg" />
+    <figcaption>cloudistock000072552515phototechno.jpg</figcaption>
+  </figure>
+  <p>Image: iStock</p>
+  <p>Over a decade after the launch of <a
+      href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">Amazon Web Services</a>,
+    Amazon continues to benefit from the “first mover” position. While AWS is still the market leader, <a
+      href="https://www.zdnet.com/article/top-cloud-providers-2019-aws-microsoft-azure-google-cloud-ibm-makes-hybrid-move-salesforce-dominates-saas/">cloud</a>
+    services from other industry titans such as Google or Microsoft have increased in popularity (as have specialized
+    services from other vendors), preventing Amazon from having hegemonic control of the cloud market. </p>
+  <p>As a result, organizations and developers are utilizing cloud services from multiple vendors, leading to the
+    aptly-named paradigm of multicloud.</p>
+  <p>TechRepublic's cheat sheet to multicloud is an introduction to using multiple cloud providers. This guide that will
+    be updated as new integrations and services become available. It is also available as a download, <a
+      href="https://www.techrepublic.com/resource-library/downloads/multicloud-a-cheat-sheet-free-pdf/">Multicloud: A
+      cheat sheet (free PDF)</a>.</p>
+  <p><strong>SEE:</strong> <a href="https://www.zdnet.com/topic/managing-the-multicloud/"><strong>Managing the
+        multicloud</strong></a> <strong>(ZDNet/TechRepublic special report) | <a
+        href="https://www.techrepublic.com/resource-library/downloads/special-feature-managing-the-multicloud-free-pdf/">Download
+        the free PDF version</a> (TechRepublic)</strong></p>
+  <p>Executive summary</p>
+  <hr />
+  <ul>
+    <li>
+      <p><strong>What is multicloud?</strong> Multicloud is the practice of using cloud services from multiple
+        heterogeneous cloud services, as well as specialized platform-as-a-service (PaaS), infrastructure-as-a-service
+        (IaaS), or software-as-a-service (SaaS) providers. Multicloud also includes using private clouds and hybrid
+        clouds with multiple public cloud components.</p>
+    </li>
+    <li>
+      <p><strong>What advantages do multicloud deployments offer?</strong> Multicloud is about enabling choice—to be
+        able to pick and choose components from multiple vendors—allowing organizations and application developers to
+        use the best fit for their intended purpose.</p>
+    </li>
+    <li>
+      <p><strong>Should my business use a multicloud approach?</strong> Generally, a multicloud deployment will be
+        useful for organizations that have specific needs or dependencies to satisfy.</p>
+    </li>
+    <li>
+      <p><strong>How popular is multicloud?</strong> This is happening on a case-by-case basis. As organizations outgrow
+        the capabilities of their cloud service providers, services from additional vendors may be needed.</p>
+    </li>
+    <li>
+      <p><strong>How do I build a multicloud deployment?</strong> A multicloud deployment should be carefully planned to
+        avoid interoperability issues. Use of cloud management platforms is recommended.</p>
+    </li>
+  </ul>
+  <p><strong>SEE:</strong> <a href="https://www.zdnet.com/topic/the-cloud-v-data-center-decision/"><strong>The cloud v.
+        data center decision</strong></a> <strong>(ZDNet/TechRepublic special report) |</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/the-cloud-v-data-center-decision-free-pdf/"><strong>Download
+        the free PDF version</strong></a> <strong>(TechRepublic)</strong></p>
+  <h2 id="what-is-multicloud">What is multicloud?</h2>
+  <p>Multicloud refers to the practice of using services from multiple heterogeneous cloud service providers, including
+    <a href="https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/">Amazon Web Services
+      (AWS)</a>, <a href="https://www.techrepublic.com/article/google-cloud-platform-the-smart-persons-guide/">Google
+      Cloud Platform</a>, or <a
+      href="https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/">Microsoft Azure</a>, as well
+    as specialized platform-as-a-service (PaaS), infrastructure-as-a-service (IaaS), or software-as-a-service (SaaS)
+    providers. Multicloud also comprises the use of private cloud environments and hybrid cloud environments that
+    leverage more than one public cloud platform.</p>
+  <p>As an architectural choice, multicloud can be used for a variety of reasons-the most obvious one is disaster
+    recovery: While cloud vendors offer a variety of options and SLAs for redundancy to guarantee uptime and backups to
+    ensure data integrity, both of these rely on the supposition that the vendor's entire infrastructure does not fail
+    at once.</p>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic's cheat sheets
+        and smart person's guides</a></strong></p>
+  <p>While most workloads can be built to be vendor neutral (this flexibility is a primary benefit of multicloud), some
+    workloads may benefit from using specific cloud platforms. For example, apps that use <a
+      href="https://www.techrepublic.com/article/alexa-skills-cheat-sheet/">Alexa Skills</a> are better served by using
+    Amazon Web Services, as the APIs involved are native to AWS. Likewise, supported languages and depth of ability for
+    natural language processing varies widely between different cloud providers.</p>
+  <p>Roughly one third of the IT professionals surveyed in TechRepublic Premium's <a
+      href="https://www.techrepublic.com/resource-library/downloads/managing-the-multicloud-companies-capitalize-on-using-multiple-cloud-providers/?ftag=CAD-01-10abf8g">Managing
+      the multicloud</a> survey indicated their organization uses a specialized application or solutions provider, such
+    as Google Drive, Salesforce, or Cloudflare. These are closer to services than they are cloud platforms—while there
+    is feature duplication between these and similar companies as with public cloud, these products do not support
+    general compute workloads commonly associated with cloud computing.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/resource-library/whitepapers/research-managing-multicloud-in-the-enterprise-benefits-barriers-and-most-popular-cloud-platforms/">Research:
+          Managing multicloud in the enterprise; benefits, barriers, and most popular cloud platforms</a> (TechRepublic
+        Premium)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/multicloud-everything-you-need-to-know-about-the-biggest-trend-in-cloud-computing/">Multicloud:
+          Everything you need to know about the biggest trend in cloud computing</a> (ZDNet)</p>
+    </li>
+    <li>
+      <p><a href="https://www.zdnet.com/article/the-myths-and-truths-about-multi-cloud/">Freedom of cloud choice: The
+          myths and truths about multi-cloud</a> (ZDNet)</p>
+    </li>
+    <li><a href="http://www.zdnet.com/article/how-to-manage-multiple-public-cloud-strategy/">Video: How to build a
+        multi-cloud strategy</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/managing-multiple-clouds-requires-careful-choice-architecture-planning/">Managing
+        multiple clouds requires careful choice, architecture planning</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/blog/the-enterprise-cloud/mini-glossary-cloud-computing-terms-you-should-know/">Mini-glossary:
+          Cloud computing terms you should know</a> (TechRepublic)</p>
+    </li>
+  </ul>
+  <h2 id="what-advantages-do-multicloud-deployments-offer">What advantages do multicloud deployments offer?</h2>
+  <p>Multicloud's main advantage is that organizations and application developers can pick and choose components from
+    multiple vendors and use the best fit for their intended purpose. To draw a comparison, multicloud is more <em>à la
+      carte</em> than <em>table d'hôte</em>. </p>
+  <p>For organizations with an outsized dependency on the Windows ecosystem, leveraging some Microsoft Azure services
+    may be beneficial, while the same organization may use Google Cloud for <a
+      href="https://www.techrepublic.com/article/machine-learning-the-smart-persons-guide/">machine learning</a> and
+    analytics and/or Amazon for public-facing web services. </p>
+  <p>Industry cloud service providers, such as Dell Boomi, offer cloud-focused <a
+      href="https://www.techrepublic.com/article/digital-transformation-a-cheat-sheet/">digital transformation</a> and
+    data management services for targeted industries (e.g., healthcare organizations) that traditionally face regulatory
+    hurdles to modernization. These hurdles include data storage requirements for regulatory compliance and disaster
+    recovery or business continuity when integrating with public cloud services. </p>
+  <p>Another benefit of multicloud deployments is cost savings. Competitive pricing is a strategy used by multiple
+    vendors to entice customers to migrate from a traditional, on-premises data center to a hybrid or public cloud
+    model. There is an important caveat to this approach: The time required to create integrations between clouds, with
+    cost savings as a primary motivator, can be counterproductive, as developing those integrations can cost more than
+    the savings they would produce. </p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li>
+      <p><a href="https://www.techrepublic.com/article/why-multicloud-is-bad-strategy-but-open-source-can-help/">Why
+          multicloud is bad strategy, but open source can help</a> (TechRepublic)</p>
+    </li>
+    <li>
+      <p><a href="https://www.zdnet.com/article/research-multicloud-deployment-increases-among-enterprises/">Research:
+          Multicloud deployment increases among enterprises</a> (ZDNet)</p>
+    </li>
+    <li><a href="http://www.zdnet.com/article/multi-cloud-is-a-messy-reality-but-theres-hope/">Multi-cloud is a messy
+        reality, but there's hope</a> (ZDNet)</li>
+    <li><a href="https://www.techrepublic.com/article/do-you-need-to-hire-a-chief-integration-officer/">Do you need to
+        hire a chief integration officer?</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/the-top-cloud-providers-for-financial-services/">The top cloud providers
+        for financial services</a> (ZDNet)</li>
+    <li>
+      <p><a href="http://www.zdnet.com/article/the-top-cloud-providers-for-government/">The top cloud providers for
+          government</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h2 id="should-my-business-use-a-multicloud-approach">Should my business use a multicloud approach?</h2>
+  <p>Generally, a multicloud deployment will be useful for organizations that have specific needs or dependencies to
+    satisfy, such as integrations with <a
+      href="https://www.techrepublic.com/article/internet-of-things-iot-cheat-sheet/">Internet of Things (IoT)</a>
+    devices, or a reliance on Windows software or specific third-party solutions. Multicloud offers a great deal of
+    flexibility in how resources are managed, though the difficulty increases roughly exponentially with the number of
+    integrations added. Cloud management platforms can be used to ease deployment and integration of various cloud
+    services.</p>
+  <p>Presently, cloud providers are not engaging in vendor lock-in—putting up barriers to interoperability, or hampering
+    migration to a different provider—though customer retention is expected to become an increasing concern as cloud
+    services are commoditized.</p>
+  <p>According to Carson Sweet, CTO of cloud security firm <a href="https://www.cloudpassage.com/">CloudPassage</a>,
+    “Retention in most of the major cloud providers is achieved by crafting a value proposition that entices users to
+    use more services on a broader scale. The idea now is to get customers to the point of being ‘all-in' of the
+    customer's own volition… buyers have largely evolved well beyond getting ‘tricked' into lock-in.”</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/nimble-storage-wants-to-kill-cloud-vendor-lock-in-helps-users-easily-jump-between-azure-aws/">Nimble
+        Storage wants to kill cloud vendor lock-in, helps users easily jump between Azure, AWS</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/multicloud-deployments-become-go-to-strategy-as-aws-microsoft-azure-google-cloud-grab-wallet-share/">Multicloud
+          deployments become go-to strategy as AWS, Microsoft Azure, Google Cloud grab wallet share</a> (ZDNet)</p>
+    </li>
+    <li>
+      <p><a href="https://www.zdnet.com/article/oracle-launches-multi-cloud-management-platform/">Oracle launches
+          multi-cloud management platform</a> (ZDNet)</p>
+    </li>
+    <li><a href="http://www.zdnet.com/article/telstra-multi-cloud-security-is-critical-for-our-strategy/">Telstra:
+        Multi-cloud security is ‘critical' for our strategy</a> (ZDNet)</li>
+    <li>
+      <p><a href="https://www.techrepublic.com/resource-library/whitepapers/job-description-cloud-engineer/">Job
+          description: Cloud engineer</a> (TechRepublic Premium)</p>
+    </li>
+  </ul>
+  <h2 id="how-popular-is-multicloud">How popular is multicloud?</h2>
+  <p>Multicloud is continuing to gain popularity as competitors to Amazon Web Services have appeared, and particularly
+    as specialized cloud technology vendors and service vendors have gained traction. </p>
+  <p>As organizations grow, it may be the case that needs for individual teams or projects are not met by their existing
+    cloud provider; likewise, for mergers and acquisitions, not all business operations can be easily migrated to the
+    cloud infrastructure of the acquiring company. These are optimal cases for adding a secondary public cloud provider
+    for a multicloud deployment.</p>
+  <p>A study from TechRepublic found that 81% of organizations reported using multicloud in 2020, up from around
+    two-thirds in 2019. Multicloud deployment plans were affected by the COVID-19 pandemic, with 40% of respondents
+    saying it accelerated deployment plans. </p>
+  <p><a
+      href="https://info.flexera.com/SLO-CM-REPORT-State-of-the-Cloud-2020?lead_source=PPC&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=NB-State-Of-Cloud&amp;campaignid=10760212027&amp;adgroupid=111812831731&amp;utm_term=%2Bstate%20%2Bof%20%2Bthe%20%2Bcloud%20%2Breport&amp;gclid=CjwKCAiAz4b_BRBbEiwA5XlVVs4WuuoAjMew3NP5fNOb1t-AcX_0IYnBMisVHKDudxrIvmPVxZLInhoC9eUQAvD_BwE">Flexera's
+      2020 state of the cloud report</a> found 93% of organizations have plans in place to use multiple cloud providers,
+    which ZDNet's Larry Dignan said indicates that enterprises are “all in” on multicloud. </p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/resource-library/whitepapers/the-cloud-vs-data-center/">Research: Cloud
+        vs. data center adoption rates, usage, and migration plans</a> (TechRepublic Premium)</li>
+    <li><a href="http://www.zdnet.com/article/the-top-cloud-providers-for-financial-services/">The top cloud providers
+        for financial services</a> (ZDNet)</li>
+    <li><a href="http://www.zdnet.com/article/big-fish-in-a-small-pond-why-it-pays-to-consider-smaller-suppliers/">Big
+        fish in a small pond: Why it pays to consider smaller suppliers</a> (ZDNet)</li>
+  </ul>
+  <h2 id="how-do-i-build-a-multicloud-deployment">How do I build a multicloud deployment?</h2>
+  <p>Migrating to a multicloud deployment is not a decision that should be entered into lightly. While the proliferation
+    of open source software has greatly decreased issues with vendor lock-in, the potential for interoperability
+    problems to occur still exist. Cloud management platforms can be used to avoid potential issues with common
+    configurations, though some corner cases can hamper successful deployment. Particularly, as vendor-specific APIs are
+    somewhat opaque and not necessarily static, the ability to launch a multicloud deployment can be complicated by
+    mutual incompatibilities.</p>
+  <p><strong>Additional resources</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/when-you-move-to-the-cloud-dont-fall-asleep-on-security-a-6-part-checklist-from-ibm/">When
+        you move to the cloud, don't fall asleep on cybersecurity: A 6-part checklist from IBM</a> (TechRepublic)</li>
+    <li><a href="http://www.zdnet.com/article/vmware-updates-vsan-with-multi-cloud-customers-in-mind/">VMware updates
+        vSAN with multi-cloud customers in mind</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/hybrid-financing-for-hybrid-cloud-flexibility-and-budget-relief/">Hybrid
+        financing for hybrid cloud: Flexibility and budget relief</a> (TechRepublic Premium)</li>
+    <li><a href="https://www.techrepublic.com/resource-library/whitepapers/cloud-computing-policy/">Cloud Computing
+        Policy</a> (TechRepublic Premium)</li>
+  </ul>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="cloud-and-everything-as-a-service-newsletter">Cloud and Everything as a Service Newsletter</h3>
+  <p>This is your go-to resource for XaaS, AWS, Microsoft Azure, Google Cloud Platform, cloud engineering jobs, and
+    cloud security news and tips. Delivered Mondays</p>
+  <p>Sign up today</p>
+  <p><a href="https://www.techrepublic.com/article/multicloud-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

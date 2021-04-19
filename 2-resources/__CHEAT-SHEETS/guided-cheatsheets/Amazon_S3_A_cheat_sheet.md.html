@@ -1,0 +1,161 @@
+# Amazon S3: A cheat sheet
+
+> Amazon S3 is a low-cost cloud-based object storage service. This comprehensive guide about Amazon S3 covers pricing details, competitors, and why companies such as Netflix and Tumblr use it.
+
+Amazon S3 is a low-cost cloud-based object storage service. This comprehensive guide about Amazon S3 covers pricing details, competitors, and why companies such as Netflix and Tumblr use it.
+
+![cloud.jpg](https://www.techrepublic.com/a/hub/i/r/2017/01/26/f431fc5c-77e5-41f6-93ba-21c950adfb07/resize/770x/e8dda9eb139221482c0366dbff7fdf77/cloud.jpg)
+
+Image: iStock/lukutin77
+
+With the trove of user-generated content uploaded to social networking or media websites and the advent of streaming video services, the storage requirements for web services are higher than ever, and taking on additional users in the event of rapid growth necessitates scaling quickly to meet user demand. Rather than building out storage in-house, many organizations are turning to [Amazon S3](https://aws.amazon.com/s3/) to handle their storage requirements.
+
+This resource about Amazon S3 is a quick introduction to the object storage service, as well as a "living" guide that will be updated periodically as further integrations are released.
+
+**SEE: [All of TechRepublic's cheat sheets and smart person's guides](https://www.techrepublic.com/topic/smart-persons-guides/)**
+
+Executive summary
+-----------------
+
+*   **What is Amazon S3?** Amazon S3 (Simple Storage Service) is a data storage service that can be used to store and retrieve data for a variety of use cases.
+*   **Why does Amazon S3 matter?** Amazon S3 significantly reduces the hardware and maintenance costs of data storage.
+*   **Who does Amazon S3 affect?** Any organization from a single user to a large enterprise can benefit from using S3.
+*   **When is Amazon S3 launching?** Amazon S3 launched in 2006, with additional geographic regions and related services added since then.
+*   **How do I get Amazon S3?** You can get started with [AWS](https://www.techrepublic.com/article/amazon-web-services-the-smart-persons-guide/) using the free tier, which allows limited free use for up to one year.
+
+**SEE: [Inside Amazon's clickworker platform: How half a million people are being paid pennies to train AI (PDF download)](https://www.techrepublic.com/resource-library/downloads/inside-amazon-s-clickworker-platform-how-half-a-million-people-are-being-paid-pennies-to-train-ai-pdf-download/) (TechRepublic)**
+
+What is Amazon S3?
+------------------
+
+Amazon S3 is a data storage service that can be used to store and retrieve data for a variety of use cases, such as static data used in a web page or mobile app, redundancy and storage for internal business data, and long-term data backup. Accordingly, Amazon S3 has different storage tiers to accommodate a variety of potential use cases.
+
+*   **Standard storage** is intended for use cases where high availability is required and frequent access is anticipated.
+*   **Standard infrequent** is intended for cases where high availability is required, though frequent access is not necessary, such as backups or private user-submitted data for dormant accounts.
+*   **Glacier storage** is intended for data archiving for cases where access latency of minutes to hours is acceptable.
+*   **Intelligent tiering** is a new storage option that adds two new tiers: Archive access and deep archive. Intelligent tiering automatically moves data to the appropriate tier, with archive access being the destination at 60+ days of inactivity and deep archive for 90+ days. Intelligent tiering can be toggled on/off in the S3 console.  
+    
+
+Lifecycle management is available to change the provisioning of data to different storage tiers to reduce storage costs.
+
+As with other AWS products, billing is figured on a pay-per-use model, preventing the need to pay upfront for capacity buildouts. Charges are assessed monthly, per GB of data stored, as well as additional charges for GET, POST, PUT, LIST, and other ancillary operations.
+
+Pricing between the three tiers differs based on the priority of the data. Presently, in the US-East region, the standard storage tier starts at $0.023 per GB for 50 terabytes, with discounts thereafter. Infrequent access storage starts at $0.0125 per GB, and Glacier storage starts at $0.004 per GB.
+
+At re:Invent 2020, Amazon added S3 support to AWS Outposts, its on-premise option. An AWS Outpost is designed to meet data residency needs and increase performance and data can be synced to S3 to prevent loss. 
+
+**Additional resources:**
+
+*   [AWS introduces infrequent access storage tier for S3](http://www.zdnet.com/article/aws-introduces-infrequent-access-storage-tier-for-s3/) (ZDNet)
+*   [AWS re:Invent keynote highlights reinvention culture, faster cloud instances, and serverless deployments](https://www.techrepublic.com/article/aws-reinvent-keynote-highlights-reinvention-culture-faster-cloud-instances-and-more-options-for-serverless/) (TechRepublic)  
+    
+*   [AWS storage offerings just got a lot more attractive](https://www.techrepublic.com/article/aws-storage-offerings-just-got-a-lot-more-attractive/) (TechRepublic)
+*   [Video: Secure your clouds across AWS, Azure, and more](http://www.zdnet.com/article/bracket-metavisor-can-secure-your-clouds-across-aws-azure-and-more/) (ZDNet)
+
+**Why does Amazon S3 matter?**
+------------------------------
+
+The task of planning and building a storage solution on-site is a rather laborious one, particularly when maintenance tasks and data integrity risks are taken into consideration. Various factors, such as the assorted ways that hard disks and related equipment can fail, the fluctuations of the spot market for disks, and the time-consuming nature of managing such hardware can make the prospect of such a buildout an unpleasant one. Aside from these technical reasons, on-premises storage in office spaces in urban centers is not a particularly efficient use of physical space, considering the high cost of rent and utilities in many locales around the world.
+
+By moving that process to Amazon S3, the cost of data storage can be reduced significantly, as are management tasks. Normal maintenance tasks such as backups and zone transfers can be performed using the web-based management interface. Amazon S3 supports encrypted data, as well as [HTTPS](https://www.techrepublic.com/article/video-top-5-https-best-practices/) connections for content served on web pages.
+
+**Additional resources:**
+
+*   [Power checklist: Managing and troubleshooting cloud storage](http://www.techproresearch.com/downloads/power-checklist-managing-and-troubleshooting-cloud-storage/) (Tech Pro Research)
+*   [Three tips for simplifying Mac cloud services management](https://www.techrepublic.com/article/three-tips-for-simplifying-mac-cloud-services-management/) (TechRepublic)
+*   [Research: 68% report cost is biggest data storage pain point](http://www.techproresearch.com/article/research-68-report-cost-is-biggest-data-storage-pain-point/) (Tech Pro Research)
+*   [Data storage: Preferred vendors, demands, challenges](http://www.techproresearch.com/downloads/data-storage/) (Tech Pro Research)
+*   [Is IT witnessing the death of the storage administrator?](https://www.techrepublic.com/article/is-it-witnessing-the-death-of-the-storage-administrator/) (TechRepublic)
+
+Who does Amazon S3 affect?
+--------------------------
+
+Many businesses leverage Amazon S3 (among other AWS services) in their operations. Perhaps the most famous example of an early adopter is the professionally-targeted photo hosting service [SmugMug](https://www.smugmug.com/), which [began using Amazon S3 in 2006](https://www.cnet.com/news/smugmug-smiles-for-amazon-s3/), one month after the service had launched. As SmugMug was founded without startup capital, the cost savings for the company were considerable. By 2010, SmugMug had stored [two petabytes](https://mixergy.com/interviews/smugmug-chris-macaskill-interview/) of photos on Amazon S3. Similarly, image hosting services [imgur](http://imgur.com/), [Tumblr](https://www.tumblr.com/), and [Pinterest](https://www.pinterest.com/) store data on Amazon S3, as does the news aggregation website [Reddit](https://www.reddit.com/).
+
+![s3videothumb.jpg](https://www.techrepublic.com/a/hub/i/r/2017/02/23/f22a44d6-4baa-4e61-9ad7-560fd9001cde/resize/770x/1c7342cd325f7a0bf29e2e4f496add3f/s3videothumb.jpg)
+
+Image: AWS
+
+[Netflix](https://www.netflix.com/) has recently moved most of its business operations to Amazon S3, as part of a larger strategy to increase performance and reliability. With the depth of the streaming catalog at Netflix, the rapidly increasing subscriber count, the sheer amount of data stored, as well as data transferred to customers on a daily basis, Netflix's lead shows that Amazon S3 is capable of handling demanding load.
+
+In March 2017, extended downtime occurred unexpectedly for S3 at the US-East location, causing partial or complete service failures for services such as [Twitch](https://www.twitch.tv/) and [IFTTT](https://www.techrepublic.com/article/ifttt-the-smart-persons-guide/), and even [Amazon's service health dashboard](https://status.aws.amazon.com/), as all three depend on S3 at US-East to function. While this outage was notable for the length of time it occurred, Forrester's Dave Bartoletti [assuaged concerns in an interview with TechRepublic](https://www.techrepublic.com/article/should-the-latest-aws-outage-scare-you-away-from-the-public-cloud/) that "This isn't a normal incident, nor do we see any indication that the public cloud is becoming unreliable."
+
+**Additional resources:**
+
+*   [A typo blew up part of the internet Tuesday](https://www.cnet.com/news/aws-s3-service-disruption-a-typo-blew-up-part-of-the-internet-tuesday/) (CNET)
+*   [3 public cloud myths highlighted by the Amazon S3 outage](https://www.techrepublic.com/article/3-public-cloud-myths-highlighted-by-the-amazon-s3-outage/) (TechRepublic)
+*   [Should the latest AWS outage scare you away from the public cloud?](https://www.techrepublic.com/article/should-the-latest-aws-outage-scare-you-away-from-the-public-cloud/) (TechRepublic)
+*   [5 lessons IT learned from the Netflix cloud journey](https://www.techrepublic.com/article/5-lessons-it-learned-from-the-netflix-cloud-journey/) (TechRepublic)
+*   [Live Nation just locked itself into Amazon AWS, and couldn't be happier](https://www.techrepublic.com/article/live-nation-just-locked-itself-into-amazon-aws-and-couldnt-be-happier/) (TechRepublic)
+*   [Cloud lessons: Five tips for firms moving to AWS](https://www.techrepublic.com/article/cloud-lessons-five-tips-for-firms-moving-to-aws/) (TechRepublic)
+*   [Why object storage provides a valuable alternative to tape storage for archive](https://www.techrepublic.com/article/why-object-storage-provides-a-valuable-alternative-to-tape-storage-for-archive/) (TechRepublic)
+
+When is Amazon S3 happening?
+----------------------------
+
+Amazon S3 launched as part of the public beta of AWS in March 2006. Other AWS services, including storage services such as [Elastic Block Store](https://aws.amazon.com/ebs/), have followed since the launch of Amazon S3. Likewise, additional geographic regions for Amazon S3 (and AWS as a whole) have been added since that time, with over a dozen regions available across North and South America, Europe, Asia, and Australia.
+
+[Amazon Glacier](https://aws.amazon.com/glacier/), the long-term data archival service, launched in August 2012. In December 2016, Amazon announced the [AWS Snowmobile](https://aws.amazon.com/blogs/aws/aws-snowmobile-move-exabytes-of-data-to-the-cloud-in-weeks/), a truck that can be driven to any location that can store 100 PB of data, in order to ease migrations to AWS.
+
+In 2020, Amazon added AWS Snowcone, a portable piece of hardware that fits in a backpack for copying smaller amounts of data for AWS migration.
+
+At AWS re:Invent 2020, [several new S3 features were launched](https://www.techrepublic.com/article/aws-reinvent-day-1-top-5-announcements-include-machine-learning-storage-innovations-and-container-capabilities/). Three new security features were added: Bucket owner validation to prevent accidental changes to data, object ownership overwrite to force new bucket objects to be owned by the bucket owner instead of the uploader, and bucket keys, which reduce the need for constant KMS validation by reducing it to one key per bucket. 
+
+Amazon also announced multi-destination replication capabilities, two-way replication, and new data replication metrics and notifications at re:Invent 2020, and the addition of the S3 Storage Lens that was recently announced. Storage Lens gives organization-wide visibility into storage use and provides 29 different metrics that tie into recommendations to reduce costs and apply best data storage practices.
+
+**Additional resources:**
+
+*   [Amazon unveils new data center hardware to get you securely into the cloud](https://www.techrepublic.com/article/amazon-unveils-new-data-center-hardware-to-get-you-securely-into-the-cloud/) (TechRepublic)
+*   [How Amazon is planning for the second decade of the cloud revolution](https://www.techrepublic.com/article/how-amazon-is-planning-for-the-second-decade-of-the-cloud-revolution/) (TechRepublic)
+*   [The cloud price war continues: Amazon cuts its cloud storage prices, again](http://www.zdnet.com/article/the-cloud-price-war-continues-amazon-cuts-its-cloud-storage-prices-again/) (ZDNet)
+*   [AWS' Snowmobile data transport truck highlights why cloud giant is so damn disruptive](http://www.zdnet.com/article/aws-snowmobile-data-transport-truck-highlights-why-cloud-giant-is-so-damn-disruptive/) (ZDNet)
+*   [5 architectural principles for building big data systems on AWS](https://www.techrepublic.com/article/5-architectural-principles-for-building-big-data-systems-on-aws/) (TechRepublic)
+
+Which services compete with Amazon S3?
+--------------------------------------
+
+The two biggest competitors to Amazon S3 (and AWS as a whole) are [Google Cloud Platform](https://www.techrepublic.com/article/google-cloud-platform-the-smart-persons-guide/) and [Microsoft Azure](https://www.techrepublic.com/article/microsoft-azure-the-smart-persons-guide/). Google Cloud Storage multi-region general storage is $0.026 per GB, whereas Azure starts at $0.0184 per GB for locally redundant hot storage.
+
+For a storage-only solution, BackBlaze offers an Amazon S3 competitor in its [B2 Cloud Storage](https://www.backblaze.com/b2/cloud-storage-pricing.html) service, which severely undercuts storage pricing for Amazon, Google, and Microsoft at $0.005 per GB.
+
+**Additional resources:**
+
+*   [Video: The biggest challenges and opportunities facing Amazon Web Services](https://www.techrepublic.com/videos/video-the-biggest-challenges-and-opportunities-facing-amazon-web-services/) (TechRepublic)
+*   [AWS isn't the cheapskate's cloud, and Amazon doesn't care](https://www.techrepublic.com/article/aws-isnt-the-cheapskates-cloud-and-amazon-doesnt-care/) (TechRepublic)
+*   [Switching clouds: What Spotify learned when it swapped AWS for Google's cloud](https://www.techrepublic.com/article/switching-clouds-what-spotify-learned-when-it-swapped-aws-for-googles-cloud/) (TechRepublic)
+*   [Microsoft now has 34 Azure regions worldwide, with two Korean additions](http://www.zdnet.com/article/microsoft-now-has-34-azure-regions-worldwide-with-two-korean-additions/) (ZDNet)
+*   [Google to cloud customers: Don't worry about infrastructure](http://www.zdnet.com/article/google-to-cloud-customers-dont-worry-about-infrastructure/) (ZDNet)
+*   [Video: Facebook's next 2 moves that will change the world](https://www.techrepublic.com/article/video-facebooks-next-2-moves-that-will-change-the-world/) (TechRepublic)
+*   [Why your next storage solution may depend on blockchain](https://www.techrepublic.com/article/why-your-next-storage-solution-may-depend-on-blockchain/) (TechRepublic)
+*   [Hybrid cloud: The smart person's guide](https://www.techrepublic.com/article/hybrid-cloud-the-smart-persons-guide/) (TechRepublic)
+
+How do I get Amazon S3?
+-----------------------
+
+Anyone with an Amazon account can sign up for AWS, which includes access to Amazon S3. Developers can get started with AWS using the Free Tier, which is available to anyone without restriction for the first 12 months. It features 5 GB of standard storage in Amazon S3 with 20,000 GET and 2,000 PUT requests, as well as free access to over a dozen other AWS services.
+
+For startups, [Amazon has two tiers of free access](https://aws.amazon.com/activate/). The Portfolio package offers up to $15,000 of promotional credit for up to two years, whereas the Portfolio Plus package provides the option of that benefit or up to $100,000 of promotional credit for AWS which expires after one year. The Portfolio package provides up to $5,000 of support credit for one year; Portfolio Plus doubles this amount, and extends the offer to two years. Exact amounts and credit validity vary depending on which startup accelerator your organization is aligned with.
+
+**Additional resources:**
+
+*   [AWS opens the door to macOS for developers via Mac mini](https://www.techrepublic.com/article/aws-opens-the-door-to-macos-for-developers-via-mac-mini/) (TechRepublic)  
+    
+*   [Cloud providers offer six-figure discounts to eligible startups](https://www.techrepublic.com/article/cloud-providers-offer-six-figure-discounts-to-eligible-startups/) (TechRepublic)
+*   [Compliance could kill your cloud deployment: Here's how to handle it](https://www.techrepublic.com/article/compliance-could-kill-your-cloud-deployment-heres-how-to-handle-it/) (TechRepublic)
+*   [Cloud storage: How do Amazon, Google and Microsoft stack up?](https://www.techrepublic.com/article/cloud-storage-how-do-amazon-google-and-microsoft-stack-up/) (TechRepublic)
+*   [Video: 3 considerations IT must make before moving to the cloud](https://www.techrepublic.com/videos/video-3-considerations-it-must-make-before-moving-to-the-cloud/) (TechRepublic)
+*   [5 steps for a successful large-scale cloud migration to AWS](https://www.techrepublic.com/article/5-steps-for-a-successful-large-scale-cloud-migration-to-aws/) (TechRepublic)
+*   [Video: The 5 trends that form the future of cloud computing](https://www.techrepublic.com/videos/video-the-5-trends-that-form-the-future-of-cloud-computing/) (TechRepublic)
+
+_**Note:** This article was updated by Brandon Vigliarolo._
+
+![](https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg)
+
+### Cloud and Everything as a Service Newsletter
+
+This is your go-to resource for XaaS, AWS, Microsoft Azure, Google Cloud Platform, cloud engineering jobs, and cloud security news and tips. Delivered Mondays
+
+Sign up today
+
+
+[Source](https://www.techrepublic.com/article/amazon-s3-the-smart-persons-guide/)

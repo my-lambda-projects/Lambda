@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <title>extractCSS - Online CSS Extractor</title>
+    <meta charset="utf-8">
+    <meta name="description" content="extractCSS is a JavaScript library and an online tool that lets you extract element ID, class and inline styles from HTML document and output them as CSS stylesheet. All you have to do is to type or paste your HTML document and let extractCSS to do the rest for you!">
+    <meta name="keywords" content="html, html5, css, css3, css extractor, css extract, extractcss, extract css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/codemirror.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta property="og:image" content="img/extractcss.png"/>
+    <meta property="og:title" content="extractCSS - Online CSS Extractor"/>
+    <meta property="og:url" content="index.html"/>
+    <meta property="og:site_name" content="extractCSS - Online CSS Extractor"/>
+    <meta property="og:description" content="extractCSS is a JavaScript library and an online tool that lets you extract element ID, class and inline styles from HTML document and output them as CSS stylesheet. All you have to do is to type or paste your HTML document and let extractCSS to do the rest for you!"/>
+</head>
+<body>
+<header>
+
+    </h1>
+    <div class="Options">
+        <div class="Options__container">
+            <div class="Options__title">Extract:</div>
+            <label for="extract_ids">
+                <input type="checkbox" id="extract_ids" name="extract_ids" checked>
+                <span>IDs</span>
+            </label>
+            <label for="extract_classes">
+                <input type="checkbox" id="extract_classes" name="extract_classes" checked>
+                <span>Classes</span>
+            </label>
+            <label for="extract_inline">
+                <input type="checkbox" id="extract_inline" name="extract_inline" checked>
+                <span>Inline Styles</span>
+            </label>
+            <label for="extract_anonstyle" class="tooltip" data-title="When checked, extracts inline styles from elements without any class and id if element has a parent with a class or id.">
+                <input type="checkbox" id="extract_anonstyle" name="extract_children" checked>
+                <span>Anon. Inline Styles <small>i</small></span>
+            </label>
+        </div>
+        <div class="Options__container">
+            <div class="Options__title">Indent CSS With:</div>
+            <label class="radio" for="fourspaces">
+                <input type="radio" id="fourspaces" name="indent" value="fourspaces" checked>
+                <span>4 spaces</span>
+            </label>
+            <label class="radio" for="twospaces">
+                <input type="radio" id="twospaces" name="indent" value="twospaces">
+                <span>2 spaces</span>
+            </label>
+            <label class="radio" for="tab">
+                <input type="radio" id="tab" name="indent" value="tab">
+                <span>Tab</span>
+            </label>
+        </div>
+        <div class="Options__button">
+            <button id="ExtractButton" type="submit">Extract!</button>
+        </div>
+    </div>
+    <div class="Share">
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style">
+       
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+        <script type="text/javascript" src="./js/addthis_widget.js"></script>
+        <!-- AddThis Button END -->
+      
+    </div>
+</header>
+<main>
+    <div class="Input">
+        <label for="input">Type or Paste Your HTML:</label>
+        <textarea id="input" name="input"></textarea>
+    </div>
+    <div class="Output">
+
+        <label for="output">Extracted CSS:</label>
+        <textarea id="output" name="output"></textarea>
+    </div>
+</main>
+<footer>
+</footer>
+<script src="./js/extractcss.js"></script>
+<script src="./js/cssbeautify.js"></script>
+<script src="./js/codemirror.min.js"></script>
+<script src="./js/custom.js"></script>
+
+</body>
+
+<!-- Mirrored from extractcss.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Apr 2021 01:47:53 GMT -->
+</html>

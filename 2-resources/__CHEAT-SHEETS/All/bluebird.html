@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="also-see">Also see</h3>
+    <p>Also see the <a href="promise.html">promise cheatsheet</a> and <a
+        href="https://github.com/petkaantonov/bluebird/blob/master/API.md">Bluebird.js API</a> (github.com).</p>
+    <h3 id="example">Example</h3>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">promise</a>
+<a class="sourceLine" id="cb1-2" title="2">  .<span class="at">then</span>(okFn<span class="op">,</span> errFn)</a>
+<a class="sourceLine" id="cb1-3" title="3">  .<span class="at">spread</span>(okFn<span class="op">,</span> errFn)        <span class="co">// *</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  .<span class="at">catch</span>(errFn)</a>
+<a class="sourceLine" id="cb1-5" title="5">  .<span class="at">catch</span>(TypeError<span class="op">,</span> errFn)    <span class="co">// *</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  .<span class="at">finally</span>(fn)</a>
+<a class="sourceLine" id="cb1-7" title="7">  .<span class="at">map</span>(<span class="kw">function</span> (e) <span class="op">{</span> ··· <span class="op">}</span>)  <span class="co">// *</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  .<span class="at">each</span>(<span class="kw">function</span> (e) <span class="op">{</span> ··· <span class="op">}</span>) <span class="co">// *</span></a></code></pre>
+    </div>
+    <p>Those marked with <code>*</code> are non-standard Promise API that only work with Bluebird promises.</p>
+    <h3 id="multiple-return-values">Multiple return values</h3>
+    <div class="sourceCode" id="cb2">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">.<span class="at">then</span>(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">return</span> [ <span class="st">&#39;abc&#39;</span><span class="op">,</span> <span class="st">&#39;def&#39;</span> ]</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">.<span class="at">spread</span>(<span class="kw">function</span> (abc<span class="op">,</span> def) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  ···</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“4"}</p>
+    <p>Use <a href="http://bluebirdjs.com/docs/api/promise.spread.html">Promise.spread</a></p>
+    <h3 id="multiple-promises">Multiple promises</h3>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">Promise</span>.<span class="at">join</span>(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">getPictures</span>()<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">getMessages</span>()<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="at">getTweets</span>()<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="kw">function</span> (pics<span class="op">,</span> msgs<span class="op">,</span> tweets) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="cf">return</span> ···</a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-8" title="8">)</a></code></pre>
+    </div>
+    <p>{: data-line=“1"}</p>
+    <p>Use <a href="http://bluebirdjs.com/docs/api/promise.join.html">Promise.join</a></p>
+    <h3 id="multiple-promises-array">Multiple promises (array)</h3>
+    <ul>
+      <li><a href="http://bluebirdjs.com/docs/api/promise.all.html">Promise.all</a>([p]) - expect all to pass</li>
+      <li><a href="http://bluebirdjs.com/docs/api/promise.some.html">Promise.some</a>([p], count) - expect
+        <code>count</code> to pass</li>
+      <li><a href="http://bluebirdjs.com/docs/api/promise.any.html">Promise.any</a>([p]) - same as <code>some([p],
+          1)</code></li>
+      <li><a href="http://bluebirdjs.com/docs/api/promise.race.html">Promise.race</a>([p], count) - use
+        <code>.any</code> instead</li>
+      <li><a href="http://bluebirdjs.com/docs/api/promise.map.html">Promise.map</a>([p], fn, options) - supports
+        concurrency</li>
+    </ul>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">Promise</span>.<span class="at">all</span>([ promise1<span class="op">,</span> promise2 ])</a>
+<a class="sourceLine" id="cb4-2" title="2">  .<span class="at">then</span>(results <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    results[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb4-4" title="4">    results[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">// succeeds if one succeeds first</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="va">Promise</span>.<span class="at">any</span>(promises)</a>
+<a class="sourceLine" id="cb4-9" title="9">  .<span class="at">then</span>(results <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“1,8"}</p>
+    <div class="sourceCode" id="cb5">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">Promise</span>.<span class="at">map</span>(urls<span class="op">,</span> url <span class="kw">=&gt;</span> <span class="at">fetch</span>(url))</a>
+<a class="sourceLine" id="cb5-2" title="2">  .<span class="at">then</span>(···)</a></code></pre>
+    </div>
+    <p>{: data-line=“1"}</p>
+    <p>Use <a href="http://bluebirdjs.com/docs/api/promise.map.html">Promise.map</a> to “promisify" a list of values.
+    </p>
+    <h3 id="object">Object</h3>
+    <div class="sourceCode" id="cb6">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">Promise</span>.<span class="at">props</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="dt">photos</span><span class="op">:</span> <span class="at">get</span>(<span class="st">&#39;photos&#39;</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="dt">posts</span><span class="op">:</span> <span class="at">get</span>(<span class="st">&#39;posts&#39;</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb6-5" title="5">.<span class="at">then</span>(res <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="va">res</span>.<span class="at">photos</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="va">res</span>.<span class="at">posts</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“1"}</p>
+    <p>Use <a href="http://bluebirdjs.com/docs/api/promise.props.html">Promise.props</a>.</p>
+    <h3 id="chain-of-promises">Chain of promises</h3>
+    <div class="sourceCode" id="cb7">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">getPhotos</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="cf">return</span> <span class="va">Promise</span>.<span class="at">try</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="cf">if</span> (err) <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;boo&quot;</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="cf">return</span> result</a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="at">getPhotos</span>().<span class="at">then</span>(···)</a></code></pre>
+    </div>
+    <p>{: data-line=“2"}</p>
+    <p>Use <a href="http://bluebirdjs.com/docs/api/promise.try.html">Promise.try</a>.</p>
+    <h3 id="node-style-functions">Node-style functions</h3>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">var</span> readFile <span class="op">=</span> <span class="va">Promise</span>.<span class="at">promisify</span>(<span class="va">fs</span>.<span class="at">readFile</span>)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">var</span> fs <span class="op">=</span> <span class="va">Promise</span>.<span class="at">promisifyAll</span>(<span class="at">require</span>(<span class="st">&#39;fs&#39;</span>))</a></code></pre>
+    </div>
+    <p>{: data-line=“2"}</p>
+    <p>See <a href="http://bluebirdjs.com/docs/api/promisification.html">Promisification</a>.</p>
+    <h3 id="promise-returning-methods">Promise-returning methods</h3>
+    <div class="sourceCode" id="cb9">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="va">User</span>.<span class="at">login</span> <span class="op">=</span> <span class="va">Promise</span>.<span class="at">method</span>((email<span class="op">,</span> password) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">if</span> (<span class="op">!</span>valid)</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Email not valid&quot;</span>)</a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="cf">return</span> <span class="co">/* promise */</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“1"}</p>
+    <p>See <a href="http://bluebirdjs.com/docs/api/promise.method.html">Promise.method</a>.</p>
+    <h3 id="generators">Generators</h3>
+    <div class="sourceCode" id="cb10">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">User</span>.<span class="at">login</span> <span class="op">=</span> <span class="va">Promise</span>.<span class="at">coroutine</span>(<span class="kw">function</span><span class="op">*</span> (email<span class="op">,</span> password) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="kw">let</span> user <span class="op">=</span> <span class="kw">yield</span> <span class="va">User</span>.<span class="at">find</span>(<span class="op">{</span><span class="dt">email</span><span class="op">:</span> email<span class="op">}</span>).<span class="at">fetch</span>()</a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="cf">return</span> user</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="op">}</span>)</a></code></pre>
+    </div>
+    <p>{: data-line=“1"}</p>
+    <p>See <a href="http://bluebirdjs.com/docs/api/promise.coroutine.html">Promise.coroutine</a>.</p>
+    <h2 id="reference">Reference</h2>
+    <p><a href="http://bluebirdjs.com/docs/api-reference.html"
+        class="uri">http://bluebirdjs.com/docs/api-reference.html</a></p>
+  </body>
+
+</html>

@@ -1,0 +1,2560 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/rest/overview/endpoints-available-for-github-apps by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:36 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Endpoints available for GitHub Apps - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="Your app can make requests to the following REST endpoints.">
+  
+  
+    <meta name="keywords" content="api">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/rest/overview/endpoints-available-for-github-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/rest/overview/endpoints-available-for-github-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/rest/overview/endpoints-available-for-github-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/rest/overview/endpoints-available-for-github-apps"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/rest/overview/endpoints-available-for-github-apps"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="8LUiEwZN-PM3PATpv7nsZIqqI5SI70rDB-co">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="REST API" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/rest" class="pl-4 pr-5 pb-1 f4">REST API</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Overview</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/resources-in-the-rest-api" class="pl-4 pr-5 py-1">Resources in the REST API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/media-types" class="pl-4 pr-5 py-1">Media types</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/other-authentication-methods" class="pl-4 pr-5 py-1">Other authentication methods</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/troubleshooting" class="pl-4 pr-5 py-1">Troubleshooting</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/api-previews" class="pl-4 pr-5 py-1">API previews</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/libraries" class="pl-4 pr-5 py-1">Libraries</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/overview/openapi-description" class="pl-4 pr-5 py-1">OpenAPI description</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article active is-current-page">
+          <a href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps" class="pl-4 pr-5 py-1 pb-2">Endpoints available for GitHub Apps</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/reference" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Reference</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/actions" class="pl-4 pr-5 py-1">Actions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/activity" class="pl-4 pr-5 py-1">Activity</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/apps" class="pl-4 pr-5 py-1">Apps</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/billing" class="pl-4 pr-5 py-1">Billing</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/checks" class="pl-4 pr-5 py-1">Checks</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/codes-of-conduct" class="pl-4 pr-5 py-1">Codes of conduct</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/code-scanning" class="pl-4 pr-5 py-1">Code scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/emojis" class="pl-4 pr-5 py-1">Emojis</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/enterprise-admin" class="pl-4 pr-5 py-1">GitHub Enterprise administration</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/gists" class="pl-4 pr-5 py-1">Gists</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/git" class="pl-4 pr-5 py-1">Git database</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/gitignore" class="pl-4 pr-5 py-1">Gitignore</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/interactions" class="pl-4 pr-5 py-1">Interactions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/issues" class="pl-4 pr-5 py-1">Issues</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/licenses" class="pl-4 pr-5 py-1">Licenses</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/markdown" class="pl-4 pr-5 py-1">Markdown</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/meta" class="pl-4 pr-5 py-1">Meta</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/migrations" class="pl-4 pr-5 py-1">Migrations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/orgs" class="pl-4 pr-5 py-1">Organizations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/packages" class="pl-4 pr-5 py-1">Packages</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/projects" class="pl-4 pr-5 py-1">Projects</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/pulls" class="pl-4 pr-5 py-1">Pulls</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/rate-limit" class="pl-4 pr-5 py-1">Rate limit</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/reactions" class="pl-4 pr-5 py-1">Reactions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/repos" class="pl-4 pr-5 py-1">Repositories</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/scim" class="pl-4 pr-5 py-1">SCIM</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/search" class="pl-4 pr-5 py-1">Search</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/secret-scanning" class="pl-4 pr-5 py-1">Secret scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/teams" class="pl-4 pr-5 py-1">Teams</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/users" class="pl-4 pr-5 py-1">Users</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/reference/permissions-required-for-github-apps" class="pl-4 pr-5 py-1 pb-2">Permissions required for GitHub Apps</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/rest/guides" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Guides</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api" class="pl-4 pr-5 py-1">Getting started with the REST API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/basics-of-authentication" class="pl-4 pr-5 py-1">Basics of authentication</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/discovering-resources-for-a-user" class="pl-4 pr-5 py-1">Discovering resources for a user</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/delivering-deployments" class="pl-4 pr-5 py-1">Delivering deployments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/rendering-data-as-graphs" class="pl-4 pr-5 py-1">Rendering data as graphs</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/working-with-comments" class="pl-4 pr-5 py-1">Working with comments</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/traversing-with-pagination" class="pl-4 pr-5 py-1">Traversing with pagination</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/building-a-ci-server" class="pl-4 pr-5 py-1">Building a CI server</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/best-practices-for-integrators" class="pl-4 pr-5 py-1">Best practices for integrators</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-git-database-api" class="pl-4 pr-5 py-1">Getting started with the Git Database API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/rest/guides/getting-started-with-the-checks-api" class="pl-4 pr-5 py-1 pb-2">Getting started with the Checks API</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    REST API
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/rest/overview/endpoints-available-for-github-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/rest/overview/endpoints-available-for-github-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/rest/overview/endpoints-available-for-github-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/rest/overview/endpoints-available-for-github-apps"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: REST API" href="https://docs.github.com/en/rest" class="d-inline-block ">
+        REST API
+      </a>
+    
+  
+    
+      <a title="category: Overview" href="https://docs.github.com/en/rest/overview" class="d-inline-block ">
+        Overview
+      </a>
+    
+  
+    
+      <a title="article: Endpoints available for GitHub Apps" href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps" class="d-inline-block text-gray-light">
+        Endpoints available for GitHub Apps
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/rest/overview/endpoints-available-for-github-apps"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Endpoints available for GitHub Apps</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"><p>Your app can make requests to the following REST endpoints.</p></div>
+      
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#actions">actions</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#activity">activity</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#apps">apps</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#checks">checks</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#code-scanning">code-scanning</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#codes-of-conduct">codes-of-conduct</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#emojis">emojis</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#enterprise-admin">enterprise-admin</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#git">git</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#gitignore">gitignore</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#interactions">interactions</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#issues">issues</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#licenses">licenses</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#markdown">markdown</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#meta">meta</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#migrations">migrations</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#orgs">orgs</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#projects">projects</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#pulls">pulls</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#rate-limit">rate-limit</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#reactions">reactions</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#repos">repos</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#scim">scim</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#search">search</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#secret-scanning">secret-scanning</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#teams">teams</a>
+  </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+    <a href="#users">users</a>
+  </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <p>You must use an installation access token to access endpoints using your GitHub App. For more information, see "<a href="https://docs.github.com/en/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation">Authenticating with GitHub Apps</a>."</p>
+  <h3 id="actions">
+    <a href="#actions">actions</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-github-actions-permissions-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/permissions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-github-actions-permissions-for-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/permissions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-selected-repositories-enabled-for-github-actions-in-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/permissions/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-selected-repositories-enabled-for-github-actions-in-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/permissions/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#enable-a-selected-repository-for-github-actions-in-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/permissions/repositories/{repository_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#disable-a-selected-repository-for-github-actions-in-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/permissions/repositories/{repository_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-allowed-actions-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/permissions/selected-actions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-allowed-actions-for-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/permissions/selected-actions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-self-hosted-runner-groups-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runner-groups</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-a-self-hosted-runner-group-for-an-organization"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/actions/runner-groups</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-self-hosted-runner-group-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runner-groups/{runner_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}/actions/runner-groups/{runner_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-a-self-hosted-runner-group-from-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/runner-groups/{runner_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-repository-access-to-a-self-hosted-runner-group-in-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-repository-access-for-a-self-hosted-runner-group-in-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#add-repository-access-to-a-self-hosted-runner-group-in-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#remove-repository-access-to-a-self-hosted-runner-group-in-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-self-hosted-runners-in-a-group-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/runners</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/runners</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#add-a-self-hosted-runner-to-a-group-for-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-self-hosted-runners-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runners</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-runner-applications-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runners/downloads</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-a-registration-token-for-an-organization"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/actions/runners/registration-token</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-a-remove-token-for-an-organization"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/actions/runners/remove-token</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-self-hosted-runner-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/runners/{runner_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-a-self-hosted-runner-from-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/runners/{runner_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-organization-secrets"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/secrets</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-an-organization-public-key"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/secrets/public-key</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-an-organization-secret"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-or-update-an-organization-secret"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-an-organization-secret"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-selected-repositories-for-an-organization-secret"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/actions/secrets/{secret_name}/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-selected-repositories-for-an-organization-secret"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/secrets/{secret_name}/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#add-selected-repository-to-an-organization-secret"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#remove-selected-repository-from-an-organization-secret"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-artifacts-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/artifacts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-an-artifact"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/artifacts/{artifact_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-an-artifact"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/actions/artifacts/{artifact_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#download-an-artifact"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-job-for-a-workflow-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/jobs/{job_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#download-job-logs-for-a-workflow-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/jobs/{job_id}/logs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-github-actions-permissions-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/permissions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-github-actions-permissions-for-a-repository"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/actions/permissions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-allowed-actions-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/permissions/selected-actions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#set-allowed-actions-for-a-repository"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/actions/permissions/selected-actions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-self-hosted-runners-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runners</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-runner-applications-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runners/downloads</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-a-registration-token-for-a-repository"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/actions/runners/registration-token</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-a-remove-token-for-a-repository"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/actions/runners/remove-token</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-self-hosted-runner-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runners/{runner_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/actions/runners/{runner_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-workflow-runs-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-workflow-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs/{run_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-a-workflow-run"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/actions/runs/{run_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-the-review-history-for-a-workflow-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs/{run_id}/approvals</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-workflow-run-artifacts"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#cancel-a-workflow-run"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/actions/runs/{run_id}/cancel</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-jobs-for-a-workflow-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs/{run_id}/jobs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#download-workflow-run-logs"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs/{run_id}/logs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-workflow-run-logs"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/actions/runs/{run_id}/logs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-pending-deployments-for-a-workflow-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#review-pending-deployments-for-a-workflow-run"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-repository-secrets"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/secrets</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-repository-public-key"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/secrets/public-key</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-repository-secret"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-or-update-a-repository-secret"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/actions/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-a-repository-secret"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/actions/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-repository-workflows"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/workflows</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-a-workflow"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/workflows/{workflow_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#disable-a-workflow"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-a-workflow-dispatch-event"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#enable-a-workflow"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-workflow-runs"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#list-environment-secrets"><code><span style="text-transform: uppercase">get</span> /repositories/{repository_id}/environments/{environment_name}/secrets</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-an-environment-public-key"><code><span style="text-transform: uppercase">get</span> /repositories/{repository_id}/environments/{environment_name}/secrets/public-key</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#get-an-environment-secret"><code><span style="text-transform: uppercase">get</span> /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#create-or-update-an-environment-secret"><code><span style="text-transform: uppercase">put</span> /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/actions#delete-an-environment-secret"><code><span style="text-transform: uppercase">delete</span> /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}</code></a></li>
+  
+  </ul>
+  <h3 id="activity">
+    <a href="#activity">activity</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-public-events"><code><span style="text-transform: uppercase">get</span> /events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#get-feeds"><code><span style="text-transform: uppercase">get</span> /feeds</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-public-events-for-a-network-of-repositories"><code><span style="text-transform: uppercase">get</span> /networks/{owner}/{repo}/events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-public-organization-events"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-repository-events"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-stargazers"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/stargazers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-watchers"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/subscribers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-events-for-the-authenticated-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-public-events-for-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/events/public</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-events-received-by-the-authenticated-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/received_events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-public-events-received-by-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/received_events/public</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-repositories-starred-by-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/starred</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/activity#list-repositories-watched-by-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/subscriptions</code></a></li>
+  
+  </ul>
+  <h3 id="apps">
+    <a href="#apps">apps</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#get-the-authenticated-app"><code><span style="text-transform: uppercase">get</span> /app</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#list-installations-for-the-authenticated-app"><code><span style="text-transform: uppercase">get</span> /app/installations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#get-an-installation-for-the-authenticated-app"><code><span style="text-transform: uppercase">get</span> /app/installations/{installation_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app"><code><span style="text-transform: uppercase">post</span> /app/installations/{installation_id}/access_tokens</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#get-an-app"><code><span style="text-transform: uppercase">get</span> /apps/{app_slug}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#create-a-content-attachment"><code><span style="text-transform: uppercase">post</span> /content_references/{content_reference_id}/attachments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation"><code><span style="text-transform: uppercase">get</span> /installation/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/apps#revoke-an-installation-access-token"><code><span style="text-transform: uppercase">delete</span> /installation/token</code></a></li>
+  
+  </ul>
+  <h3 id="checks">
+    <a href="#checks">checks</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#create-a-check-run"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/check-runs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#get-a-check-run"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/check-runs/{check_run_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#update-a-check-run"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/check-runs/{check_run_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#list-check-run-annotations"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#create-a-check-suite"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/check-suites</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#update-repository-preferences-for-check-suites"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/check-suites/preferences</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#get-a-check-suite"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/check-suites/{check_suite_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#list-check-runs-in-a-check-suite"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#rerequest-a-check-suite"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#list-check-runs-for-a-git-reference"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{ref}/check-runs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/checks#list-check-suites-for-a-git-reference"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{ref}/check-suites</code></a></li>
+  
+  </ul>
+  <h3 id="code-scanning">
+    <a href="#code-scanning">code-scanning</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/code-scanning/alerts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#get-a-code-scanning-alert"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#update-a-code-scanning-alert"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/code-scanning/analyses</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#upload-an-analysis-as-sarif-data"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/code-scanning/sarifs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/code-scanning#get-information-about-a-sarif-upload"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}</code></a></li>
+  
+  </ul>
+  <h3 id="codes-of-conduct">
+    <a href="#codes-of-conduct">codes-of-conduct</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/codes-of-conduct#get-all-codes-of-conduct"><code><span style="text-transform: uppercase">get</span> /codes_of_conduct</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/codes-of-conduct#get-a-code-of-conduct"><code><span style="text-transform: uppercase">get</span> /codes_of_conduct/{key}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/community/code_of_conduct</code></a></li>
+  
+  </ul>
+  <h3 id="emojis">
+    <a href="#emojis">emojis</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/emojis#get-emojis"><code><span style="text-transform: uppercase">get</span> /emojis</code></a></li>
+  
+  </ul>
+  <h3 id="enterprise-admin">
+    <a href="#enterprise-admin">enterprise-admin</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#list-provisioned-scim-groups-for-an-enterprise"><code><span style="text-transform: uppercase">get</span> /scim/v2/enterprises/{enterprise}/Groups</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#provision-a-scim-enterprise-group-and-invite-users"><code><span style="text-transform: uppercase">post</span> /scim/v2/enterprises/{enterprise}/Groups</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-group"><code><span style="text-transform: uppercase">get</span> /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-group"><code><span style="text-transform: uppercase">put</span> /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#update-an-attribute-for-a-scim-enterprise-group"><code><span style="text-transform: uppercase">patch</span> /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#delete-a-scim-group-from-an-enterprise"><code><span style="text-transform: uppercase">delete</span> /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#list-scim-provisioned-identities-for-an-enterprise"><code><span style="text-transform: uppercase">get</span> /scim/v2/enterprises/{enterprise}/Users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#provision-and-invite-a-scim-enterprise-user"><code><span style="text-transform: uppercase">post</span> /scim/v2/enterprises/{enterprise}/Users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-user"><code><span style="text-transform: uppercase">get</span> /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-user"><code><span style="text-transform: uppercase">put</span> /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#update-an-attribute-for-a-scim-enterprise-user"><code><span style="text-transform: uppercase">patch</span> /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/enterprise-admin#delete-a-scim-user-from-an-enterprise"><code><span style="text-transform: uppercase">delete</span> /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}</code></a></li>
+  
+  </ul>
+  <h3 id="git">
+    <a href="#git">git</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#create-a-blob"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/blobs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#get-a-blob"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/blobs/{file_sha}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#create-a-commit"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/commits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#get-a-commit"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/commits/{commit_sha}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#list-matching-references"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/matching-refs/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#get-a-reference"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/ref/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#create-a-reference"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/refs</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#update-a-reference"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/git/refs/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#delete-a-reference"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/git/refs/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#create-a-tag-object"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/tags</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#get-a-tag"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/tags/{tag_sha}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#create-a-tree"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/git/trees</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/git#get-a-tree"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/git/trees/{tree_sha}</code></a></li>
+  
+  </ul>
+  <h3 id="gitignore">
+    <a href="#gitignore">gitignore</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/gitignore#get-all-gitignore-templates"><code><span style="text-transform: uppercase">get</span> /gitignore/templates</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/gitignore#get-a-gitignore-template"><code><span style="text-transform: uppercase">get</span> /gitignore/templates/{name}</code></a></li>
+  
+  </ul>
+  <h3 id="interactions">
+    <a href="#interactions">interactions</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/interactions#get-interaction-restrictions-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/interaction-limits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/interactions#set-interaction-restrictions-for-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/interaction-limits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/interactions#remove-interaction-restrictions-for-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/interaction-limits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/interactions#get-interaction-restrictions-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/interaction-limits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/interactions#set-interaction-restrictions-for-a-repository"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/interaction-limits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/interactions#remove-interaction-restrictions-for-a-repository"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/interaction-limits</code></a></li>
+  
+  </ul>
+  <h3 id="issues">
+    <a href="#issues">issues</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-assignees"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/assignees</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#check-if-a-user-can-be-assigned"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/assignees/{assignee}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-repository-issues"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#create-an-issue"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/issues</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-issue-comments-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#get-an-issue-comment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#update-an-issue-comment"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/issues/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#delete-an-issue-comment"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#get-an-issue-event"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/events/{event_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#get-an-issue"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/{issue_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#update-an-issue"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/issues/{issue_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#add-assignees-to-an-issue"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/issues/{issue_number}/assignees</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#remove-assignees-from-an-issue"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/{issue_number}/assignees</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-issue-comments"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/{issue_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#create-an-issue-comment"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/issues/{issue_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-issue-events"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/{issue_number}/events</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-labels-for-an-issue"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/{issue_number}/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#add-labels-to-an-issue"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/issues/{issue_number}/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#set-labels-for-an-issue"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/issues/{issue_number}/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#remove-all-labels-from-an-issue"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/{issue_number}/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#remove-a-label-from-an-issue"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/{issue_number}/labels/{name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#lock-an-issue"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/issues/{issue_number}/lock</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#unlock-an-issue"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/{issue_number}/lock</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-timeline-events-for-an-issue"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/{issue_number}/timeline</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-labels-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#create-a-label"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#get-a-label"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/labels/{name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#update-a-label"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/labels/{name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#delete-a-label"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/labels/{name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-milestones"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/milestones</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#create-a-milestone"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/milestones</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#get-a-milestone"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/milestones/{milestone_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#update-a-milestone"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/milestones/{milestone_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#delete-a-milestone"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/milestones/{milestone_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/issues#list-labels-for-issues-in-a-milestone"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/milestones/{milestone_number}/labels</code></a></li>
+  
+  </ul>
+  <h3 id="licenses">
+    <a href="#licenses">licenses</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/licenses#get-all-commonly-used-licenses"><code><span style="text-transform: uppercase">get</span> /licenses</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/licenses#get-a-license"><code><span style="text-transform: uppercase">get</span> /licenses/{license}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/licenses#get-the-license-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/license</code></a></li>
+  
+  </ul>
+  <h3 id="markdown">
+    <a href="#markdown">markdown</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/markdown#render-a-markdown-document"><code><span style="text-transform: uppercase">post</span> /markdown</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/markdown#render-a-markdown-document-in-raw-mode"><code><span style="text-transform: uppercase">post</span> /markdown/raw</code></a></li>
+  
+  </ul>
+  <h3 id="meta">
+    <a href="#meta">meta</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/meta#github-api-root"><code><span style="text-transform: uppercase">get</span> /</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/meta#get-github-meta-information"><code><span style="text-transform: uppercase">get</span> /meta</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/meta#get-octocat"><code><span style="text-transform: uppercase">get</span> /octocat</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/meta#get-the-zen-of-github"><code><span style="text-transform: uppercase">get</span> /zen</code></a></li>
+  
+  </ul>
+  <h3 id="migrations">
+    <a href="#migrations">migrations</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#get-an-import-status"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/import</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#start-an-import"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/import</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#update-an-import"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/import</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#cancel-an-import"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/import</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#get-commit-authors"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/import/authors</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#map-a-commit-author"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/import/authors/{author_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#get-large-files"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/import/large_files</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/migrations#update-git-lfs-preference"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/import/lfs</code></a></li>
+  
+  </ul>
+  <h3 id="orgs">
+    <a href="#orgs">orgs</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-organizations"><code><span style="text-transform: uppercase">get</span> /organizations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#get-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#update-an-organization"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#get-the-audit-log-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/audit-log</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-users-blocked-by-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/blocks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#check-if-a-user-is-blocked-by-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/blocks/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#block-a-user-from-an-organization"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/blocks/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#unblock-a-user-from-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/blocks/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/credential-authorizations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/credential-authorizations/{credential_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-failed-organization-invitations"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/failed_invitations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-organization-webhooks"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/hooks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#create-an-organization-webhook"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/hooks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#get-an-organization-webhook"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/hooks/{hook_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#update-an-organization-webhook"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}/hooks/{hook_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#delete-an-organization-webhook"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/hooks/{hook_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#get-a-webhook-configuration-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/hooks/{hook_id}/config</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#update-a-webhook-configuration-for-an-organization"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}/hooks/{hook_id}/config</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#ping-an-organization-webhook"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/hooks/{hook_id}/pings</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-app-installations-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/installations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-pending-organization-invitations"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/invitations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#create-an-organization-invitation"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/invitations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#cancel-an-organization-invitation"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/invitations/{invitation_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-organization-invitation-teams"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/invitations/{invitation_id}/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-organization-members"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/members</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#check-organization-membership-for-a-user"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/members/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#remove-an-organization-member"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/members/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#get-organization-membership-for-a-user"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#set-organization-membership-for-a-user"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#remove-organization-membership-for-a-user"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-outside-collaborators-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/outside_collaborators</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/outside_collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#remove-outside-collaborator-from-an-organization"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/outside_collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-public-organization-members"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/public_members</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#check-public-organization-membership-for-a-user"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/public_members/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/orgs#list-organizations-for-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/orgs</code></a></li>
+  
+  </ul>
+  <h3 id="projects">
+    <a href="#projects">projects</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#list-organization-projects"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/projects</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#create-an-organization-project"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/projects</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#get-a-project-card"><code><span style="text-transform: uppercase">get</span> /projects/columns/cards/{card_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#update-an-existing-project-card"><code><span style="text-transform: uppercase">patch</span> /projects/columns/cards/{card_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#delete-a-project-card"><code><span style="text-transform: uppercase">delete</span> /projects/columns/cards/{card_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#move-a-project-card"><code><span style="text-transform: uppercase">post</span> /projects/columns/cards/{card_id}/moves</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#get-a-project-column"><code><span style="text-transform: uppercase">get</span> /projects/columns/{column_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#update-an-existing-project-column"><code><span style="text-transform: uppercase">patch</span> /projects/columns/{column_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#delete-a-project-column"><code><span style="text-transform: uppercase">delete</span> /projects/columns/{column_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#list-project-cards"><code><span style="text-transform: uppercase">get</span> /projects/columns/{column_id}/cards</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#create-a-project-card"><code><span style="text-transform: uppercase">post</span> /projects/columns/{column_id}/cards</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#move-a-project-column"><code><span style="text-transform: uppercase">post</span> /projects/columns/{column_id}/moves</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#get-a-project"><code><span style="text-transform: uppercase">get</span> /projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#update-a-project"><code><span style="text-transform: uppercase">patch</span> /projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#delete-a-project"><code><span style="text-transform: uppercase">delete</span> /projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#list-project-collaborators"><code><span style="text-transform: uppercase">get</span> /projects/{project_id}/collaborators</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#add-project-collaborator"><code><span style="text-transform: uppercase">put</span> /projects/{project_id}/collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#remove-user-as-a-collaborator"><code><span style="text-transform: uppercase">delete</span> /projects/{project_id}/collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#get-project-permission-for-a-user"><code><span style="text-transform: uppercase">get</span> /projects/{project_id}/collaborators/{username}/permission</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#list-project-columns"><code><span style="text-transform: uppercase">get</span> /projects/{project_id}/columns</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#create-a-project-column"><code><span style="text-transform: uppercase">post</span> /projects/{project_id}/columns</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#list-repository-projects"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/projects</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#create-a-repository-project"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/projects</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/projects#create-a-user-project"><code><span style="text-transform: uppercase">post</span> /user/projects</code></a></li>
+  
+  </ul>
+  <h3 id="pulls">
+    <a href="#pulls">pulls</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-pull-requests"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#create-a-pull-request"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pulls</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-review-comments-in-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#get-a-review-comment-for-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#update-a-review-comment-for-a-pull-request"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/pulls/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#delete-a-review-comment-for-a-pull-request"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/pulls/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#get-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#update-a-pull-request"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/pulls/{pull_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#create-a-review-comment-for-a-pull-request"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pulls/{pull_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/commits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-pull-requests-files"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/files</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#check-if-a-pull-request-has-been-merged"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/merge</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#merge-a-pull-request"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/pulls/{pull_number}/merge</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-requested-reviewers-for-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#request-reviewers-for-a-pull-request"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-reviews-for-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#create-a-review-for-a-pull-request"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#get-a-review-for-a-pull-request"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#update-a-review-for-a-pull-request"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#delete-a-pending-review-for-a-pull-request"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#list-comments-for-a-pull-request-review"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#dismiss-a-review-for-a-pull-request"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/dismissals</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/pulls#submit-a-review-for-a-pull-request"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/events</code></a></li>
+  
+  </ul>
+  <h3 id="rate-limit">
+    <a href="#rate-limit">rate-limit</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user"><code><span style="text-transform: uppercase">get</span> /rate_limit</code></a></li>
+  
+  </ul>
+  <h3 id="reactions">
+    <a href="#reactions">reactions</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-a-team-discussion-comment"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#create-reaction-for-a-team-discussion-comment"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-team-discussion-comment-reaction"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-a-team-discussion"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-team-discussion-reaction"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-a-reaction-legacy"><code><span style="text-transform: uppercase">delete</span> /reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-a-commit-comment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/comments/{comment_id}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#create-reaction-for-a-commit-comment"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/comments/{comment_id}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-a-commit-comment-reaction"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/comments/{comment_id}/reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-an-issue-comment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#create-reaction-for-an-issue-comment"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-an-issue-comment-reaction"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-an-issue"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/issues/{issue_number}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-an-issue-reaction"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#delete-a-pull-request-comment-reaction"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-a-team-discussion-comment-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#create-reaction-for-a-team-discussion-comment-legacy"><code><span style="text-transform: uppercase">post</span> /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/reactions#list-reactions-for-a-team-discussion-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/discussions/{discussion_number}/reactions</code></a></li>
+  
+  </ul>
+  <h3 id="repos">
+    <a href="#repos">repos</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-organization-repositories"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/repos</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-an-organization-repository"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/repos</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-repository"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-repository"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#enable-automated-security-fixes"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/automated-security-fixes</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#disable-automated-security-fixes"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/automated-security-fixes</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-branches"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-branch"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-branch-protection"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-branch-protection"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/branches/{branch}/protection</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-branch-protection"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-admin-branch-protection"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#set-admin-branch-protection"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-admin-branch-protection"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-pull-request-review-protection"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-pull-request-review-protection"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-pull-request-review-protection"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-commit-signature-protection"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-commit-signature-protection"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-commit-signature-protection"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-status-checks-protection"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-status-check-protection"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#remove-status-check-protection"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-all-status-check-contexts"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#add-status-check-contexts"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#set-status-check-contexts"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#remove-status-check-contexts"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-access-restrictions"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-access-restrictions"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-apps-with-access-to-the-protected-branch"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#add-app-access-restrictions"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#set-app-access-restrictions"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#remove-app-access-restrictions"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-teams-with-access-to-the-protected-branch"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#add-team-access-restrictions"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#set-team-access-restrictions"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#remove-team-access-restrictions"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-users-with-access-to-the-protected-branch"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#add-user-access-restrictions"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#set-user-access-restrictions"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#remove-user-access-restrictions"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#rename-a-branch"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/branches/{branch}/rename</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-collaborators"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/collaborators</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#check-if-a-user-is-a-repository-collaborator"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#add-a-repository-collaborator"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#remove-a-repository-collaborator"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/collaborators/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-repository-permissions-for-a-user"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/collaborators/{username}/permission</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-commit-comment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-commit-comment"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-commit-comment"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/comments/{comment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-commits"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-branches-for-head-commit"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-commit-comments"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{commit_sha}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-commit-comment"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/commits/{commit_sha}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-pull-requests-associated-with-a-commit"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{commit_sha}/pulls</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-commit"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-the-combined-status-for-a-specific-reference"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{ref}/status</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-commit-statuses-for-a-reference"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/commits/{ref}/statuses</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-community-profile-metrics"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/community/profile</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#compare-two-commits"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/compare/{basehead}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-repository-content"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/contents/{path}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-or-update-file-contents"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/contents/{path}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-file"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/contents/{path}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-contributors"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/contributors</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-deployments"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/deployments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-deployment"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/deployments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-deployment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/deployments/{deployment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-deployment"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/deployments/{deployment_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-deployment-statuses"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/deployments/{deployment_id}/statuses</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-deployment-status"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/deployments/{deployment_id}/statuses</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-deployment-status"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/dispatches</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-all-environments"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/environments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-an-environment"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/environments/{environment_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-or-update-an-environment"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/environments/{environment_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-an-environment"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/environments/{environment_name}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-forks"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/forks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-fork"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/forks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-webhooks"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/hooks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-repository-webhook"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/hooks</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/hooks/{hook_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-repository-webhook"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/hooks/{hook_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-repository-webhook"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/hooks/{hook_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-webhook-configuration-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/hooks/{hook_id}/config</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-webhook-configuration-for-a-repository"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/hooks/{hook_id}/config</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#ping-a-repository-webhook"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/hooks/{hook_id}/pings</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#test-the-push-repository-webhook"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/hooks/{hook_id}/tests</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-invitations"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/invitations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-repository-invitation"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/invitations/{invitation_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-repository-invitation"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/invitations/{invitation_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-deploy-keys"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/keys</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-deploy-key"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/keys</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-deploy-key"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/keys/{key_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-deploy-key"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/keys/{key_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-languages"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/languages</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#merge-a-branch"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/merges</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-github-pages-site"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pages</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-github-pages-site"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pages</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-information-about-a-github-pages-site"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/pages</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-github-pages-site"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/pages</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-github-pages-builds"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pages/builds</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#request-a-github-pages-build"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/pages/builds</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-latest-pages-build"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pages/builds/latest</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-github-pages-build"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/pages/builds/{build_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-repository-readme"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/readme</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-repository-readme-for-a-directory"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/readme/{dir}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-releases"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/releases</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-release"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/releases</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-release-asset"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/releases/assets/{asset_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-release-asset"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/releases/assets/{asset_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-release-asset"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/releases/assets/{asset_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-the-latest-release"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/releases/latest</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-release-by-tag-name"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/releases/tags/{tag}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-a-release"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/releases/{release_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#update-a-release"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/releases/{release_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#delete-a-release"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/releases/{release_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-release-assets"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/releases/{release_id}/assets</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#upload-a-release-asset"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/releases/{release_id}/assets</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-the-weekly-commit-activity"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/stats/code_frequency</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-the-last-year-of-commit-activity"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/stats/commit_activity</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-all-contributor-commit-activity"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/stats/contributors</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-the-weekly-commit-count"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/stats/participation</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-the-hourly-commit-count-for-each-day"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/stats/punch_card</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#create-a-commit-status"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/statuses/{sha}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-tags"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/tags</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#download-a-repository-archive-tar"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/tarball/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repository-teams"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-all-repository-topics"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/topics</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#replace-all-repository-topics"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/topics</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-repository-clones"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/traffic/clones</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-top-referral-paths"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/traffic/popular/paths</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-top-referral-sources"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/traffic/popular/referrers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#get-page-views"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/traffic/views</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#transfer-a-repository"><code><span style="text-transform: uppercase">post</span> /repos/{owner}/{repo}/transfer</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#enable-vulnerability-alerts"><code><span style="text-transform: uppercase">put</span> /repos/{owner}/{repo}/vulnerability-alerts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#disable-vulnerability-alerts"><code><span style="text-transform: uppercase">delete</span> /repos/{owner}/{repo}/vulnerability-alerts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#download-a-repository-archive-zip"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/zipball/{ref}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-public-repositories"><code><span style="text-transform: uppercase">get</span> /repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/repos</code></a></li>
+  
+  </ul>
+  <h3 id="scim">
+    <a href="#scim">scim</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/scim#list-scim-provisioned-identities"><code><span style="text-transform: uppercase">get</span> /scim/v2/organizations/{org}/Users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/scim#provision-and-invite-a-scim-user"><code><span style="text-transform: uppercase">post</span> /scim/v2/organizations/{org}/Users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/scim#get-scim-provisioning-information-for-a-user"><code><span style="text-transform: uppercase">get</span> /scim/v2/organizations/{org}/Users/{scim_user_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/scim#update-a-provisioned-organization-membership"><code><span style="text-transform: uppercase">put</span> /scim/v2/organizations/{org}/Users/{scim_user_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/scim#update-an-attribute-for-a-scim-user"><code><span style="text-transform: uppercase">patch</span> /scim/v2/organizations/{org}/Users/{scim_user_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/scim#delete-a-scim-user-from-an-organization"><code><span style="text-transform: uppercase">delete</span> /scim/v2/organizations/{org}/Users/{scim_user_id}</code></a></li>
+  
+  </ul>
+  <h3 id="search">
+    <a href="#search">search</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-code"><code><span style="text-transform: uppercase">get</span> /search/code</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-commits"><code><span style="text-transform: uppercase">get</span> /search/commits</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-issues-and-pull-requests"><code><span style="text-transform: uppercase">get</span> /search/issues</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-labels"><code><span style="text-transform: uppercase">get</span> /search/labels</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-repositories"><code><span style="text-transform: uppercase">get</span> /search/repositories</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-topics"><code><span style="text-transform: uppercase">get</span> /search/topics</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/search#search-users"><code><span style="text-transform: uppercase">get</span> /search/users</code></a></li>
+  
+  </ul>
+  <h3 id="secret-scanning">
+    <a href="#secret-scanning">secret-scanning</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/secret-scanning/alerts</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/secret-scanning#get-a-secret-scanning-alert"><code><span style="text-transform: uppercase">get</span> /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/secret-scanning#update-a-secret-scanning-alert"><code><span style="text-transform: uppercase">patch</span> /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}</code></a></li>
+  
+  </ul>
+  <h3 id="teams">
+    <a href="#teams">teams</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-idp-groups-for-an-organization"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/team-sync/groups</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-teams"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#create-a-team"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-a-team-by-name"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#update-a-team"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}/teams/{team_slug}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#delete-a-team"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-discussions"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/discussions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#create-a-discussion"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/teams/{team_slug}/discussions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-a-discussion"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#update-a-discussion"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#delete-a-discussion"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-discussion-comments"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#create-a-discussion-comment"><code><span style="text-transform: uppercase">post</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-a-discussion-comment"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#update-a-discussion-comment"><code><span style="text-transform: uppercase">patch</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#delete-a-discussion-comment"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-pending-team-invitations"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/invitations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-team-members"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/members</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-team-membership-for-a-user"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-or-update-team-membership-for-a-user"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/teams/{team_slug}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-team-membership-for-a-user"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-team-projects"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/projects</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#check-team-permissions-for-a-project"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-or-update-team-project-permissions"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/teams/{team_slug}/projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-a-project-from-a-team"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-team-repositories"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/repos</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#check-team-permissions-for-a-repository"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-or-update-team-repository-permissions"><code><span style="text-transform: uppercase">put</span> /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-a-repository-from-a-team"><code><span style="text-transform: uppercase">delete</span> /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-child-teams"><code><span style="text-transform: uppercase">get</span> /orgs/{org}/teams/{team_slug}/teams</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-a-team-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#update-a-team-legacy"><code><span style="text-transform: uppercase">patch</span> /teams/{team_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#delete-a-team-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-discussions-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/discussions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#create-a-discussion-legacy"><code><span style="text-transform: uppercase">post</span> /teams/{team_id}/discussions</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-a-discussion-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/discussions/{discussion_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#update-a-discussion-legacy"><code><span style="text-transform: uppercase">patch</span> /teams/{team_id}/discussions/{discussion_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#delete-a-discussion-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}/discussions/{discussion_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-discussion-comments-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/discussions/{discussion_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#create-a-discussion-comment-legacy"><code><span style="text-transform: uppercase">post</span> /teams/{team_id}/discussions/{discussion_number}/comments</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-a-discussion-comment-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#update-a-discussion-comment-legacy"><code><span style="text-transform: uppercase">patch</span> /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#delete-a-discussion-comment-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-pending-team-invitations-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/invitations</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-team-members-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/members</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-team-member-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/members/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-team-member-legacy"><code><span style="text-transform: uppercase">put</span> /teams/{team_id}/members/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-team-member-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}/members/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#get-team-membership-for-a-user-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-or-update-team-membership-for-a-user-legacy"><code><span style="text-transform: uppercase">put</span> /teams/{team_id}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-team-membership-for-a-user-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}/memberships/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-team-projects-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/projects</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#check-team-permissions-for-a-project-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-or-update-team-project-permissions-legacy"><code><span style="text-transform: uppercase">put</span> /teams/{team_id}/projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-a-project-from-a-team-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}/projects/{project_id}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-team-repositories-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/repos</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#check-team-permissions-for-a-repository-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#add-or-update-team-repository-permissions-legacy"><code><span style="text-transform: uppercase">put</span> /teams/{team_id}/repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#remove-a-repository-from-a-team-legacy"><code><span style="text-transform: uppercase">delete</span> /teams/{team_id}/repos/{owner}/{repo}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/teams#list-child-teams-legacy"><code><span style="text-transform: uppercase">get</span> /teams/{team_id}/teams</code></a></li>
+  
+  </ul>
+  <h3 id="users">
+    <a href="#users">users</a>
+  </h3>  
+  <ul>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#list-users"><code><span style="text-transform: uppercase">get</span> /users</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#get-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#list-followers-of-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/followers</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#list-the-people-a-user-follows"><code><span style="text-transform: uppercase">get</span> /users/{username}/following</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#check-if-a-user-follows-another-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/following/{target_user}</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#list-gpg-keys-for-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/gpg_keys</code></a></li>
+  
+  <li><a href="https://docs.github.com/en/rest/reference/users#list-public-keys-for-a-user"><code><span style="text-transform: uppercase">get</span> /users/{username}/keys</code></a></li>
+  
+  </ul>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/rest/overview/endpoints-available-for-github-apps.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/rest/overview/endpoints-available-for-github-apps by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:36 GMT -->
+</html>

@@ -1,0 +1,36 @@
+service: sls-js-image-resize
+
+custom:
+  bucket: sls-js-image-resize
+  url: http://sls-js-image-resize.s3-website.eu-central-1.amazonaws.com
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:ListBucket"
+      Resource: "arn:aws:s3:::${self:custom.bucket}"
+    - Effect: "Allow"
+      Action:
+        - "s3:PutObject"
+      Resource: "arn:aws:s3:::${self:custom.bucket}"
+  
+  environment:
+    BUCKET: ${self:custom.bucket}
+    URL: ${self:custom.url}
+
+functions:
+  resize:
+    handler: handler.resize
+    events:
+      - http:
+          path: resize/get
+          method: get
+
+plugins:
+  - serverless-offline

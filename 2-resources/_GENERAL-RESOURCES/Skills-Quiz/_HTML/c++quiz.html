@@ -1,0 +1,779 @@
+<h2 id="c">C++</h2>
+<h4 id="q1.-what-is-printed-from-this-code">Q1. What is printed from this code?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">vector&lt;<span class="dt">int</span>&gt; v(<span class="dv">22</span>);</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dt">bool</span> b = (v[<span class="dv">6</span>]);</a>
+<a class="sourceLine" id="cb1-3" title="3">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, !b);</a></code></pre></div>
+<ul>
+<li>[ ] False</li>
+<li>[ ] 0</li>
+<li>[x] 1</li>
+<li>[ ] This code has an error.</li>
+</ul>
+<h4 id="q2.-which-of-the-following-is-a-reason-why-using-this-line-is-considered-a-bad-practice-alternative-why-is-using-this-line-considered-a-bad-practice">Q2. Which of the following is a reason why using this line is considered a bad practice? (<em>Alternative</em>: Why is using this line considered a bad practice?)</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1">Using <span class="kw">namespace</span> std;</a></code></pre></div>
+<ul>
+<li>[ ] The compiled code is always bigger because of all of the imported symbols.</li>
+<li>[x] If the code uses a function defined in two different libraries with the same prototype but possibly with different implementations, there will be a compilation error due to ambiguity.</li>
+<li>[ ] It automatically includes all header files in the standard library (cstdint, cstdlib, cstdio, iostream, etc).</li>
+<li>[ ] It causes the compiler to enforce the exclusive inclusion of header files belonging to the standard library, generating compilation error when a different header file is included.</li>
+</ul>
+<p><a href="https://www.geeksforgeeks.org/using-namespace-std-considered-bad-practice/">Reference</a></p>
+<h4 id="q3.-what-is-the-smallest-size-a-variable-of-the-type-child_t-may-occupy-in-memory">Q3. What is the smallest size a variable of the type child_t may occupy in memory?</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span>{</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">unsigned</span> <span class="dt">int</span>  age    : <span class="dv">4</span>;</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">unsigned</span> <span class="dt">char</span> gender : <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">unsigned</span> <span class="dt">int</span>  size   : <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb3-5" title="5">}<span class="dt">child_t</span>;</a></code></pre></div>
+<ul>
+<li>[x] 7 bits.</li>
+<li>[ ] 25 bytes.</li>
+<li>[ ] 1 bit.</li>
+<li>[ ] 1 byte.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/bit_field">Reference</a></p>
+<h4 id="q4.-which-of-the-following-shows-the-contents-of-vector-v1-and-v2-after-running-this-code">Q4. Which of the following shows the contents of vector v1 and v2 after running this code?</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; v1{<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>},v2;</a>
+<a class="sourceLine" id="cb4-2" title="2">v2=v1;</a>
+<a class="sourceLine" id="cb4-3" title="3">v1.push_back(<span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb4-4" title="4">v2.push_back(<span class="dv">5</span>);</a></code></pre></div>
+<ul>
+<li>[ ] Error</li>
+<li>[ ] v1:{1,2,3,4}; v2:{5};</li>
+<li>[ ] v1:{1,2,3,4,5}; v2:{1,2,3,4,5};</li>
+<li>[x] v1:{1,2,3,4}; v2:{1,2,3,5};</li>
+</ul>
+<h4 id="q5.-which-of-the-following-is-a-true-statement-about-the-difference-between-pointers-and-iterators">Q5. Which of the following is a true statement about the difference between pointers and iterators?</h4>
+<ul>
+<li>[ ] While pointers are variable that hold memory address, iterators are generic functions used to traverse containers. These function allows the programmer to implement read and write code as the container is traversed.</li>
+<li>[x] Incrementing an iterator always means access the next element in the container(if any), no matter the container. Incrementing the pointer means pointing to the next element in memory, not always the next element.</li>
+<li>[ ] Pointers are variables that hold memory address where as iterator are unsigned integers that refers to offsets in arrays.</li>
+<li>[ ] All iterator are implemented with pointers so all iterators are pointers but not all pointers are iterators.</li>
+</ul>
+<p><a href="https://stackoverflow.com/a/31128162">Reference</a></p>
+<h4 id="q6.-whats-a-benefit-of-declaring-the-parameter-as-a-const-reference-instead-of-declaring-it-as-a-regular-object">Q6. What's a benefit of declaring the parameter as a const reference instead of declaring it as a regular object?</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" title="1"><span class="dt">int</span> median(<span class="at">const</span> my_array&amp; a);</a></code></pre></div>
+<ul>
+<li>[ ] The argument is passed as a reference, so the function receives a copy that can be modified without affecting the original value.</li>
+<li>[x] The argument is passed as a reference, so if the passed my_array object is large, the program will require less time and memory.</li>
+<li>[ ] Actually objects can't be passed as regular variables because they require a constructor call. Therefore a const reference is the only way to pass class instances to functions.</li>
+<li>[ ] There are no benefits because a reference and an object are treated as the same thing.</li>
+</ul>
+<h4 id="q7.-whats-the-storage-occupied-by-u1">Q7. What's the storage occupied by u1?</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">union</span> {</a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="dt">unit16_t</span> a;</a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="dt">unit32_t</span> b;</a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="dt">int8_t</span> c;</a>
+<a class="sourceLine" id="cb6-5" title="5">} u1;</a></code></pre></div>
+<ul>
+<li>[x] 4 bytes</li>
+<li>[ ] 7 bytes</li>
+<li>[ ] 8 bytes</li>
+<li>[ ] 2 bytes</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/union">Reference</a></p>
+<h4 id="q8.-which-of-the-following-operators-is-overloadable">Q8. Which of the following operators is overloadable?</h4>
+<ul>
+<li>[ ] <code>?:</code></li>
+<li>[x] <code>new</code></li>
+<li>[ ] <code>::</code></li>
+<li>[ ] <code>.</code></li>
+</ul>
+<h4 id="q9.-which-of-the-following-shows-the-contents-of-vector-pointed-by-v1-and-v2-after-running-this-code">Q9. Which of the following shows the contents of vector pointed by v1 and v2 after running this code?</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="bu">std::</span> vector&lt;<span class="dt">int</span>&gt; *v1 = <span class="kw">new</span> <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt;({<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>});</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="bu">std::</span> vector&lt;<span class="dt">int</span>&gt; *v2;</a>
+<a class="sourceLine" id="cb7-3" title="3">v2=v1;</a>
+<a class="sourceLine" id="cb7-4" title="4">v1-&gt;push_back(<span class="dv">4</span>);</a>
+<a class="sourceLine" id="cb7-5" title="5">v2-&gt;push_back(<span class="dv">5</span>);</a></code></pre></div>
+<ul>
+<li>[ ] <code>*v1:{1,2,3,4}; *v2:{5};</code></li>
+<li>[x] <code>*v1:{1,2,3,4'5}; *v2:{1,2,3,4,5};</code></li>
+<li>[ ] Error</li>
+<li>[ ] <code>*v1:{1,2,3,4}; *v2:{1,2,3,5};</code></li>
+</ul>
+<p>v1 and v2 point to the same vector.</p>
+<h4 id="q10.-which-of-the-following-is-not-a-difference-between-a-class-and-a-struct">Q10. Which of the following is not a difference between a class and a struct?</h4>
+<ul>
+<li>[ ] Because structs are part of the C programming language, there are some complexity between C and C++ structs. This is not the case with classes.</li>
+<li>[ X ] Classes may have member functions; structs are private.</li>
+<li>[ ] The default access specifier for members of struct is public, whereas for member of class, it is private.</li>
+<li>[ ] Template type parameters can be declared with classes, but not with the struct keyword.</li>
+</ul>
+<p><a href="https://www.fluentcpp.com/2017/06/13/the-real-difference-between-struct-class/">Reference</a></p>
+<h4 id="q11.-suppose-you-need-to-keep-a-data-struct-with-permission-to-access-some-resource-based-on-the-days-of-the-week-but-you-cant-use-a-bool-variable-for-each-day.-you-need-to-use-one-bit-per-day-of-the-week.-which-of-the-following-is-a-correct-implementation-of-a-structure-with-bit-fields-for-this-application">Q11. Suppose you need to keep a data struct with permission to access some resource based on the days of the week, but you can't use a bool variable for each day. You need to use one bit per day of the week. Which of the following is a correct implementation of a structure with bit fields for this application?</h4>
+<ul>
+<li>[x] A</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span> {</a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="dt">int</span> sunday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="dt">int</span> monday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="co">// more days</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="dt">int</span> friday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="dt">int</span> saturday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-7" title="7">} weekdays; &lt;&lt; Correct  That syntax says that each variable size is <span class="dv">1</span> bit. <span class="ch">&#39;b</span><span class="er">it</span><span class="ch">&#39;</span> is <span class="kw">not</span> a type in C++.</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">typedef</span> <span class="dt">char</span>[<span class="dv">7</span>]: weekdays;</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span> {</a>
+<a class="sourceLine" id="cb10-2" title="2">    bit sunday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb10-3" title="3">    bit monday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="co">// more days</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    bit friday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb10-6" title="6">    bit saturday:<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb10-7" title="7">} weekdays;</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span> {</a>
+<a class="sourceLine" id="cb11-2" title="2">    bit sunday;</a>
+<a class="sourceLine" id="cb11-3" title="3">    bit monday;</a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="co">// more days</span></a>
+<a class="sourceLine" id="cb11-5" title="5">    bit friday;</a>
+<a class="sourceLine" id="cb11-6" title="6">    bit saturday;</a>
+<a class="sourceLine" id="cb11-7" title="7">} weekdays;</a></code></pre></div>
+<p><a href="https://en.cppreference.com/w/cpp/language/bit_field">Reference</a></p>
+<h4 id="q12.-what-is-an-lvalue">Q12. What is an lvalue?</h4>
+<ul>
+<li>[ ] It's a constant expression, meaning an expression composed of constants and operations.</li>
+<li>[x] It's an expression that represents an object with an address.</li>
+<li>[ ] It's an expression suitable for the left-hand side operand in a binary operation.</li>
+<li>[ ] It's a location value, meaning a memory address suitable for assigning to a pointer or reference.</li>
+</ul>
+<h4 id="q13.-what-does-auto-type-specifier-do-in-this-line-of-code-since-c11">Q13. What does auto type specifier do in this line of code (since C++11)?</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">auto</span> x = <span class="fl">4000.22</span>;</a></code></pre></div>
+<ul>
+<li>[x] It specifies that the type of x will be deduced from the initializer - in this case, double.</li>
+<li>[ ] It specifies that the type of x is automatic meaning that if can be assigned different types of data throughout the program.</li>
+<li>[ ] It specifies that x is a variable with automatic storage duration.</li>
+<li>[ ] It specifies that more memory will be allocated for x in case it needs more space, avoiding loss of data due to overflow.</li>
+</ul>
+<h4 id="q14.-what-is-a-class-template">Q14. What is a class template?</h4>
+<ul>
+<li>[x] It's a class written with the generic programming, specifying behavior in terms of type parameter rather than specific type.</li>
+<li>[ ] It's a blank superclass intended for inheritance and polymorphism.</li>
+<li>[ ] It's class that only consists of member variable, with no constructor, destructor nor member functions.</li>
+<li>[ ] It's skelton source code for a class where the programmer has to fill in specific parts to define the data types and algorithms used.</li>
+</ul>
+<h4 id="q15.-what-is-the-ternary-operator-equivalent-to-this-code-snippet">Q15. What is the ternary operator equivalent to this code snippet?</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" title="1"><span class="cf">if</span>(x)</a>
+<a class="sourceLine" id="cb13-2" title="2">    y=a;</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="cf">else</span></a>
+<a class="sourceLine" id="cb13-4" title="4">    y=b;</a></code></pre></div>
+<ul>
+<li>[ ] <code>y=a?b:x;</code></li>
+<li>[ ] <code>y=if(x?a:b);</code></li>
+<li>[ ] <code>y=(x&amp;a)?a:(x&amp;b)?b:0;</code></li>
+<li>[x] <code>y=x?a:b;</code></li>
+</ul>
+<h4 id="q16.-what-is-the-output-of-this-code">Q16. What is the output of this code?</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb14-2" title="2"></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="dt">int</span> main(){</a>
+<a class="sourceLine" id="cb14-4" title="4">    <span class="dt">int</span> x=<span class="dv">10</span>, y=<span class="dv">20</span>;</a>
+<a class="sourceLine" id="cb14-5" title="5">    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;x = &quot;</span> &lt;&lt; x++ &lt;&lt; <span class="st">&quot; and y = &quot;</span> &lt;&lt; --y &lt;&lt; <span class="bu">std::</span>endl;</a>
+<a class="sourceLine" id="cb14-6" title="6">    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;x = &quot;</span> &lt;&lt; x-- &lt;&lt; <span class="st">&quot; and y = &quot;</span> &lt;&lt; ++y &lt;&lt; <span class="bu">std::</span>endl;</a>
+<a class="sourceLine" id="cb14-7" title="7">    <span class="cf">return</span>(<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb14-8" title="8">}</a></code></pre></div>
+<ul>
+<li>[ ] <code>x = 10 and y = 20</code><br />
+<code>x = 11 and y = 19</code></li>
+<li>[ ] <code>x = 11 and y = 19</code><br />
+<code>x = 10 and y = 20</code></li>
+<li>[x] <code>x = 10 and y = 19</code><br />
+<code>x = 11 and y = 20</code></li>
+<li>[ ] <code>x = 11 and y = 20</code><br />
+<code>x = 10 and y = 19</code></li>
+</ul>
+<h4 id="q17.-what-is-the-meaning-of-the-two-parts-specified-between-parentheses-in-a-range-based-for-loop-separated-by-a-colon">Q17. What is the meaning of the two parts specified between parentheses in a range-based for loop, separated by a colon?</h4>
+<ul>
+<li>[x] The first is a variable declaration that will hold an element in a sequence. The second is the sequence to traverse.</li>
+<li>[ ] The first is an iterator, and the second is the increment value to be added to the iterator.</li>
+<li>[ ] The first is the iterating variable. The second is an <code>std::pair</code> that specifies the range (start and end) in which the variable will iterate.</li>
+<li>[ ] The first is a container object. The second is an <code>std::pair</code> that specifies the range (start and end) in which the elements will be accessed within the loop.</li>
+</ul>
+<h4 id="q18.-what-is-the-output-of-this-piece-of-code">Q18. What is the output of this piece of code?</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" title="1"><span class="dt">int8_t</span> a=<span class="dv">200</span>;</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="dt">uint8_t</span> b=<span class="dv">100</span>;</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="cf">if</span>(a&gt;b)</a>
+<a class="sourceLine" id="cb15-4" title="4">    <span class="bu">std::</span>cout&lt;&lt;<span class="st">&quot;greater&quot;</span>;</a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="cf">else</span> </a>
+<a class="sourceLine" id="cb15-6" title="6">    <span class="bu">std::</span>cout&lt;&lt;<span class="st">&quot;less&quot;</span>;</a></code></pre></div>
+<ul>
+<li>[ ] There is no output because there is an exception when comparing an int8_t with a uint8_t.</li>
+<li>[ ] greater</li>
+<li>[x] less</li>
+<li>[ ] There is no output because there is a compiler error.</li>
+</ul>
+<h4 id="q19.-what-results-from-executing-this-code-snippet">Q19. What results from executing this code snippet?</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" title="1"><span class="dt">int</span> x=<span class="dv">5</span>, y=<span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="cf">if</span>(x &amp; y) { </a>
+<a class="sourceLine" id="cb16-3" title="3">    <span class="co">/*_part A_*/</span> </a>
+<a class="sourceLine" id="cb16-4" title="4">} </a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="cf">else</span> { </a>
+<a class="sourceLine" id="cb16-6" title="6">    <span class="co">/*_part B_*/</span></a>
+<a class="sourceLine" id="cb16-7" title="7">}</a></code></pre></div>
+<ul>
+<li>[ ] Part A executes because x==5 (true) and y==2 (true), thus the AND operation evaluates as true.</li>
+<li>[x] Part B executes because (x &amp; y) results in 0, or false.</li>
+<li>[ ] Part A executes because (x &amp; y) results in a nonzero value, or true.</li>
+<li>[ ] Part B executes because the statement (x &amp; y) is invalid, thus false.</li>
+</ul>
+<h4 id="q20.-what-is-a-valid-definition-for-the-get_length-function-which-returns-the-length-of-a-null-terminated-string">Q20. What is a valid definition for the <code>get_length</code> function, which returns the length of a null-terminated string?</h4>
+<ul>
+<li>[x] A</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" title="1"><span class="dt">int</span> get_length(<span class="dt">char</span> *str) {</a>
+<a class="sourceLine" id="cb17-2" title="2">    <span class="dt">int</span> count=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="cf">while</span>(str[count++]);</a>
+<a class="sourceLine" id="cb17-4" title="4">    <span class="cf">return</span> count-<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb17-5" title="5">}</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" title="1"><span class="dt">int</span> get_length(<span class="dt">char</span> *str) {</a>
+<a class="sourceLine" id="cb18-2" title="2">    <span class="dt">int</span> count=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb18-3" title="3">    <span class="cf">while</span>(str!=NULL){</a>
+<a class="sourceLine" id="cb18-4" title="4">        count++; </a>
+<a class="sourceLine" id="cb18-5" title="5">        str++;</a>
+<a class="sourceLine" id="cb18-6" title="6">    }</a>
+<a class="sourceLine" id="cb18-7" title="7">    <span class="cf">return</span> count;</a>
+<a class="sourceLine" id="cb18-8" title="8">}</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" title="1"><span class="dt">int</span> get_length(<span class="dt">char</span> *str) {</a>
+<a class="sourceLine" id="cb19-2" title="2">    <span class="dt">int</span> count=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb19-3" title="3">    <span class="cf">while</span>((*str)++)</a>
+<a class="sourceLine" id="cb19-4" title="4">        count++; </a>
+<a class="sourceLine" id="cb19-5" title="5">    <span class="cf">return</span> count;</a>
+<a class="sourceLine" id="cb19-6" title="6">}</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" title="1"><span class="dt">int</span> get_length(<span class="dt">char</span> *str) {</a>
+<a class="sourceLine" id="cb20-2" title="2">    <span class="dt">int</span> count=<span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb20-3" title="3">    <span class="cf">while</span>(str++)</a>
+<a class="sourceLine" id="cb20-4" title="4">        count++; </a>
+<a class="sourceLine" id="cb20-5" title="5">    <span class="cf">return</span> count; </a>
+<a class="sourceLine" id="cb20-6" title="6">}</a></code></pre></div>
+<h4 id="q21.-which-stl-class-is-the-best-fit-for-implementing-a-collection-of-data-that-is-always-ordered-so-that-the-pop-operation-always-gets-the-greatest-of-the-elements-suppose-you-are-interested-only-in-push-and-pop-operations.">Q21. Which STL class is the best fit for implementing a collection of data that is always ordered so that the pop operation always gets the greatest of the elements? Suppose you are interested only in push and pop operations.</h4>
+<ul>
+<li>[ ] <code>std::list</code></li>
+<li>[ ] <code>std::vector</code></li>
+<li>[x] <code>std::priority_queue</code></li>
+<li>[ ] <code>std::map</code></li>
+</ul>
+<h4 id="q22.-what-is-the-meaning-of-the-three-sections-specified-between-parentheses-in-a-for-loop-separated-by-semicolons">Q22. What is the meaning of the three sections specified between parentheses in a for loop separated by semicolons?</h4>
+<ul>
+<li>[ ] The first is the iterating variable name, the second is the number of times to iterate, and the third is the desired increment or decrement (specified with a signed integer).</li>
+<li>[x] The first is the initialization block, the second is the condition to iterate, and the third is the increment block.</li>
+<li>[ ] The first is the iterating variable, the second is the container in which it should operate, and the third is an exit condition to abort at any time.</li>
+<li>[ ] The first is the iterating variable name, the second is the starting value for the iterating variable, and the third is the stop value (the last value plus one).</li>
+</ul>
+<h4 id="q23.-what-is-printed-from-this-code">Q23. What is printed from this code?</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" title="1"><span class="dt">int</span> i = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb21-2" title="2">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, i++);</a>
+<a class="sourceLine" id="cb21-3" title="3">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, i--);</a>
+<a class="sourceLine" id="cb21-4" title="4">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, ++i);</a>
+<a class="sourceLine" id="cb21-5" title="5">printf(<span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, --i);</a></code></pre></div>
+<ul>
+<li>[x] 0,1,1,0</li>
+<li>[ ] 0,1,0,1</li>
+<li>[ ] 0,0,1,0</li>
+<li>[ ] 1,0,1,0</li>
+</ul>
+<h4 id="q24.-what-is-true-about-the-variable-named-ptr">Q24. What is true about the variable named <code>ptr</code>?</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" title="1"><span class="dt">void</span> *ptr;</a></code></pre></div>
+<ul>
+<li>[ ] It is a pointer initialized at NULL.</li>
+<li>[ ] It is a pointer to a void function.</li>
+<li>[ ] That declaration causes a compiler error, as pointers must specify a type.</li>
+<li>[x] It is a pointer to a value with no specific type, so it may be cast to point to any type.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/pointer">Reference</a></p>
+<h4 id="q25.-what-is-the-output-of-this-code">Q25. What is the output of this code?</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" title="1"><span class="dt">int</span> c=<span class="dv">3</span>; <span class="dt">char</span> d=<span class="ch">&#39;A&#39;</span>;</a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="bu">std::</span>printf(<span class="st">&quot;c is </span><span class="sc">%d</span><span class="st"> and d is </span><span class="sc">%c</span><span class="st">&quot;</span>,c,d);</a></code></pre></div>
+<ul>
+<li>[ ] c is d and d is c</li>
+<li>[ ] c is A and d is 3</li>
+<li>[x] c is 3 and d is A</li>
+<li>[ ] c is c and d is d</li>
+</ul>
+<h4 id="q26.-what-is-the-output-of-this-code">Q26. What is the output of this code?</h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" title="1">printf(<span class="st">&quot;1/2 = </span><span class="sc">%f</span><span class="st">&quot;</span>,(<span class="dt">float</span>)(<span class="dv">1</span>/<span class="dv">2</span>));</a></code></pre></div>
+<ul>
+<li>[ ] 1/2 = 0.499999</li>
+<li>[ ] 1/2 = 0</li>
+<li>[x] 1/2 = 0.000000</li>
+<li>[ ] 1/2 = 0.5</li>
+</ul>
+<h4 id="q27.-what-is-the-difference-between-a-public-and-a-private-class-member">Q27. What is the difference between a public and a private class member?</h4>
+<ul>
+<li>[ ] Public members are the same as global variables, so every part of the code has access to them. Private members are the same as automatic variables, so only their class has access to them.</li>
+<li>[ ] Public members are made accessible to any running application. Private members are made accessible only to the application where the object is instantiated.</li>
+<li>[ ] Public members will be compiled as shared variables in a multithreaded environment. Private members will be compiled as Thread-local variables.</li>
+<li>[x] Public members can be accessed by any function. Private members can be accessed only by the same class's member functions and the friends of the class.</li>
+</ul>
+<h4 id="q28.-what-is-the-value-of-x-after-running-this-code">Q28. What is the value of x after running this code?</h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" title="1"><span class="dt">int</span> x=<span class="dv">10</span>, a=-<span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb25-2" title="2">x=+a;</a></code></pre></div>
+<ul>
+<li>[ ] 3</li>
+<li>[ ] 7</li>
+<li>[x] -3</li>
+<li>[ ] 13</li>
+</ul>
+<h4 id="q29.-which-statement-is-true">Q29. Which statement is true?</h4>
+<ul>
+<li>[ ] Only classes can have member variables and methods.</li>
+<li>[x] C++ supports multiple inheritance.</li>
+<li>[ ] C++ supports only single inheritance.</li>
+<li>[ ] Only structs can inherit.</li>
+</ul>
+<h4 id="q30.-consider-a-pointer-to-void-named-ptr-which-has-been-set-to-point-to-a-floating-point-variable-g.-which-choice-is-a-valid-way-to-dereference-ptr-to-assign-its-pointed-value-to-a-float-variable-f-later-in-the-program">Q30. Consider a pointer to void, named <code>ptr</code>, which has been set to point to a floating point variable <code>g</code>. Which choice is a valid way to dereference <code>ptr</code> to assign its pointed value to a float variable <code>f</code> later in the program?</h4>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" title="1"><span class="dt">float</span> g;</a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="dt">void</span> *ptr=&amp;g;</a></code></pre></div>
+<ul>
+<li>[ ] <code>float f=*(float)ptr;</code></li>
+<li>[ ] <code>float f=(float *)ptr;</code></li>
+<li>[ ] <code>float f=(float)*ptr;</code></li>
+<li>[x] <code>float f=*(float *)ptr;</code></li>
+</ul>
+<h4 id="q31.-what-is-the-.-operator-and-what-does-it-do">Q31. What is the <code>.*</code> operator and what does it do?</h4>
+<ul>
+<li>[ ] It is the same as the class member access operator, or arrow operator <code>(-&gt;)</code>, which allows you to access a member of an object through a pointer to the object.</li>
+<li>[x] It is the pointer to member operator, and it allows you to access a member of an object through a pointer to that specific class member.</li>
+<li>[ ] It is the member access with address of operator, which returns the address of a class or struct member.</li>
+<li>[ ] It is a combination of the member access operator <code>(.)</code> and the dereference operator <code>(*)</code>, so it allows you to access the object that a member pointer points to.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/operator_member_access">Reference</a></p>
+<h4 id="q32.-for-these-declarations-which-choice-shows-four-equivalent-ways-to-assign-the-character-y-in-the-string-to-a-char-variable-c">Q32. For these declarations, which choice shows four equivalent ways to assign the character "y" in the string to a char variable c?</h4>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" title="1"><span class="dt">char</span> buff[<span class="dv">50</span>] = <span class="st">&quot;strings as arrays of characters are fun!&quot;</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="dt">char</span> *str = buff+<span class="dv">11</span>;</a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="dt">char</span> c;</a></code></pre></div>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb28-1" title="1">c = buff[<span class="dv">16</span>];</a>
+<a class="sourceLine" id="cb28-2" title="2">c = str[<span class="dv">5</span>];</a>
+<a class="sourceLine" id="cb28-3" title="3">c = *(buff+<span class="dv">16</span>);</a>
+<a class="sourceLine" id="cb28-4" title="4">c = *(str+<span class="dv">5</span>);</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb29-1" title="1">c = *(buff[<span class="dv">15</span>]);</a>
+<a class="sourceLine" id="cb29-2" title="2">c = *(str[<span class="dv">4</span>]);</a>
+<a class="sourceLine" id="cb29-3" title="3">c = buff+<span class="dv">15</span>;</a>
+<a class="sourceLine" id="cb29-4" title="4">c = str+<span class="dv">4</span>;</a></code></pre></div>
+<ul>
+<li>[x] C</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb30-1" title="1">c = buff[<span class="dv">15</span>];</a>
+<a class="sourceLine" id="cb30-2" title="2">c = str[<span class="dv">4</span>];</a>
+<a class="sourceLine" id="cb30-3" title="3">c = *(buff+<span class="dv">15</span>);</a>
+<a class="sourceLine" id="cb30-4" title="4">c = *(str+<span class="dv">4</span>);</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb31-1" title="1">c = *(buff[<span class="dv">16</span>]);</a>
+<a class="sourceLine" id="cb31-2" title="2">c = *(str[<span class="dv">5</span>]);</a>
+<a class="sourceLine" id="cb31-3" title="3">c = buff+<span class="dv">16</span>;</a>
+<a class="sourceLine" id="cb31-4" title="4">c = str+<span class="dv">5</span>;</a></code></pre></div>
+<h4 id="q33.-which-choice-is-the-correct-declaration-for-the-class-named-dog-derived-from-the-animal-class">Q33. Which choice is the correct declaration for the class named Dog, derived from the Animal class?</h4>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">class</span> Animal{</a>
+<a class="sourceLine" id="cb32-2" title="2">    <span class="co">//....</span></a>
+<a class="sourceLine" id="cb32-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[x] A</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">class</span> Dog :: <span class="kw">public</span> Animal {</a>
+<a class="sourceLine" id="cb33-2" title="2">   <span class="co">//....</span></a>
+<a class="sourceLine" id="cb33-3" title="3">};</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">class</span> Dog : <span class="kw">public</span> Animal {</a>
+<a class="sourceLine" id="cb34-2" title="2">   <span class="co">//....</span></a>
+<a class="sourceLine" id="cb34-3" title="3">};</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Animal :: Dog {</a>
+<a class="sourceLine" id="cb35-2" title="2">   <span class="co">//....</span></a>
+<a class="sourceLine" id="cb35-3" title="3">};</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Dog extends Animal {</a>
+<a class="sourceLine" id="cb36-2" title="2">   <span class="co">//....</span></a>
+<a class="sourceLine" id="cb36-3" title="3">};</a></code></pre></div>
+<h4 id="q34.-what-is-the-output-of-this-code">Q34. What is the output of this code?</h4>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb37-1" title="1"><span class="pp">#include </span><span class="im">&lt;cstdio&gt;</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb37-3" title="3"></a>
+<a class="sourceLine" id="cb37-4" title="4"><span class="dt">int</span> main(){</a>
+<a class="sourceLine" id="cb37-5" title="5">    <span class="dt">char</span> c = <span class="dv">255</span>;</a>
+<a class="sourceLine" id="cb37-6" title="6">    <span class="cf">if</span>(c&gt;<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb37-7" title="7">        printf(<span class="st">&quot;c = </span><span class="sc">%i</span><span class="st">, which is greater than 10&quot;</span>, c);</a>
+<a class="sourceLine" id="cb37-8" title="8">    <span class="cf">else</span></a>
+<a class="sourceLine" id="cb37-9" title="9">        printf(<span class="st">&quot;c = </span><span class="sc">%i</span><span class="st">, which is less than 10&quot;</span>, c);</a>
+<a class="sourceLine" id="cb37-10" title="10">    <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb37-11" title="11">}</a></code></pre></div>
+<ul>
+<li>[x] c = -1, which is less than 10</li>
+<li>[ ] c = 255, which is greater than 10</li>
+<li>[ ] c = -1, which is greater than 10</li>
+<li>[ ] c = 255, which is less than 10</li>
+</ul>
+<h4 id="q35.-how-can-c-code-call-a-c-function">Q35. How can C++ code call a C function?</h4>
+<ul>
+<li>[ ] by simply calling the C code</li>
+<li>[ ] there is no way for C++ to call a C function</li>
+<li>[x] by using extern "C"</li>
+<li>[ ] by importing the source C code</li>
+</ul>
+<h4 id="q36.-which-choice-is-not-a-valid-type-definition-of-a-structure-that-contains-x-and-y-coordinates-as-integers-and-that-can-be-used-exactly-as-shown-for-the-variable-named-center">Q36. Which choice is <em>not</em> a valid type definition of a structure that contains x and y coordinates as integers, and that can be used exactly as shown for the variable named <code>center</code>?</h4>
+<pre><code>coord center;
+center.x = 5;
+center.y = 3;</code></pre>
+<ul>
+<li>[x] A</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span> coord {</a>
+<a class="sourceLine" id="cb39-2" title="2">    <span class="dt">int</span> x;</a>
+<a class="sourceLine" id="cb39-3" title="3">    <span class="dt">int</span> y;</a>
+<a class="sourceLine" id="cb39-4" title="4">};</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span> coord {</a>
+<a class="sourceLine" id="cb40-2" title="2">    <span class="dt">int</span> x;</a>
+<a class="sourceLine" id="cb40-3" title="3">    <span class="dt">int</span> y;</a>
+<a class="sourceLine" id="cb40-4" title="4">} coord;</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span> {</a>
+<a class="sourceLine" id="cb41-2" title="2">    <span class="dt">int</span> x;</a>
+<a class="sourceLine" id="cb41-3" title="3">    <span class="dt">int</span> y;</a>
+<a class="sourceLine" id="cb41-4" title="4">} coord;</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">struct</span> coord {</a>
+<a class="sourceLine" id="cb42-2" title="2">    <span class="dt">int</span> x;</a>
+<a class="sourceLine" id="cb42-3" title="3">    <span class="dt">int</span> y;</a>
+<a class="sourceLine" id="cb42-4" title="4">};</a>
+<a class="sourceLine" id="cb42-5" title="5"></a>
+<a class="sourceLine" id="cb42-6" title="6"><span class="kw">typedef</span> <span class="kw">struct</span> coord coord;</a></code></pre></div>
+<h4 id="q37.-which-choice-does-not-produce-the-same-output-as-this-code-snippet-assume-the-variable-i-will-not-be-used-anywhere-else-in-the-code.">Q37. Which choice does <em>not</em> produce the same output as this code snippet? Assume the variable <code>i</code> will not be used anywhere else in the code.</h4>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb43-1" title="1"><span class="cf">for</span> (i=<span class="dv">1</span>;i&lt;<span class="dv">10</span>;i++){</a>
+<a class="sourceLine" id="cb43-2" title="2">    cout&lt;&lt;i&lt;&lt;endl;</a>
+<a class="sourceLine" id="cb43-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[x] A</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb44-1" title="1">i=<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="cf">while</span>(i&lt;<span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb44-3" title="3">    cout&lt;&lt;++i&lt;&lt;endl;</a>
+<a class="sourceLine" id="cb44-4" title="4">}</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb45-1" title="1"><span class="cf">for</span> (<span class="dt">int</span> i:{<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>}) {</a>
+<a class="sourceLine" id="cb45-2" title="2">    cout&lt;&lt;i&lt;&lt;endl;</a>
+<a class="sourceLine" id="cb45-3" title="3">} </a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb46-1" title="1">i = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="cf">do</span> {</a>
+<a class="sourceLine" id="cb46-3" title="3">    cout&lt;&lt;i++&lt;&lt;endl;</a>
+<a class="sourceLine" id="cb46-4" title="4">} <span class="cf">while</span>(i&lt;<span class="dv">10</span>);</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb47-1" title="1">i = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb47-2" title="2">loop:</a>
+<a class="sourceLine" id="cb47-3" title="3">    cout&lt;&lt;i++&lt;&lt;endl;</a>
+<a class="sourceLine" id="cb47-4" title="4">    <span class="cf">if</span>(i&lt;<span class="dv">10</span>) <span class="cf">goto</span> loop;</a></code></pre></div>
+<h4 id="q38.-what-does-this-part-of-a-main.cpp-file-do">Q38. What does this part of a main.cpp file do?</h4>
+<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb48-1" title="1"><span class="pp">#include </span><span class="im">&quot;library.h&quot;</span></a></code></pre></div>
+<ul>
+<li>[ ] It causes the toolchain to compile all the contents of library.h so that its executable code is available when needed by the final application.</li>
+<li>[ ] It cherry picks library.h for the declarations and definitions of all data and functions used in the remainder of the source file main.cpp, finally replacing the <code>#include</code> directive by those declarations and definitions.</li>
+<li>[ ] It informs the linker that some functions or data used in the source file main.cpp are contained in library.h, so that they can be called in run time. This is also known as dynamic linking.</li>
+<li>[x] It causes the replacement of the <code>#include</code> directive by the entire contents of the source file library.h. This is similar to a Copy-Paste operation of library.h into main.cpp.</li>
+</ul>
+<h4 id="q39.-consider-this-function-declaration-of-is_even-which-takes-in-an-integer-and-returns-true-if-the-argument-is-an-even-number-and-false-otherwise.-which-declarations-are-correct-for-overloaded-versions-of-that-function-to-support-floating-point-numbers-and-string-representations-of-numbers">Q39. Consider this function declaration of <code>is_even</code>, which takes in an integer and returns true if the argument is an even number and false otherwise. Which declarations are correct for overloaded versions of that function to support floating point numbers and string representations of numbers?</h4>
+<div class="sourceCode" id="cb49"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb49-1" title="1"><span class="dt">bool</span> is_even(<span class="dt">int</span>);</a></code></pre></div>
+<ul>
+<li>[x] A</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb50-1" title="1"><span class="dt">bool</span> is_even(<span class="dt">float</span> f);</a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="dt">bool</span> is_even(<span class="dt">char</span> *str);</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb51-1" title="1"><span class="dt">bool</span> is_even(<span class="dt">float</span> f);</a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="dt">bool</span> is_even(<span class="dt">char</span> str);</a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb52-1" title="1"><span class="dt">bool</span> is_even_float(<span class="dt">float</span> f);</a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="dt">bool</span> is_even_str(<span class="dt">char</span> *str);</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb53-1" title="1"><span class="dt">float</span> is_even(<span class="dt">float</span> f);</a>
+<a class="sourceLine" id="cb53-2" title="2"><span class="dt">char</span> *is_even(<span class="dt">char</span> *str);</a></code></pre></div>
+<h4 id="q40.-which-choice-is-an-include-guard-for-the-header-file-my_library.h">Q40. Which choice is an include guard for the header file <code>my_library.h</code>?</h4>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb54-1" title="1"><span class="pp">#ifdef MY_LIBRARY_H</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="pp">#define M</span>Y_LIBRARY_H</a>
+<a class="sourceLine" id="cb54-3" title="3"></a>
+<a class="sourceLine" id="cb54-4" title="4"><span class="co">// my_library.h content</span></a>
+<a class="sourceLine" id="cb54-5" title="5"></a>
+<a class="sourceLine" id="cb54-6" title="6"><span class="pp">#endif </span><span class="co">/* MY_LIBRARY_H */</span></a></code></pre></div>
+<ul>
+<li>[x] B</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb55-1" title="1"><span class="pp">#ifndef MY_LIBRARY_H</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="pp">#define M</span>Y_LIBRARY_H</a>
+<a class="sourceLine" id="cb55-3" title="3"></a>
+<a class="sourceLine" id="cb55-4" title="4"><span class="co">// my_library.h content</span></a>
+<a class="sourceLine" id="cb55-5" title="5"></a>
+<a class="sourceLine" id="cb55-6" title="6"><span class="pp">#endif </span><span class="co">/* MY_LIBRARY_H */</span></a></code></pre></div>
+<ul>
+<li>[ ] C</li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb56-1" title="1"><span class="pp">#ifdef MY_LIBRARY_H</span></a>
+<a class="sourceLine" id="cb56-2" title="2"><span class="pp">#undef MY_LIBRARY_H</span></a>
+<a class="sourceLine" id="cb56-3" title="3"></a>
+<a class="sourceLine" id="cb56-4" title="4"><span class="co">// my_library.h content</span></a>
+<a class="sourceLine" id="cb56-5" title="5"></a>
+<a class="sourceLine" id="cb56-6" title="6"><span class="pp">#endif </span><span class="co">/* MY_LIBRARY_H */</span></a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb57-1" title="1"><span class="pp">#define M</span>Y_LIBRARY_H</a>
+<a class="sourceLine" id="cb57-2" title="2"><span class="pp">#include MY_LIBRARY_H</span></a>
+<a class="sourceLine" id="cb57-3" title="3"></a>
+<a class="sourceLine" id="cb57-4" title="4"><span class="co">// my_library.h content</span></a>
+<a class="sourceLine" id="cb57-5" title="5"></a>
+<a class="sourceLine" id="cb57-6" title="6"><span class="pp">#undef MY_LIBRARY_H</span></a></code></pre></div>
+<h4 id="q41.-whats-wrong-with-this-definition-when-using-a-pre-c11-compiler">Q41. What's wrong with this definition when using a pre-C++11 compiler?</h4>
+<div class="sourceCode" id="cb58"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb58-1" title="1"><span class="bu">std::</span>vector&lt;<span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt;&gt; thematrix;</a></code></pre></div>
+<ul>
+<li>[ ] There's nothing wrong with it.</li>
+<li>[ ] An <code>std::vector</code> cannot contain more <code>std::vector</code> containers as its elements.</li>
+<li>[ ] The correct syntax should be: <code>std::vector[std::vector[int]] thematrix;</code></li>
+<li>[x] <code>&gt;&gt;</code> is parsed as the shift-right operator, and thus results in a compile error.</li>
+</ul>
+<h4 id="q42.-what-is-the-statement-below-equivalent-to">Q42. What is the statement below equivalent to?</h4>
+<div class="sourceCode" id="cb59"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb59-1" title="1">sprite-&gt;x</a></code></pre></div>
+<ul>
+<li>[ ] <code>sprite.x</code></li>
+<li>[ ] <code>sprite.*x</code></li>
+<li>[x] <code>(*sprite).x</code></li>
+<li>[ ] <code>*sprite.x</code></li>
+</ul>
+<h4 id="q43.-consider-a-class-named-complexnumber.-which-code-will-result-in-an-equivalent-object">Q43. Consider a class named <code>complexNumber</code>. Which code will result in an equivalent object?</h4>
+<div class="sourceCode" id="cb60"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb60-1" title="1">complexNumber(<span class="dt">float</span> real, <span class="dt">float</span> im)</a>
+<a class="sourceLine" id="cb60-2" title="2">: real_part(real),</a>
+<a class="sourceLine" id="cb60-3" title="3"> im_part(im){}</a></code></pre></div>
+<ul>
+<li>[ ] A</li>
+</ul>
+<div class="sourceCode" id="cb61"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb61-1" title="1">complexNumber(<span class="dt">float</span> real, <span class="dt">float</span> im) {</a>
+<a class="sourceLine" id="cb61-2" title="2">    <span class="kw">this</span>-&gt;real = real_part;</a>
+<a class="sourceLine" id="cb61-3" title="3">    <span class="kw">this</span>-&gt;im = im_part;</a>
+<a class="sourceLine" id="cb61-4" title="4">}</a></code></pre></div>
+<ul>
+<li>[ ] B</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb62-1" title="1">complexNumber(<span class="dt">float</span> real, <span class="dt">float</span> im) {</a>
+<a class="sourceLine" id="cb62-2" title="2">    <span class="kw">this</span>-&gt;real_part(real);</a>
+<a class="sourceLine" id="cb62-3" title="3">    <span class="kw">this</span>-&gt;im_part(im);</a>
+<a class="sourceLine" id="cb62-4" title="4">}</a></code></pre></div>
+<ul>
+<li>[x] C</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb63-1" title="1">complexNumber(<span class="dt">float</span> real, <span class="dt">float</span> im) {</a>
+<a class="sourceLine" id="cb63-2" title="2">    <span class="kw">this</span>-&gt;real_part = real;</a>
+<a class="sourceLine" id="cb63-3" title="3">    <span class="kw">this</span>-&gt;im_part = im;</a>
+<a class="sourceLine" id="cb63-4" title="4">}</a></code></pre></div>
+<ul>
+<li>[ ] D</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb64-1" title="1">complexNumber(<span class="dt">float</span> real, <span class="dt">float</span> im) {</a>
+<a class="sourceLine" id="cb64-2" title="2">    <span class="kw">this</span>-&gt;real_part = &amp;real;</a>
+<a class="sourceLine" id="cb64-3" title="3">    <span class="kw">this</span>-&gt;im_part = &amp;im;</a>
+<a class="sourceLine" id="cb64-4" title="4">}</a></code></pre></div>
+<h4 id="q44.-what-is-the-result-from-executing-this-code-snippet">Q44. What is the result from executing this code snippet?</h4>
+<div class="sourceCode" id="cb65"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb65-1" title="1"><span class="dt">bool</span> x=<span class="kw">true</span>, y=<span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb65-2" title="2"><span class="cf">if</span>(~x || y){</a>
+<a class="sourceLine" id="cb65-3" title="3">    <span class="co">/*part A*/</span></a>
+<a class="sourceLine" id="cb65-4" title="4">}</a>
+<a class="sourceLine" id="cb65-5" title="5"><span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb65-6" title="6">    <span class="co">/*part B*/</span></a>
+<a class="sourceLine" id="cb65-7" title="7">}</a></code></pre></div>
+<ul>
+<li>[ ] Part A executes because the expression <code>(~x || y)</code> always results in true if <code>y==false</code>.</li>
+<li>[ ] Part B executes because the statement <code>(~x || y)</code> is invalid, thus false.</li>
+<li>[ ] Part A executes because <code>~x</code> is not zero, meaning true.</li>
+<li>[x] Part B executes because <code>~x</code> is false and <code>y</code> is false, thus the <code>OR</code> operation evaluates as false.</li>
+</ul>
+<h4 id="q45.-what-would-be-the-output-of-this-code">Q45. What would be the output of this code?</h4>
+<div class="sourceCode" id="cb66"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb66-1" title="1"><span class="dt">int32_t</span> nums[<span class="dv">3</span>]={<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>};</a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="bu">std::</span>cout &lt;&lt; ( nums[<span class="dv">0</span>] &lt;&lt; nums[<span class="dv">1</span>] &lt;&lt; nums[<span class="dv">2</span>] );</a></code></pre></div>
+<ul>
+<li>[ ] The output is the addresses of <code>nums[0]</code>, <code>nums[1]</code>, and <code>nums[2]</code>, in that order, with no spaces.</li>
+<li>[x] <code>256</code></li>
+<li>[ ] <code>0</code></li>
+<li>[ ] <code>243</code></li>
+</ul>
+<h4 id="q46.-what-is-the-output-of-this-code">Q46. What is the output of this code?</h4>
+<div class="sourceCode" id="cb67"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb67-1" title="1"><span class="dt">float</span> values[<span class="dv">5</span>]={<span class="fl">0.54</span><span class="bu">f</span>, <span class="fl">2.71828</span><span class="bu">f</span>, <span class="fl">3.14159</span><span class="bu">f</span>, <span class="fl">5.499999</span><span class="bu">f</span>, <span class="fl">10.0</span><span class="bu">f</span>};</a>
+<a class="sourceLine" id="cb67-2" title="2"><span class="cf">for</span>(<span class="kw">auto</span> f:values)</a>
+<a class="sourceLine" id="cb67-3" title="3">    printf(<span class="st">&quot;</span><span class="sc">%i</span><span class="st"> &quot;</span>,(<span class="dt">int</span>)(f+<span class="fl">0.5</span><span class="bu">f</span>));</a></code></pre></div>
+<ul>
+<li>[ ] <code>0.54 2.71828 3.14159 5.499999 10.0</code></li>
+<li>[ ] <code>1 3 4 6 11</code></li>
+<li>[ ] <code>0 2 3 5 10</code></li>
+<li>[x] <code>1 3 3 5 10</code></li>
+</ul>
+<h4 id="q47.-which-of-the-following-stl-classes-is-the-best-fit-for-implementing-a-phonebook-suppose-each-entry-contains-a-name-and-a-phone-number-with-no-duplicates-and-you-want-to-have-lookup-by-name.">Q47. Which of the following STL classes is the best fit for implementing a phonebook? Suppose each entry contains a name and a phone number, with no duplicates, and you want to have lookup by name.</h4>
+<ul>
+<li>[ ] <code>std::priority_queue</code></li>
+<li>[ ] <code>std::list</code></li>
+<li>[ ] <code>std::vector</code></li>
+<li>[x] <code>std::map</code></li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/container/map">Reference</a></p>
+<h4 id="q48.-what-does-this-program-do">Q48. What does this program do?</h4>
+<div class="sourceCode" id="cb68"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb68-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb68-2" title="2"><span class="pp">#include </span><span class="im">&lt;fstream&gt;</span></a>
+<a class="sourceLine" id="cb68-3" title="3"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb68-4" title="4"></a>
+<a class="sourceLine" id="cb68-5" title="5"><span class="dt">int</span> main(){</a>
+<a class="sourceLine" id="cb68-6" title="6">    ifstream file1(<span class="st">&quot;text1.txt&quot;</span>, ios::binary);</a>
+<a class="sourceLine" id="cb68-7" title="7">    ofstream file2(<span class="st">&quot;text2.txt&quot;</span>, ios::binary);</a>
+<a class="sourceLine" id="cb68-8" title="8">    file2 &lt;&lt; file1.rdbuf();</a>
+<a class="sourceLine" id="cb68-9" title="9">}</a></code></pre></div>
+<ul>
+<li>[ ] It renames text1.txt to text2.txt.</li>
+<li>[ ] It makes a directory called text2.txt and moves text1.txt there.</li>
+<li>[x] It copies the contents of text1.txt into text2.txt - i.e., it makes a copy of text1.txt, named text2.txt.</li>
+<li>[ ] It appends the contents of text1.txt into text2.txt - i.e., replaces the contents of text2.txt by the concatenation of text2.txt and text1.txt.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/header/fstream">Reference</a></p>
+<h4 id="q49.-which-of-the-following-is-not-a-consequence-of-declaring-the-member-variable-count-of-my_class-as-static">Q49. Which of the following is <em>not</em> a consequence of declaring the member variable count of my_class as static?</h4>
+<div class="sourceCode" id="cb69"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">class</span> my_class {</a>
+<a class="sourceLine" id="cb69-2" title="2">    <span class="kw">public</span>: <span class="at">static</span> <span class="dt">int</span> count;</a>
+<a class="sourceLine" id="cb69-3" title="3">}</a></code></pre></div>
+<ul>
+<li>[x] The variable cannot be modified by any part of the code in the same application or thread. However, other threads may modify it.</li>
+<li>[ ] The variable exists even when no objects of the class have been defined so it can be modified at any point in the source code.</li>
+<li>[ ] The variable is allocated only once, regardless of how many objects are instantiated because it is bound to the class itself, not its instances.</li>
+<li>[ ] All objects that try to access their count member variable actually refer to the only class-bound static count variable.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/static">Reference</a></p>
+<h4 id="q50.-what-is-the-assumed-type-of-a-constant-represented-in-the-source-code-as-0.44">Q50. What is the assumed type of a constant represented in the source code as <code>0.44</code>?</h4>
+<ul>
+<li>[x] double</li>
+<li>[ ] long float</li>
+<li>[ ] long double</li>
+<li>[ ] float</li>
+</ul>
+<h4 id="q51.-what-is-the-output-of-this-piece-of-code">Q51. What is the output of this piece of code?</h4>
+<div class="sourceCode" id="cb70"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb70-1" title="1"><span class="dt">int8_t</span> a=<span class="dv">200</span>;</a>
+<a class="sourceLine" id="cb70-2" title="2"><span class="dt">uint8_t</span> b=<span class="dv">100</span>;</a>
+<a class="sourceLine" id="cb70-3" title="3"><span class="bu">std::</span>cout&lt;&lt;<span class="st">&quot;a=&quot;</span>&lt;&lt;(<span class="dt">int</span>)a;</a>
+<a class="sourceLine" id="cb70-4" title="4"><span class="bu">std::</span>cout&lt;&lt;<span class="st">&quot;, b=&quot;</span>&lt;&lt;(<span class="dt">int</span>)b;</a></code></pre></div>
+<ul>
+<li>[x] a=-56, b=100</li>
+<li>[ ] a=-55, b=100</li>
+<li>[ ] a=200, b=-156</li>
+<li>[ ] a=200, b=100</li>
+</ul>
+<h4 id="q52.-what-is-an-appropriate-way-of-removing-my_object-as-shown-below">Q52. What is an appropriate way of removing <code>my_object</code> as shown below?</h4>
+<div class="sourceCode" id="cb71"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb71-1" title="1">my_class *my_object = <span class="kw">new</span> my_class();</a></code></pre></div>
+<ul>
+<li>[x] <code>delete(my_object);</code></li>
+<li>[ ] <code>free(my_object);</code></li>
+<li>[ ] The garbage collector will destroy the object eventually.</li>
+<li>[ ] Exiting the scope will destroy the object.</li>
+</ul>
+<h4 id="q53.-what-is-the-correct-way-to-call-the-count-member-function-for-the-object-pointer-called-grades">Q53. What is the correct way to call the <code>count</code> member function for the object pointer called <code>grades</code>?</h4>
+<div class="sourceCode" id="cb72"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">class</span> my_array{</a>
+<a class="sourceLine" id="cb72-2" title="2">    <span class="kw">public</span>:</a>
+<a class="sourceLine" id="cb72-3" title="3">        <span class="dt">int</span> count();</a>
+<a class="sourceLine" id="cb72-4" title="4">};  <span class="co">// ... more members above</span></a>
+<a class="sourceLine" id="cb72-5" title="5"></a>
+<a class="sourceLine" id="cb72-6" title="6"><span class="dt">int</span> main(){</a>
+<a class="sourceLine" id="cb72-7" title="7">    my_array *grades = <span class="kw">new</span> my_array();</a>
+<a class="sourceLine" id="cb72-8" title="8">};  <span class="co">// ... more code above</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>grades.count();</code></li>
+<li>[ ] <code>my_array-&gt;count();</code></li>
+<li>[x] <code>grades-&gt;count();</code></li>
+<li>[ ] <code>my_array.count();</code></li>
+</ul>
+<p><a href="https://en.cppreference.com/w/c/language/operator_member_access">Reference</a></p>
+<h4 id="q54.-what-would-be-the-output-of-this-code">Q54. What would be the output of this code?</h4>
+<div class="sourceCode" id="cb73"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb73-1" title="1"><span class="dt">int</span> i0=<span class="dv">4</span>, i1=<span class="dv">6</span>, i2=<span class="dv">8</span>;</a>
+<a class="sourceLine" id="cb73-2" title="2"><span class="dt">int</span>&amp; nums[<span class="dv">3</span>]={i2,i0,i1};</a>
+<a class="sourceLine" id="cb73-3" title="3"><span class="bu">std::</span>cout&lt;&lt;nums[<span class="dv">0</span>]&lt;&lt;nums[<span class="dv">1</span>]&lt;&lt;nums[<span class="dv">2</span>];</a></code></pre></div>
+<ul>
+<li>[x] There is no output. The code causes a compiler error because <code>nums</code> is an array of references, which is illegal.</li>
+<li>[ ] 846</li>
+<li>[ ] The output is the addresses of <code>i2</code>, <code>i0</code>, and <code>i1</code>, in that order, with no spaces.</li>
+<li>[ ] 468</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/array">Reference</a></p>
+<h4 id="q55.-what-is-child_t-in-this-code">Q55. What is <code>child_t</code> in this code?</h4>
+<div class="sourceCode" id="cb74"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">typedef</span> <span class="kw">struct</span>{</a>
+<a class="sourceLine" id="cb74-2" title="2">    <span class="dt">unsigned</span> <span class="dt">int</span>  age    : <span class="dv">4</span>;</a>
+<a class="sourceLine" id="cb74-3" title="3">    <span class="dt">unsigned</span> <span class="dt">char</span> gender : <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb74-4" title="4">    <span class="dt">unsigned</span> <span class="dt">int</span>  size   : <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb74-5" title="5">}<span class="dt">child_t</span>;</a></code></pre></div>
+<ul>
+<li>[ ] It is a type defined as a structure with three unsigned fields initialized as age=4, gender=1, and size=2.</li>
+<li>[x] It is a type defined as a structure with bit fields, with 4 bits for age, 1 bit for gender, and 2 bits for size.</li>
+<li>[ ] This code causes a compiler error because the colon character is not allowed in struct definitions.</li>
+<li>[ ] It is a type defined as a structure with three arrays. The size and length of these arrays are age:int[4], gender:char[1], and size:int[2], all signed.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/bit_field">Reference</a></p>
+<h4 id="q56.-what-is-this-expression-equivalent-to">Q56. What is this expression equivalent to?</h4>
+<div class="sourceCode" id="cb75"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb75-1" title="1">A-&gt;B-&gt;C-&gt;D</a></code></pre></div>
+<ul>
+<li>[ ] <code>A.B.C.D</code></li>
+<li>[ ] <code>*A.*B.*C.*D</code></li>
+<li>[ ] <code>&amp;A.&amp;B.&amp;C.&amp;D</code></li>
+<li>[x] <code>*(*((*A).B).C).D</code></li>
+</ul>
+<h4 id="q57.-what-does-this-function-do">Q57. What does this function do?</h4>
+<div class="sourceCode" id="cb76"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">auto</span> buff = <span class="kw">new</span> <span class="dt">char</span>[<span class="dv">50</span>];</a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="bu">std::</span>memset(buff,<span class="dv">20</span>,<span class="dv">50</span>);</a></code></pre></div>
+<ul>
+<li>[ ] It declares a memory buffer named buff that starts at address 20 and ends at address 70.</li>
+<li>[ ] It sets all bits in the array named buffer from its element at index 20 to its element at index 50.</li>
+<li>[x] It writes the value 20 in every memory address from buff to buff+49.</li>
+<li>[ ] It declares a memory buffer named buff that starts at address 20 and ends at address 50.</li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/string/byte/memset">Reference</a></p>
+<h4 id="q58.-consider-a-class-named-customdata.-which-choice-is-a-correct-declaration-syntax-to-overload-the-postfix-operator-as-a-class-member">Q58. Consider a class named <code>CustomData</code>. Which choice is a correct declaration syntax to overload the postfix <code>++</code> operator as a class member?</h4>
+<ul>
+<li>[ ] <code>CustomData&amp; operator++();</code></li>
+<li>[ ] <code>void operator++(CustomData);</code></li>
+<li>[ ] <code>CustomData operator++(CustomData);</code></li>
+<li>[x] <code>CustomData operator++(int);</code></li>
+</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/operators">Reference</a></p>

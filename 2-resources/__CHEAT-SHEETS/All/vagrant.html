@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="get-started">Get started</h3>
+<p>Add some base boxes: {: .-setup}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">vagrant</span> box add precise64 http://files.vagrantup.com/precise64.box</a></code></pre></div>
+<p>Work it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">mkdir</span> test_box</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="bu">cd</span> test_box</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">vagrant</span> init precise64</a></code></pre></div>
+<p>Run it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">vagrant</span> up</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">vagrant</span> ssh</a></code></pre></div>
+<p>To stop, use one of the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">vagrant</span> ssh        <span class="co"># then: sudo shutdown -h now</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="ex">vagrant</span> suspend</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="ex">vagrant</span> destroy    <span class="co"># !!</span></a></code></pre></div>
+<h3 id="also-see">Also see</h3>
+<ul>
+<li><a href="http://vagrantup.com">Vagrant website</a> <em>(vagrantup.com)</em></li>
+<li><a href="./vagrantfile">Vagrantfile cheatsheet</a></li>
+</ul>
+</body></html>

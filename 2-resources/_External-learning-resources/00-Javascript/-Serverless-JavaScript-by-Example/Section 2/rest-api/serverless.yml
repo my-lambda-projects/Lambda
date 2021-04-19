@@ -1,0 +1,85 @@
+service: rest-api
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+  environment:
+    DYNAMODB_TABLE: 'notes'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+functions:
+  create:
+    handler: handler.create
+    events:
+      - http:
+          path: notes
+          method: post
+          cors: true
+  getOne:
+    handler: handler.getOne
+    events:
+      - http:
+          path: notes/{id}
+          method: get
+          cors: true
+  getAll:
+    handler: handler.getAll
+    events:
+     - http:
+         path: notes
+         method: get
+         cors: true
+  update:
+    handler: handler.update
+    events:
+     - http:
+         path: notes/{id}
+         method: put
+         cors: true
+  delete:
+    handler: handler.delete
+    events:
+     - http:
+         path: notes/{id}
+         method: delete
+         cors: true
+
+resources:
+  Resources:
+    NotesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain # this means the table will stay on aws regardless if we delete this service
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+
+custom:
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true # dynamodb will run in memory and won't take up any  storage
+      migrate: true # create the table when running the app
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline

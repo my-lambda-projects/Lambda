@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="acceleration">Acceleration</h2>
+<h3 id="disabling">Disabling</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">defaults</span> write .GlobalPreferences com.apple.mouse.scaling -1</a></code></pre></div>
+<p>Note: Log out to take effect. If you change <em>Tracking Speed</em> under System Preferences, it will undo this fix. Only affects the mouse, not the trackpad.</p>
+<h3 id="re-enabling">Re-enabling</h3>
+<p>Under <em>System Preferences</em> → <em>Mouse</em>, change <em>Tracking Speed</em>.</p>
+<h3 id="trackpad-acceleration">Trackpad acceleration</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">defaults</span> write .GlobalPreferences com.apple.trackpad.scaling -1</a></code></pre></div>
+<p>Works the same way, but only affects trackpads.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/5782884/disabling-mouse-acceleration-in-mac-os-x">Disabling mouse acceleration</a> <em>(stackoverflow.com)</em></li>
+</ul>
+</body></html>

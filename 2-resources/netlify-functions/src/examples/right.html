@@ -1,0 +1,594 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/2-resources/netlify-functions/src/examples</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/blob/master/gradient.css">
+<style type="text/css">
+table { width: 100%;height: 100%;padding:5%; text-align:center; }
+a {
+  text-transform: inherit;
+  box-shadow: 0 5px 0 gold;
+  color: white;
+  padding: 1em 1.em;
+  position: relative;
+  text-transform: uppercase;
+}
+a:hover {
+  background-color: yellow;
+}
+a:active {
+  box-shadow: none;
+  top: 8px;
+}
+/* Non-Demo Styles */
+body {
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom:1.3;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+}
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-radius: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #18047a;
+}
+iframe.animate {
+  overflow-y: scroll;
+  border-radius: 2px;
+  min-width: 45em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+iframe.embed {
+  overflow-y: scroll;
+  padding: 2em;
+  margin: auto;
+  overflow: scroll;
+  border: solid 4px rgb(41, 54, 204);
+  -moz-border-radius: 6px 6px 4px 4px;
+  -webkit-border-radius: 6px 6px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
+}
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0.4em 0;
+}
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  color: #888;
+  font-size: 2em;
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+        html {
+            box-sizing: border-box;
+        }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+        body.is-preload *,
+        body.is-preload *:before,
+        body.is-preload *:after {
+            -moz-animation: none !important;
+            -webkit-animation: none !important;
+            -ms-animation: none !important;
+            animation: none !important;
+            -moz-transition: none !important;
+            -webkit-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
+        /* Type */
+        html {
+            font-size: 11pt;
+overflow-y:scroll;
+        }
+       
+        body {
+            color: whitesmoke;
+        }
+        body,
+        input,
+        select,
+        textarea {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 200;
+            font-size: 0.8rem;
+          
+        }
+        a {
+            -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-bottom: dotted 1px;
+            text-decoration: none;
+        }
+        a:hover {
+            border-bottom-color: transparent;
+        }
+  a:visited {
+            border-bottom-color: transparent;
+color:red;
+        }
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+        HTML {
+            font-size: medium;
+            font-family: Garamond
+        }
+        BODY {
+            background: black font-family: 'Open Sans', sans-serif;
+            font-weight: 150;
+         
+            color: #A7A1AE;
+            background-color: #1F2739;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: 300;
+         
+            text-align: left;
+            color: #4DC3FA;
+        }
+        p {
+            color: grey;
+        }
+        A {
+            text-decoration: none color:black;
+          
+        }
+        A:hover {
+            color: red;
+            background: whitesmoke;
+            border-radius: 8px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        TABLE.fancy {
+           background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-left: 3px solid;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            min-width: 150px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid;
+            border-bottom: 0px solid;
+            border-color: #FFF;
+            overflow-y: scroll;
+            width: 80%;
+            display: table;
+            padding: 0 0 8em 0;
+        }
+        TABLE.fancy TD {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            border-color: #FFF;
+            text-align: left;
+            padding-right: 4%px;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            padding-left: 4%;
+            border: 2px solid gold !important;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            font-weight: 470;
+            line-height: 18px;
+            text-decoration: none !important;
+            text-transform: uppercase;
+     
+           
+            cursor: pointer;
+            justify-content: left;
+            padding: 20px 300px;
+            height: 75px;
+            text-align:left;
+            white-space: normal;
+            border-radius: 10px;
+            min-width: 14em;
+            padding: .9em .9em 0;
+            box-shadow: 0 0 5px;
+            margin: 1em;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 20px;
+        TABLE.fancy tr:nth-child(odd) {
+            background-color: #323C50;
+        }
+        TABLE.fancy tr:nth-child(even) {
+            background-color: #2C3446;
+        }
+        TABLE.fancy th {
+            background-color: #1F2739;
+        }
+        TABLE.fancy td,
+        TABLE.fancy th {
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 2%;
+        }
+        TABLE.fancy tr:hover {
+            background-color: #464A52;
+            -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+            -moz-box-shadow: 0 6px 6px -6px #0E1119;
+            box-shadow: 0 6px 6px -6px #0E1119;
+        }
+        TABLE.fancy td:hover {
+            background-color: #FFF842;
+            color: #403E10;
+            font-weight: bold;
+            box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+            transform: translate3d(6px, -6px, 0);
+            transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+            transition-timing-function: line;
+        }
+        @media (max-width: 800px) {
+            TABLE.fancy td:nth-child(4),
+            TABLE.fancy th:nth-child(4) {
+                display: none;
+            }
+        }
+        TABLE.fancy TD.no-right {
+            border-right: 0px
+        }
+        TABLE.fancy TD.right {
+            text-align: left
+        }
+        TABLE.fancy TD.left {
+            text-align: center
+        }
+        TABLE.fancy a {
+            color: yellow;
+        }
+        TABLE.fancy TH {
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            text-align: left;
+            background: black;
+            color: #FFF;
+            border-color: #FFF;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+        .anchor {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: black;
+            color: #FFF
+        }
+        .dark-blue {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa  
+        }
+        .no-top-border {
+            border-top: 0px
+        }
+        .centered {
+            margin: auto
+        }
+        .rZ {
+            text-align: right
+        }
+        .row2 {
+            background: #D3D3E1
+        }
+@import url(//fonts.googleapis.com/css?family=PT+Sans);
+body {
+    margin: 0px;
+    font-family: 'PT Sans', Helvetica, 'Helvetica Neuve', Arial, Tahoma, sans-serif;
+    font-size: 17px;
+    color: #333;
+}
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    margin: 0 0 20px;
+}
+p,
+ul,
+ol,
+table,
+pre,
+dl {
+    margin: 0 0 20px;
+}
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    color: #393939;
+}
+h3,
+h4,
+h5,
+h6 {
+    color: #494949;
+}
+a {
+    color: #39c;
+    font-weight: 400;
+    text-decoration: none;
+}
+a small {
+    font-size: 11px;
+    color: #777;
+    margin-top: -0.6em;
+    display: block;
+}
+.wrapper {
+    width: 860px;
+    margin: 0 auto;
+}
+blockquote {
+    border-left: 1px solid #e5e5e5;
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-style: italic;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+dt {
+    color: #444;
+    font-weight: 700;
+}
+th {
+    color: #444;
+}
+img {
+    max-width: 100%;
+}
+header {
+    width: 270px;
+    float: left;
+    position: fixed;
+}
+header ul {
+    list-style: none;
+    height: 40px;
+    padding: 0;
+    background: #eee;
+    background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+    background: -webkit-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -ms-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    border-radius: 5px;
+    border: 1px solid #d2d2d2;
+    box-shadow: inset #fff 0 1px 0,
+    inset rgba(0, 0, 0, 0.03) 0 -1px 0;
+    width: 270px;
+}
+header li {
+    width: 89px;
+    float: left;
+    border-right: 1px solid #d2d2d2;
+    height: 40px;
+}
+header ul a {
+    line-height: 1;
+    font-size: 11px;
+    color: #999;
+    display: block;
+    text-align: center;
+    padding-top: 6px;
+    height: 40px;
+}
+strong {
+    color: #222;
+    font-weight: 700;
+}
+header ul li+li {
+    width: 88px;
+    border-left: 1px solid #fff;
+}
+header ul li+li+li {
+    border-right: none;
+    width: 89px;
+}
+header ul a strong {
+    font-size: 14px;
+    display: block;
+    color: #222;
+}
+section {
+    width: 500px;
+    float: right;
+    padding-bottom: 50px;
+}
+small {
+    font-size: 11px;
+}
+hr {
+    border: 0;
+    background: #e5e5e5;
+    height: 1px;
+    margin: 0 0 20px;
+}
+footer {
+    width: 270px;
+    float: left;
+    position: fixed;
+    bottom: 50px;
+}
+@media print,
+screen and (max-width: 960px) {
+    div.wrapper {
+        width: auto;
+        margin: 0;
+    }
+    header,
+    section,
+    footer {
+        float: none;
+        position: static;
+        width: auto;
+    }
+    header {
+        padding-right: 320px;
+    }
+    section {
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
+        padding: 20px 0;
+        margin: 0 0 20px;
+    }
+    header a small {
+        display: inline;
+    }
+    header ul {
+        position: absolute;
+        right: 50px;
+        top: 52px;
+    }
+}
+#wrapper {
+    padding: 1em;
+}
+.ca-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+.nav-list {
+    height: 50%;
+    margin: auto 0;
+}
+div.clear {
+    clear: both;
+}
+        /*]]>*/
+.fancybox-margin{margin-right:0px;}
+</style>
+</head>
+
+<body>
+
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><td colspan="6" class="header-row"><b>Folders</b></td></tr>
+<tr><td><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td></tr>
+</table>
+<br>
+
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><td><a href="left.html" target="_parent">left.html</a>&nbsp;</td><td><a href="dark-sky-serverless-function.md" target="_parent">dark-sky...on.md</a>&nbsp;</td><td><a href="gatsby-stripe-store-starter.md" target="_parent">gatsby-s...er.md</a>&nbsp;</td><td><a href="medium-rss-feed.md" target="_parent">medium-r...ed.md</a>&nbsp;</td><td><a href="nuxt-netlify-functions-example.md" target="_parent">nuxt-net...le.md</a>&nbsp;</td><td><a href="pusher-auth.md" target="_parent">pusher-auth.md</a>&nbsp;</td><td><a href="serverless-telegram-bot.md" target="_parent">serverle...ot.md</a>&nbsp;</td><td><a href="tokbox-session-manager.md" target="_parent">tokbox-s...er.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="examples.json" target="_parent">examples.json</a>&nbsp;</td><td><a href="ecommerce-with-nuxt-and-stripe-on-netlify.md" target="_parent">ecommerc...fy.md</a>&nbsp;</td><td><a href="get-items-from-cosmicjs.md" target="_parent">get-item...js.md</a>&nbsp;</td><td><a href="meetup-raffle.md" target="_parent">meetup-raffle.md</a>&nbsp;</td><td><a href="password-protected-netlify-build-trigger.md" target="_parent">password...er.md</a>&nbsp;</td><td><a href="rest-api-example.md" target="_parent">rest-api...le.md</a>&nbsp;</td><td><a href="serverside-hashing.md" target="_parent">serversi...ng.md</a>&nbsp;</td><td><a href="token-hider-via-proxy.md" target="_parent">token-hi...xy.md</a>&nbsp;</td></tr>
+<tr><td><a href="airtable-get-request-(single-record-response-with-record-id-in-query-string-or-first-20-without).md" target="_parent">airtable...t).md</a>&nbsp;</td><td><a href="fetch-airtable-records.md" target="_parent">fetch-ai...ds.md</a>&nbsp;</td><td><a href="get-random-emoji.md" target="_parent">get-rand...ji.md</a>&nbsp;</td><td><a href="mongodb-and-functions.md" target="_parent">mongodb-...ns.md</a>&nbsp;</td><td><a href="payment-processing-via-stripe.md" target="_parent">payment-...pe.md</a>&nbsp;</td><td><a href="save-data-to-google-sheets.md" target="_parent">save-dat...ts.md</a>&nbsp;</td><td><a href="serving-dynamic-content-via-path-params.md" target="_parent">serving-...ms.md</a>&nbsp;</td><td><a href="tweet-a-dev-article-everyday.md" target="_parent">tweet-a-...ay.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="airtable-netlify-short-urls.md" target="_parent">airtable...ls.md</a>&nbsp;</td><td><a href="fetch-crypto-currency-prices.md" target="_parent">fetch-cr...es.md</a>&nbsp;</td><td><a href="get-weather-via-openweathermap.md" target="_parent">get-weat...ap.md</a>&nbsp;</td><td><a href="myanimelist-search-api.md" target="_parent">myanimel...pi.md</a>&nbsp;</td><td><a href="ping-superfeedr-on-deploy.md" target="_parent">ping-sup...oy.md</a>&nbsp;</td><td><a href="save-twitch-clips-save-to-postgres.md" target="_parent">save-twi...es.md</a>&nbsp;</td><td><a href="serving-dynamic-content-via-query-params.md" target="_parent">serving-...ms.md</a>&nbsp;</td><td><a href="url-shortening-service.md" target="_parent">url-shor...ce.md</a>&nbsp;</td></tr>
+<tr><td><a href="authenticating-users-with-oauth.md" target="_parent">authenti...th.md</a>&nbsp;</td><td><a href="fetch-currency-rates.md" target="_parent">fetch-cu...es.md</a>&nbsp;</td><td><a href="get-youtube-video-captions.md" target="_parent">get-yout...ns.md</a>&nbsp;</td><td><a href="netlibox.md" target="_parent">netlibox.md</a>&nbsp;</td><td><a href="pocket-newsletter-lambda.md" target="_parent">pocket-n...da.md</a>&nbsp;</td><td><a href="scrape-twitter-avatars.md" target="_parent">scrape-t...rs.md</a>&nbsp;</td><td><a href="shopify-ecommerce.md" target="_parent">shopify-...ce.md</a>&nbsp;</td><td><a href="using-function-middleware.md" target="_parent">using-fu...re.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="bart-station-departures.md" target="_parent">bart-sta...es.md</a>&nbsp;</td><td><a href="fetch-external-api-data.md" target="_parent">fetch-ex...ta.md</a>&nbsp;</td><td><a href="get-youtube-video-data.md" target="_parent">get-yout...ta.md</a>&nbsp;</td><td><a href="netlify-event-driven-functions.md" target="_parent">netlify-...ns.md</a>&nbsp;</td><td><a href="post-a-tweet.md" target="_parent">post-a-tweet.md</a>&nbsp;</td><td><a href="send-custom-netlify-build-slack-notification.md" target="_parent">send-cus...on.md</a>&nbsp;</td><td><a href="shorten-links-with-bitly.md" target="_parent">shorten-...ly.md</a>&nbsp;</td><td><a href="using-functions-for-dynamic-redirects.md" target="_parent">using-fu...ts.md</a>&nbsp;</td></tr>
+<tr><td><a href="behance-rss-feed.md" target="_parent">behance-...ed.md</a>&nbsp;</td><td><a href="fetch-files-from-google-drive.md" target="_parent">fetch-fi...ve.md</a>&nbsp;</td><td><a href="github-finder.md" target="_parent">github-finder.md</a>&nbsp;</td><td><a href="netlify-form-notifications-to-slack.md" target="_parent">netlify-...ck.md</a>&nbsp;</td><td><a href="process-payment-via-stripe.md" target="_parent">process-...pe.md</a>&nbsp;</td><td><a href="send-email-via-aws-sns.md" target="_parent">send-ema...ns.md</a>&nbsp;</td><td><a href="slack-channel-invites.md" target="_parent">slack-ch...es.md</a>&nbsp;</td><td><a href="using-functions-for-graphql-apis.md" target="_parent">using-fu...is.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="bus-schedule-tracker.md" target="_parent">bus-sche...er.md</a>&nbsp;</td><td><a href="fetch-github-repos-graphql.md" target="_parent">fetch-gi...ql.md</a>&nbsp;</td><td><a href="graphql-api-example.md" target="_parent">graphql-...le.md</a>&nbsp;</td><td><a href="netlify-functions-apollo-graphql.md" target="_parent">netlify-...ql.md</a>&nbsp;</td><td><a href="process-stripe-payment.md" target="_parent">process-...nt.md</a>&nbsp;</td><td><a href="send-email-via-nodemailer.md" target="_parent">send-ema...er.md</a>&nbsp;</td><td><a href="staticman-netlify-functions.md" target="_parent">staticma...ns.md</a>&nbsp;</td><td><a href="using-functions-for-returning-images.md" target="_parent">using-fu...es.md</a>&nbsp;</td></tr>
+<tr><td><a href="check-weather-forcast.md" target="_parent">check-we...st.md</a>&nbsp;</td><td><a href="fetch-instagram-posts.md" target="_parent">fetch-in...ts.md</a>&nbsp;</td><td><a href="handling-file-uploads-to-s3.md" target="_parent">handling...s3.md</a>&nbsp;</td><td><a href="netlify-functions-as-zips.md" target="_parent">netlify-...ps.md</a>&nbsp;</td><td><a href="process-upload-send-to-trello-slack-mailgun.md" target="_parent">process-...un.md</a>&nbsp;</td><td><a href="send-email-via-sendgrid.md" target="_parent">send-ema...id.md</a>&nbsp;</td><td><a href="stripe-and-fulfillment-with-sendgrid.md" target="_parent">stripe-a...id.md</a>&nbsp;</td><td><a href="using-functions-to-set-cookies.md" target="_parent">using-fu...es.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="contact-form-with-airtable-and-mailgun.md" target="_parent">contact-...un.md</a>&nbsp;</td><td><a href="fetch-unsplach-images.md" target="_parent">fetch-un...es.md</a>&nbsp;</td><td><a href="handling-oauth-flows.md" target="_parent">handling...ws.md</a>&nbsp;</td><td><a href="netlify-functions-crud-app-with-fauna.md" target="_parent">netlify-...na.md</a>&nbsp;</td><td><a href="progressive-form-enhancement-via-functions.md" target="_parent">progress...ns.md</a>&nbsp;</td><td><a href="send-email-via-sendmail-pkg.md" target="_parent">send-ema...kg.md</a>&nbsp;</td><td><a href="stripe-payment-processing.md" target="_parent">stripe-p...ng.md</a>&nbsp;</td><td><a href="using-s3-as-a-database.md" target="_parent">using-s3...se.md</a>&nbsp;</td></tr>
+<tr><td><a href="contentful-authless-comments.md" target="_parent">contentf...ts.md</a>&nbsp;</td><td><a href="form-spam-filter.md" target="_parent">form-spa...er.md</a>&nbsp;</td><td><a href="ifttt-to-flick-instagram-make-new-github-post.md" target="_parent">ifttt-to...st.md</a>&nbsp;</td><td><a href="netlify-functions-gated-sites.md" target="_parent">netlify-...es.md</a>&nbsp;</td><td><a href="progressive-mailchimp-subscription-form.md" target="_parent">progress...rm.md</a>&nbsp;</td><td><a href="sending-email.md" target="_parent">sending-email.md</a>&nbsp;</td><td><a href="super-simple-start-serverless.md" target="_parent">super-si...ss.md</a>&nbsp;</td><td><a href="verify-okta.md" target="_parent">verify-okta.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="create-new-user-in-firebase.md" target="_parent">create-n...se.md</a>&nbsp;</td><td><a href="form-to-function-to-sanity.io.md" target="_parent">form-to-...io.md</a>&nbsp;</td><td><a href="intercom-as-oauth-login.md" target="_parent">intercom...in.md</a>&nbsp;</td><td><a href="netlify-functions-mongodb-graphql.md" target="_parent">netlify-...ql.md</a>&nbsp;</td><td><a href="proxy-blocked-google-analytics.md" target="_parent">proxy-bl...cs.md</a>&nbsp;</td><td><a href="sending-text-messages.md" target="_parent">sending-...es.md</a>&nbsp;</td><td><a href="swambda-openapi.md" target="_parent">swambda-...pi.md</a>&nbsp;</td><td><a href="verify-phone-numbers.md" target="_parent">verify-p...rs.md</a>&nbsp;</td></tr>
+<tr><td><a href="create-react-app-lambda.md" target="_parent">create-r...da.md</a>&nbsp;</td><td><a href="gatsby-and-netlify-functions.md" target="_parent">gatsby-a...ns.md</a>&nbsp;</td><td><a href="lookup-dns.md" target="_parent">lookup-dns.md</a>&nbsp;</td><td><a href="netlify-identity-whitelist-emails.md" target="_parent">netlify-...ls.md</a>&nbsp;</td><td><a href="proxy-tracking-data-to-loggly.md" target="_parent">proxy-tr...ly.md</a>&nbsp;</td><td><a href="serverless-auth-strategies.md" target="_parent">serverle...es.md</a>&nbsp;</td><td><a href="textjoy.md" target="_parent">textjoy.md</a>&nbsp;</td><td><a href="web-scraping-via-functions.md" target="_parent">web-scra...ns.md</a>&nbsp;</td></tr>
+<tr class="row2"><td><a href="creating-an-api-with-hasura.md" target="_parent">creating...ra.md</a>&nbsp;</td><td><a href="gatsby-starter-netlify-cms.md" target="_parent">gatsby-s...ms.md</a>&nbsp;</td><td><a href="mailchimp-landing-page.md" target="_parent">mailchim...ge.md</a>&nbsp;</td><td><a href="newsletter-subscriptions-with-convertkit.md" target="_parent">newslett...it.md</a>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<p class="summary-style">
+Folders:  1<br>
+Files: 108<br>
+Size of all files: 56629 KB</p>
+
+</body>
+</html>

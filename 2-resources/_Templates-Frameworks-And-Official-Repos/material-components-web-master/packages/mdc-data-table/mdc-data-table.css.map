@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAsBA,QAAQ,CAAR,UAAQ",
+    "sources": [
+        "mdc-data-table.scss"
+    ],
+    "names": [],
+    "file": "mdc-data-table.css"
+}

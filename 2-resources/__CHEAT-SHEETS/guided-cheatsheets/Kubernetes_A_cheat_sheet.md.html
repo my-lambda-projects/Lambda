@@ -1,0 +1,188 @@
+# Kubernetes: A cheat sheet
+
+> Kubernetes is a series of open source projects for automating the deployment, scaling, and management of containerized applications. Find out why the ecosystem matters, how to use it, and more.
+
+Kubernetes is a series of open source projects for automating the deployment, scaling, and management of containerized applications. Find out why the ecosystem matters, how to use it, and more.
+
+![kubernetes.jpg](https://www.techrepublic.com/a/hub/i/r/2017/05/09/344f29ca-bf77-4c32-b65a-97531d2f5ee9/resize/770x/6bb262c628ab720faafb8f254f51b402/kubernetes.jpg)
+
+Image: iStock/123dartist
+
+As [containers](https://www.techrepublic.com/article/containers-the-smart-persons-guide/) have become more important to businesses across the globe, it was necessary to create a system that would allow containers to scale out to meet the needs of enterprise-level deployments. That's where [Kubernetes](https://kubernetes.io/) comes into play.
+
+Unlike [Docker](https://www.techrepublic.com/article/docker-the-smart-persons-guide/), Kubernetes is a very robust ecosystem. Instead of deploying a single container, Kubernetes enables you to deploy multiple containers to multiple hosts, making it ideal for larger deployments and load balancing.
+
+This smart person's guide is an easy way to get up to speed on Kubernetes. We'll update this guide periodically when news about Kubernetes is released.
+
+**SEE:** [**Kubernetes: A cheat sheet (free PDF)**](https://www.techrepublic.com/resource-library/downloads/kubernetes-a-cheat-sheet-free-pdf/) **(TechRepublic)**
+
+Executive summary
+
+*   **What is Kubernetes?** Kubernetes is an open source project that enables the management of large-scale container and pod deployment.
+*   **Why does Kubernetes matter?** Containerized applications are being used by most of the major enterprise companies as a way to roll out large-scale, highly-available, load-balanced clusters of apps and services. If this is something your business is looking to do, Kubernetes might be the right tool for you.
+*   **Who does Kubernetes affect?** Kubernetes affects companies that want to roll out massive containerized applications, as well as clients, customers, consumers...anyone that would benefit from highly-available services. Kubernetes also helps developers build distributed applications and makes it much easier for IT operators to manage scalable infrastructure for applications.
+*   **When is Kubernetes happening?** Kubernetes was first announced in mid-2014 and was first released on July 21, 2015.
+*   **How do I start using Kubernetes?** Install the system on a supported platform such as [Red Hat](https://www.redhat.com/en), [SUSE](https://www.suse.com/), [CentOS](https://www.centos.org/), [Fedora Server](https://getfedora.org/en/server/), [Ubuntu Server](https://www.ubuntu.com/download/server), etc., and you'll have access to kubernetes, kubernetes-client, kubernetes-master, kubernetes-node, and more.
+
+**SEE: [All of TechRepublic's cheat sheets and smart person's guides](https://www.techrepublic.com/topic/smart-persons-guides/)**
+
+What is Kubernetes?
+-------------------
+
+Kubernetes is an open source system that allows you to run containers across multiple hosts, effectively offering the co-location of containers, service discovery, and replication control. It was originally called K8s and was designed by Google and donated to the Cloud Native Computing Foundation.
+
+The primary functions of Kubernetes are:
+
+*   schedule, start, manage, and scale containers across multiple hosts; and
+*   add a higher-level API to define how containers are logically grouped to define container pools and handle load balancing.
+
+Its features include the following:
+
+*   **Automated scheduling:** Allows you to deploy containers and services at scheduled times.
+*   **Self-healing capabilities:** When a container or pod falls out of its desired state, Kubernetes can attempt to automatically resolve the problem.  
+    
+*   **Automated rollouts and rollback:** Add automated rollouts and rollbacks to create a CI/CD pipeline.  
+    
+*   **Horizontal scaling and load balancing:** Scale your deployments as needed.  
+    
+*   **Environment consistency for development:** Your testing and production infrastructures are loosely coupled to each individual component and can act as a separate unit to the cluster.
+*   **Deploy containers and manage rollout control:** With this complex system you can describe your containers and/or pods and define how many you want in a single deployment. Kubernetes will not only manage the running of those containers or pods (even across multiple hosts), but it will also handle deploying changes (e.g., updating images, changing variables, etc.) to your containers.
+*   **Resource Bin packing** allows you to declare minimum and maximum computer resources (CPU and memory) for all containers.
+*   **Built-in service discovery:** Automatic exposure of containers to the internet or other containers in the Kubernetes cluster.
+*   **Autoscaling:** Kubernetes automatically load balances traffic across matching containers.
+*   **Heterogeneous clusters:** Kubernetes allows you to build a cluster with a mixture of virtual machines, on-premises servers, or bare metal in your company data center.
+*   **Persistent storage support** is available to Kubernetes, with support for [Amazon Web Services EBS](https://aws.amazon.com/ebs/), [Google Cloud Platform persistent disks](https://cloud.google.com/persistent-disk/), and more. Vendors, including Red Hat, Dell EMC, and NetApp, provide persistent storage for Kubernetes.
+*   **High availability**, such as multi-master and cluster federation, allowing the linking of clusters together for load balancing.
+
+Kubernetes allows you to easily:
+
+*   deploy containerized applications quickly and predictably;
+*   scale containerized applications on the fly;
+*   seamlessly roll out new features to your containerized applications; and
+*   optimize your hardware specifically for your containerized applications.
+
+Kubernetes, at its minimum, can schedule and run containerized applications on clusters of physical machines or virtual machines or a combination of physical and virtual machines; this allows developers to leave behind the traditional method of working with physical and virtual machines. Although this can be achieved with the simpler [Docker Swarm](https://docs.docker.com/engine/swarm/), Kubernetes allows the deployment of much larger clusters, which can include containers and/or pods. In other words, create your containers and then deploy them over a massive, load balanced cluster with Kubernetes.
+
+**SEE:** [**Kubernetes security guide (free PDF)**](https://www.techrepublic.com/resource-library/downloads/kubernetes-security-guide-free-pdf/) **(TechRepublic)**
+
+Kubernetes consists of the following components.
+
+*   **Pods:** Containers are placed into pods to be managed by Kubernetes.
+*   **Labels and selectors:** Key-value pairs used to identify and group resources within Kubernetes.
+*   **Controllers:** A reconciliation loop that drives _actual_ cluster state toward the _desired_ cluster state.
+*   **Services:** A way to identify elements used by applications (name-resolution, caching, etc.).
+*   **Kubernetes control plane:** Main controlling unit of the cluster that manages workload and directs communication across the system.
+*   **etcd:** Persistent, lightweight, distributed key-value data store.
+*   **API server:** Serves the Kubernetes API using JSON over HTTP.
+*   **Scheduler:** Pluggable component that selects which node a pod should run on based on resource availability.
+*   **Controller manager:** The process that runs the Kubernetes controllers such as DaemonSet and Replication.
+*   **Kublet:** Responsible for the running state of each node (starting, stopping, and maintaining application containers).
+*   **Kube-proxy:** The implementation of a network proxy and load balancer that supports the service abstraction.
+*   **cAdvisor:** An agent that monitors and gathers resource usage.
+*   **Container runtime:** As of the upcoming 1.22 release, Kubernetes support for Docker will be deprecated. Once this happens, Kubernetes will allows runtimes that use the Container Runtime Interface(CRI), such as containerd.  
+    
+
+**Additional resources**
+
+*   [How Red Hat aims to make Kubernetes boring...and successful](https://www.techrepublic.com/article/how-red-hat-aims-to-make-kubernetes-boring-and-successful/) (TechRepublic)
+*   [Special report: Riding the DevOps revolution (free PDF)](https://www.techrepublic.com/resource-library/whitepapers/riding-the-devops-revolution-free-pdf/) (TechRepublic)  
+    
+*   [Microsoft Azure's Kubernetes support demonstrates growing importance of containers](https://www.techrepublic.com/article/microsoft-azures-kubernetes-support-demonstrates-growing-importance-of-containers/) (TechRepublic)
+*   [VMware goes all in on containers with Kubernetes as a Service](https://www.techrepublic.com/article/vmware-goes-all-in-on-containers-with-kubernetes-as-a-service/) (TechRepublic)
+*   [Why Kubernetes could be crowned king of container management](https://www.techrepublic.com/article/why-kubernetes-could-be-crowned-king-of-container-management/) (TechRepublic)
+*   [Enterprise container DevOps steps up its game with Kubernetes 1.6](http://www.zdnet.com/article/enterprise-container-devops-steps-up-its-game-with-kubernetes-1-6/) (ZDNet)
+
+Why does Kubernetes matter?
+---------------------------
+
+Containers are a powerful and flexible way to safely and reliably deploy applications and microservices to extend and expand your company's services. When the need grows beyond a standard Docker deployment or you need to deploy/manage multiple containerized applications from different systems (such as Docker), you need a way to deploy and control such systems.
+
+With the help of Docker Swarm, you can deploy containerized applications over a cluster, but you're limited to Docker-only containers and to only using the architecture security, registry of Docker, Inc. With Kubernetes, those containers can come from a number of sources (Docker, Windows Server Containers, etc.), making Kubernetes incredibly flexible and significantly more complex.
+
+**Additional resources**
+
+*   [Containers, DevOps, IT automation seen as antidotes to complexity](http://www.zdnet.com/article/containers-devops-it-automation-top-of-mind-as-complexity-grows/) (ZDNet)
+*   [How to establish strong microservice security using SSL, TLS and API gateways](https://www.techrepublic.com/article/how-to-establish-strong-microservice-security-using-ssl-tls-and-api-gateways/) (TechRepublic)
+*   [Docker: The smart person's guide](https://www.techrepublic.com/article/docker-the-smart-persons-guide/) (TechRepublic)
+*   [3 hybrid cloud alternatives to AWS CloudFormation](https://www.techrepublic.com/article/3-hybrid-cloud-alternatives-to-aws-cloudformation/) (TechRepublic)
+*   [Why your traditional virtualization vendor can't help you with containers](https://www.techrepublic.com/article/why-your-traditional-virtualization-vendor-cant-help-you-with-containers/) (TechRepublic)
+*   [Kubernetes orchestrator now available on Microsoft's Azure Container Service](http://www.zdnet.com/article/kubernetes-orchestrator-now-available-on-microsofts-azure-container-service/) (ZDNet)
+
+Who does Kubernetes affect?
+---------------------------
+
+Kubernetes affects any company that needs to deploy massive rollouts of containerized applications and services; this means anyone involved with the deployment should be familiar with the Kubernetes tools and Docker. And considering Kubernetes is a rather complex system, administrators will need to do a fair amount of homework in order to successfully implement the technology.
+
+The effect of Kubernetes goes well beyond those that administer the system--customers, clients, staff, and consumers...no one is immune to the effect of containerized applications. When we're talking about business and enterprise-level deployments, Kubernetes takes center stage.
+
+Developers are also affected by Kubernetes. As of 2020, Kubernetes had over 43,000 contributors from across varying industries, with over 43 branches and over 96,000 commits on [GitHub](https://github.com/kubernetes/kubernetes). Kubernetes also has more developers working on it than [Docker Swarm](https://docs.docker.com/engine/swarm/), [Mesos](http://mesos.apache.org/), and [Cloud Foundry Diego](https://docs.cloudfoundry.org/concepts/diego/diego-architecture.html) combined.
+
+**Additional resources**
+
+*   [Why Red Hat makes more money on Docker than Docker does](https://www.techrepublic.com/article/why-red-hat-makes-more-money-on-docker-than-docker-does/) (TechRepublic)
+*   [5 data center-ready Linux distributions](https://www.techrepublic.com/article/5-data-center-ready-linux-distributions/) (TechRepublic)
+*   [Special report: The cloud v. data center decision (free PDF)](https://www.techrepublic.com/resource-library/whitepapers/the-cloud-v-data-center-decision-free-pdf/) (TechRepublic)
+*   [eBay builds its own tool to integrate Kubernetes and OpenStack](http://www.zdnet.com/article/ebay-builds-its-own-tool-to-integrate-kubernetes-and-openstack/) (ZDNet)
+
+When is Kubernetes happening?
+-----------------------------
+
+Kubernetes was created by Joe Beda, Brendan Burns, and Craig McLuckie, who were soon joined by other Google engineers, and was first announced by Google in mid-2014. The original name for Kubernetes was Seven Of Nine (from Star Trek Borg fame). Once the Google lawyers swayed the original developers away from the original name, they agreed upon the name Kubernetes.
+
+Kubernetes v1.0 was released July 21, 2015 and very quickly wound up in the top 0.01% in stars and number 1 in terms of activity on [GitHub](https://www.techrepublic.com/article/github-the-smart-persons-guide/). That translates to significant development on the project.
+
+As of December, 2020, the latest release of Kubernetes is 1.18.12 with 27 merged pull requests, 87 open pull requests, 3.3k users watching the project, and 72.3k stars.
+
+**Additional resources**
+
+*   [Mirantis enters the Kubernetes game and ups its OpenStack play](http://www.zdnet.com/article/mirantis-enters-the-kubernetes-game-and-ups-its-openstack-play/) (ZDNet)
+*   [Red Hat steps up its Kubernetes game with OpenShift Container 3.5](http://www.zdnet.com/article/red-hat-steps-up-its-kubernetes-game-with-openshift-container-3-5/) (ZDNet)
+*   [Microsoft to buy Kubernetes container-orchestration vendor Deis](http://www.zdnet.com/article/microsoft-to-buy-kubernetes-orchestration-vendor-deis/) (ZDNet)
+*   [Docker open sources container runtime and management program containerd](http://www.zdnet.com/article/docker-open-sources-container-runtime-and-management-program/) (ZDNet)
+
+How do I start using Kubernetes?
+--------------------------------
+
+Kubernetes can be deployed on numerous platforms, including:
+
+*   [Google Container Engine](https://cloud.google.com/container-engine/)
+*   [Vagrant](https://www.vagrantup.com/downloads.html)
+*   Any supporting Linux platform, such as [Red Hat](https://www.redhat.com/en)
+*   [minikube](https://kubernetes.io/docs/getting-started-guides/minikube)
+
+For a full list of vendors/platforms supporting Kubernetes deployment, check out [this spreadsheet](https://docs.google.com/spreadsheets/d/1LxSqBzjOxfGx3cmtZ4EbB_BGCxT_wlxW_xgHVVa23es/edit#gid=0).
+
+You will need to set up:
+
+*   **Kubernetes Controller:** This is where you direct API calls to services that control the activities of the pods, replication controllers, services, nodes, and other components of the cluster.
+*   **Kubernetes Node(s):** This system provides the run-time environments for the containers.  
+    
+
+The Controller and Node can be on the same system, but traditionally they will be separated.
+
+You will also need your containers. The most widely used containers deployed by Kubernetes are from Docker, which makes sense considering docker containers are the most widely used on the planet. And even though Kubernetes has deprecated support for Docker, you can still develop your containers or images with Docker and use them with Kubernetes.
+
+Kubernetes must be installed on the Controller and all nodes. Remember, however, now that Kubernetes is about to deprecate Docker, you must install with a different runtime (such as containerd). For example, on Ubuntu Server 20.04, install Kubernetes and containerd with the following steps:
+
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - sudo -s cat </etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main EOF exit sudo apt-get update sudo apt-get install kubelet kubeadm kubectl containerd -y
+
+**Additional resources**
+
+*   [Kubernetes tutorials](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/) (Kubernetes)
+*   [Ebook: IT leader's guide to making DevOps work](https://www.techrepublic.com/resource-library/whitepapers/it-leader-s-guide-to-making-devops-work/) (TechRepublic Premium)
+*   [6 quick Docker tips to make managing your containers easier](https://www.techrepublic.com/article/6-quick-docker-tips-to-make-managing-your-containers-easier/) (TechRepublic)
+*   [How to install WordPress with Docker](https://www.techrepublic.com/article/how-to-install-wordpress-with-docker/) (TechRepublic)
+*   [How to manage Docker containers from the command line](https://www.techrepublic.com/article/how-to-manage-docker-containers-from-the-command-line/) (TechRepublic)
+*   [How to install Docker on Fedora 25](https://www.techrepublic.com/article/how-to-install-docker-on-fedora-25/) (TechRepublic)
+*   [How to install and use Portainer for easy Docker container management](https://www.techrepublic.com/article/how-to-install-and-use-portainer-for-easy-docker-container-management/) (TechRepublic)
+
+![](https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg)
+
+### Data Center Trends Newsletter
+
+DevOps, virtualization, the hybrid cloud, storage, and operational efficiency are just some of the data center topics we'll highlight. Delivered Mondays and Wednesdays
+
+Sign up today
+
+
+[Source](https://www.techrepublic.com/article/kubernetes-the-smart-persons-guide/)

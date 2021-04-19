@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAuBA,QAAQ,CAAR,kBAAQ",
+    "sources": [
+        "common.scss"
+    ],
+    "names": [],
+    "file": "common.css"
+}

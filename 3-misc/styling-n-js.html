@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link href="./css/prism.css" rel="stylesheet">
+    <link type="image/x-icon" href="/static/favicon.ico" rel="icon">
+    <link type="font/woff" href="https://lambdaschool-content-cdn.s3.amazonaws.com/fonts/SuisseIntl-Light-WebM.woff"
+      rel="preload" as="font" crossorigin="anonymous">
+    <link type="font/woff" href="https://lambdaschool-content-cdn.s3.amazonaws.com/fonts/SuisseIntl-Regular-WebM.woff"
+      rel="preload" as="font" crossorigin="anonymous">
+    <link type="font/woff" href="https://lambdaschool-content-cdn.s3.amazonaws.com/fonts/SuisseIntl-Medium-WebM.woff"
+      rel="preload" as="font" crossorigin="anonymous">
+    <link type="font/woff"
+      href="https://lambdaschool-content-cdn.s3.amazonaws.com/fonts/TiemposHeadlineWeb-Regular.woff" rel="preload"
+      as="font" crossorigin="anonymous">
+    <link type="font/woff"
+      href="https://lambdaschool-content-cdn.s3.amazonaws.com/fonts/TiemposHeadlineWeb-RegularItalic.woff" rel="preload"
+      as="font" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width">
+    <meta charSet="utf-8">
+    <title>Codex</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="next-head-count" content="4">
+    <link href="/_next/static/css/1ec660952bfce6d06822.css" rel="preload" as="style">
+    <link data-n-g href="/_next/static/css/1ec660952bfce6d06822.css" rel="stylesheet"><noscript
+      data-n-css=""></noscript>
+    <link href="/_next/static/chunks/main-bcea29cef485d2ff4f28.js" rel="preload" as="script">
+    <link href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" rel="preload" as="script">
+    <link href="/_next/static/chunks/framework.abffcf18e526b7c0dbcd.js" rel="preload" as="script">
+    <link href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.1d7278d5916139ff8fd5.js" rel="preload"
+      as="script">
+    <link href="/_next/static/chunks/pages/_app-bc37be3f9ebfb49934f6.js" rel="preload" as="script">
+    <link href="/_next/static/chunks/62fd6c6d.3169d2aaf47600f9c274.js" rel="preload" as="script">
+    <link href="/_next/static/chunks/5a6ca47b17dc4bcb9b0bc3131ee7e9f4fd30e305.b64ed04365f9737cb9ea.js" rel="preload"
+      as="script">
+    <link
+      href="/_next/static/chunks/pages/tracks/%5BtrackSlug%5D/units/%5BunitSlug%5D/sprints/%5BsprintSlug%5D-2093e8ce28f6da0e7dee.js"
+      rel="preload" as="script">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    </style>
+    <script src="/js/prism.js" async defer></script>
+  </head>
+
+  <body>
+
+    <iframe height="650px" width="100%" src="https://express-pug-animated-light-show-loop-1.bgoonz.repl.co"
+      scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true"
+      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+    <div class="mt-8">
+      <div class="generated-html">
+        <section>
+          <div>
+            <h2 id="overview">Overview</h2>
+            <p>You&apos;ve already started using responsive units to write high-quality stylesheets. In this
+              sprint we&apos;ll expand on that knowledge by covering responsive layouts, media queries, and
+              accessibility such that you can build websites to work on mobile devices too!</p>
+            <p>This sprint will also introduce you to the wild world of JavaScript. We&apos;ll cover variables,
+              conditionals, loops, functions, arrays, and objects. These basic skills will be crucial as you go
+              on
+              to create dynamic and interactive web pages during your time at Lambda School.</p>
+            <h3 id="responsive-design">Responsive Design</h3>
+            <p>Responsive design covers topics that range from fixed layouts to fully responsive websites.
+              Responsive design addresses accessibility challenges and how developers can use flexible units to
+              overcome them. On top of being accessible, fully responsive websites are a joy to use and push web
+              development forward into the future.</p>
+            <h3 id="intro-to-javascript">Intro to JavaScript</h3>
+            <p>JavaScript is the backbone of interactive web pages. This module will tackle basic syntax and
+              logic
+              in JavaScript including variables, math, conditionals, loops, and functions. These building blocks
+              will inform the rest of your career as a web developer.</p>
+            <h3 id="arrays">Arrays</h3>
+            <p>Arrays allow you, the developer, to work with lots of changing data efficiently to keep code DRY.
+              Arrays, combined with the programmatic logic from the previous module, provide data to webpages,
+              and
+              make your life as a developer, a lot easier.</p>
+            <h3 id="objects">Objects</h3>
+            <p>Objects are yet another data type that can be used to store a collection of data (rather than
+              just
+              a single value). In this module you&apos;ll explore object syntax and some basic methods to work
+              with object data.</p>
+          </div>
+        </section>
+        <section>
+          <h1 id="module-responsive-web-design">Responsive Web Design</h1>
+          <div>
+            <ul>
+              <li>
+                <p><a href="https://www.youtube.com/watch?v=UY17acMdpek">Responsive Design for WEB38 w/Dave
+                    Kidd</a><br>
+                  Learn Responsive Design with Brit Hemming and WEB37</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/7OhlPVscwMs">Responsive Design for WEB37 w/Brit Hemming</a><br>
+                  Learn Responsive Design with Brit Hemming and WEB37</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/9jUWcnYcF6w">Responsive Design for WEBPT19 w/Dan Frehner</a><br>
+                  Learn Responsive Design with Dan Frehner and WEBPT19</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/wWCuVEK7S6I">Responsive Design for WEB35 w/Brit Hemming</a><br>
+                  Learn Responsive Design with Brit Hemming and WEB35</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="responsive-web-design-layouts">Responsive Web Design Layouts</h3>
+            <p>Knowing the subtle nuances between responsive web design layouts will allow you to make better
+              technical decisions for your apps and websites. Let&apos;s take a&#xA0;look at some design terms
+              and
+              how they translate into code.</p>
+            <h4 id="fixed-layout">Fixed Layout</h4>
+            <p>Fixed layouts are what the early web looked like. Designs usually looked good on desktop screens
+              but would slowly get worse as the browser&apos;s viewport got smaller. Horizontal scroll bars were
+              a
+              normal feature and you would find yourself pinching and zooming all over mobile devices to read a
+              website.</p>
+            <p>The user experience on multiple devices is usually poor, so why are fixed designs still around
+              today? Because fixed layouts are much cheaper to build and maintain.</p>
+            <h5 id="features-of-fixed-layout">Features of Fixed Layout</h5>
+            <ul>
+              <li>Design is usually desktop only.</li>
+              <li>CSS widths are usually hardcoded pixels.</li>
+              <li>Horizontal scroll bars appear as the viewport shrinks smaller than the website&apos;s design.
+              </li>
+              <li>No media queries are used.</li>
+              <li>Quicker deployment.</li>
+            </ul>
+            <h4 id="fluid-layout">Fluid Layout</h4>
+            <p>The opposite of a fixed layout is one that could expand and contract in proportion to most
+              devices.
+              This sounds great at first, but without constraints, you soon have to think about how your site
+              will
+              look on several devices with one set of styles.</p>
+            <p>Some of the problems of a fluid layout include: images getting too small, buttons growing too
+              large, and layouts that can grow to be way too spacious on large desktops. It&apos;s a constant
+              game
+              of white space and content. Fluid layouts still have a place in modern web design but are seen
+              less
+              frequently compared to adaptive and responsive.</p>
+            <h5 id="features-of-fluid-layout">Features of Fluid Layout</h5>
+            <ul>
+              <li>Design is often divided among desktop, tablet, or phone</li>
+              <li>Percent based units instead of hard coded pixels</li>
+              <li>Everything is designed to proportionally shrink</li>
+              <li>No media queries are used</li>
+            </ul>
+            <h4 id="adaptive-layout">Adaptive Layout</h4>
+            <p>Adaptive layouts borrow from the speed of a fixed-layout but accommodate different devices at
+              specific breakpoints in design. For example, an adaptive website may have hardcoded pixels used
+              for
+              layout using media queries for different devices.</p>
+            <p>Adaptive layout is another cheap and easy way to get more content out quickly for a business to
+              more devices. Adaptive layout still lacks in&#xA0;accommodating for thousands of devices because
+              care was only given to specific designs at certain breakpoints. It&apos;s a lot better than fixed,
+              but we can do more with a responsive layout.</p>
+            <h5 id="features-of-adaptive-layout">Features of Adaptive Layout</h5>
+            <ul>
+              <li>Design is often divided among desktop, tablet, or phone</li>
+              <li>Media queries are used</li>
+              <li>Layout widths are still hardcoded at each media query</li>
+              <li>Quick deployment for specific devices</li>
+            </ul>
+            <h4 id="responsive-layout">Responsive Layout</h4>
+            <p>Responsive layouts combine features of fixed, adaptive, and fluid websites into one seamless
+              experience. Media queries are used to constrain responsive units so that as the viewport expands
+              or
+              shrinks, you get an experience that looks and functions beautifully across thousands of devices
+              and
+              screen sizes.</p>
+            <p>Responsive sites take more time and effort to create and are the standard long term projects
+              should
+              aim for.</p>
+            <h5 id="features-of-responsive-layout">Features of Responsive Layout</h5>
+            <ul>
+              <li>Design is often divided among desktop, tablet, or phone.</li>
+              <li>Responsive units are used throughout the site.</li>
+              <li>Media queries are used.</li>
+              <li>Site accommodates thousands of devices and takes longer to build.</li>
+            </ul>
+            <h2 id="follow-along">Follow Along</h2>
+            <h3 id="responsive-web-design-layout-tutorial">Responsive Web Design Layout Tutorial</h3>
+            <p>Let&apos;s use the same HTML structure to showcase the differences between fixed, fluid,
+              adaptive,
+              and responsive layouts. You can use your own editor to follow along or just <a
+                href="https://codepen.io/lambdaschool/pen/gZwPVg?editors=1100">click this link</a> to see the
+              codepen version</p>
+            <p>We will use this HTML:</p>
+            <pre><code class="html language-html">&lt;div class=&quot;container&quot;&gt;
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;Blog&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;section class=&quot;main-content&quot;&gt;
+    &lt;h1&gt;Layouts&lt;/h1&gt;
+    &lt;p&gt;Testing out different layouts!&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre>
+            <h3 id="fixed-css">Fixed CSS</h3>
+            <p>Given the HTML above, let&apos;s use the following CSS to provide some constraints and a border
+              so
+              we can see our <code>.container</code>.</p>
+            <pre><code class="css language-css">/* Fixed Layout */
+.container {
+  width: 800px;
+  padding: 20px;
+  border: 1px solid red;
+  margin: 0 auto;
+}</code></pre>
+            <p>Notice the <code>width</code> and <code>padding</code> values are hardcoded pixels. Try resizing
+              your browser and see where the horizontal scroll bars show up.</p>
+            <p>This layout makes for really poor user experience if you&apos;re on a small screen or any kind of
+              device that doesn&apos;t match the 800px width.</p>
+            <h3 id="fluid-css">Fluid CSS</h3>
+            <p>Fluid utilizes the <code>%</code> responsive unit to control layout. Notice that we have to be
+              careful about the total width of the container adding up to 100%. We have to be careful to update
+              both the width and padding to equal 100% or we will see horizontal scroll bars again as the
+              viewport
+              shrinks.</p>
+            <p>Comment out the fixed CSS code from above and use our new fluid code.</p>
+            <pre><code class="css language-css">/* Fluid Layout */
+.container {
+  width: 98%;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 20px 1%;
+}</code></pre>
+            <p>Notice how small and how large you can resize the window without hurting the integrity of the web
+              page. This simple example showcases the major visual difference between fixed and fluid.
+              Let&apos;s
+              take a look at how adaptive can use media queries to control layout on a specific device.</p>
+            <h3 id="adaptive-css">Adaptive CSS</h3>
+            <p>With adaptive layout, we are going to take the fixed layout code and apply media queries to it.
+            </p>
+            <p>Comment out the fluid CSS code from above and use our new adaptive code.</p>
+            <pre><code class="css language-css">/* Adaptive Layout */
+.container {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 20px;
+}
+@media(max-width: 500px) {
+  .container {
+    width: 500px;
+    background: gray;
+  }
+  .container header nav {
+    display: flex;
+    flex-direction: column;
+  }
+ &amp;nbsp;.container header nav a {
+    margin-bottom: 20px;
+  }
+}</code></pre>
+            <p>Notice how we added some&#xA0;more styles specifically for our mobile view? This process is part
+              of
+              how adaptive &quot;adapts&quot; to the viewport. The problem with this solution is it&apos;s still
+              too rigid.</p>
+            <h3 id="responsive-css">Responsive CSS</h3>
+            <p>Responsive uses constraints with <code>%</code> based layouts for that seamless feeling between
+              devices. For example, we can use a css property of <code>max-width</code> to control the maximum
+              width of a container while also providing <code>%</code> flexibility below it. Notice how we
+              changed
+              <code>.container</code> to now stop growing past <code>800px</code>. Also, note that any
+              horizontal
+              margin or padding was converted into a responsive unit.
+            </p>
+            <p>These subtle changes will continue to be discussed later in this unit but for now, study the code
+              and notice it&apos;s not that big of a difference when we compare our adaptive layout.</p>
+            <pre><code class="css language-css">/* Responsive */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid red;
+&amp;nbsp; padding: 20px 1.25%;
+}
+@media(max-width: 500px) {
+  .container {
+    background: gray;
+  }
+  .container header nav {
+    display: flex;
+    flex-direction: column;
+  }
+ &amp;nbsp;.container header nav a {
+    margin-bottom: 20px;
+  }
+}</code></pre>
+            <h2 id="challenge">Challenge</h2>
+            <h3 id="responsive-web-design-layout-challenge">Responsive Web Design Layout Challenge</h3>
+            <p>Go to some of your favorite websites and use your browser&apos;s developer tools to inspect their
+              layouts.</p>
+            <p>Study the HTML and CSS and see how they made their site responsive. You may find responsive units
+              you have never seen before!</p>
+            <p>Take note of things you found that were interesting or confusing. Bring those questions or
+              observations to your group and discuss them in standup.</p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/tjl4s520oi" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <p>Max-width and min-width are the keys to the car when it comes to media queries. Understanding
+              that
+              &quot;mobile first design&quot; directly translates into min-width is a concept that many new
+              developers struggle with.</p>
+            <p>This simple example demonstrates the differences in max and min-width:</p>
+            <p><a href="https://codepen.io/bigknell/pen/ddYKVq">https://codepen.io/bigknell/pen/ddYKVq</a></p>
+            <p>Media queries use max and min width to determine where breakpoints are introduced so it&apos;s a
+              big deal to make sure we understand how each works concerning the viewport.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Let&apos;s put media queries to work by working on a desktop-down approach. <br><br></p>
+            <p>Go to this codepen:<br>
+              <a
+                href="https://codepen.io/bigknell/pen/GQjGgr?editors=1100">https://codepen.io/bigknell/pen/GQjGgr?editors=1100</a><br>
+              <br><br><br>
+              Base colors:<br><br>
+              box1: aqua<br><br>
+              box2: azure<br><br>
+              box3: cadetblue<br><br>
+              <br><br>
+              At 1000px and below:<br>
+            </p>
+            <ul>
+              <li>Change the width to 80% for ALL boxes<br></li>
+              <li>box1: blue<br></li>
+              <li>box2: green<br></li>
+              <li>box3: red<br><br>
+                <br><br>
+                At 768px and below:<br>
+              </li>
+              <li>Change the width to 60% for ALL boxes<br></li>
+              <li>box1: teal<br></li>
+              <li>box2: gold<br></li>
+              <li>box3: pink<br><br>
+                <br><br>
+                At 400px and below:<br>
+              </li>
+              <li>Change the width to 60% for ALL boxes<br></li>
+              <li>box1: purple<br></li>
+              <li>box2: black<br></li>
+              <li>box3: gray<br></li>
+            </ul>
+            <h2 id="challenge">Challenge</h2>
+            <p>Keep the color and width requirements we just did as a group, but take a mobile first approach by
+              using min-width.</p>
+            <p>That means the base colors of: <br>
+              box1: aqua<br>
+              box2: azure<br>
+              box3: cadetblue</p>
+            <p>Need to show up AFTER 1000px and up. This also means the boxes should go back to 100px at 1000px
+              and up&#xA0;as well.</p>
+            <p>This is a solo challenge, please don&apos;t share code until the solution is presented!</p>
+            <p><a
+                href="https://codepen.io/bigknell/pen/GQjGgr?editors=1100">https://codepen.io/bigknell/pen/GQjGgr?editors=1100</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/16qifbviuq" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="what-is-accessibility">What is Accessibility?</h3>
+            <p>Web accessibility, as you might expect, deals with making web pages and the internet accessible
+              to
+              all people, regardless of how they need to interact with the page. As web developers you should be
+              designing web pages with <em>all</em> people in mind. Including, but not limited to: those with
+              slow
+              internet connection, those on mobile devices, those with auditory, cognitive, neurological, or
+              physical disabilities,and those with visual needs. Recent studies show that up to 2.5% of all
+              internet users interact with the web using a screen reader, which is a considerable number of
+              people.</p>
+            <h3 id="universal-design-theory">Universal Design Theory</h3>
+            <p><a href="https://en.wikipedia.org/wiki/Universal_design">Universal design theory</a> states that
+              designing with the &quot;furthest out&quot; individual in mind will end up benefiting all
+              individuals who use the product or environment. This theory reaches all sorts of
+              design&#x2014;web,
+              architecture, learning, and more. A commonly used example of universal design theory, applied to a
+              real-world problem, are ramps on sidewalks. Though they were originally designed for people who
+              need
+              wheelchairs, they are used and enjoyed by many others for different needs such as parents with
+              children in strollers.</p>
+            <p>The idea of accessibility in web originated because people with disabilities needed to be able to
+              access the internet in non-traditional ways. Unsurprisingly though, designing accessible websites
+              has compounding benefits and it helps a plethora of other people. For example, folks using smaller
+              browser screens are positively impacted by websites designed for those who need larger font sizes.
+            </p>
+            <p>Other universal benefits of accessibility include designs intended for permanent physical
+              impairments that help people with temporary issues (like a broken thumb) and designs intended for
+              the hearing impaired, for example closed captioning, that help everyone when they&apos;re in a
+              loud
+              space or can&apos;t use headphones.</p>
+            <h3 id="responsive-units">Responsive Units</h3>
+            <p>One of the simplest ways to make sure your website is accessible is to use responsive units. We
+              touched on these already, but scalable units are really important in terms of accessibility. For
+              example, browsers have settings that allow users to change a page&apos;s font size, but that only
+              works if the associated CSS is scalable&#x2014;REM, EM, % are all scalable.</p>
+            <p>A well implemented example of this is the <a href="https://www.whitehouse.gov/">whitehouse.gov</a>
+              webpage&#x2014;go ahead and play around with your browser font size, and try zooming in and out to
+              see what this looks like.</p>
+            <p>This same logic applies to images and buttons, or really anything and everything that you might
+              style on your page.</p>
+            <h3 id="screen-readers">Screen Readers</h3>
+            <p>Screen readers are a great thing to keep top of mind while designing for accessibility. A screen
+              reader is a tool (a browser extension or app) that transmits web page data for people with visual
+              impairments, learning disabilities, or other needs; They usually operate by verbalizing the
+              content
+              or sometimes translating into braille. Screen readers read content based on how the HTML is coded,
+              starting with <code>&lt;h1&gt;</code> headings, and navigating through other elements accordingly.
+            </p>
+            <p>As a web developer, it is important to make sure that your tags are <em>semantic</em> so that
+              users
+              who rely on screen readers can navigate accordingly. A webpage made entirely with
+              <code>&lt;div&gt;</code> for example, would provide no hierarchy to the screen reader or the user,
+              and would prevent them from being able to navigate the site.
+            </p>
+            <p>Semantic tags typically have english meaning, like <code>&lt;header&gt;</code>,
+              <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;button&gt;</code> and
+              <code>&lt;article&gt;</code>. Non-semantic tags are those without any english meaning, like
+              <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>.
+            </p>
+            <p>Similarly, when designing universally, you should be sure to include meaningful id and class
+              names,
+              and always give your images &quot;alt&quot; text.</p>
+            <h3 id="color">Color</h3>
+            <p>Close to 5% of the population of the United States (about 13 million people) is colorblind. Not
+              to
+              mention that plenty of folks view websites in grey scale out of personal preference. Therefore,
+              when
+              color is used to convey an important message, the message can be lost on a lot of users.</p>
+            <p>To avoid this issue, every colorfully displayed component should have a visual counterpart. A
+              common example of this difference is pictured below. Here, there is a form field showing an error
+              message. The top example isn&apos;t accessible but the bottom is, simply because we added a
+              symbol.
+            </p>
+            <p><img src="https://tk-assets.lambdaschool.com/96fabbf6-aadc-4b38-8a85-a7b2bac6be3f_Slice.png"
+                alt="Form Accessibility"></p>
+            <p>In addition, you&apos;ll want to use colors that contrast well, and try to avoid red and green in
+              general, since they are the trickiest colors for people who are colorblind.</p>
+            <h3 id="final-thoughts">Final Thoughts</h3>
+            <p>There are entire careers dedicated to making webpages accessible, and this is just the tip of the
+              iceberg. When it comes to designing for accessibility, it isn&apos;t just the right thing to do,
+              in
+              many cases, <a href="https://www.section508.gov/manage/laws-and-policies">it&apos;s also the
+                law</a>. We hope this introduction encourages you to employ universal design theory from here on
+              out!</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Study the code below -- What&apos;s accessible? What&apos;s not? Together, we&apos;ll change the
+              code to make it more accessible.</p>
+            <p class="codepen" data-default-tab="css,result" data-editable="true" data-height="265"
+              data-pen-title="Accessibility " data-slug-hash="bGdJEQO" data-theme-id="light" data-user="lambdaschool"
+              style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+              <span>See the Pen <a href="https://codepen.io/lambdaschool/pen/bGdJEQO">
+                  Accessibility </a> by Lambda School (<a href="https://codepen.io/lambdaschool">@lambdaschool</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script src="https://static.codepen.io/7-assets/embed/ei.js" async></script>
+            <p>One of the first things you should notice above is that every element uses a
+              <code>&lt;div&gt;</code> tag. If a screen reader were trying to read this code, it would start
+              with
+              &quot;This is some text that isn&apos;t as important,&quot; instead of the title.
+            </p>
+            <p>We can easily change all of the divs to h1, h2, and p tags, to make it compatible with screen
+              readers. That might look like this:</p>
+            <pre><code class="html language-html">&lt;h2 class=&quot;something&quot;&gt;This is some text that isn&apos;t as important &lt;/h2&gt;
+&lt;h1 class=&quot;title&quot;&gt;This is a title&lt;/h1&gt;
+&lt;p class=&quot;red&quot;&gt;This is an important message!&lt;/p&gt;
+&lt;p class=&quot;green&quot;&gt;This is an important message!&lt;/p&gt;</code></pre>
+            <p>Instantly more accessible! Another big no-no in this pen is the hard-coded pixels. Those should
+              be
+              changed to responsive units. You can use the information below or use this super helpful w3
+              schools
+              <a href="https://www.w3schools.com/cssref/css_pxtoemconversion.asp">cheat sheet</a> to convert PX
+              to
+              EM.
+            </p>
+            <pre><code class="css language-css">html{
+  text-align: center;
+  margin: 3%;
+}
+.title {
+  color: blue;
+  font-size:120%;
+}
+.something{
+  font-size: 56.25%;
+}</code></pre>
+            <p>Finally, let&apos;s look at the <code>class</code> names. Since there is so little content on
+              this
+              site, it doesn&apos;t seem like that matters, but consider what would happen if we started to add
+              styling, or build out whole classes. Before moving on, change the class &quot;something&quot; to
+              &quot;subtitle&quot;. This helps not only screen readers, but your future developer self.</p>
+            <pre><code class="html language-html">&lt;h2 class=&quot;subtitle&quot;&gt;This is some text that isn&apos;t as important &lt;/h2&gt;</code></pre>
+            <h2 id="challenge">Challenge</h2>
+            <p>There are a few more non-accessible pieces in the pen above. Make changes according to what you
+              learned today.</p>
+            <p>Hint: start with the image and the text colors.</p>
+          </div>
+        </section>
+        <section>
+          <h1 id="module-intro-to-javascript">Intro to JavaScript</h1>
+          <div>
+            <ul>
+              <li>
+                <p><a href="https://youtu.be/ktCpmwgJSZs">Intro to JavaScript for Web40 w/Brit Hemming</a><br>
+                  Learn JavaScript with Brit Hemming and Web40</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/iUZEsI6NFks">Intro to JavaScript for Web37 w/Brit Hemming</a><br>
+                  Learn JavaScript with Brit Hemming and Web37</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/98yrB_HjcmE">Intro to JavaScript for WebPT22 w/Nathan
+                    Braun</a><br>
+                  Learn JavaScript with Nathan Braun and WebPT22</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/ZrjXhv9W0vo">Intro to JavaScript for Web35 w/Brit Hemming</a><br>
+                  Learn JavaScript with Brit Hemming and Web35</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/6nuWjLu_9u0">Intro to JavaScript for WebPT21 w/Pace
+                    Ellsworth</a><br>
+                  Learn JavaScript with Pace Ellsworth and WebPT21</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/3jWupGSON4g">Intro to JavaScript for Web34 w/Brit Hemming</a><br>
+                  Learn JavaScript with Brit Hemming and Web34</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/234li2itp3" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="what-is-javascript-and-why-do-we-use-it">What is JavaScript and why do we use it?</h3>
+            <p>JavaScript is a programming language that was first created in 1994 as a way to add functionality
+              and interactivity to a website. If we think back to our analogy of a web page as a house, we will
+              remember that we said that JavaScript is the electricity, plumbing, and gas. It is what makes the
+              web page &quot;run&quot;. JavaScript was originally designed to be used purely on the front end as
+              a
+              way for web developers to add functionality to their web pages, and in its early days, it did just
+              that. Recently, the introduction of the &quot;V8 engine&quot; by Google has improved the speed and
+              functionality of JS. That led to the development and release of exciting new front end JavaScript
+              frameworks and eventually Node.js, a way to run JavaScript on a server (back end). This new
+              development has led to a resurgence of JavaScript. Now, JavaScript is one of the world&apos;s most
+              widely-used programming languages. We can find JavaScript used on the front end, back end, mobile,
+              Internet of Things (IoT), game development, and really anywhere a traditional programming language
+              would be used. Though there are later versions, we will be focusing on and using JavaScript ES6 in
+              this course because it is the most widely applicable.</p>
+            <h4 id="javascript-vs-java-and-other-languages">JavaScript vs Java (and other languages)</h4>
+            <p>Keep in mind, JavaScript is not the same as Java. Although they share similar names (this was,
+              unfortunately, considered a good thing by JavaScript&apos;s early pioneers) that is where the
+              similarities end.</p>
+            <p>The creators of JavaScript wanted to borrow concepts from other programming languages, such as
+              Scheme, Java, and C. Those of you with backgrounds in other languages may see things that look
+              very
+              familiar, mainly the use of classes and Object-Oriented Programming (OOP) architecture. Keep in
+              mind
+              that JavaScript is not a &quot;true&quot; OOP language and many things you may be familiar with
+              from
+              another language won&apos;t work with JavaScript.</p>
+            <p>JavaScript is considered a &apos;loosely&apos; typed language, in which types do exist, but they
+              are not enforced. You do not have to declare a type when creating a variable or an array, for
+              instance.</p>
+            <h4 id="how-to-run-javascript">How to &apos;run&apos; JavaScript</h4>
+            <p>For this class, we are going to use a special code sandbox program just like we did with the last
+              lesson (CodePen), called <a href="https://www.repl.it">repl.it</a>. This will allow us to write
+              and
+              edit our code and run it right in our browser window to see a real-time read-out.</p>
+            <p>While this is one way to run your JavaScript, most JavaScript is run from a file with the
+              extension
+              of <code>.js</code> (e.g., <code>fileName.js</code>) and loaded into your browser via the
+              <code>script</code> tag in your HTML.
+            </p>
+            <p>JavaScript, being the de-facto language of the Internet, can also be run directly within an
+              Internet browser. In fact, you can write all of the JavaScript you want and watch it run in
+              real-time right in your browser by pressing F12 (for Windows), or Cmd+option+J (for Mac) (for
+              Google
+              Chrome). This will open up your <em>console</em> (we will learn more about the console later).</p>
+            <p><img src="https://i.imgur.com/Q1dilaw.gif" alt="console"></p>
+            <h3 id="hello-world">Hello World</h3>
+            <p>Hello World is traditionally used to introduce programmers to a new language. The origins of this
+              date back to one of the first computer languages, C, where printing the phrase &quot;hello
+              world&quot; was a major victory.</p>
+            <p>In JavaScript, printing &quot;Hello, World!&quot; requires just one line of code. Before you move
+              on, try this example to write your first program!</p>
+            <iframe data-src="https://repl.it/@sunjieming/Hello-World?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <h3 id="variables">Variables</h3>
+            <p>At the heart of JavaScript are variables. A variable is a way to store, change and use data in
+              code. To explain this concept, consider your favorite webpage: maybe it&apos;s instagram, maybe an
+              online game. More than likely, there are lots of changing pieces on these pages - instagram has
+              likes and usernames, a video game has character selection, game score, and many more - every one
+              of
+              those changing bits of data is stored in a variable. The variable called <code>score</code>, for
+              example, starts with <code>0</code>, and changes every time you gather points in the game.</p>
+            <p>Similarly, you might create a variable called <code>greet</code> and store the value &quot;Hello
+              World&quot; to further simplify your program above to <code>console.log(greet)</code>.</p>
+            <p>The syntax to create a variable is first the keyword, a space, the name we are giving the
+              variable,
+              an equal sign, the value we are assigning the variable, and then a semicolon. (A note for those
+              with
+              previous programming knowledge: JavaScript is a loosely-typed language, which means that a
+              variable
+              can be set, and reset, to any type. We do not need to declare its type when creating the
+              variable.)
+            </p>
+            <p>There are <em>three</em> keywords used to declare variables -<code>var</code>, <code>let</code>,
+              and <code>const</code>. Each keyword comes with slightly different use cases, mostly based around
+              what happens when you change the value of the variable. Some examples of syntax are below.</p>
+            <pre><code class="javascript language-javascript">var firstName = &apos;John&apos;;
+let lastName = &apos;Smith&apos;;
+const favoriteFood = &apos;Taco&apos;;</code></pre>
+            <h4 id="var">var</h4>
+            <p><code>var</code> is the ES5 way of declaring a variable. This is a generic variable keyword.
+              Variables created with var can be changed without causing errors. While that sounds like a good
+              thing at first, using <code>var</code> too often might lead to buggy code.</p>
+            <p>Note in the example below that once you declare the variable, you can change it without having to
+              declare again. This is true with all variable keywords.</p>
+            <pre><code class="javascript language-javascript">var firstName = &apos;Alice&apos;;
+firstName = &apos;Bob&apos;;        // &lt;- this would be fine</code></pre>
+            <p>If <code>var</code> is commonly regarded as bad programming practice, what should we use?</p>
+            <h4 id="const">const</h4>
+            <p>A <code>const</code> variable is a variable that cannot be changed later in the code. It&apos;s
+              short for &quot;constant&quot;. In our example above &quot;Bob&quot; could not be changed to
+              &quot;Alice&quot; and would throw an error.</p>
+            <pre><code class="javascript language-javascript">const firstName = &apos;Alice&apos;
+firstName = &apos;Bob&apos;         // &lt;- this would cause an error</code></pre>
+            <p>This fixes the bug issue, but we know that sometimes variables do need to change - like, the
+              score
+              of a game. Is there a better solution?</p>
+            <h4 id="let">let</h4>
+            <p>Enter <code>let</code>. <code>let</code> is a new ES6 variable keyword. This will assign a
+              variable
+              much like <code>var</code>, but with a little bit different behavior. Most notably, it differs by
+              creating &quot;block level scope&quot;. For our purposes at the moment, <code>let</code> and
+              <code>var</code> function almost exactly the same. When we get to writing functions and loops, we
+              can start to use <code>let</code> to our advantage.
+            </p>
+            <pre><code class="javascript language-javascript">let firstName = &apos;Alice&apos;;
+firstName = &apos;Bob&apos;;</code></pre>
+            <p>To recap:</p>
+            <ul>
+              <li><code>var</code> can be re-assigned and changed.</li>
+              <li><code>let</code> can be re-assigned but not changed.</li>
+              <li><code>const</code> cannot be re-assigned nor changed.</li>
+            </ul>
+            <p>Because these three keywords achieve the same thing (storing data in memory and assigning that
+              data
+              a &apos;key&apos; that can be used for access) but behave very differently, there are places in
+              this
+              world for all three. And of course, as with everything, there are some other intricacies to learn
+              about the <code>let</code> <code>const</code> and <code>var</code> keywords that we didn&apos;t
+              cover here today.</p>
+            <p><strong>Lambda School Rule of Thumb</strong> When defining/declaring variables <em>use const
+                until
+                you can&apos;t, then use let</em>.</p>
+            <p>We <strong>highly</strong> recommend researching the differences between <code>var</code>,
+              <code>let</code> and <code>const</code> in terms of their scoping rules as well. We&apos;ll cover
+              more on this later on when talking about function vs. block scoping. But for now, I&apos;ll point
+              you towards the <strong>Dig Deeper</strong> section&apos;s link, <strong>How let and const are
+                scoped in JavaScript</strong>, for some further understanding here.
+            </p>
+            <h3 id="primitive-data-types-string-number-boolean">Primitive Data Types (String, Number, Boolean)
+            </h3>
+            <p>Primitive data types, also known as basic data types are the simplest data types in JavaScript.
+              They&apos;re sort of like primary colors in that all other data types (which we will learn about
+              in
+              later lessons) are made of these types.</p>
+            <h4 id="strings">Strings</h4>
+            <p>Strings are blocks of text. They will always be defined with quotation marks around them, either
+              single or double. Any text with quotes around it (even numbers) are strings.</p>
+            <pre><code class="javascript language-javascript">const dog = &apos;fido&apos;;
+const string = &apos;2&apos;;</code></pre>
+            <h4 id="numbers">Numbers</h4>
+            <p>Numbers are just that, numbers. Numbers do NOT have quotes around them. They can be negative as
+              well. JavaScript does have a limitation on the size of a number (+/- 9007199254740991), but only
+              very rarely will that limitation come up.</p>
+            <pre><code class="javascript language-javascript">const answer = 42;
+const negative = -13;</code></pre>
+            <h4 id="booleans">Booleans</h4>
+            <p>Booleans are an important relic from the origins of computer science. It is a dichotomous concept
+              that powers binary code, still the very core of computers. You may have seen binary code in the
+              past
+              (e.g., 0001 0110&#x2026;). That is Boolean logic. The only booleans in JavaScript are
+              <code>true</code> and <code>false</code>, traditionally written in lowercase letters. These
+              variables are useful when you need to employ some kind of dichotomous (or
+              &quot;yes&quot;/&quot;no&quot;) logic in your code.
+            </p>
+            <pre><code class="javascript language-javascript">const iLoveJavascript = true;
+const isThisaString = false;</code></pre>
+            <p>Note that while Booleans look like strings, the lack of <code>&apos;</code> around the words
+              indicates that the variable is a boolean and it will work differently under the hood.</p>
+            <h3 id="undefined-and-null">Undefined and Null</h3>
+            <p>There are a couple of JavaScript objects that don&apos;t really fit into any type. Those are the
+              values <code>undefined</code> and <code>null</code>. You will get <code>undefined</code> when you
+              are looking for a variable that does not have a value yet. <code>undefined</code> simply means
+              what
+              you are asking for does not exist.</p>
+            <pre><code class="javascript language-javascript">console.log(unkownVar); // undefined</code></pre>
+            <p><code>null</code> is an object that we, the developers, set when we want to tell other developers
+              that the item they are looking for exists, but there is no value associated with it. While
+              <code>undefined</code> is set by the JavaScript language, <code>null</code> is set by the
+              developer.
+              If you ever receive <code>null</code>, it means that another developer has set that value to
+              <code>null</code>.
+            </p>
+            <pre><code class="javascript language-javascript">let phoneNumber = &apos;123-456-7890&apos;;
+phoneNumber = null;
+phoneNumber; // null</code></pre>
+            <p>One last thing to note, neither <code>undefined</code> nor <code>null</code> are strings. They
+              are
+              written just as they are without quotes around them, like a Boolean.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <iframe data-src="https://repl.it/@sunjieming/Declare-Variables?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>Declare a variable called &apos;name&apos; with the var keyword. Give it the value of your name.
+              The code below will console.log your variables. Don&apos;t touch this code!</p>
+            <p>To declare a variable with var we first use the <code>var</code> keyword, followed by the name of
+              our variable, <code>name</code>, and finally the value, <code>Alice</code></p>
+            <pre><code class="javascript language-javascript">var name = &apos;Alice&apos;;</code></pre>
+            <p>Declare a variable called &apos;food&apos; with the let keyword. Give it the value of your
+              favorite
+              food. Declaring a variable with let works similarly to <code>var</code>, all we need to do is
+              change
+              the keyword to <code>let</code>. Remember that this will allow for mutability, but will show a
+              warning when you try to change the value.</p>
+            <pre><code class="javascript language-javascript">let food = &apos;Pizza&apos;;</code></pre>
+            <p>Declare a variable called birthMonth with the const keyword. Give it the value of your birth
+              month
+              (i.e. January or February). Const doesn&apos;t allow for mutability, and much like you can&apos;t
+              change your birth month, you can&apos;t change the value of this variable declared with
+              <code>const</code>.
+            </p>
+            <pre><code class="javascript language-javascript">const birthMonth = &apos;February&apos;;</code></pre>
+            <h2 id="challenge">Challenge</h2>
+            <p>It&apos;s time to check your knowledge with a <a
+                href="https://codepen.io/lambdaschool/pen/zLydNr">Variables Challenge</a>. There is a solution
+              link at the bottom of the codepen to check your work.</p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/pnon34y10u" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="math-operators">Math Operators</h3>
+            <p>Calculators were the first major computer function. In JavaScript, we have built-in math
+              operators
+              that work exactly as they do on your calculator.</p>
+            <h4 id="standard-operators">Standard Operators</h4>
+            <p>JavaScript can preform any standard operations - addition (<code>+</code>), subtraction
+              (<code>-</code>), multiplication (<code>*</code>), and division (<code>/</code>) on integers and
+              strings. There are dozens of practical applications of this, mathematical operations being just
+              the
+              beginning.</p>
+            <pre><code class="javascript language-javascript">1 + 1; // returns 2
+2 * 2; // returns 4
+2 - 2; // returns 0
+2 / 2; // returns 1
+const num1 = 2
+const num2 = 2
+num1 + num2 // returns 4
+const string1 = &apos;My name is&apos;
+const string2 = &apos;Bob&apos;
+string1 + string2 // returns &apos;My name is Bob&apos;</code></pre>
+            <h3 id="">%</h3>
+            <p>Something you may not have seen before is the <em>modulo operator</em> (%). This math operator
+              will
+              divide two numbers (integers or floats) and return only the remainder. For example, <code>10 /
+                3</code> is 3 with a remainder of 1, so <code>10 % 3</code> (read as &apos;10 mod 3&apos;) will
+              return <code>1</code> .</p>
+            <pre><code class="javascript language-javascript">21 % 5; // returns 1
+21 % 6; // returns 3
+21 % 7; // returns 0</code></pre>
+            <h3 id="mathpow">Math.pow</h3>
+            <p>We can use the <code>pow</code> method on <code>Math</code> to return a number raised to an
+              exponent. It will take two numbers. The first is the base and the second is the power. For
+              example,
+              <code>Math.pow(5,2)</code> calculates 5 squared, which is 25. See some more examples below:
+            </p>
+            <pre><code class="javascript language-javascript">Math.pow(2,2) // returns 4
+Math.pow(3,2) // returns 9
+Math.pow(3,3) // returns 27</code></pre>
+            <h3 id="mathround-mathfloor-mathceil">Math.round, Math.floor, Math.ceil</h3>
+            <p><code>Math</code> also has methods that will round numbers for us. <code>.round</code> will round
+              a
+              number to the nearest whole number. <code>.floor</code> will always round a number down to the
+              nearest whole number. <code>.ceil</code> will always round up to the nearest whole number.</p>
+            <pre><code class="javascript language-javascript">Math.round(6.5) // returns 7
+Math.round(6.45) // returns 6
+Math.floor(6.999) // returns 6
+Math.ceil(6.0001) // returns 7</code></pre>
+            <h3 id="truthiness">Truthiness</h3>
+            <p>In these lessons, we have talked a lot about the Boolean values, <code>true</code> and
+              <code>false</code>. When using an <code>if</code> statement or other statements that expect a
+              Boolean value (such as the <code>!</code>, NOT), if the expression given is not a Boolean value,
+              JavaScript will do something called type coercion and transform whatever it is given into a
+              Boolean
+              value. This is known as &quot;truthy&quot; and &quot;falsey&quot; - yes, seriously. Every data
+              type
+              has some truthiness to it. Here are some examples:
+            </p>
+            <pre><code class="javascript language-javascript">// items that are interpreted as true
+true
+1
+&apos; &apos;
+[] // an array, you&apos;ll learn more about this later
+{} // an object, you&apos;ll learn more about this later
+function() {}
+// items that are interpreted as false
+false
+0
+undefined
+null
+&apos;&apos;</code></pre>
+            <h3 id="comparison-operators">Comparison Operators</h3>
+            <p>JavaScript has a number of comparison and logical operators, (<code>&gt;</code>
+              <code>&gt;=</code>
+              <code>&lt;</code> <code>&lt;=</code> <code>===</code> <code>!==</code>). These operators work just
+              as they would in math: greater than, less than, greater than or equal to, and all the rest. We use
+              these operators to evaluate two expressions. As the computer runs the code, the operator will
+              return
+              either a <code>true</code> (if the statement is true) or a <code>false</code> (if the statement is
+              not true).
+            </p>
+            <pre><code class="javascript language-javascript">1 &gt; 2;     // false
+2 &lt; 3;     // true
+10 &gt;= 10;  // true
+100 &lt;= 1;  // false</code></pre>
+            <p>The &quot;triple equals&quot; sign ( <code>===</code> ) must not be confused with a single equal
+              sign (which indicates assigning a value to a variable). The triple equal will compare everything
+              about the two items, including type, and return if they are exactly equal or not.<br>
+              (Something to note: there is also a &quot;double equals&quot; ( <code>==</code> ) sign which will
+              compare two items, but it allows type coercion so a string and an integer can be considered equal
+              (<code>1 == &apos;1&apos; // true</code>). Due to this, it is considered bad practice to use the
+              double equal sign. We would like to see you always using the triple equal sign, and you will
+              always
+              see us using it.)</p>
+            <pre><code class="javascript language-javascript">1 === 1;          // true
+1 === &apos;1&apos;;        // false
+&apos;cat&apos; === &apos;cat&apos;;  // true
+&apos;cat&apos; === &apos;Cat&apos;;  // false</code></pre>
+            <p>The last comparison operator we would like to introduce you to has two parts to it.</p>
+            <p>First is the &quot;NOT&quot; (<code>!</code>). When you see this it will mean that we are asking
+              the opposite of the expression (we will revisit the NOT operator later in this lesson).</p>
+            <p>With that in mind, we can introduce the &quot;not equals&quot; ( <code>!==</code> ) sign. This
+              will
+              return true if the items are NOT equal to each other, in any way. This, like the triple equal
+              sign,
+              takes type into account.</p>
+            <pre><code class="javascript language-javascript">1 !== 1;          // false
+1 !== &apos;1&apos;;        // true
+&apos;cat&apos; !== &apos;cat&apos;;  // false
+&apos;cat&apos; !== &apos;Cat&apos;;  // true</code></pre>
+            <h3 id="logical-operators">Logical Operators</h3>
+            <p>We can also combine two equality expressions and ask if either of them are true, both of them are
+              true, or neither of them is true. To do this we will use Logical Operators.</p>
+            <h4 id="-1"><code>&amp;&amp;</code></h4>
+            <p>The first logical operator we will look at is the &quot;AND&quot; operator. It is written with
+              two
+              ampersands (&amp;&amp;). This will evaluate both expressions and will return true if BOTH
+              expressions are true. If one (or both) of them is false, then this operator will return false.<br>
+              For example, <code>(100 &gt; 10 &amp;&amp; 10 === 10)</code> will return true because both
+              statements are true, but <code>(10 === 9 &amp;&amp; 10 &gt; 9)</code> will return false because
+              one
+              statement is false.</p>
+            <h4 id="-2"><code>||</code></h4>
+            <p>Next up is the &quot;OR&quot; operator. It is written with two vertical bars (||). This operator
+              will check two expressions and return true if either one is true. It will return false only if
+              BOTH
+              expressions are false. As you&apos;d expect a line where both parts are true would return true.
+              Like
+              so:</p>
+            <pre><code class="javascript language-javascript">(100 &gt; 10 || 10 === 10) //true</code></pre>
+            <p>Similarly this line where only one expression is accurate, would return true. Like this:</p>
+            <pre><code class="javascript language-javascript">(10 === 9 || 10 &gt; 9) //true</code></pre>
+            <p>If both expressions are false, like this, then the result will be false.</p>
+            <pre><code class="javascript language-javascript">(10 === 9 || 1 &gt; 9) //false</code></pre>
+            <h4 id="-3"><code>!</code></h4>
+            <p>The last logical operator is the &quot;NOT&quot; operator. It is written as a single exclamation
+              mark (<code>!</code>). We saw this operator earlier when determining equality (<code>!==</code>).
+              As
+              before, the NOT operator will return the opposite Boolean value of what is passed to it.</p>
+            <p>In this first case, since the opposite of false is true, <code>(!false)</code> would return true.
+            </p>
+            <pre><code class="javascript language-javascript">(!false) // true</code></pre>
+            <p>Similarly since 1 is equal to 1 and this statement is true, <code>!(1===1)</code> would return
+              false thanks to the <code>!</code> operator.</p>
+            <pre><code class="javascript language-javascript">(!(1 === 1)) // false</code></pre>
+            <h4 id="notes-about-logical-operators">Notes About Logical Operators</h4>
+            <p>A couple things to note about logical operators.</p>
+            <ul>
+              <li>
+                <p>The expressions are evaluated in order, and the computer will skip any redundant expressions.
+                  In an <code>&amp;&amp;</code> statement, if the first expression is <code>false</code>, the
+                  second expression will not be evaluated because BOTH expressions need to be <code>true</code>.
+                  Same for the <code>||</code> statement. If the first expression is <code>true</code>, the
+                  second
+                  will not be evaluated because there only needs to be one <code>true</code> statement to
+                  fulfill
+                  the requirements of the operator.</p>
+              </li>
+              <li>
+                <p>Use parentheses. As we saw in the second <code>!</code> operator example, we used parentheses
+                  to evaluate what was inside of the parentheses FIRST, then applied the <code>!</code>
+                  operator.
+                  We can wrap ANY expression in parentheses and it will be evaluated before evaluating the
+                  expression as a whole.</p>
+              </li>
+            </ul>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>You may have tried the following riddle on your friend as a kid. Using our knowledge of variables
+              and math we&apos;re going to create a console application to return a person&apos;s birthday
+              starting with just the number <code>7</code>. The steps we need to take are as follows.</p>
+            <pre><code class="text language-text">Enter the number 7
+Multiply by the month of your birth
+Subtract 1
+Multiply by 13
+Add the day of your birth
+Add 3
+Multiply by 11
+Subtract the month of your birth
+Subtract the day of your birth
+Divide by 10
+Add 11
+Divide by 100</code></pre>
+            <iframe data-src="https://repl.it/@sunjieming/Math?lite=true" height="400px" width="100%" scrolling="yes"
+              frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>We&apos;ll walk through the example for someone born on February 22. First, we need to create our
+              magical number variable. We&apos;ll use <code>let</code> so that this can be easily changed.</p>
+            <pre><code class="javascript language-javascript">let magicalNumber = 7;</code></pre>
+            <p>Now, we test the riddle. For every calculation we will need to change the value of
+              <code>magicalNumber</code> and preform the riddle step.
+            </p>
+            <pre><code class="javascript language-javascript">// Multiply by the month of your birth
+magicalNumber = magicalNumber * 2
+// Subtract 1
+magicalNumber = magicalNumber - 1
+// Multiply by 13
+magicalNumber = magicalNumber * 13
+// Add the day of your birth
+magicalNumber = magicalNumber + 22
+// Add 3
+magicalNumber = magicalNumber + 3
+// Multiply by 11
+magicalNumber = magicalNumber * 11
+// Subtract the month of your birth
+magicalNumber = magicalNumber - 2
+// Subtract the day of your birth
+magicalNumber = magicalNumber - 22
+// Divide by 10
+magicalNumber = magicalNumber / 10
+// Add 11
+magicalNumber = magicalNumber + 11
+// Divide by 100
+magicalNumber = magicalNumber / 100</code></pre>
+            <p>Finally, let&apos;s <code>console.log</code> our magical number and see if it returns
+              <code>2.22</code> as expected. If our calculations are correct, this should work for any birthday!
+            </p>
+            <pre><code class="javascript language-javascript">console.log(magicalNumber)</code></pre>
+            <p>To make this application more useful, you could create a variable called <code>birthMonth</code>
+              and another called <code>birthYear</code> and let the program run on its on.</p>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your knowledge with a short <a href="https://codepen.io/lambdaschool/pen/xxbvoLx">math
+                challenge</a>.</p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/2jott8ytl0" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="control-flow">Control Flow</h3>
+            <p>Often times, as a computer is reading and executing our code, we want code to run only if
+              something
+              is true or not. For example, add one point to the variable <code>score</code> <strong>if</strong>
+              the character touches a coin. This is known as control flow or conditional logic. Control flow
+              means
+              that not all code on the screen is executed in order, or at all. We will learn to use some basic
+              control flow today, and will dive deeper into it in our next lesson.</p>
+            <p>Let&apos;s say you wanted to write a simple script to check whether someone is a legal driver.
+              You
+              could use conditional logic to print a <code>true</code> or <code>false</code> boolean.</p>
+            <iframe data-src="https://repl.it/@sunjieming/Conditionals?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>Here we are taking a number (age) and checking to see if the statement is true. The statement 16
+              &gt; 15 is true, so our code will return <code>true</code>. If it is not, it will skip that chunk
+              of
+              code and return <code>false</code>.</p>
+            <p><strong>Check For Understanding:</strong> Change the value of <code>age</code> above so that the
+              code will return <code>false</code>.</p>
+            <p>We just learned about the <code>if</code> operator. We can use <code>if</code> to check and see
+              <strong>if</strong> an expression is true. If it is, JavaScript will run some code. If it is not,
+              JavaScript will skip the code and keep running the program.
+            </p>
+            <pre><code class="javascript language-javascript">if (1 + 1 === 2) {
+    console.log(&apos;The expression is true!&apos;);
+}
+// since 1 + 1 does equal 2, JavaScript will console.log (&quot;The expression is true!&quot;)
+if (1 + 1 === 3) {
+    console.log(&apos;The expression is true!&apos;);
+}
+// since 1 + 1 does NOT equal 2, JavaScript will NOT console.log (&quot;The expression is true!&quot;)</code></pre>
+            <p>To add on to <code>if</code>, we can also use the <code>else</code> and <code>else if</code>
+              statements. These statements must be used only after <code>if</code> has been used. These
+              statements
+              will be evaluated <strong>if</strong> the initial <code>if</code> returns false. We can think of
+              the
+              <code>else if</code> as another <code>if</code> statement that has been chained (we can have as
+              many
+              else if statements we want). Only one <code>if</code> or <code>else if</code> statement code block
+              will be run. If at any time a statement evaluates to true, that code will be run and the rest will
+              be skipped:
+            </p>
+            <pre><code class="javascript language-javascript">if (1 + 1 === 3) {
+    console.log(&apos;This will be skipped!&apos;); // since 1 + 1 is NOT 3, this will be skipped
+} else if (1 + 1 === 2) {
+    console.log(&apos;This code will be run.&apos;); // since 1 + 1 is equal to 2, this will be run
+} else if (1 - 1 === 0) {
+    // 1 - 1 IS 0, however, the previous if statement was already true, so this will be skipped
+    console.log(&apos;This code will NOT be run.&apos;);
+}</code></pre>
+            <p>The else statement will always come at the end of an if-else if chain, and will act as a default.
+              If <em>none</em> of the expressions returned true, the else code block will be run no matter what.
+              If any of the previous if or else if expressions are true, the else statement code block will not
+              be
+              run.</p>
+            <pre><code class="javascript language-javascript">if (1 + 1 === 3) {
+    console.log(&apos;This will be skipped!&apos;); // since 1 + 1 is NOT 3, this will be skipped
+} else if (1 + 1 === 3) {
+    console.log(&apos;This code will NOT be run&apos;); // since 1 + 1 is NOT 3, this will be skipped
+} else {
+    console.log(&apos;This code will be run&apos;); // since the above were skipped, this will run
+}</code></pre>
+            <h4 id="why-use-else-if">Why use else-if?</h4>
+            <p>You may be thinking to yourself, &quot;Why not just use a bunch of different if statements? Why
+              use
+              else-if? That is a valid question, and sometimes that is the right approach to take. It is up to
+              you
+              to decide which is the right approach. Remember, when using a block of conditionals, only ONE of
+              the
+              statements will be run, even if there are multiple statements that are true. The same can not be
+              said for multiple if statements; they will run if true regardless of statements before and after.
+              Take this example:</p>
+            <pre><code class="javascript language-javascript">const age = 21;
+if(age &gt; 20) {
+    console.log(&apos;older than 20!&apos;);
+} else if (age &gt; 15){
+    console.log(&apos;older than 15!&apos;);
+} else {
+    console.log(&apos;younger than 15!&apos;);
+}</code></pre>
+            <p>In the above example only <code>older than 20!</code> will be logged even though both the if
+              statement and else if statement were true.</p>
+            <pre><code class="javascript language-javascript">const age = 21;
+if(age &gt; 20) {
+    console.log(&apos;older than 20!&apos;);
+}
+if (age &gt; 15) {
+    console.log(&apos;older than 15!&apos;);
+}
+if (age &lt;= 15) {
+    console.log(&apos;younger than 15!&apos;);
+}</code></pre>
+            <p>In the above example the first and second if statements would be logged because both of them are
+              true.</p>
+            <p>As you can see, it will be up to you to decide if you want to have multiple actions based on your
+              data or just one action.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p><strong>Note:</strong> the following example will span several lessons, we suggest forking the
+              repl.it below and saving your work as you go along. As always, you can also code along in the
+              repl.it here.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-I?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>Let&apos;s create an algorithm to flip a coin and <code>console.log()</code> &quot;heads&quot; or
+              &quot;tails.&quot; To do this, we&apos;ll generate a random <code>0</code> or <code>1</code> and
+              write a conditional <code>if</code> statement to return the <code>heads</code> or
+              <code>tails</code>
+              reading.
+            </p>
+            <p>First lets set up a variable called <code>coinFlip</code> and give it a randomly assigned
+              <code>0</code> or <code>1</code> value. To do this we need to use two methods of the
+              <code>Math</code> object - <code>Math.round()</code> and <code>Math.random()</code>.
+              <code>Math.random()</code> generates a random number between 0 and 1, and
+              <code>Math.round()</code>
+              rounds that decimal to the nearest whole number.
+            </p>
+            <p>In the syntax below, Javascript <em>first</em> reads <code>Math.random()</code> and generates a
+              random number, for example, 0.56324. Then it reads <code>Math.round()</code> and applies it to the
+              random number, giving an integer, in this example, a <code>1</code>.</p>
+            <pre><code class="javascript language-javascript">var coinFlip = Math.round(Math.random());</code></pre>
+            <p>Add this to your repl.it and console.log() <code>coinFlip</code> a few times to make sure
+              you&apos;re getting a mix of <code>0</code>s and <code>1</code>s.</p>
+            <p>Next up, we&apos;ll add our conditional logic. Since we already have a randomly generated 0 or 1,
+              we can set up an <strong>if/else</strong> statement where <code>1</code> represents
+              <code>&quot;Heads&quot;</code> and <code>0</code> represents <code>&quot;Tails&quot;</code>.
+            </p>
+            <p>We&apos;ll write this statement using the syntax we learned above, such that <strong>if</strong>
+              <code>coinFlip</code> is equal to <code>1</code>, we will console.log
+              <code>&quot;Heads&quot;</code>. Otherwise (<strong>else</strong>), we can assume
+              <code>coinFlip</code> must be <code>0</code> and console.log <code>&quot;Tails&quot;</code>.
+            </p>
+            <pre><code class="javascript language-javascript">if (coinFlip === 1){
+    console.log(&quot;Heads&quot;)
+} else{
+    console.log(&quot;Tails&quot;)
+}</code></pre>
+            <p>We now have a fully functional coin flipping algorithm! Congratulations. You can view and run the
+              solution code in the pen below. We&apos;ll continue to add to this over the next few objectives.
+            </p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-II?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your knowledge with the <a
+                href="https://codepen.io/lambdaschool/pen/bGNXPxK?editors=0010">conditionals challenge</a>.</p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/sp9lbgrv1o" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="loops">Loops</h3>
+            <p>Most software runs on loops, evaluating expressions over and over again until it either returns
+              what we are looking for, or hits a certain number of loops. JavaScript has two looping expressions
+              built into it and today we will look at the first one, the &quot;for&quot; loop.</p>
+            <h3 id="for-loops">For Loops</h3>
+            <p>Imagine you wanted to console.log() the phrase <code>hello, world!</code> 5 times. With your
+              current knowledge that would look something like this. This is just for illustration, please,
+              never
+              code like this.</p>
+            <pre><code class="javascript language-javascript">console.log(&quot;hello, world!&quot;);
+console.log(&quot;hello, world!&quot;);
+console.log(&quot;hello, world!&quot;);
+console.log(&quot;hello, world!&quot;);
+console.log(&quot;hello, world!&quot;);</code></pre>
+            <p>In general, you should almost <strong>never</strong> have to copy and paste chunks of code. Not
+              only is it a bad programming practice, it is time consuming, and it leads to errors. Consider, for
+              example, how much work it would be if you wanted to change &quot;world&quot; to someone&apos;s
+              name.
+              So how would you console.log() <code>hello, world!</code> five times? Using <code>for</code>
+              loops!
+              With a <code>for</code> loop, the above example could be reduced to the following.</p>
+            <pre><code class="javascript language-javascript">for (let i = 0; i &lt; 5; i++) {
+// | declare a var | conditional expression | increment var|
+    console.log(&quot;hello, world!&quot;);
+}</code></pre>
+            <p><code>for</code> loops are useful anytime you need to run the same block of code a certain number
+              of times. Imagine you go to the store and want to buy 10 avocados. Instead of scanning each
+              avocado
+              one by one, the cashier will add the cost of one avocado to your total <strong>for</strong> each
+              avocado you buy. In other words, <strong>for</strong> each avocado, add <code>cost</code>. This
+              would result in adding <code>cost</code> 10 times.</p>
+            <p><code>for</code> loops have a unique syntax, similar to the <code>if</code> statement, but
+              slightly
+              more complex. First, we have the <code>for</code> keyword, followed by parentheses, and then open
+              and close braces. Within the parentheses, we will need three things. First, we must declare a
+              variable (usually <code>i</code>) as a starting point. Then, we will have a conditional
+              expression.
+              The loop will continue happening until this statement is <code>false</code>. Third, we will
+              increment our variable, telling the loop a pattern to follow. Usually, the increment will be
+              <code>i++</code>, meaning increase <code>i</code> by 1 every time the loop runs. All three of
+              these
+              statements are separated by a semicolon.
+            </p>
+            <pre><code class="javascript language-javascript">for (let i = 0      ; i &lt; 10                 ; i++          ) {
+//  | declare a var | conditional expression | increment var|
+     console.log(i);
+}</code></pre>
+            <p>In this example, we see that we initially set our <code>counter</code> variable (<code>i</code>)
+              to
+              0. The loop will run and each time it gets to the end, it will increase the counter by one. The
+              for
+              loop will then evaluate the conditional expression. If it is <code>true</code>, it will run again,
+              but if it is <code>false</code> it will stop running. Therefore, the return of the example above
+              would be the following:</p>
+            <iframe data-src="https://repl.it/@sunjieming/For-Loops?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> Edit the code above to return 1,2,3,4,5,6,7,8,9,10
+              (each
+              on a new line is fine).</p>
+            <h3 id="the--operator">The ++ operator</h3>
+            <p>We saw in the last two examples the <code>++</code> operator. This is JavaScript shorthand for
+              &quot;Set the value of the variable to its current value plus one&quot;. There are a few more of
+              these variable math/assignment shorthand expressions. We will visit them in upcoming lessons.</p>
+            <h3 id="while-loops">While loops</h3>
+            <p>While loops are similar to for loops in that they make it easy to repeat some action for a
+              desired
+              amount of time. Just like for loops, they will run so long as a condition is met. The key
+              difference
+              here is that you don&apos;t need to declare an incrementing variable when you declare a while
+              loop.
+            </p>
+            <p>Syntactically, while loops look like this. Note that the example below is what we call an
+              &quot;infinite loop&quot; because the condition will never be false.</p>
+            <pre><code class="javascript language-javascript">while (i === true) {
+  console.log(&quot;i is true&quot;);
+}</code></pre>
+            <p>Most practical example of loops will use some kind of &quot;counter&quot;, an outside variable
+              that
+              will be affected by what&apos;s inside the loop. A more practical example of a while loop, using a
+              counter, might look like:</p>
+            <pre><code class="javascript language-javascript">let count = 1;
+while (count &lt; 10) {
+    console.log(count);
+    count +=2;
+}</code></pre>
+            <p>The return of this loop would be 11 because the loop would add 2 every time it runs, until the
+              value is greater than 10.</p>
+            <h3 id="infinite-loops">Infinite Loops</h3>
+            <p>As mentioned, it is possible to write a loop such that it never ends. This is what we call an
+              &quot;Infinite Loop&quot; and it will break your program. Take for example this loop:</p>
+            <pre><code class="javascript language-javascript">for (let i = 0; i &gt;= 0; i++) {
+    console.log(i);
+}</code></pre>
+            <p>Because our conditional expression will ALWAYS be <code>true</code> (<code>i</code> will never be
+              less than 0) this loop will essentially run forever. This will break your program, and may crash
+              your web browser, or computer.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Let&apos;s wrap our heads/tails program in a loop to allow a user to play more than one time.</p>
+            <p>We&apos;ll start where we left off with the conditional. Its actually fairly simple to add loop
+              functionality. We&apos;re going to wrap this whole chunk of code inside a for loop.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-II?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>To do so we&apos;ll utilize the same syntax from above, and for now we&apos;ll tell the loop to
+              run
+              five times. We&apos;ll start by declaring the <code>for</code> keyword, then setting our initial
+              value to <code>0</code> (<code>let i = 0</code>). We want the loop to run until <code>i</code> is
+              equal to <code>5</code>, <code>i &lt; 5</code>, and to add <code>1</code> to <code>i</code> every
+              time the loop runs.</p>
+            <pre><code class="javascript language-javascript">for (let i = 0;         i &lt; 5;          i++) {
+//   start at 0   | loop until 5   | add one every time</code></pre>
+            <p>As you might imagine, we can now change the number of coinFlips to preform by changing the
+              conditional expression above, so <code>i &lt; 5</code> could change to <code>i &lt; 10</code> and
+              our coin would be flipped 10 times.</p>
+            <p>Its important to note that the variable needs to go inside of the loop so that it is randomly
+              generated each time the loop runs. Otherwise, <code>coinFlip</code> would be declared outside of
+              the
+              loop and our end result would be 5 <code>heads</code> or 5 <code>tails</code>. Go ahead and try
+              moving the variable around to see what we mean.</p>
+            <p>With this seemingly simple MVP, you could go on to add a lot of functionality to this program,
+              including user interaction through <code>window.prompt()</code> or by integrating HTML. Again, you
+              can view and run the solution code in the pen below.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-III?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your knowledge with a short <a
+                href="https://codepen.io/lambdaschool/pen/BaNBBpN?editors=0012">loops
+                challenge</a></p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/pjsxvz27r3" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="introduction-to-functions">Introduction to Functions</h3>
+            <p>Functions allow you, the developer, to repeat sections of code with just a single line. Consider,
+              for a second, you want to &quot;program&quot; a robot to bake you cookies. A practical program,
+              because you&apos;d have cookies all the time! Code, without functions, might include steps like
+              <code>addFlour</code>, <code>addEggs</code>, <code>addChocolateChips</code>,
+              <code>preheatOven</code>, <code>bake</code>. A function could collect these steps into a container
+              called <code>bakeCookies()</code>. Then, running <code>bakeCookies()</code> would produce the
+              same,
+              delicious result as the individual steps.
+            </p>
+            <p>We mentioned earlier that you never want to copy and paste code, this is not only true when you
+              want to repeat one single action, but also when you want to repeat a whole chunk of actions. In
+              the
+              case of the latter, we use functions.</p>
+            <p>We can think of functions as small computer programs. Functions allow us to write code that will
+              be
+              used over and over again, keeping our code <code>DRY</code> (&quot;<strong>D</strong>on&apos;t
+              <strong>R</strong>epeat <strong>Y</strong>ourself!&quot;).
+            </p>
+            <p>Before we dive into syntax, study the following example and predict the output.</p>
+            <pre><code class="javascript language-javascript">function myFunc() {
+    console.log(&apos;this is my function!&apos;)
+}
+myFunc()</code></pre>
+            <p>If you guessed that the output would be <code>this is my function</code>, congratulations - you
+              are
+              correct! Once you&apos;ve declared a function, like <code>myFunc</code> it can be used over and
+              over
+              again to give the same, predictable result.</p>
+            <iframe data-src="https://repl.it/@sunjieming/Functions?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> Edit the code above to <code>console.log()</code>
+              &quot;Hello, World!&quot; when <code>myFunc()</code> is called.</p>
+            <h3 id="function-syntax">Function Syntax</h3>
+            <p>Just like we used <code>const</code>, <code>let</code>, and <code>var</code> to declare
+              variables,
+              we use the keyword <code>function</code> to declare functions.</p>
+            <pre><code class="javascript language-javascript">function myFunc() {
+// tasks go here
+}</code></pre>
+            <p>The <code>function</code> keyword tells whatever is running your program that what follows is a
+              function and to treat it as such. After that comes the name - we like to give functions names that
+              describe what they do, like <code>logsHello</code>. Then comes an open and a close parentheses,
+              <code>()</code>. And finally, open and close brackets. In between these brackets is where all of
+              our
+              function code will go.
+            </p>
+            <pre><code class="javascript language-javascript">function logsHello() {
+    console.log(&apos;hello&apos;);
+}
+logsHello();</code></pre>
+            <p>In this example, we declare a function <code>logsHello</code> and set it up to
+              <code>console.log</code> <code>&apos;hello&apos;</code>.
+            </p>
+            <p>In order to run this function, we need to write or invoke its name with the parentheses after it,
+              <code>logsHello()</code>. This is the syntax to run (aka. call) a function. A function always
+              needs
+              parentheses to run.
+            </p>
+            <iframe data-src="https://repl.it/@sunjieming/Functions-2?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> The function syntax above is correct, but nothing shows
+              up when the program is run! Add a line of code so that the console displays <code>hello</code>.
+            </p>
+            <h4 id="function-declaration-hoisting">Function Declaration Hoisting</h4>
+            <p>JavaScript utilizes a two-pass compiler when executing lines of code that we write. This means
+              that
+              anytime we run JavaScript in the browser, the browser will take two passes over our code. The
+              first
+              pass builds up references to all of our code, declaring variables and functions and the like. The
+              second pass applies values to the references that were found, thus actually running the code.</p>
+            <p>Function declarations are defined in the first pass. The compiler is made aware of the function
+              declaration and adds it to the top of the execution order for your code. This concept of putting a
+              function higher in the execution order for later use is known as hoisting.</p>
+            <p>What does this mean for you? It means that function declarations can be invoked <em>before</em>
+              they are defined! Let&apos;s take a look at an example:</p>
+            <pre><code class="javascript language-javascript">// This code is valid above the definition!
+console.log(add(2,4)) // 6
+function add(a,b){
+ console.log(a + b);
+}</code></pre>
+            <p>This is odd behavior to developers new to JavaScript. It can be used as a feature or introduce
+              bugs
+              if not understood properly. Be aware that hoisting applies to function declarations and not
+              function
+              expressions or arrow functions.</p>
+            <h3 id="function-expressions">Function Expressions</h3>
+            <p>Now that we have a better understanding of how basic function syntax works, we can push even
+              further into another type of function, a function expression.</p>
+            <p>Function expressions have unique differences when compared against function declarations:</p>
+            <ul>
+              <li>A variable is used to store the function for later use</li>
+              <li>Anonymous functions are used</li>
+              <li>Function expressions are not hoisted. They can only be invoked after a definition has been
+                placed in the execution stack.</li>
+            </ul>
+            <p>Example of a function expression:</p>
+            <pre><code class="javascript language-javascript">const add = function(a,b){
+ console.log(a + b);
+}
+add(2,4) // 6</code></pre>
+            <p>Notice the function doesn&apos;t actually have a name. This is what we refer to as an
+              <em>anonymous
+                function</em>. Because we are using a <code>const</code> named <code>add</code> we don&apos;t
+              need
+              to name our function anything. We can simply execute the function when <code>add</code> is
+              referenced by invocation.
+            </p>
+            <p>Why do this and not use a function declaration? Because we have more control over our code now.
+              We
+              will discuss this in greater detail later on with scope and closure. For now, just know that arrow
+              functions make code more concise.</p>
+            <h3 id="arrow-function-expressions">Arrow Function Expressions</h3>
+            <p>Arrow functions are fancy looking function expressions with a major feature removed, the
+              <code>function</code> keyword. We won&apos;t focus on why this is important right now, Instead, we
+              will start getting used to seeing the syntax of what an arrow function looks like:
+            </p>
+            <pre><code class="javascript language-javascript">// function expression syntax
+// const add = function(a,b) {
+//  console.log a + b;
+// }
+// arrow function expression syntax
+const add = (a,b) =&gt; {
+ console.log(a + b);
+}
+add(2,4) // 6</code></pre>
+            <p>You will notice that we removed the <code>function</code> keyword in front of our parameters and
+              then added a <code>=&gt;</code> token behind the parameters. This is a pretty straightforward
+              conversion!</p>
+            <p>Syntactically, we didn&apos;t remove much, we lost a few characters in the word
+              <code>function</code> and gained a <code>=&gt;</code>. However, there are many sub-rules for
+              syntax
+              with arrow functions. Those sub-rules can create extremely streamlined syntax. This line of code
+              is
+              a good example.
+            </p>
+            <pre><code class="javascript language-javascript">// streamlined arrow syntax
+const add = (a,b) =&gt; console.log(a + b);
+add(2,4); // 6</code></pre>
+            <p>Wow, there are a lot of abstractions occurring there! We do not need our <code>{}</code> because
+              they are redundant in the rules of arrow functions. You haven&apos;t seen <code>return</code>
+              statements yet, but they too, are not needed in arrow functions.</p>
+            <p>It&apos;s fun to see how slim we can get, but a word of caution: stick with the simple conversion
+              first and slowly step into using other syntactical sugar approaches as you progress.</p>
+            <p>Often, developers will go too far with syntactical sugar, and the code becomes very hard to read.
+              Arrow function expressions are great to use with array methods, for example, but may not be a
+              great
+              choice in a lot of other places.</p>
+            <h4 id="when-not-to-use-arrow-functions">When Not To Use Arrow Functions</h4>
+            <p>There is a time and place for arrow functions. Here is a list of times you should not be using
+              them:</p>
+            <ul>
+              <li>Event handlers (Unless they are inside a class constructor!)</li>
+              <li>Object methods</li>
+              <li>Prototype methods</li>
+              <li>Anytime you need to use arguments Object</li>
+            </ul>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Let&apos;s return to our coin flip game to create a function <code>flip()</code> that will run
+              our
+              code with a single line.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-III?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>Just like with loops, all we need to do is add another layer of functionality here, so we&apos;ll
+              wrap a function declaration around all the code we already have.</p>
+            <p>We need to declare the function with the keyword <code>function</code>, then name it with
+              <code>name</code> + <code>()</code>, so here we can write <code>function name()</code> and wrap
+              the
+              whole function in curly brackets (<code>{}</code>) like so.
+            </p>
+            <pre><code class="javascript language-javascript">function flip() {
+    // coin flip algorithm goes here
+}</code></pre>
+            <p>When this process is successfully completed, a single line of code (<code>flip()</code>) will run
+              our coin flip game! As usual, view and run solution code below.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-IV?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your knowledge with the <a
+                href="https://codepen.io/lambdaschool/pen/VwLwdQE?editors=0012">functions
+                challenge.</a></p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/r1zpe7glrk" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="passing-data-into-functions">Passing Data into Functions</h3>
+            <p>Let&apos;s return to our cookie example. Pretend that you want your robot to bake different
+              <em>types</em> of cookies. Do you need to write a new function for every cookie? Not at all.
+              Instead, you could add a parameter, or variable, called <code>recipe</code> and call
+              <code>bakeCookies(&apos;pecan&apos;)</code> or
+              <code>bakeCookies(&apos;chocolateChunk&apos;)</code>.
+            </p>
+            <p>Parameters are how functions accept changing data. Consider the example below.</p>
+            <pre><code class="javascript language-javascript">function add(num1, num2) {
+  return (num1 + num2);
+}
+add(2,2) // returns 4
+add(4,5) // returns 9</code></pre>
+            <p>We can declare variables called <code>parameters</code> (num1 and num2 in the example above) that
+              represent data we will use when calling the function. This is similar to algebra. <code>X + Y =
+                Z</code> would be a pretty meaningless equation, but once we substitute <em>real numbers</em>
+              for
+              <code>X</code> and <code>Y</code>, we can easily solve for <code>Z</code>. Here, <code>X</code>
+              and
+              <code>Y</code> are analogous to parameters, and the <em>real numbers</em> to
+              <code>arguments</code>.
+            </p>
+            <p>We&apos;ll dive into details about both parameters and arguments in this section, but the
+              differences can be summarized as follows.</p>
+            <ul>
+              <li>Function parameters are the names listed in the function&apos;s definition.</li>
+              <li>Function arguments are the real values passed to the function.</li>
+              <li>Parameters are initialized to the values of the arguments supplied.</li>
+            </ul>
+            <h4 id="parameters">Parameters</h4>
+            <p>As illustrated above, a function parameter will represent the data we pass into a function, for
+              use
+              in the function. Essentially when we write a function we assign the data variable names, even
+              without knowing what the data will be. We set these <code>variables</code> inside of the
+              parentheses
+              when we write the function. There is no limit to the amount of parameters we can include in a
+              function, but each variable name must be separated by a comma. We can then use these
+              <code>variables</code> within our function just as we would any other variable.
+            </p>
+            <pre><code class="javascript language-javascript">function myFunc( parameter1, parameter2) {
+    // We can use parameter1 and parameter2 in this function just like a variable
+}</code></pre>
+            <h4 id="arguments">Arguments</h4>
+            <p>Once we have our parameters set up in our function, we can now pass data into the function. In
+              order to do this, we will put each piece of data inside the the parentheses we write when we call
+              the function. We call these pieces of data <code>arguments</code>. <code>arguments</code> can be
+              ANY
+              data type (string, number, Boolean, object, array, even other functions!). Unlike other languages,
+              JavaScript does not require us to set the data type when we write the function, although you
+              should
+              make an effort to understand what type of data will be coming into the function (and if you are
+              using pre-built functions, you should know what data type that function expects).</p>
+            <p>To use an argument, just put the data in the function call parentheses like so:</p>
+            <pre><code class="javascript language-javascript">function logsName(name){
+    console.log(name);
+}
+logsName(&apos;Dan&apos;); // returns Dan
+logsName(&apos;Diandra&apos;); // returns Diandra</code></pre>
+            <p>If you have more than one parameter, you will use more than one argument:</p>
+            <pre><code class="javascript language-javascript">function logsSchool( School, descriptor ){
+    console.log(`${School} ${descriptor}`);
+}
+logsSchool(&apos;Lambda&apos;, &apos;is Awesome!&apos;); // logs Lambda is Awesome!</code></pre>
+            <p>Arguments will always line up with parameters in order, so the first argument will be the first
+              parameter, and so on.</p>
+            <p>If an argument is not given for a parameter, the parameter will be equal to
+              <code>undefined</code>.
+            </p>
+            <iframe data-src="https://repl.it/@sunjieming/Arguments-and-Parameters?lite=true" height="400px"
+              width="100%" scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> Call <code>logsPerson</code> to return a greeting with
+              your name, city, and favorite color <em>without</em> changing the function itself.</p>
+            <h4 id="the-return-statement">The <code>return</code> Statement</h4>
+            <p>We will not always want to <code>console.log()</code> everything that comes out of a function.
+              Most
+              likely we will want to return something for use in other operations. The only way for us to use
+              data
+              that is local to a function is with the keyword <code>return</code>. <code>return</code>,
+              essentially, lets data escape a function. Nothing other than what is returned can be accessed
+              outside of the function. <code>return</code> is always the last thing in a function because when
+              the
+              function hits a return statement, the function immediately stops everything else that it is doing.
+            </p>
+            <p>We can also assign the value of a return statement to another variable, and we will now have
+              access
+              to the data returned from the function.</p>
+            <pre><code class="javascript language-javascript">function addTwoNumbers(num1, num2) {
+   const sum = num1 + num2;
+   return sum;
+   console.log(&apos;This will never be reached&apos;);
+}
+const newSum = addTwoNumbers( 1, 2 );
+console.log(addTwoNumbers(1,2)); //returns 3
+console.log(sum); // returns undefined - sum exists only inside the function
+console.log(newSum); // returns 3 - value is held in newSum</code></pre>
+            <ul>
+              <li>Note: We will never be able to have access to the actual variable created in the function. We
+                will only have access to the data that variable was assigned to.</li>
+            </ul>
+            <iframe data-src="https://repl.it/@sunjieming/Return-Statement?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> Declare a variable to save Alice&apos;s lottoTicket
+              autoresponse and another to save Bob&apos;s lottoTicket autoresponse.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>When we left our coin flip game, it flipped the coin 5 times, according to the conditional
+              expression in our <code>for</code> loop.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-IV?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>To allow our users to flip the coin a variable number of times we can use a parameter,
+              <code>repeat</code>.
+            </p>
+            <pre><code class="javascript language-javascript">function flip(repeat){
+    // add parameter
+}</code></pre>
+            <p>We will reference <code>repeat</code> into our conditional expression which will cause the loop
+              to
+              run a variable number of times.</p>
+            <pre><code class="javascript language-javascript">function flip(repeat) {
+  for (let i = 0; i &lt; repeat; i++) {
+      // use parameter as conditional expression
+  }
+}</code></pre>
+            <p>When we run the function, we&apos;ll substitute the variable <code>repeat</code> for a number.
+              For
+              example, substituting <code>repeat</code> for 10, would flip the coin 10 times.</p>
+            <pre><code class="javascript language-javascript">flip(10); // &lt;- will flip coin 10 times</code></pre>
+            <p>Our final product will look something like this. Play around with the <code>repeat</code>
+              argument
+              here until you can clearly explain how the argument changes the functions output.</p>
+            <iframe data-src="https://repl.it/@sunjieming/coinFlip-V?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your knowledge with the <a
+                href="https://codepen.io/lambdaschool/pen/GRJRGxa?editors=0001">arguments
+                and parameters
+                challenge</a>.</p>
+          </div>
+        </section>
+        <section>
+          <h1 id="module-arrays">Arrays</h1>
+          <div>
+            <ul>
+              <li>
+                <p><a href="https://youtu.be/Qyyuy42FKq4">Arrays for Web40 w/Brit Hemming</a><br>
+                  Learn about Arrays with Brit Hemming and Web40</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/SHXN_IQ1Wjs">Arrays for Web38 w/Dave Kidd</a><br>
+                  Learn about Arrays with Dave Kidd and Web38</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/WrRNuB2kvic">Arrays for Web37 w/Brit Hemming</a><br>
+                  Learn about Arrays with Brit Hemming and Web37</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/sbxel7vcf4" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <p>In the first JavaScript lesson, we discussed the 3 basic data types (strings, numbers, and
+              Booleans), and how to assign those data types to variables. We discussed how a variable can only
+              point to a single string, number, or Boolean. In many cases, though, we want to be able to point
+              to
+              a collection of data of either the same or different types. For example, what if we wanted to keep
+              track of cookie flavors using a single variable, <code>flavors</code>. We can do that using
+              Arrays.
+              We can think of arrays as storage containers for collections of data. Building an array is simple:
+              declare a variable and set it to []. We can then add however many strings, numbers, or Booleans we
+              want to the container (comma separated), and access those items whenever we want.</p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];</code></pre>
+            <h4 id="length">.length</h4>
+            <p>Just like the String data type which has a built-in <code>.length</code> property, the array also
+              has a built-in <code>.length</code> property. In fact, the array has a lot of useful built-in
+              methods (we will be discussing those in later lessons). Just as string <code>.length</code> counts
+              the characters, array <code>.length</code> will return the number of items in an array:</p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    console.log(flavors.length);  // 4</code></pre>
+            <h3 id="accessing-items-in-an-array">Accessing Items in an Array</h3>
+            <p>We can access an item at any time in an array, we just need to call the item by its position in
+              the
+              array. Items are given a numerical position (index) according to where it is in the array, in
+              order.
+              An array&apos;s numerical order ALWAYS starts at 0, so the first item is in the 0 index, the
+              second
+              in the 1 index, the third in the 2, and so on (this can be tricky at first, but just remember
+              <strong>arrays always start at 0</strong>).
+            </p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+                           0               1            2               3</code></pre>
+            <p>In order to access the item, we will type the name or the array variable, followed by brackets
+              containing the numerical assignment.</p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    console.log(flavors[1]);  // &apos;sugar&apos;</code></pre>
+            <iframe data-src="https://repl.it/@sunjieming/Indexing-Arrays?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> console.log &apos;Brandon&apos; by accessing it from
+              the
+              array.</p>
+            <p>Without knowing an array&apos;s length, it&apos;s still possible to access the last item using
+              some
+              simple logic. The return of the length property <code>- 1</code> will always return the last item
+              in
+              the array. We know the first item is always going to be 0, and every item after is shifted over
+              one
+              number. So in our example, the last item has an index of 3 even though <code>flavors</code> has a
+              length of 4. Therefore when we don&apos;t know the number of items in an array we can access the
+              last item like so:</p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    console.log(flavors[flavors.length - 1]);  // &apos;lemon crisp&apos;</code></pre>
+            <h3 id="assignment">Assignment</h3>
+            <p>We can assign and reassign any index in the array using the bracket/index and an <code>=</code>.
+            </p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    flavors[0] = &apos;caramel pecan&apos;;
+    console.log(flavors);  // [&apos;caramel pecan&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;]</code></pre>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Study and run the following code. Here we have over 20 lines of code that, while functional,
+              contain tons of repetition and can be reduced to 1, using an array. Our goal in this challenge
+              will
+              be to eliminate the need for conditionals using array indexing.</p>
+            <iframe data-src="https://repl.it/@sunjieming/EightBall-I?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>To begin, let&apos;s create an array called fortunes to hold all of the options.</p>
+            <pre><code class="javascript language-javascript">const fortunes = [&quot;yes, definitely&quot;, &quot;you can rely on it.&quot;, &quot;Without a doubt.&quot;, &quot;most likely.&quot;, &quot;hmm... I&apos;m not sure!&quot;, &quot;yikes. Nope.&quot;, &quot;try again.&quot;, &quot;very doubtful.&quot;]</code></pre>
+            <p>We can access individual fortunes using their index like fortunes[0] or fortunes[1] to access
+              &quot;yes, definitely&quot; and &quot;you can rely on it,&quot; respectively.</p>
+            <p>Since we already have a random number generator built into our code in the form of
+              <code>answer</code>. We can replace all of the conditionals with a single line,
+              <code>console.log(fortune[answer]);</code>, condensing almost 20 lines into 1!
+            </p>
+            <pre><code class="javascript language-javascript">function eightBall() {
+    const answer = Math.floor(Math.random() * 8);
+    const fortunes = [&quot;yes, definitely&quot;, &quot;you can rely on it.&quot;, &quot;Without a doubt.&quot;, &quot;most likely.&quot;, &quot;hmm... I&apos;m not sure!&quot;, &quot;yikes. Nope.&quot;, &quot;try again.&quot;, &quot;very doubtful.&quot;]
+    fortune = fortunes[answer];
+    console.log(fortune)
+}
+eightBall()</code></pre>
+            <p>If we wanted to adjust our original code even further we could create a random number generator
+              function. This code is easier to read and understand, but is similarly <code>DRY</code> compared
+              to
+              the above.</p>
+            <pre><code class="javascript language-javascript">function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+function eightBall() {
+    const fortunes = [&quot;yes, definitely&quot;, &quot;you can rely on it.&quot;, &quot;Without a doubt.&quot;, &quot;most likely.&quot;, &quot;hmm... I&apos;m not sure!&quot;, &quot;yikes. Nope.&quot;, &quot;try again.&quot;, &quot;very doubtful.&quot;];
+    var fortune = fortunes[getRandomInt(0,7)];
+}</code></pre>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your skills with the <a href="https://codepen.io/lambdaschool/pen/VwLwdVg?editors=0012">arrays
+                challenge</a>.</p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/59j0f8g6b3" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <p>There will be times when you need to edit data inside of arrays, we have a few special
+              <code>methods</code> in JavaScript to do so.
+            </p>
+            <h3 id="length">.length</h3>
+            <p>Just like the String data type has a built in .length property, so does the array. In fact the
+              array has a lot of useful built in methods (we will be discussing those in a moment and in later
+              lessons). Just like the string .length counts the characters, array .length will return the number
+              of items in an array:</p>
+            <pre><code class="javascript language-javascript">const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+console.log(flavors.length);  // 4</code></pre>
+            <h3 id="push--pop">.push &amp; .pop</h3>
+            <p>Two more very useful built-in array methods are <code>.push</code> and <code>.pop</code>. These
+              methods refer to the adding and removing of items from the array after its initial declaration.
+            </p>
+            <p><code>.push</code> adds an item to the end of the array, incrementing its length by 1.
+              (<code>.push</code> returns the new length)</p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    flavors.push(&apos;carmel Pecan&apos;);
+    console.log(flavors);  // [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;, `carmel pecan`]</code></pre>
+            <p><code>.pop</code> removes the last item in the array, decrementing the length by 1.
+              (<code>.pop</code> returns the &quot;popped&quot; item)</p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    flavors.pop();
+    console.log(flavors);  // [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;]</code></pre>
+            <h3 id="unshift--shift">.unshift &amp; .shift</h3>
+            <p><code>.unshift</code> and <code>.shift</code> are exactly like <code>.push</code> and
+              <code>.pop</code>, except they operate on the first item in the array. <code>.unshift(item)</code>
+              will put a new item in the first position of the array, and <code>.shift()</code> will remove the
+              first item in the array.
+            </p>
+            <pre><code class="javascript language-javascript">    const flavors = [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;];
+    flavors.unshift(&apos;carmel pecan&apos;);
+    console.log(flavors);  // [&apos;carmel pecan&apos;, &apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;]
+    flavors.shift();
+    console.log(flavors);  // [&apos;chocolate chip&apos;, &apos;sugar&apos;, &apos;peanut butter&apos;, &apos;lemon crisp&apos;]</code></pre>
+            <iframe data-src="https://repl.it/@sunjieming/Array-Methods?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> Use an array method to remove &apos;Jon&apos; from
+              <code>studentNames</code>.
+            </p>
+            <h3 id="notes-on-arrays">Notes on Arrays</h3>
+            <p>For those with prior programming experience: because JavaScript is not a strongly typed language,
+              arrays do not need to be typed either. Arrays in JavaScript can contain multiple different data
+              types in the same array.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Recall our <code>eightBall</code> function from earlier. Use the space below to practice applying
+              array methods to our <code>fortunes</code> array.</p>
+            <iframe data-src="https://repl.it/@sunjieming/EightBall-II?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>First, consider a scenario where we want to add another fortune. While we could edit our original
+              array, it would be simpler and more mutable to do so using <code>.push()</code>.</p>
+            <pre><code class="javascript language-javascript">fortunes.push(&quot;I wouldn&apos;t if I were you.&quot;)</code></pre>
+            <p>Run this, then <code>console.log</code> the array to see your results.</p>
+            <p>Of course, after &quot;pushing&quot; that, we have 9 fortunes. We could easily remove that
+              fortune
+              using <code>.pop</code>.</p>
+            <pre><code class="javascript language-javascript">fortunes.pop()</code></pre>
+            <p><code>Console.log</code> your array again.</p>
+            <p>In another scenario we might want to add that fortune to the front and remove the last one,
+              &apos;very doubtful&apos;, from our list. We could combine the methods <code>.unshift</code> and
+              <code>.pop</code> to accomplish this.
+            </p>
+            <pre><code class="javascript language-javascript">fortunes.unshift(&quot;I wouldn&apos;t if I were you.&quot;) // &lt;- move to front
+fortunes.pop() // &lt;- delete last item</code></pre>
+            <p>This example might feel somewhat silly, but hopefully you can start to see how these methods
+              might
+              be helpful in a larger codebase where editing the original array is unfeasible or impossible.</p>
+            <h2 id="challenge">Challenge</h2>
+            <p>Check your knowledge with the <a href="https://codepen.io/lambdaschool/pen/YJEdRQ?editors=0012">array
+                methods challenge</a>.</p>
+          </div>
+        </section>
+        <section>
+          <h1 id="module-objects">Objects</h1>
+          <div>
+            <ul>
+              <li>
+                <p><a href="https://youtu.be/omhINjA3PZ0">Objects for Web40 w/Brit Hemming</a><br>
+                  Learn about Objects with Brit Hemming and Web40</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/2ugxtuak6JY">Objects for Web38 w/Dave Kidd</a><br>
+                  Learn about Objects with Dave Kidd and Web38</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/EBbhf09DeV8">Objects for Web37 w/Brit Hemming</a><br>
+                  Learn about Objects with Brit Hemming and Web37</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/2D5g7CGT3gw">Objects for Web35 w/Brit Hemming</a><br>
+                  Learn about Objects with Brit Hemming and Web35</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/zmtesyKFsUc">Objects for WebPT21 w/Pace Ellsworth</a><br>
+                  Learn about Objects with Pace Ellsworth and WebPT21</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/kzA2-aeGkHE">Objects for WebPT19 w/Pace Ellsworth</a><br>
+                  Learn about Objects with Pace Ellsworth and WebPT19</p>
+              </li>
+              <li>
+                <p><a href="https://youtu.be/qkJiYskIJzo">Objects for WebPT18 w/Dan Frehner</a><br>
+                  Learn about Objects with Dan Frehner and WebPT18 </p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/foj6wqpm3f" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="introduction-to-objects">Introduction to Objects</h3>
+            <p>In the last lesson, we introduced Arrays. Arrays are containers that hold collections of data. In
+              this lesson, we will introduce another data container, the Object. Objects and arrays are similar
+              in
+              some ways and very different in others. Where arrays hold multiple items related to each other,
+              Objects will hold a lot of information about one thing. Objects are instantiated (created) by
+              using
+              braces (<code>{}</code>).</p>
+            <pre><code class="javascript language-javascript">    const newObj = {};</code></pre>
+            <h3 id="keyvalue-pairs">Key:Value pairs</h3>
+            <p>Objects use a concept called key:value pairs to house data (unlike arrays, which have index
+              valued
+              items). The key is the identifier and the value is the value we want to save to that key. The
+              syntax
+              is &quot;key: value&quot;. Objects can hold many key:value pairs. They must be separated by a
+              comma
+              (no semi-colons inside of an object!). Keys are unique in an object. There can be only one key of
+              that name. Although, multiple keys can have the same value. Values can be any JavaScript type,
+              string, number, Boolean, array, function or even another object. In this demo, we will create a
+              user
+              object.</p>
+            <pre><code class="javascript language-javascript">    const user = {
+        username: &apos;dan.frehner&apos;,
+        password: &apos;abc123&apos;,
+        lovesJavascript: true,
+        favoriteNumber: 42,
+    };</code></pre>
+            <h3 id="accessing-values">Accessing Values</h3>
+            <p>Once we have key:value pairs, we can access those values by calling the object name and the key.
+              There are two different ways to do this, dot notation and bracket notation.</p>
+            <p>With dot notation, we call the object name, a dot, and the key name, similar to the
+              <code>.length</code> property on an array (hint: the length property is a key:value pair!):
+            </p>
+            <pre><code class="javascript language-javascript">    user.lovesJavascript; // true
+    user.username;        // dan.frehner</code></pre>
+            <p>Bracket notation is just like calling an item on an array, although with brackets we MUST use a
+              string or number, or variable pointing to a string or number. Each key can be called by wrapping
+              it
+              with quotes:</p>
+            <pre><code class="javascript language-javascript">    const passString = &apos;password&apos;; //save key string to global variable
+    user[&apos;lovesJavascript&apos;]; // true
+    user[&apos;username&apos;];        // dan.frehner
+    user[passString];        // abc123</code></pre>
+            <iframe data-src="https://repl.it/@sunjieming/Objects?lite=true" height="400px" width="100%" scrolling="yes"
+              frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> What would happen if we removed the line <code>const
+                passString = &apos;password&apos;;</code>? Test your theory above.</p>
+            <p>In the wild, you will see brackets almost always being used with variables.</p>
+            <h3 id="assigning-values">Assigning Values</h3>
+            <p>We can assign values when we create the object, or later on with dot or bracket notation. Other
+              than syntax, assigning values works just like assigning variables.</p>
+            <pre><code class="javascript language-javascript">    const newUser = {
+        isNew: true,
+    }
+    const loveJSString = &apos;lovesJavascript&apos;;
+    newUser.username = &apos;new.username&apos;;
+    newUser[&apos;password&apos;] = &apos;12345&apos;;
+    newUser[loveJSString] = true;</code></pre>
+            <h2 id="removing-properties">Removing Properties</h2>
+            <p>If we want to remove a property, we can do it using the <code>delete</code> keyword:</p>
+            <pre><code class="javascript language-javascript">    const newObject = {
+        removeThisProperty: true,
+    };
+    delete newObject.removeThisProperty;</code></pre>
+            <p>It is rare we will see the use of the <code>delete</code> keyword. Many consider it as best
+              practice to set the value of a keyword to <code>undefined</code>. It will be up to you when the
+              time
+              comes.</p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>Let&apos;s look at an application of objects in a different context, biology. A little background
+              knowledge, if you don&apos;t remember high school biology (we don&apos;t blame you) - every known
+              organism on earth is classified using the Linnaean taxonomy system: a kingdom, phylum, class,
+              order,
+              family, genus, and species.</p>
+            <p>Our challenge today will be to create an object containing all of the classification data for a
+              great white shark. Consider the keys and values below.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th id="classification">Classification</th>
+                  <th id="name">Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Kingdom</td>
+                  <td>Animalia</td>
+                </tr>
+                <tr>
+                  <td>Phylum</td>
+                  <td>Chordata</td>
+                </tr>
+                <tr>
+                  <td>Class</td>
+                  <td>Chondrichthyes</td>
+                </tr>
+                <tr>
+                  <td>Order</td>
+                  <td>Lamniformes</td>
+                </tr>
+                <tr>
+                  <td>Family</td>
+                  <td>Lamnidae</td>
+                </tr>
+                <tr>
+                  <td>Genus</td>
+                  <td>Charcharodon</td>
+                </tr>
+                <tr>
+                  <td>Species</td>
+                  <td>Charcharias</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>We need to create an object called <code>greatWhiteShark</code> and add everything in the
+              classification column as a key, with everything in the name column as a value.</p>
+            <p>Syntactically, we&apos;ll declare a new object with <code>const greatWhiteShark</code>, then add
+              keys and values with the syntax we learned above - <code>key: value,</code>. For the first
+              key:value
+              paid, that will look like <code>kingdom: &apos;Animalia&apos;,</code>.</p>
+            <p><em>Note:</em> Since JavaScript identifies <code>class</code> and <code>order</code> as keywords,
+              we&apos;ll need to name our properties differently. For consistency, we&apos;ll use the prefix
+              <code>my</code> - creating <code>myKingdom</code>, <code>myPhylum</code>, and the like.
+            </p>
+            <p>Declare <code>greatWhiteShark</code> below and add classification data.</p>
+            <iframe data-src="https://repl.it/@sunjieming/Animal-Kingdom-I?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <pre><code class="javascript language-javascript">const greatWhiteShark = {
+    myKingdom: &apos;Animalia&apos;,
+    myPhylum: &apos;Chordata&apos;,
+    myClass: &apos;Chondrichthyes&apos;,
+    myOrder: &apos;Lamniformes&apos;,
+    myFamily: &apos;Lamnidae&apos;,
+    myGenus: &apos;Charcharodon&apos;,
+    mySpecies: &apos;Charcharias&apos;,
+}</code></pre>
+            <p>Now, we can access any data using dot notation. For example, we can use the object,
+              <code>greatWhiteShark</code>, followed by a <code>.</code> and the property of interest, for
+              example, <code>myKingdom</code>, to access the value, <code>Animalia</code>.
+            </p>
+            <pre><code class="javascript language-javascript">greatWhiteShark.myKingdom // returns Animalia</code></pre>
+            <p>If we wanted to add to our <code>greatWhiteShark</code> object, we can do so using dot notation.
+              Let&apos;s add the conservation status for the great white shark.</p>
+            <p>Let&apos;s add the conservation status for the great white shark.</p>
+            <pre><code class="javascript language-javascript">greatWhiteShark.conservationStatus = &apos;vulnerable&apos;; // Adds new property</code></pre>
+            <p>Species are traditionally lowercase, let&apos;s edit that property to reflect taxonomically
+              correct
+              properties.</p>
+            <pre><code class="javascript language-javascript">greatWhiteShark.mySpecies = &apos;charcharias&apos;; // edits property value</code></pre>
+            <p>Get comfortable adding, reassigning, and removing properties and values before moving onto the
+              challenge.</p>
+            <h2 id="challenge">Challenge</h2>
+            <p>Work through all of these exercises on <a href="https://codepen.io/lambdaschool/pen/gBXdEe">codepen</a>.
+            </p>
+          </div>
+          <div>
+            <p>
+              <center>
+                <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <iframe class="wistia_embed" name="wistia_embed"
+                      data-src="https://lambdaschool-1.wistia.com/medias/poy1w6weya" allow="autoplay; fullscreen"
+                      allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen msallowfullscreen
+                      width="100%" height="100%"></iframe>
+                  </div>
+                </div>
+                <script src="https://fast.wistia.net/7-assets/external/E-v1.js" async></script>
+              </center>
+            </p>
+            <h2 id="overview">Overview</h2>
+            <h3 id="properties-and-methods">Properties and Methods</h3>
+            <p>Think of a method as a function that is the value in an object&apos;s key:value pair. For
+              example,
+              when calling <code>Math.pow(2, 2)</code> we are actually referencing a function that is assigned
+              to
+              the key <code>pow</code> on that <code>Math</code> object. Similarly, <code>pow(2,2)</code> would
+              throw a ReferenceError unless there was a function in scope named <code>pow</code>.</p>
+            <p>Primitive data types (and other data types) have built-in method functionality as well. These
+              extend the functionality of the primitive data types and allow us to gather information about
+              them,
+              or manipulate them in some way. <code>.pop</code>, for example, is a method that acts on the array
+              data type. Both properties and methods will be accessed using the <code>dot notation</code> where
+              we
+              give the name of the variable, a dot, then the name of the property or method.</p>
+            <pre><code class="javascript language-javascript">  objectName.methodName();</code></pre>
+            <h4 id="properties">Properties</h4>
+            <p>Properties allow us to access data from a data type. There are many different properties on every
+              data type that will give you a bit of information about that specific object.</p>
+            <p>One we will look at here is the <code>length</code> property of a <code>string</code>. It will
+              give
+              us the length of the string, as in how many characters are in the string (spaces count).</p>
+            <pre><code class="javascript language-javascript">  const school = &apos;Lambda&apos;;
+  school.length; //6</code></pre>
+            <h4 id="methods">Methods</h4>
+            <p>Methods allow us to manipulate a data type. Methods are different from properties in that they
+              need
+              to have parentheses on the end. Its important to note that methods are just functions and in order
+              to invoke a function you use parentheses. The parentheses don&apos;t make it a method, in other
+              words.</p>
+            <p>The method we will look at here is the <code>toString</code> method. It will convert a Number or
+              Boolean to a string.</p>
+            <pre><code class="javascript language-javascript">  const num = 42;
+  num.toString(); //&quot;42&quot;</code></pre>
+            <h3 id="global-objects-and-methods">Global objects and methods</h3>
+            <p>JavaScript has a number of built-in objects for us to use. These <code>global</code> objects
+              extend
+              the functionality of the language for us for free. We have already seen, and have been using, the
+              console object and its method <code>log</code>. Another one of these objects is <code>Math</code>.
+              <code>Math</code> has a number of methods on it just like <code>console</code> has
+              <code>log</code>.
+              To add to this, some of our data types also have built-in methods.
+            </p>
+            <p>There&apos;s no purpose in trying to memorize all of the properties and methods associated with
+              primitive or built in data types. Instead, focus on understanding how they work and getting
+              comfortable with their unique use cases.</p>
+            <h4 id="methods-1">Methods</h4>
+            <p>In addition to built in methods, we can create methods inside objects. We have used plenty of
+              methods so far throughout this course. We can set a key to a name, and the value to a function.
+              Just
+              like other times we call methods, we will call this method using dot notation and trailing
+              parentheses. <code>.length</code>, <code>.push</code>, <code>.pop</code>, etc., are all methods
+              created this way. (note: we can call a method with arguments just as we would a normal function):
+            </p>
+            <pre><code class="javascript language-javascript">    const newObject = {
+        sayHiMethod: function() {
+            console.log(&apos;Hi Everyone!&apos;);
+        },
+    }
+    newObject.sayHiMethod(); // Hi Everyone!</code></pre>
+            <iframe data-src="https://repl.it/@sunjieming/Method-Properties?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p><strong>Check For Understanding:</strong> Create a method on the <code>person</code> object that
+              returns a greeting</p>
+            <h3 id="forin-loops">for&#x2026;in Loops</h3>
+            <p>Sometimes we want to iterate over each key:value pair <strong>in</strong> our object. With
+              arrays,
+              we used a standard for loop and an index number variable. Objects do not contain numerical indexes
+              so the standard loop will not work for objects. JavaScript has a second type of for loop built in
+              called the &quot;for&#x2026;in&quot; loop.</p>
+            <p>The syntax of the &quot;for&#x2026;in&quot; loop is slightly different from our first for loop,
+              and
+              thankfully, a bit more intuitive. After the <code>for</code> keyword, in parentheses, we will
+              declare a variable (<code>let variableName</code>), use the keyword <code>in</code>, and then
+              state
+              the name of the object. This will loop over each key in the object and finish when all of the keys
+              have been iterated over. We can use this key, and bracket notation, in our for loop to access the
+              value associated with that key.</p>
+            <pre><code class="javascript language-javascript">    const user = {
+        username: &apos;dan.frehner&apos;,
+        password: &apos;abc123&apos;,
+        lovesJavascript: true,
+        favoriteNumber: 42,
+    };
+    for (let key in user){
+        console.log(key);
+        console.log(user[key]);
+    }
+    // username
+    // &apos;dan.frehner&apos;
+    // password
+    // &apos;abc123&apos;
+    // lovesJavascript
+    // true
+    // favoriteNumber
+    // 42</code></pre>
+            <h3 id="the-this-keyword">The &apos;this&apos; Keyword</h3>
+            <p>Objects have a self-referential keyword that may be applied in each object called
+              <code>this</code>. When called inside of an object it is referring to that very object.
+              <code>this</code> can be used to access other keys in the same object, and is especially useful in
+              methods:
+            </p>
+            <pre><code class="javascript language-javascript">    const user = {
+        username: &apos;dan.frehner&apos;,
+        password: &apos;abc123&apos;,
+        lovesJavascript: true,
+        favoriteNumber: 42,
+        userSaysHi: function(){
+            console.log( this.username + &apos; says hi!&apos;);
+        },
+    };
+    user.usersaysHi(); // &apos;dan.frehner says hi!&apos;</code></pre>
+            <p>Note: the <code>this</code> keyword can sometimes be one of the more difficult topics in
+              JavaScript. We are using it very basically here, but the topic gets much more complex very soon.
+              We&apos;ll dig into that later on.</p>
+            <p><strong>Check For Understanding:</strong> Return to the repl.it above and add your name into the
+              greeting you created.</p>
+            <h3 id="objects-in-javascript">Objects in JavaScript</h3>
+            <p>In this lesson, we learned what Objects are and the many ways to access values, call methods, and
+              assign values. Many of these techniques looked very familiar, as if we had used them in virtually
+              every aspect of our learnings so far. There is a pattern here, that is because just about
+              everything
+              in JavaScript is an Object. Arrays are just objects with numerical keys, Strings are objects under
+              the hood with built in methods, functions are actually objects with their own special properties,
+              the entire JavaScript runtime is an object (<code>window</code> in a browser, or
+              <code>global</code>
+              in Node.js). The more you work with JavaScript, the more this will start to make sense to you.
+              Just
+              remember, (almost) everything is an object. The only exceptions to this rule are primitive data
+              types (<code>false</code>, <code>true</code>, <code>undefined</code>, and the like).
+            </p>
+            <h2 id="follow-along">Follow Along</h2>
+            <p>An organism&apos;s scientific name is their genus plus their species with a space in between.
+              Returning to our great white shark example, we can create a method called
+              <code>getScientificName</code> that will return the genus and species combined.
+            </p>
+            <p>While we could add a property called <code>scientificName</code> and assign it the value
+              &quot;Charcharodon charcharias&quot; we don&apos;t want to do that because it would create
+              redundancies in our code. Any change to genus or species would also require a change the
+              scientificName property, which isn&apos;t very <code>DRY</code>.</p>
+            <p>Creating this method is very similar to creating a property. We start by declaring the function
+              name, <code>getScientificName</code>, add a colon, <code>:</code>, and proceed to declare the
+              function like we would anywhere else.</p>
+            <pre><code class="javascript language-javascript">getScientificName: function() {
+    }</code></pre>
+            <iframe data-src="https://repl.it/@sunjieming/Animal-Kingdom-II?lite=true" height="400px" width="100%"
+              scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <p>The body of the function is going to include a reference to the genus and species which we can
+              create using the <code>this</code> keyword to reference the local genus and species variables such
+              that scientific name will have the value <code>Genus species</code>, or in <em>this</em> case,
+              <code>Charcharodon charcharias</code>.
+            </p>
+            <pre><code class="javascript language-javascript">getScientificName: function() {
+    scientificName = this.myGenus + &apos; &apos; + this.mySpecies;
+    return(scientificName)
+}</code></pre>
+            <p>Add the method above and confirm that Calling <code>greatWhiteShark.getScientificName()</code>
+              will
+              run our method on the greatWhiteShark object and return the scientific name <code>Charcharodon
+                charcharias</code>.</p>
+            <pre><code class="javascript language-javascript">const greatWhiteShark = {
+    myKingdom: &apos;Animalia&apos;,
+    myPhylum: &apos;Chordata&apos;,
+    myClass: &apos;Chondrichthyes&apos;,
+    myOrder: &apos;Lamniformes&apos;,
+    myGenus: &apos;Charcharodon&apos;,
+    mySpecies: &apos;charcharias&apos;,
+    getScientificName: function() {
+        scientificName = this.myGenus + &apos; &apos; + this.mySpecies;
+        return(scientificName)
+    }
+}
+greatWhiteShark.getScientificName()</code></pre>
+            <h2 id="challenge">Challenge</h2>
+            <p>Return to your completed <code>objects challenge</code>, and add a method called
+              <code>greet</code>
+              to the student object to <code>console.log()</code> &quot;My name is Jonas and I&apos;m a
+              receiver.
+              I&apos;m 12 years old.&quot; This should work for any student name, age, and role. There are
+              multiple ways to do this, but ultimately, running <code>student.greet()</code> should produce the
+              sentence above.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    </main>
+    </div>
+    </div>
+
+    <script src="/_next/static/chunks/polyfills-feb8a7604fa7fce626b2.js" nomodule></script>
+    <script src="/_next/static/chunks/main-bcea29cef485d2ff4f28.js" async></script>
+    <script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async></script>
+    <script src="/_next/static/chunks/framework.abffcf18e526b7c0dbcd.js" async></script>
+    <script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.1d7278d5916139ff8fd5.js" async>
+    </script>
+    <script src="/_next/static/chunks/pages/_app-bc37be3f9ebfb49934f6.js" async></script>
+    <script src="/_next/static/chunks/62fd6c6d.3169d2aaf47600f9c274.js" async></script>
+    <script src="/_next/static/chunks/5a6ca47b17dc4bcb9b0bc3131ee7e9f4fd30e305.b64ed04365f9737cb9ea.js" async>
+    </script>
+    <script
+      src="/_next/static/chunks/pages/tracks/%5BtrackSlug%5D/units/%5BunitSlug%5D/sprints/%5BsprintSlug%5D-2093e8ce28f6da0e7dee.js"
+      async></script>
+    <script src="/_next/static/rVvuGS-_4FSBUjsNx_7lz/_buildManifest.js" async></script>
+    <script src="/_next/static/rVvuGS-_4FSBUjsNx_7lz/_ssgManifest.js" async></script>
+    <script>
+      document.write( '<a href="' + document.referrer + '">Go Back</a>' );
+
+    </script>
+    <input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)">
+    <a href="https://lambda-w-1-notes.netlify.app/">🏠HOME!</a>
+  </body>
+
+</html>

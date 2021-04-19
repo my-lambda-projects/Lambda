@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/code-security/secure-coding/configuring-code-scanning by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:06 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Configuring code scanning - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="You can configure how GitHub scans the code in your project for vulnerabilities and errors.">
+  
+  
+    <meta name="keywords" content="security">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/code-security/secure-coding/configuring-code-scanning"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/code-security/secure-coding/configuring-code-scanning"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/code-security/secure-coding/configuring-code-scanning"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/code-security/secure-coding/configuring-code-scanning"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/code-security/secure-coding/configuring-code-scanning"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/code-security/secure-coding/configuring-code-scanning"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="5TNpBSE4-edQodOu6L7CNufMLCU5wt5vxyN0">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="Code security" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/code-security" class="pl-4 pr-5 pb-1 f4">Code security</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/code-security/getting-started" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Getting started</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/code-security/getting-started/about-securing-your-repository" class="pl-4 pr-5 py-1 pb-2">About securing your repository</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/code-security/secret-security" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Secret security</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/code-security/secret-security/about-secret-scanning" class="pl-4 pr-5 py-1">About secret scanning</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/code-security/secret-security/configuring-secret-scanning-for-your-repositories" class="pl-4 pr-5 py-1">Configuring secret scanning for your repositories</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/code-security/secret-security/managing-alerts-from-secret-scanning" class="pl-4 pr-5 py-1 pb-2">Managing alerts from secret scanning</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/code-security/secure-coding" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Secure coding</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-topics list-style-none position-relative">
+        
+          
+            
+
+            <li class="sidebar-maptopic active ">
+              <a href="https://docs.github.com/en/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors" class="pl-4 pr-5 py-2">Automatically scanning your code for vulnerabilities and errors</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/about-code-scanning" class="pl-6 pr-5 py-1">About code scanning</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests" class="pl-6 pr-5 py-1">Triaging alerts in pull requests</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/setting-up-code-scanning-for-a-repository" class="pl-6 pr-5 py-1">Setting up code scanning</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository" class="pl-6 pr-5 py-1">Managing alerts</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article active is-current-page">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/configuring-code-scanning" class="pl-6 pr-5 py-1">Configuring code scanning</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages" class="pl-6 pr-5 py-1">Configuring for compiled languages</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/troubleshooting-the-codeql-workflow" class="pl-6 pr-5 py-1">Troubleshooting CodeQL</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/running-codeql-code-scanning-in-a-container" class="pl-6 pr-5 py-1 pb-2">Code scanning in a container</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/code-security/secure-coding/integrating-with-code-scanning" class="pl-4 pr-5 py-2">Integrating with code scanning</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/about-integration-with-code-scanning" class="pl-6 pr-5 py-1">About integration</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/uploading-a-sarif-file-to-github" class="pl-6 pr-5 py-1">Uploading a SARIF file</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/sarif-support-for-code-scanning" class="pl-6 pr-5 py-1 pb-2">SARIF support</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+          
+            
+
+            <li class="sidebar-maptopic ">
+              <a href="https://docs.github.com/en/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system" class="pl-4 pr-5 py-2">Using CodeQL code scanning with your existing CI system</a>
+              <ul class="sidebar-articles my-2">
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system" class="pl-6 pr-5 py-1">Running in your CI</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system" class="pl-6 pr-5 py-1">Configuring in your CI</a>
+                </li>
+                
+                
+                
+                
+
+                <li class="sidebar-article ">
+                  <a href="https://docs.github.com/en/code-security/secure-coding/troubleshooting-codeql-code-scanning-in-your-ci-system" class="pl-6 pr-5 py-1 pb-2">Troubleshooting in your CI</a>
+                </li>
+                
+                
+              </ul>
+            </li>
+          
+        
+      </ul>
+      <!-- some categories have no maptopics, only articles -->
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/code-security/security-advisories" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Security advisories</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/code-security/supply-chain-security" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Supply chain security</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" >
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/code-security/security-overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Security overview</a>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    Code security
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/code-security/secure-coding/configuring-code-scanning"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/code-security/secure-coding/configuring-code-scanning"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/code-security/secure-coding/configuring-code-scanning"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/code-security/secure-coding/configuring-code-scanning"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/code-security/secure-coding/configuring-code-scanning"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/code-security/secure-coding/configuring-code-scanning"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/code-security/secure-coding/configuring-code-scanning"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/code-security/secure-coding/configuring-code-scanning"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: Code security" href="https://docs.github.com/en/code-security" class="d-inline-block ">
+        Code security
+      </a>
+    
+  
+    
+      <a title="category: Secure coding" href="https://docs.github.com/en/code-security/secure-coding" class="d-inline-block ">
+        Secure coding
+      </a>
+    
+  
+    
+      <a title="maptopic: Scanning automatically" href="https://docs.github.com/en/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors" class="d-inline-block ">
+        Scanning automatically
+      </a>
+    
+  
+    
+      <a title="article: Configuring code scanning" href="https://docs.github.com/en/code-security/secure-coding/configuring-code-scanning" class="d-inline-block text-gray-light">
+        Configuring code scanning
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/code-security/secure-coding/configuring-code-scanning"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/code-security/secure-coding/configuring-code-scanning"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/code-security/secure-coding/configuring-code-scanning"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Configuring code scanning</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"><p>You can configure how GitHub scans the code in your project for vulnerabilities and errors.</p></div>
+      
+
+      
+        <div class="permissions-statement"><p>People with write permissions to a repository can configure code scanning for the repository.</p></div>
+      
+
+      
+
+      
+        <div class="product-callout border rounded-1 mb-4 p-3 border-purple bg-purple-light">
+        <p>Code scanning is available for all public repositories and for private repositories owned by organizations where GitHub Advanced Security is enabled.
+For more information, see "<a href="https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security">About GitHub Advanced Security</a>."</p>
+        </div>
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#about-code-scanning-configuration">About code scanning configuration</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#editing-a-code-scanning-workflow">Editing a code scanning workflow</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#configuring-frequency">Configuring frequency</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#scanning-on-push">Scanning on push</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#scanning-pull-requests">Scanning pull requests</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#avoiding-unnecessary-scans-of-pull-requests">Avoiding unnecessary scans of pull requests</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#scanning-on-a-schedule">Scanning on a schedule</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#example">Example</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#specifying-an-operating-system">Specifying an operating system</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#changing-the-languages-that-are-analyzed">Changing the languages that are analyzed</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#analyzing-python-dependencies">Analyzing Python dependencies</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#running-additional-queries">Running additional queries</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#using-a-custom-configuration-file">Using a custom configuration file</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#specifying-additional-queries">Specifying additional queries</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#disabling-the-default-queries">Disabling the default queries</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#specifying-directories-to-scan">Specifying directories to scan</a></li>
+          
+          <li class="ml-3  mb-2 lh-condensed"><a href="#example-configuration-files">Example configuration files</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#configuring-code-scanning-for-compiled-languages">Configuring code scanning for compiled languages</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#uploading-code-scanning-data-to-github">Uploading code scanning data to GitHub</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <h3 id="about-code-scanning-configuration"><a href="#about-code-scanning-configuration">About code scanning configuration</a></h3>
+<p>You can run code scanning on GitHub, using GitHub Actions, or from your continuous integration (CI) system, using the CodeQL runner. For more information about GitHub Actions, see &quot;<a href="https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions">About GitHub Actions</a>.&quot; For more information about the CodeQL runner, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system">Running code scanning in your CI system</a>.&quot;</p>
+<p>This article is about running code scanning on GitHub.</p>
+<p>Before you can configure code scanning for a repository, you must set up code scanning by adding a GitHub Actions workflow to the repository. For more information, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/setting-up-code-scanning-for-a-repository">Setting up code scanning for a repository</a>.&quot;</p>
+<p>Typically, you don&apos;t need to edit the default workflow for code scanning. However, if required, you can edit the workflow to customize some of the settings. For example, you can edit GitHub&apos;s CodeQL analysis workflow to specify the frequency of scans, the languages or directories to scan, and what CodeQL code scanning looks for in your code. You might also need to edit the CodeQL analysis workflow if you use a specific set of commands to compile your code.</p>
+<p>CodeQL analysis is just one type of code scanning you can do in GitHub. GitHub Marketplace contains other code scanning workflows you can use. You can find a selection of these on the &quot;Get started with code scanning&quot; page, which you can access from the <strong><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-shield" aria-label="The shield symbol" role="img"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"/></svg> Security</strong> tab. The specific examples given in this article relate to the CodeQL analysis workflow file.</p>
+<h3 id="editing-a-code-scanning-workflow"><a href="#editing-a-code-scanning-workflow">Editing a code scanning workflow</a></h3>
+<p>GitHub saves workflow files in the <em>.github/workflows</em> directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for CodeQL code scanning is called <em>codeql-analysis.yml</em>.</p>
+<ol>
+<li>In your repository, browse to the workflow file you want to edit.</li>
+<li>In the upper right corner of the file view, to open the workflow editor, click <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-pencil" aria-label="The edit icon" role="img"><path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"/></svg>.
+<div><img src="https://docs.github.com/assets/images/help/repository/code-scanning-edit-workflow-button.png" alt="Edit workflow file button"></div></li>
+<li>After you have edited the file, click <strong>Start commit</strong> and complete the &quot;Commit changes&quot; form. You can choose to commit directly to the current branch, or create a new branch and start a pull request.
+<div><img src="https://docs.github.com/assets/images/help/repository/code-scanning-workflow-update.png" alt="Commit update to codeql.yml workflow"></div></li>
+</ol>
+<p>For more information about editing workflow files, see &quot;<a href="https://docs.github.com/en/actions/learn-github-actions">Learn GitHub Actions</a>.&quot;</p>
+<h3 id="configuring-frequency"><a href="#configuring-frequency">Configuring frequency</a></h3>
+<p>You can configure the CodeQL analysis workflow to scan code on a schedule or when specific events occur in a repository.</p>
+<p>Scanning code when someone pushes a change, and whenever a pull request is created, prevents developers from introducing new vulnerabilities and errors into the code. Scanning code on a schedule informs you about the latest vulnerabilities and errors that GitHub, security researchers, and the community discover, even when developers aren&apos;t actively maintaining the repository.</p>
+<h4 id="scanning-on-push"><a href="#scanning-on-push">Scanning on push</a></h4>
+<p>By default, the CodeQL analysis workflow uses the <code>on.push</code> event to trigger a code scan on every push to the default branch of the repository and any protected branches. For code scanning to be triggered on a specified branch, the workflow must exist in that branch. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on">Workflow syntax for GitHub Actions</a>.&quot;</p>
+<p>If you scan on push, then the results appear in the <strong>Security</strong> tab for your repository. For more information, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository">Managing code scanning alerts for your repository</a>.&quot;</p>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note</strong>: If you want code scanning alerts to appear as pull request checks, you must use the <code>pull_request</code> event, described below.</p>
+</div>
+<h4 id="scanning-pull-requests"><a href="#scanning-pull-requests">Scanning pull requests</a></h4>
+<p>The default CodeQL analysis workflow uses the <code>pull_request</code> event to trigger a code scan on pull requests targeted against the default branch. If a pull request is from a private fork, the <code>pull_request</code> event will only be triggered if you&apos;ve selected the &quot;Run workflows from fork pull requests&quot; option in the repository settings. For more information, see &quot;<a href="https://docs.github.com/en/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository#enabling-workflows-for-private-repository-forks">Disabling or limiting GitHub Actions for a repository</a>.&quot;</p>
+<p>For more information about the <code>pull_request</code> event, see &quot;<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags">Workflow syntax for GitHub Actions</a>.&quot;</p>
+<p>If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests">Triaging code scanning alerts in pull requests</a>.&quot;</p>
+<h4 id="avoiding-unnecessary-scans-of-pull-requests"><a href="#avoiding-unnecessary-scans-of-pull-requests">Avoiding unnecessary scans of pull requests</a></h4>
+<p>You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying <code>on:pull_request:paths-ignore</code> or <code>on:pull_request:paths</code> in the code scanning workflow. For example, if the only changes in a pull request are to files with the file extensions <code>.md</code> or <code>.txt</code> you can use the following <code>paths-ignore</code> array.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span> [<span class="hljs-string">main</span>, <span class="hljs-string">protected</span>]
+  <span class="hljs-attr">pull_request:</span>
+    <span class="hljs-attr">branches:</span> [<span class="hljs-string">main</span>]
+    <span class="hljs-attr">paths-ignore:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;**/*.md&apos;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;**/*.txt&apos;</span>
+</code></pre>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Notes</strong></p>
+<ul>
+<li><code>on:pull_request:paths-ignore</code> and <code>on:pull_request:paths</code> set conditions that determine whether the actions in the workflow will run on a pull request. They don&apos;t determine what files will be analyzed when the actions <em>are</em> run. When a pull request contains any files that are not matched by <code>on:pull_request:paths-ignore</code> or <code>on:pull_request:paths</code>, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by <code>on:pull_request:paths-ignore</code> or <code>on:pull_request:paths</code>, unless the files have been excluded. For information on how to exclude files from analysis, see &quot;<a href="#specifying-directories-to-scan">Specifying directories to scan</a>.&quot;</li>
+<li>For CodeQL code scanning workflow files, don&apos;t use the <code>paths-ignore</code> or <code>paths</code> keywords with the <code>on:push</code> event as this is likely to cause missing analyses. For accurate results, CodeQL code scanning needs to be able to compare new changes with the analysis of the previous commit.</li>
+</ul>
+</div>
+<p>For more information about using <code>on:pull_request:paths-ignore</code> and <code>on:pull_request:paths</code> to determine when a workflow will run for a pull request, see &quot;<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">Workflow syntax for GitHub Actions</a>.&quot;</p>
+<h4 id="scanning-on-a-schedule"><a href="#scanning-on-a-schedule">Scanning on a schedule</a></h4>
+<p>If you use the default CodeQL analysis workflow, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the <code>cron</code> value in the workflow. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule">Workflow syntax for GitHub Actions</a>.&quot;</p>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note</strong>: GitHub only runs scheduled jobs that are in workflows on the default branch. Changing the schedule in a workflow on any other branch has no effect until you merge the branch into the default branch.</p>
+</div>
+<h4 id="example"><a href="#example">Example</a></h4>
+<p>The following example shows a CodeQL analysis workflow for a particular repository that has a default branch called <code>main</code> and one protected branch called <code>protected</code>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span> [<span class="hljs-string">main</span>, <span class="hljs-string">protected</span>]
+  <span class="hljs-attr">pull_request:</span>
+    <span class="hljs-attr">branches:</span> [<span class="hljs-string">main</span>]
+  <span class="hljs-attr">schedule:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">cron:</span> <span class="hljs-string">&apos;20 14 * * 1&apos;</span>
+</code></pre>
+<p>This workflow scans:</p>
+<ul>
+<li>Every push to the default branch and the protected branch</li>
+<li>Every pull request to the default branch</li>
+<li>The default branch every Monday at 14:20 UTC</li>
+</ul>
+<h3 id="specifying-an-operating-system"><a href="#specifying-an-operating-system">Specifying an operating system</a></h3>
+<p>If your code requires a specific operating system to compile, you can configure the operating system in your CodeQL analysis workflow. Edit the value of <code>jobs.analyze.runs-on</code> to specify the operating system for the machine that runs your code scanning actions. </p>
+<p>If you choose to use a self-hosted runner for code scanning, you can specify an operating system by using an appropriate label as the second element in a two-element array, after <code>self-hosted</code>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">analyze:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">Analyze</span>
+    <span class="hljs-attr">runs-on:</span> [<span class="hljs-string">self-hosted</span>, <span class="hljs-string">ubuntu-latest</span>]
+</code></pre>
+<p>For more information, see &quot;<a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">About self-hosted runners</a>&quot; and &quot;<a href="https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners">Adding self-hosted runners</a>.&quot;</p>
+<p>CodeQL code scanning supports the latest versions of Ubuntu, Windows, and macOS. Typical values for this setting are therefore: <code>ubuntu-latest</code>, <code>windows-latest</code>, and <code>macos-latest</code>. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for GitHub Actions</a>.&quot;</p>
+<p>If you use a self-hosted runner, you must ensure that Git is in the PATH variable.</p>
+<h3 id="changing-the-languages-that-are-analyzed"><a href="#changing-the-languages-that-are-analyzed">Changing the languages that are analyzed</a></h3>
+<p>CodeQL code scanning automatically detects code written in the supported languages.</p>
+<ul>
+<li>C/C++</li>
+<li>C#</li>
+<li>Go</li>
+<li>Java</li>
+<li>JavaScript/TypeScript</li>
+<li>Python</li>
+</ul>
+<p>The default CodeQL analysis workflow file contains a build matrix called <code>language</code> which lists the languages in your repository that are analyzed. CodeQL automatically populates this matrix when you add code scanning to a repository. Using the <code>language</code> matrix optimizes CodeQL to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about build matrices, see &quot;<a href="https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix">Managing complex workflows</a>.&quot;</p>
+<p>If your repository contains code in more than one of the supported languages, you can choose which languages you want to analyze. There are several reasons you might want to prevent a language being analyzed. For example, the project might have dependencies in a different language to the main body of your code, and you might prefer not to see alerts for those dependencies.</p>
+<p>If your workflow uses the <code>language</code> matrix then CodeQL is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when code scanning was set up. For example, if the repository initially only contained JavaScript when code scanning was set up, and you later added Python code, you will need to add <code>python</code> to the matrix.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">analyze:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">Analyze</span>
+    <span class="hljs-string">...</span>
+    <span class="hljs-attr">strategy:</span>
+      <span class="hljs-attr">fail-fast:</span> <span class="hljs-literal">false</span>
+      <span class="hljs-attr">matrix:</span>
+        <span class="hljs-attr">language:</span> [<span class="hljs-string">&apos;javascript&apos;</span>, <span class="hljs-string">&apos;python&apos;</span>]
+</code></pre>
+<p>If your workflow does not contain a matrix called <code>language</code>, then CodeQL is configured to run analysis sequentially. If you don&apos;t specify languages in the workflow, CodeQL automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the <code>languages</code> parameter under the <code>init</code> action.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/init@v1</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">languages:</span> <span class="hljs-string">cpp,</span> <span class="hljs-string">csharp,</span> <span class="hljs-string">python</span>
+</code></pre>
+<h3 id="analyzing-python-dependencies"><a href="#analyzing-python-dependencies">Analyzing Python dependencies</a></h3>
+<p>For GitHub-hosted runners that use Linux only, the CodeQL analysis workflow will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the <code>setup-python-dependencies</code> parameter for the action called by the &quot;Initialize CodeQL&quot; step. By default, this parameter is set to <code>true</code>:</p>
+<ul>
+<li>
+<p>If the repository contains code written in Python, the &quot;Initialize CodeQL&quot; step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable <code>CODEQL_PYTHON</code> to the Python executable file that includes the dependencies.</p>
+</li>
+<li>
+<p>If the repository doesn&apos;t have any Python dependencies, or the dependencies are specified in an unexpected way, you&apos;ll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.</p>
+</li>
+</ul>
+<p>Alternatively, you can install Python dependencies manually on any operating system. You will need to add <code>setup-python-dependencies</code> and set it to <code>false</code>, as well as set <code>CODEQL_PYTHON</code> to the Python executable that includes the dependencies, as shown in this workflow extract:</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">CodeQL-Build:</span>
+
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+
+    <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">repository</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">up</span> <span class="hljs-string">Python</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-python@v2</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">python-version:</span> <span class="hljs-string">&apos;3.x&apos;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+      <span class="hljs-attr">run:</span> <span class="hljs-string">|
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ];
+        then pip install -r requirements.txt;
+        fi
+        # Set the `CODEQL-PYTHON` environment variable to the Python executable
+        # that includes the dependencies
+        echo &quot;CODEQL_PYTHON=$(which python)&quot; &gt;&gt; $GITHUB_ENV
+</span>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Initialize</span> <span class="hljs-string">CodeQL</span>
+      <span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/init@v1</span>
+      <span class="hljs-attr">with:</span>
+        <span class="hljs-attr">languages:</span> <span class="hljs-string">python</span>
+        <span class="hljs-comment"># Override the default behavior so that the action doesn&apos;t attempt</span>
+        <span class="hljs-comment"># to auto-install Python dependencies</span>
+        <span class="hljs-attr">setup-python-dependencies:</span> <span class="hljs-literal">false</span>
+</code></pre>
+<h3 id="running-additional-queries"><a href="#running-additional-queries">Running additional queries</a></h3>
+<p>When you use CodeQL to scan code, the CodeQL analysis engine generates a database from the code and runs queries on it. For more information, see &quot;<a href="https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql">About code scanning</a>.&quot;</p>
+<p>CodeQL analysis uses a default set of queries, but you can specify more queries to run, in addition to the default queries. The queries you want to run must belong to a QL pack in a repository. For more information, see &quot;<a href="https://codeql.github.com/docs/codeql-cli/about-ql-packs/">About QL packs</a>.&quot;</p>
+<p>Queries must only depend on the standard libraries (that is, the libraries referenced by an <code>import LANGUAGE</code> statement in your query), or libraries in the same QL pack as the query. The standard libraries are located in the <a href="https://github.com/github/codeql">github/codeql</a> repository. For more information, see &quot;<a href="https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/">About CodeQL queries</a>.&quot;</p>
+<p>You can specify a single <em>.ql</em> file, a directory containing multiple <em>.ql</em> files, a <em>.qls</em> query suite definition file, or any combination. For more information about query suite definitions, see &quot;<a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Creating CodeQL query suites</a>.&quot;</p>
+<p>We don&apos;t recommend referencing query suites directly from the <code>github/codeql</code> repository, like <code>github/codeql/cpp/ql/src@main</code>. Such queries may not be compiled with the same version of CodeQL as used for your other queries, which could lead to errors during analysis.</p>
+<p>To add one or more queries, add a <code>with: queries:</code> entry within the <code>uses: github/codeql-action/init@v1</code> section of the workflow. If the queries are in a private repository, use the <code>external-repository-token</code> parameter to specify a token that has access to the private repository.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/init@v1</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">queries:</span> <span class="hljs-string">COMMA-SEPARATED</span> <span class="hljs-string">LIST</span> <span class="hljs-string">OF</span> <span class="hljs-string">PATHS</span>
+    <span class="hljs-comment"># Optional. Provide a token to access private repositories.</span>
+    <span class="hljs-attr">external-repository-token:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACCESS_TOKEN</span> <span class="hljs-string">}}</span>
+</code></pre>
+<p>You can also specify query suites in the value of <code>queries</code>. Query suites are collections of queries, usually grouped by purpose or language.</p>
+<p>The following query suites are built into CodeQL code scanning and are available for use.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Query suite</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><code>security-extended</code></td><td align="left">Queries of lower severity and precision than the default queries</td></tr><tr><td align="left"><code>security-and-quality</code></td><td align="left">Queries from <code>security-extended</code>, plus maintainability and reliability queries</td></tr></tbody></table>
+<p>When you specify a query suite, the CodeQL analysis engine will run the queries contained within the suite for you, in addition to the default set of queries.</p>
+<p>If you are also using a configuration file for custom settings, any additional queries specified in your workflow are used instead of any specified in the configuration file. If you want to run the combined set of additional queries specified here and in the configuration file, prefix the value of <code>queries</code> in the workflow with the <code>+</code> symbol. For more information, see &quot;<a href="#using-a-custom-configuration-file">Using a custom configuration file</a>.&quot;</p>
+<p>In the following example, the <code>+</code> symbol ensures that the specified additional queries are used together with any queries specified in the referenced configuration file.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/init@v1</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">config-file:</span> <span class="hljs-string">./.github/codeql/codeql-config.yml</span>
+    <span class="hljs-attr">queries:</span> <span class="hljs-string">+security-and-quality,octo-org/python-qlpack/show_ifs.ql@main</span>
+    <span class="hljs-attr">external-repository-token:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACCESS_TOKEN</span> <span class="hljs-string">}}</span>
+</code></pre>
+<h3 id="using-a-custom-configuration-file"><a href="#using-a-custom-configuration-file">Using a custom configuration file</a></h3>
+<p>As an alternative to specifying which queries to run in the workflow file, you can do this in a separate configuration file. You can also use a configuration file to disable the default queries and to specify which directories to scan during analysis.</p>
+<p>In the workflow file, use the <code>config-file</code> parameter of the <code>init</code> action to specify the path to the configuration file you want to use. This example loads the configuration file <em>./.github/codeql/codeql-config.yml</em>.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/init@v1</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">config-file:</span> <span class="hljs-string">./.github/codeql/codeql-config.yml</span>
+</code></pre>
+<p>The configuration file can be located within the repository you are analyzing, or in an external repository. Using an external repository allows you to specify configuration options for multiple repositories in a single place. When you reference a configuration file located in an external repository, you can use the <em>OWNER/REPOSITORY/FILENAME@BRANCH</em> syntax. For example, <em>monacorp/shared/codeql-config.yml@main</em>.</p>
+<p>If the configuration file is located in an external private repository, use the <code>external-repository-token</code> parameter of the <code>init</code> action to specify a token that has access to the private repository.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">uses:</span> <span class="hljs-string">github/codeql-action/init@v1</span>
+<span class="hljs-attr">with:</span>
+  <span class="hljs-attr">external-repository-token:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.ACCESS_TOKEN</span> <span class="hljs-string">}}</span>
+</code></pre>
+<p>The settings in the configuration file are written in YAML format.</p>
+<h4 id="specifying-additional-queries"><a href="#specifying-additional-queries">Specifying additional queries</a></h4>
+<p>You specify additional queries in a <code>queries</code> array. Each element of the array contains a <code>uses</code> parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">queries:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">./my-basic-queries/example-query.ql</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">./my-advanced-queries</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls</span>
+</code></pre>
+<p>Optionally, you can give each array element a name, as shown in the example configuration files below.</p>
+<p>For more information about additional queries, see &quot;<a href="#running-additional-queries">Running additional queries</a>&quot; above.</p>
+<h4 id="disabling-the-default-queries"><a href="#disabling-the-default-queries">Disabling the default queries</a></h4>
+<p>If you only want to run custom queries, you can disable the default security queries by using <code>disable-default-queries: true</code>.</p>
+<h4 id="specifying-directories-to-scan"><a href="#specifying-directories-to-scan">Specifying directories to scan</a></h4>
+<p>For the interpreted languages that CodeQL supports (Python and JavaScript/TypeScript), you can restrict code scanning to files in specific directories by adding a <code>paths</code> array to the configuration file. You can exclude the files in specific directories from analysis by adding a <code>paths-ignore</code> array.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">paths:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">src</span>
+<span class="hljs-attr">paths-ignore:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">src/node_modules</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;**/*.test.js&apos;</span>
+</code></pre>
+<div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+<p><strong>Note</strong>:</p>
+<ul>
+<li>The <code>paths</code> and <code>paths-ignore</code> keywords, used in the context of the code scanning configuration file, should not be confused with the same keywords when used for <code>on.&lt;push|pull_request&gt;.paths</code> in a workflow. When they are used to modify <code>on.&lt;push|pull_request&gt;</code> in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see &quot;<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">Workflow syntax for GitHub Actions</a>.&quot;</li>
+<li><code>**</code> characters can only be at the start or end of a line, or surrounded by slashes, and you can&apos;t mix <code>**</code> and other characters. For example, <code>foo/**</code>, <code>**/foo</code>, and <code>foo/**/bar</code> are all allowed syntax, but <code>**foo</code> isn&apos;t. However you can use single stars along with other characters, as shown in the example. You&apos;ll need to quote anything that contains a <code>*</code> character.</li>
+</ul>
+</div>
+<p>For compiled languages, if you want to limit code scanning to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language">Configuring the CodeQL workflow for compiled languages</a>.&quot;</p>
+<p>You can quickly analyze small portions of a monorepo when you modify code in specific directories. You&apos;ll need to both exclude directories in your build steps and use the <code>paths-ignore</code> and <code>paths</code> keywords for <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths"><code>on.&lt;push|pull_request&gt;</code></a> in your workflow.</p>
+<h4 id="example-configuration-files"><a href="#example-configuration-files">Example configuration files</a></h4>
+<p>This configuration file adds the <code>security-and-quality</code> query suite to the list of queries run by CodeQL when scanning your code. For more information about the query suites available for use, see &quot;<a href="#running-additional-queries">Running additional queries</a>.&quot;</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">&quot;My CodeQL config&quot;</span>
+
+<span class="hljs-attr">queries:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">security-and-quality</span>
+</code></pre>
+<p>The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures CodeQL to scan files in the <em>src</em> directory (relative to the root), except for the <em>src/node_modules</em> directory, and except for files whose name ends in <em>.test.js</em>. Files in <em>src/node_modules</em> and files with names ending <em>.test.js</em> are therefore excluded from analysis.</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">&quot;My CodeQL config&quot;</span>
+
+<span class="hljs-attr">disable-default-queries:</span> <span class="hljs-literal">true</span>
+
+<span class="hljs-attr">queries:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Use</span> <span class="hljs-string">an</span> <span class="hljs-string">in-repository</span> <span class="hljs-string">QL</span> <span class="hljs-string">pack</span> <span class="hljs-string">(run</span> <span class="hljs-string">queries</span> <span class="hljs-string">in</span> <span class="hljs-string">the</span> <span class="hljs-string">my-queries</span> <span class="hljs-string">directory)</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">./my-queries</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Use</span> <span class="hljs-string">an</span> <span class="hljs-string">external</span> <span class="hljs-string">JavaScript</span> <span class="hljs-string">QL</span> <span class="hljs-string">pack</span> <span class="hljs-string">(run</span> <span class="hljs-string">queries</span> <span class="hljs-string">from</span> <span class="hljs-string">an</span> <span class="hljs-string">external</span> <span class="hljs-string">repo)</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">octo-org/javascript-qlpack@main</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Use</span> <span class="hljs-string">an</span> <span class="hljs-string">external</span> <span class="hljs-string">query</span> <span class="hljs-string">(run</span> <span class="hljs-string">a</span> <span class="hljs-string">single</span> <span class="hljs-string">query</span> <span class="hljs-string">from</span> <span class="hljs-string">an</span> <span class="hljs-string">external</span> <span class="hljs-string">QL</span> <span class="hljs-string">pack)</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">octo-org/python-qlpack/show_ifs.ql@main</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Use</span> <span class="hljs-string">a</span> <span class="hljs-string">query</span> <span class="hljs-string">suite</span> <span class="hljs-string">file</span> <span class="hljs-string">(run</span> <span class="hljs-string">queries</span> <span class="hljs-string">from</span> <span class="hljs-string">a</span> <span class="hljs-string">query</span> <span class="hljs-string">suite</span> <span class="hljs-string">in</span> <span class="hljs-string">this</span> <span class="hljs-string">repo)</span>
+    <span class="hljs-attr">uses:</span> <span class="hljs-string">./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls</span>
+
+<span class="hljs-attr">paths:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">src</span> 
+<span class="hljs-attr">paths-ignore:</span> 
+  <span class="hljs-bullet">-</span> <span class="hljs-string">src/node_modules</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&apos;**/*.test.js&apos;</span>
+</code></pre>
+<h3 id="configuring-code-scanning-for-compiled-languages"><a href="#configuring-code-scanning-for-compiled-languages">Configuring code scanning for compiled languages</a></h3>
+<p>For the supported compiled languages, you can use the <code>autobuild</code> action in the CodeQL analysis workflow to build your code. This avoids you having to specify explicit build commands for C/C++, C#, and Java. CodeQL also runs a build for Go projects to set up the project. However, in contrast to the other compiled languages, all Go files in the repository are extracted, not just those that are built. Custom build commands are not supported for Go.</p>
+<p>If the C/C++, C#, or Java code in your repository has a non-standard build process, <code>autobuild</code> may fail. You will need to remove the <code>autobuild</code> step from the workflow, and manually add build steps. For more information about how to configure CodeQL code scanning for compiled languages, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages">Configuring the CodeQL workflow for compiled languages</a>.&quot;</p>
+<h3 id="uploading-code-scanning-data-to-github"><a href="#uploading-code-scanning-data-to-github">Uploading code scanning data to GitHub</a></h3>
+<p>GitHub can display code analysis data generated externally by a third-party tool. You can upload code analysis data with the <code>upload-sarif</code> action. For more information, see &quot;<a href="https://docs.github.com/en/code-security/secure-coding/uploading-a-sarif-file-to-github">Uploading a SARIF file to GitHub</a>.&quot;</p>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/code-security/secure-coding/configuring-code-scanning.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/code-security/secure-coding/configuring-code-scanning by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:12:06 GMT -->
+</html>

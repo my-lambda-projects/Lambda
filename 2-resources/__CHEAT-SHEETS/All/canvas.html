@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="getting-the-context">Getting the context</h3>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> canvas <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;c&#39;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">var</span> c <span class="op">=</span> <span class="va">canvas</span>.<span class="at">getContext</span>(<span class="st">&#39;2d&#39;</span>)</a></code></pre>
+    </div>
+    <h3 id="basic-drawing">Basic drawing</h3>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// x = 10, y = 20, width = 200, height = 100</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">c</span>.<span class="at">fillStyle</span> <span class="op">=</span> <span class="st">&#39;#ff0000&#39;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">c</span>.<span class="at">strokeStyle</span> <span class="op">=</span> <span class="st">&#39;#ff00ff&#39;</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">c</span>.<span class="at">lineWidth</span> <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">c</span>.<span class="at">lineCap</span> <span class="op">=</span> <span class="st">&#39;round&#39;</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">c</span>.<span class="at">fillRect</span>(<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">100</span>)</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb5">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">c</span>.<span class="at">stroke</span>()</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">c</span>.<span class="at">fill</span>()</a></code></pre>
+    </div>
+    <h3 id="saving-and-restoring">Saving and restoring</h3>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">c</span>.<span class="at">save</span>()</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb7">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">c</span>.<span class="at">restore</span>()</a></code></pre>
+    </div>
+    <p>Saves: <code>strokeStyle</code> <code>fillStyle</code> <code>globalAlpha</code> <code>lineWidth</code>
+      <code>lineCap</code> <code>lineJoin</code> <code>miterLimit</code> <code>shadowOffsetX</code>
+      <code>shadowOffsetY</code> <code>shadowBlur</code> <code>shadowColor</code> <code>globalCompositeOperation</code>,
+      Transformations (<code>translate</code> <code>rotate</code> <code>scale</code> <code>transform</code>
+      <code>setTransform</code>), Clipping path</p>
+    <h3 id="animation">Animation</h3>
+    <div class="sourceCode" id="cb8">
+      <pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">onframe<span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="va">c</span>.<span class="at">clearRect</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> w<span class="op">,</span> h)</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span></a></code></pre>
+    </div>
+    <h3 id="transformations">Transformations</h3>
+    <div class="sourceCode" id="cb9">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="va">c</span>.<span class="at">translate</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="va">c</span>.<span class="at">rotate</span>(<span class="va">Math</span>.<span class="at">PI</span><span class="op">*</span><span class="dv">2</span>/<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="va">c</span>.<span class="at">scale</span>(<span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>)</a></code></pre>
+    </div>
+    <p>To rotate along origin:</p>
+    <div class="sourceCode" id="cb10">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">c</span>.<span class="at">translate</span>(ox<span class="op">,</span> oy)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="va">c</span>.<span class="at">rotate</span>(theta)</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="va">c</span>.<span class="at">translate</span>(<span class="op">-</span>ox<span class="op">,</span> <span class="op">-</span>oy)</a></code></pre>
+    </div>
+    <p>To scale along origin:</p>
+    <div class="sourceCode" id="cb11">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">c</span>.<span class="at">translate</span>(<span class="op">-</span>ox<span class="op">*</span>x<span class="op">,</span> <span class="op">-</span>oy<span class="op">*</span>y)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="va">c</span>.<span class="at">scale</span>(x<span class="op">,</span> y)</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="va">c</span>.<span class="at">translate</span>(ox/x<span class="op">,</span> oy/y)</a></code></pre>
+    </div>
+    <p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Transformations">MDN: Transformations</a>.
+    </p>
+    <h3 id="image-drawing">Image drawing</h3>
+    <div class="sourceCode" id="cb12">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="va">c</span>.<span class="at">drawImage</span>(image<span class="op">,</span> dx<span class="op">,</span> dy<span class="op">,</span> [dw<span class="op">,</span> dh])<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="co">/* `image` can be HTML Image/Canvas/Video */</span></a></code></pre>
+    </div>
+    <p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Using_images">MDN: Images</a>.</p>
+    <h3 id="colors-styles-shadows">Colors, styles shadows</h3>
+    <div class="sourceCode" id="cb13">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="va">c</span>.<span class="at">strokeStyle</span> <span class="op">=</span> <span class="st">&#39;#ff00ff&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="va">c</span>.<span class="at">fillStyle</span> <span class="op">=</span> <span class="st">&#39;#ff00ff&#39;</span><span class="op">;</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb14">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="va">c</span>.<span class="at">shadowOffsetX</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="va">c</span>.<span class="at">shadowOffsetY</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="va">c</span>.<span class="at">shadowOffsetBlur</span> <span class="op">=</span> <span class="fl">3.0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="va">c</span>.<span class="at">shadowColor</span> <span class="op">=</span> <span class="st">&#39;rgba(0,0,0,0.2)&#39;</span><span class="op">;</span></a></code></pre>
+    </div>
+    <p>See <a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial/Applying_styles_and_colors">MDN: Styles</a>
+    </p>
+    <h3 id="gradients">Gradients</h3>
+    <div class="sourceCode" id="cb15">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1">gr <span class="op">=</span> <span class="va">c</span>.<span class="at">createLinearGradient</span>(x0<span class="op">,</span>y0<span class="op">,</span>x1<span class="op">,</span>y1)</a>
+<a class="sourceLine" id="cb15-2" title="2">gr <span class="op">=</span> <span class="va">c</span>.<span class="at">createRadialGradient</span>(x0<span class="op">,</span>y0<span class="op">,</span>r0<span class="op">,</span>x1<span class="op">,</span>y1<span class="op">,</span>r1)</a>
+<a class="sourceLine" id="cb15-3" title="3">pat <span class="op">=</span> <span class="va">c</span>.<span class="at">createPattern</span>(image<span class="op">,</span> <span class="st">&#39;repeat-x&#39;</span>)</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb16">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="va">c</span>.<span class="at">fillStyle</span> <span class="op">=</span> gr</a></code></pre>
+    </div>
+    <h3 id="drawing">Drawing</h3>
+    <div class="sourceCode" id="cb17">
+      <pre
+        class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="va">c</span>.<span class="at">beginPath</span>()</a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="va">c</span>.<span class="at">moveTo</span>(x<span class="op">,</span>y)</a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="va">c</span>.<span class="at">lineTo</span>(x<span class="op">,</span>y)</a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="va">c</span>.<span class="at">quadraticCurveTo</span>(cpx<span class="op">,</span>cpy<span class="op">,</span>x<span class="op">,</span>y)</a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="va">c</span>.<span class="at">bezierCurveTo</span>(cp1x<span class="op">,</span>cp1y<span class="op">,</span>cp2x<span class="op">,</span>cp2y)</a>
+<a class="sourceLine" id="cb17-6" title="6"><span class="va">c</span>.<span class="at">arcTo</span>(...)</a>
+<a class="sourceLine" id="cb17-7" title="7"><span class="va">c</span>.<span class="at">arc</span>(...)</a>
+<a class="sourceLine" id="cb17-8" title="8"><span class="va">c</span>.<span class="at">closePath</span>()</a></code></pre>
+    </div>
+    <h3 id="more-resources">More resources</h3>
+    <ul>
+      <li><a href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf">Canvas Cheatsheet PDF</a>
+      </li>
+    </ul>
+  </body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="browsing">Browsing</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb1-1" title="1">SHOW DATABASES;</a>
+<a class="sourceLine" id="cb1-2" title="2">SHOW <span class="kw">TABLES</span>;</a>
+<a class="sourceLine" id="cb1-3" title="3">SHOW FIELDS <span class="kw">FROM</span> <span class="kw">table</span> <span class="op">/</span> DESCRIBE <span class="kw">table</span>;</a>
+<a class="sourceLine" id="cb1-4" title="4">SHOW <span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span>;</a>
+<a class="sourceLine" id="cb1-5" title="5">SHOW PROCESSLIST;</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">KILL</span> process_number;</a></code></pre></div>
+<h3 id="select">Select</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> <span class="kw">table</span>;</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> table1, table2;</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">SELECT</span> field1, field2 <span class="kw">FROM</span> table1, table2;</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> <span class="op">..</span>. <span class="kw">WHERE</span> condition</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> <span class="op">..</span>. <span class="kw">WHERE</span> condition GROUPBY field;</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> <span class="op">..</span>. <span class="kw">WHERE</span> condition GROUPBY field <span class="kw">HAVING</span> condition2;</a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> <span class="op">..</span>. <span class="kw">WHERE</span> condition <span class="kw">ORDER</span> <span class="kw">BY</span> field1, field2;</a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> <span class="op">..</span>. <span class="kw">WHERE</span> condition <span class="kw">ORDER</span> <span class="kw">BY</span> field1, field2 <span class="kw">DESC</span>;</a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> <span class="op">..</span>. <span class="kw">WHERE</span> condition <span class="kw">LIMIT</span> <span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> field1 <span class="kw">FROM</span> <span class="op">..</span>.</a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> field1, field2 <span class="kw">FROM</span> <span class="op">..</span>.</a></code></pre></div>
+<h3 id="select---join">Select - Join</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> t1 <span class="kw">JOIN</span> t2 <span class="kw">ON</span> t1.id1 <span class="op">=</span> t2.id2 <span class="kw">WHERE</span> condition;</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> t1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> t2 <span class="kw">ON</span> t1.id1 <span class="op">=</span> t2.id2 <span class="kw">WHERE</span> condition;</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">SELECT</span> <span class="op">..</span>. <span class="kw">FROM</span> t1 <span class="kw">JOIN</span> (t2 <span class="kw">JOIN</span> t3 <span class="kw">ON</span> <span class="op">..</span>.) <span class="kw">ON</span> <span class="op">..</span>.</a></code></pre></div>
+<h3 id="conditions">Conditions</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb4-1" title="1">field1 <span class="op">=</span> value1</a>
+<a class="sourceLine" id="cb4-2" title="2">field1 <span class="op">&lt;&gt;</span> value1</a>
+<a class="sourceLine" id="cb4-3" title="3">field1 <span class="kw">LIKE</span> <span class="st">&#39;value _ %&#39;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">field1 <span class="kw">IS</span> <span class="kw">NULL</span></a>
+<a class="sourceLine" id="cb4-5" title="5">field1 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></a>
+<a class="sourceLine" id="cb4-6" title="6">field1 <span class="kw">IS</span> <span class="kw">IN</span> (value1, value2)</a>
+<a class="sourceLine" id="cb4-7" title="7">field1 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">IN</span> (value1, value2)</a>
+<a class="sourceLine" id="cb4-8" title="8">condition1 <span class="kw">AND</span> condition2</a>
+<a class="sourceLine" id="cb4-9" title="9">condition1 <span class="kw">OR</span> condition2</a></code></pre></div>
+<h3 id="create-open-delete-database">Create / Open / Delete Database</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">CREATE</span> <span class="kw">DATABASE</span> DatabaseName;</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">CREATE</span> <span class="kw">DATABASE</span> DatabaseName <span class="dt">CHARACTER</span> <span class="kw">SET</span> utf8;</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">USE</span> DatabaseName;</a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="kw">DROP</span> <span class="kw">DATABASE</span> DatabaseName;</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">ALTER</span> <span class="kw">DATABASE</span> DatabaseName <span class="dt">CHARACTER</span> <span class="kw">SET</span> utf8;</a></code></pre></div>
+<h3 id="backup-database-to-sql-file">Backup Database to SQL File</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">mysqldump</span> -u Username -p dbNameYouWant <span class="op">&gt;</span> databasename_backup.sql</a></code></pre></div>
+<h3 id="restore-from-backup-sql-file">Restore from backup SQL File</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">mysql</span> - u Username -p dbNameYouWant <span class="op">&lt;</span> databasename_backup.sql<span class="kw">;</span></a></code></pre></div>
+<h3 id="repair-tables-after-unclean-shutdown">Repair Tables After Unclean Shutdown</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">mysqlcheck</span> --all-databases<span class="kw">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">mysqlcheck</span> --all-databases --fast<span class="kw">;</span></a></code></pre></div>
+<h3 id="insert">Insert</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">INSERT</span> <span class="kw">INTO</span> table1 (field1, field2) <span class="kw">VALUES</span> (value1, value2);</a></code></pre></div>
+<h3 id="delete">Delete</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">DELETE</span> <span class="kw">FROM</span> table1 <span class="op">/</span> <span class="kw">TRUNCATE</span> table1</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">DELETE</span> <span class="kw">FROM</span> table1 <span class="kw">WHERE</span> condition</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="kw">DELETE</span> <span class="kw">FROM</span> table1, table2 <span class="kw">FROM</span> table1, table2 <span class="kw">WHERE</span> table1.id1 <span class="op">=</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  table2.id2 <span class="kw">AND</span> condition</a></code></pre></div>
+<h3 id="update">Update</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">UPDATE</span> table1 <span class="kw">SET</span> field1<span class="op">=</span>new_value1 <span class="kw">WHERE</span> condition;</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">UPDATE</span> table1, table2 <span class="kw">SET</span> field1<span class="op">=</span>new_value1, field2<span class="op">=</span>new_value2, <span class="op">..</span>. <span class="kw">WHERE</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  table1.id1 <span class="op">=</span> table2.id2 <span class="kw">AND</span> condition;</a></code></pre></div>
+<h3 id="create-delete-modify-table">Create / Delete / Modify Table</h3>
+<h4 id="create">Create</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (field1 type1, field2 type2);</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (field1 type1, field2 type2, <span class="kw">INDEX</span> (field));</a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (field1 type1, field2 type2, <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (field1));</a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (field1 type1, field2 type2, <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (field1,field2));</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">CREATE</span> <span class="kw">TABLE</span> table1 (fk_field1 type1, field2 type2, <span class="op">..</span>.,</a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (fk_field1) <span class="kw">REFERENCES</span> table2 (t2_fieldA))</a>
+<a class="sourceLine" id="cb13-3" title="3">    [<span class="kw">ON</span> <span class="kw">UPDATE</span>|<span class="kw">ON</span> <span class="kw">DELETE</span>] [<span class="kw">CASCADE</span>|<span class="kw">SET</span> <span class="kw">NULL</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">CREATE</span> <span class="kw">TABLE</span> table1 (fk_field1 type1, fk_field2 type2, <span class="op">..</span>.,</a>
+<a class="sourceLine" id="cb14-2" title="2"> <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (fk_field1, fk_field2) <span class="kw">REFERENCES</span> table2 (t2_fieldA, t2_fieldB))</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">CREATE</span> <span class="kw">TEMPORARY</span> <span class="kw">TABLE</span> <span class="kw">table</span>;</a></code></pre></div>
+<h4 id="drop">Drop</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="kw">table</span>;</a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> <span class="kw">table</span>;</a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="kw">DROP</span> <span class="kw">TABLE</span> table1, table2, <span class="op">..</span>.</a></code></pre></div>
+<h4 id="alter">Alter</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">MODIFY</span> field1 type1</a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">MODIFY</span> field1 type1 <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="op">..</span>.</a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">CHANGE</span> old_name_field1 new_name_field1 type1</a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">CHANGE</span> old_name_field1 new_name_field1 type1 <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="op">..</span>.</a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">ALTER</span> field1 <span class="kw">SET</span> <span class="kw">DEFAULT</span> <span class="op">..</span>.</a>
+<a class="sourceLine" id="cb18-6" title="6"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">ALTER</span> field1 <span class="kw">DROP</span> <span class="kw">DEFAULT</span></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">ADD</span> new_name_field1 type1</a>
+<a class="sourceLine" id="cb18-8" title="8"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">ADD</span> new_name_field1 type1 <span class="fu">FIRST</span></a>
+<a class="sourceLine" id="cb18-9" title="9"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">ADD</span> new_name_field1 type1 <span class="kw">AFTER</span> another_field</a>
+<a class="sourceLine" id="cb18-10" title="10"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">DROP</span> field1</a>
+<a class="sourceLine" id="cb18-11" title="11"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">ADD</span> <span class="kw">INDEX</span> (field);</a></code></pre></div>
+<h4 id="change-field-order">Change field order</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">MODIFY</span> field1 type1 <span class="fu">FIRST</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">MODIFY</span> field1 type1 <span class="kw">AFTER</span> another_field</a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">CHANGE</span> old_name_field1 new_name_field1 type1 <span class="fu">FIRST</span></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="kw">ALTER</span> <span class="kw">TABLE</span> <span class="kw">table</span> <span class="kw">CHANGE</span> old_name_field1 new_name_field1 type1 <span class="kw">AFTER</span></a>
+<a class="sourceLine" id="cb19-5" title="5">  another_field</a></code></pre></div>
+<h3 id="keys">Keys</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (<span class="op">..</span>., <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (field1, field2))</a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (<span class="op">..</span>., <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (field1, field2) <span class="kw">REFERENCES</span> table2</a>
+<a class="sourceLine" id="cb20-3" title="3">(t2_field1, t2_field2))</a></code></pre></div>
+<h3 id="users-and-privileges">Users and Privileges</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">CREATE</span> <span class="fu">USER</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;localhost&#39;</span>;</a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw">GRANT</span> <span class="kw">ALL</span> <span class="kw">PRIVILEGES</span> <span class="kw">ON</span> base.<span class="op">*</span> <span class="kw">TO</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;localhost&#39;</span> <span class="kw">IDENTIFIED</span> <span class="kw">BY</span> <span class="st">&#39;password&#39;</span>;</a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">GRANT</span> <span class="kw">SELECT</span>, <span class="kw">INSERT</span>, <span class="kw">DELETE</span> <span class="kw">ON</span> base.<span class="op">*</span> <span class="kw">TO</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;localhost&#39;</span> <span class="kw">IDENTIFIED</span> <span class="kw">BY</span> <span class="st">&#39;password&#39;</span>;</a>
+<a class="sourceLine" id="cb21-4" title="4"><span class="kw">REVOKE</span> <span class="kw">ALL</span> <span class="kw">PRIVILEGES</span> <span class="kw">ON</span> base.<span class="op">*</span> <span class="kw">FROM</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;host&#39;</span>; <span class="co">-- one permission only</span></a>
+<a class="sourceLine" id="cb21-5" title="5"><span class="kw">REVOKE</span> <span class="kw">ALL</span> <span class="kw">PRIVILEGES</span>, <span class="kw">GRANT</span> <span class="kw">OPTION</span> <span class="kw">FROM</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;host&#39;</span>; <span class="co">-- all permissions</span></a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="kw">FLUSH</span> <span class="kw">PRIVILEGES</span>;</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">SET</span> <span class="kw">PASSWORD</span> <span class="op">=</span> <span class="kw">PASSWORD</span>(<span class="st">&#39;new_pass&#39;</span>);</a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="kw">SET</span> <span class="kw">PASSWORD</span> <span class="cf">FOR</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;host&#39;</span> <span class="op">=</span> <span class="kw">PASSWORD</span>(<span class="st">&#39;new_pass&#39;</span>);</a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="kw">SET</span> <span class="kw">PASSWORD</span> <span class="op">=</span> OLD_PASSWORD(<span class="st">&#39;new_pass&#39;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">DROP</span> <span class="fu">USER</span> <span class="st">&#39;user&#39;</span>@<span class="st">&#39;host&#39;</span>;</a></code></pre></div>
+<p>Host ‘%' indicates any host.</p>
+<h3 id="main-data-types">Main Data Types</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb24-1" title="1">TINYINT (1o: <span class="op">-</span><span class="dv">217</span><span class="op">+</span><span class="dv">128</span>)</a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="dt">SMALLINT</span> (2o: <span class="op">+-</span><span class="dv">65</span> <span class="dv">000</span>)</a>
+<a class="sourceLine" id="cb24-3" title="3">MEDIUMINT (3o: <span class="op">+-</span><span class="dv">16</span> <span class="dv">000</span> <span class="dv">000</span>)</a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="dt">INT</span> (4o: <span class="op">+-</span> <span class="dv">2</span> <span class="dv">000</span> <span class="dv">000</span> <span class="dv">000</span>)</a>
+<a class="sourceLine" id="cb24-5" title="5">BIGINT (8o: <span class="op">+-</span><span class="fl">9.10</span>^<span class="dv">18</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb25-1" title="1">Precise <span class="dt">interval</span>: <span class="op">-</span>(<span class="dv">2</span>^(<span class="dv">8</span><span class="op">*</span>N<span class="op">-</span><span class="dv">1</span>)) <span class="op">-&gt;</span> (<span class="dv">2</span>^<span class="dv">8</span><span class="op">*</span>N)<span class="op">-</span><span class="dv">1</span></a></code></pre></div>
+<p>⚠ INT(2) = “2 digits displayed” - NOT “number with 2 digits max”</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb26-1" title="1"><span class="dt">FLOAT</span>(M,D)</a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="dt">DOUBLE</span>(M,D)</a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="dt">FLOAT</span>(D<span class="op">=</span><span class="dv">0</span><span class="op">-&gt;</span><span class="dv">53</span>)</a></code></pre></div>
+<p>⚠ 8,3 -&gt; 12345,678 - NOT 12345678,123!</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb27-1" title="1"><span class="dt">TIME</span> (HH<span class="ch">:MM</span>)</a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="dt">YEAR</span> (AAAA)</a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="dt">DATE</span> (AAAA<span class="op">-</span>MM<span class="op">-</span>JJ)</a>
+<a class="sourceLine" id="cb27-4" title="4">DATETIME (AAAA<span class="op">-</span>MM<span class="op">-</span>JJ HH<span class="ch">:MM</span>; années <span class="dv">1000</span><span class="op">-&gt;</span><span class="dv">9999</span>)</a>
+<a class="sourceLine" id="cb27-5" title="5"><span class="dt">TIMESTAMP</span> (<span class="kw">like</span> DATETIME, but <span class="dv">1970</span><span class="op">-&gt;</span><span class="dv">2038</span>, compatible <span class="kw">with</span> Unix)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb28-1" title="1"><span class="dt">VARCHAR</span> (<span class="dt">single</span><span class="op">-</span>line; explicit <span class="kw">size</span>)</a>
+<a class="sourceLine" id="cb28-2" title="2">TEXT (multi<span class="op">-</span>lines; <span class="fu">max</span> <span class="kw">size</span><span class="op">=</span><span class="dv">65535</span>)</a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="dt">BLOB</span> (binary; <span class="fu">max</span> <span class="kw">size</span><span class="op">=</span><span class="dv">65535</span>)</a></code></pre></div>
+<p>Variants for TEXT&amp;BLOB: <code>TINY</code> (max=255), <code>MEDIUM</code> (max=~16000), and <code>LONG</code> (max=4Go). Ex: <code>VARCHAR(32)</code>, <code>TINYTEXT</code>, <code>LONGBLOB</code>, <code>MEDIUMTEXT</code></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb29-1" title="1">ENUM (<span class="st">&#39;value1&#39;</span>, <span class="st">&#39;value2&#39;</span>, <span class="op">..</span>.) <span class="co">-- (default NULL, or &#39;&#39; if NOT NULL)</span></a></code></pre></div>
+<h3 id="reset-root-password">Reset Root Password</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb30-1" title="1">$ <span class="ex">/etc/init.d/mysql</span> stop</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb31-1" title="1">$ <span class="ex">mysqld_safe</span> --skip-grant-tables</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb32-1" title="1">$ <span class="ex">mysql</span> <span class="co"># on another terminal</span></a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="ex">mysql</span><span class="op">&gt;</span> UPDATE mysql.user SET password=PASSWORD(<span class="st">&#39;new_pass&#39;</span>) <span class="ex">WHERE</span> user=<span class="st">&#39;root&#39;</span><span class="kw">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb33-1" title="1"><span class="co">## Switch back to the mysqld_safe terminal and kill the process using Control + \</span></a>
+<a class="sourceLine" id="cb33-2" title="2">$ <span class="ex">/etc/init.d/mysql</span> start</a></code></pre></div>
+<p>Your commands may vary depending on your OS.</p>
+</body></html>

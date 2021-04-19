@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="in-place-replacements">In place replacements</h2>
+<h3 id="in-place-replacement-gnu">In-place replacement (GNU)</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">sed</span> -i -e <span class="st">&#39;s/foo/bar/&#39;</span> example.md</a></code></pre></div>
+<p>In GNU sed: use <code>-i</code> without arg.</p>
+<h4 id="in-place-replacement-bsd">In-place replacement (BSD)</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">sed</span> -i <span class="st">&#39;&#39;</span> -e <span class="st">&#39;s/foo/bar/&#39;</span> example.md</a></code></pre></div>
+<p>In OSX, <code>-i ''</code> is required.</p>
+<h2 id="file-regions">File regions</h2>
+<p>{:.-three-column}</p>
+<h3 id="print-until-a-certain-line-is-met">Print until a certain line is met</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">sed</span> <span class="st">&#39;/begin api/q&#39;</span></a></code></pre></div>
+<h3 id="print-until-a-certain-line-is-met-but-not-that-line">Print until a certain line is met, but not that line</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">sed</span> <span class="st">&#39;/^# begin/,$d&#39;</span></a></code></pre></div>
+<h3 id="print-everything-after-a-given-line">Print everything after a given line</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">sed</span> -n <span class="st">&#39;/end api/,$p&#39;</span></a></code></pre></div>
+<p>Print after a given line is found.</p>
+<h3 id="print-everything-except-matching">Print everything except matching</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">sed</span> -n <span class="st">&#39;/regex/d;&#39;</span></a></code></pre></div>
+<p>Print everything except lines matching regex. Useful for printing files with comments.</p>
+</body></html>

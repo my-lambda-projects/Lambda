@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":152,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Hoppscotch</title>
+<meta name="description" content="👽 A free, fast and beautiful API request builder used by 120k+ developers. https://hoppscotch.io">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/hoppscotch/hoppscotch">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "hoppscotch/hoppscotch",
+  "description": "👽 A free, fast and beautiful API request builder used by 120k+ developers. https://hoppscotch.io",
+  "url": "https://awesomeopensource.com/project/hoppscotch/hoppscotch",
+  "sku": "project/hoppscotch/hoppscotch",
+  "mpn": "project/hoppscotch/hoppscotch",
+  "image": "https://github.com/hoppscotch.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "hoppscotch/hoppscotch",
+    "logo": "https://github.com/hoppscotch.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "26598"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Kk1S/lUWwXK/k23/zv195bTJCBDtaSB+UqCvTR/racvkfehYABOHB8VjKlN4LTIonasYAkL6ZlelhdeSC+T/1g==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/hoppscotch/hoppscotch","location":"/project/hoppscotch/hoppscotch","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/hoppscotch/hoppscotch","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-6d2eabcc-6db7-4bde-b83d-277605ada282"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Hoppscotch</div><div class="aos_project_metadata_description">👽 A free, fast and beautiful API request builder used by 120k+ developers. https://hoppscotch.io</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">26,598</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><span><div class="aos_project_metadata_header"><a href="https://hoppscotch.io" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://hoppscotch.io" target="_blank">https://hoppscotch.io</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/hoppscotch/hoppscotch" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/hoppscotch/hoppscotch" target="_blank">https://github.com/hoppscotch/hoppscotch</a></span><div class="aos_project_metadata_header"><a href="https://github.com/hoppscotch/hoppscotch/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/hoppscotch/hoppscotch/issues" target="_blank">23</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">3 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/vue"><div style="display:block;text-decoration:none;padding-bottom:10px">vue<span> (<!-- -->3,923<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/api"><div style="display:block;text-decoration:none;padding-bottom:10px">api<span> (<!-- -->1,579<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/vuejs"><div style="display:block;text-decoration:none;padding-bottom:10px">vuejs<span> (<!-- -->1,048<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/graphql"><div style="display:block;text-decoration:none;padding-bottom:10px">graphql<span> (<!-- -->991<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/testing"><div style="display:block;text-decoration:none;padding-bottom:10px">testing<span> (<!-- -->909<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/rest-api"><div style="display:block;text-decoration:none;padding-bottom:10px">rest-api<span> (<!-- -->516<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/websocket"><div style="display:block;text-decoration:none;padding-bottom:10px">websocket<span> (<!-- -->422<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/developer-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">developer-tools<span> (<!-- -->323<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tools"><div style="display:block;text-decoration:none;padding-bottom:10px">tools<span> (<!-- -->318<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/pwa"><div style="display:block;text-decoration:none;padding-bottom:10px">pwa<span> (<!-- -->308<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nuxt"><div style="display:block;text-decoration:none;padding-bottom:10px">nuxt<span> (<!-- -->212<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/testing-tools"><div style="display:block;text-decoration:none;padding-bottom:10px">testing-tools<span> (<!-- -->194<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/api-client"><div style="display:block;text-decoration:none;padding-bottom:10px">api-client<span> (<!-- -->185<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/spa"><div style="display:block;text-decoration:none;padding-bottom:10px">spa<span> (<!-- -->178<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/http-client"><div style="display:block;text-decoration:none;padding-bottom:10px">http-client<span> (<!-- -->176<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nuxtjs"><div style="display:block;text-decoration:none;padding-bottom:10px">nuxtjs<span> (<!-- -->116<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/api-rest"><div style="display:block;text-decoration:none;padding-bottom:10px">api-rest<span> (<!-- -->46<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/api-testing"><div style="display:block;text-decoration:none;padding-bottom:10px">api-testing<span> (<!-- -->22<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<div align="center">
+  <a href="https://hoppscotch.io" rel="nofollow"><img src="https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/static/logo.png" alt="hoppscotch.io logo" height="128" style="max-width:100%;"></a>
+  <br>
+  <br>
+  <p>
+    <b>Hoppscotch - A free, fast and beautiful API request builder</b>
+  </p>
+  <p>
+     <i>Helps you create requests faster, saving precious time on development - <a href="https://hoppscotch.launchaco.com" rel="nofollow">Subscribe</a></i>
+  </p>
+  <p>
+</p>
+<p><a href="https://hoppscotch.io" rel="nofollow"><img src="https://img.shields.io/website?url=https%3A%2F%2Fhoppscotch.io&amp;logo=hoppscotch" alt="Website" style="max-width:100%;"></a> <a href="https://travis-ci.com/hoppscotch/hoppscotch" rel="nofollow"><img src="https://img.shields.io/travis/com/hoppscotch/hoppscotch/main?logo=Travis" alt="Travis Build Status" style="max-width:100%;"></a> <a href="https://github.com/hoppscotch/hoppscotch/releases/latest" rel="nofollow"><img src="https://img.shields.io/github/release/hoppscotch/hoppscotch/all?logo=GitHub" alt="GitHub release" style="max-width:100%;"></a> <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhoppscotch.io&amp;text=%F0%9F%91%BD%20hoppscotch%20%E2%80%A2%20API%20request%20builder%20-%20Helps%20you%20create%20your%20requests%20faster%2C%20saving%20you%20precious%20time%20on%20your%20development&amp;original_referer=https%3A%2F%2Ftwitter.com%2Fshare%3Ftext%3D%25F0%259F%2591%25BD%2520hoppscotch%2520%25E2%2580%25A2%2520API%2520request%2520builder%2520-%2520Helps%2520you%2520create%2520your%2520requests%2520faster%2C%2520saving%2520you%2520precious%2520time%2520on%2520your%2520development%26url%3Dhttps%3A%2F%2Fhoppscotch.io%26hashtags%3Dhoppscotch%26via%3Dliyasthomas&amp;via=liyasthomas&amp;hashtags=hoppscotch" rel="nofollow"><img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fhoppscotch.io%2F" alt="Tweet" style="max-width:100%;"></a></p>
+  
+  <p>
+    <sub>Built with ❤︎ by
+      <a href="https://github.com/liyasthomas" rel="nofollow">liyasthomas</a> and
+      <a href="https://github.com/hoppscotch/hoppscotch/graphs/contributors" rel="nofollow">contributors</a>
+    </sub>
+  </p>
+</div>
+<div align="center">
+  <a href="https://hoppscotch.io" rel="nofollow"><img src="https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/static/images/screenshot1.png" alt="Screenshot1" width="100%" style="max-width:100%;"></a>
+</div>
+<h4>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Contact</strong>
+</h4>
+<p><a href="https://t.me/hoppscotch" rel="nofollow"><img src="https://img.shields.io/badge/chat-Telegram-2CA5E0?logo=Telegram" alt="Chat on Telegram" style="max-width:100%;"></a> <a href="https://discord.gg/GAMWxmR" rel="nofollow"><img src="https://img.shields.io/badge/chat-Discord-7289DA?logo=discord" alt="Chat on Discord" style="max-width:100%;"></a></p>
+<h4>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Support</strong>
+</h4>
+<p><a href="https://github.com/sponsors/hoppscotch" rel="nofollow"><img src="https://img.shields.io/badge/sponsor-GitHub-181717?logo=github" alt="Sponsor on GitHub" style="max-width:100%;"></a> <a href="https://opencollective.com/hoppscotch" rel="nofollow"><img src="https://img.shields.io/badge/contribute-Open%20Collective-7FADF2?logo=open-collective" alt="Contribute on Open Collective" style="max-width:100%;"></a> <a href="https://www.patreon.com/liyasthomas" rel="nofollow"><img src="https://img.shields.io/badge/join-Patreon-F96854?logo=patreon" alt="Join on Patreon" style="max-width:100%;"></a> <a href="https://www.paypal.me/liyascthomas" rel="nofollow"><img src="https://img.shields.io/badge/donate-PayPal-00457C?logo=paypal" alt="Donate on PayPal" style="max-width:100%;"></a></p>
+<details>
+  <summary><i><ins>Table of contents</ins></i></summary>
+<hr>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#built-with">Built with</a></li>
+<li>
+<a href="#developing">Developing</a>
+<ul>
+<li><a href="#browser-based-development-environment">Browser based development environment</a></li>
+<li><a href="#local-development-environment">Local development environment</a></li>
+<li><a href="#docker-compose">Docker compose</a></li>
+</ul>
+</li>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#releasing">Releasing</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#continuous-integration">Continuous Integration</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li>
+<a href="#authors">Authors</a>
+<ul>
+<li><a href="#lead-developers">Lead Developers</a></li>
+<li><a href="#testing-and-debugging">Testing and Debugging</a></li>
+<li><a href="#collaborators-">Collaborators</a></li>
+<li><a href="#thanks">Thanks</a></li>
+<li>
+<a href="#financial-contributors">Financial Contributors</a>
+<ul>
+<li><a href="#github-sponsors">GitHub Sponsors</a></li>
+<li><a href="#open-collective">Open Collective</a></li>
+</ul>
+</li>
+<li><a href="#code-contributors">Code Contributors</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#badges">Badges</a></li>
+</ul>
+<hr>
+</details>
+<h3>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Features</strong>
+</h3>
+<p>❤️ <strong>Lightweight:</strong> Crafted with minimalistic UI design.</p>
+<p>⚡️ <strong>Fast:</strong> Send requests and get/copy responses in real-time.</p>
+<details>
+  <summary><i><ins>HTTP Methods</ins></i></summary>
+<hr>
+<ul>
+<li>
+<code>GET</code> - Requests retrieve resource information</li>
+<li>
+<code>HEAD</code> - Retrieve response headers identical to those of a GET request, but without the response body.</li>
+<li>
+<code>POST</code> - The server creates a new entry in a database</li>
+<li>
+<code>PUT</code> - Updates an existing resource</li>
+<li>
+<code>DELETE</code> - Deletes resource or related component</li>
+<li>
+<code>CONNECT</code> - Establishes a tunnel to the server identified by the target resource</li>
+<li>
+<code>OPTIONS</code> - Describe the communication options for the target resource</li>
+<li>
+<code>TRACE</code> - Performs a message loop-back test along the path to the target resource</li>
+<li>
+<code>PATCH</code> - Very similar to <code>PUT</code> but makes a partial update on a resource</li>
+<li>
+<code>&lt;custom&gt;</code> - Some APIs use custom request methods such as <code>LIST</code>. Type in your custom methods.</li>
+</ul>
+<hr>
+</details>
+<p>🌈 <strong>Make it yours:</strong> Customizable combinations for background, foreground and accent colors. <a href="https://hoppscotch.io/settings" rel="nofollow">Customize now ✨</a></p>
+<details>
+  <summary><i><ins>Theming</ins></i></summary>
+<hr>
+<ul>
+<li>Choose theme: System, Light, Dark (default) and Black</li>
+<li>Choose accent color: Blue, Green (default), Teal, Purple, Orange, Pink, Red, and Yellow</li>
+<li>Toggle multi-colored headings</li>
+<li>Toggle auto-scroll to response</li>
+</ul>
+<hr>
+</details>
+<p><em>Customized themes are synced with local session storage</em></p>
+<p>🔥 <strong>PWA:</strong> Install as a <a href="https://developers.google.com/web/progressive-web-apps" rel="nofollow">PWA</a> on your device.</p>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Instant loading with Service Workers</li>
+<li>Offline support</li>
+<li>Low RAM/memory and CPU usage</li>
+<li>Add to Home Screen</li>
+<li>Desktop PWA</li>
+</ul>
+<hr>
+</details>
+<p>🚀 <strong>Request:</strong> Retrieve response from endpoint instantly.</p>
+<ul>
+<li>Choose <code>method</code>
+</li>
+<li>Enter <code>URL</code>
+</li>
+<li>Send</li>
+</ul>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Copy/share public "Share URL"</li>
+<li>Generate/copy request code snippets for 10+ languages and frameworks</li>
+<li>Import <code>cURL</code>
+</li>
+<li>Label requests</li>
+</ul>
+<hr>
+</details>
+<p>🔌 <strong>WebSocket:</strong> Establish full-duplex communication channels over a single TCP connection.</p>
+<p>📡 <strong>Server Sent Events:</strong> Receive a stream of updates from a server over a HTTP connection without resorting to polling.</p>
+<p>🌩 <strong>Socket.IO:</strong> Send and Receive data with SocketIO server.</p>
+<p>🦟 <strong>MQTT:</strong> Subscribe and Publish to topics of a MQTT Broker.</p>
+<p>🔮 <strong>GraphQL:</strong> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.</p>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Set endpoint and get schemas</li>
+<li>Multi-column docs</li>
+<li>Set custom request headers</li>
+<li>Query schema</li>
+<li>Get query response</li>
+</ul>
+<hr>
+</details>
+<p>🔐 <strong>Authentication:</strong> Allows to identify the end user.</p>
+<details>
+  <summary><i><ins>Types</ins></i></summary>
+<hr>
+<ul>
+<li>None</li>
+<li>Basic</li>
+<li>Bearer Token</li>
+<li>OAuth 2.0</li>
+<li>OIDC Access Token/PKCE</li>
+</ul>
+<hr>
+</details>
+<p>📢 <strong>Headers:</strong> Describes the format the body of your request is being sent as.</p>
+<p>📫 <strong>Parameters:</strong> Use request parameters to set varying parts in simulated requests.</p>
+<p>📃 <strong>Request Body:</strong> Used to send and receive data via the REST API.</p>
+<details>
+  <summary><i><ins>Options</ins></i></summary>
+<hr>
+<ul>
+<li>Set <code>Content Type</code>
+</li>
+<li>Add or remove Parameter list</li>
+<li>Toggle between key-value and RAW input parameter list</li>
+</ul>
+<hr>
+</details>
+<p>👋 <strong>Response:</strong> Contains the status line, headers and the message/response body.</p>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Copy response to clipboard</li>
+<li>Download response as a file</li>
+<li>View response headers</li>
+<li>View raw and preview of HTML, image, JSON, XML responses</li>
+</ul>
+<hr>
+</details>
+<p>⏰ <strong>History:</strong> Request entries are synced with cloud / local session storage to restore with a single click.</p>
+<p>📁 <strong>Collections:</strong> Keep your API requests organized with collections and folders. Reuse them with a single click.</p>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Unlimited collections, folders and requests</li>
+<li>Nested folders</li>
+<li>Export as / import from GitHub gist</li>
+</ul>
+<hr>
+</details>
+<p><em>Collections are synced with cloud / local session storage</em></p>
+<p>🌐 <strong>Proxy:</strong> Enable Proxy Mode from Settings to access blocked APIs.</p>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Hide your IP address</li>
+<li>Fixes <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" rel="nofollow"><code>CORS</code></a> (Cross Origin Resource Sharing) issues</li>
+<li>Access APIs served in non-HTTPS (<code>http://</code>)</li>
+<li>Use custom Proxy URL</li>
+</ul>
+<hr>
+</details>
+<p><em>Official Hoppscotch Proxy is hosted by Apollo Software - <strong><a href="https://apollosoftware.xyz/legal/postwoman" rel="nofollow">Privacy Policy</a></strong></em></p>
+<p>📜 <strong>Pre-Request Scripts β:</strong> Snippets of code associated with a request that are executed before the request is sent.</p>
+<details>
+  <summary><i><ins>Use-cases</ins></i></summary>
+<hr>
+<ul>
+<li>Initialize environment variables</li>
+<li>Include timestamp in the request headers</li>
+<li>Send a random alphanumeric string in the URL parameters</li>
+</ul>
+<hr>
+</details>
+<p>📄 <strong>API Documentation:</strong> Create and share dynamic API documentation easily, quickly.</p>
+<details>
+  <summary><i><ins>Usage</ins></i></summary>
+<hr>
+<ol>
+<li>Add your requests to Collections and Folders</li>
+<li>Export Collections and easily share your APIs with the rest of your team</li>
+<li>Import Collections and Generate Documentation on-the-go</li>
+</ol>
+<hr>
+</details>
+<p>⌨️ <strong>Keyboard Shortcuts:</strong> Optimized for efficiency.</p>
+<blockquote>
+<p><strong><a href="https://github.com/hoppscotch/hoppscotch/wiki/Shortcuts" rel="nofollow">Shortcuts WIki</a></strong></p>
+</blockquote>
+<p>🌎 <strong>i18n β:</strong> Experience the app in your own language.</p>
+<details>
+  <summary><i><ins>Usage</ins></i></summary>
+<hr>
+<ol>
+<li>Scroll down to the footer</li>
+<li>Click "Choose Language" icon button</li>
+<li>Select your language from the menu</li>
+</ol>
+<hr>
+</details>
+<p><em>Keep in mind: Translations aren't available for all source and target language combinations</em></p>
+<p><strong>To provide a localized experience for users around the world, you can add you own translations.</strong></p>
+<p><em><strong>All <code>i18n</code> contributions are welcome to <code>i18n</code> <a href="https://github.com/hoppscotch/hoppscotch/tree/i18n" rel="nofollow">branch</a> only!</strong></em></p>
+<p>📦 <strong>Add-ons:</strong> Official add-ons for hoppscotch.</p>
+<ul>
+<li>
+<p><strong><a href="https://github.com/hoppscotch/proxyscotch" rel="nofollow">Proxy</a></strong> - A simple proxy server created for Hoppscotch</p>
+</li>
+<li>
+<p><strong><a href="https://github.com/hoppscotch/hopp-cli" rel="nofollow">CLI β</a></strong> - A CLI solution for Hoppscotch</p>
+</li>
+<li>
+<p><strong><a href="https://github.com/hoppscotch/hoppscotch-extension" rel="nofollow">Browser Extensions</a></strong> - Browser extensions that simplifies access to Hoppscotch</p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/hoppscotch" rel="nofollow"><img src="https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_16x16.png" alt="Firefox" style="max-width:100%;"> <strong>Firefox</strong></a>  |  <a href="https://chrome.google.com/webstore/detail/hoppscotch-extension-for-c/amknoiejhlmhancpahfcfcfhllgkpbld" rel="nofollow"><img src="https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_16x16.png" alt="Chrome" style="max-width:100%;"> <strong>Chrome</strong></a></p>
+<blockquote>
+<p><strong>Extensions fixes <code>CORS</code> issues.</strong></p>
+</blockquote>
+</li>
+</ul>
+<p><em>Add-ons are developed and maintained under <strong><a href="https://github.com/hoppscotch" rel="nofollow">Official Hoppscotch Organization</a></strong>.</em></p>
+<p>☁️ <strong>Auth + Sync:</strong> Sign in and sync in real-time.</p>
+<p><strong>Sign in with</strong></p>
+<ul>
+<li>Google</li>
+<li>GitHub</li>
+</ul>
+<p><strong>Sync</strong></p>
+<ul>
+<li>History</li>
+<li>Collections</li>
+<li>Environments</li>
+<li>Notes</li>
+</ul>
+<p>✅ <strong>Post-Request Tests β:</strong> Write tests associated with a request that are executed after the request response.</p>
+<details>
+  <summary><i><ins>Use-cases</ins></i></summary>
+<hr>
+<ul>
+<li>Check the status code as an integer</li>
+<li>Filter response headers</li>
+<li>Parse the response data</li>
+</ul>
+<hr>
+</details>
+<p>📝 <strong>Notes</strong> : Instantly jot down notes, tasks or whatever you feel like as they come to your mind.</p>
+<p><em>Notes are only available for signed-in users</em></p>
+<p>🌱 <strong>Environments</strong> : Environment variables allow you to store and reuse values in your requests and scripts.</p>
+<details>
+  <summary><i><ins>Features</ins></i></summary>
+<hr>
+<ul>
+<li>Unlimited environments and variables</li>
+<li>Initialize through pre-request script</li>
+<li>Export as / import from GitHub gist</li>
+</ul>
+<hr>
+</details>
+<details>
+  <summary><i><ins>Use-cases</ins></i></summary>
+<hr>
+<ul>
+<li>By storing a value in a variable, you can reference it throughout your request section</li>
+<li>If you need to update the value, you only have to change it in one place</li>
+<li>Using variables increases your ability to work efficiently and minimizes the likelihood of error</li>
+</ul>
+<hr>
+</details>
+<p><strong>To find out more, please check out <a href="https://github.com/hoppscotch/hoppscotch/wiki" rel="nofollow">Hoppscotch Wiki</a>.</strong></p>
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Demo</strong>
+</h2>
+<p><a href="https://hoppscotch.io" rel="nofollow">hoppscotch.io</a></p>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Usage</strong>
+</h2>
+<ol>
+<li>Choose <code>method</code>
+</li>
+<li>Enter <code>URL</code>
+</li>
+<li>Send request</li>
+<li>Get response</li>
+</ol>
+<h2>
+<a id="built-with" class="anchor" href="#built-with" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Built with</strong>
+</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" rel="nofollow">HTML</a></li>
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS" rel="nofollow">CSS</a>, <a href="https://sass-lang.com" rel="nofollow">SCSS</a>, <a href="https://tailwindcss.com" rel="nofollow">Tailwind CSS</a>
+</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" rel="nofollow">JavaScript</a></li>
+<li><a href="https://vuejs.org" rel="nofollow">Vue</a></li>
+<li><a href="https://nuxtjs.org" rel="nofollow">Nuxt</a></li>
+</ul>
+<h2>
+<a id="developing" class="anchor" href="#developing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Developing</strong>
+</h2>
+<ol start="0">
+<li>Update <a href="https://github.com/hoppscotch/hoppscotch/blob/main/.env.example" rel="nofollow"><code>.env.example</code></a> file found in repository's root directory with your own keys and rename it to <code>.env</code>.</li>
+</ol>
+<p><em>Sample keys only works with the <a href="https://hoppscotch.io" rel="nofollow">production build</a>.</em></p>
+<h4>
+<a id="browser-based-development-environment" class="anchor" href="#browser-based-development-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser based development environment</h4>
+<p><a href="https://gitpod.io/#https://github.com/hoppscotch/hoppscotch" rel="nofollow"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod" style="max-width:100%;"></a></p>
+<h4>
+<a id="local-development-environment" class="anchor" href="#local-development-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Local development environment</h4>
+<ol>
+<li>
+<a href="https://help.github.com/en/articles/cloning-a-repository" rel="nofollow">Clone this repo</a> with git.</li>
+<li>Install dependencies by running <code>npm install</code> within the directory that you cloned (probably <code>hoppscotch</code>).</li>
+<li>Start the development server with <code>npm run dev</code>.</li>
+<li>Open development site by going to <a href="http://localhost:3000" rel="nofollow"><code>http://localhost:3000</code></a> in your browser.</li>
+</ol>
+<h4>
+<a id="docker-compose" class="anchor" href="#docker-compose" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker compose</h4>
+<ol>
+<li>
+<a href="https://help.github.com/en/articles/cloning-a-repository" rel="nofollow">Clone this repo</a> with git.</li>
+<li>Run <code>docker-compose up</code>
+</li>
+<li>Open development site by going to <a href="http://localhost:3000" rel="nofollow"><code>http://localhost:3000</code></a> in your browser.</li>
+</ol>
+<h2>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Docker</strong>
+</h2>
+<pre lang="bash" class="highlight-bash"><span class="c">#pull</span>
+docker pull hoppscotch/hoppscotch
+
+<span class="c">#build</span>
+docker build <span class="nt">-t</span> hoppscotch/hoppscotch:latest <span class="nb">.</span>
+
+<span class="c">#run</span>
+docker run <span class="nt">-p</span> 3000:3000 hoppscotch/hoppscotch:latest
+</pre>
+<details>
+  <summary><i><ins>Legacy container</ins></i></summary>
+<hr>
+<pre lang="bash" class="highlight-bash"><span class="c">#pull</span>
+docker pull liyasthomas/postwoman
+
+<span class="c">#build</span>
+docker build <span class="nt">-t</span> liyasthomas/postwoman:latest <span class="nb">.</span>
+
+<span class="c">#run</span>
+docker run <span class="nt">-p</span> 3000:3000 liyasthomas/postwoman:latest
+</pre>
+<hr>
+</details>
+<h2>
+<a id="releasing" class="anchor" href="#releasing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Releasing</strong>
+</h2>
+<ol>
+<li>
+<a href="https://help.github.com/en/articles/cloning-a-repository" rel="nofollow">Clone this repo</a> with git.</li>
+<li>Install dependencies by running <code>npm install</code> within the directory that you cloned (probably <code>hoppscotch</code>).</li>
+<li>Build the release files with <code>npm run generate</code>.</li>
+<li>Find the built project in <code>./dist</code>.</li>
+</ol>
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Contributing</strong>
+</h2>
+<p>Please contribute using <a href="https://guides.github.com/introduction/flow" rel="nofollow">GitHub Flow</a>. Create a branch, add commits, and <a href="https://github.com/hoppscotch/hoppscotch/compare" rel="nofollow">open a pull request</a>.</p>
+<p>Please read <a href="https://github.com/hoppscotch/hoppscotch/blob/master/CONTRIBUTING.md" rel="nofollow"><code>CONTRIBUTING</code></a> for details on our <a href="https://github.com/hoppscotch/hoppscotch/blob/master/CODE_OF_CONDUCT.md" rel="nofollow"><code>CODE OF CONDUCT</code></a>, and the process for submitting pull requests to us.</p>
+<h2>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Continuous Integration</strong>
+</h2>
+<p>We use <a href="https://travis-ci.com" rel="nofollow">Travis CI</a> for continuous integration. Check out our <a href="https://travis-ci.com/hoppscotch/hoppscotch" rel="nofollow">Travis CI Status</a>.</p>
+<h2>
+<a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Versioning</strong>
+</h2>
+<p>This project is developed by <a href="https://github.com/liyasthomas" rel="nofollow">Liyas Thomas</a> using the <a href="https://semver.org" rel="nofollow">Semantic Versioning specification</a>. For the versions available, see the <a href="https://github.com/liyasthomas/hoppscotch/releases" rel="nofollow">releases on this repository</a>.</p>
+<h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Changelog</strong>
+</h2>
+<p>See the <a href="https://github.com/hoppscotch/hoppscotch/blob/master/CHANGELOG.md" rel="nofollow"><code>CHANGELOG</code></a> file for details.</p>
+<h2>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Authors</strong>
+</h2>
+<h3>
+<a id="lead-developers" class="anchor" href="#lead-developers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lead Developers</h3>
+<ul>
+<li>
+<strong><a href="https://github.com/liyasthomas" rel="nofollow">Liyas Thomas</a></strong> - <em>Author</em>
+</li>
+<li>
+<strong><a href="https://github.com/andrewbastin" rel="nofollow">Andrew Bastin</a></strong> - <em>Lead developer</em>
+</li>
+<li>
+<strong><a href="https://twitter.com/caneco" rel="nofollow">Caneco</a></strong> - <em>Logo and banner designer</em>
+</li>
+</ul>
+<h3>
+<a id="testing-and-debugging" class="anchor" href="#testing-and-debugging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing and Debugging</h3>
+<ul>
+<li><a href="https://github.com/hoppscotch/hoppscotch/graphs/contributors" rel="nofollow">Contributors</a></li>
+</ul>
+<h3>
+<a id="collaborators-" class="anchor" href="#collaborators-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collaborators </h3>
+
+
+
+
+<table>
+  <tr>
+    <td align="center">
+<a href="https://liyasthomas.web.app" rel="nofollow"><img src="https://avatars1.githubusercontent.com/u/10395817?v=4" width="100px;" alt="" style="max-width:100%;"><br><sub><b>Liyas Thomas</b></sub></a><br><a href="https://github.com/liyasthomas/hoppscotch/commits?author=liyasthomas" title="Code" rel="nofollow">💻</a> <a href="#design-liyasthomas" title="Design">🎨</a>
+</td>
+    <td align="center">
+<a href="https://github.com/AndrewBastin" rel="nofollow"><img src="https://avatars2.githubusercontent.com/u/9131943?v=4" width="100px;" alt="" style="max-width:100%;"><br><sub><b>Andrew Bastin</b></sub></a><br><a href="https://github.com/liyasthomas/hoppscotch/commits?author=AndrewBastin" title="Code" rel="nofollow">💻</a>
+</td>
+  </tr>
+</table>
+
+
+
+<p>See the list of <a href="https://github.com/hoppscotch/hoppscotch/graphs/contributors" rel="nofollow">contributors</a> who participated in this project.</p>
+<h3>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h3>
+<ul>
+<li><a href="https://dev.to" rel="nofollow">dev.to 👩‍💻👨‍💻</a></li>
+</ul>
+<h3>
+<a id="financial-contributors" class="anchor" href="#financial-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Financial Contributors</h3>
+<p>Become a financial contributor and help us sustain our community [<a href="#support">Support</a>].</p>
+<h4>
+<a id="github-sponsors" class="anchor" href="#github-sponsors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GitHub Sponsors</h4>
+<p align="center">
+<a href="https://www.deta.sh/?ref=hoppscotch" target="_blank" rel="nofollow">
+<img width="200" src="https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/assets/images/hs-gh-banner.png" alt="Deta" style="max-width:100%;">
+</a>
+</p>
+<p align="center">
+<a href="https://github.com/diningcity-group" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/diningcity-group.png?size=64" alt="DiningCity" style="max-width:100%;">
+</a>
+<a href="https://github.com/rithish" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/rithish.png?size=64" alt="Rithish" style="max-width:100%;">
+</a>
+<a href="https://github.com/kcomain" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/kcomain.png?size=64" alt="Kenny Cheung" style="max-width:100%;">
+</a>
+<a href="https://github.com/scmmishra" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/scmmishra.png?size=64" alt="Shivam Mishra" style="max-width:100%;">
+</a>
+<a href="https://zach.codes" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/zackify.png?size=64" alt="Zach Silveira" style="max-width:100%;">
+</a>
+<a href="https://github.com/pantharshit00" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/pantharshit00.png?size=64" alt="Harshit Pant" style="max-width:100%;">
+</a>
+<a href="https://github.com/ankumar" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/ankumar.png?size=64" alt="Anil Kumar" style="max-width:100%;">
+</a>
+<a href="https://github.com/gpeal" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/gpeal.png?size=64" alt="Gabriel Peal" style="max-width:100%;">
+</a>
+<a href="https://github.com/koddsson" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/koddsson.png?size=64" alt="Kristján Oddsson" style="max-width:100%;">
+</a>
+<a href="https://github.com/donokuda" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/donokuda.png?size=64" alt="Don Okuda" style="max-width:100%;">
+</a>
+<a href="https://github.com/ebrescia" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/ebrescia.png?size=64" alt="Erica Brescia" style="max-width:100%;">
+</a>
+<a href="http://tom.preston-werner.com" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/mojombo.png?size=64" alt="Tom Preston-Werner" style="max-width:100%;">
+</a>
+<a href="https://github.com/mlynch" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/mlynch.png?size=64" alt="Max Lynch" style="max-width:100%;">
+</a>
+<a href="https://github.com/brianshaler" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/brianshaler.png?size=64" alt="Brian Shaler" style="max-width:100%;">
+</a>
+<a href="https://github.com/mxstbr" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/mxstbr.png?size=64" alt="Max Stoiber" style="max-width:100%;">
+</a>
+<a href="https://github.com/jjcaine" target="_blank" rel="nofollow">
+<img width="64" src="https://github.com/jjcaine.png?size=64" alt="John Caine" style="max-width:100%;">
+</a>
+</p>
+<h4>
+<a id="open-collective" class="anchor" href="#open-collective" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Open Collective</h4>
+<p align="center">
+<a href="https://paw.cloud/?utm_source=hoppscotch&amp;utm_medium=github&amp;utm_campaign=hoppscotch-sponsorship" target="_blank" rel="nofollow">
+<img width="100" src="https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/assets/images/Paw-Logo-for-Hoppscotch.png" alt="Paw" style="max-width:100%;">
+</a>
+</p>
+<p align="center">
+<a href="https://opencollective.com/hoppscotch/organization/0/website" rel="nofollow"><img src="https://opencollective.com/hoppscotch/organization/0/avatar.svg" style="max-width:100%;"></a>
+<a href="https://opencollective.com/hoppscotch/organization/1/website" rel="nofollow"><img src="https://opencollective.com/hoppscotch/organization/1/avatar.svg" style="max-width:100%;"></a>
+</p>
+<h3>
+<a id="code-contributors" class="anchor" href="#code-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code Contributors</h3>
+<p>This project exists thanks to all the people who contribute [<a href="https://github.com/hoppscotch/hoppscotch/blob/master/CONTRIBUTING.md" rel="nofollow">Contribute</a>].</p>
+<p><a href="https://github.com/hoppscotch/hoppscotch/graphs/contributors" rel="nofollow"><img src="https://opencollective.com/hoppscotch/contributors.svg?width=890&amp;button=false" style="max-width:100%;"></a></p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>License</strong>
+</h2>
+<p>This project is licensed under the <a href="https://opensource.org/licenses/MIT" rel="nofollow">MIT License</a> - see the <a href="https://github.com/hoppscotch/hoppscotch/blob/master/LICENSE" rel="nofollow"><code>LICENSE</code></a> file for details.</p>
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Acknowledgements</strong>
+</h2>
+<ul>
+<li>Hat tip to anyone whose code was used</li>
+<li>Inspirations:
+<ul>
+<li><a href="https://dribbble.com" rel="nofollow">Dribbble</a></li>
+</ul>
+</li>
+</ul>
+<h2>
+<a id="badges" class="anchor" href="#badges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Badges</strong>
+</h2>
+<table>
+	<tr>
+		<th>Preview</th>
+		<th>Markdown code</th>
+	</tr>
+	<tbody>
+		<tr>
+			<td align="center" width="200px">
+				<a href="https://hoppscotch.io" rel="nofollow">
+					<br>
+					<img src="https://img.shields.io/badge/Tested_on-Hoppscotch-202124?logo=hoppscotch" style="max-width:100%;">
+				</a>
+				<br>
+				<sub>
+          Default
+        </sub>
+			</td>
+			<td>
+				<code>[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-202124?logo=hoppscotch)](https://hoppscotch.io)</code>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">
+				<a href="https://hoppscotch.io" rel="nofollow">
+					<br>
+					<img src="https://img.shields.io/badge/Tested_on-Hoppscotch-success?logo=hoppscotch" style="max-width:100%;">
+				</a>
+				<br>
+				<sub>
+          Success
+        </sub>
+			</td>
+			<td>
+				<code>[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-success?logo=hoppscotch)](https://hoppscotch.io)</code>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">
+				<a href="https://hoppscotch.io" rel="nofollow">
+					<br>
+					<img src="https://img.shields.io/badge/Tested_on-Hoppscotch-critical?logo=hoppscotch" style="max-width:100%;">
+				</a>
+				<br>
+				<sub>
+          Critical
+        </sub>
+			</td>
+			<td>
+				<code>[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-critical?logo=hoppscotch)](https://hoppscotch.io)</code>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">
+				<a href="https://hoppscotch.io" rel="nofollow">
+					<br>
+					<img src="https://img.shields.io/badge/Tested_on-Hoppscotch-blueviolet?logo=hoppscotch" style="max-width:100%;">
+				</a>
+				<br>
+				<sub>
+          Custom
+        </sub>
+			</td>
+			<td>
+				<code>[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-blueviolet?logo=hoppscotch)](https://hoppscotch.io)</code>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" width="200px">
+				<a href="https://hoppscotch.io" rel="nofollow">
+					<br>
+					<img src="https://img.shields.io/badge/your_text-Hoppscotch-hex_color_code?logo=hoppscotch" style="max-width:100%;">
+				</a>
+				<br>
+				<sub>
+          Customize
+        </sub>
+			</td>
+			<td>
+				<code>[![hoppscotch](https://img.shields.io/badge/your_text-Hoppscotch-hex_color_code?logo=hoppscotch)](https://hoppscotch.io)</code>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<div align="center">
+  <br>
+  <a href="https://hoppscotch.io" rel="nofollow"><img src="https://raw.githubusercontent.com/liyasthomas/templates/master/assets/logo.gif" alt="hoppscotch.io" width="200" style="max-width:100%;"></a>
+  <br>
+  <h3>
+<a id="happy-coding-︎" class="anchor" href="#happy-coding-%EF%B8%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Happy Coding ❤︎</h3>
+</div>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bab3c8bae738',m:'9f6f329ecc178c87eedf7449e2e2c7aff9db9c90-1610725584-1800-ATaHTcwZihnhHxFe3xE5fcrvz60qfxBHYZZj6t72hxdws4jsOYd5kt5kuWeNWCNLZmDI6kVdfvV0XrbLEiQ/pYplBPU49GGHCFXcBXF5MaAiMTJh52B38i+gyJN8CjfaZZTJbXlk4DRNh2ssWOSusho=',s:[0xaed29fef68,0xe4228c512d],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="vue"/> <!-- -->vue<!-- --> (<!-- -->3,923<!-- -->) </div><div><input type="checkbox" name="topics" value="api"/> <!-- -->api<!-- --> (<!-- -->1,579<!-- -->) </div><div><input type="checkbox" name="topics" value="vuejs"/> <!-- -->vuejs<!-- --> (<!-- -->1,048<!-- -->) </div><div><input type="checkbox" name="topics" value="graphql"/> <!-- -->graphql<!-- --> (<!-- -->991<!-- -->) </div><div><input type="checkbox" name="topics" value="testing"/> <!-- -->testing<!-- --> (<!-- -->909<!-- -->) </div><div><input type="checkbox" name="topics" value="rest-api"/> <!-- -->rest-api<!-- --> (<!-- -->516<!-- -->) </div><div><input type="checkbox" name="topics" value="websocket"/> <!-- -->websocket<!-- --> (<!-- -->422<!-- -->) </div><div><input type="checkbox" name="topics" value="developer-tools"/> <!-- -->developer-tools<!-- --> (<!-- -->323<!-- -->) </div><div><input type="checkbox" name="topics" value="tools"/> <!-- -->tools<!-- --> (<!-- -->318<!-- -->) </div><div><input type="checkbox" name="topics" value="pwa"/> <!-- -->pwa<!-- --> (<!-- -->308<!-- -->) </div><div><input type="checkbox" name="topics" value="nuxt"/> <!-- -->nuxt<!-- --> (<!-- -->212<!-- -->) </div><div><input type="checkbox" name="topics" value="testing-tools"/> <!-- -->testing-tools<!-- --> (<!-- -->194<!-- -->) </div><div><input type="checkbox" name="topics" value="api-client"/> <!-- -->api-client<!-- --> (<!-- -->185<!-- -->) </div><div><input type="checkbox" name="topics" value="spa"/> <!-- -->spa<!-- --> (<!-- -->178<!-- -->) </div><div><input type="checkbox" name="topics" value="http-client"/> <!-- -->http-client<!-- --> (<!-- -->176<!-- -->) </div><div><input type="checkbox" name="topics" value="nuxtjs"/> <!-- -->nuxtjs<!-- --> (<!-- -->116<!-- -->) </div><div><input type="checkbox" name="topics" value="api-rest"/> <!-- -->api-rest<!-- --> (<!-- -->46<!-- -->) </div><div><input type="checkbox" name="topics" value="api-testing"/> <!-- -->api-testing<!-- --> (<!-- -->22<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Hoppscotch<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/hoppscotch" target="_blank">Hoppscotch</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/hoppscotch" target="_blank">Hoppscotch</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-6d2eabcc-6db7-4bde-b83d-277605ada282">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"api","count":1579},{"id":null,"name":"api-client","count":185},{"id":null,"name":"api-rest","count":46},{"id":null,"name":"api-testing","count":22},{"id":null,"name":"developer-tools","count":323},{"id":null,"name":"graphql","count":991},{"id":null,"name":"http-client","count":176},{"id":null,"name":"nuxt","count":212},{"id":null,"name":"nuxtjs","count":116},{"id":null,"name":"pwa","count":308},{"id":null,"name":"rest-api","count":516},{"id":null,"name":"spa","count":178},{"id":null,"name":"testing","count":909},{"id":null,"name":"testing-tools","count":194},{"id":null,"name":"tools","count":318},{"id":null,"name":"vue","count":3923},{"id":null,"name":"vuejs","count":1048},{"id":null,"name":"websocket","count":422}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/hoppscotch/hoppscotch","projects":[],"project":{"id":247891,"created_at":"2019-09-15T17:58:52.946Z","updated_at":"2021-01-14T07:33:47.041Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cdiv align=\"center\"\u003e\n  \u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/static/logo.png\" alt=\"hoppscotch.io logo\" height=\"128\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n  \u003cbr\u003e\n  \u003cbr\u003e\n  \u003cp\u003e\n    \u003cb\u003eHoppscotch - A free, fast and beautiful API request builder\u003c/b\u003e\n  \u003c/p\u003e\n  \u003cp\u003e\n     \u003ci\u003eHelps you create requests faster, saving precious time on development - \u003ca href=\"https://hoppscotch.launchaco.com\" rel=\"nofollow\"\u003eSubscribe\u003c/a\u003e\u003c/i\u003e\n  \u003c/p\u003e\n  \u003cp\u003e\n\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/website?url=https%3A%2F%2Fhoppscotch.io\u0026amp;logo=hoppscotch\" alt=\"Website\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://travis-ci.com/hoppscotch/hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/travis/com/hoppscotch/hoppscotch/main?logo=Travis\" alt=\"Travis Build Status\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://github.com/hoppscotch/hoppscotch/releases/latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/release/hoppscotch/hoppscotch/all?logo=GitHub\" alt=\"GitHub release\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://twitter.com/intent/tweet?url=https%3A%2F%2Fhoppscotch.io\u0026amp;text=%F0%9F%91%BD%20hoppscotch%20%E2%80%A2%20API%20request%20builder%20-%20Helps%20you%20create%20your%20requests%20faster%2C%20saving%20you%20precious%20time%20on%20your%20development\u0026amp;original_referer=https%3A%2F%2Ftwitter.com%2Fshare%3Ftext%3D%25F0%259F%2591%25BD%2520hoppscotch%2520%25E2%2580%25A2%2520API%2520request%2520builder%2520-%2520Helps%2520you%2520create%2520your%2520requests%2520faster%2C%2520saving%2520you%2520precious%2520time%2520on%2520your%2520development%26url%3Dhttps%3A%2F%2Fhoppscotch.io%26hashtags%3Dhoppscotch%26via%3Dliyasthomas\u0026amp;via=liyasthomas\u0026amp;hashtags=hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/twitter/url?url=https%3A%2F%2Fhoppscotch.io%2F\" alt=\"Tweet\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n  \n  \u003cp\u003e\n    \u003csub\u003eBuilt with ❤︎ by\n      \u003ca href=\"https://github.com/liyasthomas\" rel=\"nofollow\"\u003eliyasthomas\u003c/a\u003e and\n      \u003ca href=\"https://github.com/hoppscotch/hoppscotch/graphs/contributors\" rel=\"nofollow\"\u003econtributors\u003c/a\u003e\n    \u003c/sub\u003e\n  \u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv align=\"center\"\u003e\n  \u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/static/images/screenshot1.png\" alt=\"Screenshot1\" width=\"100%\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/div\u003e\n\u003ch4\u003e\n\u003ca id=\"contact\" class=\"anchor\" href=\"#contact\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eContact\u003c/strong\u003e\n\u003c/h4\u003e\n\u003cp\u003e\u003ca href=\"https://t.me/hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/chat-Telegram-2CA5E0?logo=Telegram\" alt=\"Chat on Telegram\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://discord.gg/GAMWxmR\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/chat-Discord-7289DA?logo=discord\" alt=\"Chat on Discord\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"support\" class=\"anchor\" href=\"#support\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eSupport\u003c/strong\u003e\n\u003c/h4\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/sponsors/hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/sponsor-GitHub-181717?logo=github\" alt=\"Sponsor on GitHub\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://opencollective.com/hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/contribute-Open%20Collective-7FADF2?logo=open-collective\" alt=\"Contribute on Open Collective\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://www.patreon.com/liyasthomas\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/join-Patreon-F96854?logo=patreon\" alt=\"Join on Patreon\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://www.paypal.me/liyascthomas\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/donate-PayPal-00457C?logo=paypal\" alt=\"Donate on PayPal\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eTable of contents\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#features\"\u003eFeatures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#demo\"\u003eDemo\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#usage\"\u003eUsage\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#built-with\"\u003eBuilt with\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#developing\"\u003eDeveloping\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#browser-based-development-environment\"\u003eBrowser based development environment\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#local-development-environment\"\u003eLocal development environment\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#docker-compose\"\u003eDocker compose\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#docker\"\u003eDocker\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#releasing\"\u003eReleasing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contributing\"\u003eContributing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#continuous-integration\"\u003eContinuous Integration\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#versioning\"\u003eVersioning\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#changelog\"\u003eChangelog\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#authors\"\u003eAuthors\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#lead-developers\"\u003eLead Developers\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#testing-and-debugging\"\u003eTesting and Debugging\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#collaborators-\"\u003eCollaborators\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#thanks\"\u003eThanks\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#financial-contributors\"\u003eFinancial Contributors\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#github-sponsors\"\u003eGitHub Sponsors\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#open-collective\"\u003eOpen Collective\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#code-contributors\"\u003eCode Contributors\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#license\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#acknowledgements\"\u003eAcknowledgements\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#badges\"\u003eBadges\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003ch3\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eFeatures\u003c/strong\u003e\n\u003c/h3\u003e\n\u003cp\u003e❤️ \u003cstrong\u003eLightweight:\u003c/strong\u003e Crafted with minimalistic UI design.\u003c/p\u003e\n\u003cp\u003e⚡️ \u003cstrong\u003eFast:\u003c/strong\u003e Send requests and get/copy responses in real-time.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eHTTP Methods\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eGET\u003c/code\u003e - Requests retrieve resource information\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eHEAD\u003c/code\u003e - Retrieve response headers identical to those of a GET request, but without the response body.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ePOST\u003c/code\u003e - The server creates a new entry in a database\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ePUT\u003c/code\u003e - Updates an existing resource\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eDELETE\u003c/code\u003e - Deletes resource or related component\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eCONNECT\u003c/code\u003e - Establishes a tunnel to the server identified by the target resource\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eOPTIONS\u003c/code\u003e - Describe the communication options for the target resource\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eTRACE\u003c/code\u003e - Performs a message loop-back test along the path to the target resource\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ePATCH\u003c/code\u003e - Very similar to \u003ccode\u003ePUT\u003c/code\u003e but makes a partial update on a resource\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e\u0026lt;custom\u0026gt;\u003c/code\u003e - Some APIs use custom request methods such as \u003ccode\u003eLIST\u003c/code\u003e. Type in your custom methods.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e🌈 \u003cstrong\u003eMake it yours:\u003c/strong\u003e Customizable combinations for background, foreground and accent colors. \u003ca href=\"https://hoppscotch.io/settings\" rel=\"nofollow\"\u003eCustomize now ✨\u003c/a\u003e\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eTheming\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eChoose theme: System, Light, Dark (default) and Black\u003c/li\u003e\n\u003cli\u003eChoose accent color: Blue, Green (default), Teal, Purple, Orange, Pink, Red, and Yellow\u003c/li\u003e\n\u003cli\u003eToggle multi-colored headings\u003c/li\u003e\n\u003cli\u003eToggle auto-scroll to response\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e\u003cem\u003eCustomized themes are synced with local session storage\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e🔥 \u003cstrong\u003ePWA:\u003c/strong\u003e Install as a \u003ca href=\"https://developers.google.com/web/progressive-web-apps\" rel=\"nofollow\"\u003ePWA\u003c/a\u003e on your device.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eInstant loading with Service Workers\u003c/li\u003e\n\u003cli\u003eOffline support\u003c/li\u003e\n\u003cli\u003eLow RAM/memory and CPU usage\u003c/li\u003e\n\u003cli\u003eAdd to Home Screen\u003c/li\u003e\n\u003cli\u003eDesktop PWA\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e🚀 \u003cstrong\u003eRequest:\u003c/strong\u003e Retrieve response from endpoint instantly.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eChoose \u003ccode\u003emethod\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eEnter \u003ccode\u003eURL\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eSend\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eCopy/share public \"Share URL\"\u003c/li\u003e\n\u003cli\u003eGenerate/copy request code snippets for 10+ languages and frameworks\u003c/li\u003e\n\u003cli\u003eImport \u003ccode\u003ecURL\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eLabel requests\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e🔌 \u003cstrong\u003eWebSocket:\u003c/strong\u003e Establish full-duplex communication channels over a single TCP connection.\u003c/p\u003e\n\u003cp\u003e📡 \u003cstrong\u003eServer Sent Events:\u003c/strong\u003e Receive a stream of updates from a server over a HTTP connection without resorting to polling.\u003c/p\u003e\n\u003cp\u003e🌩 \u003cstrong\u003eSocket.IO:\u003c/strong\u003e Send and Receive data with SocketIO server.\u003c/p\u003e\n\u003cp\u003e🦟 \u003cstrong\u003eMQTT:\u003c/strong\u003e Subscribe and Publish to topics of a MQTT Broker.\u003c/p\u003e\n\u003cp\u003e🔮 \u003cstrong\u003eGraphQL:\u003c/strong\u003e GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eSet endpoint and get schemas\u003c/li\u003e\n\u003cli\u003eMulti-column docs\u003c/li\u003e\n\u003cli\u003eSet custom request headers\u003c/li\u003e\n\u003cli\u003eQuery schema\u003c/li\u003e\n\u003cli\u003eGet query response\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e🔐 \u003cstrong\u003eAuthentication:\u003c/strong\u003e Allows to identify the end user.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eTypes\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eNone\u003c/li\u003e\n\u003cli\u003eBasic\u003c/li\u003e\n\u003cli\u003eBearer Token\u003c/li\u003e\n\u003cli\u003eOAuth 2.0\u003c/li\u003e\n\u003cli\u003eOIDC Access Token/PKCE\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e📢 \u003cstrong\u003eHeaders:\u003c/strong\u003e Describes the format the body of your request is being sent as.\u003c/p\u003e\n\u003cp\u003e📫 \u003cstrong\u003eParameters:\u003c/strong\u003e Use request parameters to set varying parts in simulated requests.\u003c/p\u003e\n\u003cp\u003e📃 \u003cstrong\u003eRequest Body:\u003c/strong\u003e Used to send and receive data via the REST API.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eOptions\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eSet \u003ccode\u003eContent Type\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eAdd or remove Parameter list\u003c/li\u003e\n\u003cli\u003eToggle between key-value and RAW input parameter list\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e👋 \u003cstrong\u003eResponse:\u003c/strong\u003e Contains the status line, headers and the message/response body.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eCopy response to clipboard\u003c/li\u003e\n\u003cli\u003eDownload response as a file\u003c/li\u003e\n\u003cli\u003eView response headers\u003c/li\u003e\n\u003cli\u003eView raw and preview of HTML, image, JSON, XML responses\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e⏰ \u003cstrong\u003eHistory:\u003c/strong\u003e Request entries are synced with cloud / local session storage to restore with a single click.\u003c/p\u003e\n\u003cp\u003e📁 \u003cstrong\u003eCollections:\u003c/strong\u003e Keep your API requests organized with collections and folders. Reuse them with a single click.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eUnlimited collections, folders and requests\u003c/li\u003e\n\u003cli\u003eNested folders\u003c/li\u003e\n\u003cli\u003eExport as / import from GitHub gist\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e\u003cem\u003eCollections are synced with cloud / local session storage\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e🌐 \u003cstrong\u003eProxy:\u003c/strong\u003e Enable Proxy Mode from Settings to access blocked APIs.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eHide your IP address\u003c/li\u003e\n\u003cli\u003eFixes \u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\" rel=\"nofollow\"\u003e\u003ccode\u003eCORS\u003c/code\u003e\u003c/a\u003e (Cross Origin Resource Sharing) issues\u003c/li\u003e\n\u003cli\u003eAccess APIs served in non-HTTPS (\u003ccode\u003ehttp://\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003eUse custom Proxy URL\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e\u003cem\u003eOfficial Hoppscotch Proxy is hosted by Apollo Software - \u003cstrong\u003e\u003ca href=\"https://apollosoftware.xyz/legal/postwoman\" rel=\"nofollow\"\u003ePrivacy Policy\u003c/a\u003e\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e📜 \u003cstrong\u003ePre-Request Scripts β:\u003c/strong\u003e Snippets of code associated with a request that are executed before the request is sent.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eUse-cases\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eInitialize environment variables\u003c/li\u003e\n\u003cli\u003eInclude timestamp in the request headers\u003c/li\u003e\n\u003cli\u003eSend a random alphanumeric string in the URL parameters\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e📄 \u003cstrong\u003eAPI Documentation:\u003c/strong\u003e Create and share dynamic API documentation easily, quickly.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eUsage\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003col\u003e\n\u003cli\u003eAdd your requests to Collections and Folders\u003c/li\u003e\n\u003cli\u003eExport Collections and easily share your APIs with the rest of your team\u003c/li\u003e\n\u003cli\u003eImport Collections and Generate Documentation on-the-go\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e⌨️ \u003cstrong\u003eKeyboard Shortcuts:\u003c/strong\u003e Optimized for efficiency.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/hoppscotch/hoppscotch/wiki/Shortcuts\" rel=\"nofollow\"\u003eShortcuts WIki\u003c/a\u003e\u003c/strong\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e🌎 \u003cstrong\u003ei18n β:\u003c/strong\u003e Experience the app in your own language.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eUsage\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003col\u003e\n\u003cli\u003eScroll down to the footer\u003c/li\u003e\n\u003cli\u003eClick \"Choose Language\" icon button\u003c/li\u003e\n\u003cli\u003eSelect your language from the menu\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e\u003cem\u003eKeep in mind: Translations aren't available for all source and target language combinations\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eTo provide a localized experience for users around the world, you can add you own translations.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003eAll \u003ccode\u003ei18n\u003c/code\u003e contributions are welcome to \u003ccode\u003ei18n\u003c/code\u003e \u003ca href=\"https://github.com/hoppscotch/hoppscotch/tree/i18n\" rel=\"nofollow\"\u003ebranch\u003c/a\u003e only!\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e📦 \u003cstrong\u003eAdd-ons:\u003c/strong\u003e Official add-ons for hoppscotch.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/hoppscotch/proxyscotch\" rel=\"nofollow\"\u003eProxy\u003c/a\u003e\u003c/strong\u003e - A simple proxy server created for Hoppscotch\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/hoppscotch/hopp-cli\" rel=\"nofollow\"\u003eCLI β\u003c/a\u003e\u003c/strong\u003e - A CLI solution for Hoppscotch\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e\u003ca href=\"https://github.com/hoppscotch/hoppscotch-extension\" rel=\"nofollow\"\u003eBrowser Extensions\u003c/a\u003e\u003c/strong\u003e - Browser extensions that simplifies access to Hoppscotch\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://addons.mozilla.org/en-US/firefox/addon/hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_16x16.png\" alt=\"Firefox\" style=\"max-width:100%;\"\u003e \u003cstrong\u003eFirefox\u003c/strong\u003e\u003c/a\u003e  |  \u003ca href=\"https://chrome.google.com/webstore/detail/hoppscotch-extension-for-c/amknoiejhlmhancpahfcfcfhllgkpbld\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_16x16.png\" alt=\"Chrome\" style=\"max-width:100%;\"\u003e \u003cstrong\u003eChrome\u003c/strong\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003eExtensions fixes \u003ccode\u003eCORS\u003c/code\u003e issues.\u003c/strong\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cem\u003eAdd-ons are developed and maintained under \u003cstrong\u003e\u003ca href=\"https://github.com/hoppscotch\" rel=\"nofollow\"\u003eOfficial Hoppscotch Organization\u003c/a\u003e\u003c/strong\u003e.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e☁️ \u003cstrong\u003eAuth + Sync:\u003c/strong\u003e Sign in and sync in real-time.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSign in with\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eGoogle\u003c/li\u003e\n\u003cli\u003eGitHub\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSync\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eHistory\u003c/li\u003e\n\u003cli\u003eCollections\u003c/li\u003e\n\u003cli\u003eEnvironments\u003c/li\u003e\n\u003cli\u003eNotes\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e✅ \u003cstrong\u003ePost-Request Tests β:\u003c/strong\u003e Write tests associated with a request that are executed after the request response.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eUse-cases\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eCheck the status code as an integer\u003c/li\u003e\n\u003cli\u003eFilter response headers\u003c/li\u003e\n\u003cli\u003eParse the response data\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e📝 \u003cstrong\u003eNotes\u003c/strong\u003e : Instantly jot down notes, tasks or whatever you feel like as they come to your mind.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eNotes are only available for signed-in users\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e🌱 \u003cstrong\u003eEnvironments\u003c/strong\u003e : Environment variables allow you to store and reuse values in your requests and scripts.\u003c/p\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eFeatures\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eUnlimited environments and variables\u003c/li\u003e\n\u003cli\u003eInitialize through pre-request script\u003c/li\u003e\n\u003cli\u003eExport as / import from GitHub gist\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eUse-cases\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003eBy storing a value in a variable, you can reference it throughout your request section\u003c/li\u003e\n\u003cli\u003eIf you need to update the value, you only have to change it in one place\u003c/li\u003e\n\u003cli\u003eUsing variables increases your ability to work efficiently and minimizes the likelihood of error\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003cp\u003e\u003cstrong\u003eTo find out more, please check out \u003ca href=\"https://github.com/hoppscotch/hoppscotch/wiki\" rel=\"nofollow\"\u003eHoppscotch Wiki\u003c/a\u003e.\u003c/strong\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"demo\" class=\"anchor\" href=\"#demo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eDemo\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003ehoppscotch.io\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eUsage\u003c/strong\u003e\n\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eChoose \u003ccode\u003emethod\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eEnter \u003ccode\u003eURL\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eSend request\u003c/li\u003e\n\u003cli\u003eGet response\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"built-with\" class=\"anchor\" href=\"#built-with\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eBuilt with\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/HTML\" rel=\"nofollow\"\u003eHTML\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" rel=\"nofollow\"\u003eCSS\u003c/a\u003e, \u003ca href=\"https://sass-lang.com\" rel=\"nofollow\"\u003eSCSS\u003c/a\u003e, \u003ca href=\"https://tailwindcss.com\" rel=\"nofollow\"\u003eTailwind CSS\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript\" rel=\"nofollow\"\u003eJavaScript\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://vuejs.org\" rel=\"nofollow\"\u003eVue\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://nuxtjs.org\" rel=\"nofollow\"\u003eNuxt\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"developing\" class=\"anchor\" href=\"#developing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eDeveloping\u003c/strong\u003e\n\u003c/h2\u003e\n\u003col start=\"0\"\u003e\n\u003cli\u003eUpdate \u003ca href=\"https://github.com/hoppscotch/hoppscotch/blob/main/.env.example\" rel=\"nofollow\"\u003e\u003ccode\u003e.env.example\u003c/code\u003e\u003c/a\u003e file found in repository's root directory with your own keys and rename it to \u003ccode\u003e.env\u003c/code\u003e.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cem\u003eSample keys only works with the \u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003eproduction build\u003c/a\u003e.\u003c/em\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"browser-based-development-environment\" class=\"anchor\" href=\"#browser-based-development-environment\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBrowser based development environment\u003c/h4\u003e\n\u003cp\u003e\u003ca href=\"https://gitpod.io/#https://github.com/hoppscotch/hoppscotch\" rel=\"nofollow\"\u003e\u003cimg src=\"https://gitpod.io/button/open-in-gitpod.svg\" alt=\"Open in Gitpod\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"local-development-environment\" class=\"anchor\" href=\"#local-development-environment\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLocal development environment\u003c/h4\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003ca href=\"https://help.github.com/en/articles/cloning-a-repository\" rel=\"nofollow\"\u003eClone this repo\u003c/a\u003e with git.\u003c/li\u003e\n\u003cli\u003eInstall dependencies by running \u003ccode\u003enpm install\u003c/code\u003e within the directory that you cloned (probably \u003ccode\u003ehoppscotch\u003c/code\u003e).\u003c/li\u003e\n\u003cli\u003eStart the development server with \u003ccode\u003enpm run dev\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eOpen development site by going to \u003ca href=\"http://localhost:3000\" rel=\"nofollow\"\u003e\u003ccode\u003ehttp://localhost:3000\u003c/code\u003e\u003c/a\u003e in your browser.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch4\u003e\n\u003ca id=\"docker-compose\" class=\"anchor\" href=\"#docker-compose\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocker compose\u003c/h4\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003ca href=\"https://help.github.com/en/articles/cloning-a-repository\" rel=\"nofollow\"\u003eClone this repo\u003c/a\u003e with git.\u003c/li\u003e\n\u003cli\u003eRun \u003ccode\u003edocker-compose up\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eOpen development site by going to \u003ca href=\"http://localhost:3000\" rel=\"nofollow\"\u003e\u003ccode\u003ehttp://localhost:3000\u003c/code\u003e\u003c/a\u003e in your browser.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"docker\" class=\"anchor\" href=\"#docker\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eDocker\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e#pull\u003c/span\u003e\ndocker pull hoppscotch/hoppscotch\n\n\u003cspan class=\"c\"\u003e#build\u003c/span\u003e\ndocker build \u003cspan class=\"nt\"\u003e-t\u003c/span\u003e hoppscotch/hoppscotch:latest \u003cspan class=\"nb\"\u003e.\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e#run\u003c/span\u003e\ndocker run \u003cspan class=\"nt\"\u003e-p\u003c/span\u003e 3000:3000 hoppscotch/hoppscotch:latest\n\u003c/pre\u003e\n\u003cdetails\u003e\n  \u003csummary\u003e\u003ci\u003e\u003cins\u003eLegacy container\u003c/ins\u003e\u003c/i\u003e\u003c/summary\u003e\n\u003chr\u003e\n\u003cpre lang=\"bash\" class=\"highlight-bash\"\u003e\u003cspan class=\"c\"\u003e#pull\u003c/span\u003e\ndocker pull liyasthomas/postwoman\n\n\u003cspan class=\"c\"\u003e#build\u003c/span\u003e\ndocker build \u003cspan class=\"nt\"\u003e-t\u003c/span\u003e liyasthomas/postwoman:latest \u003cspan class=\"nb\"\u003e.\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e#run\u003c/span\u003e\ndocker run \u003cspan class=\"nt\"\u003e-p\u003c/span\u003e 3000:3000 liyasthomas/postwoman:latest\n\u003c/pre\u003e\n\u003chr\u003e\n\u003c/details\u003e\n\u003ch2\u003e\n\u003ca id=\"releasing\" class=\"anchor\" href=\"#releasing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eReleasing\u003c/strong\u003e\n\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003ca href=\"https://help.github.com/en/articles/cloning-a-repository\" rel=\"nofollow\"\u003eClone this repo\u003c/a\u003e with git.\u003c/li\u003e\n\u003cli\u003eInstall dependencies by running \u003ccode\u003enpm install\u003c/code\u003e within the directory that you cloned (probably \u003ccode\u003ehoppscotch\u003c/code\u003e).\u003c/li\u003e\n\u003cli\u003eBuild the release files with \u003ccode\u003enpm run generate\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eFind the built project in \u003ccode\u003e./dist\u003c/code\u003e.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eContributing\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cp\u003ePlease contribute using \u003ca href=\"https://guides.github.com/introduction/flow\" rel=\"nofollow\"\u003eGitHub Flow\u003c/a\u003e. Create a branch, add commits, and \u003ca href=\"https://github.com/hoppscotch/hoppscotch/compare\" rel=\"nofollow\"\u003eopen a pull request\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003ePlease read \u003ca href=\"https://github.com/hoppscotch/hoppscotch/blob/master/CONTRIBUTING.md\" rel=\"nofollow\"\u003e\u003ccode\u003eCONTRIBUTING\u003c/code\u003e\u003c/a\u003e for details on our \u003ca href=\"https://github.com/hoppscotch/hoppscotch/blob/master/CODE_OF_CONDUCT.md\" rel=\"nofollow\"\u003e\u003ccode\u003eCODE OF CONDUCT\u003c/code\u003e\u003c/a\u003e, and the process for submitting pull requests to us.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"continuous-integration\" class=\"anchor\" href=\"#continuous-integration\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eContinuous Integration\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cp\u003eWe use \u003ca href=\"https://travis-ci.com\" rel=\"nofollow\"\u003eTravis CI\u003c/a\u003e for continuous integration. Check out our \u003ca href=\"https://travis-ci.com/hoppscotch/hoppscotch\" rel=\"nofollow\"\u003eTravis CI Status\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"versioning\" class=\"anchor\" href=\"#versioning\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eVersioning\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cp\u003eThis project is developed by \u003ca href=\"https://github.com/liyasthomas\" rel=\"nofollow\"\u003eLiyas Thomas\u003c/a\u003e using the \u003ca href=\"https://semver.org\" rel=\"nofollow\"\u003eSemantic Versioning specification\u003c/a\u003e. For the versions available, see the \u003ca href=\"https://github.com/liyasthomas/hoppscotch/releases\" rel=\"nofollow\"\u003ereleases on this repository\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"changelog\" class=\"anchor\" href=\"#changelog\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eChangelog\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cp\u003eSee the \u003ca href=\"https://github.com/hoppscotch/hoppscotch/blob/master/CHANGELOG.md\" rel=\"nofollow\"\u003e\u003ccode\u003eCHANGELOG\u003c/code\u003e\u003c/a\u003e file for details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eAuthors\u003c/strong\u003e\n\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"lead-developers\" class=\"anchor\" href=\"#lead-developers\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLead Developers\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003ca href=\"https://github.com/liyasthomas\" rel=\"nofollow\"\u003eLiyas Thomas\u003c/a\u003e\u003c/strong\u003e - \u003cem\u003eAuthor\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003ca href=\"https://github.com/andrewbastin\" rel=\"nofollow\"\u003eAndrew Bastin\u003c/a\u003e\u003c/strong\u003e - \u003cem\u003eLead developer\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003ca href=\"https://twitter.com/caneco\" rel=\"nofollow\"\u003eCaneco\u003c/a\u003e\u003c/strong\u003e - \u003cem\u003eLogo and banner designer\u003c/em\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"testing-and-debugging\" class=\"anchor\" href=\"#testing-and-debugging\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTesting and Debugging\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/hoppscotch/hoppscotch/graphs/contributors\" rel=\"nofollow\"\u003eContributors\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"collaborators-\" class=\"anchor\" href=\"#collaborators-\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCollaborators \u003c/h3\u003e\n\n\n\n\n\u003ctable\u003e\n  \u003ctr\u003e\n    \u003ctd align=\"center\"\u003e\n\u003ca href=\"https://liyasthomas.web.app\" rel=\"nofollow\"\u003e\u003cimg src=\"https://avatars1.githubusercontent.com/u/10395817?v=4\" width=\"100px;\" alt=\"\" style=\"max-width:100%;\"\u003e\u003cbr\u003e\u003csub\u003e\u003cb\u003eLiyas Thomas\u003c/b\u003e\u003c/sub\u003e\u003c/a\u003e\u003cbr\u003e\u003ca href=\"https://github.com/liyasthomas/hoppscotch/commits?author=liyasthomas\" title=\"Code\" rel=\"nofollow\"\u003e💻\u003c/a\u003e \u003ca href=\"#design-liyasthomas\" title=\"Design\"\u003e🎨\u003c/a\u003e\n\u003c/td\u003e\n    \u003ctd align=\"center\"\u003e\n\u003ca href=\"https://github.com/AndrewBastin\" rel=\"nofollow\"\u003e\u003cimg src=\"https://avatars2.githubusercontent.com/u/9131943?v=4\" width=\"100px;\" alt=\"\" style=\"max-width:100%;\"\u003e\u003cbr\u003e\u003csub\u003e\u003cb\u003eAndrew Bastin\u003c/b\u003e\u003c/sub\u003e\u003c/a\u003e\u003cbr\u003e\u003ca href=\"https://github.com/liyasthomas/hoppscotch/commits?author=AndrewBastin\" title=\"Code\" rel=\"nofollow\"\u003e💻\u003c/a\u003e\n\u003c/td\u003e\n  \u003c/tr\u003e\n\u003c/table\u003e\n\n\n\n\u003cp\u003eSee the list of \u003ca href=\"https://github.com/hoppscotch/hoppscotch/graphs/contributors\" rel=\"nofollow\"\u003econtributors\u003c/a\u003e who participated in this project.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"thanks\" class=\"anchor\" href=\"#thanks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThanks\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://dev.to\" rel=\"nofollow\"\u003edev.to 👩‍💻👨‍💻\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"financial-contributors\" class=\"anchor\" href=\"#financial-contributors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFinancial Contributors\u003c/h3\u003e\n\u003cp\u003eBecome a financial contributor and help us sustain our community [\u003ca href=\"#support\"\u003eSupport\u003c/a\u003e].\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"github-sponsors\" class=\"anchor\" href=\"#github-sponsors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGitHub Sponsors\u003c/h4\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://www.deta.sh/?ref=hoppscotch\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"200\" src=\"https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/assets/images/hs-gh-banner.png\" alt=\"Deta\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://github.com/diningcity-group\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/diningcity-group.png?size=64\" alt=\"DiningCity\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/rithish\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/rithish.png?size=64\" alt=\"Rithish\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/kcomain\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/kcomain.png?size=64\" alt=\"Kenny Cheung\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/scmmishra\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/scmmishra.png?size=64\" alt=\"Shivam Mishra\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://zach.codes\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/zackify.png?size=64\" alt=\"Zach Silveira\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/pantharshit00\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/pantharshit00.png?size=64\" alt=\"Harshit Pant\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/ankumar\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/ankumar.png?size=64\" alt=\"Anil Kumar\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/gpeal\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/gpeal.png?size=64\" alt=\"Gabriel Peal\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/koddsson\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/koddsson.png?size=64\" alt=\"Kristján Oddsson\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/donokuda\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/donokuda.png?size=64\" alt=\"Don Okuda\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/ebrescia\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/ebrescia.png?size=64\" alt=\"Erica Brescia\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"http://tom.preston-werner.com\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/mojombo.png?size=64\" alt=\"Tom Preston-Werner\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/mlynch\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/mlynch.png?size=64\" alt=\"Max Lynch\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/brianshaler\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/brianshaler.png?size=64\" alt=\"Brian Shaler\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/mxstbr\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/mxstbr.png?size=64\" alt=\"Max Stoiber\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003ca href=\"https://github.com/jjcaine\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"64\" src=\"https://github.com/jjcaine.png?size=64\" alt=\"John Caine\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"open-collective\" class=\"anchor\" href=\"#open-collective\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOpen Collective\u003c/h4\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://paw.cloud/?utm_source=hoppscotch\u0026amp;utm_medium=github\u0026amp;utm_campaign=hoppscotch-sponsorship\" target=\"_blank\" rel=\"nofollow\"\u003e\n\u003cimg width=\"100\" src=\"https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/assets/images/Paw-Logo-for-Hoppscotch.png\" alt=\"Paw\" style=\"max-width:100%;\"\u003e\n\u003c/a\u003e\n\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://opencollective.com/hoppscotch/organization/0/website\" rel=\"nofollow\"\u003e\u003cimg src=\"https://opencollective.com/hoppscotch/organization/0/avatar.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://opencollective.com/hoppscotch/organization/1/website\" rel=\"nofollow\"\u003e\u003cimg src=\"https://opencollective.com/hoppscotch/organization/1/avatar.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"code-contributors\" class=\"anchor\" href=\"#code-contributors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCode Contributors\u003c/h3\u003e\n\u003cp\u003eThis project exists thanks to all the people who contribute [\u003ca href=\"https://github.com/hoppscotch/hoppscotch/blob/master/CONTRIBUTING.md\" rel=\"nofollow\"\u003eContribute\u003c/a\u003e].\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/hoppscotch/hoppscotch/graphs/contributors\" rel=\"nofollow\"\u003e\u003cimg src=\"https://opencollective.com/hoppscotch/contributors.svg?width=890\u0026amp;button=false\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eLicense\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cp\u003eThis project is licensed under the \u003ca href=\"https://opensource.org/licenses/MIT\" rel=\"nofollow\"\u003eMIT License\u003c/a\u003e - see the \u003ca href=\"https://github.com/hoppscotch/hoppscotch/blob/master/LICENSE\" rel=\"nofollow\"\u003e\u003ccode\u003eLICENSE\u003c/code\u003e\u003c/a\u003e file for details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"acknowledgements\" class=\"anchor\" href=\"#acknowledgements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eAcknowledgements\u003c/strong\u003e\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eHat tip to anyone whose code was used\u003c/li\u003e\n\u003cli\u003eInspirations:\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://dribbble.com\" rel=\"nofollow\"\u003eDribbble\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"badges\" class=\"anchor\" href=\"#badges\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cstrong\u003eBadges\u003c/strong\u003e\n\u003c/h2\u003e\n\u003ctable\u003e\n\t\u003ctr\u003e\n\t\t\u003cth\u003ePreview\u003c/th\u003e\n\t\t\u003cth\u003eMarkdown code\u003c/th\u003e\n\t\u003c/tr\u003e\n\t\u003ctbody\u003e\n\t\t\u003ctr\u003e\n\t\t\t\u003ctd align=\"center\" width=\"200px\"\u003e\n\t\t\t\t\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\n\t\t\t\t\t\u003cbr\u003e\n\t\t\t\t\t\u003cimg src=\"https://img.shields.io/badge/Tested_on-Hoppscotch-202124?logo=hoppscotch\" style=\"max-width:100%;\"\u003e\n\t\t\t\t\u003c/a\u003e\n\t\t\t\t\u003cbr\u003e\n\t\t\t\t\u003csub\u003e\n          Default\n        \u003c/sub\u003e\n\t\t\t\u003c/td\u003e\n\t\t\t\u003ctd\u003e\n\t\t\t\t\u003ccode\u003e[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-202124?logo=hoppscotch)](https://hoppscotch.io)\u003c/code\u003e\n\t\t\t\u003c/td\u003e\n\t\t\u003c/tr\u003e\n\t\t\u003ctr\u003e\n\t\t\t\u003ctd align=\"center\" width=\"200px\"\u003e\n\t\t\t\t\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\n\t\t\t\t\t\u003cbr\u003e\n\t\t\t\t\t\u003cimg src=\"https://img.shields.io/badge/Tested_on-Hoppscotch-success?logo=hoppscotch\" style=\"max-width:100%;\"\u003e\n\t\t\t\t\u003c/a\u003e\n\t\t\t\t\u003cbr\u003e\n\t\t\t\t\u003csub\u003e\n          Success\n        \u003c/sub\u003e\n\t\t\t\u003c/td\u003e\n\t\t\t\u003ctd\u003e\n\t\t\t\t\u003ccode\u003e[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-success?logo=hoppscotch)](https://hoppscotch.io)\u003c/code\u003e\n\t\t\t\u003c/td\u003e\n\t\t\u003c/tr\u003e\n\t\t\u003ctr\u003e\n\t\t\t\u003ctd align=\"center\" width=\"200px\"\u003e\n\t\t\t\t\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\n\t\t\t\t\t\u003cbr\u003e\n\t\t\t\t\t\u003cimg src=\"https://img.shields.io/badge/Tested_on-Hoppscotch-critical?logo=hoppscotch\" style=\"max-width:100%;\"\u003e\n\t\t\t\t\u003c/a\u003e\n\t\t\t\t\u003cbr\u003e\n\t\t\t\t\u003csub\u003e\n          Critical\n        \u003c/sub\u003e\n\t\t\t\u003c/td\u003e\n\t\t\t\u003ctd\u003e\n\t\t\t\t\u003ccode\u003e[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-critical?logo=hoppscotch)](https://hoppscotch.io)\u003c/code\u003e\n\t\t\t\u003c/td\u003e\n\t\t\u003c/tr\u003e\n\t\t\u003ctr\u003e\n\t\t\t\u003ctd align=\"center\" width=\"200px\"\u003e\n\t\t\t\t\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\n\t\t\t\t\t\u003cbr\u003e\n\t\t\t\t\t\u003cimg src=\"https://img.shields.io/badge/Tested_on-Hoppscotch-blueviolet?logo=hoppscotch\" style=\"max-width:100%;\"\u003e\n\t\t\t\t\u003c/a\u003e\n\t\t\t\t\u003cbr\u003e\n\t\t\t\t\u003csub\u003e\n          Custom\n        \u003c/sub\u003e\n\t\t\t\u003c/td\u003e\n\t\t\t\u003ctd\u003e\n\t\t\t\t\u003ccode\u003e[![hoppscotch](https://img.shields.io/badge/Tested_on-Hoppscotch-blueviolet?logo=hoppscotch)](https://hoppscotch.io)\u003c/code\u003e\n\t\t\t\u003c/td\u003e\n\t\t\u003c/tr\u003e\n\t\t\u003ctr\u003e\n\t\t\t\u003ctd align=\"center\" width=\"200px\"\u003e\n\t\t\t\t\u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\n\t\t\t\t\t\u003cbr\u003e\n\t\t\t\t\t\u003cimg src=\"https://img.shields.io/badge/your_text-Hoppscotch-hex_color_code?logo=hoppscotch\" style=\"max-width:100%;\"\u003e\n\t\t\t\t\u003c/a\u003e\n\t\t\t\t\u003cbr\u003e\n\t\t\t\t\u003csub\u003e\n          Customize\n        \u003c/sub\u003e\n\t\t\t\u003c/td\u003e\n\t\t\t\u003ctd\u003e\n\t\t\t\t\u003ccode\u003e[![hoppscotch](https://img.shields.io/badge/your_text-Hoppscotch-hex_color_code?logo=hoppscotch)](https://hoppscotch.io)\u003c/code\u003e\n\t\t\t\u003c/td\u003e\n\t\t\u003c/tr\u003e\n\t\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cdiv align=\"center\"\u003e\n  \u003cbr\u003e\n  \u003ca href=\"https://hoppscotch.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/liyasthomas/templates/master/assets/logo.gif\" alt=\"hoppscotch.io\" width=\"200\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n  \u003cbr\u003e\n  \u003ch3\u003e\n\u003ca id=\"happy-coding-︎\" class=\"anchor\" href=\"#happy-coding-%EF%B8%8E\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHappy Coding ❤︎\u003c/h3\u003e\n\u003c/div\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":203587744,"name":"hoppscotch","owner_login":"hoppscotch","description":"👽 A free, fast and beautiful API request builder used by 120k+ developers. https://hoppscotch.io","pushed_at":"2021-01-13T21:40:31.000Z","stargazers_count":26598,"open_issues_count":23,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"https://hoppscotch.io","private":false,"project_created_at":"2019-08-21T13:15:24.000Z","project_updated_at":"2021-01-14T07:01:56.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="parsing">Parsing</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">m <span class="op">=</span> <span class="at">moment</span>(<span class="st">&#39;2013-03-01&#39;</span><span class="op">,</span> <span class="st">&#39;YYYY-MM-DD&#39;</span>)</a></code></pre></div>
+<p>This parses the given date using the given format. Returns a moment object.</p>
+<h3 id="formatting">Formatting</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">m</span>.<span class="at">format</span>()            <span class="co">// &quot;2013-03-01T00:00:00+01:00&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">m</span>.<span class="at">format</span>(<span class="st">&#39;dddd&#39;</span>)      <span class="co">// &quot;Friday&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">m</span>.<span class="at">format</span>(<span class="st">&#39;MMM Do YY&#39;</span>) <span class="co">// &quot;Mar 1st 13&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">m</span>.<span class="at">fromNow</span>()           <span class="co">// &quot;7 years ago&quot;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="va">m</span>.<span class="at">calendar</span>()          <span class="co">// &quot;03/01/2013&quot;</span></a></code></pre></div>
+<h3 id="add">Add</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">m</span>.<span class="at">add</span>(<span class="dv">1</span><span class="op">,</span> <span class="st">&#39;day&#39;</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">m</span>.<span class="at">subtract</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">&#39;days&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">m</span>.<span class="at">startOf</span>(<span class="st">&#39;day&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">m</span>.<span class="at">endOf</span>(<span class="st">&#39;day&#39;</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="va">m</span>.<span class="at">startOf</span>(<span class="st">&#39;hour&#39;</span>)</a></code></pre></div>
+<h3 id="internationalization">Internationalization</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1">.<span class="at">format</span>(<span class="st">&#39;L&#39;</span>)      <span class="co">// 06/09/2014</span></a>
+<a class="sourceLine" id="cb5-2" title="2">.<span class="at">format</span>(<span class="st">&#39;l&#39;</span>)      <span class="co">// 6/9/2014</span></a>
+<a class="sourceLine" id="cb5-3" title="3">.<span class="at">format</span>(<span class="st">&#39;LL&#39;</span>)     <span class="co">// June 9 2014</span></a>
+<a class="sourceLine" id="cb5-4" title="4">.<span class="at">format</span>(<span class="st">&#39;ll&#39;</span>)     <span class="co">// Jun 9 2014</span></a>
+<a class="sourceLine" id="cb5-5" title="5">.<span class="at">format</span>(<span class="st">&#39;LLL&#39;</span>)    <span class="co">// June 9 2014 9:32 PM</span></a>
+<a class="sourceLine" id="cb5-6" title="6">.<span class="at">format</span>(<span class="st">&#39;lll&#39;</span>)    <span class="co">// Jun 9 2014 9:32 PM</span></a>
+<a class="sourceLine" id="cb5-7" title="7">.<span class="at">format</span>(<span class="st">&#39;LLLL&#39;</span>)   <span class="co">// Monday, June 9 2014 9:32 PM</span></a>
+<a class="sourceLine" id="cb5-8" title="8">.<span class="at">format</span>(<span class="st">&#39;llll&#39;</span>)   <span class="co">// Mon, Jun 9 2014 9:32 PM</span></a></code></pre></div>
+<p>See <a href="./datetime">datetime</a> for more.</p>
+<p>{% include common/moment_format.md title=“Formatting” %}</p>
+<h2 id="references">References</h2>
+<h3 id="alternatives">Alternatives</h3>
+<ul>
+<li><a href="https://github.com/you-dont-need/You-Dont-Need-Momentjs">You don't need Moment.js</a> <em>(github.com)</em></li>
+</ul>
+<h3 id="also-see">Also see</h3>
+<ul>
+<li><a href="./datetime">Datetime cheatsheet</a> <em>(devhints.io)</em></li>
+<li><a href="http://momentjs.com/">Moment website</a> <em>(momentjs.com)</em></li>
+<li><a href="http://momentjs.com/docs/">Moment docs</a> <em>(momentjs.com)</em></li>
+</ul>
+</body></html>

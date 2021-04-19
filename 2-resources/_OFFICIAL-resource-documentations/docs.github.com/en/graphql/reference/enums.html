@@ -1,0 +1,5264 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from docs.github.com/en/graphql/reference/enums by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:13:38 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  
+  <meta charset="utf-8" />
+  <title>Enums - GitHub Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate icon" type="image/png" href="https://docs.github.com/assets/images/site/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://docs.github.com/assets/images/site/favicon.svg">
+  <link rel="stylesheet" href="https://docs.github.com/dist/index.css?hash=761223e35687cc9bbc77f32e2c24a161">
+
+  
+  
+    <meta name="description" content="">
+  
+  
+    <meta name="keywords" content="api">
+  
+  
+  
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://docs.github.com/en/graphql/reference/enums"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="zh-Hans"
+      href="https://docs.github.com/cn/graphql/reference/enums"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://docs.github.com/ja/graphql/reference/enums"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://docs.github.com/es/graphql/reference/enums"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="pt"
+      href="https://docs.github.com/pt/graphql/reference/enums"
+    />
+  
+    <link
+      rel="alternate"
+      hreflang="de"
+      href="https://docs.github.com/de/graphql/reference/enums"
+    />
+  
+  <meta name="google-site-verification" content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ" />
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" />
+
+  
+  <meta name="csrf-token" content="1pcHWzwf-GyRYgiXm5-4MTjdbPNtKrEM7QFo">
+  <meta name="site.data.ui.search.placeholder" content="Search topics, products...">
+</head>
+
+
+  <body class="d-lg-flex">
+    <!-- product > category > maptopic > article -->
+<div class="sidebar d-none d-lg-block">
+
+  <div class="d-flex flex-items-center p-4 position-sticky top-0 sidebar-background-color" style="z-index: 3;" id="github-logo" role="banner">
+    <a href="https://docs.github.com/en" class="text-white" aria-hidden="true" tabindex="-1">
+      <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+    <a href="https://docs.github.com/en" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">GitHub Docs</a>
+  </div>
+
+  <nav>
+    
+    <ul class="sidebar-products">
+      <!--
+  Styling note:
+
+  Categories, Maptopics, and Articles list items get a class of `active` when they correspond to content
+  hierarchy of the current page. If an item's URL is also the same as the current URL, the item
+  also gets an `is-current-page` class.
+ -->
+
+
+
+<li title="Home">
+  <a href="https://docs.github.com/en" class="f6 pl-4 pr-5 ml-n1 pb-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="octicon" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.78033 12.5303C7.48744 12.8232 7.01256 12.8232 6.71967 12.5303L2.46967 8.28033C2.17678 7.98744 2.17678 7.51256 2.46967 7.21967L6.71967 2.96967C7.01256 2.67678 7.48744 2.67678 7.78033 2.96967C8.07322 3.26256 8.07322 3.73744 7.78033 4.03033L4.81066 7L12.25 7C12.6642 7 13 7.33579 13 7.75C13 8.16421 12.6642 8.5 12.25 8.5L4.81066 8.5L7.78033 11.4697C8.07322 11.7626 8.07322 12.2374 7.78033 12.5303Z"></path></svg>
+    All products
+  </a>
+</li>
+
+
+<li title="GraphQL API" class="sidebar-product mb-2">
+  
+  <a href="https://docs.github.com/en/graphql" class="pl-4 pr-5 pb-1 f4">GraphQL API</a>
+  
+</li>
+<li>
+<ul class="sidebar-categories list-style-none">
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/graphql/overview" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Overview</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/about-the-graphql-api" class="pl-4 pr-5 py-1">About the GraphQL API</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/public-schema" class="pl-4 pr-5 py-1">Public schema</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/schema-previews" class="pl-4 pr-5 py-1">Schema previews</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/breaking-changes" class="pl-4 pr-5 py-1">Breaking changes</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/changelog" class="pl-4 pr-5 py-1">Changelog</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/explorer" class="pl-4 pr-5 py-1">Explorer</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/overview/resource-limitations" class="pl-4 pr-5 py-1 pb-2">Resource limitations</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 active ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/graphql/reference" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Reference</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/queries" class="pl-4 pr-5 py-1">Queries</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/mutations" class="pl-4 pr-5 py-1">Mutations</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/objects" class="pl-4 pr-5 py-1">Objects</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/interfaces" class="pl-4 pr-5 py-1">Interfaces</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article active is-current-page">
+          <a href="https://docs.github.com/en/graphql/reference/enums" class="pl-4 pr-5 py-1">Enums</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/unions" class="pl-4 pr-5 py-1">Unions</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/input-objects" class="pl-4 pr-5 py-1">Input objects</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/reference/scalars" class="pl-4 pr-5 py-1 pb-2">Scalars</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+  
+
+  <li class="sidebar-category py-1 ">
+    
+    <details class="dropdown-withArrow details details-reset" open>
+      <summary>
+        <div class="d-flex flex-justify-between">
+          <a href="https://docs.github.com/en/graphql/guides" class="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">Guides</a>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class="octicon flex-shrink-0 arrow mr-3" style="margin-top:7px" viewBox="0 0 16 16" width="16" height="16"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></svg>
+          
+        </div>
+      </summary>
+    
+      <!-- some categories have maptopics with child articles -->
+      
+      
+      <ul class="sidebar-articles list-style-none">
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/introduction-to-graphql" class="pl-4 pr-5 py-1">Introduction to GraphQL</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/forming-calls-with-graphql" class="pl-4 pr-5 py-1">Forming calls with GraphQL</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/using-global-node-ids" class="pl-4 pr-5 py-1">Using global node IDs</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/migrating-from-rest-to-graphql" class="pl-4 pr-5 py-1">Migrating from REST to GraphQL</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/using-the-explorer" class="pl-4 pr-5 py-1">Using the Explorer</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/managing-enterprise-accounts" class="pl-4 pr-5 py-1">Managing enterprise accounts</a>
+        </li>
+        
+        
+        
+        
+        <li class="sidebar-article ">
+          <a href="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions" class="pl-4 pr-5 py-1 pb-2">Using the GraphQL API for Discussions</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+    </details>
+  </li>
+  
+</ul>
+</li>
+
+    </ul>
+    
+  </nav>
+</div>
+
+
+    <main class="width-full">
+      <div class="border-bottom border-gray-light no-print">
+  
+  <!-- START TRANSLATIONS NOTICES -->
+
+<!-- END TRANSLATIONS NOTICES -->
+
+<!-- START RELEASE NOTICES -->
+<!-- Custom GitHub AE notice -->
+
+<!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
+
+
+
+
+
+
+  
+
+  <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full ">
+
+    <div class="d-flex flex-items-center d-lg-none" style="z-index: 3;" id="github-logo-mobile" role="banner">
+      <a href="https://docs.github.com/en" aria-hidden="true" tabindex="-1">
+        <svg version="1.1" width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-mark-github text-black" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+      <a href="https://docs.github.com/en" class="h4-mktg text-gray-dark no-underline no-wrap pl-2">GitHub Docs</a>
+    </div>
+
+    <div class="width-full">
+      <div class="d-inline-block width-full d-md-flex" style="z-index: 1;">
+        <button class="nav-mobile-burgerIcon float-right mt-1 border-0 d-md-none" type="button" aria-label="Toggle navigation">
+          <!-- Hamburger icon added with css -->
+        </button>
+        <div style="z-index: 2;" class="nav-mobile-dropdown width-full">
+          <div class="d-md-flex flex-justify-between flex-items-center">
+            <div class="py-2 py-md-0 d-md-inline-block">
+              <h4 class="text-mono f5 text-normal text-gray d-md-none">Explore by product</h4>
+              <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
+                <summary class="nav-desktop-productDropdownButton text-blue-mktg py-2" role="button" aria-label="Toggle products list">
+                  <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
+                    <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
+                    <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
+                    GraphQL API
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                  </div>
+                </summary>
+                <!-- Mobile-only product dropdown -->
+                <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
+                  
+                  <a href="https://docs.github.com/en/github"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub.com
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/admin"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Enterprise Administrators
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/organizations"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Organizations
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/code-security"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Code security
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/actions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Actions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/packages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Packages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/developers"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Developers
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/rest"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      REST API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/graphql"
+                      class="d-block py-2
+                      text-blue-mktg text-underline active">
+                      GraphQL API
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/enterprise-server@3.0/insights"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Insights
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/discussions"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Discussions
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/communities"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Building communities
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/pages"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Pages
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/education"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Education
+                      
+                  </a>
+                  
+                  <a href="https://docs.github.com/en/desktop"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub Desktop
+                      
+                  </a>
+                  
+                  <a href="https://cli.github.com/manual"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      GitHub CLI
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://atom.io/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Atom
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://electronjs.org/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      Electron
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                  <a href="https://codeql.github.com/docs"
+                      class="d-block py-2
+                      link-gray-dark no-underline">
+                      CodeQL
+                      
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      
+                  </a>
+                  
+                </div>
+              </details>
+            </div>
+
+            <!-- Versions picker that only appears in the header on landing pages -->
+            <!-- Versions picker that only appears in the header on homepage or product landing -->
+
+
+
+            <div class="d-md-inline-block">
+
+              <!-- Language picker - 'English', 'Japanese', etc -->
+              
+                <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+                    <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle languages list">
+                      <div class="d-flex flex-items-center flex-justify-between">
+                        
+                          English
+                        
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                      </div>
+                    </summary>
+                    <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+                    
+                      
+                        <a
+                          href="https://docs.github.com/en/graphql/reference/enums"
+                          class="d-block py-2 no-underline active link-gray"
+                          style="white-space: nowrap"
+                        >
+                          
+                            English
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/cn/graphql/reference/enums"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            简体中文 (Simplified Chinese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/ja/graphql/reference/enums"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            日本語 (Japanese)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/es/graphql/reference/enums"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Español (Spanish)
+                          
+                        </a>
+                      
+                    
+                      
+                        <a
+                          href="https://docs.github.com/pt/graphql/reference/enums"
+                          class="d-block py-2 no-underline link-gray-dark"
+                          style="white-space: nowrap"
+                        >
+                          
+                            Português do Brasil (Portuguese)
+                          
+                        </a>
+                      
+                    
+                      
+                    
+                    </div>
+                  </details>
+                </div>
+              
+
+              <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
+              
+              <div class="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0">
+                <!--
+  This form is used in two places:
+
+  - On the homepage, front and center
+  - On all other pages, in the header
+ -->
+
+<div id="search-input-container" aria-hidden="true">
+  <!-- will add a search input here -->
+</div>
+
+                <div id="search-results-container"></div>
+                <div class="search-overlay-desktop"></div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+      
+
+      
+        <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+  <article class="markdown-body width-full">
+    <div class="d-lg-flex flex-justify-between">
+      <div class="d-block d-lg-none">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/graphql/reference/enums"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+      <div class="d-flex flex-items-center breadcrumbs-wrapper">
+        <nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  
+    
+      <a title="product: GraphQL API" href="https://docs.github.com/en/graphql" class="d-inline-block ">
+        GraphQL API
+      </a>
+    
+  
+    
+      <a title="category: Reference" href="https://docs.github.com/en/graphql/reference" class="d-inline-block ">
+        Reference
+      </a>
+    
+  
+    
+      <a title="article: Enums" href="https://docs.github.com/en/graphql/reference/enums" class="d-inline-block text-gray-light">
+        Enums
+      </a>
+    
+  
+</nav>
+
+      </div>
+      <div class="d-none d-lg-block">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
+    <summary class="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <!-- GitHub.com, Enterprise Server 2.16, etc -->
+      <span class="d-md-none d-xl-inline-block">Article version:</span> GitHub.com
+      <svg class="arrow ml-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+    </summary>
+
+    <div class="nav-dropdown position-absolute bg-white rounded-1 px-4 py-3 top-7 box-shadow-large" style="z-index: 6; width: 210px;">
+      
+      <a
+      href="https://docs.github.com/en/graphql/reference/enums"
+      class="d-block py-2 link-blue active"
+      >
+      GitHub.com</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@3.0/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 3.0</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.22/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.22</a>
+      
+      <a
+      href="https://docs.github.com/en/enterprise-server@2.21/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      Enterprise Server 2.21</a>
+      
+      <a
+      href="https://docs.github.com/en/github-ae@latest/graphql/reference/enums"
+      class="d-block py-2 link-gray-dark no-underline"
+      >
+      GitHub AE</a>
+      
+      <a class="f6 no-underline text-gray-light pt-1" href="https://docs.github.com/enterprise-server-releases">See all Enterprise releases</a>
+    </div>
+  </details>
+
+</div>
+    </div>
+
+    <div class="mt-2 article-grid-container">
+
+    <div class="article-grid-head">
+      <div class="d-flex flex-items-baseline flex-justify-between mt-3">
+        <h1 class="border-bottom-0">Enums</h1>
+        <div class="d-none d-lg-block ml-2">
+          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+            <!-- From https://heroicons.dev/ -->
+<svg fill="none" height="18" width="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      
+
+      
+        <div class="lead-mktg"></div>
+      
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+      <div class="article-grid-toc-content">
+        
+        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">In this article</a></h2>
+        <ul class="list-style-none pl-0 f5 mb-0">
+          
+          <li class="ml-0  mb-2 lh-condensed"><a href="#about-enums">About enums</a></li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#auditlogorderfield">AuditLogOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#checkannotationlevel">CheckAnnotationLevel</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#checkconclusionstate">CheckConclusionState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#checkruntype">CheckRunType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#checkstatusstate">CheckStatusState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#collaboratoraffiliation">CollaboratorAffiliation</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#commentauthorassociation">CommentAuthorAssociation</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#commentcannotupdatereason">CommentCannotUpdateReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#commitcontributionorderfield">CommitContributionOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#contributionlevel">ContributionLevel</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#defaultrepositorypermissionfield">DefaultRepositoryPermissionField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#deploymentorderfield">DeploymentOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#deploymentstate">DeploymentState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#deploymentstatusstate">DeploymentStatusState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#diffside">DiffSide</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseadministratorinvitationorderfield">EnterpriseAdministratorInvitationOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseadministratorrole">EnterpriseAdministratorRole</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterprisedefaultrepositorypermissionsettingvalue">EnterpriseDefaultRepositoryPermissionSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseenableddisabledsettingvalue">EnterpriseEnabledDisabledSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseenabledsettingvalue">EnterpriseEnabledSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterprisememberorderfield">EnterpriseMemberOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterprisememberscancreaterepositoriessettingvalue">EnterpriseMembersCanCreateRepositoriesSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterprisememberscanmakepurchasessettingvalue">EnterpriseMembersCanMakePurchasesSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseserverinstallationorderfield">EnterpriseServerInstallationOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseserveruseraccountemailorderfield">EnterpriseServerUserAccountEmailOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseserveruseraccountorderfield">EnterpriseServerUserAccountOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseserveruseraccountsuploadorderfield">EnterpriseServerUserAccountsUploadOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseserveruseraccountsuploadsyncstate">EnterpriseServerUserAccountsUploadSyncState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseuseraccountmembershiprole">EnterpriseUserAccountMembershipRole</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#enterpriseuserdeployment">EnterpriseUserDeployment</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#fileviewedstate">FileViewedState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#fundingplatform">FundingPlatform</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#gistorderfield">GistOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#gistprivacy">GistPrivacy</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#gitsignaturestate">GitSignatureState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#identityproviderconfigurationstate">IdentityProviderConfigurationState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#ipallowlistenabledsettingvalue">IpAllowListEnabledSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#ipallowlistentryorderfield">IpAllowListEntryOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#issuecommentorderfield">IssueCommentOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#issueorderfield">IssueOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#issuestate">IssueState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#issuetimelineitemsitemtype">IssueTimelineItemsItemType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#labelorderfield">LabelOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#languageorderfield">LanguageOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#lockreason">LockReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#mergestatestatus">MergeStateStatus</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#mergeablestate">MergeableState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#milestoneorderfield">MilestoneOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#milestonestate">MilestoneState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#notificationrestrictionsettingvalue">NotificationRestrictionSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#oauthapplicationcreateauditentrystate">OauthApplicationCreateAuditEntryState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#operationtype">OperationType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orderdirection">OrderDirection</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgaddmemberauditentrypermission">OrgAddMemberAuditEntryPermission</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgcreateauditentrybillingplan">OrgCreateAuditEntryBillingPlan</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgremovebillingmanagerauditentryreason">OrgRemoveBillingManagerAuditEntryReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgremovememberauditentrymembershiptype">OrgRemoveMemberAuditEntryMembershipType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgremovememberauditentryreason">OrgRemoveMemberAuditEntryReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgremoveoutsidecollaboratorauditentrymembershiptype">OrgRemoveOutsideCollaboratorAuditEntryMembershipType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgremoveoutsidecollaboratorauditentryreason">OrgRemoveOutsideCollaboratorAuditEntryReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgupdatedefaultrepositorypermissionauditentrypermission">OrgUpdateDefaultRepositoryPermissionAuditEntryPermission</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgupdatememberauditentrypermission">OrgUpdateMemberAuditEntryPermission</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#orgupdatememberrepositorycreationpermissionauditentryvisibility">OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#organizationinvitationrole">OrganizationInvitationRole</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#organizationinvitationtype">OrganizationInvitationType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#organizationmemberrole">OrganizationMemberRole</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#organizationmemberscancreaterepositoriessettingvalue">OrganizationMembersCanCreateRepositoriesSettingValue</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#organizationorderfield">OrganizationOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#packagefileorderfield">PackageFileOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#packageorderfield">PackageOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#packagetype">PackageType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#packageversionorderfield">PackageVersionOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pinnableitemtype">PinnableItemType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#projectcardarchivedstate">ProjectCardArchivedState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#projectcardstate">ProjectCardState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#projectcolumnpurpose">ProjectColumnPurpose</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#projectorderfield">ProjectOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#projectstate">ProjectState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#projecttemplate">ProjectTemplate</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestmergemethod">PullRequestMergeMethod</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestorderfield">PullRequestOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestreviewcommentstate">PullRequestReviewCommentState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestreviewdecision">PullRequestReviewDecision</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestreviewevent">PullRequestReviewEvent</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestreviewstate">PullRequestReviewState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequeststate">PullRequestState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequesttimelineitemsitemtype">PullRequestTimelineItemsItemType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#pullrequestupdatestate">PullRequestUpdateState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#reactioncontent">ReactionContent</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#reactionorderfield">ReactionOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#reforderfield">RefOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#releaseorderfield">ReleaseOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repoaccessauditentryvisibility">RepoAccessAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repoaddmemberauditentryvisibility">RepoAddMemberAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repoarchivedauditentryvisibility">RepoArchivedAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repochangemergesettingauditentrymergetype">RepoChangeMergeSettingAuditEntryMergeType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repocreateauditentryvisibility">RepoCreateAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repodestroyauditentryvisibility">RepoDestroyAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#reporemovememberauditentryvisibility">RepoRemoveMemberAuditEntryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#reportedcontentclassifiers">ReportedContentClassifiers</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryaffiliation">RepositoryAffiliation</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositorycontributiontype">RepositoryContributionType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryinteractionlimit">RepositoryInteractionLimit</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryinteractionlimitexpiry">RepositoryInteractionLimitExpiry</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryinteractionlimitorigin">RepositoryInteractionLimitOrigin</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryinvitationorderfield">RepositoryInvitationOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositorylockreason">RepositoryLockReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryorderfield">RepositoryOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositorypermission">RepositoryPermission</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryprivacy">RepositoryPrivacy</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#repositoryvisibility">RepositoryVisibility</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#requestablecheckstatusstate">RequestableCheckStatusState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#samldigestalgorithm">SamlDigestAlgorithm</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#samlsignaturealgorithm">SamlSignatureAlgorithm</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#savedreplyorderfield">SavedReplyOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#searchtype">SearchType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#securityadvisoryecosystem">SecurityAdvisoryEcosystem</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#securityadvisoryidentifiertype">SecurityAdvisoryIdentifierType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#securityadvisoryorderfield">SecurityAdvisoryOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#securityadvisoryseverity">SecurityAdvisorySeverity</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#securityvulnerabilityorderfield">SecurityVulnerabilityOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#sponsorableorderfield">SponsorableOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#sponsorsgoalkind">SponsorsGoalKind</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#sponsorstierorderfield">SponsorsTierOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#sponsorshiporderfield">SponsorshipOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#sponsorshipprivacy">SponsorshipPrivacy</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#starorderfield">StarOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#statusstate">StatusState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#subscriptionstate">SubscriptionState</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamdiscussioncommentorderfield">TeamDiscussionCommentOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamdiscussionorderfield">TeamDiscussionOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teammemberorderfield">TeamMemberOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teammemberrole">TeamMemberRole</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teammembershiptype">TeamMembershipType</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamorderfield">TeamOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamprivacy">TeamPrivacy</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamrepositoryorderfield">TeamRepositoryOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamreviewassignmentalgorithm">TeamReviewAssignmentAlgorithm</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#teamrole">TeamRole</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#topicsuggestiondeclinereason">TopicSuggestionDeclineReason</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#userblockduration">UserBlockDuration</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#userstatusorderfield">UserStatusOrderField</a>
+    </li>
+          
+          <li class="ml-0  mb-2 lh-condensed">
+      <a href="#verifiabledomainorderfield">VerifiableDomainOrderField</a>
+    </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    <div id="article-contents" class="article-grid-body">
+      
+      <h3 id="about-enums"><a href="#about-enums">About enums</a></h3>
+<p><a href="https://graphql.github.io/graphql-spec/June2018/#sec-Enums">Enums</a> represent possible sets of values for a field.</p>
+<p>For example, the <a href="https://docs.github.com/en/graphql/reference/objects#issue"><code>Issue</code></a> object has a field called <code>state</code>. The state is an enum (specifically, of type <a href="https://docs.github.com/en/graphql/reference/enums#issuestate"><code>IssueState</code></a>) because it may be <code>OPEN</code> or <code>CLOSED</code>.</p>
+<p>For more information, see "<a href="https://docs.github.com/en/graphql/guides/introduction-to-graphql">Introduction to GraphQL</a>."</p>
+  <div>
+  <div>
+    <h3 id="auditlogorderfield" class="pt-3">
+      <a href="#auditlogorderfield">AuditLogOrderField</a>
+    </h3>
+  <p>Properties by which Audit Log connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order audit log entries by timestamp.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="checkannotationlevel" class="pt-3">
+      <a href="#checkannotationlevel">CheckAnnotationLevel</a>
+    </h3>
+  <p>Represents an annotation's information level.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>FAILURE</strong></p>
+  <p></p><p>An annotation indicating an inescapable error.</p><p></p>
+  
+  <p><strong>NOTICE</strong></p>
+  <p></p><p>An annotation indicating some information.</p><p></p>
+  
+  <p><strong>WARNING</strong></p>
+  <p></p><p>An annotation indicating an ignorable error.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="checkconclusionstate" class="pt-3">
+      <a href="#checkconclusionstate">CheckConclusionState</a>
+    </h3>
+  <p>The possible states for a check suite or run conclusion.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ACTION_REQUIRED</strong></p>
+  <p></p><p>The check suite or run requires action.</p><p></p>
+  
+  <p><strong>CANCELLED</strong></p>
+  <p></p><p>The check suite or run has been cancelled.</p><p></p>
+  
+  <p><strong>FAILURE</strong></p>
+  <p></p><p>The check suite or run has failed.</p><p></p>
+  
+  <p><strong>NEUTRAL</strong></p>
+  <p></p><p>The check suite or run was neutral.</p><p></p>
+  
+  <p><strong>SKIPPED</strong></p>
+  <p></p><p>The check suite or run was skipped.</p><p></p>
+  
+  <p><strong>STALE</strong></p>
+  <p></p><p>The check suite or run was marked stale by GitHub. Only GitHub can use this conclusion.</p><p></p>
+  
+  <p><strong>STARTUP_FAILURE</strong></p>
+  <p></p><p>The check suite or run has failed at startup.</p><p></p>
+  
+  <p><strong>SUCCESS</strong></p>
+  <p></p><p>The check suite or run has succeeded.</p><p></p>
+  
+  <p><strong>TIMED_OUT</strong></p>
+  <p></p><p>The check suite or run has timed out.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="checkruntype" class="pt-3">
+      <a href="#checkruntype">CheckRunType</a>
+    </h3>
+  <p>The possible types of check runs.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>Every check run available.</p><p></p>
+  
+  <p><strong>LATEST</strong></p>
+  <p></p><p>The latest check run.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="checkstatusstate" class="pt-3">
+      <a href="#checkstatusstate">CheckStatusState</a>
+    </h3>
+  <p>The possible states for a check suite or run status.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMPLETED</strong></p>
+  <p></p><p>The check suite or run has been completed.</p><p></p>
+  
+  <p><strong>IN_PROGRESS</strong></p>
+  <p></p><p>The check suite or run is in progress.</p><p></p>
+  
+  <p><strong>QUEUED</strong></p>
+  <p></p><p>The check suite or run has been queued.</p><p></p>
+  
+  <p><strong>REQUESTED</strong></p>
+  <p></p><p>The check suite or run has been requested.</p><p></p>
+  
+  <p><strong>WAITING</strong></p>
+  <p></p><p>The check suite or run is in waiting state.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="collaboratoraffiliation" class="pt-3">
+      <a href="#collaboratoraffiliation">CollaboratorAffiliation</a>
+    </h3>
+  <p>Collaborators affiliation level with a subject.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>All collaborators the authenticated user can see.</p><p></p>
+  
+  <p><strong>DIRECT</strong></p>
+  <p></p><p>All collaborators with permissions to an organization-owned subject, regardless of organization membership status.</p><p></p>
+  
+  <p><strong>OUTSIDE</strong></p>
+  <p></p><p>All outside collaborators of an organization-owned subject.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="commentauthorassociation" class="pt-3">
+      <a href="#commentauthorassociation">CommentAuthorAssociation</a>
+    </h3>
+  <p>A comment author association with repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COLLABORATOR</strong></p>
+  <p></p><p>Author has been invited to collaborate on the repository.</p><p></p>
+  
+  <p><strong>CONTRIBUTOR</strong></p>
+  <p></p><p>Author has previously committed to the repository.</p><p></p>
+  
+  <p><strong>FIRST_TIMER</strong></p>
+  <p></p><p>Author has not previously committed to GitHub.</p><p></p>
+  
+  <p><strong>FIRST_TIME_CONTRIBUTOR</strong></p>
+  <p></p><p>Author has not previously committed to the repository.</p><p></p>
+  
+  <p><strong>MANNEQUIN</strong></p>
+  <p></p><p>Author is a placeholder for an unclaimed user.</p><p></p>
+  
+  <p><strong>MEMBER</strong></p>
+  <p></p><p>Author is a member of the organization that owns the repository.</p><p></p>
+  
+  <p><strong>NONE</strong></p>
+  <p></p><p>Author has no association with the repository.</p><p></p>
+  
+  <p><strong>OWNER</strong></p>
+  <p></p><p>Author is the owner of the repository.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="commentcannotupdatereason" class="pt-3">
+      <a href="#commentcannotupdatereason">CommentCannotUpdateReason</a>
+    </h3>
+  <p>The possible errors that will prevent a user from updating a comment.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ARCHIVED</strong></p>
+  <p></p><p>Unable to create comment because repository is archived.</p><p></p>
+  
+  <p><strong>DENIED</strong></p>
+  <p></p><p>You cannot update this comment.</p><p></p>
+  
+  <p><strong>INSUFFICIENT_ACCESS</strong></p>
+  <p></p><p>You must be the author or have write access to this repository to update this comment.</p><p></p>
+  
+  <p><strong>LOCKED</strong></p>
+  <p></p><p>Unable to create comment because issue is locked.</p><p></p>
+  
+  <p><strong>LOGIN_REQUIRED</strong></p>
+  <p></p><p>You must be logged in to update this comment.</p><p></p>
+  
+  <p><strong>MAINTENANCE</strong></p>
+  <p></p><p>Repository is under maintenance.</p><p></p>
+  
+  <p><strong>VERIFIED_EMAIL_REQUIRED</strong></p>
+  <p></p><p>At least one email address must be verified to update this comment.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="commitcontributionorderfield" class="pt-3">
+      <a href="#commitcontributionorderfield">CommitContributionOrderField</a>
+    </h3>
+  <p>Properties by which commit contribution connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMMIT_COUNT</strong></p>
+  <p></p><p>Order commit contributions by how many commits they represent.</p><p></p>
+  
+  <p><strong>OCCURRED_AT</strong></p>
+  <p></p><p>Order commit contributions by when they were made.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="contributionlevel" class="pt-3">
+      <a href="#contributionlevel">ContributionLevel</a>
+    </h3>
+  <p>Varying levels of contributions from none to many.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>FIRST_QUARTILE</strong></p>
+  <p></p><p>Lowest 25% of days of contributions.</p><p></p>
+  
+  <p><strong>FOURTH_QUARTILE</strong></p>
+  <p></p><p>Highest 25% of days of contributions. More contributions than the third quartile.</p><p></p>
+  
+  <p><strong>NONE</strong></p>
+  <p></p><p>No contributions occurred.</p><p></p>
+  
+  <p><strong>SECOND_QUARTILE</strong></p>
+  <p></p><p>Second lowest 25% of days of contributions. More contributions than the first quartile.</p><p></p>
+  
+  <p><strong>THIRD_QUARTILE</strong></p>
+  <p></p><p>Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="defaultrepositorypermissionfield" class="pt-3">
+      <a href="#defaultrepositorypermissionfield">DefaultRepositoryPermissionField</a>
+    </h3>
+  <p>The possible default permissions for repositories.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Can read, write, and administrate repos by default.</p><p></p>
+  
+  <p><strong>NONE</strong></p>
+  <p></p><p>No access.</p><p></p>
+  
+  <p><strong>READ</strong></p>
+  <p></p><p>Can read repos by default.</p><p></p>
+  
+  <p><strong>WRITE</strong></p>
+  <p></p><p>Can read and write repos by default.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="deploymentorderfield" class="pt-3">
+      <a href="#deploymentorderfield">DeploymentOrderField</a>
+    </h3>
+  <p>Properties by which deployment connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order collection by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="deploymentstate" class="pt-3">
+      <a href="#deploymentstate">DeploymentState</a>
+    </h3>
+  <p>The possible states in which a deployment can be.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ABANDONED</strong></p>
+  <p></p><p>The pending deployment was not updated after 30 minutes.</p><p></p>
+  
+  <p><strong>ACTIVE</strong></p>
+  <p></p><p>The deployment is currently active.</p><p></p>
+  
+  <p><strong>DESTROYED</strong></p>
+  <p></p><p>An inactive transient deployment.</p><p></p>
+  
+  <p><strong>ERROR</strong></p>
+  <p></p><p>The deployment experienced an error.</p><p></p>
+  
+  <p><strong>FAILURE</strong></p>
+  <p></p><p>The deployment has failed.</p><p></p>
+  
+  <p><strong>INACTIVE</strong></p>
+  <p></p><p>The deployment is inactive.</p><p></p>
+  
+  <p><strong>IN_PROGRESS</strong></p>
+  <p></p><p>The deployment is in progress.</p><p></p>
+  
+  <p><strong>PENDING</strong></p>
+  <p></p><p>The deployment is pending.</p><p></p>
+  
+  <p><strong>QUEUED</strong></p>
+  <p></p><p>The deployment has queued.</p><p></p>
+  
+  <p><strong>WAITING</strong></p>
+  <p></p><p>The deployment is waiting.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="deploymentstatusstate" class="pt-3">
+      <a href="#deploymentstatusstate">DeploymentStatusState</a>
+    </h3>
+  <p>The possible states for a deployment status.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ERROR</strong></p>
+  <p></p><p>The deployment experienced an error.</p><p></p>
+  
+  <p><strong>FAILURE</strong></p>
+  <p></p><p>The deployment has failed.</p><p></p>
+  
+  <p><strong>INACTIVE</strong></p>
+  <p></p><p>The deployment is inactive.</p><p></p>
+  
+  <p><strong>IN_PROGRESS</strong></p>
+  <p></p><p>The deployment is in progress.</p><p></p>
+  
+  <p><strong>PENDING</strong></p>
+  <p></p><p>The deployment is pending.</p><p></p>
+  
+  <p><strong>QUEUED</strong></p>
+  <p></p><p>The deployment is queued.</p><p></p>
+  
+  <p><strong>SUCCESS</strong></p>
+  <p></p><p>The deployment was successful.</p><p></p>
+  
+  <p><strong>WAITING</strong></p>
+  <p></p><p>The deployment is waiting.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="diffside" class="pt-3">
+      <a href="#diffside">DiffSide</a>
+    </h3>
+  <p>The possible sides of a diff.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>LEFT</strong></p>
+  <p></p><p>The left side of the diff.</p><p></p>
+  
+  <p><strong>RIGHT</strong></p>
+  <p></p><p>The right side of the diff.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseadministratorinvitationorderfield" class="pt-3">
+      <a href="#enterpriseadministratorinvitationorderfield">EnterpriseAdministratorInvitationOrderField</a>
+    </h3>
+  <p>Properties by which enterprise administrator invitation connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order enterprise administrator member invitations by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseadministratorrole" class="pt-3">
+      <a href="#enterpriseadministratorrole">EnterpriseAdministratorRole</a>
+    </h3>
+  <p>The possible administrator roles in an enterprise account.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>BILLING_MANAGER</strong></p>
+  <p></p><p>Represents a billing manager of the enterprise account.</p><p></p>
+  
+  <p><strong>OWNER</strong></p>
+  <p></p><p>Represents an owner of the enterprise account.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterprisedefaultrepositorypermissionsettingvalue" class="pt-3">
+      <a href="#enterprisedefaultrepositorypermissionsettingvalue">EnterpriseDefaultRepositoryPermissionSettingValue</a>
+    </h3>
+  <p>The possible values for the enterprise default repository permission setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Organization members will be able to clone, pull, push, and add new collaborators to all organization repositories.</p><p></p>
+  
+  <p><strong>NONE</strong></p>
+  <p></p><p>Organization members will only be able to clone and pull public repositories.</p><p></p>
+  
+  <p><strong>NO_POLICY</strong></p>
+  <p></p><p>Organizations in the enterprise choose default repository permissions for their members.</p><p></p>
+  
+  <p><strong>READ</strong></p>
+  <p></p><p>Organization members will be able to clone and pull all organization repositories.</p><p></p>
+  
+  <p><strong>WRITE</strong></p>
+  <p></p><p>Organization members will be able to clone, pull, and push all organization repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseenableddisabledsettingvalue" class="pt-3">
+      <a href="#enterpriseenableddisabledsettingvalue">EnterpriseEnabledDisabledSettingValue</a>
+    </h3>
+  <p>The possible values for an enabled/disabled enterprise setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DISABLED</strong></p>
+  <p></p><p>The setting is disabled for organizations in the enterprise.</p><p></p>
+  
+  <p><strong>ENABLED</strong></p>
+  <p></p><p>The setting is enabled for organizations in the enterprise.</p><p></p>
+  
+  <p><strong>NO_POLICY</strong></p>
+  <p></p><p>There is no policy set for organizations in the enterprise.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseenabledsettingvalue" class="pt-3">
+      <a href="#enterpriseenabledsettingvalue">EnterpriseEnabledSettingValue</a>
+    </h3>
+  <p>The possible values for an enabled/no policy enterprise setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ENABLED</strong></p>
+  <p></p><p>The setting is enabled for organizations in the enterprise.</p><p></p>
+  
+  <p><strong>NO_POLICY</strong></p>
+  <p></p><p>There is no policy set for organizations in the enterprise.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterprisememberorderfield" class="pt-3">
+      <a href="#enterprisememberorderfield">EnterpriseMemberOrderField</a>
+    </h3>
+  <p>Properties by which enterprise member connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order enterprise members by creation time.</p><p></p>
+  
+  <p><strong>LOGIN</strong></p>
+  <p></p><p>Order enterprise members by login.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterprisememberscancreaterepositoriessettingvalue" class="pt-3">
+      <a href="#enterprisememberscancreaterepositoriessettingvalue">EnterpriseMembersCanCreateRepositoriesSettingValue</a>
+    </h3>
+  <p>The possible values for the enterprise members can create repositories setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>Members will be able to create public and private repositories.</p><p></p>
+  
+  <p><strong>DISABLED</strong></p>
+  <p></p><p>Members will not be able to create public or private repositories.</p><p></p>
+  
+  <p><strong>NO_POLICY</strong></p>
+  <p></p><p>Organization administrators choose whether to allow members to create repositories.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>Members will be able to create only private repositories.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>Members will be able to create only public repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterprisememberscanmakepurchasessettingvalue" class="pt-3">
+      <a href="#enterprisememberscanmakepurchasessettingvalue">EnterpriseMembersCanMakePurchasesSettingValue</a>
+    </h3>
+  <p>The possible values for the members can make purchases setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DISABLED</strong></p>
+  <p></p><p>The setting is disabled for organizations in the enterprise.</p><p></p>
+  
+  <p><strong>ENABLED</strong></p>
+  <p></p><p>The setting is enabled for organizations in the enterprise.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseserverinstallationorderfield" class="pt-3">
+      <a href="#enterpriseserverinstallationorderfield">EnterpriseServerInstallationOrderField</a>
+    </h3>
+  <p>Properties by which Enterprise Server installation connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order Enterprise Server installations by creation time.</p><p></p>
+  
+  <p><strong>CUSTOMER_NAME</strong></p>
+  <p></p><p>Order Enterprise Server installations by customer name.</p><p></p>
+  
+  <p><strong>HOST_NAME</strong></p>
+  <p></p><p>Order Enterprise Server installations by host name.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseserveruseraccountemailorderfield" class="pt-3">
+      <a href="#enterpriseserveruseraccountemailorderfield">EnterpriseServerUserAccountEmailOrderField</a>
+    </h3>
+  <p>Properties by which Enterprise Server user account email connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>EMAIL</strong></p>
+  <p></p><p>Order emails by email.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseserveruseraccountorderfield" class="pt-3">
+      <a href="#enterpriseserveruseraccountorderfield">EnterpriseServerUserAccountOrderField</a>
+    </h3>
+  <p>Properties by which Enterprise Server user account connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>LOGIN</strong></p>
+  <p></p><p>Order user accounts by login.</p><p></p>
+  
+  <p><strong>REMOTE_CREATED_AT</strong></p>
+  <p></p><p>Order user accounts by creation time on the Enterprise Server installation.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseserveruseraccountsuploadorderfield" class="pt-3">
+      <a href="#enterpriseserveruseraccountsuploadorderfield">EnterpriseServerUserAccountsUploadOrderField</a>
+    </h3>
+  <p>Properties by which Enterprise Server user accounts upload connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order user accounts uploads by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseserveruseraccountsuploadsyncstate" class="pt-3">
+      <a href="#enterpriseserveruseraccountsuploadsyncstate">EnterpriseServerUserAccountsUploadSyncState</a>
+    </h3>
+  <p>Synchronization state of the Enterprise Server user accounts upload.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>FAILURE</strong></p>
+  <p></p><p>The synchronization of the upload failed.</p><p></p>
+  
+  <p><strong>PENDING</strong></p>
+  <p></p><p>The synchronization of the upload is pending.</p><p></p>
+  
+  <p><strong>SUCCESS</strong></p>
+  <p></p><p>The synchronization of the upload succeeded.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseuseraccountmembershiprole" class="pt-3">
+      <a href="#enterpriseuseraccountmembershiprole">EnterpriseUserAccountMembershipRole</a>
+    </h3>
+  <p>The possible roles for enterprise membership.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>MEMBER</strong></p>
+  <p></p><p>The user is a member of the enterprise membership.</p><p></p>
+  
+  <p><strong>OWNER</strong></p>
+  <p></p><p>The user is an owner of the enterprise membership.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="enterpriseuserdeployment" class="pt-3">
+      <a href="#enterpriseuserdeployment">EnterpriseUserDeployment</a>
+    </h3>
+  <p>The possible GitHub Enterprise deployments where this user can exist.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CLOUD</strong></p>
+  <p></p><p>The user is part of a GitHub Enterprise Cloud deployment.</p><p></p>
+  
+  <p><strong>SERVER</strong></p>
+  <p></p><p>The user is part of a GitHub Enterprise Server deployment.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="fileviewedstate" class="pt-3">
+      <a href="#fileviewedstate">FileViewedState</a>
+    </h3>
+  <p>The possible viewed states of a file .</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DISMISSED</strong></p>
+  <p></p><p>The file has new changes since last viewed.</p><p></p>
+  
+  <p><strong>UNVIEWED</strong></p>
+  <p></p><p>The file has not been marked as viewed.</p><p></p>
+  
+  <p><strong>VIEWED</strong></p>
+  <p></p><p>The file has been marked as viewed.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="fundingplatform" class="pt-3">
+      <a href="#fundingplatform">FundingPlatform</a>
+    </h3>
+  <p>The possible funding platforms for repository funding links.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMMUNITY_BRIDGE</strong></p>
+  <p></p><p>Community Bridge funding platform.</p><p></p>
+  
+  <p><strong>CUSTOM</strong></p>
+  <p></p><p>Custom funding platform.</p><p></p>
+  
+  <p><strong>GITHUB</strong></p>
+  <p></p><p>GitHub funding platform.</p><p></p>
+  
+  <p><strong>ISSUEHUNT</strong></p>
+  <p></p><p>IssueHunt funding platform.</p><p></p>
+  
+  <p><strong>KO_FI</strong></p>
+  <p></p><p>Ko-fi funding platform.</p><p></p>
+  
+  <p><strong>LIBERAPAY</strong></p>
+  <p></p><p>Liberapay funding platform.</p><p></p>
+  
+  <p><strong>OPEN_COLLECTIVE</strong></p>
+  <p></p><p>Open Collective funding platform.</p><p></p>
+  
+  <p><strong>OTECHIE</strong></p>
+  <p></p><p>Otechie funding platform.</p><p></p>
+  
+  <p><strong>PATREON</strong></p>
+  <p></p><p>Patreon funding platform.</p><p></p>
+  
+  <p><strong>TIDELIFT</strong></p>
+  <p></p><p>Tidelift funding platform.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="gistorderfield" class="pt-3">
+      <a href="#gistorderfield">GistOrderField</a>
+    </h3>
+  <p>Properties by which gist connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order gists by creation time.</p><p></p>
+  
+  <p><strong>PUSHED_AT</strong></p>
+  <p></p><p>Order gists by push time.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order gists by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="gistprivacy" class="pt-3">
+      <a href="#gistprivacy">GistPrivacy</a>
+    </h3>
+  <p>The privacy of a Gist.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>Gists that are public and secret.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>Public.</p><p></p>
+  
+  <p><strong>SECRET</strong></p>
+  <p></p><p>Secret.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="gitsignaturestate" class="pt-3">
+      <a href="#gitsignaturestate">GitSignatureState</a>
+    </h3>
+  <p>The state of a Git signature.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>BAD_CERT</strong></p>
+  <p></p><p>The signing certificate or its chain could not be verified.</p><p></p>
+  
+  <p><strong>BAD_EMAIL</strong></p>
+  <p></p><p>Invalid email used for signing.</p><p></p>
+  
+  <p><strong>EXPIRED_KEY</strong></p>
+  <p></p><p>Signing key expired.</p><p></p>
+  
+  <p><strong>GPGVERIFY_ERROR</strong></p>
+  <p></p><p>Internal error - the GPG verification service misbehaved.</p><p></p>
+  
+  <p><strong>GPGVERIFY_UNAVAILABLE</strong></p>
+  <p></p><p>Internal error - the GPG verification service is unavailable at the moment.</p><p></p>
+  
+  <p><strong>INVALID</strong></p>
+  <p></p><p>Invalid signature.</p><p></p>
+  
+  <p><strong>MALFORMED_SIG</strong></p>
+  <p></p><p>Malformed signature.</p><p></p>
+  
+  <p><strong>NOT_SIGNING_KEY</strong></p>
+  <p></p><p>The usage flags for the key that signed this don't allow signing.</p><p></p>
+  
+  <p><strong>NO_USER</strong></p>
+  <p></p><p>Email used for signing not known to GitHub.</p><p></p>
+  
+  <p><strong>OCSP_ERROR</strong></p>
+  <p></p><p>Valid signature, though certificate revocation check failed.</p><p></p>
+  
+  <p><strong>OCSP_PENDING</strong></p>
+  <p></p><p>Valid signature, pending certificate revocation checking.</p><p></p>
+  
+  <p><strong>OCSP_REVOKED</strong></p>
+  <p></p><p>One or more certificates in chain has been revoked.</p><p></p>
+  
+  <p><strong>UNKNOWN_KEY</strong></p>
+  <p></p><p>Key used for signing not known to GitHub.</p><p></p>
+  
+  <p><strong>UNKNOWN_SIG_TYPE</strong></p>
+  <p></p><p>Unknown signature type.</p><p></p>
+  
+  <p><strong>UNSIGNED</strong></p>
+  <p></p><p>Unsigned.</p><p></p>
+  
+  <p><strong>UNVERIFIED_EMAIL</strong></p>
+  <p></p><p>Email used for signing unverified on GitHub.</p><p></p>
+  
+  <p><strong>VALID</strong></p>
+  <p></p><p>Valid signature and verified by GitHub.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="identityproviderconfigurationstate" class="pt-3">
+      <a href="#identityproviderconfigurationstate">IdentityProviderConfigurationState</a>
+    </h3>
+  <p>The possible states in which authentication can be configured with an identity provider.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CONFIGURED</strong></p>
+  <p></p><p>Authentication with an identity provider is configured but not enforced.</p><p></p>
+  
+  <p><strong>ENFORCED</strong></p>
+  <p></p><p>Authentication with an identity provider is configured and enforced.</p><p></p>
+  
+  <p><strong>UNCONFIGURED</strong></p>
+  <p></p><p>Authentication with an identity provider is not configured.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="ipallowlistenabledsettingvalue" class="pt-3">
+      <a href="#ipallowlistenabledsettingvalue">IpAllowListEnabledSettingValue</a>
+    </h3>
+  <p>The possible values for the IP allow list enabled setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DISABLED</strong></p>
+  <p></p><p>The setting is disabled for the owner.</p><p></p>
+  
+  <p><strong>ENABLED</strong></p>
+  <p></p><p>The setting is enabled for the owner.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="ipallowlistentryorderfield" class="pt-3">
+      <a href="#ipallowlistentryorderfield">IpAllowListEntryOrderField</a>
+    </h3>
+  <p>Properties by which IP allow list entry connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALLOW_LIST_VALUE</strong></p>
+  <p></p><p>Order IP allow list entries by the allow list value.</p><p></p>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order IP allow list entries by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="issuecommentorderfield" class="pt-3">
+      <a href="#issuecommentorderfield">IssueCommentOrderField</a>
+    </h3>
+  <p>Properties by which issue comment connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order issue comments by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="issueorderfield" class="pt-3">
+      <a href="#issueorderfield">IssueOrderField</a>
+    </h3>
+  <p>Properties by which issue connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMMENTS</strong></p>
+  <p></p><p>Order issues by comment count.</p><p></p>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order issues by creation time.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order issues by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="issuestate" class="pt-3">
+      <a href="#issuestate">IssueState</a>
+    </h3>
+  <p>The possible states of an issue.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CLOSED</strong></p>
+  <p></p><p>An issue that has been closed.</p><p></p>
+  
+  <p><strong>OPEN</strong></p>
+  <p></p><p>An issue that is still open.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="issuetimelineitemsitemtype" class="pt-3">
+      <a href="#issuetimelineitemsitemtype">IssueTimelineItemsItemType</a>
+    </h3>
+  <p>The possible item types found in a timeline.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADDED_TO_PROJECT_EVENT</strong></p>
+  <p></p><p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>ASSIGNED_EVENT</strong></p>
+  <p></p><p>Represents an<code>assigned</code>event on any assignable object.</p><p></p>
+  
+  <p><strong>CLOSED_EVENT</strong></p>
+  <p></p><p>Represents a<code>closed</code>event on any <code>Closable</code>.</p><p></p>
+  
+  <p><strong>COMMENT_DELETED_EVENT</strong></p>
+  <p></p><p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>CONNECTED_EVENT</strong></p>
+  <p></p><p>Represents a<code>connected</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>CONVERTED_NOTE_TO_ISSUE_EVENT</strong></p>
+  <p></p><p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>CROSS_REFERENCED_EVENT</strong></p>
+  <p></p><p>Represents a mention made by one issue or pull request to another.</p><p></p>
+  
+  <p><strong>DEMILESTONED_EVENT</strong></p>
+  <p></p><p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>DISCONNECTED_EVENT</strong></p>
+  <p></p><p>Represents a<code>disconnected</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>ISSUE_COMMENT</strong></p>
+  <p></p><p>Represents a comment on an Issue.</p><p></p>
+  
+  <p><strong>LABELED_EVENT</strong></p>
+  <p></p><p>Represents a<code>labeled</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>LOCKED_EVENT</strong></p>
+  <p></p><p>Represents a<code>locked</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MARKED_AS_DUPLICATE_EVENT</strong></p>
+  <p></p><p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MENTIONED_EVENT</strong></p>
+  <p></p><p>Represents a<code>mentioned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MILESTONED_EVENT</strong></p>
+  <p></p><p>Represents a<code>milestoned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MOVED_COLUMNS_IN_PROJECT_EVENT</strong></p>
+  <p></p><p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>PINNED_EVENT</strong></p>
+  <p></p><p>Represents a<code>pinned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>REFERENCED_EVENT</strong></p>
+  <p></p><p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p><p></p>
+  
+  <p><strong>REMOVED_FROM_PROJECT_EVENT</strong></p>
+  <p></p><p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>RENAMED_TITLE_EVENT</strong></p>
+  <p></p><p>Represents a<code>renamed</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>REOPENED_EVENT</strong></p>
+  <p></p><p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p><p></p>
+  
+  <p><strong>SUBSCRIBED_EVENT</strong></p>
+  <p></p><p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p><p></p>
+  
+  <p><strong>TRANSFERRED_EVENT</strong></p>
+  <p></p><p>Represents a<code>transferred</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNASSIGNED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unassigned</code>event on any assignable object.</p><p></p>
+  
+  <p><strong>UNLABELED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNLOCKED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unlocked</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNMARKED_AS_DUPLICATE_EVENT</strong></p>
+  <p></p><p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNPINNED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unpinned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNSUBSCRIBED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p><p></p>
+  
+  <p><strong>USER_BLOCKED_EVENT</strong></p>
+  <p></p><p>Represents a<code>user_blocked</code>event on a given user.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="labelorderfield" class="pt-3">
+      <a href="#labelorderfield">LabelOrderField</a>
+    </h3>
+  <p>Properties by which label connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order labels by creation time.</p><p></p>
+  
+  <p><strong>NAME</strong></p>
+  <p></p><p>Order labels by name.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="languageorderfield" class="pt-3">
+      <a href="#languageorderfield">LanguageOrderField</a>
+    </h3>
+  <p>Properties by which language connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>SIZE</strong></p>
+  <p></p><p>Order languages by the size of all files containing the language.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="lockreason" class="pt-3">
+      <a href="#lockreason">LockReason</a>
+    </h3>
+  <p>The possible reasons that an issue or pull request was locked.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>OFF_TOPIC</strong></p>
+  <p></p><p>The issue or pull request was locked because the conversation was off-topic.</p><p></p>
+  
+  <p><strong>RESOLVED</strong></p>
+  <p></p><p>The issue or pull request was locked because the conversation was resolved.</p><p></p>
+  
+  <p><strong>SPAM</strong></p>
+  <p></p><p>The issue or pull request was locked because the conversation was spam.</p><p></p>
+  
+  <p><strong>TOO_HEATED</strong></p>
+  <p></p><p>The issue or pull request was locked because the conversation was too heated.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="mergestatestatus" class="pt-3">
+      <a href="#mergestatestatus">MergeStateStatus</a>
+    </h3>
+  <p>Detailed status information about a pull request merge.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>BEHIND</strong></p>
+  <p></p><p>The head ref is out of date.</p><p></p>
+  
+  <p><strong>BLOCKED</strong></p>
+  <p></p><p>The merge is blocked.</p><p></p>
+  
+  <p><strong>CLEAN</strong></p>
+  <p></p><p>Mergeable and passing commit status.</p><p></p>
+  
+  <p><strong>DIRTY</strong></p>
+  <p></p><p>The merge commit cannot be cleanly created.</p><p></p>
+  
+  <p><strong>DRAFT</strong></p>
+  <p></p><p>The merge is blocked due to the pull request being a draft.</p><p></p>
+  
+  <p><strong>HAS_HOOKS</strong></p>
+  <p></p><p>Mergeable with passing commit status and pre-receive hooks.</p><p></p>
+  
+  <p><strong>UNKNOWN</strong></p>
+  <p></p><p>The state cannot currently be determined.</p><p></p>
+  
+  <p><strong>UNSTABLE</strong></p>
+  <p></p><p>Mergeable with non-passing commit status.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="mergeablestate" class="pt-3">
+      <a href="#mergeablestate">MergeableState</a>
+    </h3>
+  <p>Whether or not a PullRequest can be merged.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CONFLICTING</strong></p>
+  <p></p><p>The pull request cannot be merged due to merge conflicts.</p><p></p>
+  
+  <p><strong>MERGEABLE</strong></p>
+  <p></p><p>The pull request can be merged.</p><p></p>
+  
+  <p><strong>UNKNOWN</strong></p>
+  <p></p><p>The mergeability of the pull request is still being calculated.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="milestoneorderfield" class="pt-3">
+      <a href="#milestoneorderfield">MilestoneOrderField</a>
+    </h3>
+  <p>Properties by which milestone connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order milestones by when they were created.</p><p></p>
+  
+  <p><strong>DUE_DATE</strong></p>
+  <p></p><p>Order milestones by when they are due.</p><p></p>
+  
+  <p><strong>NUMBER</strong></p>
+  <p></p><p>Order milestones by their number.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order milestones by when they were last updated.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="milestonestate" class="pt-3">
+      <a href="#milestonestate">MilestoneState</a>
+    </h3>
+  <p>The possible states of a milestone.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CLOSED</strong></p>
+  <p></p><p>A milestone that has been closed.</p><p></p>
+  
+  <p><strong>OPEN</strong></p>
+  <p></p><p>A milestone that is still open.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="notificationrestrictionsettingvalue" class="pt-3">
+      <a href="#notificationrestrictionsettingvalue">NotificationRestrictionSettingValue</a>
+    </h3>
+  <p>The possible values for the notification restriction setting.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DISABLED</strong></p>
+  <p></p><p>The setting is disabled for the owner.</p><p></p>
+  
+  <p><strong>ENABLED</strong></p>
+  <p></p><p>The setting is enabled for the owner.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="oauthapplicationcreateauditentrystate" class="pt-3">
+      <a href="#oauthapplicationcreateauditentrystate">OauthApplicationCreateAuditEntryState</a>
+    </h3>
+  <p>The state of an OAuth Application when it was created.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ACTIVE</strong></p>
+  <p></p><p>The OAuth Application was active and allowed to have OAuth Accesses.</p><p></p>
+  
+  <p><strong>PENDING_DELETION</strong></p>
+  <p></p><p>The OAuth Application was in the process of being deleted.</p><p></p>
+  
+  <p><strong>SUSPENDED</strong></p>
+  <p></p><p>The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="operationtype" class="pt-3">
+      <a href="#operationtype">OperationType</a>
+    </h3>
+  <p>The corresponding operation type for the action.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ACCESS</strong></p>
+  <p></p><p>An existing resource was accessed.</p><p></p>
+  
+  <p><strong>AUTHENTICATION</strong></p>
+  <p></p><p>A resource performed an authentication event.</p><p></p>
+  
+  <p><strong>CREATE</strong></p>
+  <p></p><p>A new resource was created.</p><p></p>
+  
+  <p><strong>MODIFY</strong></p>
+  <p></p><p>An existing resource was modified.</p><p></p>
+  
+  <p><strong>REMOVE</strong></p>
+  <p></p><p>An existing resource was removed.</p><p></p>
+  
+  <p><strong>RESTORE</strong></p>
+  <p></p><p>An existing resource was restored.</p><p></p>
+  
+  <p><strong>TRANSFER</strong></p>
+  <p></p><p>An existing resource was transferred between multiple resources.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orderdirection" class="pt-3">
+      <a href="#orderdirection">OrderDirection</a>
+    </h3>
+  <p>Possible directions in which to order a list of items when provided an <code>orderBy</code> argument.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ASC</strong></p>
+  <p></p><p>Specifies an ascending order for a given <code>orderBy</code> argument.</p><p></p>
+  
+  <p><strong>DESC</strong></p>
+  <p></p><p>Specifies a descending order for a given <code>orderBy</code> argument.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgaddmemberauditentrypermission" class="pt-3">
+      <a href="#orgaddmemberauditentrypermission">OrgAddMemberAuditEntryPermission</a>
+    </h3>
+  <p>The permissions available to members on an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Can read, clone, push, and add collaborators to repositories.</p><p></p>
+  
+  <p><strong>READ</strong></p>
+  <p></p><p>Can read and clone repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgcreateauditentrybillingplan" class="pt-3">
+      <a href="#orgcreateauditentrybillingplan">OrgCreateAuditEntryBillingPlan</a>
+    </h3>
+  <p>The billing plans available for organizations.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>BUSINESS</strong></p>
+  <p></p><p>Team Plan.</p><p></p>
+  
+  <p><strong>BUSINESS_PLUS</strong></p>
+  <p></p><p>Enterprise Cloud Plan.</p><p></p>
+  
+  <p><strong>FREE</strong></p>
+  <p></p><p>Free Plan.</p><p></p>
+  
+  <p><strong>TIERED_PER_SEAT</strong></p>
+  <p></p><p>Tiered Per Seat Plan.</p><p></p>
+  
+  <p><strong>UNLIMITED</strong></p>
+  <p></p><p>Legacy Unlimited Plan.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgremovebillingmanagerauditentryreason" class="pt-3">
+      <a href="#orgremovebillingmanagerauditentryreason">OrgRemoveBillingManagerAuditEntryReason</a>
+    </h3>
+  <p>The reason a billing manager was removed from an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>SAML_EXTERNAL_IDENTITY_MISSING</strong></p>
+  <p></p><p>SAML external identity missing.</p><p></p>
+  
+  <p><strong>SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY</strong></p>
+  <p></p><p>SAML SSO enforcement requires an external identity.</p><p></p>
+  
+  <p><strong>TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE</strong></p>
+  <p></p><p>The organization required 2FA of its billing managers and this user did not have 2FA enabled.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgremovememberauditentrymembershiptype" class="pt-3">
+      <a href="#orgremovememberauditentrymembershiptype">OrgRemoveMemberAuditEntryMembershipType</a>
+    </h3>
+  <p>The type of membership a user has with an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Organization administrators have full access and can change several settings,
+including the names of repositories that belong to the Organization and Owners
+team membership. In addition, organization admins can delete the organization
+and all of its repositories.</p><p></p>
+  
+  <p><strong>BILLING_MANAGER</strong></p>
+  <p></p><p>A billing manager is a user who manages the billing settings for the Organization, such as updating payment information.</p><p></p>
+  
+  <p><strong>DIRECT_MEMBER</strong></p>
+  <p></p><p>A direct member is a user that is a member of the Organization.</p><p></p>
+  
+  <p><strong>OUTSIDE_COLLABORATOR</strong></p>
+  <p></p><p>An outside collaborator is a person who isn't explicitly a member of the
+Organization, but who has Read, Write, or Admin permissions to one or more
+repositories in the organization.</p><p></p>
+  
+  <p><strong>UNAFFILIATED</strong></p>
+  <p></p><p>An unaffiliated collaborator is a person who is not a member of the
+Organization and does not have access to any repositories in the Organization.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgremovememberauditentryreason" class="pt-3">
+      <a href="#orgremovememberauditentryreason">OrgRemoveMemberAuditEntryReason</a>
+    </h3>
+  <p>The reason a member was removed from an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>SAML_EXTERNAL_IDENTITY_MISSING</strong></p>
+  <p></p><p>SAML external identity missing.</p><p></p>
+  
+  <p><strong>SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY</strong></p>
+  <p></p><p>SAML SSO enforcement requires an external identity.</p><p></p>
+  
+  <p><strong>TWO_FACTOR_ACCOUNT_RECOVERY</strong></p>
+  <p></p><p>User was removed from organization during account recovery.</p><p></p>
+  
+  <p><strong>TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE</strong></p>
+  <p></p><p>The organization required 2FA of its billing managers and this user did not have 2FA enabled.</p><p></p>
+  
+  <p><strong>USER_ACCOUNT_DELETED</strong></p>
+  <p></p><p>User account has been deleted.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgremoveoutsidecollaboratorauditentrymembershiptype" class="pt-3">
+      <a href="#orgremoveoutsidecollaboratorauditentrymembershiptype">OrgRemoveOutsideCollaboratorAuditEntryMembershipType</a>
+    </h3>
+  <p>The type of membership a user has with an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>BILLING_MANAGER</strong></p>
+  <p></p><p>A billing manager is a user who manages the billing settings for the Organization, such as updating payment information.</p><p></p>
+  
+  <p><strong>OUTSIDE_COLLABORATOR</strong></p>
+  <p></p><p>An outside collaborator is a person who isn't explicitly a member of the
+Organization, but who has Read, Write, or Admin permissions to one or more
+repositories in the organization.</p><p></p>
+  
+  <p><strong>UNAFFILIATED</strong></p>
+  <p></p><p>An unaffiliated collaborator is a person who is not a member of the
+Organization and does not have access to any repositories in the organization.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgremoveoutsidecollaboratorauditentryreason" class="pt-3">
+      <a href="#orgremoveoutsidecollaboratorauditentryreason">OrgRemoveOutsideCollaboratorAuditEntryReason</a>
+    </h3>
+  <p>The reason an outside collaborator was removed from an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>SAML_EXTERNAL_IDENTITY_MISSING</strong></p>
+  <p></p><p>SAML external identity missing.</p><p></p>
+  
+  <p><strong>TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE</strong></p>
+  <p></p><p>The organization required 2FA of its billing managers and this user did not have 2FA enabled.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgupdatedefaultrepositorypermissionauditentrypermission" class="pt-3">
+      <a href="#orgupdatedefaultrepositorypermissionauditentrypermission">OrgUpdateDefaultRepositoryPermissionAuditEntryPermission</a>
+    </h3>
+  <p>The default permission a repository can have in an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Can read, clone, push, and add collaborators to repositories.</p><p></p>
+  
+  <p><strong>NONE</strong></p>
+  <p></p><p>No default permission value.</p><p></p>
+  
+  <p><strong>READ</strong></p>
+  <p></p><p>Can read and clone repositories.</p><p></p>
+  
+  <p><strong>WRITE</strong></p>
+  <p></p><p>Can read, clone and push to repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgupdatememberauditentrypermission" class="pt-3">
+      <a href="#orgupdatememberauditentrypermission">OrgUpdateMemberAuditEntryPermission</a>
+    </h3>
+  <p>The permissions available to members on an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Can read, clone, push, and add collaborators to repositories.</p><p></p>
+  
+  <p><strong>READ</strong></p>
+  <p></p><p>Can read and clone repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="orgupdatememberrepositorycreationpermissionauditentryvisibility" class="pt-3">
+      <a href="#orgupdatememberrepositorycreationpermissionauditentryvisibility">OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility</a>
+    </h3>
+  <p>The permissions available for repository creation on an Organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>All organization members are restricted from creating any repositories.</p><p></p>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>All organization members are restricted from creating internal repositories.</p><p></p>
+  
+  <p><strong>NONE</strong></p>
+  <p></p><p>All organization members are allowed to create any repositories.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>All organization members are restricted from creating private repositories.</p><p></p>
+  
+  <p><strong>PRIVATE_INTERNAL</strong></p>
+  <p></p><p>All organization members are restricted from creating private or internal repositories.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>All organization members are restricted from creating public repositories.</p><p></p>
+  
+  <p><strong>PUBLIC_INTERNAL</strong></p>
+  <p></p><p>All organization members are restricted from creating public or internal repositories.</p><p></p>
+  
+  <p><strong>PUBLIC_PRIVATE</strong></p>
+  <p></p><p>All organization members are restricted from creating public or private repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="organizationinvitationrole" class="pt-3">
+      <a href="#organizationinvitationrole">OrganizationInvitationRole</a>
+    </h3>
+  <p>The possible organization invitation roles.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>The user is invited to be an admin of the organization.</p><p></p>
+  
+  <p><strong>BILLING_MANAGER</strong></p>
+  <p></p><p>The user is invited to be a billing manager of the organization.</p><p></p>
+  
+  <p><strong>DIRECT_MEMBER</strong></p>
+  <p></p><p>The user is invited to be a direct member of the organization.</p><p></p>
+  
+  <p><strong>REINSTATE</strong></p>
+  <p></p><p>The user's previous role will be reinstated.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="organizationinvitationtype" class="pt-3">
+      <a href="#organizationinvitationtype">OrganizationInvitationType</a>
+    </h3>
+  <p>The possible organization invitation types.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>EMAIL</strong></p>
+  <p></p><p>The invitation was to an email address.</p><p></p>
+  
+  <p><strong>USER</strong></p>
+  <p></p><p>The invitation was to an existing user.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="organizationmemberrole" class="pt-3">
+      <a href="#organizationmemberrole">OrganizationMemberRole</a>
+    </h3>
+  <p>The possible roles within an organization for its members.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>The user is an administrator of the organization.</p><p></p>
+  
+  <p><strong>MEMBER</strong></p>
+  <p></p><p>The user is a member of the organization.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="organizationmemberscancreaterepositoriessettingvalue" class="pt-3">
+      <a href="#organizationmemberscancreaterepositoriessettingvalue">OrganizationMembersCanCreateRepositoriesSettingValue</a>
+    </h3>
+  <p>The possible values for the members can create repositories setting on an organization.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>Members will be able to create public and private repositories.</p><p></p>
+  
+  <p><strong>DISABLED</strong></p>
+  <p></p><p>Members will not be able to create public or private repositories.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>Members will be able to create only private repositories.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="organizationorderfield" class="pt-3">
+      <a href="#organizationorderfield">OrganizationOrderField</a>
+    </h3>
+  <p>Properties by which organization connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order organizations by creation time.</p><p></p>
+  
+  <p><strong>LOGIN</strong></p>
+  <p></p><p>Order organizations by login.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="packagefileorderfield" class="pt-3">
+      <a href="#packagefileorderfield">PackageFileOrderField</a>
+    </h3>
+  <p>Properties by which package file connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order package files by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="packageorderfield" class="pt-3">
+      <a href="#packageorderfield">PackageOrderField</a>
+    </h3>
+  <p>Properties by which package connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order packages by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="packagetype" class="pt-3">
+      <a href="#packagetype">PackageType</a>
+    </h3>
+  <p>The possible types of a package.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DEBIAN</strong></p>
+  <p></p><p>A debian package.</p><p></p>
+  
+  <p><strong>DOCKER</strong></p>
+  <p></p><p>A docker image.</p><p></p>
+  
+  <p><strong>MAVEN</strong></p>
+  <p></p><p>A maven package.</p><p></p>
+  
+  <p><strong>NPM</strong></p>
+  <p></p><p>An npm package.</p><p></p>
+  
+  <p><strong>NUGET</strong></p>
+  <p></p><p>A nuget package.</p><p></p>
+  
+  <p><strong>PYPI</strong></p>
+  <p></p><p>A python package.</p><p></p>
+  
+  <p><strong>RUBYGEMS</strong></p>
+  <p></p><p>A rubygems package.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="packageversionorderfield" class="pt-3">
+      <a href="#packageversionorderfield">PackageVersionOrderField</a>
+    </h3>
+  <p>Properties by which package version connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order package versions by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pinnableitemtype" class="pt-3">
+      <a href="#pinnableitemtype">PinnableItemType</a>
+    </h3>
+  <p>Represents items that can be pinned to a profile page or dashboard.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>GIST</strong></p>
+  <p></p><p>A gist.</p><p></p>
+  
+  <p><strong>ISSUE</strong></p>
+  <p></p><p>An issue.</p><p></p>
+  
+  <p><strong>ORGANIZATION</strong></p>
+  <p></p><p>An organization.</p><p></p>
+  
+  <p><strong>PROJECT</strong></p>
+  <p></p><p>A project.</p><p></p>
+  
+  <p><strong>PULL_REQUEST</strong></p>
+  <p></p><p>A pull request.</p><p></p>
+  
+  <p><strong>REPOSITORY</strong></p>
+  <p></p><p>A repository.</p><p></p>
+  
+  <p><strong>TEAM</strong></p>
+  <p></p><p>A team.</p><p></p>
+  
+  <p><strong>USER</strong></p>
+  <p></p><p>A user.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="projectcardarchivedstate" class="pt-3">
+      <a href="#projectcardarchivedstate">ProjectCardArchivedState</a>
+    </h3>
+  <p>The possible archived states of a project card.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ARCHIVED</strong></p>
+  <p></p><p>A project card that is archived.</p><p></p>
+  
+  <p><strong>NOT_ARCHIVED</strong></p>
+  <p></p><p>A project card that is not archived.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="projectcardstate" class="pt-3">
+      <a href="#projectcardstate">ProjectCardState</a>
+    </h3>
+  <p>Various content states of a ProjectCard.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CONTENT_ONLY</strong></p>
+  <p></p><p>The card has content only.</p><p></p>
+  
+  <p><strong>NOTE_ONLY</strong></p>
+  <p></p><p>The card has a note only.</p><p></p>
+  
+  <p><strong>REDACTED</strong></p>
+  <p></p><p>The card is redacted.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="projectcolumnpurpose" class="pt-3">
+      <a href="#projectcolumnpurpose">ProjectColumnPurpose</a>
+    </h3>
+  <p>The semantic purpose of the column - todo, in progress, or done.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>DONE</strong></p>
+  <p></p><p>The column contains cards which are complete.</p><p></p>
+  
+  <p><strong>IN_PROGRESS</strong></p>
+  <p></p><p>The column contains cards which are currently being worked on.</p><p></p>
+  
+  <p><strong>TODO</strong></p>
+  <p></p><p>The column contains cards still to be worked on.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="projectorderfield" class="pt-3">
+      <a href="#projectorderfield">ProjectOrderField</a>
+    </h3>
+  <p>Properties by which project connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order projects by creation time.</p><p></p>
+  
+  <p><strong>NAME</strong></p>
+  <p></p><p>Order projects by name.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order projects by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="projectstate" class="pt-3">
+      <a href="#projectstate">ProjectState</a>
+    </h3>
+  <p>State of the project; either<code>open</code>or 'closed'.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CLOSED</strong></p>
+  <p></p><p>The project is closed.</p><p></p>
+  
+  <p><strong>OPEN</strong></p>
+  <p></p><p>The project is open.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="projecttemplate" class="pt-3">
+      <a href="#projecttemplate">ProjectTemplate</a>
+    </h3>
+  <p>GitHub-provided templates for Projects.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>AUTOMATED_KANBAN_V2</strong></p>
+  <p></p><p>Create a board with v2 triggers to automatically move cards across To do, In progress and Done columns.</p><p></p>
+  
+  <p><strong>AUTOMATED_REVIEWS_KANBAN</strong></p>
+  <p></p><p>Create a board with triggers to automatically move cards across columns with review automation.</p><p></p>
+  
+  <p><strong>BASIC_KANBAN</strong></p>
+  <p></p><p>Create a board with columns for To do, In progress and Done.</p><p></p>
+  
+  <p><strong>BUG_TRIAGE</strong></p>
+  <p></p><p>Create a board to triage and prioritize bugs with To do, priority, and Done columns.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestmergemethod" class="pt-3">
+      <a href="#pullrequestmergemethod">PullRequestMergeMethod</a>
+    </h3>
+  <p>Represents available types of methods to use when merging a pull request.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>MERGE</strong></p>
+  <p></p><p>Add all commits from the head branch to the base branch with a merge commit.</p><p></p>
+  
+  <p><strong>REBASE</strong></p>
+  <p></p><p>Add all commits from the head branch onto the base branch individually.</p><p></p>
+  
+  <p><strong>SQUASH</strong></p>
+  <p></p><p>Combine all commits from the head branch into a single commit in the base branch.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestorderfield" class="pt-3">
+      <a href="#pullrequestorderfield">PullRequestOrderField</a>
+    </h3>
+  <p>Properties by which pull_requests connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order pull_requests by creation time.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order pull_requests by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestreviewcommentstate" class="pt-3">
+      <a href="#pullrequestreviewcommentstate">PullRequestReviewCommentState</a>
+    </h3>
+  <p>The possible states of a pull request review comment.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>PENDING</strong></p>
+  <p></p><p>A comment that is part of a pending review.</p><p></p>
+  
+  <p><strong>SUBMITTED</strong></p>
+  <p></p><p>A comment that is part of a submitted review.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestreviewdecision" class="pt-3">
+      <a href="#pullrequestreviewdecision">PullRequestReviewDecision</a>
+    </h3>
+  <p>The review status of a pull request.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>APPROVED</strong></p>
+  <p></p><p>The pull request has received an approving review.</p><p></p>
+  
+  <p><strong>CHANGES_REQUESTED</strong></p>
+  <p></p><p>Changes have been requested on the pull request.</p><p></p>
+  
+  <p><strong>REVIEW_REQUIRED</strong></p>
+  <p></p><p>A review is required before the pull request can be merged.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestreviewevent" class="pt-3">
+      <a href="#pullrequestreviewevent">PullRequestReviewEvent</a>
+    </h3>
+  <p>The possible events to perform on a pull request review.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>APPROVE</strong></p>
+  <p></p><p>Submit feedback and approve merging these changes.</p><p></p>
+  
+  <p><strong>COMMENT</strong></p>
+  <p></p><p>Submit general feedback without explicit approval.</p><p></p>
+  
+  <p><strong>DISMISS</strong></p>
+  <p></p><p>Dismiss review so it now longer effects merging.</p><p></p>
+  
+  <p><strong>REQUEST_CHANGES</strong></p>
+  <p></p><p>Submit feedback that must be addressed before merging.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestreviewstate" class="pt-3">
+      <a href="#pullrequestreviewstate">PullRequestReviewState</a>
+    </h3>
+  <p>The possible states of a pull request review.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>APPROVED</strong></p>
+  <p></p><p>A review allowing the pull request to merge.</p><p></p>
+  
+  <p><strong>CHANGES_REQUESTED</strong></p>
+  <p></p><p>A review blocking the pull request from merging.</p><p></p>
+  
+  <p><strong>COMMENTED</strong></p>
+  <p></p><p>An informational review.</p><p></p>
+  
+  <p><strong>DISMISSED</strong></p>
+  <p></p><p>A review that has been dismissed.</p><p></p>
+  
+  <p><strong>PENDING</strong></p>
+  <p></p><p>A review that has not yet been submitted.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequeststate" class="pt-3">
+      <a href="#pullrequeststate">PullRequestState</a>
+    </h3>
+  <p>The possible states of a pull request.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CLOSED</strong></p>
+  <p></p><p>A pull request that has been closed without being merged.</p><p></p>
+  
+  <p><strong>MERGED</strong></p>
+  <p></p><p>A pull request that has been closed by being merged.</p><p></p>
+  
+  <p><strong>OPEN</strong></p>
+  <p></p><p>A pull request that is still open.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequesttimelineitemsitemtype" class="pt-3">
+      <a href="#pullrequesttimelineitemsitemtype">PullRequestTimelineItemsItemType</a>
+    </h3>
+  <p>The possible item types found in a timeline.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADDED_TO_PROJECT_EVENT</strong></p>
+  <p></p><p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>ASSIGNED_EVENT</strong></p>
+  <p></p><p>Represents an<code>assigned</code>event on any assignable object.</p><p></p>
+  
+  <p><strong>AUTOMATIC_BASE_CHANGE_FAILED_EVENT</strong></p>
+  <p></p><p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT</strong></p>
+  <p></p><p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>AUTO_MERGE_DISABLED_EVENT</strong></p>
+  <p></p><p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>AUTO_MERGE_ENABLED_EVENT</strong></p>
+  <p></p><p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>AUTO_REBASE_ENABLED_EVENT</strong></p>
+  <p></p><p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>AUTO_SQUASH_ENABLED_EVENT</strong></p>
+  <p></p><p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>BASE_REF_CHANGED_EVENT</strong></p>
+  <p></p><p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>BASE_REF_DELETED_EVENT</strong></p>
+  <p></p><p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>BASE_REF_FORCE_PUSHED_EVENT</strong></p>
+  <p></p><p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>CLOSED_EVENT</strong></p>
+  <p></p><p>Represents a<code>closed</code>event on any <code>Closable</code>.</p><p></p>
+  
+  <p><strong>COMMENT_DELETED_EVENT</strong></p>
+  <p></p><p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>CONNECTED_EVENT</strong></p>
+  <p></p><p>Represents a<code>connected</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>CONVERTED_NOTE_TO_ISSUE_EVENT</strong></p>
+  <p></p><p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>CONVERT_TO_DRAFT_EVENT</strong></p>
+  <p></p><p>Represents a<code>convert_to_draft</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>CROSS_REFERENCED_EVENT</strong></p>
+  <p></p><p>Represents a mention made by one issue or pull request to another.</p><p></p>
+  
+  <p><strong>DEMILESTONED_EVENT</strong></p>
+  <p></p><p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>DEPLOYED_EVENT</strong></p>
+  <p></p><p>Represents a<code>deployed</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT</strong></p>
+  <p></p><p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>DISCONNECTED_EVENT</strong></p>
+  <p></p><p>Represents a<code>disconnected</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>HEAD_REF_DELETED_EVENT</strong></p>
+  <p></p><p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>HEAD_REF_FORCE_PUSHED_EVENT</strong></p>
+  <p></p><p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>HEAD_REF_RESTORED_EVENT</strong></p>
+  <p></p><p>Represents a<code>head_ref_restored</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>ISSUE_COMMENT</strong></p>
+  <p></p><p>Represents a comment on an Issue.</p><p></p>
+  
+  <p><strong>LABELED_EVENT</strong></p>
+  <p></p><p>Represents a<code>labeled</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>LOCKED_EVENT</strong></p>
+  <p></p><p>Represents a<code>locked</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MARKED_AS_DUPLICATE_EVENT</strong></p>
+  <p></p><p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MENTIONED_EVENT</strong></p>
+  <p></p><p>Represents a<code>mentioned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MERGED_EVENT</strong></p>
+  <p></p><p>Represents a<code>merged</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>MILESTONED_EVENT</strong></p>
+  <p></p><p>Represents a<code>milestoned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>MOVED_COLUMNS_IN_PROJECT_EVENT</strong></p>
+  <p></p><p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>PINNED_EVENT</strong></p>
+  <p></p><p>Represents a<code>pinned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>PULL_REQUEST_COMMIT</strong></p>
+  <p></p><p>Represents a Git commit part of a pull request.</p><p></p>
+  
+  <p><strong>PULL_REQUEST_COMMIT_COMMENT_THREAD</strong></p>
+  <p></p><p>Represents a commit comment thread part of a pull request.</p><p></p>
+  
+  <p><strong>PULL_REQUEST_REVIEW</strong></p>
+  <p></p><p>A review object for a given pull request.</p><p></p>
+  
+  <p><strong>PULL_REQUEST_REVIEW_THREAD</strong></p>
+  <p></p><p>A threaded list of comments for a given pull request.</p><p></p>
+  
+  <p><strong>PULL_REQUEST_REVISION_MARKER</strong></p>
+  <p></p><p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p><p></p>
+  
+  <p><strong>READY_FOR_REVIEW_EVENT</strong></p>
+  <p></p><p>Represents a<code>ready_for_review</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>REFERENCED_EVENT</strong></p>
+  <p></p><p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p><p></p>
+  
+  <p><strong>REMOVED_FROM_PROJECT_EVENT</strong></p>
+  <p></p><p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>RENAMED_TITLE_EVENT</strong></p>
+  <p></p><p>Represents a<code>renamed</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>REOPENED_EVENT</strong></p>
+  <p></p><p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p><p></p>
+  
+  <p><strong>REVIEW_DISMISSED_EVENT</strong></p>
+  <p></p><p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>REVIEW_REQUESTED_EVENT</strong></p>
+  <p></p><p>Represents an<code>review_requested</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>REVIEW_REQUEST_REMOVED_EVENT</strong></p>
+  <p></p><p>Represents an<code>review_request_removed</code>event on a given pull request.</p><p></p>
+  
+  <p><strong>SUBSCRIBED_EVENT</strong></p>
+  <p></p><p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p><p></p>
+  
+  <p><strong>TRANSFERRED_EVENT</strong></p>
+  <p></p><p>Represents a<code>transferred</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNASSIGNED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unassigned</code>event on any assignable object.</p><p></p>
+  
+  <p><strong>UNLABELED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNLOCKED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unlocked</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNMARKED_AS_DUPLICATE_EVENT</strong></p>
+  <p></p><p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNPINNED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unpinned</code>event on a given issue or pull request.</p><p></p>
+  
+  <p><strong>UNSUBSCRIBED_EVENT</strong></p>
+  <p></p><p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p><p></p>
+  
+  <p><strong>USER_BLOCKED_EVENT</strong></p>
+  <p></p><p>Represents a<code>user_blocked</code>event on a given user.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="pullrequestupdatestate" class="pt-3">
+      <a href="#pullrequestupdatestate">PullRequestUpdateState</a>
+    </h3>
+  <p>The possible target states when updating a pull request.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CLOSED</strong></p>
+  <p></p><p>A pull request that has been closed without being merged.</p><p></p>
+  
+  <p><strong>OPEN</strong></p>
+  <p></p><p>A pull request that is still open.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="reactioncontent" class="pt-3">
+      <a href="#reactioncontent">ReactionContent</a>
+    </h3>
+  <p>Emojis that can be attached to Issues, Pull Requests and Comments.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CONFUSED</strong></p>
+  <p></p><p>Represents the <code>:confused:</code> emoji.</p><p></p>
+  
+  <p><strong>EYES</strong></p>
+  <p></p><p>Represents the <code>:eyes:</code> emoji.</p><p></p>
+  
+  <p><strong>HEART</strong></p>
+  <p></p><p>Represents the <code>:heart:</code> emoji.</p><p></p>
+  
+  <p><strong>HOORAY</strong></p>
+  <p></p><p>Represents the <code>:hooray:</code> emoji.</p><p></p>
+  
+  <p><strong>LAUGH</strong></p>
+  <p></p><p>Represents the <code>:laugh:</code> emoji.</p><p></p>
+  
+  <p><strong>ROCKET</strong></p>
+  <p></p><p>Represents the <code>:rocket:</code> emoji.</p><p></p>
+  
+  <p><strong>THUMBS_DOWN</strong></p>
+  <p></p><p>Represents the <code>:-1:</code> emoji.</p><p></p>
+  
+  <p><strong>THUMBS_UP</strong></p>
+  <p></p><p>Represents the <code>:+1:</code> emoji.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="reactionorderfield" class="pt-3">
+      <a href="#reactionorderfield">ReactionOrderField</a>
+    </h3>
+  <p>A list of fields that reactions can be ordered by.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Allows ordering a list of reactions by when they were created.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="reforderfield" class="pt-3">
+      <a href="#reforderfield">RefOrderField</a>
+    </h3>
+  <p>Properties by which ref connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALPHABETICAL</strong></p>
+  <p></p><p>Order refs by their alphanumeric name.</p><p></p>
+  
+  <p><strong>TAG_COMMIT_DATE</strong></p>
+  <p></p><p>Order refs by underlying commit date if the ref prefix is refs/tags/.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="releaseorderfield" class="pt-3">
+      <a href="#releaseorderfield">ReleaseOrderField</a>
+    </h3>
+  <p>Properties by which release connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order releases by creation time.</p><p></p>
+  
+  <p><strong>NAME</strong></p>
+  <p></p><p>Order releases alphabetically by name.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repoaccessauditentryvisibility" class="pt-3">
+      <a href="#repoaccessauditentryvisibility">RepoAccessAuditEntryVisibility</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repoaddmemberauditentryvisibility" class="pt-3">
+      <a href="#repoaddmemberauditentryvisibility">RepoAddMemberAuditEntryVisibility</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repoarchivedauditentryvisibility" class="pt-3">
+      <a href="#repoarchivedauditentryvisibility">RepoArchivedAuditEntryVisibility</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repochangemergesettingauditentrymergetype" class="pt-3">
+      <a href="#repochangemergesettingauditentrymergetype">RepoChangeMergeSettingAuditEntryMergeType</a>
+    </h3>
+  <p>The merge options available for pull requests to this repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>MERGE</strong></p>
+  <p></p><p>The pull request is added to the base branch in a merge commit.</p><p></p>
+  
+  <p><strong>REBASE</strong></p>
+  <p></p><p>Commits from the pull request are added onto the base branch individually without a merge commit.</p><p></p>
+  
+  <p><strong>SQUASH</strong></p>
+  <p></p><p>The pull request's commits are squashed into a single commit before they are merged to the base branch.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repocreateauditentryvisibility" class="pt-3">
+      <a href="#repocreateauditentryvisibility">RepoCreateAuditEntryVisibility</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repodestroyauditentryvisibility" class="pt-3">
+      <a href="#repodestroyauditentryvisibility">RepoDestroyAuditEntryVisibility</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="reporemovememberauditentryvisibility" class="pt-3">
+      <a href="#reporemovememberauditentryvisibility">RepoRemoveMemberAuditEntryVisibility</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="reportedcontentclassifiers" class="pt-3">
+      <a href="#reportedcontentclassifiers">ReportedContentClassifiers</a>
+    </h3>
+  <p>The reasons a piece of content can be reported or minimized.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ABUSE</strong></p>
+  <p></p><p>An abusive or harassing piece of content.</p><p></p>
+  
+  <p><strong>DUPLICATE</strong></p>
+  <p></p><p>A duplicated piece of content.</p><p></p>
+  
+  <p><strong>OFF_TOPIC</strong></p>
+  <p></p><p>An irrelevant piece of content.</p><p></p>
+  
+  <p><strong>OUTDATED</strong></p>
+  <p></p><p>An outdated piece of content.</p><p></p>
+  
+  <p><strong>RESOLVED</strong></p>
+  <p></p><p>The content has been resolved.</p><p></p>
+  
+  <p><strong>SPAM</strong></p>
+  <p></p><p>A spammy piece of content.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryaffiliation" class="pt-3">
+      <a href="#repositoryaffiliation">RepositoryAffiliation</a>
+    </h3>
+  <p>The affiliation of a user to a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COLLABORATOR</strong></p>
+  <p></p><p>Repositories that the user has been added to as a collaborator.</p><p></p>
+  
+  <p><strong>ORGANIZATION_MEMBER</strong></p>
+  <p></p><p>Repositories that the user has access to through being a member of an
+organization. This includes every repository on every team that the user is on.</p><p></p>
+  
+  <p><strong>OWNER</strong></p>
+  <p></p><p>Repositories that are owned by the authenticated user.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositorycontributiontype" class="pt-3">
+      <a href="#repositorycontributiontype">RepositoryContributionType</a>
+    </h3>
+  <p>The reason a repository is listed as 'contributed'.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMMIT</strong></p>
+  <p></p><p>Created a commit.</p><p></p>
+  
+  <p><strong>ISSUE</strong></p>
+  <p></p><p>Created an issue.</p><p></p>
+  
+  <p><strong>PULL_REQUEST</strong></p>
+  <p></p><p>Created a pull request.</p><p></p>
+  
+  <p><strong>PULL_REQUEST_REVIEW</strong></p>
+  <p></p><p>Reviewed a pull request.</p><p></p>
+  
+  <p><strong>REPOSITORY</strong></p>
+  <p></p><p>Created the repository.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryinteractionlimit" class="pt-3">
+      <a href="#repositoryinteractionlimit">RepositoryInteractionLimit</a>
+    </h3>
+  <p>A repository interaction limit.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COLLABORATORS_ONLY</strong></p>
+  <p></p><p>Users that are not collaborators will not be able to interact with the repository.</p><p></p>
+  
+  <p><strong>CONTRIBUTORS_ONLY</strong></p>
+  <p></p><p>Users that have not previously committed to a repository's default branch will be unable to interact with the repository.</p><p></p>
+  
+  <p><strong>EXISTING_USERS</strong></p>
+  <p></p><p>Users that have recently created their account will be unable to interact with the repository.</p><p></p>
+  
+  <p><strong>NO_LIMIT</strong></p>
+  <p></p><p>No interaction limits are enabled.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryinteractionlimitexpiry" class="pt-3">
+      <a href="#repositoryinteractionlimitexpiry">RepositoryInteractionLimitExpiry</a>
+    </h3>
+  <p>The length for a repository interaction limit to be enabled for.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ONE_DAY</strong></p>
+  <p></p><p>The interaction limit will expire after 1 day.</p><p></p>
+  
+  <p><strong>ONE_MONTH</strong></p>
+  <p></p><p>The interaction limit will expire after 1 month.</p><p></p>
+  
+  <p><strong>ONE_WEEK</strong></p>
+  <p></p><p>The interaction limit will expire after 1 week.</p><p></p>
+  
+  <p><strong>SIX_MONTHS</strong></p>
+  <p></p><p>The interaction limit will expire after 6 months.</p><p></p>
+  
+  <p><strong>THREE_DAYS</strong></p>
+  <p></p><p>The interaction limit will expire after 3 days.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryinteractionlimitorigin" class="pt-3">
+      <a href="#repositoryinteractionlimitorigin">RepositoryInteractionLimitOrigin</a>
+    </h3>
+  <p>Indicates where an interaction limit is configured.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ORGANIZATION</strong></p>
+  <p></p><p>A limit that is configured at the organization level.</p><p></p>
+  
+  <p><strong>REPOSITORY</strong></p>
+  <p></p><p>A limit that is configured at the repository level.</p><p></p>
+  
+  <p><strong>USER</strong></p>
+  <p></p><p>A limit that is configured at the user-wide level.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryinvitationorderfield" class="pt-3">
+      <a href="#repositoryinvitationorderfield">RepositoryInvitationOrderField</a>
+    </h3>
+  <p>Properties by which repository invitation connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order repository invitations by creation time.</p><p></p>
+  
+  <p><strong>INVITEE_LOGIN</strong></p>
+  <p></p><p>Order repository invitations by invitee login.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositorylockreason" class="pt-3">
+      <a href="#repositorylockreason">RepositoryLockReason</a>
+    </h3>
+  <p>The possible reasons a given repository could be in a locked state.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>BILLING</strong></p>
+  <p></p><p>The repository is locked due to a billing related reason.</p><p></p>
+  
+  <p><strong>MIGRATING</strong></p>
+  <p></p><p>The repository is locked due to a migration.</p><p></p>
+  
+  <p><strong>MOVING</strong></p>
+  <p></p><p>The repository is locked due to a move.</p><p></p>
+  
+  <p><strong>RENAME</strong></p>
+  <p></p><p>The repository is locked due to a rename.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryorderfield" class="pt-3">
+      <a href="#repositoryorderfield">RepositoryOrderField</a>
+    </h3>
+  <p>Properties by which repository connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order repositories by creation time.</p><p></p>
+  
+  <p><strong>NAME</strong></p>
+  <p></p><p>Order repositories by name.</p><p></p>
+  
+  <p><strong>PUSHED_AT</strong></p>
+  <p></p><p>Order repositories by push time.</p><p></p>
+  
+  <p><strong>STARGAZERS</strong></p>
+  <p></p><p>Order repositories by number of stargazers.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order repositories by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositorypermission" class="pt-3">
+      <a href="#repositorypermission">RepositoryPermission</a>
+    </h3>
+  <p>The access level to a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>Can read, clone, and push to this repository. Can also manage issues, pull
+requests, and repository settings, including adding collaborators.</p><p></p>
+  
+  <p><strong>MAINTAIN</strong></p>
+  <p></p><p>Can read, clone, and push to this repository. They can also manage issues, pull requests, and some repository settings.</p><p></p>
+  
+  <p><strong>READ</strong></p>
+  <p></p><p>Can read and clone this repository. Can also open and comment on issues and pull requests.</p><p></p>
+  
+  <p><strong>TRIAGE</strong></p>
+  <p></p><p>Can read and clone this repository. Can also manage issues and pull requests.</p><p></p>
+  
+  <p><strong>WRITE</strong></p>
+  <p></p><p>Can read, clone, and push to this repository. Can also manage issues and pull requests.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryprivacy" class="pt-3">
+      <a href="#repositoryprivacy">RepositoryPrivacy</a>
+    </h3>
+  <p>The privacy of a repository.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>Private.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>Public.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="repositoryvisibility" class="pt-3">
+      <a href="#repositoryvisibility">RepositoryVisibility</a>
+    </h3>
+  <p>The repository's visibility level.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>INTERNAL</strong></p>
+  <p></p><p>The repository is visible only to users in the same business.</p><p></p>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>The repository is visible only to those with explicit access.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>The repository is visible to everyone.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="requestablecheckstatusstate" class="pt-3">
+      <a href="#requestablecheckstatusstate">RequestableCheckStatusState</a>
+    </h3>
+  <p>The possible states that can be requested when creating a check run.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMPLETED</strong></p>
+  <p></p><p>The check suite or run has been completed.</p><p></p>
+  
+  <p><strong>IN_PROGRESS</strong></p>
+  <p></p><p>The check suite or run is in progress.</p><p></p>
+  
+  <p><strong>QUEUED</strong></p>
+  <p></p><p>The check suite or run has been queued.</p><p></p>
+  
+  <p><strong>WAITING</strong></p>
+  <p></p><p>The check suite or run is in waiting state.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="samldigestalgorithm" class="pt-3">
+      <a href="#samldigestalgorithm">SamlDigestAlgorithm</a>
+    </h3>
+  <p>The possible digest algorithms used to sign SAML requests for an identity provider.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>SHA1</strong></p>
+  <p></p><p>SHA1.</p><p></p>
+  
+  <p><strong>SHA256</strong></p>
+  <p></p><p>SHA256.</p><p></p>
+  
+  <p><strong>SHA384</strong></p>
+  <p></p><p>SHA384.</p><p></p>
+  
+  <p><strong>SHA512</strong></p>
+  <p></p><p>SHA512.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="samlsignaturealgorithm" class="pt-3">
+      <a href="#samlsignaturealgorithm">SamlSignatureAlgorithm</a>
+    </h3>
+  <p>The possible signature algorithms used to sign SAML requests for a Identity Provider.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>RSA_SHA1</strong></p>
+  <p></p><p>RSA-SHA1.</p><p></p>
+  
+  <p><strong>RSA_SHA256</strong></p>
+  <p></p><p>RSA-SHA256.</p><p></p>
+  
+  <p><strong>RSA_SHA384</strong></p>
+  <p></p><p>RSA-SHA384.</p><p></p>
+  
+  <p><strong>RSA_SHA512</strong></p>
+  <p></p><p>RSA-SHA512.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="savedreplyorderfield" class="pt-3">
+      <a href="#savedreplyorderfield">SavedReplyOrderField</a>
+    </h3>
+  <p>Properties by which saved reply connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order saved reply by when they were updated.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="searchtype" class="pt-3">
+      <a href="#searchtype">SearchType</a>
+    </h3>
+  <p>Represents the individual results of a search.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ISSUE</strong></p>
+  <p></p><p>Returns results matching issues in repositories.</p><p></p>
+  
+  <p><strong>REPOSITORY</strong></p>
+  <p></p><p>Returns results matching repositories.</p><p></p>
+  
+  <p><strong>USER</strong></p>
+  <p></p><p>Returns results matching users and organizations on GitHub.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="securityadvisoryecosystem" class="pt-3">
+      <a href="#securityadvisoryecosystem">SecurityAdvisoryEcosystem</a>
+    </h3>
+  <p>The possible ecosystems of a security vulnerability's package.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>COMPOSER</strong></p>
+  <p></p><p>PHP packages hosted at packagist.org.</p><p></p>
+  
+  <p><strong>MAVEN</strong></p>
+  <p></p><p>Java artifacts hosted at the Maven central repository.</p><p></p>
+  
+  <p><strong>NPM</strong></p>
+  <p></p><p>JavaScript packages hosted at npmjs.com.</p><p></p>
+  
+  <p><strong>NUGET</strong></p>
+  <p></p><p>.NET packages hosted at the NuGet Gallery.</p><p></p>
+  
+  <p><strong>PIP</strong></p>
+  <p></p><p>Python packages hosted at PyPI.org.</p><p></p>
+  
+  <p><strong>RUBYGEMS</strong></p>
+  <p></p><p>Ruby gems hosted at RubyGems.org.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="securityadvisoryidentifiertype" class="pt-3">
+      <a href="#securityadvisoryidentifiertype">SecurityAdvisoryIdentifierType</a>
+    </h3>
+  <p>Identifier formats available for advisories.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CVE</strong></p>
+  <p></p><p>Common Vulnerabilities and Exposures Identifier.</p><p></p>
+  
+  <p><strong>GHSA</strong></p>
+  <p></p><p>GitHub Security Advisory ID.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="securityadvisoryorderfield" class="pt-3">
+      <a href="#securityadvisoryorderfield">SecurityAdvisoryOrderField</a>
+    </h3>
+  <p>Properties by which security advisory connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>PUBLISHED_AT</strong></p>
+  <p></p><p>Order advisories by publication time.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order advisories by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="securityadvisoryseverity" class="pt-3">
+      <a href="#securityadvisoryseverity">SecurityAdvisorySeverity</a>
+    </h3>
+  <p>Severity of the vulnerability.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CRITICAL</strong></p>
+  <p></p><p>Critical.</p><p></p>
+  
+  <p><strong>HIGH</strong></p>
+  <p></p><p>High.</p><p></p>
+  
+  <p><strong>LOW</strong></p>
+  <p></p><p>Low.</p><p></p>
+  
+  <p><strong>MODERATE</strong></p>
+  <p></p><p>Moderate.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="securityvulnerabilityorderfield" class="pt-3">
+      <a href="#securityvulnerabilityorderfield">SecurityVulnerabilityOrderField</a>
+    </h3>
+  <p>Properties by which security vulnerability connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order vulnerability by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="sponsorableorderfield" class="pt-3">
+      <a href="#sponsorableorderfield">SponsorableOrderField</a>
+    </h3>
+  <p>Properties by which sponsorable connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>LOGIN</strong></p>
+  <p></p><p>Order sponsorable entities by login (username).</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="sponsorsgoalkind" class="pt-3">
+      <a href="#sponsorsgoalkind">SponsorsGoalKind</a>
+    </h3>
+  <p>The different kinds of goals a GitHub Sponsors member can have.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>MONTHLY_SPONSORSHIP_AMOUNT</strong></p>
+  <p></p><p>The goal is about getting a certain dollar amount from sponsorships each month.</p><p></p>
+  
+  <p><strong>TOTAL_SPONSORS_COUNT</strong></p>
+  <p></p><p>The goal is about reaching a certain number of sponsors.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="sponsorstierorderfield" class="pt-3">
+      <a href="#sponsorstierorderfield">SponsorsTierOrderField</a>
+    </h3>
+  <p>Properties by which Sponsors tiers connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order tiers by creation time.</p><p></p>
+  
+  <p><strong>MONTHLY_PRICE_IN_CENTS</strong></p>
+  <p></p><p>Order tiers by their monthly price in cents.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="sponsorshiporderfield" class="pt-3">
+      <a href="#sponsorshiporderfield">SponsorshipOrderField</a>
+    </h3>
+  <p>Properties by which sponsorship connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order sponsorship by creation time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="sponsorshipprivacy" class="pt-3">
+      <a href="#sponsorshipprivacy">SponsorshipPrivacy</a>
+    </h3>
+  <p>The privacy of a sponsorship.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>PRIVATE</strong></p>
+  <p></p><p>Private.</p><p></p>
+  
+  <p><strong>PUBLIC</strong></p>
+  <p></p><p>Public.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="starorderfield" class="pt-3">
+      <a href="#starorderfield">StarOrderField</a>
+    </h3>
+  <p>Properties by which star connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>STARRED_AT</strong></p>
+  <p></p><p>Allows ordering a list of stars by when they were created.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="statusstate" class="pt-3">
+      <a href="#statusstate">StatusState</a>
+    </h3>
+  <p>The possible commit status states.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ERROR</strong></p>
+  <p></p><p>Status is errored.</p><p></p>
+  
+  <p><strong>EXPECTED</strong></p>
+  <p></p><p>Status is expected.</p><p></p>
+  
+  <p><strong>FAILURE</strong></p>
+  <p></p><p>Status is failing.</p><p></p>
+  
+  <p><strong>PENDING</strong></p>
+  <p></p><p>Status is pending.</p><p></p>
+  
+  <p><strong>SUCCESS</strong></p>
+  <p></p><p>Status is successful.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="subscriptionstate" class="pt-3">
+      <a href="#subscriptionstate">SubscriptionState</a>
+    </h3>
+  <p>The possible states of a subscription.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>IGNORED</strong></p>
+  <p></p><p>The User is never notified.</p><p></p>
+  
+  <p><strong>SUBSCRIBED</strong></p>
+  <p></p><p>The User is notified of all conversations.</p><p></p>
+  
+  <p><strong>UNSUBSCRIBED</strong></p>
+  <p></p><p>The User is only notified when participating or @mentioned.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamdiscussioncommentorderfield" class="pt-3">
+      <a href="#teamdiscussioncommentorderfield">TeamDiscussionCommentOrderField</a>
+    </h3>
+  <p>Properties by which team discussion comment connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>NUMBER</strong></p>
+  <p></p><p>Allows sequential ordering of team discussion comments (which is equivalent to chronological ordering).</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamdiscussionorderfield" class="pt-3">
+      <a href="#teamdiscussionorderfield">TeamDiscussionOrderField</a>
+    </h3>
+  <p>Properties by which team discussion connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Allows chronological ordering of team discussions.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teammemberorderfield" class="pt-3">
+      <a href="#teammemberorderfield">TeamMemberOrderField</a>
+    </h3>
+  <p>Properties by which team member connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order team members by creation time.</p><p></p>
+  
+  <p><strong>LOGIN</strong></p>
+  <p></p><p>Order team members by login.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teammemberrole" class="pt-3">
+      <a href="#teammemberrole">TeamMemberRole</a>
+    </h3>
+  <p>The possible team member roles; either<code>maintainer</code>or 'member'.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>MAINTAINER</strong></p>
+  <p></p><p>A team maintainer has permission to add and remove team members.</p><p></p>
+  
+  <p><strong>MEMBER</strong></p>
+  <p></p><p>A team member has no administrative permissions on the team.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teammembershiptype" class="pt-3">
+      <a href="#teammembershiptype">TeamMembershipType</a>
+    </h3>
+  <p>Defines which types of team members are included in the returned list. Can be one of IMMEDIATE, CHILD_TEAM or ALL.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ALL</strong></p>
+  <p></p><p>Includes immediate and child team members for the team.</p><p></p>
+  
+  <p><strong>CHILD_TEAM</strong></p>
+  <p></p><p>Includes only child team members for the team.</p><p></p>
+  
+  <p><strong>IMMEDIATE</strong></p>
+  <p></p><p>Includes only immediate members of the team.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamorderfield" class="pt-3">
+      <a href="#teamorderfield">TeamOrderField</a>
+    </h3>
+  <p>Properties by which team connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>NAME</strong></p>
+  <p></p><p>Allows ordering a list of teams by name.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamprivacy" class="pt-3">
+      <a href="#teamprivacy">TeamPrivacy</a>
+    </h3>
+  <p>The possible team privacy values.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>SECRET</strong></p>
+  <p></p><p>A secret team can only be seen by its members.</p><p></p>
+  
+  <p><strong>VISIBLE</strong></p>
+  <p></p><p>A visible team can be seen and @mentioned by every member of the organization.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamrepositoryorderfield" class="pt-3">
+      <a href="#teamrepositoryorderfield">TeamRepositoryOrderField</a>
+    </h3>
+  <p>Properties by which team repository connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order repositories by creation time.</p><p></p>
+  
+  <p><strong>NAME</strong></p>
+  <p></p><p>Order repositories by name.</p><p></p>
+  
+  <p><strong>PERMISSION</strong></p>
+  <p></p><p>Order repositories by permission.</p><p></p>
+  
+  <p><strong>PUSHED_AT</strong></p>
+  <p></p><p>Order repositories by push time.</p><p></p>
+  
+  <p><strong>STARGAZERS</strong></p>
+  <p></p><p>Order repositories by number of stargazers.</p><p></p>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order repositories by update time.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamreviewassignmentalgorithm" class="pt-3">
+      <a href="#teamreviewassignmentalgorithm">TeamReviewAssignmentAlgorithm</a>
+    </h3>
+  <p>The possible team review assignment algorithms.</p>
+  </div>
+  <div>
+  
+<div class="extended-markdown note border rounded-1 mt-3 mb-4 p-3 border-blue bg-blue-light f5">
+<p><b>Preview notice</b></p>
+<p><code>TeamReviewAssignmentAlgorithm</code> is available under the <a href="https://docs.github.com/en/graphql/overview/schema-previews#team-review-assignments-preview">Team review assignments preview</a>. During the preview period, the API may change without notice.</p>
+</div>
+  <h4>Values</h4>
+  
+  <p><strong>LOAD_BALANCE</strong></p>
+  <p></p><p>Balance review load across the entire team.</p><p></p>
+  
+  <p><strong>ROUND_ROBIN</strong></p>
+  <p></p><p>Alternate reviews between each team member.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="teamrole" class="pt-3">
+      <a href="#teamrole">TeamRole</a>
+    </h3>
+  <p>The role of a user on a team.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ADMIN</strong></p>
+  <p></p><p>User has admin rights on the team.</p><p></p>
+  
+  <p><strong>MEMBER</strong></p>
+  <p></p><p>User is a member of the team.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="topicsuggestiondeclinereason" class="pt-3">
+      <a href="#topicsuggestiondeclinereason">TopicSuggestionDeclineReason</a>
+    </h3>
+  <p>Reason that the suggested topic is declined.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>NOT_RELEVANT</strong></p>
+  <p></p><p>The suggested topic is not relevant to the repository.</p><p></p>
+  
+  <p><strong>PERSONAL_PREFERENCE</strong></p>
+  <p></p><p>The viewer does not like the suggested topic.</p><p></p>
+  
+  <p><strong>TOO_GENERAL</strong></p>
+  <p></p><p>The suggested topic is too general for the repository.</p><p></p>
+  
+  <p><strong>TOO_SPECIFIC</strong></p>
+  <p></p><p>The suggested topic is too specific for the repository (e.g. #ruby-on-rails-version-4-2-1).</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="userblockduration" class="pt-3">
+      <a href="#userblockduration">UserBlockDuration</a>
+    </h3>
+  <p>The possible durations that a user can be blocked for.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>ONE_DAY</strong></p>
+  <p></p><p>The user was blocked for 1 day.</p><p></p>
+  
+  <p><strong>ONE_MONTH</strong></p>
+  <p></p><p>The user was blocked for 30 days.</p><p></p>
+  
+  <p><strong>ONE_WEEK</strong></p>
+  <p></p><p>The user was blocked for 7 days.</p><p></p>
+  
+  <p><strong>PERMANENT</strong></p>
+  <p></p><p>The user was blocked permanently.</p><p></p>
+  
+  <p><strong>THREE_DAYS</strong></p>
+  <p></p><p>The user was blocked for 3 days.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="userstatusorderfield" class="pt-3">
+      <a href="#userstatusorderfield">UserStatusOrderField</a>
+    </h3>
+  <p>Properties by which user status connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>UPDATED_AT</strong></p>
+  <p></p><p>Order user statuses by when they were updated.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+  <div>
+  <div>
+    <h3 id="verifiabledomainorderfield" class="pt-3">
+      <a href="#verifiabledomainorderfield">VerifiableDomainOrderField</a>
+    </h3>
+  <p>Properties by which verifiable domain connections can be ordered.</p>
+  </div>
+  <div>
+  
+  <h4>Values</h4>
+  
+  <p><strong>CREATED_AT</strong></p>
+  <p></p><p>Order verifiable domains by their creation date.</p><p></p>
+  
+  <p><strong>DOMAIN</strong></p>
+  <p></p><p>Order verifiable domains by the domain name.</p><p></p>
+  
+  </div>
+  <hr>
+</div>
+    </div>
+    </div>
+
+    <div class="d-block mt-4 markdown-body">
+      
+    </div>
+  </article>
+</div>
+
+      
+      <section class="mt-lg-9 py-7 px-3 px-md-6 no-print" style="background:#fafbfc">
+  <div class="container-xl gutter-lg-spacious clearfix">
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<form class="js-helpfulness f5">
+  <h2
+    data-help-start
+    data-help-yes
+    data-help-no
+    class="mb-1 f4"
+  >
+    Did this doc help you?
+  </h2>
+  <p class="f6">
+    <a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
+  <p
+    class="radio-group"
+    data-help-start
+    data-help-yes
+    data-help-no
+  >
+    <input
+      hidden
+      id="helpfulness-yes"
+      type="radio"
+      name="helpfulness-vote"
+      value="Yes"
+      aria-label="Yes"
+    />
+    <label class="btn x-radio-label" for="helpfulness-yes">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsup" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 2.043c-1.301-.092-2.303.986-2.303 2.206v1.053c0 2.666-1.813 3.785-2.774 4.2a1.866 1.866 0 01-.523.131A1.75 1.75 0 005.25 8h-1.5A1.75 1.75 0 002 9.75v10.5c0 .967.784 1.75 1.75 1.75h1.5a1.75 1.75 0 001.742-1.58c.838.06 1.667.296 2.69.586l.602.17c1.464.406 3.213.824 5.544.824 2.188 0 3.693-.204 4.583-1.372.422-.554.65-1.255.816-2.05.148-.708.262-1.57.396-2.58l.051-.39c.319-2.386.328-4.18-.223-5.394-.293-.644-.743-1.125-1.355-1.431-.59-.296-1.284-.404-2.036-.404h-2.05l.056-.429c.025-.18.05-.372.076-.572.06-.483.117-1.006.117-1.438 0-1.245-.222-2.253-.92-2.941-.684-.675-1.668-.88-2.743-.956zM7 18.918c1.059.064 2.079.355 3.118.652l.568.16c1.406.39 3.006.77 5.142.77 2.277 0 3.004-.274 3.39-.781.216-.283.388-.718.54-1.448.136-.65.242-1.45.379-2.477l.05-.384c.32-2.4.253-3.795-.102-4.575-.16-.352-.375-.568-.66-.711-.305-.153-.74-.245-1.365-.245h-2.37c-.681 0-1.293-.57-1.211-1.328.026-.243.065-.537.105-.834l.07-.527c.06-.482.105-.921.105-1.25 0-1.125-.213-1.617-.473-1.873-.275-.27-.774-.455-1.795-.528-.351-.024-.698.274-.698.71v1.053c0 3.55-2.488 5.063-3.68 5.577-.372.16-.754.232-1.113.26v7.78zM3.75 20.5a.25.25 0 01-.25-.25V9.75a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25h-1.5z"></path></svg>
+    </label>
+    <input
+      hidden
+      id="helpfulness-no"
+      type="radio"
+      name="helpfulness-vote"
+      value="No"
+      aria-label="No"
+    />
+    <label class="btn x-radio-label" for="helpfulness-no">
+      <svg version="1.1" width="24" height="24" viewBox="0 0 24 24" class="octicon octicon-thumbsdown" aria-hidden="true"><path fill-rule="evenodd" d="M12.596 21.957c-1.301.092-2.303-.986-2.303-2.206v-1.053c0-2.666-1.813-3.785-2.774-4.2a1.864 1.864 0 00-.523-.13A1.75 1.75 0 015.25 16h-1.5A1.75 1.75 0 012 14.25V3.75C2 2.784 2.784 2 3.75 2h1.5a1.75 1.75 0 011.742 1.58c.838-.06 1.667-.296 2.69-.586l.602-.17C11.748 2.419 13.497 2 15.828 2c2.188 0 3.693.204 4.583 1.372.422.554.65 1.255.816 2.05.148.708.262 1.57.396 2.58l.051.39c.319 2.386.328 4.18-.223 5.394-.293.644-.743 1.125-1.355 1.431-.59.296-1.284.404-2.036.404h-2.05l.056.429c.025.18.05.372.076.572.06.483.117 1.006.117 1.438 0 1.245-.222 2.253-.92 2.942-.684.674-1.668.879-2.743.955zM7 5.082c1.059-.064 2.079-.355 3.118-.651.188-.054.377-.108.568-.16 1.406-.392 3.006-.771 5.142-.771 2.277 0 3.004.274 3.39.781.216.283.388.718.54 1.448.136.65.242 1.45.379 2.477l.05.385c.32 2.398.253 3.794-.102 4.574-.16.352-.375.569-.66.711-.305.153-.74.245-1.365.245h-2.37c-.681 0-1.293.57-1.211 1.328.026.244.065.537.105.834l.07.527c.06.482.105.922.105 1.25 0 1.125-.213 1.617-.473 1.873-.275.27-.774.456-1.795.528-.351.024-.698-.274-.698-.71v-1.053c0-3.55-2.488-5.063-3.68-5.577A3.485 3.485 0 007 12.861V5.08zM3.75 3.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h1.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5z"></path></svg>
+    </label>
+  </p>
+  <p class="text-gray f6" hidden data-help-yes>
+    Want to learn about new docs features and updates? Sign up for updates!
+  </p>
+  <p class="text-gray f6" hidden data-help-no>
+    We're continually improving our docs. We'd love to hear how we can do better.
+  </p>
+  <input
+    type="text"
+    class="d-none"
+    name="helpfulness-token"
+    aria-hidden="true"
+  />
+  <p hidden data-help-no>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-comment"
+    >
+      <span>Let us know what we can do better</span>
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <textarea
+      class="form-control input-sm width-full"
+      name="helpfulness-comment"
+      id="helpfulness-comment"
+    ></textarea>
+  </p>
+  <p>
+    <label
+      class="d-block mb-1 f6"
+      for="helpfulness-email"
+      hidden
+      data-help-no
+    >
+      Can we contact you if we have more questions?
+      <span class="text-normal text-gray-light float-right ml-1">
+        Optional
+      </span>
+    </label>
+    <input
+      type="email"
+      class="form-control input-sm width-full"
+      name="helpfulness-email"
+      id="helpfulness-email"
+      placeholder="email@example.com"
+      hidden
+      data-help-yes
+      data-help-no
+    />
+  </p>
+  <p
+    class="text-right"
+    hidden
+    data-help-yes
+    data-help-no
+  >
+    <button type="submit" class="btn btn-blue btn-sm">
+      Send
+    </button>
+  </p>
+  <p class="text-gray f6" hidden data-help-end>
+    Thank you! Your feedback has been submitted.
+  </p>
+</form>
+
+
+    </div>
+    <div class="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
+      
+<div class="f5 contribution">
+  <h2 class="f4">Help us make these docs great!</h2>
+  <p class="text-gray f6">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p>
+  
+    
+  
+  <a class="btn btn-outline" href="https://github.com/github/docs/edit/main/content/graphql/reference/enums.md">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-pull-request" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+    Make a contribution
+  </a>
+  <p class="text-gray f6 mt-2">Or, <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">learn how to contribute.</a></p>
+</div>
+
+
+    </div>
+    <div class="col-12 col-lg-12 col-xl-4 float-left">
+      <!-- Contact support banner -->
+<div>
+  <h3 class="mb-2 f4">
+    Still need help?
+  </h3>
+  
+  <a id="ask-community" href="https://github.community/" class="btn btn-outline mr-4 mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+    Ask the GitHub community
+  </a>
+  <a id="contact-us" href="https://support.github.com/contact" class="btn btn-outline mt-2">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 2.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-3.5a.75.75 0 00-.53.22L3.5 11.44V9.25a.75.75 0 00-.75-.75h-1a.25.25 0 01-.25-.25v-5.5zM1.75 1A1.75 1.75 0 000 2.75v5.5C0 9.216.784 10 1.75 10H2v1.543a1.457 1.457 0 002.487 1.03L7.061 10h3.189A1.75 1.75 0 0012 8.25v-5.5A1.75 1.75 0 0010.25 1h-8.5zM14.5 4.75a.25.25 0 00-.25-.25h-.5a.75.75 0 110-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0114.25 12H14v1.543a1.457 1.457 0 01-2.487 1.03L9.22 12.28a.75.75 0 111.06-1.06l2.22 2.22v-2.19a.75.75 0 01.75-.75h1a.25.25 0 00.25-.25v-5.5z"></path></svg>
+    Contact support
+  </a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+      <footer class="py-6 text-small">
+  <div class="container-xl d-flex px-3 px-md-6">
+    <ul class="d-flex list-style-none flex-wrap flex-justify-center flex-xl-justify-start">
+      <li class="d-flex mr-xl-3 text-gray">
+        <svg version="1.1" width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-mark-github mr-2 mr-xl-3" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        <span>&copy; 2021 GitHub, Inc.</span>
+      </li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-terms-of-service">Terms </a></li>
+      <li class="ml-3"><a href="https://docs.github.com/github/site-policy/github-privacy-statement">Privacy </a></li>
+      <li class="ml-3"><a href="https://github.com/security">Security</a></li>
+      <li class="ml-3"><a href="https://www.githubstatus.com/">Status</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/">Help</a></li>
+      <li class="ml-3"><a href="https://support.github.com/">Contact GitHub</a></li>
+      <li class="ml-3"><a href="https://github.com/pricing">Pricing</a></li>
+      <li class="ml-3"><a href="https://docs.github.com/developers">Developer API</a></li>
+      <li class="ml-3"><a href="https://services.github.com/">Training</a></li>
+      <li class="ml-3"><a href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script id="expose" type="application/json">{"searchOptions":{"languages":["en","cn","ja","es","pt","de"],"versions":{"free-pro-team@latest":"dotcom","enterprise-server@3.0":"3.0","enterprise-server@2.22":"2.22","enterprise-server@2.21":"2.21","github-ae@latest":"ghae"},"nonEnterpriseDefaultVersion":"free-pro-team@latest"}}</script>
+<script src="https://docs.github.com/dist/index.js?hash=cd23048e08dd2fffdbd4cec90c6e440c"></script>
+
+
+      <button class="arrow-for-scrolling-top" id="js-scroll-top">
+    <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-chevron-up" aria-hidden="true"><path fill-rule="evenodd" d="M3.22 9.78a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 01-1.06 1.06L8 6.06 4.28 9.78a.75.75 0 01-1.06 0z"></path></svg>
+</button>
+
+    </main>
+  </body>
+
+<!-- Mirrored from docs.github.com/en/graphql/reference/enums by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Apr 2021 01:13:38 GMT -->
+</html>

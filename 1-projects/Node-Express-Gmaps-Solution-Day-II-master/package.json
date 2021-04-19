@@ -1,0 +1,16 @@
+{
+  "name": "node-express-gmaps",
+  "version": "1.0.0",
+  "description": "A challenge for students in making an api that makes requests to the Google Maps api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "author": "Ivan Mora",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-fetch": "^2.0.0"
+  }
+}

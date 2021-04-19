@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="quickstart-guide">Quickstart guide</h3>
+<p>Install blanket: {: .-setup}</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">npm</span> i --save-dev blanket</a></code></pre></div>
+<p>In your test helpers, use Blanket before <code>require</code>ing:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">if</span> (<span class="va">process</span>.<span class="va">env</span>.<span class="at">COVERAGE</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">require</span>(<span class="st">&#39;blanket&#39;</span>)(<span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="dt">pattern</span><span class="op">:</span> <span class="at">require</span>(<span class="st">&#39;path&#39;</span>).<span class="at">resolve</span>(<span class="st">&#39;./index.js&#39;</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-6" title="6">thing <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;../index&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Add to <code>package.json</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" title="1"><span class="er">&quot;scripts&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">&quot;coverage&quot;</span><span class="fu">:</span> <span class="st">&quot;env COVERAGE=1 mocha -R html-cov &gt; coverage.html &amp;&amp; open coverage.html&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<p>Be sure to ignore it:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">echo</span> <span class="st">&quot;coverage.html&quot;</span> <span class="op">&gt;&gt;</span> .gitignore</a></code></pre></div>
+<p>Then run:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">npm</span> run coverage</a></code></pre></div>
+<h3 id="travis-coveralls.io-support">Travis + coveralls.io support</h3>
+<p>Visit <a href="http://coveralls.io">coveralls.io</a> then activate your repo. Then install the appropriate packages: {: .-setup}</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">npm</span> i --save-dev mocha-lcov-reporter coveralls</a></code></pre></div>
+<p>Add this to <code>.travis.yml</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">after_success:</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">-</span> ./node_modules/.bin/mocha -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js</a></code></pre></div>
+<p>Commit, push, wait for Travis to finish.</p>
+</body></html>

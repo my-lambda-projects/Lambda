@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="with-dependency"><a href="https://github.com/umdjs/umd/blob/master/amdWebGlobal.js">With dependency</a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">;</span>(<span class="kw">function</span> (root<span class="op">,</span> factory) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">if</span> (<span class="kw">typeof</span> define <span class="op">===</span> <span class="st">&#39;function&#39;</span> <span class="op">&amp;&amp;</span> <span class="va">define</span>.<span class="at">amd</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="at">define</span>([<span class="st">&#39;jquery&#39;</span>]<span class="op">,</span> factory)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">typeof</span> exports <span class="op">===</span> <span class="st">&#39;object&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">factory</span>(<span class="at">require</span>(<span class="st">&#39;jquery&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="va">root</span>.<span class="at">YourModule</span> <span class="op">=</span> <span class="at">factory</span>(<span class="va">root</span>.<span class="at">jQuery</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="op">}</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">function</span> (jquery) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="cf">return</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
+<h3 id="no-dependencies">No dependencies</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">;</span>(<span class="kw">function</span> (root<span class="op">,</span> factory) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="cf">if</span> (<span class="kw">typeof</span> define <span class="op">===</span> <span class="st">&#39;function&#39;</span> <span class="op">&amp;&amp;</span> <span class="va">define</span>.<span class="at">amd</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="at">define</span>(factory)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">typeof</span> exports <span class="op">===</span> <span class="st">&#39;object&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">factory</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="va">root</span>.<span class="at">YourModule</span> <span class="op">=</span> <span class="at">factory</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="op">}</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="cf">return</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
+<h3 id="supports-circular-references"><a href="https://github.com/umdjs/umd/blob/master/commonjsStrict.js">Supports circular references</a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">(<span class="kw">function</span> (root<span class="op">,</span> factory) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="cf">if</span> (<span class="kw">typeof</span> define <span class="op">===</span> <span class="st">&#39;function&#39;</span> <span class="op">&amp;&amp;</span> <span class="va">define</span>.<span class="at">amd</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="at">define</span>([<span class="st">&#39;exports&#39;</span><span class="op">,</span> <span class="st">&#39;jquery&#39;</span>]<span class="op">,</span> factory)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">typeof</span> exports <span class="op">===</span> <span class="st">&#39;object&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="at">factory</span>(exports<span class="op">,</span> <span class="at">require</span>(<span class="st">&#39;jquery&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="at">factory</span>((<span class="va">root</span>.<span class="at">YourModule</span> <span class="op">=</span> <span class="op">{}</span>)<span class="op">,</span> <span class="va">root</span>.<span class="at">jQuery</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-10" title="10"></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">function</span> (exports<span class="op">,</span> jQuery) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="va">exports</span>.<span class="at">action</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{};</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>https://github.com/umdjs/umd</li>
+</ul>
+</body></html>

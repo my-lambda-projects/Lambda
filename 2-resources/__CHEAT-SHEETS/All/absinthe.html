@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h2 id="introduction">Introduction</h2>
+    <h3 id="concepts">Concepts</h3>
+    <ul>
+      <li><code>Schema</code> - The root. Defines what queries you can do, and what types they return.</li>
+      <li><code>Resolver</code> - Functions that return data.</li>
+      <li><code>Type</code> - A type definition describing the shape of the data you'll return.</li>
+    </ul>
+    <h3 id="plug">Plug</h3>
+    <h4 id="webrouter.ex">web/router.ex</h4>
+    <div class="sourceCode" id="cb1">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">defmodule</span> <span class="cn">Blog</span><span class="op">.</span><span class="cn">Web</span><span class="op">.</span><span class="cn">Router</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="im">use</span> <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">Router</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  forward <span class="st">&quot;/&quot;</span>, <span class="cn">Absinthe</span><span class="op">.</span><span class="cn">Plug</span>,</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="va">schema:</span> <span class="cn">Blog</span><span class="op">.</span><span class="cn">Schema</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“4,5”}</p>
+    <p>Absinthe is a Plug, and you pass it one <strong>Schema</strong>.</p>
+    <p>See: <a href="http://absinthe-graphql.org/tutorial/our-first-query/">Our first query</a></p>
+    <h2 id="main-concepts">Main concepts</h2>
+    <p>{: .-three-column}</p>
+    <h3 id="schema">Schema</h3>
+    <h4 id="webschema.ex">web/schema.ex</h4>
+    <div class="sourceCode" id="cb2">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">defmodule</span> <span class="cn">Blog</span><span class="op">.</span><span class="cn">Schema</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="im">use</span> <span class="cn">Absinthe</span><span class="op">.</span><span class="cn">Schema</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  import_types <span class="cn">Blog</span><span class="op">.</span><span class="cn">Schema</span><span class="op">.</span><span class="cn">Types</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5">  query <span class="kw">do</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="ot">@desc</span> <span class="st">&quot;Get a list of blog posts&quot;</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    field <span class="va">:posts</span>, list_of(<span class="va">:post</span>) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb2-8" title="8">      resolve <span class="op">&amp;</span><span class="cn">Blog</span><span class="op">.</span><span class="cn">PostResolver</span><span class="op">.</span>all<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb2-10" title="10">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“5,6,7,8,9,10”}</p>
+    <p>This schema will account for <code>{ posts { ··· } }</code>. It returns a <strong>Type</strong> of
+      <code>:post</code>, and delegates to a <strong>Resolver</strong>.</p>
+    <h3 id="resolver">Resolver</h3>
+    <h4 id="webresolverspost_resolver.ex">web/resolvers/post_resolver.ex</h4>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">defmodule</span> <span class="cn">Blog</span><span class="op">.</span><span class="cn">PostResolver</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">def</span> all(_args, _info) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    {<span class="va">:ok</span>, <span class="cn">Blog</span><span class="op">.</span><span class="cn">Repo</span><span class="op">.</span>all(<span class="cn">Blog</span><span class="op">.</span><span class="cn">Post</span>)}</a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“3”}</p>
+    <p>This is the function that the schema delegated the <code>posts</code> query to.</p>
+    <h3 id="type">Type</h3>
+    <h4 id="webschematypes.ex">web/schema/types.ex</h4>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">defmodule</span> <span class="cn">Blog</span><span class="op">.</span><span class="cn">Schema</span><span class="op">.</span><span class="cn">Types</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="im">use</span> <span class="cn">Absinthe</span><span class="op">.</span><span class="cn">Schema</span><span class="op">.</span><span class="cn">Notation</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="ot">@desc</span> <span class="st">&quot;A blog post&quot;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  object <span class="va">:post</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    field <span class="va">:id</span>, <span class="va">:id</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    field <span class="va">:title</span>, <span class="va">:string</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    field <span class="va">:body</span>, <span class="va">:string</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“4,5,6,7,8,9”}</p>
+    <p>This defines a type <code>:post</code>, which is used by the resolver.</p>
+    <h2 id="schema-1">Schema</h2>
+    <h3 id="query-arguments">Query arguments</h3>
+    <h4 id="graphql-query">GraphQL query</h4>
+    <pre><code>{ user(id: &quot;1&quot;) { ··· } }</code></pre>
+    <h4 id="webschema.ex-1">web/schema.ex</h4>
+    <div class="sourceCode" id="cb6">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb6-1" title="1">query <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  field <span class="va">:user</span>, <span class="va">type:</span> <span class="va">:user</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    arg <span class="va">:id</span>, non_null(<span class="va">:id</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4">    resolve <span class="op">&amp;</span><span class="cn">Blog</span><span class="op">.</span><span class="cn">UserResolver</span><span class="op">.</span>find<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“3”}</p>
+    <h4 id="resolver-1">Resolver</h4>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">def</span> find(%{<span class="va">id:</span> id} <span class="op">=</span> args, _info) <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  ···</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“1”}</p>
+    <p>See: <a href="http://absinthe-graphql.org/tutorial/query-arguments/">Query arguments</a></p>
+    <h3 id="mutations">Mutations</h3>
+    <h4 id="graphql-query-1">GraphQL query</h4>
+    <pre><code>{
+  mutation CreatePost {
+    post(title: &quot;Hello&quot;) { id }
+  }
+}</code></pre>
+    <h4 id="webschema.ex-2">web/schema.ex</h4>
+    <div class="sourceCode" id="cb9">
+      <pre class="sourceCode elixir"><code class="sourceCode elixir"><a class="sourceLine" id="cb9-1" title="1">mutation <span class="kw">do</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="ot">@desc</span> <span class="st">&quot;Create a post&quot;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  field <span class="va">:post</span>, <span class="va">type:</span> <span class="va">:post</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    arg <span class="va">:title</span>, non_null(<span class="va">:string</span>)</a>
+<a class="sourceLine" id="cb9-5" title="5">    resolve <span class="op">&amp;</span><span class="cn">Blog</span><span class="op">.</span><span class="cn">PostResolver</span><span class="op">.</span>create<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>{: data-line=“1”}</p>
+    <p>See: <a href="http://absinthe-graphql.org/tutorial/mutations/">Mutations</a></p>
+    <h2 id="references">References</h2>
+    <ul>
+      <li><a href="http://absinthe-graphql.org/">Absinthe website</a> <em>(absinthe-graphql.org)</em></li>
+      <li><a href="./graphql">GraphQL cheatsheet</a> <em>(devhints.io)</em></li>
+    </ul>
+  </body>
+
+</html>
