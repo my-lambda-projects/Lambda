@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Being a developer isn’t just hacking away into the wee hours of the morning or debugging a new feature. In order to become a well-rounded developer we should also understand what tools we need and a minimum understanding of how they work. This includes setting up our computers for development.</p>
+<p>Here at App Academy we work with a Ruby on Rails, JavaScript, React, Redux, and PostgresSQL stack. A <a href="https://en.wikipedia.org/wiki/Solution_stack">stack</a> is simply a collection of software and hardware used in development of an application. For our specific purposes we are using Ruby on Rails on the backend/server, PostgresSQL to house our database, and JavaScript + React + Redux for frontend rendering and logic.</p>
+<p>As we progress through the course you will be prompted to complete a few installation and configuration steps to get your personal machine ready for the next phase.</p>
+<h2 id="phase-0-preparing-your-machine">Phase 0: Preparing your machine</h2>
+<p>Here we will install basic developer tools, such as <a href="https://brew.sh/">homebrew</a> (a 3rd party package manager for MacOS), Xcode (a library of developer tools provided by Apple), git (a version control system we will be using throughout the course), and VS Code (a full-featured text-editor).</p>
+<h3 id="chrome">Chrome</h3>
+<p>Here at App Academy, our browser of choice is Google Chrome. This isn’t super important at the beginning of the course, but once we get into frontend development the Chrome Devtools (think frontend debugging) are going to play a very important role.</p>
+<p>To install, download from the <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome</a> and install.</p>
+<h4 id="optional-for-in-person-students-app-academy-chrome-tab">Optional for In Person Students App Academy Chrome Tab</h4>
+<p>We have a custom Chrome Extension for new tabs that provides a dashboard with links to the curriculum, relevant documentation, and, once your cohort starts, links to the day’s projects, readings, and homework.</p>
+<p>This is not required, but feel free to give it a try. To install, follow the installation instructions on the <a href="https://github.com/appacademy/app-academy-chrome-tab">App Academy Chrome Tab Repo</a>.</p>
+<h3 id="xcode">Xcode</h3>
+<p>Let’s start with Xcode. The Xcode command line tools are a requirement for installing the homebrew package manager in the next step.</p>
+<p><strong>NOTE: If you are using a Linux machine you will not be able to install Xcode or homebrew. Instead please follow <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">these git installation directions</a> and then <a href="https://github.com/rbenv/rbenv#basic-github-checkout">these rbenv installation directions</a> (up to and including “Installing Ruby versions”) to download rbenv using git. Once you are finished, skip to the section on Git and ignore all commands involving homebrew.</strong></p>
+<p>Install the Xcode command line tools by running the following from the console.</p>
+<pre><code>$ xcode-select --install</code></pre>
+<p>To conclude the installation you will need to agree to the Xcode license. Start the Xcode app, click “Agree”, and allow the installation to finish. Then you can go ahead and quit the Xcode app.</p>
+<h3 id="homebrew">Homebrew</h3>
+<p>Homebrew is kind of like a low-tech App Store. It allows us access to and the ability to install a wide variety of software and command line tools from the console. These are distinct from those hosted on the App Store and will need to be managed by Homebrew.</p>
+<p>Enter the following in your terminal to download and install Homebrew:</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+<p>You will be given a list of dependencies that will be installed and prompted to continue or abort. Press <code>RETURN</code> to continue.</p>
+<p>Let’s break this command down a bit. <code>curl</code>, a command-line tool commonly used for downloading files from the internet, is used to download the Homebrew installation file. The <code>"$(...)"</code> transforms the file content into a string. Finally, the string is passed to our Ruby executable (<code>/usr/bin/ruby</code> is where this the system Ruby executable file is stored on our machine) with the <code>-e</code> flag to tell Ruby to run the argument as code.</p>
+<p>Check out the <a href="https://brew.sh/">Homebrew website</a> to learn the basic commands.</p>
+<h3 id="git">Git</h3>
+<p>Git is a version control system that allows us to track, commit and revert changes to files within a directory. Here we will install it and add global user info.</p>
+<pre><code># install git
+brew install git
+
+# makes git terminal output pretty
+git config --global color.ui true
+
+# this will mark you as the &#39;author&#39; of each committed change
+git config --global user.name &quot;your name here&quot;
+
+# use the email associated with your GitHub account
+git config --global user.email your_email_here</code></pre>
+<h3 id="vs-code">VS Code</h3>
+<p>This one is pretty easy. Go to <a href="https://code.visualstudio.com/">code.visualstudio.com</a>, then download and install VS Code.</p>
+<p>To verify that the shell commands were installed correctly, run <code>which code</code> in your terminal. If <code>code</code> is not a recognized command, open the VS Code editor, open the Command Palette (<code>Cmd+Shift+P</code> on macOS ,<code>Ctrl+Shift+P</code> on Linux) and type <code>shell command</code> to find the <code>Shell Command: Install 'code' command in PATH</code> command. Then restart the terminal. This allows you to easily open files in VS Code from the terminal using the <code>code</code> command followed by a file or directory.</p>
+<p>Next, we’ll want to install a few useful VS Code extensions and configure VS Code to play nice with these extensions. Download <a href="https://assets.aaonline.io/fullstack/setup_vscode_master.zip">this zip file</a>, which contains a scripts that will do the work for you. Unzip the file and open the <code>setup_vscode</code> directory. Then open that directory in the terminal (drag and drop it over the terminal icon on macOS or right click in the directory and select <code>Open in Terminal</code> on most Linux distributions). To run the script, type <code>./setup_vscode.sh</code>. The script will do the rest. Simply restart VS Code and you’ll be good to go. (Note that there’s a second script, called <code>setup_vscode_linter.sh</code>. We can’t run this script yet but will do so in due time.)</p>
+<h2 id="phase-1-ruby">Phase 1: Ruby</h2>
+<p>Here we will be setting up Ruby with the help of <a href="https://github.com/rbenv/rbenv">rbenv</a>, a Ruby environment manager. We like rbenv because it allows us to switch between versions of Ruby easily and setup default versions to use within project directories. This will install instances of Ruby in addition to the system version, which comes pre-installed.</p>
+<h3 id="rbenv-ruby">Rbenv + Ruby</h3>
+<p>First we will install rbenv, then use it to install our desired version of Ruby.</p>
+<pre><code># install rbenv
+brew install rbenv
+
+# add to the PATH (rbenv commands are now available from terminal)
+# .bashrc is the file that contains all of our terminal settings
+echo &#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc
+
+# initialize rbenv everytime you open a new console window (otherwise our system ruby version will take over when we start a new terminal session)
+echo &#39;eval &quot;$(rbenv init -)&quot;&#39; &gt;&gt; ~/.bashrc
+
+# update current console window with new settings
+source ~/.bashrc
+
+# source .bashrc from .bash_profile (necessary on some machines)
+echo &#39;source ~/.bashrc&#39; &gt;&gt; ~/.bash_profile
+
+# install Ruby version 2.5.1
+rbenv install 2.5.1
+
+# set version 2.5.1 to be our global default
+rbenv global 2.5.1
+
+# the &#39;rehash&#39; command updates the environment to your configuration
+rbenv rehash
+
+# and let&#39;s verify everything is correct
+# check the version
+ruby -v # =&gt; 2.5.1
+
+# check that we are using rbenv (this tells you where the version of ruby you are using is installed)
+which ruby # =&gt; /Users/your-username/.rbenv/shims/ruby</code></pre>
+<h3 id="gems">Gems</h3>
+<p>There are a few gems we will want to access globally.</p>
+<ul>
+<li>Bundler allows us to define project dependencies inside a <code>Gemfile</code> and gives us a bunch of commands to update, remove and install them. Check out the <a href="http://bundler.io/docs.html">Bundler docs</a> for more info.</li>
+<li>Pry is an alternative to the Irb (the default Ruby REPL). It is not only more powerful, but also easier to use than Irb and should be your go-to for running and debugging Ruby code. Check out the <a href="http://pryrepl.org/">Pry website</a> for more info and a super useful tutorial.</li>
+<li>Byebug is feature-rich debugging tool for Ruby. With Byebug you can halt the execution of your code and inspect/track variables and the flow of execution. Lots of cool features in here, so check out the <a href="https://github.com/deivid-rodriguez/byebug">Byebug docs</a>!</li>
+</ul>
+<p>Let’s install them.</p>
+<pre><code>gem install bundler pry byebug</code></pre>
+<h2 id="phase-2-backend-development">Phase 2: Backend Development</h2>
+<p>For backend development we will need a database application, a server, and a web-application framework.</p>
+<p>For the purposes of this course, we will be using two database applications: PostgreSQL and SQLite.</p>
+<h3 id="postgresql">PostgreSQL</h3>
+<p>PostgreSQL is a fast, feature-rich, open-source database application. It is a scalable application that we can use for development and production apps. We will be using PostgreSQL for most of our web-apps.</p>
+<h4 id="macos-x">MacOS X</h4>
+<p>Fortunately for MacOS X, we can use <a href="https://postgresapp.com/">Postgres.app</a>, which provides the database application and a command line interface (CLI) so we can interact with it. To install Postgres.app, download and follow the installation instructions from the website.</p>
+<p><strong>Though the instructions say it is optional, it is highly recommended to configure your system <code>$PATH</code> so that you can use the command line tools.</strong> We will make extensive use of them in the course.</p>
+<p>Paste these commands into the terminal:</p>
+<pre><code>sudo mkdir -p /etc/paths.d &amp;&amp;
+echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp</code></pre>
+<h4 id="linux">Linux</h4>
+<p>The <a href="https://help.ubuntu.com/community/PostgreSQL">Ubuntu wiki</a> can help. See especially “Alternative Server Setup”.</p>
+<h3 id="after-installation">After installation</h3>
+<p>Close and reopen your terminal to gain access to the <code>psql</code> command. Let’s try it out.</p>
+<pre><code># open the PostgreSQL CLI
+psql
+
+# you should be greeted with a prompt that looks like this
+psql (10.X)
+Type &quot;help&quot; for help.
+
+yourname=#
+
+# type &#39;/q&#39; to quit
+yourname=# \q</code></pre>
+<p><strong>NB: You do not need a graphical client for this course. We encourage you to use the CLI as it teaches you the hard way and is the most common way to interact with a database directly.</strong></p>
+<h3 id="sqlite">SQLite</h3>
+<p><a href="https://www.sqlite.org/about.html">SQLite</a> is a small, lightweight database application that requires no configuration and stores the database as a stand-alone file. For this reason, we will be using SQLite for a few of our in-class projects.</p>
+<p>Install using the Brew package manager:</p>
+<pre><code>brew install sqlite</code></pre>
+<p>Again, verify that installation was successful by opening the SQLite CLI.</p>
+<pre><code># open SQLite CLI with this command
+sqlite3
+
+#  you should see this output
+# SQLite version 3.16.0 2016-11-04 19:09:39
+# Enter &quot;.help&quot; for usage hints.
+# Connected to a transient in-memory database.
+# Use &quot;.open FILENAME&quot; to reopen on a persistent database.
+
+# .q to quit
+sqlite&gt; .q</code></pre>
+<h3 id="rails">Rails</h3>
+<p><a href="http://rubyonrails.org/">Ruby on Rails</a> will serve as our application framework for this course. Rails is a very full-featured, opinionated framework that provides all the tools we need to create a complete web-app. These include an ORM (Object Relational Mapper - essentially we can continue to use Object Oriented Programming with respect to resources in our database), routing, a development server, and a templating engine.</p>
+<p>Fortunately for us, Rails is available as a gem in the Ruby ecosystem. Let’s install it, specifying the version so that we’re all working in sync:</p>
+<pre><code># install rails
+gem install rails --version 5.2.3
+rbenv rehash
+# verify installation
+which rails # =&gt; /Users/username/.rbenv/shims/rails</code></pre>
+<h2 id="phase-3-frontend-development">Phase 3: Frontend Development</h2>
+<h3 id="node.js-npm">Node.js &amp; NPM</h3>
+<p><a href="https://nodejs.org/en/">Node.js</a> will be our local JavaScript engine. This is used to run JavaScript code and run associated node commands.</p>
+<p>Again, we want to use a version manager with Node to help us manage potential conflicts between versions and dependencies. In this case we will be using <a href="https://github.com/creationix/nvm">NVM</a> (Node Version Manager) to install/manage Node.js.</p>
+<pre><code># download and run the official install script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+
+# update your terminal config (you will now have access to the nvm command)
+source ~/.bashrc
+
+# install a stable version of node
+nvm install 10.13.0
+
+# set version 10.13.0 as default version
+nvm use 10.13.0
+
+# verify install/config
+which node # =&gt; /Users/username/.nvm/versions/node/v10.13.0/bin/node</code></pre>
+<p>Node, like Ruby, comes with a package manager called <a href="https://docs.npmjs.com/">NPM</a>, which provides access to a whole ecosystem of libraries and tools we can use. NPM comes pre-bundled with Node, so there is no additional work for us to do. By default we don’t need any additional packages installed and will be installing them on a per-project basis.</p>
+<form>
+  <input type="button" value="Go back!" onclick="history.back()">
+</form>
+  </body></html>

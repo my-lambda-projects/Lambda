@@ -1,0 +1,5 @@
+flask
+gunicorn
+
+# only exists in my private package repository
+simple_package==0.0.2

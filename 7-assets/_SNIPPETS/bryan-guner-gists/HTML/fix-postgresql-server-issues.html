@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>cd /etc/postgresql/9.x/main/ open file named postgresql.conf</p>
+<p>sudo vi postgresql.conf add this line to that file</p>
+<p>listen_addresses = ’*’ then open file named pg_hba.conf</p>
+<p>sudo vi pg_hba.conf and add this line to that file</p>
+<p>host all all 0.0.0.0/0 md5 It allows access to all databases for all users with an encrypted password</p>
+<p>restart your server sudo /etc/init.d/postgresql restart</p>
+<form>
+  <input type="button" value="Go back!" onclick="history.back()">
+</form>
+  </body></html>

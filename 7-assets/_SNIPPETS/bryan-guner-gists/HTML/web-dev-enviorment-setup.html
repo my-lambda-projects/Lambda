@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="windows-subsytem-for-linux-wsl-and-ubuntu">Windows Subsytem for Linux (WSL) and Ubuntu</h2>
+<p>Test if you have Ubuntu installed by typing “Ubuntu” in the search box in the bottom app bar that reads “Type here to search”. If you see a search result that reads <strong>“Ubuntu 18.04 LTS”</strong> with “App” under it, then you have it installed.</p>
+<ol type="1">
+<li>In the application search box in the bottom bar, type “PowerShell” to find the application named “Windows PowerShell”</li>
+<li></li>
+</ol>
+<hr />
+<hr />
+<ol start="3" type="1">
+<li>Right-click on “Windows PowerShell” and choose “Run as administrator” from the popup menu</li>
+</ol>
+<hr />
+<hr />
+<ol start="4" type="1">
+<li>In the blue PowerShell window, type the following: <code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code></li>
+</ol>
+<hr />
+<hr />
+<ol start="5" type="1">
+<li>Restart your computer</li>
+</ol>
+<hr />
+<hr />
+<ol start="6" type="1">
+<li>In the application search box in the bottom bar, type “Store” to find the application named “Microsoft Store”</li>
+</ol>
+<hr />
+<hr />
+<ol start="7" type="1">
+<li>Click “Microsoft Store”</li>
+</ol>
+<hr />
+<hr />
+<ol start="8" type="1">
+<li>Click the “Search” button in the upper-right corner of the window</li>
+</ol>
+<hr />
+<hr />
+<ol start="9" type="1">
+<li>Type in “Ubuntu”</li>
+</ol>
+<hr />
+<hr />
+<ol start="10" type="1">
+<li>Click “Run Linux on Windows (Get the apps)”</li>
+</ol>
+<hr />
+<hr />
+<ol start="11" type="1">
+<li>Click the orange tile labeled <strong>“Ubuntu 18.04 LTS”</strong> UBUNTU VERSION MUST BE 18.04 OR GREATER</li>
+</ol>
+<hr />
+<hr />
+<ol start="12" type="1">
+<li>Click “Install”</li>
+</ol>
+<hr />
+<hr />
+<ol start="13" type="1">
+<li>After it downloads, click “Launch”</li>
+</ol>
+<hr />
+<hr />
+<ol start="14" type="1">
+<li>If you get the option, pin the application to the task bar. Otherwise, right-click on the orange Ubuntu icon in the task bar and choose “Pin to taskbar”</li>
+</ol>
+<hr />
+<hr />
+<ol start="15" type="1">
+<li>Wait for it to install the local files</li>
+</ol>
+<hr />
+<hr />
+<ol start="16" type="1">
+<li>When prompted to “Enter new UNIX username”, type your first name with no spaces</li>
+</ol>
+<hr />
+<hr />
+<ol start="17" type="1">
+<li>When prompted, enter and retype a password for this UNIX user (it can be the same as your Windows password)</li>
+</ol>
+<hr />
+<hr />
+<ol start="18" type="1">
+<li>Confirm your installation by typing the command <code>whoami</code> followed by Enter at the prompt (it should print your first name)</li>
+</ol>
+<hr />
+<hr />
+<ol start="19" type="1">
+<li>You need to update your packages, so type <code>sudo apt update</code> (if prompted for your password, enter it)</li>
+</ol>
+<hr />
+<hr />
+<ol start="20" type="1">
+<li>You need to upgrade your packages, so type <code>sudo apt upgrade</code> (if prompted for your password, enter it)</li>
+</ol>
+<hr />
+<hr />
+<h2 id="git">Git</h2>
+<p>Git comes with Ubuntu, so there’s nothing to install. However, you should configure it using the following instructions.</p>
+<ol type="1">
+<li>Open an Ubuntu terminal if you don’t have one open already.</li>
+<li>You need to configure Git, so type <code>git config --global user.name "Your Name"</code> with replacing “Your Name” with your real name.</li>
+<li>You need to configure Git, so type <code>git config --global user.email your@email.com</code> with replacing “your@email.com” with your real email.</li>
+</ol>
+<h2 id="google-chrome">Google Chrome</h2>
+<p>Test if you have Chrome installed by typing “Chrome” in the search box in the bottom app bar that reads “Type here to search”. If you see a search result that reads “Chrome” with “App” under it, then you have it installed. Otherwise, follow these instructions to install Google Chrome.</p>
+<ol type="1">
+<li>Open Microsoft Edge, the blue “e” in the task bar, and type in <a href="http://chrome.google.com/">http://chrome.google.com</a>. Click the “Download Chrome” button. Click the “Accept and Install” button after reading the terms of service. Click “Save” in the “What do you want to do with ChromeSetup.exe” dialog at the bottom of the window. When you have the option to “Run” it, do so. Answer the questions as you’d like. Set it as the default browser.</li>
+<li>Right-click on the Chrome icon in the task bar and choose “Pin to taskbar”.</li>
+</ol>
+<h2 id="node.js">Node.js</h2>
+<p>Test if you have Node.js installed by opening an Ubuntu terminal and typing <code>node --version</code>. If it reports “Command ‘node’ not found”, then you need to follow these directions.</p>
+<ol type="1">
+<li>In the Ubuntu terminal, type <code>sudo apt update</code> and press Enter</li>
+<li>In the Ubuntu terminal, type <code>sudo apt install build-essential</code> and press Enter</li>
+<li>In the Ubuntu terminal, type <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash</code> and press Enter</li>
+<li>In the Ubuntu terminal, type <code>. ./.bashrc</code> and press Enter</li>
+<li>In the Ubuntu terminal, type <code>nvm install --lts</code> and press Enter</li>
+<li>Confirm that <strong>node</strong> is installed by typing <code>node --version</code> and seeing it print something that is not “Command not found”!</li>
+</ol>
+<h2 id="unzip">Unzip</h2>
+<p>For your projects you will often have to download a zip file and unzip it. It is easier to do this from the command line. So we need to install a linux unzip utility.</p>
+<p>In the Ubuntu terminal type: <code>sudo apt install unzip</code> and press Enter</p>
+<h2 id="mocha.js">Mocha.js</h2>
+<p>Test if you have Mocha.js installed by opening an Ubuntu terminal and typing <code>which mocha</code>. If it prints a path, then you’re good. Otherwise, if it prints nothing, install Mocha.js by typing <code>npm install -g mocha</code>.</p>
+<h2 id="python-3">Python 3</h2>
+<p>Ubuntu does not come with Python 3. Install it using the command <code>sudo apt install python3</code>. Test it by typing <code>python3 --version</code> and seeing it print a number.</p>
+<h2 id="note-about-wsl"><em>Note about WSL</em></h2>
+<p>As of the time of writing of this document, WSL has an issue renaming or deleting files if Visual Studio Code is open. So before doing any linux commands which manipulate files, make sure you <strong>close</strong> Visual Studio Code before running those commands in the Ubuntu terminal.</p>
+<h2 id="preparing-your-machine">Preparing your machine</h2>
+<p>The commands you need to enter are listed below. Here we will install basic developer tools, such as <a href="https://brew.sh/">homebrew</a> (a 3rd party package manager for MacOS), <a href="https://itunes.apple.com/us/app/xcode/id497799835">Xcode</a> (a library of developer tools provided by Apple), VS Code (a full-featured text-editor), and Node (a JavaScript runtime environment).</p>
+<h3 id="chrome">Chrome</h3>
+<p>Here at App Academy, our browser of choice is Google Chrome. This isn’t super important at the beginning of the course, but once we get into frontend development (writing code that runs in a web browser) the Chrome DevTools will be crucial for debugging every manner of issue.</p>
+<p>To install Google Chrome, download the necessary files and follow the instructions on the <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome website</a>.</p>
+<h3 id="xcode">Xcode</h3>
+<p>Let’s start with Xcode. The Xcode command line tools are a requirement for installing the homebrew package manager in the next step.</p>
+<p><strong>NOTE: If you are using a Linux machine you will not be able to install Xcode or homebrew.</strong></p>
+<p>Install the Xcode command line tools by running the following from the console.</p>
+<pre><code>$ xcode-select --install</code></pre>
+<p>To conclude the installation you will need to agree to the Xcode license. Start the Xcode app, click “Agree”, and allow the installation to finish. Then you can go ahead and quit the Xcode app.</p>
+<h3 id="homebrew">Homebrew</h3>
+<p>Homebrew is kind of like a low-tech App Store. It allows us access to and the ability to install a wide variety of software and command line tools from the console. These are distinct from those hosted on the App Store and will need to be managed by Homebrew.</p>
+<p>Enter the following in your terminal to download and install Homebrew:</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+<p>You will be given a list of dependencies that will be installed and prompted to continue or abort. Press <code>RETURN</code> to continue.</p>
+<p>Let’s break this command down a bit. <code>curl</code>, a command-line tool commonly used for downloading files from the internet, is used to download the Homebrew installation file. The <code>"$(...)"</code> transforms the file content into a string. Finally, the string is passed to a Ruby language executable (<code>/usr/bin/ruby</code> is where the system Ruby executable file is stored on our machine) with the <code>-e</code> flag to tell Ruby to run the argument as code.</p>
+<p>Check out the <a href="https://brew.sh/">Homebrew website</a> to learn the basic commands.</p>
+<h3 id="node.js-npm">Node.js &amp; NPM</h3>
+<p><a href="https://nodejs.org/en/">Node.js</a> is a very powerful runtime environment built on Google Chrome’s JavaScript V8 Engine. It is used to develop I/O intensive applications like video streaming sites, robots, and other general purpose applications. For our purposes Node provides a way for us to run JavaScript outside of the browser.</p>
+<p>We want to use a version manager with Node to help us manage potential conflicts between versions and dependencies. In this case we will be using <a href="https://github.com/creationix/nvm">NVM</a> (Node Version Manager) to install/manage Node.js.</p>
+<p>Open up your console (the Terminal application on Mac) and run the following:</p>
+<pre><code># download and run the official install script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+
+# update your terminal config (you will now have access to the nvm command)
+source ~/.bashrc
+
+# install a stable version of node
+nvm install 10.16
+
+# set version 10.16.0 as default version
+nvm use 10.16
+
+# verify install/config
+which node # =&gt; /Users/username/.nvm/versions/node/v10.16.0/bin/node</code></pre>
+<p>Node comes with a package manager called <a href="https://docs.npmjs.com/">NPM</a>, which provides access to a whole ecosystem of libraries and tools we can use. NPM comes pre-bundled with Node, so there is no additional work for us to do. By default we don’t need any additional libraries, and any additional packages we do need to use will be installed on a project-by-project basis.</p>
+<h3 id="vs-code">VS Code</h3>
+<p>This one is pretty easy. Go to website for <a href="https://code.visualstudio.com/">Visual Studio Code</a>, then download and install VS Code.</p>
+<p>To verify that the shell commands were installed correctly, run <code>which code</code> in your terminal. If <code>code</code> is not a recognized command, open the VS Code editor, open the Command Palette (<code>Cmd+Shift+P</code> on macOS ,<code>Ctrl+Shift+P</code> on Linux) and type <code>shell command</code> to find the <code>Shell Command: Install 'code' command in PATH</code> command. Then restart the terminal. This will now allow you to easily open files in VS Code from the terminal using the <code>code</code> command followed by a file or directory.</p>
+<p>Next, we’ll want to install a few useful VS Code extensions and configure VS Code to play nice with these extensions. Download <a href="https://appacademy-open-assets.s3-us-west-1.amazonaws.com/Module-JavaScript/js-local/setup-vs-code.zip">this zip file</a>, which contains a script that will do the work for you. Unzip the file and navigate into the directory where the file is located in the terminal (drag and drop the folder over to the terminal icon on macOS or right click in the directory and select <code>Open in Terminal</code> on most Linux distributions).</p>
+<p>To run the script, run the command:</p>
+<pre><code>./setup-vs-code.sh</code></pre>
+<p>The script will do the rest. Now restart VS Code and you’ll be good to go.</p>
+<h3 id="mocha-testing-framework">Mocha testing framework</h3>
+<p>The last thing we’ll be installing will be Mocha. Mocha is a JavaScript testing framework that we will be using to test our work in the future. Here are the instructions of how to install <code>mocha</code>!</p>
+<h4 id="installing-mocha">Installing Mocha</h4>
+<ol type="1">
+<li>Open Terminal</li>
+<li>Enter this command: <code>npm install -g mocha</code></li>
+<li>To test your installation, run the command: <code>mocha --version</code>. If it returns a version number, you’ve successfully installed mocha! Otherwise, let your instructor know and they’ll help you fix things.</li>
+</ol>
+<h3 id="installing-python3">Installing Python3</h3>
+<p>You can just use <em>homebrew</em> for this install, too.</p>
+<pre><code>brew install python</code></pre>
+<form>
+  <input type="button" value="Go back!" onclick="history.back()">
+</form>
+  </body></html>

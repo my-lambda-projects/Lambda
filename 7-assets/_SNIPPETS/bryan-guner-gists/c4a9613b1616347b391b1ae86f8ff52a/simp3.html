@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.css">
+
+  <style type="text/css">
+    .menu form{
+      display: inline;
+      }
+  </style>
+  
+</head>
+<body>
+  <div class="ui menu">
+    <a class="active item">
+        <i class="home icon"></i> Home
+    </a>
+    <!--
+        DELETE THE <form> AND </form> TAGS TO "FIX"
+    //-->
+    <form>
+        <a class="item">
+            <div class="ui icon input">
+                <input type="text" placeholder="Username" name="username">
+            </div>
+        </a>
+        <a class="item">
+            <div class="ui icon input">
+                <input type="text" placeholder="Password" name="password">
+            </div>
+        </a>
+        <button class="ui blue small submit button">Login</button>
+    </form>
+
+    <div class="right menu">
+        <div class="item">
+            <div class="ui icon input">
+                <input type="text" placeholder="Search...">
+                <i class="search link icon"></i>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

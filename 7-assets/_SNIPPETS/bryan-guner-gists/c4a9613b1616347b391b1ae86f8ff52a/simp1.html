@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example 9</title>
+	<style>
+		body { 
+			margin: 0;
+			font: normal 12px/18px 'Helvetica', Arial, sans-serif;
+			background: #44accf;
+		}
+		/* Positioning Rules */
+		#container { 
+			width: 900px;
+			margin: 0 auto;
+		}
+		#content { 
+			position: relative; 
+			padding: 20px 250px 60px 20px;
+			background: #fff;
+		}
+		#nav { 
+			height: 50px;
+			background: #b7d84b;
+		}
+	
+		#footer { 
+			position: fixed;
+			bottom: 0;
+			width: 860px;
+			padding: 0 20px;
+			background: #f36283;
+		}
+		
+		/* Stylistic Rules */
+		#nav a {
+			display: block;
+			float: left;
+			color: #fff;
+			text-decoration: none;
+			padding: 0 20px;
+			line-height: 50px;
+			border-right: 1px solid #91ab3b;
+		}
+		#nav a:hover {
+			background: #91ab3b;
+		}
+
+		@media screen and (max-width: 500px){
+	  #nav{
+	    display:none;
+	  }
+	  body{
+	  	font-size: 20px;
+	  }
+
+
+}
+
+@media all and (max-width: 699px) and (min-width: 520px) {
+	#nav a{
+		background-color: yellow;
+	}
+}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="nav">
+			<a href="#">Link</a>
+			<a href="#">Link</a>
+			<a href="#">Link</a>
+			<a href="#">Link</a>
+			<a href="#">Link</a>
+		</div>
+		<div id="content">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis posuere condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris vitae mollis dui. Praesent porttitor quam lorem. Phasellus ullamcorper ligula vitae augue eleifend faucibus. Donec elementum nulla eu erat feugiat nec bibendum purus facilisis. Vestibulum tincidunt, lectus sed tristique condimentum, odio justo faucibus diam, sed imperdiet metus dui non augue. Ut felis enim, accumsan id tempor vitae, rutrum ut sem. Maecenas pulvinar bibendum lectus vel malesuada. Duis sodales ultricies congue. Maecenas id diam neque. Fusce ac interdum felis. Donec dictum massa eu enim aliquam rhoncus. Donec in dui diam. Aenean nisl risus, iaculis in convallis eu, condimentum a metus. Fusce ut purus odio. Curabitur vitae enim id nisl dignissim varius vitae vel dui. Aenean scelerisque ante vitae quam tempor non dignissim mauris venenatis.</p>
+			
+			<p>Proin eleifend ornare gravida. Donec nunc ipsum, luctus eget iaculis sit amet, laoreet quis nisl. Curabitur euismod rutrum ornare. Morbi viverra rutrum purus non ullamcorper. Quisque sollicitudin elementum leo at lobortis. Vivamus nec dolor augue, sit amet blandit urna. Curabitur vitae elit id sem blandit tincidunt. Fusce aliquam sodales mauris vitae molestie. Aenean sit amet ligula sapien. Donec luctus ultrices condimentum. Fusce ac velit odio, sed luctus libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce orci neque, commodo quis dictum et, interdum vel diam. Curabitur congue, leo non commodo facilisis, quam magna rutrum enim, non malesuada dui mi vitae risus.</p>
+			
+			<p>Suspendisse pellentesque mattis orci, non euismod dui pellentesque eget. Fusce posuere nisl in ligula interdum eget dapibus sem malesuada. Etiam eu ullamcorper neque. Maecenas eget sapien augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc felis diam, dictum ornare laoreet eget, semper sit amet arcu. Suspendisse ut pulvinar nisl. Quisque congue sem vel purus pharetra blandit. Praesent eget ante risus. Donec metus dui, molestie ac elementum et, fermentum nec ipsum.</p>
+			
+			<p>Quisque ipsum lacus, ultricies a convallis quis, dictum in ipsum. Nam sit amet sem et diam tristique sagittis. Sed mi augue, mattis nec ornare euismod, pharetra vitae ante. Aenean sed augue turpis. Cras tincidunt sollicitudin lectus quis posuere. Vivamus vel eleifend purus. Nulla venenatis pharetra mi, nec pellentesque augue dapibus eget. Aliquam erat volutpat. Etiam eleifend tincidunt sem vitae ultricies. Suspendisse malesuada varius turpis eget sollicitudin. Etiam semper magna eu tellus dignissim vitae rutrum felis porta. Maecenas consectetur tempor arcu. Sed a facilisis elit. Quisque ac diam elit, nec condimentum lectus. Phasellus leo ligula, viverra ut venenatis non, blandit in orci. Suspendisse euismod leo at velit pharetra non congue augue semper. Cras vitae tortor massa.</p>
+			
+			<p>Suspendisse pellentesque mattis orci, non euismod dui pellentesque eget. Fusce posuere nisl in ligula interdum eget dapibus sem malesuada. Etiam eu ullamcorper neque. Maecenas eget sapien augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc felis diam, dictum ornare laoreet eget, semper sit amet arcu. Suspendisse ut pulvinar nisl. Quisque congue sem vel purus pharetra blandit. Praesent eget ante risus. Donec metus dui, molestie ac elementum et, fermentum nec ipsum.</p>
+			
+			<p>Suspendisse pellentesque mattis orci, non euismod dui pellentesque eget. Fusce posuere nisl in ligula interdum eget dapibus sem malesuada. Etiam eu ullamcorper neque. Maecenas eget sapien augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc felis diam, dictum ornare laoreet eget, semper sit amet arcu. Suspendisse ut pulvinar nisl. Quisque congue sem vel purus pharetra blandit. Praesent eget ante risus. Donec metus dui, molestie ac elementum et, fermentum nec ipsum.</p>
+			
+			<p>Mauris sit amet leo sit amet urna pellentesque lobortis in auctor metus. Aenean justo risus, accumsan quis dapibus sit amet, dignissim ut nibh. Suspendisse varius augue a elit eleifend vel congue felis tempus. Sed vitae hendrerit lacus. Pellentesque metus metus, lacinia sollicitudin convallis nec, tempus at est. Quisque id turpis ante. Fusce dui elit, pellentesque eu bibendum eu, sollicitudin ac ante. Pellentesque a nisi felis. Praesent vel odio non enim tristique interdum sed pulvinar mi. Nam justo libero, semper ac egestas vitae, condimentum et velit.</p>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis posuere condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris vitae mollis dui. Praesent porttitor quam lorem. Phasellus ullamcorper ligula vitae augue eleifend faucibus. Donec elementum nulla eu erat feugiat nec bibendum purus facilisis. Vestibulum tincidunt, lectus sed tristique condimentum, odio justo faucibus diam, sed imperdiet metus dui non augue. Ut felis enim, accumsan id tempor vitae, rutrum ut sem. Maecenas pulvinar bibendum lectus vel malesuada. Duis sodales ultricies congue. Maecenas id diam neque. Fusce ac interdum felis. Donec dictum massa eu enim aliquam rhoncus. Donec in dui diam. Aenean nisl risus, iaculis in convallis eu, condimentum a metus. Fusce ut purus odio. Curabitur vitae enim id nisl dignissim varius vitae vel dui. Aenean scelerisque ante vitae quam tempor non dignissim mauris venenatis.</p>
+			
+			<p>Proin eleifend ornare gravida. Donec nunc ipsum, luctus eget iaculis sit amet, laoreet quis nisl. Curabitur euismod rutrum ornare. Morbi viverra rutrum purus non ullamcorper. Quisque sollicitudin elementum leo at lobortis. Vivamus nec dolor augue, sit amet blandit urna. Curabitur vitae elit id sem blandit tincidunt. Fusce aliquam sodales mauris vitae molestie. Aenean sit amet ligula sapien. Donec luctus ultrices condimentum. Fusce ac velit odio, sed luctus libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce orci neque, commodo quis dictum et, interdum vel diam. Curabitur congue, leo non commodo facilisis, quam magna rutrum enim, non malesuada dui mi vitae risus.</p>
+		</div>
+		<div id="footer">
+			<p>Copyright © 2010 - Some Company Blah Blah</p>
+		</div>
+	</div>
+
+
+</body>
+</html>

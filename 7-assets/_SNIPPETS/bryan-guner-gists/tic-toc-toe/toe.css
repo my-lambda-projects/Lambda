@@ -1,0 +1,66 @@
+body,
+button {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  font-size: 1.25em;
+}
+
+#game {
+  margin: auto;
+  width: 402px;
+}
+
+#tic-tac-toe-board {
+  display: grid;
+  height: 400px;
+  width: 400px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: black;
+  margin: 32px 0;
+}
+
+.actions {
+  display: flex;
+}
+
+.announcement {
+  font-size: 3em;
+  text-align: center;
+}
+
+.col-1 {
+  justify-self: start;
+}
+
+.col-2 {
+  justify-self: center;
+}
+
+.col-3 {
+  justify-self: end;
+}
+
+.row-1 {
+  align-self: start;
+}
+
+.row-2 {
+  align-self: center;
+}
+
+.row-3 {
+  align-self: end;
+}
+
+.spacer {
+  flex: 1 0 0px;
+}
+
+.square {
+  background-color: white;
+  height: 130px;
+  width: 130px;
+}

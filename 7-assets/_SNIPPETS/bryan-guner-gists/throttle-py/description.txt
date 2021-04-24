@@ -1,0 +1,1 @@
+    Decorator that prevents a function from being called more than once every     time period.

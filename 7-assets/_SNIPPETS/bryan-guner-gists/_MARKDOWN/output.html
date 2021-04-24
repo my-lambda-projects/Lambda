@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>#Useful Commands!</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">***</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">||</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">||</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">V</td>
+</tr>
+</tbody>
+</table>
+<h2 id="download-links-of-a-specific-file-extension-from-website">1. Download Links of a specific file extension from website</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"></a>
+<a class="sourceLine" id="cb1-2" title="2"> <span class="fu">wget</span> -r -A.pdf https://overapi.com/gitwget --wait=2 --level=inf --limit-rate=20K --recursive --page-requisites --user-agent=Mozilla --no-parent --convert-links --adjust-extension --no-clobber -e robots=off  </a></code></pre></div>
+<h2 id="download-website-for-ofline-use">2. Download Website for ofline use…</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">sudo</span> apt install httrack</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">httrack</span> --ext-depth=2 _**url**_</a></code></pre></div>
+<h2 id="section">——</h2>
+<h2 id="recursivley-remove-files-named-cookies.txt">3. Recursivley remove files named cookies.txt</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="fu">find</span> . -name cookies.txt -type f -exec rm -rf {} <span class="dt">\;</span></a></code></pre></div>
+<h2 id="section-1">——</h2>
+<h2 id="recursivley-remove-lines-of-text-contaning-the-string-badfolder-from-files-in-the-working-directory.">4. Recursivley remove lines of text contaning the string badFolder from files in the working directory.</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">find</span> . -type f -exec sed -i <span class="st">&#39;/badFolder/d&#39;</span> ./* {} <span class="dt">\;</span></a></code></pre></div>
+<h2 id="section-2">——</h2>
+<h2 id="recursivley-install-node_modules">5. Recursivley Install node_modules</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">npm</span> i -g recursive-install</a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="ex">npm-recursive-install</span></a></code></pre></div>
+<h2 id="section-3">——</h2>
+<h2 id="recursivley-exicute-any-sequence-of-commands">6. Recursivley Exicute any sequence of commands</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span><span class="fu"> RecurseDirs ()</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="va">oldIFS=$IFS</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="va">IFS=</span><span class="st">$&#39;</span><span class="dt">\n</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="kw">for</span> <span class="ex">f</span> in <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  </a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="co"># YOUR CODE HERE!</span></a>
+<a class="sourceLine" id="cb6-9" title="9">   <span class="kw">for</span> <span class="fu">file</span> in *<span class="kw">;</span> <span class="kw">do</span> <span class="fu">mv</span> <span class="st">&quot;</span><span class="va">$file</span><span class="st">&quot;</span> <span class="kw">`</span><span class="bu">echo</span> <span class="va">$file</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="st">&#39; &#39;</span> <span class="st">&#39;_&#39;</span><span class="kw">`</span> <span class="kw">;</span> <span class="kw">done</span></a>
+<a class="sourceLine" id="cb6-10" title="10">  </a>
+<a class="sourceLine" id="cb6-11" title="11">  </a>
+<a class="sourceLine" id="cb6-12" title="12">        <span class="kw">if [[</span> <span class="ot">-d</span> <span class="st">&quot;</span><span class="va">${f}</span><span class="st">&quot;</span><span class="kw"> ]]</span>; <span class="kw">then</span></a>
+<a class="sourceLine" id="cb6-13" title="13">            <span class="bu">cd</span> <span class="st">&quot;</span><span class="va">${f}</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb6-14" title="14">            <span class="ex">RecurseDirs</span> <span class="va">$(</span><span class="fu">ls</span> -1 <span class="st">&quot;.&quot;</span><span class="va">)</span></a>
+<a class="sourceLine" id="cb6-15" title="15">            <span class="bu">cd</span> ..</a>
+<a class="sourceLine" id="cb6-16" title="16">        <span class="kw">fi</span></a>
+<a class="sourceLine" id="cb6-17" title="17">    <span class="kw">done</span></a>
+<a class="sourceLine" id="cb6-18" title="18">    <span class="va">IFS=$oldIFS</span></a>
+<a class="sourceLine" id="cb6-19" title="19"><span class="kw">}</span></a>
+<a class="sourceLine" id="cb6-20" title="20"><span class="ex">RecurseDirs</span> <span class="st">&quot;./&quot;</span></a>
+<a class="sourceLine" id="cb6-21" title="21"></a></code></pre></div>
+<h2 id="section-4">——-</h2>
+<h2 id="copy-any-text-between-script-tags-in-a-file-called-example.html-to-be-inserted-into-a-new-file-out.js">7. Copy any text between &lt;<strong>script</strong>&gt; tags in a file called <em>example.html</em> to be inserted into a new file: <em>out.js</em></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">sed</span> -n -e <span class="st">&#39;/&lt;script&gt;/,/&lt;\/script&gt;/p&#39;</span> example.html <span class="op">&gt;</span>out.js</a></code></pre></div>
+<h2 id="section-5">——</h2>
+<h2 id="recursivley-delete-node_modules-folders">8. Recursivley Delete node_modules folders</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">find</span> . -name <span class="st">&#39;node_modules&#39;</span> -type d -print -prune -exec rm -rf <span class="st">&#39;{}&#39;</span> +</a></code></pre></div>
+<h2 id="section-6">——</h2>
+<h2 id="sanatize-file-and-folder-names-to-remove-illegal-characters-and-reserved-words.">9. Sanatize file and folder names to remove illegal characters and reserved words.</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="fu">sanitize()</span> <span class="kw">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="bu">shopt</span> -s extglob<span class="kw">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="va">filename=$(</span><span class="fu">basename</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span><span class="va">)</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="va">directory=$(</span><span class="fu">dirname</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span><span class="va">)</span></a>
+<a class="sourceLine" id="cb9-6" title="6"></a>
+<a class="sourceLine" id="cb9-7" title="7">  <span class="va">filename_clean=$(</span><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&#39;s/[\\/:\*\?&quot;&lt;&gt;\|\x01-\x1F\x7F]//g&#39;</span> -e <span class="st">&#39;s/^\(nul\|prn\|con\|lpt[0-9]\|com[0-9]\|aux\)\(\.\|$\)//i&#39;</span> -e <span class="st">&#39;s/^\.*$//&#39;</span> -e <span class="st">&#39;s/^$/NONAME/&#39;</span><span class="va">)</span></a>
+<a class="sourceLine" id="cb9-8" title="8"></a>
+<a class="sourceLine" id="cb9-9" title="9">  <span class="kw">if</span> <span class="kw">(</span><span class="bu">test</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st">&quot;</span> != <span class="st">&quot;</span><span class="va">$filename_clean</span><span class="st">&quot;</span><span class="kw">)</span></a>
+<a class="sourceLine" id="cb9-10" title="10">  <span class="kw">then</span></a>
+<a class="sourceLine" id="cb9-11" title="11">    <span class="fu">mv</span> -v <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">$directory</span><span class="st">/</span><span class="va">$filename_clean</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb9-12" title="12">  <span class="kw">fi</span></a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="kw">}</span></a>
+<a class="sourceLine" id="cb9-14" title="14"></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="bu">export</span> -f <span class="va">sanitize</span></a>
+<a class="sourceLine" id="cb9-16" title="16"></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="fu">sanitize_dir()</span> <span class="kw">{</span></a>
+<a class="sourceLine" id="cb9-18" title="18">  <span class="fu">find</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span> -depth -exec bash -c <span class="st">&#39;sanitize &quot;$0&quot;&#39;</span> {<span class="kw">}</span> <span class="dt">\;</span></a>
+<a class="sourceLine" id="cb9-19" title="19"></a>
+<a class="sourceLine" id="cb9-20" title="20">}</a>
+<a class="sourceLine" id="cb9-21" title="21"></a>
+<a class="sourceLine" id="cb9-22" title="22"><span class="ex">sanitize_dir</span> <span class="st">&#39;/path/to/somewhere&#39;</span></a></code></pre></div>
+<h2 id="section-7">——</h2>
+<h2 id="start-postgresql-in-terminal">10. Start postgresql in terminal</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"></a>
+<a class="sourceLine" id="cb10-2" title="2"> <span class="fu">sudo</span> -u postgres psql</a></code></pre></div>
+<h2 id="section-8">——</h2>
+<h2 id="add-closing-body-and-script-tags-to-each-html-file-in-working-directory.">11. Add closing body and script tags to each html file in working directory.</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">for</span> <span class="ex">f</span> in * <span class="kw">;</span> <span class="kw">do</span> </a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="fu">mv</span> <span class="st">&quot;</span><span class="va">$f</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">$f</span><span class="st">.html&quot;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="ex">doneecho</span> <span class="st">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span> <span class="kw">|</span> <span class="fu">tee</span> -a *.html  </a></code></pre></div>
+<h2 id="section-9">——</h2>
+<h2 id="batch-download-videos">12. Batch Download Videos</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="co">#!/bin/bash </span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"> </a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="va">link=</span><span class="st">&quot;#insert url here#&quot;</span> </a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="co">#links were a set of strings with just the index of the video as the variable </span></a>
+<a class="sourceLine" id="cb12-6" title="6"> </a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="va">num=</span>3  </a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="co">#first video was numbered 3 - weird.  </span></a>
+<a class="sourceLine" id="cb12-9" title="9"> </a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="va">ext=</span><span class="st">&quot;.mp4&quot;</span> </a>
+<a class="sourceLine" id="cb12-11" title="11"> </a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="kw">while</span><span class="bu"> [</span> <span class="va">$num</span> <span class="ot">-le</span> 66<span class="bu"> ]</span> </a>
+<a class="sourceLine" id="cb12-13" title="13"><span class="kw">do</span> </a>
+<a class="sourceLine" id="cb12-14" title="14">      <span class="fu">wget</span> <span class="va">$link$num$ext</span> -P ~/Downloads/ </a>
+<a class="sourceLine" id="cb12-15" title="15">      <span class="va">num=$(($num</span>+1<span class="va">))</span> </a>
+<a class="sourceLine" id="cb12-16" title="16"><span class="kw">done</span> </a></code></pre></div>
+<h2 id="section-10">——</h2>
+<h2 id="change-file-extension-from-.txt-to-.doc-for-all-files-in-working-directory.">13. Change File Extension from ‘.txt’ to .doc for all files in working directory.</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" title="1"></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="fu">sudo</span> apt install rename</a>
+<a class="sourceLine" id="cb13-3" title="3"></a>
+<a class="sourceLine" id="cb13-4" title="4"></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="ex">rename</span> <span class="st">&#39;s/\.txt$/.doc/&#39;</span> *.txt</a></code></pre></div>
+<h2 id="recursivley-change-any-file-with-extension-.js.download-to-.js">14. Recursivley change any file with extension .js.download to .js</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="fu">find</span> . -name <span class="st">&quot;*.\.js\.download&quot;</span> -exec rename <span class="st">&#39;s/\.js\.download$/.js/&#39;</span> <span class="st">&#39;{}&#39;</span> +</a></code></pre></div>
+<h2 id="section-11">——</h2>
+<h2 id="copy-folder-structure-including-only-files-of-a-specific-extension-into-an-ouput-folder">15. Copy folder structure including only files of a specific extension into an ouput Folder</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="fu">find</span> . -name <span class="st">&#39;*.md&#39;</span> <span class="kw">|</span> <span class="fu">cpio</span> -pdm <span class="st">&#39;./../outputFolder&#39;</span></a></code></pre></div>
+<h2 id="section-12">——</h2>
+<h2 id="pandoc"># <strong>PANDOC!!!</strong></h2>
+<hr />
+<blockquote>
+<p>sudo apt install pandoc</p>
+<p>1```bash pandoc -s file.txt -o file.rtf—</p>
+</blockquote>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"></a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="ex">pandoc</span> *.md<span class="op">&gt;</span> -o _example.html</a></code></pre></div>
+<h2 id="section-13">——</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" title="1"><span class="fu">find</span> ./ -iname <span class="st">&quot;*.html&quot;</span> -type f -exec sh -c <span class="st">&#39;pandoc &quot;${0}&quot; -o &quot;${0%.html}.md&quot;&#39;</span> {} <span class="dt">\;</span></a></code></pre></div>
+<h2 id="section-14">——</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"></a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="fu">find</span> ./ -iname <span class="st">&quot;*.md&quot;</span> -type f -exec sh -c <span class="st">&#39;pandoc &quot;${0}&quot; -o &quot;${0%.md}.html&quot;&#39;</span> {} <span class="dt">\;</span></a>
+<a class="sourceLine" id="cb18-4" title="4"></a>
+<a class="sourceLine" id="cb18-5" title="5"></a>
+<a class="sourceLine" id="cb18-6" title="6"><span class="kw">for</span> <span class="ex">f</span> in *.html<span class="kw">;</span> <span class="kw">do</span> <span class="bu">printf</span> <span class="st">&#39;%s\n&#39;</span> 0a <span class="st">&#39;&lt;!DOCTYPE html&gt;</span></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="st">&lt;html lang=&quot;en&quot;&gt;</span></a>
+<a class="sourceLine" id="cb18-8" title="8"><span class="st">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb18-9" title="9"><span class="st">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span></a>
+<a class="sourceLine" id="cb18-10" title="10"><span class="st">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span></a>
+<a class="sourceLine" id="cb18-11" title="11"><span class="st">  &lt;title&gt;Document&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb18-12" title="12"><span class="st">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css&quot; integrity=&quot;sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z&quot; crossorigin=&quot;anonymous&quot;&gt;</span></a>
+<a class="sourceLine" id="cb18-13" title="13"><span class="st">&lt;link rel=&quot;stylesheet&quot; href=&quot;./prism.css&quot;&gt;</span></a>
+<a class="sourceLine" id="cb18-14" title="14"><span class="st">&lt;script async defer src=&quot;./prism.js&quot;&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb18-15" title="15"><span class="st">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb18-16" title="16"><span class="st">&lt;body&gt;;&#39;</span> . x <span class="kw">|</span> <span class="ex">ex</span> <span class="st">&quot;</span><span class="va">$f</span><span class="st">&quot;</span><span class="kw">;</span> <span class="kw">done</span></a>
+<a class="sourceLine" id="cb18-17" title="17"><span class="bu">echo</span> <span class="st">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span> <span class="kw">|</span> <span class="fu">tee</span> -a *.html</a></code></pre></div>
+<h2 id="section-15">——</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">for</span> <span class="ex">x</span> in <span class="st">&quot;./&quot;</span>/*/<span class="kw">;</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb19-2" title="2">  <span class="kw">(</span><span class="bu">cd</span> <span class="st">&quot;</span><span class="va">$x</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb19-3" title="3">   <span class="va">files=(</span>*<span class="va">)</span></a>
+<a class="sourceLine" id="cb19-4" title="4">   <span class="bu">printf</span> <span class="st">&#39;%s\n&#39;</span> <span class="st">&quot;</span><span class="va">${files[@]}</span><span class="st">&quot;</span> <span class="op">&gt;</span> deleteme.txt</a>
+<a class="sourceLine" id="cb19-5" title="5">  <span class="kw">)</span></a>
+<a class="sourceLine" id="cb19-6" title="6"><span class="kw">done</span></a></code></pre></div>
+<h2 id="section-16">——</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" title="1"><span class="fu">find</span> . -size +75M -a -print -a -exec rm -f {} <span class="dt">\;</span></a></code></pre></div>
+<h2 id="section-17">——</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" title="1"><span class="fu">find</span> . <span class="dt">\(</span> -name <span class="st">&quot;.git&quot;</span> -o -name <span class="st">&quot;.gitignore&quot;</span> -o -name <span class="st">&quot;.gitmodules&quot;</span> -o -name <span class="st">&quot;.gitattributes&quot;</span> <span class="dt">\)</span> -exec rm -rf -- {} <span class="ex">+</span></a></code></pre></div>
+<h2 id="section-18">——</h2>
+<blockquote>
+<p>check what you are about to delete before deleting:</p>
+</blockquote>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" title="1"><span class="fu">find</span> . -name <span class="st">&quot;*.zip&quot;</span> -type f -print</a>
+<a class="sourceLine" id="cb22-2" title="2"></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="co">#Delete:</span></a>
+<a class="sourceLine" id="cb22-4" title="4"></a>
+<a class="sourceLine" id="cb22-5" title="5"><span class="fu">find</span> . -name <span class="st">&quot;*.zip&quot;</span> -type f -print -delete#!/bin/sh</a></code></pre></div>
+<h2 id="section-19">——</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" title="1"><span class="fu">find</span> ./ <span class="kw">|</span> <span class="fu">sed</span> -E -e <span class="st">&#39;s/([^ ]+[ ]+){8}//&#39;</span> <span class="kw">|</span> <span class="fu">grep</span> -i <span class="st">&quot;\.*$&quot;</span><span class="op">&gt;</span>files</a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="va">listing=</span><span class="st">&quot;files&quot;</span></a>
+<a class="sourceLine" id="cb23-3" title="3"></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="va">out=</span><span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb23-5" title="5"></a>
+<a class="sourceLine" id="cb23-6" title="6"><span class="va">html=</span><span class="st">&quot;index.html&quot;</span></a>
+<a class="sourceLine" id="cb23-7" title="7"><span class="va">out=</span><span class="st">&quot;basename </span><span class="va">$out</span><span class="st">.html&quot;</span></a>
+<a class="sourceLine" id="cb23-8" title="8"><span class="va">html=</span><span class="st">&quot;index.html&quot;</span></a>
+<a class="sourceLine" id="cb23-9" title="9"><span class="fu">cmd()</span> <span class="kw">{</span></a>
+<a class="sourceLine" id="cb23-10" title="10"></a>
+<a class="sourceLine" id="cb23-11" title="11">  <span class="bu">echo</span> <span class="st">&#39;  &lt;!DOCTYPE html&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-12" title="12">  <span class="bu">echo</span> <span class="st">&#39;&lt;html&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-13" title="13">  <span class="bu">echo</span> <span class="st">&#39;&lt;head&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-14" title="14"></a>
+<a class="sourceLine" id="cb23-15" title="15">  <span class="bu">echo</span> <span class="st">&#39;  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot;&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-16" title="16"></a>
+<a class="sourceLine" id="cb23-17" title="17">  <span class="bu">echo</span> <span class="st">&#39;  &lt;meta name=&quot;Author&quot; content=&quot;Bryan Guner&quot;&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-18" title="18">  <span class="bu">echo</span> <span class="st">&#39;&lt;link rel=&quot;stylesheet&quot; href=&quot;./assets/prism.css&quot;&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-19" title="19">  <span class="bu">echo</span> <span class="st">&#39; &lt;link rel=&quot;stylesheet&quot; href=&quot;./assets/style.css&quot;&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-20" title="20">  <span class="bu">echo</span> <span class="st">&#39; &lt;**script** async defer src=&quot;./assets/prism.js&quot;&gt;&lt;/**script**&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-21" title="21"></a>
+<a class="sourceLine" id="cb23-22" title="22">  <span class="bu">echo</span> <span class="st">&quot;  &lt;title&gt; directory &lt;/title&gt;&quot;</span></a>
+<a class="sourceLine" id="cb23-23" title="23"></a>
+<a class="sourceLine" id="cb23-24" title="24">  <span class="bu">echo</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb23-25" title="25">  <span class="bu">echo</span> <span class="st">&#39;&lt;style&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-26" title="26"></a>
+<a class="sourceLine" id="cb23-27" title="27"></a>
+<a class="sourceLine" id="cb23-28" title="28"><span class="bu">echo</span> <span class="st">&#39;    a {&#39;</span></a>
+<a class="sourceLine" id="cb23-29" title="29"><span class="bu">echo</span> <span class="st">&#39;      color: black;&#39;</span></a>
+<a class="sourceLine" id="cb23-30" title="30"><span class="bu">echo</span> <span class="st">&#39;    }&#39;</span></a>
+<a class="sourceLine" id="cb23-31" title="31"><span class="bu">echo</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb23-32" title="32"><span class="bu">echo</span> <span class="st">&#39;    li {&#39;</span></a>
+<a class="sourceLine" id="cb23-33" title="33"><span class="bu">echo</span> <span class="st">&#39;      border: 1px solid black !important;&#39;</span></a>
+<a class="sourceLine" id="cb23-34" title="34"><span class="bu">echo</span> <span class="st">&#39;      font-size: 20px;&#39;</span></a>
+<a class="sourceLine" id="cb23-35" title="35"><span class="bu">echo</span> <span class="st">&#39;      letter-spacing: 0px;&#39;</span></a>
+<a class="sourceLine" id="cb23-36" title="36"><span class="bu">echo</span> <span class="st">&#39;      font-weight: 700;&#39;</span></a>
+<a class="sourceLine" id="cb23-37" title="37"><span class="bu">echo</span> <span class="st">&#39;      line-height: 16px;&#39;</span></a>
+<a class="sourceLine" id="cb23-38" title="38"><span class="bu">echo</span> <span class="st">&#39;      text-decoration: none !important;&#39;</span></a>
+<a class="sourceLine" id="cb23-39" title="39"><span class="bu">echo</span> <span class="st">&#39;      text-transform: uppercase;&#39;</span></a>
+<a class="sourceLine" id="cb23-40" title="40"><span class="bu">echo</span> <span class="st">&#39;      background: #194ccdaf !important;&#39;</span></a>
+<a class="sourceLine" id="cb23-41" title="41"><span class="bu">echo</span> <span class="st">&#39;      color: black !important;&#39;</span></a>
+<a class="sourceLine" id="cb23-42" title="42"><span class="bu">echo</span> <span class="st">&#39;      border: none;&#39;</span></a>
+<a class="sourceLine" id="cb23-43" title="43"><span class="bu">echo</span> <span class="st">&#39;      cursor: pointer;&#39;</span></a>
+<a class="sourceLine" id="cb23-44" title="44"><span class="bu">echo</span> <span class="st">&#39;      justify-content: center;&#39;</span></a>
+<a class="sourceLine" id="cb23-45" title="45"><span class="bu">echo</span> <span class="st">&#39;      padding: 30px 60px;&#39;</span></a>
+<a class="sourceLine" id="cb23-46" title="46"><span class="bu">echo</span> <span class="st">&#39;      height: 48px;&#39;</span></a>
+<a class="sourceLine" id="cb23-47" title="47"><span class="bu">echo</span> <span class="st">&#39;      text-align: center;&#39;</span></a>
+<a class="sourceLine" id="cb23-48" title="48"><span class="bu">echo</span> <span class="st">&#39;      white-space: normal;&#39;</span></a>
+<a class="sourceLine" id="cb23-49" title="49"><span class="bu">echo</span> <span class="st">&#39;      border-radius: 10px;&#39;</span></a>
+<a class="sourceLine" id="cb23-50" title="50"><span class="bu">echo</span> <span class="st">&#39;      min-width: 45em;&#39;</span></a>
+<a class="sourceLine" id="cb23-51" title="51"><span class="bu">echo</span> <span class="st">&#39;      padding: 1.2em 1em 0;&#39;</span></a>
+<a class="sourceLine" id="cb23-52" title="52"><span class="bu">echo</span> <span class="st">&#39;      box-shadow: 0 0 5px;&#39;</span></a>
+<a class="sourceLine" id="cb23-53" title="53"><span class="bu">echo</span> <span class="st">&#39;      margin: 1em;&#39;</span></a>
+<a class="sourceLine" id="cb23-54" title="54"><span class="bu">echo</span> <span class="st">&#39;      display: grid;&#39;</span></a>
+<a class="sourceLine" id="cb23-55" title="55"><span class="bu">echo</span> <span class="st">&#39;      -webkit-border-radius: 10px;&#39;</span></a>
+<a class="sourceLine" id="cb23-56" title="56"><span class="bu">echo</span> <span class="st">&#39;      -moz-border-radius: 10px;&#39;</span></a>
+<a class="sourceLine" id="cb23-57" title="57"><span class="bu">echo</span> <span class="st">&#39;      -ms-border-radius: 10px;&#39;</span></a>
+<a class="sourceLine" id="cb23-58" title="58"><span class="bu">echo</span> <span class="st">&#39;      -o-border-radius: 10px;&#39;</span></a>
+<a class="sourceLine" id="cb23-59" title="59"><span class="bu">echo</span> <span class="st">&#39;    }&#39;</span></a>
+<a class="sourceLine" id="cb23-60" title="60"><span class="bu">echo</span> <span class="st">&#39;  &lt;/style&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-61" title="61">  <span class="bu">echo</span> <span class="st">&#39;&lt;/head&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-62" title="62"></a>
+<a class="sourceLine" id="cb23-63" title="63">  <span class="bu">echo</span> <span class="st">&#39;&lt;body&gt;&#39;</span></a>
+<a class="sourceLine" id="cb23-64" title="64"></a>
+<a class="sourceLine" id="cb23-65" title="65">  <span class="bu">echo</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb23-66" title="66"></a>
+<a class="sourceLine" id="cb23-67" title="67">  <span class="co">#################### continue with the HTML stuff:</span></a>
+<a class="sourceLine" id="cb23-68" title="68"></a>
+<a class="sourceLine" id="cb23-69" title="69">  <span class="bu">echo</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb23-70" title="70"></a>
+<a class="sourceLine" id="cb23-71" title="71">  <span class="bu">echo</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb23-72" title="72"></a>
+<a class="sourceLine" id="cb23-73" title="73">  <span class="bu">echo</span> <span class="st">&quot;&lt;ul&gt;&quot;</span></a>
+<a class="sourceLine" id="cb23-74" title="74"></a>
+<a class="sourceLine" id="cb23-75" title="75">  <span class="fu">awk</span> <span class="st">&#39;{print &quot;&lt;li&gt;&lt;a href=\&quot;&quot;$1&quot;\&quot;&gt;&quot;,$1,&quot;&amp;nbsp;&lt;/a&gt;&lt;/li&gt;&quot;}&#39;</span> <span class="va">$listing</span></a>
+<a class="sourceLine" id="cb23-76" title="76"></a>
+<a class="sourceLine" id="cb23-77" title="77">  <span class="co"># awk &#39;{print &quot;&lt;li&gt;&quot;};</span></a>
+<a class="sourceLine" id="cb23-78" title="78"></a>
+<a class="sourceLine" id="cb23-79" title="79">  <span class="co">#   {print &quot; &lt;a href=\&quot;&quot;$1&quot;\&quot;&gt;&quot;,$1,&quot;&lt;/a&gt;&lt;/li&gt;&amp;nbsp;&quot;}&#39; \ $listing</span></a>
+<a class="sourceLine" id="cb23-80" title="80"></a>
+<a class="sourceLine" id="cb23-81" title="81">  <span class="bu">echo</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb23-82" title="82"></a>
+<a class="sourceLine" id="cb23-83" title="83">  <span class="bu">echo</span> <span class="st">&quot;&lt;/ul&gt;&quot;</span></a>
+<a class="sourceLine" id="cb23-84" title="84"></a>
+<a class="sourceLine" id="cb23-85" title="85">  <span class="bu">echo</span> <span class="st">&quot;&lt;/body&gt;&quot;</span></a>
+<a class="sourceLine" id="cb23-86" title="86"></a>
+<a class="sourceLine" id="cb23-87" title="87">  <span class="bu">echo</span> <span class="st">&quot;&lt;/html&gt;&quot;</span></a>
+<a class="sourceLine" id="cb23-88" title="88"></a>
+<a class="sourceLine" id="cb23-89" title="89"><span class="kw">}</span></a>
+<a class="sourceLine" id="cb23-90" title="90"></a>
+<a class="sourceLine" id="cb23-91" title="91"><span class="ex">---</span></a>
+<a class="sourceLine" id="cb23-92" title="92"></a>
+<a class="sourceLine" id="cb23-93" title="93"><span class="ex">cmd</span> <span class="va">$listing</span> --sort=extension <span class="op">&gt;&gt;</span><span class="va">$html</span></a></code></pre></div>
+<h2 id="section-20">——</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb24-1" title="1"><span class="fu">sudo</span> apt install uniq</a>
+<a class="sourceLine" id="cb24-2" title="2"></a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4"></a>
+<a class="sourceLine" id="cb24-5" title="5"><span class="fu">uniq</span> -u input.txt output.txt</a></code></pre></div>
+<h2 id="section-21">——</h2>
+<pre class="git"><code>git filter-branch --index-filter &#39;git rm -r --cached --ignore-unmatch assets/_website-components/0-DOJO/widgets-master/output/info/stats.json&#39; HEAD</code></pre>
+<h2 id="section-22">——</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb26-1" title="1"><span class="fu">find</span> ./ <span class="kw">|</span> <span class="fu">grep</span> -i <span class="st">&quot;\.html*$&quot;</span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="fu">ls</span> -R <span class="st">&#39;./&#39;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="st">/:$/&amp;&amp;f{s=$0;f=0}</span></a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="st">/:$/&amp;&amp;!f{sub(/:$/,&quot;&quot;);s=$0;f=1;next}</span></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="st">NF&amp;&amp;f{ print s&quot;/&quot;$0 }&#39;</span><span class="op">&gt;</span>listing.md</a></code></pre></div>
+<h2 id="section-23">——</h2>
+<h1 id="recursivley-remove-from-all-html-files-any-lines-contaning-the-string-badtext">Recursivley remove from all html files any lines contaning the string “badText”</h1>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb27-1" title="1"><span class="fu">find</span> . -type f -exec sed -i <span class="st">&#39;/badText/d&#39;</span> ./*.html {} <span class="dt">\;</span></a></code></pre></div>
+<h2 id="section-24">——</h2>
+<p>#install unzip:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb28-1" title="1"><span class="fu">sudo</span> apt install unzip</a>
+<a class="sourceLine" id="cb28-2" title="2"></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="co"># recursivley unzip all zip files into a folder by the same name:</span></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="fu">find</span> . -name <span class="st">&quot;*.zip&quot;</span> <span class="kw">|</span> <span class="kw">while</span> <span class="bu">read</span> <span class="va">filename</span>; <span class="kw">do</span> <span class="fu">unzip</span> -o -d <span class="st">&quot;</span><span class="kw">`</span><span class="fu">dirname</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st">&quot;</span><span class="kw">`</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">$filename</span><span class="st">&quot;</span><span class="kw">;</span> <span class="kw">done</span>;</a></code></pre></div>
+<hr />
+<h1 id="recursivley-delete-.zip-files-when-done">recursivley delete .zip files when done:</h1>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb29-1" title="1"><span class="fu">find</span> . -name <span class="st">&quot;*.zip&quot;</span> -type f -print -delete</a></code></pre></div>
+<h2 id="section-25">——</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb30-1" title="1"><span class="va">n=</span>1;</a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="va">max=</span>50;</a>
+<a class="sourceLine" id="cb30-3" title="3"><span class="kw">while</span><span class="bu"> [</span> <span class="st">&quot;</span><span class="va">$n</span><span class="st">&quot;</span> <span class="ot">-le</span> <span class="st">&quot;</span><span class="va">$max</span><span class="st">&quot;</span><span class="bu"> ]</span>; <span class="kw">do</span></a>
+<a class="sourceLine" id="cb30-4" title="4">  <span class="fu">mkdir</span> <span class="st">&quot;s</span><span class="va">$n</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb30-5" title="5">  <span class="va">n=</span><span class="kw">`</span><span class="fu">expr</span> <span class="st">&quot;</span><span class="va">$n</span><span class="st">&quot;</span> + 1<span class="kw">`</span>;</a>
+<a class="sourceLine" id="cb30-6" title="6"><span class="kw">done</span> </a></code></pre></div>
+<h2 id="section-26">——</h2>
+<pre class="git"><code>  git config --global credential.helper store</code></pre>
+<h2 id="section-27">——</h2>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb32-1" title="1"></a>
+<a class="sourceLine" id="cb32-2" title="2"></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="fu">sed</span> -i <span class="st">&#39;/target-string/d&#39;</span> ./js-in-one-page.html</a></code></pre></div>
+<h1 id="examples">examples:</h1>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb33-1" title="1"><span class="fu">sed</span> -i <span class="st">&#39;/\.git/d&#39;</span> ./index.html</a>
+<a class="sourceLine" id="cb33-2" title="2"></a>
+<a class="sourceLine" id="cb33-3" title="3"><span class="co"># Recursive</span></a>
+<a class="sourceLine" id="cb33-4" title="4"></a>
+<a class="sourceLine" id="cb33-5" title="5"></a>
+<a class="sourceLine" id="cb33-6" title="6"><span class="fu">find</span> . -type f -a <span class="dt">\(</span> -name <span class="st">&quot;*.html&quot;</span> -o -name <span class="st">&quot;*.js&quot;</span> -o -name <span class="st">&quot;*.css&quot;</span> -o -name <span class="st">&quot;*.md&quot;</span> <span class="dt">\)</span> -a -exec sed -i  <span class="st">&#39;/BADSTRING/d&#39;</span> <span class="st">&#39;{}&#39;</span> +</a></code></pre></div>
+<h2 id="section-28">——</h2>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb34-1" title="1"><span class="co"># recursivley remove empty files</span></a>
+<a class="sourceLine" id="cb34-2" title="2"></a>
+<a class="sourceLine" id="cb34-3" title="3"><span class="fu">find</span> . -empty -type f -print -delete</a>
+<a class="sourceLine" id="cb34-4" title="4"></a>
+<a class="sourceLine" id="cb34-5" title="5"></a>
+<a class="sourceLine" id="cb34-6" title="6"></a>
+<a class="sourceLine" id="cb34-7" title="7"><span class="co"># recursivley remove empty folders</span></a>
+<a class="sourceLine" id="cb34-8" title="8"><span class="fu">find</span> . -empty -type d -print -delete</a></code></pre></div>
+<h2 id="section-29">——</h2>
+<h1 id="recursively-remove-.git-folder-.gitignore-file-and-.gitmodules-file-and-.gitattributes-file">recursively remove .git folder, .gitignore file and .gitmodules file and .gitattributes file</h1>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb35-1" title="1"><span class="fu">find</span> . <span class="dt">\(</span> -name <span class="st">&quot;.git&quot;</span> -o -name <span class="st">&quot;.gitignore&quot;</span> -o -name <span class="st">&quot;.gitmodules&quot;</span> -o -name <span class="st">&quot;.gitattributes&quot;</span> <span class="dt">\)</span> -exec rm -rf -- {} <span class="ex">+</span></a></code></pre></div>
+<h2 id="section-30">——</h2>
+<h1 id="recursivley-remove-security-release-changelog-license-contributing-files">Recursivley remove security, release, changelog, License &amp; contributing files</h1>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb36-1" title="1"></a>
+<a class="sourceLine" id="cb36-2" title="2"></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="fu">find</span> . <span class="dt">\(</span> -name <span class="st">&quot;*SECURITY.txt&quot;</span> -o -name <span class="st">&quot;*RELEASE.txt&quot;</span> -o  -name <span class="st">&quot;*CHANGELOG.txt&quot;</span> -o -name <span class="st">&quot;*LICENSE.txt&quot;</span> -o -name <span class="st">&quot;*CONTRIBUTING.txt&quot;</span> -name <span class="st">&quot;*HISTORY.md&quot;</span> -o -name <span class="st">&quot;*LICENSE&quot;</span> -o -name <span class="st">&quot;*SECURITY.md&quot;</span> -o -name <span class="st">&quot;*RELEASE.md&quot;</span> -o  -name <span class="st">&quot;*CHANGELOG.md&quot;</span> -o -name <span class="st">&quot;*LICENSE.md&quot;</span> -o -name <span class="st">&quot;*CODE_OF_CONDUCT.md&quot;</span> -o -name <span class="st">&quot;*CONTRIBUTING.md&quot;</span> <span class="dt">\)</span> -exec rm -rf -- {} <span class="ex">+</span></a></code></pre></div>
+<h2 id="section-31">——</h2>
+<form>
+  <input type="button" value="Go back!" onclick="history.back()">
+</form>
+  </body></html>

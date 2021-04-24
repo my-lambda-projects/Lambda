@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SpectrogramJS</title>
+    <style>
+canvas, svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.spectrogram {
+  position: relative;
+}
+
+.axis {
+  font: 14px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+}
+
+.axis line {
+  shape-rendering: crispEdges;
+  stroke: #444;
+  stroke-width: 1.0px;
+  stroke-dasharray: 2,4;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>SpectrogramJS</h1>
+    <p>Visualize sounds using a spectrogram - right in your browser!</p>
+
+    <div id="vis" class="spectrogram"></div>
+
+    <p><a href="https://github.com/vlandham/spectrogramJS">See how to use SpectrogramJS</a></p>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="spectrogram.js"></script>
+    <script>
+      var sample = new Spectrogram('bird_short.ogg', "#vis", {width:500, height:200, maxFrequency:8000});
+    </script>
+  </body>
+</html>
