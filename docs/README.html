@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="closure-and-scope">Closure-and-Scope</h1>
+<h2 id="visualizing-scope-and-closures">Visualizing Scope And Closures</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="dv">1</span>  <span class="kw">function</span> <span class="at">createCounter</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dv">2</span>      <span class="kw">let</span> counter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dv">3</span> </a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="dv">4</span>      <span class="cf">return</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="dv">5</span>         counter <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="dv">6</span>         <span class="cf">return</span> counter<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="dv">7</span>      <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="dv">8</span>  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="dv">9</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="dv">10</span>  <span class="kw">var</span> counter <span class="op">=</span> <span class="at">createCounter</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="dv">11</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="dv">12</span>  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;counter1: &quot;</span> <span class="op">+</span> <span class="at">counter</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="dv">13</span>  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;counter1: &quot;</span> <span class="op">+</span> <span class="at">counter</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="dv">14</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="dv">15</span>  <span class="kw">const</span> counter2 <span class="op">=</span> <span class="at">createCounter</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="dv">16</span>  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;counter2: &quot;</span> <span class="op">+</span> <span class="at">counter2</span>())<span class="op">;</span></a></code></pre></div>
+<p><code>t0: before line 1</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="dt">counter</span><span class="op">:</span> <span class="kw">undefined</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p><code>t1: after line 1</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="dt">counter</span><span class="op">:</span> <span class="kw">undefined</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">createCounter</span><span class="op">:</span> [Function#<span class="dv">1</span>#createCounter]</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p><code>t2: line 10</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="dt">counter</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="dt">createCounter</span><span class="op">:</span> [Function#<span class="dv">1</span>#createCounter]<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="dt">CCFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope</span></a>
+<a class="sourceLine" id="cb4-5" title="5">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]</a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p><code>t3: after line 12</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="dt">counter</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="dt">createCounter</span><span class="op">:</span> [Function#<span class="dv">1</span>#createCounter]<span class="op">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="dt">CCFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope</span></a>
+<a class="sourceLine" id="cb5-5" title="5">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-6" title="6">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="dt">AFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// anonymousFunctionScope</span></a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="op">}</span></a></code></pre></div>
+<p><code>t4: after line 13</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="dt">counter</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="dt">createCounter</span><span class="op">:</span> [Function#<span class="dv">1</span>#createCounter]<span class="op">,</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="dt">CCFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope</span></a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-6" title="6">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb6-7" title="7">        <span class="dt">AFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// returned</span></a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-10" title="10">        <span class="dt">AFS2</span><span class="op">:</span> <span class="op">{</span> <span class="co">// anonymousFunctionScope</span></a>
+<a class="sourceLine" id="cb6-11" title="11"></a>
+<a class="sourceLine" id="cb6-12" title="12">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-13" title="13">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-14" title="14"><span class="op">}</span></a></code></pre></div>
+<p><code>t5: after line 15</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="dt">counter</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="dt">createCounter</span><span class="op">:</span> [Function#<span class="dv">1</span>#createCounter]<span class="op">,</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="dt">CCFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope</span></a>
+<a class="sourceLine" id="cb7-5" title="5">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-6" title="6">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb7-7" title="7">        <span class="dt">AFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// returned</span></a>
+<a class="sourceLine" id="cb7-8" title="8"></a>
+<a class="sourceLine" id="cb7-9" title="9">        <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-10" title="10">        <span class="dt">AFS2</span><span class="op">:</span> <span class="op">{</span> <span class="co">// returned</span></a>
+<a class="sourceLine" id="cb7-11" title="11"></a>
+<a class="sourceLine" id="cb7-12" title="12">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-13" title="13">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-14" title="14">    <span class="dt">CCFS2</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope #2!</span></a>
+<a class="sourceLine" id="cb7-15" title="15">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-16" title="16">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">3</span>#anon]</a>
+<a class="sourceLine" id="cb7-17" title="17">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-18" title="18">    <span class="dt">counter2</span><span class="op">:</span> [Function#<span class="dv">3</span>#anon]</a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="op">}</span></a></code></pre></div>
+<p><code>t6: after line 16</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="dt">counter</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="dt">createCounter</span><span class="op">:</span> [Function#<span class="dv">1</span>#createCounter]<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="dt">CCFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope</span></a>
+<a class="sourceLine" id="cb8-5" title="5">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-6" title="6">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">2</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-7" title="7">        <span class="dt">AFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// returned</span></a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9">        <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-10" title="10">        <span class="dt">AFS2</span><span class="op">:</span> <span class="op">{</span> <span class="co">// returned</span></a>
+<a class="sourceLine" id="cb8-11" title="11"></a>
+<a class="sourceLine" id="cb8-12" title="12">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-13" title="13">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-14" title="14">    <span class="dt">CCFS2</span><span class="op">:</span> <span class="op">{</span> <span class="co">// createCounterFunctionScope #2!</span></a>
+<a class="sourceLine" id="cb8-15" title="15">        <span class="dt">counter</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-16" title="16">        <span class="dt">anon</span><span class="op">:</span> [Function#<span class="dv">3</span>#anon]<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-17" title="17">        <span class="dt">AFS</span><span class="op">:</span> <span class="op">{</span> <span class="co">// anonymousFunctionScope</span></a>
+<a class="sourceLine" id="cb8-18" title="18"></a>
+<a class="sourceLine" id="cb8-19" title="19">        <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-20" title="20">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-21" title="21">    <span class="dt">counter2</span><span class="op">:</span> [Function#<span class="dv">3</span>#anon]</a>
+<a class="sourceLine" id="cb8-22" title="22"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// Scope</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">// scope answers the question of where are my functions and variables available to me</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw">const</span> cohort <span class="op">=</span> <span class="st">&#39;Web43&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="va">console</span>.<span class="at">log</span>( cohort )</a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="co">// const and let are not attached to the window object but var is</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="co">// global variables are defined outside of functions or blocks of code and would be available to me anywhere in my program</span></a>
+<a class="sourceLine" id="cb9-7" title="7"></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="co">// functions are scoped similar to the way variable are scoped</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="kw">let</span> study <span class="op">=</span> <span class="st">&#39;HTML and CSS&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-10" title="10"></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="kw">function</span> <span class="at">printThree</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-12" title="12">  <span class="kw">let</span> study <span class="op">=</span> <span class="st">&#39;JavaScript&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-13" title="13">  <span class="cf">return</span> <span class="vs">`We are studying </span><span class="sc">${</span>study<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="va">console</span>.<span class="at">log</span>( <span class="at">printThree</span>() )<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-16" title="16"><span class="va">console</span>.<span class="at">log</span>(study)</a>
+<a class="sourceLine" id="cb9-17" title="17"></a>
+<a class="sourceLine" id="cb9-18" title="18">  <span class="co">/*</span></a>
+<a class="sourceLine" id="cb9-19" title="19"><span class="co">  | 12: 18: 41 | bryan @LAPTOP - 9 LGJ3JGS: [ d1 ] d1_exitstatus: 1 __________________________________________________________o &gt;</span></a>
+<a class="sourceLine" id="cb9-20" title="20"><span class="co">    node w3d1.js</span></a>
+<a class="sourceLine" id="cb9-21" title="21"><span class="co">  Web43</span></a>
+<a class="sourceLine" id="cb9-22" title="22"><span class="co">  We are studying JavaScript</span></a>
+<a class="sourceLine" id="cb9-23" title="23"><span class="co">  HTML and CSS</span></a>
+<a class="sourceLine" id="cb9-24" title="24"><span class="co">   </span></a>
+<a class="sourceLine" id="cb9-25" title="25"><span class="co">  */</span></a>
+<a class="sourceLine" id="cb9-26" title="26"></a>
+<a class="sourceLine" id="cb9-27" title="27"><span class="co">// const dog = &#39;Ada&#39;</span></a>
+<a class="sourceLine" id="cb9-28" title="28"><span class="co">// function callDog () {</span></a>
+<a class="sourceLine" id="cb9-29" title="29"><span class="co">//   console.log( dog );</span></a>
+<a class="sourceLine" id="cb9-30" title="30"><span class="co">//   callDog();</span></a>
+<a class="sourceLine" id="cb9-31" title="31"><span class="co">// }</span></a>
+<a class="sourceLine" id="cb9-32" title="32"><span class="co">// puppy();</span></a>
+<a class="sourceLine" id="cb9-33" title="33"></a>
+<a class="sourceLine" id="cb9-34" title="34"></a>
+<a class="sourceLine" id="cb9-35" title="35"><span class="co">//var can be redeclared and updated</span></a>
+<a class="sourceLine" id="cb9-36" title="36"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb9-37" title="37"><span class="co">var</span></a>
+<a class="sourceLine" id="cb9-38" title="38"><span class="co">- can be redecleared </span></a>
+<a class="sourceLine" id="cb9-39" title="39"><span class="co">- can be updated </span></a>
+<a class="sourceLine" id="cb9-40" title="40"><span class="co">- is function scoped </span></a>
+<a class="sourceLine" id="cb9-41" title="41"></a>
+<a class="sourceLine" id="cb9-42" title="42"><span class="co">let </span></a>
+<a class="sourceLine" id="cb9-43" title="43"><span class="co">- cannot be redecleared </span></a>
+<a class="sourceLine" id="cb9-44" title="44"><span class="co">- can be updated</span></a>
+<a class="sourceLine" id="cb9-45" title="45"><span class="co">- is block scoped </span></a>
+<a class="sourceLine" id="cb9-46" title="46"></a>
+<a class="sourceLine" id="cb9-47" title="47"><span class="co">const </span></a>
+<a class="sourceLine" id="cb9-48" title="48"><span class="co">- cannot be redecleared </span></a>
+<a class="sourceLine" id="cb9-49" title="49"><span class="co">- cannot be updated </span></a>
+<a class="sourceLine" id="cb9-50" title="50"><span class="co">- is block scoped </span></a>
+<a class="sourceLine" id="cb9-51" title="51"><span class="co">*/</span></a>
+<a class="sourceLine" id="cb9-52" title="52"></a>
+<a class="sourceLine" id="cb9-53" title="53"><span class="cf">if</span> ( <span class="dv">1</span> <span class="op">===</span> <span class="dv">1</span> ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-54" title="54">  <span class="kw">var</span> answer <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-55" title="55"><span class="op">}</span> <span class="co">// these {} are a block of code and let and const cannot escape them</span></a>
+<a class="sourceLine" id="cb9-56" title="56"></a>
+<a class="sourceLine" id="cb9-57" title="57"><span class="co">// console.log(answer);</span></a>
+<a class="sourceLine" id="cb9-58" title="58"></a>
+<a class="sourceLine" id="cb9-59" title="59"><span class="cf">for</span> ( <span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++</span> ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-60" title="60">  <span class="va">console</span>.<span class="at">log</span>( i )<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-61" title="61"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-62" title="62"></a>
+<a class="sourceLine" id="cb9-63" title="63"></a>
+<a class="sourceLine" id="cb9-64" title="64"></a>
+<a class="sourceLine" id="cb9-65" title="65"><span class="cf">if</span>(<span class="dv">1</span> <span class="op">===</span> <span class="dv">1</span>)<span class="op">{</span></a>
+<a class="sourceLine" id="cb9-66" title="66">  <span class="kw">var</span> answer <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-67" title="67"><span class="op">}</span> <span class="co">// these {} are a block of code and let and const cannot escape them</span></a>
+<a class="sourceLine" id="cb9-68" title="68"></a>
+<a class="sourceLine" id="cb9-69" title="69"><span class="co">// console.log(answer);</span></a>
+<a class="sourceLine" id="cb9-70" title="70"></a>
+<a class="sourceLine" id="cb9-71" title="71"><span class="co">// for(let i = 0; i &lt; 5; i++){</span></a>
+<a class="sourceLine" id="cb9-72" title="72"><span class="co">//   console.log(i);</span></a>
+<a class="sourceLine" id="cb9-73" title="73"><span class="co">// }</span></a>
+<a class="sourceLine" id="cb9-74" title="74"></a>
+<a class="sourceLine" id="cb9-75" title="75"><span class="co">// console.log(i);</span></a>
+<a class="sourceLine" id="cb9-76" title="76"></a>
+<a class="sourceLine" id="cb9-77" title="77"><span class="co">/*using const until we can&#39;t and then let but avoid var*/</span></a>
+<a class="sourceLine" id="cb9-78" title="78"></a>
+<a class="sourceLine" id="cb9-79" title="79"><span class="kw">function</span> <span class="at">sayHi</span>(name)<span class="op">{</span></a>
+<a class="sourceLine" id="cb9-80" title="80">  <span class="kw">var</span> hello <span class="op">=</span> <span class="st">&#39;hi&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-81" title="81">  <span class="kw">function</span> <span class="at">yell</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb9-82" title="82">    <span class="va">console</span>.<span class="at">log</span>(<span class="va">name</span>.<span class="at">toUpperCase</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-83" title="83">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-84" title="84">  <span class="at">yell</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-85" title="85"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-86" title="86"></a>
+<a class="sourceLine" id="cb9-87" title="87"><span class="at">sayHi</span>(<span class="st">&#39;Natalie&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-88" title="88"></a>
+<a class="sourceLine" id="cb9-89" title="89"><span class="co">// yell();</span></a>
+<a class="sourceLine" id="cb9-90" title="90"></a>
+<a class="sourceLine" id="cb9-91" title="91"><span class="va">console</span>.<span class="at">log</span>(hello)<span class="op">;</span></a></code></pre></div>
+<p><strong>Variables</strong> are used to store information to be referenced and manipulated in a computer program. A variable’s sole purpose is to label and store data in computer memory. Up to this point we’ve been using the <code>let</code> keyword as our only way of declaring a JavaScript variable. It’s now time to expand your tool set to learn about the different kinds of JavaScript variables you can use!</p>
+<p>When you finish this reading, you should be able to:</p>
+<ul>
+<li>Identify the three keywords used to declare a variable in JavaScript</li>
+<li>Explain the differences between <code>const</code>, <code>let</code> and <code>var</code></li>
+<li>Identify the difference between function and block-scoped variables</li>
+<li><p>Paraphrase the concept of hoisting in regards to function and block-scoped</p>
+<p>variables</p></li>
+</ul>
+<h3 id="declaring-variables">Declaring variables</h3>
+<p>All the code you write in JavaScript is <em>evaluated</em>. <strong>A variable always evaluates to the value it contains no matter how you declare it.</strong></p>
+<h4 id="the-different-ways-to-declare-variables">The different ways to declare variables</h4>
+<p>In the beginning there was <code>var</code>. The <code>var</code> keyword used to be the only way to declare a JavaScript variable. However, in ECMAScript 2015 JavaScript introduced two new ways of declaring JavaScript variables: <code>let</code> and <code>const</code>. Meaning, in JavaScript there are <strong>three different ways to declare a variable</strong>. Each of these keywords has advantages and disadvantages and we will now talk about each keyword at length.</p>
+<ol type="1">
+<li><p><code>let</code>: any variables declared with the keyword <code>let</code> <em>allows you to reassign</em></p>
+<p>that variable. Variable declared using <code>let</code> is scoped within a <strong>block</strong>.</p></li>
+<li><p><code>const</code>: any variables declared with the keyword <code>const</code> _will not allow you</p>
+<p>to reassign_ that variable. Variable declared using <code>const</code> is scoped within</p>
+<p>a <strong>block</strong>.</p></li>
+<li><p><code>var</code>: A <code>var</code> declared variable may or may not be reassigned, and the</p>
+<p>variable is <strong>scoped to a function</strong>.</p></li>
+</ol>
+<p>For this course and for your programming career moving forward we recommend you <strong>always</strong> use <code>let</code> &amp; <code>const</code>. These two words allow us to be the most clear with our intentions for the variable we are creating.</p>
+<h3 id="hoisting-and-scoping-with-variables">Hoisting and scoping with variables</h3>
+<p>A wonderful definition of hoisting by Mabishi Wakio, “Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.”</p>
+<p>What this means is that when you run JavaScript code the variables and function declarations will be <em>hoisted</em> to the top of their particular scope. This is important because <code>const</code> and <code>let</code> are <strong>block-scoped</strong> while <code>var</code> is <strong>function-scoped</strong>.</p>
+<p>Let’s start by talking more about all <code>const</code>, <code>let</code>, and <code>var</code> before we dive into why the difference of scopes and hoisting is important.</p>
+<h4 id="function-scoped-variables">Function-scoped variables</h4>
+<p>When JavaScript was young the only available variable was <code>var</code>. The <code>var</code> keyword creates <em>function-scoped</em> variables. That means when you use the <code>var</code> keyword to declare a variable that variable will be confined to the scope of the current function.</p>
+<p>Here is a simple example of declaring a <code>var</code> variable within a function:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">test</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="kw">var</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="va">console</span>.<span class="at">log</span>(a)<span class="op">;</span> <span class="co">// =&gt; 10</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>One of the drawbacks of using <code>var</code> is that it is a less indicative way of defining a variable.</p>
+<p><strong>Hoisting with function-scoped variables</strong></p>
+<p>Let’s take a look at what hoisting does to a function-scoped variable:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">function</span> <span class="at">test</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(hoistedVar)<span class="op">;</span> <span class="co">// =&gt; undefined</span></a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="kw">var</span> hoistedVar <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb11-6" title="6"></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="at">test</span>()<span class="op">;</span></a></code></pre></div>
+<p>Huh - that’s weird. You’d expect an error from referring to a variable like <code>hoistedVar</code> before it’s defined, something like: <code>ReferenceError: hoistedVar is not defined</code>. However this is not the case because of <em>hoisting</em> in JavaScript!</p>
+<p>So essentially hoisting will isolate and, in the computer’s memory, will declare a variable as the top of it’s scope. With a function-scoped variable, <code>var</code>, the name of the variable will be hoisted to the top of the function. In the above snippet, since <code>hoistedVar</code> is declared using the <code>var</code> keyword the <code>hoistedVar</code>’s scope is the <code>test</code> function. To be clear what is being hoisted is the <em>declaration</em>, not the <em>assignment</em> itself.</p>
+<p>In JavaScript, all variables defined with the <code>var</code> keyword have an initial value of <code>undefined</code>. Here is a translation of how JavaScript would deal with hoisting in the above <code>test</code> function:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">function</span> <span class="at">test</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="co">// JavaScript will declare the variable *in computer memory* at the top of it&#39;s scope</span></a>
+<a class="sourceLine" id="cb12-3" title="3">  <span class="kw">var</span> hoistedVar<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-4" title="4"></a>
+<a class="sourceLine" id="cb12-5" title="5">  <span class="co">// since hoisting declared the variable above we now get</span></a>
+<a class="sourceLine" id="cb12-6" title="6">  <span class="co">// the value of &#39;undefined&#39;</span></a>
+<a class="sourceLine" id="cb12-7" title="7">  <span class="va">console</span>.<span class="at">log</span>(hoistedVar)<span class="op">;</span> <span class="co">// =&gt;  undefined</span></a>
+<a class="sourceLine" id="cb12-8" title="8"></a>
+<a class="sourceLine" id="cb12-9" title="9">  <span class="kw">var</span> hoistedVar <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="op">}</span></a></code></pre></div>
+<h4 id="block-scoped-variables">Block-scoped variables</h4>
+<p>When you are declaring a variable with the keyword <code>let</code> or <code>const</code> you are declaring a variable that exists within <em>block scope</em>. Blocks in JavaScript are denoted by curly braces(<code>{}</code>). The following examples create a block scope: <code>if</code> statements, <code>while</code> loops, <code>switch</code> statements, and <code>for</code> loops.</p>
+<p><strong>Using the keyword let</strong></p>
+<p>We can use <code>let</code> to declare <strong>re-assignable block-scoped variables</strong>. You are, of course, very familiar with <code>let</code> so let’s take a look at how <code>let</code> works within a block scope:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">function</span> <span class="at">blockScope</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="kw">let</span> test <span class="op">=</span> <span class="st">&quot;upper scope&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-3" title="3">  <span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="kw">let</span> test <span class="op">=</span> <span class="st">&quot;lower scope&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-5" title="5">    <span class="va">console</span>.<span class="at">log</span>(test)<span class="op">;</span> <span class="co">// &quot;lower scope&quot;</span></a>
+<a class="sourceLine" id="cb13-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-7" title="7">  <span class="va">console</span>.<span class="at">log</span>(test)<span class="op">;</span> <span class="co">// &quot;upper scope&quot;</span></a>
+<a class="sourceLine" id="cb13-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>In the example above we can see that the <code>test</code> variable was declared twice using the keyword <code>let</code> but since they were declared within different scopes they have different values.</p>
+<p>JavaScript will raise a <code>SyntaxError</code> if you try to declare the same <code>let</code> variable twice in one block.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="kw">let</span> test <span class="op">=</span> <span class="st">&quot;this works!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-3" title="3">  <span class="kw">let</span> test <span class="op">=</span> <span class="st">&quot;nope!&quot;</span><span class="op">;</span> <span class="co">// Identifier &#39;test&#39; has already been declared</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>Whereas if you try the same example with <code>var</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">var</span> test <span class="op">=</span> <span class="st">&quot;this works!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw">var</span> test <span class="op">=</span> <span class="st">&quot;nope!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="va">console</span>.<span class="at">log</span>(test)<span class="op">;</span> <span class="co">// prints &quot;nope!&quot;</span></a></code></pre></div>
+<p>We can see above that <code>var</code> will allow you to redeclare a variable twice which can lead to some very confusing and frustrating debugging.</p>
+<p>Feel free to peruse the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">documentation</a> for the keyword <code>let</code> for more examples.</p>
+<p><strong>Using the keyword const</strong></p>
+<p>We use <code>const</code> to declare <strong>block-scoped variables</strong> that can <strong>not</strong> be reassigned. In JavaScript variables that cannot be reassigned are called <strong>constants</strong>. Constants should be used for values that will not be re-declared or re-assigned.</p>
+<p>Properties of constants:</p>
+<ul>
+<li>They are block-scoped like <code>let</code>.</li>
+<li>JavaScript enforces constants by raising an error if you try to reassign them.</li>
+<li><p>Trying to redeclare a constant with a <code>var</code> or <code>let</code> by the same name will</p>
+<p>also raise an error.</p></li>
+</ul>
+<p>Let’s look at a quick example of what happens when trying to reassign a constant:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="op">&gt;</span> <span class="kw">const</span> favFood <span class="op">=</span> <span class="st">&quot;cheeseboard pizza&quot;</span><span class="op">;</span> <span class="co">// Initializes a constant</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="kw">undefined</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="op">&gt;</span> <span class="kw">const</span> favFood <span class="op">=</span> <span class="st">&quot;inferior food&quot;</span><span class="op">;</span> <span class="co">// Re-initialization raises an error</span></a>
+<a class="sourceLine" id="cb16-5" title="5">TypeError<span class="op">:</span> Identifier <span class="st">&#39;favFood&#39;</span> has already been declared</a>
+<a class="sourceLine" id="cb16-6" title="6"></a>
+<a class="sourceLine" id="cb16-7" title="7"><span class="op">&gt;</span> <span class="kw">let</span> favFood <span class="op">=</span> <span class="st">&quot;other inferior food&quot;</span><span class="op">;</span> <span class="co">// Re-initialization raises an error</span></a>
+<a class="sourceLine" id="cb16-8" title="8">TypeError<span class="op">:</span> Identifier <span class="st">&#39;favFood&#39;</span> has already been declared</a>
+<a class="sourceLine" id="cb16-9" title="9"></a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="op">&gt;</span> favFood <span class="op">=</span> <span class="st">&quot;deep-dish pizza&quot;</span><span class="op">;</span> <span class="co">// Re-assignment raises an error</span></a>
+<a class="sourceLine" id="cb16-11" title="11">TypeError<span class="op">:</span> Assignment to constant <span class="va">variable</span>.</a></code></pre></div>
+<p>We cannot reassign a constant, but constants that are assigned to Reference types are <strong>mutable</strong>. The name binding of a constant is immutable. For example, if we set a constant equal to an Reference type like an object, we can still modify that object:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">const</span> animals <span class="op">=</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="va">animals</span>.<span class="at">big</span> <span class="op">=</span> <span class="st">&quot;beluga whale&quot;</span><span class="op">;</span> <span class="co">// This works!</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="va">animals</span>.<span class="at">small</span> <span class="op">=</span> <span class="st">&quot;capybara&quot;</span><span class="op">;</span> <span class="co">// This works!</span></a>
+<a class="sourceLine" id="cb17-4" title="4"></a>
+<a class="sourceLine" id="cb17-5" title="5">animals <span class="op">=</span> <span class="op">{</span> <span class="dt">big</span><span class="op">:</span> <span class="st">&quot;beluga whale&quot;</span> <span class="op">};</span> <span class="co">// Will error because of the reassignment</span></a></code></pre></div>
+<p>Constants cannot be reassigned but, just like with <code>let</code>, new constants of the same names can be declared within nested scopes.</p>
+<p>Take a look at the following for an example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">const</span> favFood <span class="op">=</span> <span class="st">&quot;cheeseboard pizza&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="va">console</span>.<span class="at">log</span>(favFood)<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-5" title="5">  <span class="co">// This works! Declaration is scoped to the `if` block</span></a>
+<a class="sourceLine" id="cb18-6" title="6">  <span class="kw">const</span> favFood <span class="op">=</span> <span class="st">&quot;noodles&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb18-7" title="7">  <span class="va">console</span>.<span class="at">log</span>(favFood)<span class="op">;</span> <span class="co">// Prints &quot;noodles&quot;</span></a>
+<a class="sourceLine" id="cb18-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb18-9" title="9"></a>
+<a class="sourceLine" id="cb18-10" title="10"><span class="va">console</span>.<span class="at">log</span>(favFood)<span class="op">;</span> <span class="co">// Prints &#39;cheeseboard pizza&#39;</span></a></code></pre></div>
+<p>Just like with <code>let</code> when you use <code>const</code> twice in the same block JavaScript will raise a <code>SyntaxError</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-2" title="2">  <span class="kw">const</span> test <span class="op">=</span> <span class="st">&quot;this works!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb19-3" title="3">  <span class="kw">const</span> test <span class="op">=</span> <span class="st">&quot;nope!&quot;</span><span class="op">;</span> <span class="co">// SyntaxError: Identifier &#39;test&#39; has already been declared</span></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p><strong>Hoisting with block-scoped variables</strong></p>
+<p>When JavaScript ES6 introduced new ways of declaring a variable using <code>let</code> and <code>const</code> the idea of block-level hoisting was also introduced. Block scope hoisting allows developers to avoid previous debugging debacles that naturally happened from using <code>var</code>.</p>
+<p>Let’s take a look at what hoisting does to a <em>block-scoped</em> variable:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1"><span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(str)<span class="op">;</span> <span class="co">// =&gt; Uncaught ReferenceError: Cannot access &#39;str&#39; before initialization</span></a>
+<a class="sourceLine" id="cb20-3" title="3">  <span class="kw">const</span> str <span class="op">=</span> <span class="st">&quot;apple&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>Looking at the above we can see that an explicit error is thrown if you attempt to use a block-scoped variable before it was declared. This is the typical behavior in a lot of programming languages - that a variable cannot be referred to until initialized to a value.</p>
+<p>However, JavaScript is still performing hoisting with block-scoped declared variables. The difference lies is how it <em>initializes</em> them. Meaning that <code>let</code> and <code>const</code> variables are <strong>not</strong> initialized to the value of <code>undefined</code>.</p>
+<p>The time before a <code>let</code> or <code>const</code> variable is declared, but not used is called the <em>Temporal Dead Zone</em>. A very cool name for a simple idea. Variables declared using <code>let</code> and <code>const</code> are not initialized until their definitions are evaluated. Meaning, you will get an error if you try to reference a <code>let</code> or <code>const</code> declared variable before it is evaluated.</p>
+<p>Let’s look at one more example that should illuminate the presence of the <em>Temporal Dead Zone</em>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;not apple&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-2" title="2"></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb21-4" title="4">  <span class="va">console</span>.<span class="at">log</span>(str)<span class="op">;</span> <span class="co">//Uncaught ReferenceError: Cannot access &#39;str&#39; before initialization</span></a>
+<a class="sourceLine" id="cb21-5" title="5">  <span class="kw">let</span> str <span class="op">=</span> <span class="st">&quot;apple&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="op">}</span></a></code></pre></div>
+<p>In the above example we can see that inside the <code>if</code> block the <code>let</code> declared variable, <code>str</code>, throws an error. Showing that the error thrown by a <code>let</code> variable in the temporal dead zone takes precedence over any scope chaining that would attempt to go to the outer scope to find a value for the <code>str</code> variable.</p>
+<h4 id="function-scope-vs.-block-scope">Function scope vs. block scope</h4>
+<p>Let’s now take a deeper look at the comparison of using function vs. block scoped variables.</p>
+<p>Let’s start with a simple example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">function</span> <span class="at">partyMachine</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb22-2" title="2">  <span class="kw">var</span> string <span class="op">=</span> <span class="st">&quot;party&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb22-3" title="3">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;this is a &quot;</span> <span class="op">+</span> string)<span class="op">;</span></a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>Looks good so far but let’s take that example a step farther and see some of the less fun parts of the <code>var</code> keyword in terms of scope:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">function</span> <span class="at">partyMachine</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb23-2" title="2">  <span class="kw">var</span> string <span class="op">=</span> <span class="st">&quot;party&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb23-3" title="3"></a>
+<a class="sourceLine" id="cb23-4" title="4">  <span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb23-5" title="5">    <span class="co">// since var is not block-scoped and not constant</span></a>
+<a class="sourceLine" id="cb23-6" title="6">    <span class="co">// this assignment sticks!</span></a>
+<a class="sourceLine" id="cb23-7" title="7">    <span class="kw">var</span> string <span class="op">=</span> <span class="st">&quot;bummer&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb23-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb23-9" title="9"></a>
+<a class="sourceLine" id="cb23-10" title="10">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;this is a &quot;</span> <span class="op">+</span> string)<span class="op">;</span></a>
+<a class="sourceLine" id="cb23-11" title="11"><span class="op">}</span></a>
+<a class="sourceLine" id="cb23-12" title="12"></a>
+<a class="sourceLine" id="cb23-13" title="13"><span class="at">partyMachine</span>()<span class="op">;</span> <span class="co">// =&gt; &quot;this is a bummer&quot;</span></a></code></pre></div>
+<p>We can see in the above example how the flexibility of <code>var</code> can ultimately be a bad thing. Since <code>var</code> is function-scoped <em>and</em> can be reassigned and re-declared without error it is very easy to overwrite variable values by accident.</p>
+<p>This is the problem that ES6 introduced <code>let</code> and <code>const</code> to solve. Since <code>let</code> and <code>const</code> are block-scoped it’s a lot easier to avoid accidentally overwriting variable values.</p>
+<p>Let’s take a look at the example function above rewritten using <code>let</code> and <code>const</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">function</span> <span class="at">partyMachine</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-2" title="2">  <span class="kw">const</span> string <span class="op">=</span> <span class="st">&quot;party&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4">  <span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-5" title="5">    <span class="co">// this variable is restricted to the scope of this block</span></a>
+<a class="sourceLine" id="cb24-6" title="6">    <span class="kw">const</span> string <span class="op">=</span> <span class="st">&quot;bummer&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb24-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb24-8" title="8"></a>
+<a class="sourceLine" id="cb24-9" title="9">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;this is a &quot;</span> <span class="op">+</span> string)<span class="op">;</span></a>
+<a class="sourceLine" id="cb24-10" title="10"><span class="op">}</span></a>
+<a class="sourceLine" id="cb24-11" title="11"><span class="at">partyMachine</span>()<span class="op">;</span> <span class="co">// =&gt; &quot;this is a party&quot;</span></a></code></pre></div>
+<h3 id="global-variables">Global variables</h3>
+<p>If you leave off a declaration when initializing a variable, it will become a global. <strong>Do not do this.</strong> We declare variables using the keywords <code>var</code>, <code>let</code>, and <code>const</code> to ensure that our variables are declared within a proper scope. Any variables declared without these keywords will be declared on the <em>global scope</em>.</p>
+<p>JavaScript has a single global scope, which means all of the files from your projects and any libraries you use will <strong>all be sharing the same scope</strong>. Every time a variable is declared on the global scope, the chance of a name collision increases. If we are unaware of the global variables in our code, we may accidentally overwrite variables.</p>
+<p>Let’s look at a quick example showing why this is a bad idea:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">function</span> <span class="at">good</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-2" title="2">  <span class="kw">let</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb25-3" title="3">  <span class="kw">let</span> y <span class="op">=</span> <span class="st">&quot;yay&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb25-5" title="5"></a>
+<a class="sourceLine" id="cb25-6" title="6"><span class="kw">function</span> <span class="at">bad</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-7" title="7">  y <span class="op">=</span> <span class="st">&quot;Expect the unexpected (eg. globals)&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb25-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb25-9" title="9"></a>
+<a class="sourceLine" id="cb25-10" title="10"><span class="kw">function</span> <span class="at">why</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb25-11" title="11">  <span class="va">console</span>.<span class="at">log</span>(y)<span class="op">;</span> <span class="co">// &quot;Expect the unexpected (eg. globals)&quot;&quot;</span></a>
+<a class="sourceLine" id="cb25-12" title="12">  <span class="va">console</span>.<span class="at">log</span>(x)<span class="op">;</span> <span class="co">// Raises an error</span></a>
+<a class="sourceLine" id="cb25-13" title="13"><span class="op">}</span></a>
+<a class="sourceLine" id="cb25-14" title="14"></a>
+<a class="sourceLine" id="cb25-15" title="15"><span class="at">why</span>()<span class="op">;</span></a></code></pre></div>
+<p>Limiting global variables will help you create code that is much more easily maintainable. Strive to write your functions so that they are self-contained and not reliant on outside variables. This will also be a huge help in allowing us test each function by itself.</p>
+<p>One of our jobs as programmers is to write code that can be integrated easily within a team. In order to do that, we need to limit the number of globally declared variables in our code as much as possible, to avoid accidental name collisions.</p>
+<p>Sloppy programmers use global variables, and you are not working so hard in order to be a sloppy programmer!</p>
+<p>The <strong>scope</strong> of a program in JavaScript is the set of variables that are available for use within the program. If a variable or other expression is not in the current scope, then it is unavailable for use. If we declare a variable, this variable will only be valid in the scope where we declared it. We can have nested scopes, but we’ll see that in a little bit.</p>
+<p>When we declare a variable in a certain scope, it will evaluate to a specific value <strong>in that scope</strong>. We have been using the concept of scope in our code all along! Now we are just giving this concept a name.</p>
+<p>By the end of this reading you should be able to predict the evaluation of code that utilizes local scope, block scope, lexical scope, and scope chaining</p>
+<h3 id="advantages-of-utilizing-scope">Advantages of utilizing scope</h3>
+<p>Before we start talking about different types of scope we’ll be talking about the two main advantages that scope gives us:</p>
+<ol type="1">
+<li><p><strong>Security</strong> - Scope adds security to our code by ensuring that variables can</p>
+<p>only be accessed by pre-defined parts of our programs.</p></li>
+<li><p><strong>Reduced Variable Name Collisions</strong> - Scope reduces variable name</p>
+<p>collisions, also known as namespace collisions, by ensuring you can use the</p>
+<p>same variable name multiple times in different scopes without accidentally</p>
+<p>overwriting those variable’s values.</p></li>
+</ol>
+<h3 id="different-kinds-of-scope">Different kinds of scope</h3>
+<p>There are three types of scope in JavaScript: <code>global scope</code>, <code>local scope</code>, and <code>block scope</code>.</p>
+<h4 id="global-scope">Global scope</h4>
+<p>Let’s start by talking about the widest scope there is: <em>global scope</em>. The <em>global scope</em> is represented by the <code>window</code> object in the browser and the <code>global</code> object in Node.js. Adding attributes to these objects makes them available throughout the entire program. We can show this with a quick example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">let</span> myName <span class="op">=</span> <span class="st">&quot;Apples&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb26-2" title="2"></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="va">console</span>.<span class="at">log</span>(myName)<span class="op">;</span></a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="co">// this myName references the myName variable from this scope,</span></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="co">// so myName will evaluate to &quot;Apples&quot;</span></a></code></pre></div>
+<p>The variable <code>myName</code> above is not inside a function, it is just lying out in the open in our code. The <code>myName</code> variable is part of <em>global scope</em>. The Global scope is the largest scope that exists, it is the outermost scope that exists.</p>
+<p>While useful on occasion, global variables are best avoided. Every time a variable is declared on the global scope, the chance of a name collision increases. If we are unaware of the global variables in our code, we may accidentally overwrite variables.</p>
+<h4 id="local-scope">Local scope</h4>
+<p>The <strong>scope</strong> of a function is the set of variables that are available for use within that function. We call the scope within a function: <em>local scope</em>. The <em>local scope</em> of a function includes:</p>
+<ol type="1">
+<li>the function’s arguments</li>
+<li>any local variables declared inside the function</li>
+<li><strong>any variables that were already declared when the function was defined</strong></li>
+</ol>
+<p>In JavaScript when we enter a new function we enter a <strong>new scope</strong>:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" title="1"><span class="co">// global scope</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">let</span> myName <span class="op">=</span> <span class="st">&quot;global&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb27-3" title="3"></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="kw">function</span> <span class="at">function1</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-5" title="5">  <span class="co">// function1&#39;s scope</span></a>
+<a class="sourceLine" id="cb27-6" title="6">  <span class="kw">let</span> myName <span class="op">=</span> <span class="st">&quot;func1&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb27-7" title="7">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;function1 myName: &quot;</span> <span class="op">+</span> myName)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb27-9" title="9"></a>
+<a class="sourceLine" id="cb27-10" title="10"><span class="kw">function</span> <span class="at">function2</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-11" title="11">  <span class="co">// function2&#39;s scope</span></a>
+<a class="sourceLine" id="cb27-12" title="12">  <span class="kw">let</span> myName <span class="op">=</span> <span class="st">&quot;func2&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb27-13" title="13">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;function2 myName: &quot;</span> <span class="op">+</span> myName)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb27-15" title="15"></a>
+<a class="sourceLine" id="cb27-16" title="16"><span class="at">function1</span>()<span class="op">;</span> <span class="co">// function1 myName: func1</span></a>
+<a class="sourceLine" id="cb27-17" title="17"><span class="at">function2</span>()<span class="op">;</span> <span class="co">// function2 myName: func2</span></a>
+<a class="sourceLine" id="cb27-18" title="18"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;global myName: &quot;</span> <span class="op">+</span> myName)<span class="op">;</span> <span class="co">// global myName: global</span></a></code></pre></div>
+<p>In the code above we are dealing with three different scopes: the global scope, <code>function1</code>, and <code>function2</code>. Since each of the <code>myName</code> variables were declared in separate scopes, we <em>are</em> allowed to reuse variable names without any issues. This is because each of the <code>myName</code> variables is bound to their respective functions.</p>
+<h4 id="block-scope">Block scope</h4>
+<p>A block in JavaScript is denoted by a pair of curly braces (<code>{}</code>). Examples of block statements in JavaScript are <code>if</code> conditionals or <code>for</code> and <code>while</code> loops.</p>
+<p>When using the keywords <code>let</code> or <code>const</code> the variables defined within the curly braces will be <em>block scoped</em>. Let’s look at an example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="co">// global scope</span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="kw">let</span> dog <span class="op">=</span> <span class="st">&quot;woof&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb28-3" title="3"></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="co">// block scope</span></a>
+<a class="sourceLine" id="cb28-5" title="5"><span class="cf">if</span> (<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-6" title="6">  <span class="kw">let</span> dog <span class="op">=</span> <span class="st">&quot;bowwow&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb28-7" title="7">  <span class="va">console</span>.<span class="at">log</span>(dog)<span class="op">;</span> <span class="co">// will print &quot;bowwow&quot;</span></a>
+<a class="sourceLine" id="cb28-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb28-9" title="9"></a>
+<a class="sourceLine" id="cb28-10" title="10"><span class="va">console</span>.<span class="at">log</span>(dog)<span class="op">;</span> <span class="co">// will print &quot;woof&quot;</span></a></code></pre></div>
+<h4 id="scope-chaining-variables-and-scope">Scope chaining: variables and scope</h4>
+<p>A key scoping rule in JavaScript is the fact that <strong>an</strong> <em><strong>inner</strong></em> <strong>scope does have access to variables in the</strong> <em><strong>outer</strong></em> <strong>scope</strong>.</p>
+<p>Let’s look at a simple example:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">let</span> name <span class="op">=</span> <span class="st">&quot;Fiona&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb29-2" title="2"></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="co">// we aren&#39;t passing in or defining and variables</span></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="kw">function</span> <span class="at">hungryHippo</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-5" title="5">  <span class="va">console</span>.<span class="at">log</span>(name <span class="op">+</span> <span class="st">&quot; is hungry!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb29-7" title="7"></a>
+<a class="sourceLine" id="cb29-8" title="8"><span class="at">hungryHippo</span>()<span class="op">;</span> <span class="co">// =&gt; &quot;Fiona is hungry&quot;</span></a></code></pre></div>
+<p>So when the <code>hungryHippo</code> function is declared a new local scope will be created for that function. Continuing on that line of thought what happens when we refer to <code>name</code> inside of <code>hungryHippo</code>? If the <code>name</code> variable is not found in the immediate scope, JavaScript will search all of the accessible outer scopes until it finds a variable name that matches the one we are referencing. Once it finds the first matching variable, it will stop searching. In JavaScript this is called <em>scope chaining</em>.</p>
+<p>Now let’s look at an example of scope chaining with nested scope. Just like functions in JavaScript, a scope can be nested within another scope. Take a look at the example below:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" title="1"><span class="co">// global scope</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="kw">let</span> person <span class="op">=</span> <span class="st">&quot;Rae&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb30-3" title="3"></a>
+<a class="sourceLine" id="cb30-4" title="4"><span class="co">// sayHello function&#39;s local scope</span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="kw">function</span> <span class="at">sayHello</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-6" title="6">  <span class="kw">let</span> person <span class="op">=</span> <span class="st">&quot;Jeff&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb30-7" title="7"></a>
+<a class="sourceLine" id="cb30-8" title="8">  <span class="co">// greet function&#39;s local scope</span></a>
+<a class="sourceLine" id="cb30-9" title="9">  <span class="kw">function</span> <span class="at">greet</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-10" title="10">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Hi, &quot;</span> <span class="op">+</span> person <span class="op">+</span> <span class="st">&quot;!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb30-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb30-12" title="12">  <span class="at">greet</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb30-13" title="13"><span class="op">}</span></a>
+<a class="sourceLine" id="cb30-14" title="14"></a>
+<a class="sourceLine" id="cb30-15" title="15"><span class="at">sayHello</span>()<span class="op">;</span> <span class="co">// logs &#39;Hi, Jeff!&#39;</span></a></code></pre></div>
+<p>In the example above, the variable <code>person</code> is referenced by <code>greet</code>, even though it was never declared within <code>greet</code>! When this code is executed JavaScript will attempt to run the <code>greet</code> function - notice there is no <code>person</code> variable within the scope of the <code>greet</code> function and move on to seeing if that variable is defined in an outer scope.</p>
+<p>Notice that the <code>greet</code> function prints out <code>Hi, Jeff!</code> instead of <code>Hi, Rae!</code>. This is because JavaScript will start at the inner most scope looking for a variable named <code>person</code>. Then JavaScript will work it’s way outward looking for a variable with a matching name of <code>person</code>. Since the <code>person</code> variable within <code>sayHello</code> is in the next level of scope above <code>greet</code> JavaScript then stops it’s scope chaining search and assigns the value of the <code>person</code> variable.</p>
+<p>Functions such as <code>greet</code> that use (ie. <strong>capture</strong>) variables like the person variable are called <strong>closures</strong>. We’ll be talking a lot more about closures very soon!</p>
+<p><strong>Important</strong> An inner scope can reference outer variables, but an outer scope cannot reference inner variables:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">function</span> <span class="at">potatoMaker</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb31-2" title="2">  <span class="kw">let</span> name <span class="op">=</span> <span class="st">&quot;potato&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb31-3" title="3">  <span class="va">console</span>.<span class="at">log</span>(name)<span class="op">;</span></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb31-5" title="5"></a>
+<a class="sourceLine" id="cb31-6" title="6"><span class="at">potatoMaker</span>()<span class="op">;</span> <span class="co">// =&gt; &quot;potato&quot;</span></a>
+<a class="sourceLine" id="cb31-7" title="7"></a>
+<a class="sourceLine" id="cb31-8" title="8"><span class="va">console</span>.<span class="at">log</span>(name)<span class="op">;</span> <span class="co">// =&gt; ReferenceError: name is not defined</span></a></code></pre></div>
+<h4 id="lexical-scope">Lexical scope</h4>
+<p>There is one last important concept to talk about when we refer to scope - and that is <em>lexical scope</em>. Whenever you run a piece of JavaScript that code is first parsed before it is actually run. This is known as the <em>lexing time</em>. In the <em>lexing time</em> your parser resolves variable names to their values when functions are nested.</p>
+<p>The main take away is that <em>lexical scope</em> is determined at <em>lexing time</em> so we can determine the values of variables without having to run any code. JavaScript is a language <strong>without dynamic</strong> scoping. This means that by looking at a piece of code we can determine the values of variables just by looking at the different scopes involved.</p>
+<p>Let’s look at a quick example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">function</span> <span class="at">outer</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb32-2" title="2">  <span class="kw">let</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb32-3" title="3"></a>
+<a class="sourceLine" id="cb32-4" title="4">  <span class="kw">function</span> <span class="at">inner</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb32-5" title="5">    <span class="co">// here we know the value of x because scope chaining will</span></a>
+<a class="sourceLine" id="cb32-6" title="6">    <span class="co">// go into the scope above this one looking for variable named x.</span></a>
+<a class="sourceLine" id="cb32-7" title="7">    <span class="co">// We do not need to run this code in order to determine the value of x!</span></a>
+<a class="sourceLine" id="cb32-8" title="8">    <span class="va">console</span>.<span class="at">log</span>(x)<span class="op">;</span></a>
+<a class="sourceLine" id="cb32-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb32-10" title="10">  <span class="at">inner</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb32-11" title="11"><span class="op">}</span></a></code></pre></div>
+<p>In the <code>inner</code> function above we don’t need to run the <code>outer</code> function to know what the value of <code>x</code> will be because of <em>lexical scoping</em>.</p>
+<p>The <strong>scope</strong> of a program in JavaScript is the set of variables that are available for use within the program. Due to <em>lexical scoping</em> we can determine the value of a variable by looking at various scopes without having to run our code. <em>Scope Chaining</em> allows code within an <em>inner</em> scope to access variables declared in an <em>outer</em> scope.</p>
+<p>There are three different scopes:</p>
+<ul>
+<li><em>global scope</em> - the global space is JavaScript</li>
+<li><em>local scope</em> - created when a function is defined</li>
+<li><em>block scope</em> - created by entering a pair of curly braces</li>
+</ul>
+</body></html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="general-notes">General Notes</h1>
+<h2 id="javascript-null-vs-undefined">JavaScript Null vs Undefined</h2>
+<blockquote>
+<p>Understanding the difference between null and undefined</p>
+</blockquote>
+<p>Null and Undefined are both data types in JavaScript.</p>
+<p><strong>Undefined</strong> is a variable that has been declared but not assigned a value.</p>
+<p><strong>Null</strong> as an assignment value. So you can assign the value <code>null</code> to any variable which basically means it’s blank.</p>
+<p>So by not declaring a value to a variable, JavaScript automatically assigns the value to <code>undefined</code>. However, when you assign <code>null</code> to a variable, you are declaring that this value is <em>explicitly empty</em>.</p>
+<p><img src="https://miro.medium.com/max/60/1*SYsFgvpVRVrCl_d393PNFA.png?q=20" /></p>
+<p><img src="https://miro.medium.com/max/974/1*SYsFgvpVRVrCl_d393PNFA.png" /></p>
+<p>Null and Undefined</p>
+<p>JavaScript will never automatically assign the value to <code>null</code>. That must be done by you in your code.</p>
+<p>Let’s get some more info on these.</p>
+<p><img src="https://miro.medium.com/max/60/1*bMAdPGGzZZXnyr6taL-Dag.png?q=20" /></p>
+<p><img src="https://miro.medium.com/max/1144/1*bMAdPGGzZZXnyr6taL-Dag.png" /></p>
+<p>Typeof null and undefined</p>
+<p>We see here that the type of <code>null</code> is an <strong>object</strong> but the type of <code>undefined</code> is <strong>undefined</strong>.</p>
+<p>Since these are different data types, if we compare them with strict equality <code>===</code>, we get <code>false</code>.</p>
+<p><img src="https://miro.medium.com/max/60/1*8LcVAKAnmNfSLW9WqhUtLQ.png?q=20" /></p>
+<p><img src="https://miro.medium.com/max/1144/1*8LcVAKAnmNfSLW9WqhUtLQ.png" /></p>
+<p>Comparison between null and undefined</p>
+<p>But if we compare them with abstract equality <code>==</code>, we get <code>true</code>.</p>
+<p>So JavaScript does consider these to be relatively equal since they both represent an empty value.</p>
+<p><img src="https://miro.medium.com/max/60/1*59myGFyjC5CKybc68poKPQ.png?q=20" /></p>
+<p><img src="https://miro.medium.com/max/1026/1*59myGFyjC5CKybc68poKPQ.png" /></p>
+<p>So if you need to check if a value is either <code>null</code> or <code>undefined</code>, you can check for abstract equality and compare it to either null or undefined. Both will return the same result.</p>
+</body></html>
